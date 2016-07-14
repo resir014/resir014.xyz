@@ -11,3 +11,10 @@ p {
 strong {
   color: $heading-color;
 }
+
+hr {
+  width: 8rem;
+  margin: 2rem 0;
+  border-top: 1px solid darken($border-color, 2.5%);
+  border-bottom: 0;
+}

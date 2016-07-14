@@ -32,21 +32,3 @@ $grid-gutter-lg: 3rem;
 
 $code-font-family: Menlo, Monaco, "Consolas", "Courier New", monospace;
 $code-color: #bf616a;
-
-// Typography
-$font-stack: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-stack-monospace: Menlo, Monaco, "Consolas", "Courier New", monospace;
-$font-size-base: 16px;
-$line-height-base: 1.5;
-
-// Colors
-$text-color-primary: #ddd;
-$text-color-heading: #fff;
-$text-color-strong: $text-color-heading;
-$text-color-muted: #999;
-$text-color-alert: #d44950;
-$accent-color: #47f;
-$background-color-primary: #212121;
-$background-color-secondary: darken(#212121, 2.5%);
-$background-color-table-odd: darken(#212121, 1%);
-$border-color: $background-color-secondary;
