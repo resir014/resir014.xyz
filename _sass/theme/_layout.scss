@@ -1,0 +1,27 @@
+.container {
+  padding: $grid-gutter;
+  margin: 0;
+
+  @media (min-width: $large-breakpoint) {
+    padding: $grid-gutter-lg;
+  }
+}
+
+header {
+  margin-bottom: 2rem;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+
+  small {
+    display: block;
+  }
+}

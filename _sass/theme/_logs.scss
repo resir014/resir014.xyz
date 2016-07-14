@@ -1,0 +1,42 @@
+.logs {
+  margin-bottom: 4rem;
+}
+
+.log-title {
+  margin-top: 0;
+
+  a {
+    color: $text-color-primary;
+  }
+}
+
+// Posts archive
+.log-archive {
+  a {
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+
+      .archive-title {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.log-archive-item {
+  display: block;
+  margin: .5rem 0;
+
+  .archive-date {
+    display: block;
+    color: #9a9a9a;
+
+    @media (min-width: 34em) {
+      float: right;
+      margin-left: .5rem;
+    }
+  }
+}
