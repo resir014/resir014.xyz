@@ -10,19 +10,9 @@
       {{ page.title }} &middot; {{ site.title }}
     {% endif %}
   </title>
-  <meta name="description" content="{{ site.tagline }}">
 
-  <!-- OpenGraph tags-->
-  <meta content="{{ site.title }}" property="og:site_name">
-  {% if page.title %}
-    <meta content="{{ page.title }}" property="og:title">
-  {% else %}
-    <meta content="{{ site.title }}" property="og:title">
-  {% endif %}
-  <meta content="{{ site.description }}" property="og:description">
-  {% if page.url %}
-    <meta content="{{ page.url | replace: 'index.html', '' | prepend: site.baseurl | prepend: site.url }}" property="og:url">
-  {% endif %}
+  <meta name="author" content="{{ site.author.name }} || {{ site.author.url }}">
+  <meta name="description" content="{{ site.description }}">
 
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
   <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | prepend: site.baseurl | prepend: site.url }}">
