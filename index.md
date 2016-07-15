@@ -35,10 +35,10 @@ A base starter kit for developing Tumblr themes.
 
 Custom CSS to replace the heart icons on [Twitter](https://twitter.com/) and [TweetDeck](https://tweetdeck.twitter.com/) to stars.
 
-### [gnu-social-status](https://resir014.github.io/quitter-status/)
+### [gnu-social-status](https://resir014.github.io/gnu-social-status/)
 
 Monitors the status of popular GNU Social instances.
 
-### [Most Reliable Lightweight CSS Reset™](https://resir014.github.io/quitter-status/)
+### [Most Reliable Lightweight CSS Reset™](https://resir014.github.io/Reliable-Lightweight-CSS-Reset/)
 
 CSS Resets are stupidly long. It’s time to make it simpler.
