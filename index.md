@@ -19,9 +19,9 @@ The dumping ground for most of my failed projects.
 
 ## Projects
 
-### [Screeps](https://github.com/resir014/screeps)
+### [Screeps TypeScript Starter](https://github.com/resir014/screeps-typescript-starter)
 
-Automated creep management for Screeps AI codes, written in TypeScript.
+Starter kit for [TypeScript](http://www.typescriptlang.org/)-based [Screeps](https://screeps.com/) AI codes.
 
 ### [Clear Sans Webfont](https://resir014.github.io/Clear-Sans-Webfont/)
 
