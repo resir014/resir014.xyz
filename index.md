@@ -19,7 +19,7 @@ The dumping ground for most of my failed projects.
 
 ## Projects
 
-### [Screeps TypeScript Starter](https://github.com/resir014/screeps-typescript-starter)
+### [Screeps TypeScript Starter](https://github.com/screepers/screeps-typescript-starter)
 
 Starter kit for [TypeScript](http://www.typescriptlang.org/)-based [Screeps](https://screeps.com/) AI codes.
 
