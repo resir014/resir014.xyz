@@ -1,0 +1,27 @@
+{% assign project_count = site.data.projects | size %}
+{% if project_count > 0 %}
+  <div class="archive">
+    {% assign projects_sorted = site.data.projects %}
+    {% for project in projects_sorted %}
+      <div class="archive-item">
+        <a href="{{ project.url }}" target="_blank">
+          <span class="archive-date">
+            {{ project.year }}
+          </span>
+          <span class="archive-title">{{ project.title }}</span>
+        </a>
+        <p class="archive-details">
+          {% if project.details %}
+            {{ project.details }}
+          {% endif %}
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="archive">
+    <div class="archive-item">
+      <span class="text-muted">No projects available.</span>
+    </div>
+  </div>
+{% endif %}
