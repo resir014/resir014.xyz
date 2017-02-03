@@ -11,7 +11,7 @@
 }
 
 // Posts archive
-.log-archive {
+.archive {
   a {
     color: inherit;
 
@@ -22,21 +22,6 @@
       .archive-title {
         text-decoration: underline;
       }
-    }
-  }
-}
-
-.log-archive-item {
-  display: block;
-  margin: .5rem 0;
-
-  .archive-date {
-    display: block;
-    color: #9a9a9a;
-
-    @media (min-width: 34em) {
-      float: right;
-      margin-left: .5rem;
     }
   }
 }

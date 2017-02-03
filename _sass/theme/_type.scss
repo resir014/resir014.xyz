@@ -1,6 +1,5 @@
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: .25rem;
-  font-weight: 400;
+  margin-bottom: .5rem;
   color: $heading-color;
 }
 
@@ -19,4 +18,18 @@ hr {
   margin: 2rem 0;
   border-top: 1px solid darken($border-color, 2.5%);
   border-bottom: 0;
+}
+
+abbr {
+  color: $abbr-color;
+
+  &[title] {
+    text-decoration: none;
+    border-bottom: 1px dotted $abbr-border-color;
+  }
+}
+
+blockquote {
+  color: $blockquote-color;
+  border-left: .25rem solid $border-color;
 }

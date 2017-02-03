@@ -13,6 +13,11 @@
   text-align: right;
 }
 
+// Text modifiers
+.text-muted {
+  color: $body-color-muted;
+}
+
 // Visibility
 .hidden-sm {
   @media (max-width: $large-breakpoint) {

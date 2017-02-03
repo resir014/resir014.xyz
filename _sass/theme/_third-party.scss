@@ -1,12 +1,12 @@
 // Twitter tweet embeds
-iframe.twitter-tweet.twitter-tweet-rendered {
+.twitter-tweet.twitter-tweet-rendered {
   margin: 1rem auto !important;
 }
 
 // Gist via GitHub Pages
 .gist {
   .gist-file {
-    font-family: Menlo, Monaco, "Courier New", monospace !important;
+    font-family: Menlo, Monaco, "Consolas", "Courier New", monospace !important;
   }
 
   .markdown-body {
@@ -40,13 +40,14 @@ iframe.twitter-tweet.twitter-tweet-rendered {
 }
 
 // Video wrappers
-// https://cantina.co/responsive-video/
+// http://alistapart.com/article/creating-intrinsic-ratios-for-video
 .video-wrapper {
   position: relative;
   height: 0;
-  padding-bottom: 56.25%; /* 16:9 */
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 25px;
+  padding-bottom: 56.25%;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 
   iframe {
     position: absolute;

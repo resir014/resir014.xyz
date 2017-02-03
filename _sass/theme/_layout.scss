@@ -1,6 +1,7 @@
 .container {
   padding: $grid-gutter;
   margin: 0;
+  max-width: 48rem;
 
   @media (min-width: $large-breakpoint) {
     padding: $grid-gutter-lg;
