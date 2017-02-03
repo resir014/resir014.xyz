@@ -4,12 +4,10 @@
     {% assign projects_sorted = site.data.projects %}
     {% for project in projects_sorted %}
       <div class="archive-item">
-        <a href="{{ project.url }}" target="_blank">
-          <span class="archive-date">
-            {{ project.year }}
-          </span>
-          <span class="archive-title">{{ project.title }}</span>
-        </a>
+        <span class="archive-date">
+          {{ project.year }}
+        </span>
+        <a href="{{ project.url }}" target="_blank"><span class="archive-title">{{ project.title }}</span></a>
         <p class="archive-details">
           {% if project.details %}
             {{ project.details }}

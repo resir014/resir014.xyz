@@ -25,4 +25,4 @@ The dumping ground for most of my failed projects.
 
 {% include html/archives/projects-home.html %}
 
-<a href="https://resir014.github.io/projects">More projects (on resir014.github.io) &rarr;</a>
+<a href="https://resir014.github.io/projects" target="_blank">More projects (on resir014.github.io) &rarr;</a>
