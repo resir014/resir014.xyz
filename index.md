@@ -9,7 +9,7 @@ Projects, writings, ramblings, and thoughts about computers in general.
 
 ### [tilde.town](https://tilde.town/~resir014/)
 
-Random words, artistry, and the like.
+A catalogue of my interests.
 
 ### [Twitter](https://twitter.com/resir014)
 
