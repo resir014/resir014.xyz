@@ -1,33 +1,40 @@
 ---
-# Use a comment to ensure Jekyll reads the file to be transformed into CSS later
-# only main files contain this front matter, not partials.
 ---
 
-//
-//                        ___
-//                       /\_ \
-//  _____     ___     ___\//\ \      __
-// /\ '__`\  / __`\  / __`\\ \ \   /'__`\
-// \ \ \_\ \/\ \_\ \/\ \_\ \\_\ \_/\  __/
-//  \ \ ,__/\ \____/\ \____//\____\ \____\
-//   \ \ \/  \/___/  \/___/ \/____/\/____/
-//    \ \_\
-//     \/_/
-//
-// Designed, built, and released under MIT license by @mdo. Learn more at
-// https://github.com/poole/poole.
+@charset "UTF-8";
 
-@import "normalize";
-@import "variables";
-@import "mixins";
-@import "base";
-@import "type";
-@import "syntax";
-@import "code";
-@import "layout";
-@import "masthead";
-@import "posts";
-@import "pagination";
-@import "message";
+// 1. Configuration and helpers
+@import "utils/variables";
+@import "utils/functions";
+@import "utils/mixins";
 
-@import "theme/resir014";
+// 2. Vendors
+@import "vendor/normalize";
+@import "vendor/pygments";
+@import "vendor/third-party";
+
+// 3. Base stuff
+@import "base/base";
+@import "base/typography";
+@import "base/code";
+@import "base/helpers";
+
+// 4. Layout-related sections
+@import "layout/grid";
+@import "layout/masthead";
+@import "layout/footer";
+@import "layout/archive";
+
+// 5. Components
+@import "components/widget";
+@import "components/related";
+@import "components/message";
+@import "components/video-wrapper";
+@import "components/pagination";
+
+// 6. Page-specific styles
+@import "pages/home";
+@import "pages/posts";
+
+// 7. Themes
+@import "themes/default";

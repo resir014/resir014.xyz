@@ -1,0 +1,40 @@
+// Twitter tweet embeds
+.twitter-tweet.twitter-tweet-rendered {
+  margin: 1rem auto !important;
+}
+
+// Gist via GitHub Pages
+.gist {
+  .gist-file {
+    font-family: Menlo, Monaco, "Consolas", "Courier New", monospace !important;
+  }
+
+  .markdown-body {
+    padding: 15px;
+  }
+
+  .highlight {
+    margin-bottom: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  pre {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .gist-file {
+    .gist-data {
+      font-size: 80% !important;
+      line-height: 1.4;
+    }
+  }
+
+  code {
+    padding: 0;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}

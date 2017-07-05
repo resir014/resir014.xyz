@@ -1,0 +1,70 @@
+// Pagination
+//
+// Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
+// there are no more previous or next posts to show.
+
+.pagination {
+  @include clearfix;
+  padding-left: -($container-padding);
+  padding-right: -($container-padding);
+  margin-bottom: 1rem;
+  color: #ccc;
+  text-align: center;
+}
+
+// Pagination items can be `span`s or `a`s
+.pagination-column {
+  display: block;
+  margin: 0;
+  padding: .5rem $container-padding;
+  // border-width: 1px 0;
+
+  &:first-child {
+    margin-bottom: -1px;
+  }
+}
+
+.pagination-item {
+  display: block;
+  padding: 1rem;
+  color: $pagination-color;
+  border: 3px solid $pagination-color;
+
+  &:hover {
+    color: $pagination-color;
+    text-decoration: none;
+    background-color: $pagination-background-hover-color;
+  }
+}
+
+// Only provide a hover state for linked pagination items
+.pagination-item-disabled {
+  color: $pagination-disabled-color;
+  border-color: $pagination-disabled-color;
+
+  &:hover {
+    color: $pagination-disabled-color;
+    background-color: $pagination-disabled-background-hover-color;
+  }
+}
+
+@media (min-width: $media-breakpoint-md) {
+  .pagination {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-left: -($container-padding-lg);
+    margin-right: -($container-padding-lg);
+  }
+
+  .pagination-column {
+    float: left;
+    width: 50%;
+    // border-width: 1px;
+  }
+}
+
+@media (min-width: $media-breakpoint-lg) {
+  .pagination-column {
+    padding: 0 $container-padding-lg;
+  }
+}
