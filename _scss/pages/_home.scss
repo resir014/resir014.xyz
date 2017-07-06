@@ -13,6 +13,11 @@
     font-size: 2rem;
     line-height: 1.25rem;
 
+    .masthead-flavor {
+      font-family: $font-family-serif;
+      color: $heading-color;
+    }
+
     @media (min-width: $media-breakpoint-md) {
       font-size: 2.5rem;
       line-height: 1.125rem;
