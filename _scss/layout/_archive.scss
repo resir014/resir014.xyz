@@ -19,8 +19,9 @@
   margin: .5rem 0;
 
   .archive-title {
-    display: inline-block;
     @include highlighted-text($post-archive-background-color, .25rem, .5rem);
+    display: inline-block;
+    color: $heading-color;
 
     @include on-event {
       background-color: darken($post-archive-background-color, 5%);
