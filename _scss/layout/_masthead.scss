@@ -22,15 +22,23 @@
   }
 
   .masthead-title {
-    margin: 0;
-    padding: 0 .5rem;
-    color: $masthead-title-color;
-    background-color: $masthead-title-background-color;
+    a {
+      @include highlighted-text($masthead-title-background-color);
+      color: $masthead-title-color;
+      line-height: 1.6;
 
-    @include on-event {
-      color: $masthead-title-hover-color;
-      text-decoration: none;
+      @include on-event {
+        color: $masthead-title-hover-color;
+        text-decoration: none;
+      }
     }
+  }
+}
+
+.masthead-flavor {
+  span {
+    @include highlighted-text($masthead-title-background-color);
+    line-height: 1.6;
   }
 }
 
@@ -43,16 +51,19 @@
   a {
     display: inline-block;
     padding: .25rem .5rem;
-    background-color: $masthead-link-background-color;
-    color: $masthead-link-color;
 
     &:not(:last-child) {
       margin-right: 1.25rem;
     }
 
-    @include on-event {
-      text-decoration: none;
-      background-color: darken($masthead-link-background-color, 5%);
+    @media (min-width: $media-breakpoint-md) {
+      background-color: $masthead-link-background-color;
+      color: $masthead-link-color;
+
+      @include on-event {
+        text-decoration: none;
+        background-color: darken($masthead-link-background-color, 5%);
+      }
     }
   }
 
@@ -63,11 +74,5 @@
     @include on-event {
       background-color: $masthead-link-active-background-color;
     }
-  }
-
-  @media (min-width: $media-breakpoint-md) {
-    float: right;
-    margin-top: .25rem;
-    margin-bottom: .25rem;
   }
 }

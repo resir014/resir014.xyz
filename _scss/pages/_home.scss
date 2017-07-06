@@ -5,80 +5,22 @@
 .home {
   height: 100%;
 
-  header {
-    position: relative;
-    z-index: 1;
+  .masthead {
     width: 100%;
     // min-height: 100%;
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: $base00;
+    font-size: 2rem;
+    line-height: 1.25rem;
 
-    &:before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: url("/public/images/header.jpg") center center;
-      background-size: cover;
-      opacity: 0.5;
+    @media (min-width: $media-breakpoint-md) {
+      font-size: 2.5rem;
+      line-height: 1.125rem;
     }
-  }
 
-  .title {
-    @include clearfix;
-  }
-
-  .icon {
-    display: inline-block;
-    height: 4.25rem;
-    background-color: $heading-color;
-
-    img {
-      height: 100%;
-      margin: 0;
-    }
-  }
-
-  .big-title {
-    margin: 0;
-
-    span {
-      @include highlighted-text($base00);
-      display: inline-block;
-      color: $base07;
-      font-family: $font-family-sans-serif;
-      font-size: 2rem;
-
-      @media (min-width: $media-breakpoint-md) {
-        font-size: 2.75rem;
-      }
-
-      @media (min-width: $media-breakpoint-lg) {
-        font-size: 4rem;
-      }
-    }
-  }
-
-  .big-subtitle {
-    margin-top: .5rem;
-
-    span {
-      @include highlighted-text($base0C);
-      color: $base00;
-      font-family: $font-family-serif;
-      font-size: 1.62rem;
-
-      @media (min-width: $media-breakpoint-md) {
-        font-size: 2rem;
-      }
-
-      @media (min-width: $media-breakpoint-lg) {
-        font-size: 2.5rem;
-      }
+    @media (min-width: $media-breakpoint-lg) {
+      font-size: 3rem;
+      line-height: 1.05rem;
     }
   }
 }
