@@ -45,7 +45,7 @@
     line-height: 1.6;
 
     @include on-event {
-      color: $masthead-title-hover-color;
+      color: $heading-color;
       text-decoration: none;
     }
   }
