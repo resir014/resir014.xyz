@@ -1,0 +1,110 @@
+// Posts and pages
+//
+// Each post is wrapped in `.post` and is used on default and post layouts. Each
+// page is wrapped in `.page` and is only used on the page layout.
+
+.page,
+.post {
+  margin-bottom: 4em;
+
+  li + li {
+    margin-top: .25rem;
+  }
+}
+
+// Wrapper for post/page header
+.page-header,
+.post-header {
+  margin-bottom: 2rem;
+
+  .page-header-inner,
+  .post-header-inner {
+    @include section-heading;
+
+    a {
+      color: inherit;
+    }
+
+    // Custom modifier for posts with external links
+    &.post-external-link {
+      color: $post-header-external-color;
+
+      a {
+        color: $post-header-external-color;
+      }
+    }
+  }
+
+  &.with-image {
+    width: 100%;
+
+    img {
+      display: none;
+
+      @media (min-width: $media-breakpoint-md) {
+        display: block;
+        width: 100%;
+        // Similar to `background-size: cover`
+        object-fit: cover;
+      }
+    }
+
+    @media (min-width: $media-breakpoint-md) {
+      position: relative;
+      margin-top: -2rem;
+
+      .page-header-inner,
+      .post-header-inner {
+        position: absolute;
+        bottom: 1.5rem;
+        max-width: 70%;
+      }
+    }
+  }
+}
+
+// Blog post or page title
+.page-title,
+.post-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: $post-header-title-color;
+}
+
+// Meta data line below post title
+.post-date,
+.post-meta,
+.page-meta {
+  display: block;
+  margin: .5rem 0;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+// Post reading time
+.post-reading-time {
+  display: block;
+  margin-top: -.5rem;
+  margin-bottom: .5rem;
+}
+
+// Post subtitle/abstract
+// 1. Use only 70% of the screen width on tablet/desktop screens
+.post-subtitle {
+  margin: 1rem 0 2rem;
+
+  @media (min-width: $media-breakpoint-sm) {
+    width: 70%; // 1
+  }
+
+  span {
+    @include highlighted-text($theme-accent3, 0, .25rem);
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.75;
+
+    @media (min-width: $media-breakpoint-md) {
+      font-size: 1.5rem;
+    }
+  }
+}

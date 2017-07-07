@@ -1,0 +1,16 @@
+// Social links
+//
+// Basic widget for social links.
+
+.widget-social-links {
+  .social-link {
+    @include highlighted-text($theme-accent2);
+    color: $heading-color;
+    line-height: 1.6;
+
+    @include on-event {
+      background-color: darken($theme-accent2, 5%);
+      text-decoration: none;
+    }
+  }
+}

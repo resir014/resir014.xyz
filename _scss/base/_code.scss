@@ -1,0 +1,55 @@
+// Code
+//
+// Inline and block-level code snippets. Includes tweaks to syntax highlighted
+// snippets from Pygments/Rouge and Gist embeds.
+
+code,
+pre {
+  font-family: $font-family-monospace;
+}
+
+code {
+  padding: .25em .5em;
+  font-size: 85%;
+  color: $code-color;
+  background-color: $code-background-color;
+  border-radius: 3px;
+}
+
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: transparent;
+}
+
+// Pygments via Jekyll
+.highlight {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: .8rem;
+  line-height: 1.4;
+  border-radius: .25rem;
+
+  pre {
+    margin-bottom: 0;
+    overflow-x: auto;
+  }
+
+  .lineno {
+    display: inline-block; // Ensures the null space also isn't selectable
+    padding-right: .75rem;
+    padding-left: .25rem;
+    color: $code-linenos-color;
+    // Make sure numbers aren't selectable
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+  }
+}

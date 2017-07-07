@@ -1,0 +1,29 @@
+// Home
+//
+// Styles specific to the home page.
+
+.home {
+  min-height: 100%;
+
+  .masthead {
+    width: 100%;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    font-size: 2rem;
+    line-height: 1.25rem;
+
+    .masthead-title {
+      font-weight: 600;
+    }
+
+    @media (min-width: $media-breakpoint-md) {
+      font-size: 2.5rem;
+      line-height: 1.125rem;
+    }
+
+    @media (min-width: $media-breakpoint-lg) {
+      font-size: 3rem;
+      line-height: 1.05rem;
+    }
+  }
+}

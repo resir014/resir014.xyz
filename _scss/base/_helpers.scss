@@ -1,0 +1,290 @@
+// Helpers
+//
+// Basic helpers for HTML layouts.
+
+// Clear inner floats
+.clearfix {
+  @include clearfix;
+}
+
+// Text alignment
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+// Semantic text modifiers
+.text-base {
+  color: $body-color !important;
+}
+.text-muted {
+  color: $body-color-muted !important;
+}
+.text-heading {
+  color: $heading-color !important;
+}
+.text-inverse {
+  color: $inverse-color !important;
+}
+
+// Base16 text modifiers
+.text-base00 {
+  color: $base00 !important;
+}
+.text-base01 {
+  color: $base01 !important;
+}
+.text-base02 {
+  color: $base02 !important;
+}
+.text-base03 {
+  color: $base03 !important;
+}
+.text-base04 {
+  color: $base04 !important;
+}
+.text-base05 {
+  color: $base05 !important;
+}
+.text-base06 {
+  color: $base06 !important;
+}
+.text-base07 {
+  color: $base07 !important;
+}
+.text-base08 {
+  color: $base08 !important;
+}
+.text-base09 {
+  color: $base09 !important;
+}
+.text-base0A {
+  color: $base0A !important;
+}
+.text-base0B {
+  color: $base0B !important;
+}
+.text-base0C {
+  color: $base0C !important;
+}
+.text-base0D {
+  color: $base0D !important;
+}
+.text-base0E {
+  color: $base0E !important;
+}
+.text-base0F {
+  color: $base0F !important;
+}
+
+// Semantic background modifiers
+.bg-base {
+  background-color: $body-bg !important;
+}
+.bg-muted {
+  background-color: $body-color-muted !important;
+}
+.bg-heading {
+  background-color: $heading-color !important;
+}
+.bg-inverse {
+  background-color: $inverse-bg !important;
+}
+
+// Base16 background modifiers
+.bg-base00 {
+  background-color: $base00 !important;
+}
+.bg-base01 {
+  background-color: $base01 !important;
+}
+.bg-base02 {
+  background-color: $base02 !important;
+}
+.bg-base03 {
+  background-color: $base03 !important;
+}
+.bg-base04 {
+  background-color: $base04 !important;
+}
+.bg-base05 {
+  background-color: $base05 !important;
+}
+.bg-base06 {
+  background-color: $base06 !important;
+}
+.bg-base07 {
+  background-color: $base07 !important;
+}
+.bg-base08 {
+  background-color: $base08 !important;
+}
+.bg-base09 {
+  background-color: $base09 !important;
+}
+.bg-base0A {
+  background-color: $base0A !important;
+}
+.bg-base0B {
+  background-color: $base0B !important;
+}
+.bg-base0C {
+  background-color: $base0C !important;
+}
+.bg-base0D {
+  background-color: $base0D !important;
+}
+.bg-base0E {
+  background-color: $base0E !important;
+}
+.bg-base0F {
+  background-color: $base0F !important;
+}
+
+// Visibility placeholder
+%visible {
+  display: none;
+}
+
+// Hidden
+.hidden-xs {
+  @media (min-width: $media-breakpoint-xs) {
+    display: none;
+  }
+}
+.hidden-sm {
+  @media (min-width: $media-breakpoint-sm) {
+    display: none;
+  }
+}
+.hidden-md {
+  @media (min-width: $media-breakpoint-md) {
+    display: none;
+  }
+}
+.hidden-lg {
+  @media (min-width: $media-breakpoint-lg) {
+    display: none;
+  }
+}
+.hidden-xl {
+  @media (min-width: $media-breakpoint-xl) {
+    display: none;
+  }
+}
+
+// Visible (block)
+.visible-xs-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xs) {
+    display: block;
+  }
+}
+.visible-sm-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-sm) {
+    display: block;
+  }
+}
+.visible-md-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-md) {
+    display: block;
+  }
+}
+.visible-lg-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-lg) {
+    display: block;
+  }
+}
+.visible-xl-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xl) {
+    display: block;
+  }
+}
+
+// Visible (inline)
+.visible-xs-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xs) {
+    display: inline;
+  }
+}
+.visible-sm-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-sm) {
+    display: inline;
+  }
+}
+.visible-md-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-md) {
+    display: inline;
+  }
+}
+.visible-lg-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-lg) {
+    display: inline;
+  }
+}
+.visible-xl-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xl) {
+    display: inline;
+  }
+}
+
+// Visible (inline-block)
+.visible-xs-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xs) {
+    display: inline-block;
+  }
+}
+.visible-sm-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-sm) {
+    display: inline-block;
+  }
+}
+.visible-md-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-md) {
+    display: inline-block;
+  }
+}
+.visible-lg-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-lg) {
+    display: inline-block;
+  }
+}
+.visible-xl-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xl) {
+    display: inline-block;
+  }
+}

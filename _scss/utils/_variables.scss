@@ -1,0 +1,114 @@
+// Variables
+//
+// Customisable variables for most style elements of the theme.
+
+// TODO: Check again, make sure all customisable elements are available here.
+
+// base16-3024 color palette
+// https://chriskempson.github.io/base16/
+$base00: #090300;
+$base01: #3a3432;
+$base02: #4a4543;
+$base03: #5c5855;
+$base04: #807d7c;
+$base05: #a5a2a2;
+$base06: #d6d5d4;
+$base07: #f7f7f7;
+$base08: #db2d20;
+$base09: #e8bbd0;
+$base0A: #fded02;
+$base0B: #01a252;
+$base0C: #b5e4f4;
+$base0D: #01a0e4;
+$base0E: #a16a94;
+$base0F: #cdab53;
+
+// Reassign color vars to the appropriate color name
+$theme-accent0: $base08;
+$theme-accent1: $base0D;
+$theme-accent2: $base0C;
+$theme-accent3: $base0A;
+$theme-accent4: $base09;
+
+// Font stack
+$font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;;
+$font-family-serif: "Zilla Slab", Georgia, "Times New Roman", Times, serif;
+$font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// Font dimensions
+$font-size: 16px;
+$font-size-lg: 18px;
+$line-height: 1.25;
+$line-height-lg: 1.375;
+
+// Body text/background colors
+$body-bg: $base07;
+$body-color: $base03;
+$body-color-muted: $base05;
+$heading-color: $base00;
+$inverse-bg: $base00;
+$inverse-color: $base06;
+$inverse-color-muted: $base04;
+$inverse-heading-color: $base07;
+
+// Links
+$link-color: $theme-accent1;
+$link-hover-color: darken($link-color, 5%);
+
+// Tables & borders
+$border-color: $base06;
+$inverse-border-color: $base01;
+$table-border-color: darken($border-color, 5%);
+$table-odd-background-color: darken($body-bg, 5%);
+
+// Code
+$code-color: $base08;
+$code-background-color: darken($base07, 5%);
+$code-linenos-color: $base05;
+$inverse-code-color: $base08;
+$inverse-code-background-color: $base01;
+
+// Blockquote
+$blockquote-color: $base02;
+$blockquote-border-color: $border-color;
+$inverse-blockquote-color: $base05;
+$inverse-blockquote-border-color: $inverse-border-color;
+
+// Posts & post archives
+$post-header-background-color: $heading-color;
+$post-header-title-color: $body-bg;
+$post-header-external-color: $theme-accent4;
+$post-archive-title-color: $heading-color;
+$post-archive-date-color: $body-color-muted;
+$post-archive-background-color: $theme-accent2;
+$post-archive-external-background-color: $theme-accent4;
+
+// Pagination
+$pagination-color: $heading-color;
+$pagination-background-hover-color: $theme-accent2;
+$pagination-disabled-color: $body-color-muted;
+$pagination-disabled-background-hover-color: darken($body-bg, 5%);
+
+// Masthead
+$masthead-border-color: $heading-color;
+$masthead-title-color: $base07;
+$masthead-title-hover-color: $base07;
+$masthead-title-background-color: $base00;
+$masthead-link-color: $theme-accent1;
+$masthead-link-background-color: darken($body-bg, 5%);
+$masthead-link-active-color: $heading-color;
+$masthead-link-active-background-color: $theme-accent2;
+
+// Media breakpoints
+// (NOTE: Always use @media (min-width) when using these variables.)
+$media-breakpoint-xs: 0;
+$media-breakpoint-sm: 576px;
+$media-breakpoint-md: 768px;
+$media-breakpoint-lg: 992px;
+$media-breakpoint-xl: 1200px;
+
+// Dimensions for grid
+$max-width: 768px;
+$max-width-lg: 973px;
+$container-padding: 1.5rem;
+$container-padding-lg: 3rem;

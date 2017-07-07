@@ -24,7 +24,7 @@ exclude:
 #
 # We specify the directory for Jekyll so we can use @imports.
 sass:
-  sass_dir:         _sass
+  sass_dir:         _scss
   style:            :compressed
 
 # List of time zones supported in the TZ database
