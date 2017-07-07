@@ -146,19 +146,24 @@
   background-color: $base0F !important;
 }
 
-// Visibility
+// Visibility placeholder
+%visible {
+  display: none;
+}
+
+// Hidden
 .hidden-xs {
-  @media (max-width: $media-breakpoint-xs) {
+  @media (min-width: $media-breakpoint-xs) {
     display: none;
   }
 }
 .hidden-sm {
-  @media (max-width: $media-breakpoint-sm) {
+  @media (min-width: $media-breakpoint-sm) {
     display: none;
   }
 }
 .hidden-md {
-  @media (max-width: $media-breakpoint-md) {
+  @media (min-width: $media-breakpoint-md) {
     display: none;
   }
 }
@@ -168,7 +173,118 @@
   }
 }
 .hidden-xl {
-  @media (max-width: $media-breakpoint-xl) {
+  @media (min-width: $media-breakpoint-xl) {
     display: none;
+  }
+}
+
+// Visible (block)
+.visible-xs-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xs) {
+    display: block;
+  }
+}
+.visible-sm-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-sm) {
+    display: block;
+  }
+}
+.visible-md-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-md) {
+    display: block;
+  }
+}
+.visible-lg-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-lg) {
+    display: block;
+  }
+}
+.visible-xl-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xl) {
+    display: block;
+  }
+}
+
+// Visible (inline)
+.visible-xs-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xs) {
+    display: inline;
+  }
+}
+.visible-sm-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-sm) {
+    display: inline;
+  }
+}
+.visible-md-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-md) {
+    display: inline;
+  }
+}
+.visible-lg-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-lg) {
+    display: inline;
+  }
+}
+.visible-xl-inline {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xl) {
+    display: inline;
+  }
+}
+
+// Visible (inline-block)
+.visible-xs-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xs) {
+    display: inline-block;
+  }
+}
+.visible-sm-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-sm) {
+    display: inline-block;
+  }
+}
+.visible-md-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-md) {
+    display: inline-block;
+  }
+}
+.visible-lg-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-lg) {
+    display: inline-block;
+  }
+}
+.visible-xl-inline-block {
+  @extend %visible;
+
+  @media (min-width: $media-breakpoint-xl) {
+    display: inline-block;
   }
 }
