@@ -44,6 +44,8 @@
       @media (min-width: $media-breakpoint-md) {
         display: block;
         width: 100%;
+        min-height: 400px;
+        max-height: 500px;
         // Similar to `background-size: cover`
         object-fit: cover;
       }
