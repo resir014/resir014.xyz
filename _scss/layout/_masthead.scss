@@ -22,7 +22,8 @@
   }
 
   .masthead-title {
-    a {
+    a,
+    span {
       @include highlighted-text($masthead-title-background-color);
       color: $masthead-title-color;
       line-height: 1.6;
@@ -36,11 +37,17 @@
 }
 
 .masthead-flavor {
+  a,
   span {
     @include highlighted-text($masthead-title-background-color);
     font-family: $font-family-serif;
     color: $heading-color;
     line-height: 1.6;
+
+    @include on-event {
+      color: $masthead-title-hover-color;
+      text-decoration: none;
+    }
   }
 }
 
