@@ -8,6 +8,7 @@
     'plays video games',
     'has a phone',
     'takes photos',
+    'is afraid of dogs',
     'does TypeScript',
     'does JavaScript',
     'listens to music',
