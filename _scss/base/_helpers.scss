@@ -32,6 +32,11 @@
   color: $inverse-color !important;
 }
 
+// Add highlight padding to text elements
+.text-highlight-padding {
+  padding: 0 .25rem;
+}
+
 // Base16 text modifiers
 .text-base00 {
   color: $base00 !important;
