@@ -3,7 +3,7 @@
     'has an internet connection',
     'makes stupid web things',
     'writes code',
-    'intermittently posts blog entries',
+    'drives an Asp Explorer',
     'is online',
     'plays video games',
     'has a phone',
