@@ -9,6 +9,8 @@
     'has a phone',
     'takes photos',
     'is afraid of dogs',
+    'hates TV',
+    'stands for net neutrality',
     'dumps abandoned projects on GitHub',
     'does TypeScript',
     'does JavaScript',
