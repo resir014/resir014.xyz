@@ -4,13 +4,13 @@
     'makes stupid web things',
     'writes code',
     'drives an Asp Explorer',
+    'stands up for net neutrality',
     'is online',
     'plays video games',
     'has a phone',
     'takes photos',
     'is afraid of dogs',
     'hates TV',
-    'stands for net neutrality',
     'dumps abandoned projects on GitHub',
     'does TypeScript',
     'does JavaScript',
@@ -30,10 +30,8 @@
   ]
 
   // select our random flavor text from the above array
-  var flavorIndex = Math.floor(Math.random() * flavors.length)
-  var colorIndex = Math.floor(Math.random() * colors.length)
   var flavorText = document.getElementById('flavorText')
 
-  flavorText.innerHTML = flavors[flavorIndex]
-  flavorText.className = colors[colorIndex]
+  flavorText.innerHTML = flavors[Math.floor(Math.random() * flavors.length)]
+  flavorText.className = colors[Math.floor(Math.random() * colors.length)]
 })()
