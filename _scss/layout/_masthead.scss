@@ -58,16 +58,22 @@
   font-weight: 400;
 
   a {
-    display: inline-block;
-    padding: .25rem .5rem;
-
-    &:not(:last-child) {
-      margin-right: 1.25rem;
-    }
+    display: block;
+    padding: .25rem 0;
+    margin-bottom: .5rem;
+    color: $body-color;
+    border-bottom: 1px solid $body-color;
 
     @media (min-width: $media-breakpoint-md) {
+      display: inline-block;
+      padding: .25rem;
       background-color: $masthead-link-background-color;
       color: $masthead-link-color;
+      border-bottom: 0;
+
+      &:not(:last-child) {
+        margin-right: 1.25rem;
+      }
 
       @include on-event {
         text-decoration: none;
@@ -77,11 +83,12 @@
   }
 
   .current {
-    background-color: $masthead-link-active-background-color;
-    color: $masthead-link-active-color;
+    color: $link-color;
 
-    @include on-event {
-      background-color: $masthead-link-active-background-color;
+    @media (min-width: $media-breakpoint-md) {
+      @include on-event {
+        background-color: $masthead-link-active-background-color;
+      }
     }
   }
 }
