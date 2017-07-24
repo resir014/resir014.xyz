@@ -4,14 +4,6 @@
 
 .archive {
   margin: 1rem 0;
-
-  a {
-    color: inherit;
-
-    @include on-event {
-      text-decoration: none;
-    }
-  }
 }
 
 .archive-item {
@@ -19,21 +11,24 @@
   margin: .5rem 0;
 
   .archive-title {
-    @include highlighted-text($post-archive-background-color, .25rem, .5rem);
+    // @include highlighted-text($post-archive-background-color, .25rem, .25rem);
+    padding: .25rem 0;
     display: inline-block;
-    color: $heading-color;
+    color: $link-color;
 
     @include on-event {
-      background-color: darken($post-archive-background-color, 5%);
+      color: $link-hover-color;
     }
   }
 
   // Use different background if it's an external post.
   .is-external {
-    background-color: $post-archive-external-background-color;
+    @include highlighted-text($post-archive-external-background-color, .25rem, .25rem);
+    color: $heading-color;
 
     @include on-event {
       background-color: darken($post-archive-external-background-color, 5%);
+      color: $heading-color;
     }
   }
 
