@@ -86,9 +86,8 @@
     color: $link-color;
 
     @media (min-width: $media-breakpoint-md) {
-      @include on-event {
-        background-color: $masthead-link-active-background-color;
-      }
+      color: $heading-color;
+      background-color: $masthead-link-active-background-color;
     }
   }
 }

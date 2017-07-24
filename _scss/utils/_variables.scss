@@ -4,31 +4,68 @@
 
 // TODO: Check again, make sure all customisable elements are available here.
 
-// base16-3024 color palette
-// https://chriskempson.github.io/base16/
-$base00: #090300;
-$base01: #3a3432;
-$base02: #4a4543;
-$base03: #5c5855;
-$base04: #807d7c;
-$base05: #a5a2a2;
-$base06: #d6d5d4;
-$base07: #f7f7f7;
-$base08: #db2d20;
-$base09: #e8bbd0;
-$base0A: #fded02;
-$base0B: #01a252;
-$base0C: #b5e4f4;
-$base0D: #01a0e4;
-$base0E: #a16a94;
-$base0F: #cdab53;
+// Colours based off of the Mozilla colour palette
+// https://mozilla.ninja/visualelements
 
-// Reassign color vars to the appropriate color name
-$theme-accent0: $base08;
-$theme-accent1: $base0D;
-$theme-accent2: $base0C;
-$theme-accent3: $base0A;
-$theme-accent4: $base09;
+// Primary colours
+$black: #000;
+$white: #fff;
+
+// Secondary colours
+$blue-1: #33525d;
+$blue-2: #558194;
+$blue-3: #88d1f1;
+$blue-4: #c3e8f8;
+$orange-1: #5e4812;
+$orange-2: #c89631;
+$orange-3: #f8b83e;
+$orange-4: #fadb8c;
+$red-1: #5d3739;
+$red-2: #c07578;
+$red-3: #fb8e92;
+$red-4: #fdc6c8;
+$purple-1: #454653;
+$purple-2: #9194b0;
+$purple-3: #b0b4e5;
+$purple-4: #d7d9f2;
+$green-1: #434f12;
+$green-2: #6d7c23;
+$green-3: #b7d43f;
+$green-4: #dbea8e;
+
+// Tertiary colors
+$gray-1: #646363;
+$gray-2: #9d9d9c;
+$gray-3: #d0d0d0;
+$neonblue-1: #3dfefd;
+$neonblue-2: #229d9a;
+$neonblue-3: #116362;
+$neongreen-1: #aefb4a;
+$neongreen-2: #6b9b2b;
+$neongreen-3: #44611a;
+$neonpurple-1: #f793fb;
+$neonpurple-2: #ca78cc;
+$neonpurple-3: #603861;
+$yellow: #feed01;
+
+// Reassign colours to a Base16-compatible color palette
+// https://chriskempson.github.io/base16/
+$base00: $black;
+$base01: lighten($black, 25%);
+$base02: $gray-1;
+$base03: lighten($gray-1, 25%);
+$base04: $gray-2;
+$base05: lighten($gray-2, 25%);
+$base06: $gray-3;
+$base07: $white;
+$base08: $red-3;
+$base09: $orange-3;
+$base0A: $yellow;
+$base0B: $green-3;
+$base0C: $neonblue-1;
+$base0D: $blue-3;
+$base0E: $neonpurple-1;
+$base0F: $purple-3;
 
 // Font stack
 $font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;;
@@ -43,8 +80,8 @@ $line-height-lg: 1.375;
 
 // Body text/background colors
 $body-bg: $base07;
-$body-color: $base03;
-$body-color-muted: $base05;
+$body-color: $base01;
+$body-color-muted: $base04;
 $heading-color: $base00;
 $inverse-bg: $base00;
 $inverse-color: $base06;
@@ -52,8 +89,8 @@ $inverse-color-muted: $base04;
 $inverse-heading-color: $base07;
 
 // Links
-$link-color: $theme-accent1;
-$link-hover-color: darken($link-color, 5%);
+$link-color: darken($base0D, 25%);
+$link-hover-color: darken($link-color, 25%);
 
 // Tables & borders
 $border-color: $base06;
@@ -62,11 +99,11 @@ $table-border-color: darken($border-color, 5%);
 $table-odd-background-color: darken($body-bg, 5%);
 
 // Code
-$code-color: $base08;
-$code-background-color: darken($base07, 5%);
+$code-color: darken($base08, 25%);
+$code-background-color: darken($body-bg, 5%);
 $code-linenos-color: $base05;
 $inverse-code-color: $base08;
-$inverse-code-background-color: $base01;
+$inverse-code-background-color: lighten($inverse-bg, 5%);
 
 // Blockquote
 $blockquote-color: $base02;
@@ -77,15 +114,17 @@ $inverse-blockquote-border-color: $inverse-border-color;
 // Posts & post archives
 $post-header-background-color: $heading-color;
 $post-header-title-color: $body-bg;
-$post-header-external-color: $theme-accent4;
+$post-header-external-color: $base0F;
+$post-subtitle-highlight-color: $base0A;
 $post-archive-title-color: $heading-color;
 $post-archive-date-color: $body-color-muted;
-$post-archive-background-color: $theme-accent2;
-$post-archive-external-background-color: $theme-accent4;
+$post-archive-background-color: lighten($base0C, 20%);
+$post-archive-external-background-color: lighten($base0E, 20%);
+$post-archive-external-background-color: darken($post-archive-external-background-color, 5%);
 
 // Pagination
 $pagination-color: $heading-color;
-$pagination-background-hover-color: $theme-accent2;
+$pagination-background-hover-color: $base0C;
 $pagination-disabled-color: $body-color-muted;
 $pagination-disabled-background-hover-color: darken($body-bg, 5%);
 
@@ -94,10 +133,13 @@ $masthead-border-color: $heading-color;
 $masthead-title-color: $base07;
 $masthead-title-hover-color: $base07;
 $masthead-title-background-color: $base00;
-$masthead-link-color: $theme-accent1;
+$masthead-link-color: darken($link-color, 25%);
 $masthead-link-background-color: darken($body-bg, 5%);
 $masthead-link-active-color: $heading-color;
-$masthead-link-active-background-color: $theme-accent2;
+$masthead-link-active-background-color: lighten($base0C, 20%);
+
+// Widgets
+$widget-social-links-highlight-color: lighten($base0C, 20%);
 
 // Media breakpoints
 // (NOTE: Always use @media (min-width) when using these variables.)

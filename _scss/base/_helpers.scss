@@ -18,6 +18,11 @@
   text-align: right;
 }
 
+// Add highlight padding to text elements
+.text-highlight-padding {
+  padding: 0 .25rem;
+}
+
 // Semantic text modifiers
 .text-base {
   color: $body-color !important;
@@ -30,11 +35,6 @@
 }
 .text-inverse {
   color: $inverse-color !important;
-}
-
-// Add highlight padding to text elements
-.text-highlight-padding {
-  padding: 0 .25rem;
 }
 
 // Base16 text modifiers

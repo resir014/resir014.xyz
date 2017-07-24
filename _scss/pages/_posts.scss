@@ -10,6 +10,16 @@
   li + li {
     margin-top: .25rem;
   }
+
+  figure {
+    text-align: center;
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 
 // Wrapper for post/page header
@@ -64,6 +74,11 @@
   }
 }
 
+// Section header
+.section-heading {
+  @include section-heading(.25rem);
+}
+
 // Blog post or page title
 .page-title,
 .post-title {
@@ -99,7 +114,7 @@
   }
 
   span {
-    @include highlighted-text($theme-accent3, 0, .25rem);
+    @include highlighted-text($post-subtitle-highlight-color, 0, .25rem);
     font-size: 1.25rem;
     font-weight: 300;
     line-height: 1.75;

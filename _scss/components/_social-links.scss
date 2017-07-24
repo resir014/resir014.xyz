@@ -4,12 +4,12 @@
 
 .widget-social-links {
   .social-link {
-    @include highlighted-text($theme-accent2);
+    @include highlighted-text($widget-social-links-highlight-color);
     color: $heading-color;
     line-height: 1.6;
 
     @include on-event {
-      background-color: darken($theme-accent2, 5%);
+      background-color: darken($widget-social-links-highlight-color, 5%);
       text-decoration: none;
     }
   }

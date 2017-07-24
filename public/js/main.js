@@ -24,9 +24,11 @@
   ]
 
   var colors = [
-    'bg-base09',
     'bg-base0A',
-    'bg-base0C'
+    'bg-base0B',
+    'bg-base0C',
+    'bg-base0D',
+    'bg-base0E'
   ]
 
   // select our random flavor text from the above array
