@@ -11,9 +11,18 @@
     padding-bottom: 5rem;
     font-size: 2rem;
     line-height: 1.25rem;
+    background-color: $home-masthead-background-color;
+    background: url('/public/images/header.jpg') no-repeat center center;
+    background-size: cover;
 
     .masthead-title {
       font-weight: 600;
+    }
+
+    .masthead-flavor {
+      span {
+        background-color: $home-masthead-flavor-background-color;
+      }
     }
 
     @media (min-width: $media-breakpoint-md) {

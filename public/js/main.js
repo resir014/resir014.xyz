@@ -23,17 +23,8 @@
     'wants to be your friend'
   ]
 
-  var colors = [
-    'bg-base0A',
-    'bg-base0B',
-    'bg-base0C',
-    'bg-base0D',
-    'bg-base0E'
-  ]
-
   // select our random flavor text from the above array
   var flavorText = document.getElementById('flavorText')
 
   flavorText.innerHTML = flavors[Math.floor(Math.random() * flavors.length)]
-  flavorText.className = colors[Math.floor(Math.random() * colors.length)]
 })()
