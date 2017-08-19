@@ -146,6 +146,19 @@ $widget-social-links-highlight-color: lighten($base0C, 20%);
 $home-masthead-background-color: $base00;
 $home-masthead-flavor-background-color: $base07;
 
+// Skill level colors for skillset widget
+$skill-level-learning: $red-2;
+$skill-level-beginner: $orange-2;
+$skill-level-average: $green-2;
+$skill-level-proficient: $blue-2;
+
+// project-language
+$language-html: $red-2;
+$language-css: $purple-2;
+$language-js: $orange-2;
+$language-typescript: $blue-2;
+$language-other: $green-2;
+
 // ttbp specific variables
 $ttbp-permalink-date-link-color: lighten($base0E, 15%);
 $ttbp-permalink-background-color: lighten($base0E, 15%);

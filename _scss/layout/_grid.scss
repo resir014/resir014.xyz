@@ -20,3 +20,22 @@
     padding-right: $container-padding-lg; // 3
   }
 }
+
+// Mobile first grid
+.column {
+  margin-bottom: 1.5rem;
+
+  @media (min-width: $media-breakpoint-md) {
+    float: left;
+    margin: 0;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+
+    &.full { width: 100%; }
+    &.two-thirds { width: 66.7%; }
+    &.half { width: 50%; }
+    &.third { width: 33.3%; }
+    &.fourth { width: 25%; }
+    &.flow-opposite { float: right; }
+  }
+}
