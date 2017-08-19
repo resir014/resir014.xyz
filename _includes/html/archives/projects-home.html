@@ -7,12 +7,12 @@
         <span class="archive-date">
           {{ project.year }}
         </span>
+        <a href="{{ project.url }}">{{ project.title }}</a>
         {% if project.languages %}
           {% for language in project.languages %}
             <span class="project-language {{ language.class }}">{{ language.name }}</span>
           {% endfor %}
         {% endif %}
-        <a href="{{ project.url }}">{{ project.title }}</a>
         <p class="archive-details">
           {% if project.details %}
             {{ project.details }}

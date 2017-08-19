@@ -54,7 +54,7 @@
 
 .project-language {
   @include highlighted-text($post-archive-external-background-color, 0, .25rem);
-  margin-right: .25rem;
+  margin-left: .25rem;
   background-color: $gray-2;
   color: $inverse-heading-color;
 
