@@ -29,7 +29,7 @@
 
   .page-header-inner,
   .post-header-inner {
-    @include section-heading(.25rem);
+    @include section-heading();
 
     a {
       color: inherit;
