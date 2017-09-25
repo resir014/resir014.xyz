@@ -105,19 +105,21 @@
 }
 
 // Post subtitle/abstract
-// 1. Use only 70% of the screen width on tablet/desktop screens
+// 1. Use only 75% of the screen width on tablet/desktop screens
 .post-subtitle {
   margin: 1rem 0 2rem;
+  padding: 1rem 0;
+  border-top: 4px solid $base0C;
+  border-bottom: 4px solid $base0C;
 
   @media (min-width: $media-breakpoint-sm) {
-    width: 70%; // 1
+    width: 75%; // 1
   }
 
   span {
-    @include highlighted-text($post-subtitle-highlight-color, 0, .25rem);
+    // @include highlighted-text($post-subtitle-highlight-color, 0, .25rem);
     font-size: 1.25rem;
     font-weight: 300;
-    line-height: 1.75;
 
     @media (min-width: $media-breakpoint-md) {
       font-size: 1.5rem;

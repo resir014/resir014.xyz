@@ -57,24 +57,4 @@
   margin-left: .25rem;
   background-color: $gray-2;
   color: $inverse-heading-color;
-
-  &--html {
-    background-color: $language-html;
-  }
-
-  &--css {
-    background-color: $language-css;
-  }
-
-  &--js {
-    background-color: $language-js;
-  }
-
-  &--typescript {
-    background-color: $language-typescript;
-  }
-
-  &--other {
-    background-color: $language-other;
-  }
 }
