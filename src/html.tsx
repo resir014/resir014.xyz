@@ -3,7 +3,7 @@ import * as React from "react"
 let styles: string
 if (process.env.NODE_ENV === `production`) {
   try {
-    styles = require(`!raw-loader!../public/styles.css`)
+    styles = require('!raw-loader!../public/styles.css')
   } catch (e) {
     console.log(e)
   }
