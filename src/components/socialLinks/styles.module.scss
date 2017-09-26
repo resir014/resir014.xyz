@@ -1,0 +1,25 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/functions";
+@import "../../styles/utils/mixins";
+
+.root {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  .sectionTitle {
+    @include section-heading(.25rem);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .socialLink {
+    @include highlighted-text($widget-social-links-highlight-color);
+    color: $heading-color;
+    line-height: 1.6;
+
+    @include on-event {
+      background-color: darken($widget-social-links-highlight-color, 5%);
+      text-decoration: none;
+    }
+  }
+}

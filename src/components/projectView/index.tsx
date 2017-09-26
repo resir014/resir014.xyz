@@ -3,7 +3,7 @@ import * as classnames from 'classnames'
 
 const styles = require('./styles.module.scss');
 
-interface ProjectNode {
+export interface ProjectNode {
   node: {
     title: string
     year: string
@@ -13,7 +13,7 @@ interface ProjectNode {
   }
 }
 
-interface ProjectsListProps {
+export interface ProjectsListProps {
   projects: ProjectNode[]
 }
 
