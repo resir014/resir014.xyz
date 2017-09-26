@@ -12,6 +12,30 @@
     margin-bottom: 1rem;
   }
 
+  .linkButton {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid $link-color;
+
+    @media (min-width: $media-breakpoint-md) {
+      display: block;
+      max-width: 300px;
+      text-decoration: none;
+    }
+
+    @include on-event {
+      border-bottom-color: $link-hover-color;
+
+      &:after {
+        @media (min-width: $media-breakpoint-md) {
+          float: right;
+          content: ">>>"
+        }
+      }
+    }
+  }
+
   .projectItem {
     display: block;
     margin: .75rem 0;

@@ -31,6 +31,12 @@ const ProjectView: React.SFC<ProjectsListProps> = ({ projects }) => (
   <div className={classnames(styles.root, 'container')}>
     <h2 className={styles.sectionTitle}>Projects</h2>
     {projects.map(({ node }) => <ProjectItem key={node.title} node={node} />)}
+    <a className={styles.linkButton}
+      href="https://resir014.github.io/projects"
+      target="_blank"
+      rel="noopener">
+      More projects
+    </a>
   </div>
 )
 
