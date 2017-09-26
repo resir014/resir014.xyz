@@ -1,0 +1,14 @@
+// Widgets
+//
+// Use this class to wrap any widgets we have below the content (related posts, etc.)
+
+.widget {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  .widget-title {
+    @include section-heading(.25rem);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}

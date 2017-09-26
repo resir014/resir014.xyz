@@ -1,0 +1,58 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/functions";
+@import "../../styles/utils/mixins";
+
+.root {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  .sectionTitle {
+    @include section-heading(.25rem);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .projectItem {
+    display: block;
+    margin: .75rem 0;
+
+    .projectName {
+      padding: 0;
+      display: inline-block;
+      color: $link-color;
+
+      @include on-event {
+        color: $link-hover-color;
+      }
+    }
+
+    // Use different background if it's an external post.
+    .external {
+      @include highlighted-text($post-archive-external-background-color, 0, .25rem);
+      color: $heading-color;
+
+      @include on-event {
+        background-color: darken($post-archive-external-background-color, 5%);
+        color: $heading-color;
+      }
+    }
+
+    .projectYear {
+      display: block;
+      margin-bottom: .25rem;
+      padding: 0;
+      color: $body-color-muted;
+
+      @media (min-width: $media-breakpoint-md) {
+        float: right;
+        margin-left: 1rem;
+        margin-bottom: 0;
+      }
+    }
+
+    .projectDetails {
+      margin: .5rem 0 1rem;
+      color: $body-color;
+    }
+  }
+}
