@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 
 import WidgetLinkButton from '../widgetLinkButton'
 
-const styles = require('./styles.module.scss');
+const styles = require('./styles.module.scss')
 
 const About: React.SFC<any> = () => (
   <div className={classnames(styles.root, 'container')}>

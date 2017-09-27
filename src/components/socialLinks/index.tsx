@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
 
-const styles = require('./styles.module.scss');
+const styles = require('./styles.module.scss')
 
 export interface SocialLinkNode {
   node: {
@@ -18,7 +18,8 @@ export interface SocialLinksProps {
 const SocialLink: React.SFC<SocialLinkNode> = ({ node }) => (
   <div>
     <h3>
-      <a className={styles.socialLink}
+      <a
+        className={styles.socialLink}
         href={node.url}
         target="_blank"
         rel="noopener"

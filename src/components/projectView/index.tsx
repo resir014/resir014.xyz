@@ -3,7 +3,7 @@ import * as classnames from 'classnames'
 
 import WidgetLinkButton from '../widgetLinkButton'
 
-const styles = require('./styles.module.scss');
+const styles = require('./styles.module.scss')
 
 export interface ProjectNode {
   node: {
@@ -23,9 +23,10 @@ const ProjectItem: React.SFC<ProjectNode> = ({ node }) => (
   <div className={styles.projectItem}>
     <span className={styles.projectYear}>{node.year}</span>
     <a href={node.url} className={styles.projectName}>{node.title}</a>
-    <p className={styles.projectDetails} dangerouslySetInnerHTML={{
-      __html: node.details
-    }} />
+    <p
+      className={styles.projectDetails}
+      dangerouslySetInnerHTML={{ __html: node.details }}
+    />
   </div>
 )
 

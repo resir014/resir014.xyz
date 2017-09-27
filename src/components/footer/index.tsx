@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const styles= require('./footer.module.scss')
+const styles = require('./styles.module.scss')
 
 const Footer = () => (
   <footer className={styles.root}>
@@ -9,7 +9,8 @@ const Footer = () => (
         &copy; 2017 Resi Respati. All right reserved.
       </small>
       <small>
-        Powered by <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> using the <a href="https://github.com/blvdgroup/roundabout" target="_blank">Roundabout</a> theme.
+        Powered by <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>
+        using the <a href="https://github.com/blvdgroup/roundabout" target="_blank">Roundabout</a> theme.
       </small>
     </div>
   </footer>

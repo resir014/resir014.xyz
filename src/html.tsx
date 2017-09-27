@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from 'react'
 
 let styles: string
 if (process.env.NODE_ENV === 'production') {
@@ -10,10 +10,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 interface HtmlProps {
-  body: any;
+  body: any
   preBodyComponents: any
-  postBodyComponents: any;
-  headComponents: any;
+  postBodyComponents: any
+  headComponents: any
 }
 
 module.exports = class HTML extends React.Component<HtmlProps, void> {
