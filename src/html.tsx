@@ -1,7 +1,7 @@
 import * as React from "react"
 
 let styles: string
-if (process.env.NODE_ENV === `production`) {
+if (process.env.NODE_ENV === 'production') {
   try {
     styles = require('!raw-loader!../public/styles.css')
   } catch (e) {
@@ -19,7 +19,7 @@ interface HtmlProps {
 module.exports = class HTML extends React.Component<HtmlProps, void> {
   render() {
     let css
-    if (process.env.NODE_ENV === `production`) {
+    if (process.env.NODE_ENV === 'production') {
       css = (
         <style
           id="gatsby-inlined-css"
@@ -43,7 +43,7 @@ module.exports = class HTML extends React.Component<HtmlProps, void> {
         <body>
           {this.props.preBodyComponents}
           <div
-            key={`body`}
+            key={'body'}
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
