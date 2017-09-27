@@ -10,7 +10,7 @@
   padding-bottom: 5rem;
   color: $inverse-color;
   background-color: $gray-1;
-  background: url('./stardust@2x.png') repeat;
+  background: url('./background.png') repeat;
   border-top: 8px solid $masthead-border-color;
 
   .title {
@@ -24,8 +24,8 @@
 
     a,
     span {
-      @include highlighted-text($inverse-bg);
-      color: $inverse-heading-color;
+      @include highlighted-text($body-bg);
+      color: $heading-color;
       line-height: 1.5;
 
       @include on-event {
