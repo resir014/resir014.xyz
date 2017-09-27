@@ -1,6 +1,6 @@
-@import "../../styles/utils/variables";
-@import "../../styles/utils/functions";
-@import "../../styles/utils/mixins";
+@import "../../styles/variables";
+@import "../../styles/functions";
+@import "../../styles/mixins";
 
 .root {
   @include clearfix;
