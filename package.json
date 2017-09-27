@@ -11,8 +11,10 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
+    "start": "npm run develop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -36,6 +38,7 @@
     "typescript": "^2.5.2"
   },
   "devDependencies": {
+    "gh-pages": "^1.0.0",
     "tslint": "^5.7.0",
     "tslint-react": "^3.2.0"
   }
