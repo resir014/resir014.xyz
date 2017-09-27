@@ -1,6 +1,8 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
 
+import WidgetLinkButton from '../widgetLinkButton'
+
 const styles = require('./styles.module.scss');
 
 export interface ProjectNode {
@@ -31,12 +33,12 @@ const ProjectView: React.SFC<ProjectsListProps> = ({ projects }) => (
   <div className={classnames(styles.root, 'container')}>
     <h2 className={styles.sectionTitle}>Projects</h2>
     {projects.map(({ node }) => <ProjectItem key={node.title} node={node} />)}
-    <a className={styles.linkButton}
-      href="https://resir014.github.io/projects"
-      target="_blank"
-      rel="noopener">
+    <WidgetLinkButton
+      url="https://resir014.github.io/projects"
+      newtab={true}
+    >
       More projects
-    </a>
+    </WidgetLinkButton>
   </div>
 )
 

@@ -2,6 +2,8 @@ import * as React from 'react'
 import * as classnames from 'classnames'
 import Link from 'gatsby-link'
 
+import WidgetLinkButton from '../widgetLinkButton'
+
 const styles = require('./styles.module.scss');
 
 const About: React.SFC<any> = () => (
@@ -9,12 +11,12 @@ const About: React.SFC<any> = () => (
     <h1 className={styles.sectionTitle}>Hey, call me Resi.</h1>
     <p className="lead">I'm a professional web developer based in Jakarta, Indonesia.</p>
     <p>
-      <a className={styles.linkButton}
-        href="https://resir014.github.io/about"
-        target="_blank"
-        rel="noopener">
-        More about me
-      </a>
+    <WidgetLinkButton
+      url="https://resir014.github.io/about"
+      newtab={true}
+    >
+      Some really long link that wraps around the container
+    </WidgetLinkButton>
     </p>
   </div>
 )
