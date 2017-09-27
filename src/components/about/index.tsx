@@ -15,7 +15,7 @@ const About: React.SFC<any> = () => (
       url="https://resir014.github.io/about"
       newtab={true}
     >
-      Some really long link that wraps around the container
+      More about me
     </WidgetLinkButton>
     </p>
   </div>
