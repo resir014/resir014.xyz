@@ -12,71 +12,85 @@
     margin-bottom: 1rem;
   }
 
-  .linkButton {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding-bottom: .5rem;
-    border-bottom: 2px solid $link-color;
+  .projectItemList {
+    margin: 2rem 0;
 
-    @media (min-width: $media-breakpoint-md) {
-      display: block;
-      max-width: 300px;
-      text-decoration: none;
-    }
+    > div {
+      border-top: 2px solid $heading-color;
 
-    @include on-event {
-      border-bottom-color: $link-hover-color;
-
-      &:after {
-        @media (min-width: $media-breakpoint-md) {
-          float: right;
-          content: ">>>"
-        }
+      &:last-child {
+        border-bottom: 2px solid $heading-color;
       }
     }
   }
+}
 
-  .projectItem {
-    display: block;
-    margin: .75rem 0;
+.projectItem {
+  display: block;
+  // margin-left: -($container-padding);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  // padding-left: $container-padding;
 
-    .projectName {
-      padding: 0;
-      display: inline-block;
-      color: $link-color;
+  // @media (min-width: $media-breakpoint-lg) {
+  //   margin-left: -($container-padding-lg);
+  //   padding-left: $container-padding-lg;
+  // }
 
-      @include on-event {
-        color: $link-hover-color;
-      }
+  .projectName {
+    margin-top: 0;
+  }
+
+  .projectLanguage {
+    padding: .25em .75em;
+    font-size: 85%;
+    color: $white;
+    background-color: lighten($black, 15%);
+    border-radius: 3px;
+
+    + .projectLanguage {
+      margin-left: .5rem;
     }
+  }
 
-    // Use different background if it's an external post.
-    .external {
-      @include highlighted-text($post-archive-external-background-color, 0, .25rem);
+  .projectDetailBox {
+    margin-top: 1rem;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .projectLink {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .25rem .5rem;
+    border: 2px solid $link-color;
+
+    @include on-event {
+      color: $inverse-heading-color;
+      border-color: $link-hover-color;
+      background-color: $link-hover-color;
+      text-decoration: none;
+    }
+  }
+
+  // Use different background if it's an external post.
+  .external {
+    @include highlighted-text($post-archive-external-background-color, 0, .25rem);
+    color: $heading-color;
+
+    @include on-event {
+      background-color: darken($post-archive-external-background-color, 5%);
       color: $heading-color;
-
-      @include on-event {
-        background-color: darken($post-archive-external-background-color, 5%);
-        color: $heading-color;
-      }
     }
+  }
 
-    .projectYear {
-      display: block;
-      margin-bottom: .25rem;
-      padding: 0;
-      color: $body-color-muted;
-
-      @media (min-width: $media-breakpoint-md) {
-        float: right;
-        margin-left: 1rem;
-        margin-bottom: 0;
-      }
-    }
-
-    .projectDetails {
-      margin: .5rem 0 1rem;
-      color: $body-color;
-    }
+  .projectYear {
+    display: inline-block;
+    margin-left: 1rem;
+    font-family: $font-family-sans-serif;
+    font-size: 70%;
+    color: $body-color-muted;
   }
 }

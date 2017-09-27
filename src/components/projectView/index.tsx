@@ -21,19 +21,29 @@ export interface ProjectsListProps {
 
 const ProjectItem: React.SFC<ProjectNode> = ({ node }) => (
   <div className={styles.projectItem}>
-    <span className={styles.projectYear}>{node.year}</span>
-    <a href={node.url} className={styles.projectName}>{node.title}</a>
-    <p
-      className={styles.projectDetails}
-      dangerouslySetInnerHTML={{ __html: node.details }}
-    />
+    <h3 className={styles.projectName}>
+      {node.title}
+      <span className={styles.projectYear}>{node.year}</span>
+    </h3>
+    {node.languages.map(language => (
+      <span className={styles.projectLanguage} key={language}>{language}</span>
+    ))}
+    <div className={styles.projectDetailBox}>
+      <p
+        className={styles.projectDetails}
+        dangerouslySetInnerHTML={{ __html: node.details }}
+      />
+      <a className={styles.projectLink} href={node.url} target="_blank">Go to project</a>
+    </div>
   </div>
 )
 
 const ProjectView: React.SFC<ProjectsListProps> = ({ projects }) => (
   <div className={classnames(styles.root)}>
     <h2 className={styles.sectionTitle}>Projects</h2>
-    {projects.map(({ node }) => <ProjectItem key={node.title} node={node} />)}
+    <div className={styles.projectItemList}>
+      {projects.map(({ node }) => <ProjectItem key={node.title} node={node} />)}
+    </div>
     <WidgetLinkButton
       url="https://resir014.github.io/projects"
       newtab={true}

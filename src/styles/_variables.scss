@@ -73,6 +73,20 @@ $font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe 
 $font-family-serif: "Zilla Slab", Georgia, "Times New Roman", Times, serif;
 $font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
+// Media breakpoints
+// (NOTE: Always use @media (min-width) when using these variables.)
+$media-breakpoint-xs: 0;
+$media-breakpoint-sm: 576px;
+$media-breakpoint-md: 768px;
+$media-breakpoint-lg: 992px;
+$media-breakpoint-xl: 1200px;
+
+// Dimensions for grid
+$max-width: 750px;
+$max-width-lg: 970px;
+$container-padding: 1.5rem;
+$container-padding-lg: 3rem;
+
 // Font dimensions
 $font-size: 16px;
 $font-size-lg: 18px;
@@ -149,17 +163,3 @@ $skill-level-proficient: $base0D;
 // ttbp specific variables
 $ttbp-permalink-date-link-color: lighten($base0E, 15%);
 $ttbp-permalink-background-color: lighten($base0E, 15%);
-
-// Media breakpoints
-// (NOTE: Always use @media (min-width) when using these variables.)
-$media-breakpoint-xs: 0;
-$media-breakpoint-sm: 576px;
-$media-breakpoint-md: 768px;
-$media-breakpoint-lg: 992px;
-$media-breakpoint-xl: 1200px;
-
-// Dimensions for grid
-$max-width: 750px;
-$max-width-lg: 970px;
-$container-padding: 1.5rem;
-$container-padding-lg: 3rem;
