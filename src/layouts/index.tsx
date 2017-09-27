@@ -8,7 +8,7 @@ import Footer from '../components/footer'
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'
 
-import './index.scss'
+import '../styles/globals.scss'
 
 interface WrapperProps {
   children: () => any

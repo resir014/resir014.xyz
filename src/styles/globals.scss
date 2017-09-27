@@ -1,9 +1,9 @@
+@import "~normalize.css";
+
 // 1. Configuration and helpers
 @import "variables";
 @import "functions";
 @import "mixins";
-
-@import "~normalize.css";
 
 // 2. Base stuff
 @import "base/base";
