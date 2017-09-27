@@ -31,7 +31,7 @@ const ProjectItem: React.SFC<ProjectNode> = ({ node }) => (
 )
 
 const ProjectView: React.SFC<ProjectsListProps> = ({ projects }) => (
-  <div className={classnames(styles.root, 'container')}>
+  <div className={classnames(styles.root)}>
     <h2 className={styles.sectionTitle}>Projects</h2>
     {projects.map(({ node }) => <ProjectItem key={node.title} node={node} />)}
     <WidgetLinkButton

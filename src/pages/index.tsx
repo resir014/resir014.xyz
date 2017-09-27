@@ -4,6 +4,7 @@ import Link from 'gatsby-link'
 import About from '../components/about'
 import ProjectView, { ProjectNode } from '../components/projectView'
 import SocialLinks, { SocialLinkNode } from '../components/socialLinks'
+import MessageBox from '../components/messageBox'
 
 interface IndexPageProps {
   data: {
@@ -17,7 +18,7 @@ interface IndexPageProps {
 }
 
 const IndexPage: React.SFC<IndexPageProps> = ({ data }) => (
-  <div>
+  <div className="container">
     <About />
     <ProjectView projects={data.allProjectsJson.edges} />
     <SocialLinks links={data.allSocialLinksJson.edges} />

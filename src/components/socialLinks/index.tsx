@@ -32,7 +32,7 @@ const SocialLink: React.SFC<SocialLinkNode> = ({ node }) => (
 )
 
 const SocialLinks: React.SFC<SocialLinksProps> = ({ links }) => (
-  <div className={classnames(styles.root, 'container')}>
+  <div className={classnames(styles.root)}>
     <h2 className={styles.sectionTitle}>Get in touch</h2>
     {links.map(({ node }) => <SocialLink key={node.title} node={node} />)}
   </div>
