@@ -8,66 +8,67 @@
   margin-bottom: 2rem;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  font-size: 2rem;
-  line-height: 1.25rem;
-  background-color: $heading-color;
-  background: url('./background.jpg') no-repeat center center;
-  background-size: cover;
+  color: $inverse-color;
+  background-color: $gray-1;
+  background: url('./stardust@2x.png') repeat;
   border-top: 8px solid $masthead-border-color;
 
   .title {
+    max-width: 75%;
+  }
+
+  .titleText {
     font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.25rem;
 
     a,
     span {
-      @include highlighted-text($heading-color);
+      @include highlighted-text($inverse-bg);
       color: $inverse-heading-color;
-      line-height: 1.6;
+      line-height: 1.5;
 
       @include on-event {
-        color: $masthead-title-hover-color;
         text-decoration: none;
       }
+    }
+
+    @media (min-width: $media-breakpoint-md) {
+      font-size: 2.5rem;
+      line-height: 1.125rem;
+    }
+
+    @media (min-width: $media-breakpoint-lg) {
+      font-size: 3rem;
+      line-height: 1.05rem;
     }
   }
 
   .flavorText {
+    font-size: 2rem;
+    line-height: 1.25rem;
+
     a,
     span {
-      @include highlighted-text($home-masthead-flavor-background-color);
+      @include highlighted-text($orange-3);
       font-family: $font-family-serif;
       color: $heading-color;
-      line-height: 1.6;
+      line-height: 1.4;
 
       @include on-event {
         color: $heading-color;
         text-decoration: none;
       }
     }
-  }
 
-  @media (min-width: $media-breakpoint-md) {
-    font-size: 2.5rem;
-    line-height: 1.125rem;
-  }
+    @media (min-width: $media-breakpoint-md) {
+      font-size: 2.5rem;
+      line-height: 1.125rem;
+    }
 
-  @media (min-width: $media-breakpoint-lg) {
-    font-size: 3rem;
-    line-height: 1.05rem;
-  }
-}
-
-.flavorText {
-  a,
-  span {
-    @include highlighted-text($masthead-title-background-color);
-    font-family: $font-family-serif;
-    color: $heading-color;
-    line-height: 1.6;
-
-    @include on-event {
-      color: $heading-color;
-      text-decoration: none;
+    @media (min-width: $media-breakpoint-lg) {
+      font-size: 3rem;
+      line-height: 1.05rem;
     }
   }
 }

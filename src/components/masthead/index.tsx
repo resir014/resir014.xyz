@@ -1,9 +1,9 @@
 import * as React from 'react'
+import * as classnames from 'classnames'
 import Link from 'gatsby-link'
 
 // These items do not have its necessary typings, so we simply `require()` it.
 const styles = require('./masthead.module.scss')
-const background = require('./background.jpg')
 
 interface MastheadProps {
   title: string
@@ -35,12 +35,14 @@ const flavors = [
 
 const Masthead: React.SFC<MastheadProps> = ({ title }) => (
   <header className={styles.root}>
-    <div className="container">
+    <div className={classnames('container')}>
       <div className={styles.title}>
-        <span>{title}</span>
-      </div>
-      <div className={styles.flavorText}>
-        <span>{flavors[Math.floor(Math.random() * flavors.length)]}</span>
+        <div className={styles.titleText}>
+          <span>{title}</span>
+        </div>
+        <div className={styles.flavorText}>
+          <span>{flavors[Math.floor(Math.random() * flavors.length)]}</span>
+        </div>
       </div>
     </div>
   </header>
