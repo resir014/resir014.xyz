@@ -27,16 +27,14 @@ interface WrapperProps {
   }
 }
 
-const helmetMetaTags = (data: any) => ([
-  { name: 'description', content: data.site.siteMetadata.description },
-  { name: 'keywords', content: 'sample, something' },
-])
-
 const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data }) => (
   <div>
     <Helmet
       title={data.site.siteMetadata.title}
-      meta={helmetMetaTags(data)}
+      meta={[
+        { name: 'description', content: data.site.siteMetadata.description },
+        { name: 'keywords', content: 'sample, something' },
+      ]}
     />
     <Masthead title={data.site.siteMetadata.title} />
     <main>
