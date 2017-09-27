@@ -2,7 +2,7 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import Masthead from '../components/masthead'
+import HomepageMasthead from '../components/homepageMasthead'
 import Footer from '../components/footer'
 
 import 'typeface-zilla-slab'
@@ -36,7 +36,7 @@ const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Masthead title={data.site.siteMetadata.title} />
+    <HomepageMasthead title={data.site.siteMetadata.title} />
     <main>
       {children()}
     </main>

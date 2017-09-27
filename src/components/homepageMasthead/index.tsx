@@ -33,7 +33,7 @@ const flavors = [
   'wants to be your friend'
 ]
 
-const Masthead: React.SFC<MastheadProps> = ({ title }) => (
+const HomepageMasthead: React.SFC<MastheadProps> = ({ title }) => (
   <header className={styles.root}>
     <div className={classnames('container')}>
       <div className={styles.title}>
@@ -48,4 +48,4 @@ const Masthead: React.SFC<MastheadProps> = ({ title }) => (
   </header>
 )
 
-export default Masthead
+export default HomepageMasthead
