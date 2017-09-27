@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: '@resir014',
     tagline: 'This is weird.',
-    description: 'The somewhat generic landing page of @resir014.',
+    description: 'Web developer based in Jakarta, Indonesia.',
     author: {
       name: 'Resi Respati',
       url: 'https://twitter.com/resir014',
@@ -15,11 +15,11 @@ module.exports = {
       options: {
         name: 'data',
         path: `${__dirname}/src/data`
-      },
+      }
     },
     'gatsby-transformer-json',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet'
-  ],
+  ]
 }
