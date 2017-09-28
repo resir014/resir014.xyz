@@ -12,8 +12,7 @@ const Footer = () => (
       </p>
       <p>
         <small>
-          Powered by <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>{' '}
-          using the <a href="https://github.com/blvdgroup/roundabout" target="_blank">Roundabout</a> theme.{' '}
+          Powered by <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>.{' '}
           Background by <a href="https://www.toptal.com/designers/subtlepatterns/" target="_blank">Subtle Patterns</a>.
         </small>
       </p>
