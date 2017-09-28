@@ -42,19 +42,24 @@ const flavors = [
   'probably likes you'
 ]
 
-const HomepageMasthead: React.SFC<MastheadProps> = ({ title }) => (
-  <header className={styles.root}>
-    <div className={classnames('container')}>
-      <div className={styles.title} onClick={() => navigateTo('/')}>
-        <div className={styles.titleText}>
-          <Link to="/">{title}</Link>
-        </div>
-        <div className={styles.flavorText}>
-          <span>{flavors[Math.floor(Math.random() * flavors.length)]}</span>
+const shuffleArray = (arr: any[]) => arr.sort(() => (Math.random() - 0.5))
+
+const HomepageMasthead: React.SFC<MastheadProps> = ({ title }) => {
+  const shuffledFlavorText = shuffleArray(flavors)
+  return (
+    <header className={styles.root}>
+      <div className={classnames('container')}>
+        <div className={styles.title} onClick={() => navigateTo('/')}>
+          <div className={styles.titleText}>
+            <Link to="/">{title}</Link>
+          </div>
+          <div className={styles.flavorText}>
+            <span>{shuffledFlavorText[0]}</span>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-)
+    </header>
+  )
+}
 
 export default HomepageMasthead
