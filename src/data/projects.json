@@ -52,6 +52,8 @@
     "title": "gnu-social-status",
     "year": 2016,
     "languages": [
+      "HTML",
+      "CSS",
       "JS"
     ],
     "details": "Monitors the status of popular GNU Social instances.",
