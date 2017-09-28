@@ -40,7 +40,7 @@ const HomepageMasthead: React.SFC<MastheadProps> = ({ title }) => (
     <div className={classnames('container')}>
       <div className={styles.title}>
         <div className={styles.titleText}>
-          <span>{title}</span>
+          <Link to="/">{title}</Link>
         </div>
         <div className={styles.flavorText}>
           <span>{flavors[Math.floor(Math.random() * flavors.length)]}</span>
