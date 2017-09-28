@@ -20,8 +20,8 @@ const AboutPage: React.SFC<{}> = () => (
       </p>
       <p>
         I love open-source software, and I have been extensively contributing{' '}
-        to the community for years. One of the biggest contributions was to{' '}
-        support the Indonesian localisation effort for the{' '}
+        to the community for years. One of the biggest contributions I've{' '}
+        made was to support the Indonesian localisation effort for the{' '}
         <a href="http://brackets.io/" target="_blank">Brackets editor</a>.{' '}
         On top of that, I also have many other utilities and personal{' '}
         projects that I host on my GitHub profile.
