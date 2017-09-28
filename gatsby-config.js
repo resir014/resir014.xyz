@@ -17,6 +17,12 @@ module.exports = {
         path: `${__dirname}/src/data`
       }
     },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://resir014.xyz',
+      }
+    },
     'gatsby-transformer-json',
     'gatsby-plugin-typescript',
     'gatsby-plugin-sass',
