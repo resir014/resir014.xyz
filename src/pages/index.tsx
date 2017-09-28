@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 
-import About from '../components/about'
+import Intro from '../components/intro'
 import ProjectView, { ProjectNode } from '../components/projectView'
 import SocialLinks, { SocialLinkNode } from '../components/socialLinks'
 import MessageBox from '../components/messageBox'
@@ -19,7 +19,7 @@ interface IndexPageProps {
 
 const IndexPage: React.SFC<IndexPageProps> = ({ data }) => (
   <div className="container">
-    <About />
+    <Intro />
     <ProjectView projects={data.allProjectsJson.edges} />
     <SocialLinks links={data.allSocialLinksJson.edges} />
   </div>

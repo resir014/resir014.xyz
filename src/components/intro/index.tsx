@@ -13,7 +13,7 @@ import WidgetLinkButton from '../widgetLinkButton'
 
 const styles = require('./styles.module.scss')
 
-const About: React.SFC<any> = () => (
+const Intro: React.SFC<any> = () => (
   <div className={classnames(styles.root)}>
     <h1 className={styles.sectionTitle}>Hey, call me Resi.</h1>
     <p className="lead">I'm a professional web developer based in Jakarta, Indonesia.</p>
@@ -25,4 +25,4 @@ const About: React.SFC<any> = () => (
   </div>
 )
 
-export default About
+export default Intro
