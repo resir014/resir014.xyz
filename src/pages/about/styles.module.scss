@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+@import "../../styles/functions";
+@import "../../styles/mixins";
+
+.root {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  .sectionTitle {
+    @include section-heading(.25rem);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
