@@ -15,8 +15,8 @@ const styles = require('./styles.module.scss')
 
 const About: React.SFC<any> = () => (
   <div className={classnames(styles.root)}>
-    <h1 className={styles.sectionTitle}>Here's a section heading.</h1>
-    <p className="lead">Add some more introductory text here later.</p>
+    <h1 className={styles.sectionTitle}>Hey, call me Resi.</h1>
+    <p className="lead">I'm a professional web developer based in Jakarta, Indonesia.</p>
     <p>
     <WidgetLinkButton tag={Link} to="/about">
       More about me
