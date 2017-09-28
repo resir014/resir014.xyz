@@ -1,13 +1,6 @@
-// tslint:disable:jsx-no-lambda
-
 import * as React from 'react'
 import * as classnames from 'classnames'
 import Link from 'gatsby-link'
-
-// FIXME: currently there's no TypeScript declarations for `navigateTo()`, so
-// the good ol' `require()` import is used until it's added.
-// https://github.com/gatsbyjs/gatsby/issues/2256
-// const { navigateTo } = require('gatsby-link')
 
 import WidgetLinkButton from '../widgetLinkButton'
 
