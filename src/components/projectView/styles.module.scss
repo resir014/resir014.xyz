@@ -13,50 +13,80 @@
   }
 
   .projectItemList {
+    @include clearfix;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     margin: 2rem 0;
+
+    @media (min-width: $media-breakpoint-md) {
+      flex-direction: row;
+    }
 
     > div {
       border-top: 2px solid $heading-color;
 
-      &:last-child {
-        border-bottom: 2px solid $heading-color;
-      }
+      // &:last-child {
+      //   border-bottom: 2px solid $heading-color;
+      // }
     }
   }
 }
 
 .projectItem {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
   padding-top: 1rem;
   padding-bottom: 1rem;
+
+  @media (min-width: $media-breakpoint-md) {
+    width: calc(50% - 1.5rem);
+    margin: 0 auto;
+
+    &:nth-child(odd) {
+      margin-left: 0;
+    }
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
 
   .projectName {
     margin-top: 0;
   }
 
   .projectLanguage {
-    padding: .25em .75em;
-    font-size: 85%;
-    color: $white;
-    background-color: lighten($black, 15%);
-    border-radius: 3px;
+    span {
+      padding: .25em .75em;
+      font-size: 85%;
+      color: $white;
+      background-color: lighten($black, 15%);
+      border-radius: 3px;
 
-    + .projectLanguage {
-      margin-left: .5rem;
+      + span {
+        margin-left: .5rem;
+      }
     }
   }
 
   .projectDetailBox {
-    margin-top: 1rem;
+    margin: 1rem 0;
 
     p {
       margin-bottom: 0;
     }
   }
 
+  .projectFooter {
+    margin-top: auto;
+  }
+
   .projectLink {
     display: inline-block;
-    margin-top: 1rem;
+    margin-top: auto;
     padding: .25rem .5rem;
     border: 2px solid $link-color;
 
@@ -65,17 +95,6 @@
       border-color: $link-hover-color;
       background-color: $link-hover-color;
       text-decoration: none;
-    }
-  }
-
-  // Use different background if it's an external post.
-  .external {
-    @include highlighted-text($post-archive-external-background-color, 0, .25rem);
-    color: $heading-color;
-
-    @include on-event {
-      background-color: darken($post-archive-external-background-color, 5%);
-      color: $heading-color;
     }
   }
 

@@ -20,20 +20,24 @@ export interface ProjectsListProps {
 }
 
 const ProjectItem: React.SFC<ProjectNode> = ({ node }) => (
-  <div className={styles.projectItem}>
+  <div className={classnames(styles.projectItem)}>
     <h3 className={styles.projectName}>
       {node.title}
       <span className={styles.projectYear}>{node.year}</span>
     </h3>
-    {node.languages.map(language => (
-      <span className={styles.projectLanguage} key={language}>{language}</span>
-    ))}
+    <div className={styles.projectLanguage}>
+      {node.languages.map(language => (
+        <span key={language}>{language}</span>
+      ))}
+    </div>
     <div className={styles.projectDetailBox}>
       <p
         className={styles.projectDetails}
         dangerouslySetInnerHTML={{ __html: node.details }}
       />
-      <a className={styles.projectLink} href={node.url} target="_blank">Go to project</a>
+    </div>
+    <div className={styles.projectFooter}>
+      <a className={styles.projectLink} href={node.url} target="_blank">Visit project</a>
     </div>
   </div>
 )
@@ -41,7 +45,7 @@ const ProjectItem: React.SFC<ProjectNode> = ({ node }) => (
 const ProjectView: React.SFC<ProjectsListProps> = ({ projects }) => (
   <div className={classnames(styles.root)}>
     <h2 className={styles.sectionTitle}>Projects</h2>
-    <div className={styles.projectItemList}>
+    <div className={classnames(styles.projectItemList)}>
       {projects.map(({ node }) => <ProjectItem key={node.title} node={node} />)}
     </div>
     <WidgetLinkButton
