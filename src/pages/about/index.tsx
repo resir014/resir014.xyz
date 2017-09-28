@@ -38,13 +38,13 @@ const AboutPage: React.SFC<{}> = () => (
     <div className={classnames(styles.root, 'container')}>
       <h2 className={styles.sectionTitle}>Skills</h2>
       <h3>Presentation</h3>
-      <p>Bootstrap, CSS, HTML, Sass</p>
+      <p>Bootstrap (3+), CSS, HTML, Sass</p>
       <h3>JavaScript</h3>
-      <p>Angular (2+), ES6, jQuery, React, TypeScript, Webpack</p>
+      <p>Angular (2+), ES6, jQuery, Node.js, React, TypeScript, Webpack</p>
       <h3>Server-side</h3>
       <p>Express, Laravel, Phoenix (learning)</p>
       <h3>Other</h3>
-      <p>Elixir (learning), Git</p>
+      <p>C#, Elixir (learning), Git, Java, SQL</p>
     </div>
   </div>
 )

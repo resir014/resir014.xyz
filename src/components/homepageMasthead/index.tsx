@@ -17,7 +17,7 @@ interface MastheadProps {
 }
 
 const flavors = [
-  'has an internet connection',
+  'is a web developer',
   'writes code',
   'drives an Asp Explorer',
   'is online',
@@ -36,7 +36,7 @@ const flavors = [
   'listens to music',
   'has a laptop',
   'wrote this flavor text',
-  'is a web developer',
+  'has an internet connection',
   'sleeps at night',
   'is not a furry',
   'probably likes you'
