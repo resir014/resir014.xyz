@@ -1,11 +1,30 @@
-# gatsby-starter-default
+# resir014.xyz
 
-> The default Gatsby starter
+> Source code for [resir014.xyz](https://resir014.xyz).
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+## Developing
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+A nodejs >= 6.0.0 setup with [yarn](https://yarnpkg.com/) is recommended.
 
-```bash
-$ gatsby new gatsby-example-site
+``` bash
+# install dependencies
+yarn
+
+# ...or if you'd like to use npm instead
+npm install
+
+# serve with hot reload at localhost:8000
+npm start
+
+# build for production
+npm run build
+
+# build for production and push to gh-pages branch
+npm run deploy
+
+# TODO: tests
 ```
+
+## Credits
+
+Built with [Gatsby](https://www.gatsbyjs.org/) - the blazing-fast static site generator for [React](https://facebook.github.io/react/).
