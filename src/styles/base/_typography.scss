@@ -14,13 +14,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2rem;
-  line-height: 1.25;
-
-  @media (min-width: $media-breakpoint-md) {
-    font-size: 2.5rem;
-    line-height: 1.125;
-  }
+  font-size: 2.5rem;
+  line-height: 1.125;
 
   @media (min-width: $media-breakpoint-lg) {
     font-size: 3rem;
@@ -29,8 +24,8 @@ h1 {
 }
 
 h2 {
-  font-size: 1.62rem;
-  line-height: 1.15384615;
+  font-size: 2rem;
+  line-height: 1.25;
 
   @media (min-width: $media-breakpoint-md) {
     font-size: 2rem;
@@ -43,13 +38,8 @@ h2 {
 }
 
 h3 {
-  font-size: 1.375rem;
-  line-height: 1.13636364;
-
-  @media (min-width: $media-breakpoint-md) {
-    font-size: 1.5rem;
-    line-height: 1.25;
-  }
+  font-size: 1.5rem;
+  line-height: 1.25;
 
   @media (min-width: $media-breakpoint-lg) {
     font-size: 1.75rem;
