@@ -3,20 +3,39 @@ import * as classnames from 'classnames'
 
 const styles = require('./styles.module.scss')
 
-export interface WidgetLinkButtonProps {
-  url: string
-  newtab: boolean
+interface WidgetLinkButtonProps extends React.HTMLProps<HTMLButtonElement> {
+  tag?: React.ReactType | string
+  to?: string
 }
 
-const WidgetLinkButton: React.SFC<WidgetLinkButtonProps> = ({ url, newtab, children }) => (
-  <a
-    className={styles.root}
-    href={url}
-    target={newtab ? '_blank' : ''}
-    rel={newtab ? 'noopener' : ''}
-  >
-    {children}
-  </a>
-)
+class WidgetLinkButton extends React.Component<WidgetLinkButtonProps, {}> {
+  public static defaultProps: Partial<WidgetLinkButtonProps> = {
+    tag: 'a'
+  }
+
+  constructor(props: any) {
+    super(props)
+  }
+
+  public render() {
+    let {
+      tag: Tag,
+      children
+    } = this.props
+
+    if (this.props.href && Tag === 'button') {
+      Tag = 'a'
+    }
+
+    return (
+      <Tag
+        className={styles.root}
+        {...this.props}
+      >
+        {children}
+      </Tag>
+    )
+  }
+}
 
 export default WidgetLinkButton

@@ -45,10 +45,10 @@ const ProjectView: React.SFC<ProjectsListProps> = ({ projects }) => (
       {projects.map(({ node }) => <ProjectItem key={node.title} node={node} />)}
     </div>
     <WidgetLinkButton
-      url="https://resir014.github.io/projects"
-      newtab={true}
+      href="https://resir014.github.io/projects"
+      target="_blank"
     >
-      More projects
+      More projects<br />(on resir014.github.io)
     </WidgetLinkButton>
   </div>
 )

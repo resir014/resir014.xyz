@@ -26,5 +26,6 @@
   @include on-event {
     border-bottom-color: $link-hover-color;
     text-decoration: none;
+    cursor: pointer;
   }
 }
