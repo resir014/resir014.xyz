@@ -21,6 +21,7 @@
 
     @media (min-width: $media-breakpoint-md) {
       flex-direction: row;
+      border-bottom: 0;
     }
 
     > div {
