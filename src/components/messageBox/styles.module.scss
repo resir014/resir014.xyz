@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+@import "../../styles/functions";
+@import "../../styles/mixins";
+
+.root {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: $body-color;
+  background-color: $code-background-color;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}

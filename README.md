@@ -1,29 +1,30 @@
-resir014.xyz
-============
+# resir014.xyz
 
 > Source code for [resir014.xyz](https://resir014.xyz).
 
-Developing
-----------
+## Developing
 
-Requirements:
-* Git
-* Ruby (v2.0.0+)
-* Bundler
-  (included from within Rails (`gem install rails`) or `gem install bundler`)
-* Jekyll <http://jekyllrb.com/>
-  (install from within Ruby: `gem install jekyll`)
+A nodejs >= 6.0.0 setup with [yarn](https://yarnpkg.com/) is recommended.
 
-Clone it. (`git clone https://github.com/resir014/resir014.xyz.git`)
+``` bash
+# install dependencies
+yarn
 
-Then install all the bundled plugins.
+# ...or if you'd like to use npm instead
+npm install
 
-```bash
-$ bundle install
+# serve with hot reload at localhost:8000
+npm start
+
+# build for production
+npm run build
+
+# build for production and push to gh-pages branch
+npm run deploy
+
+# TODO: tests
 ```
 
-After the plugins are installed, we can now run a local server from within our computer.
+## Credits
 
-```bash
-$ bundle exec jekyll serve
-```
+Built with [Gatsby](https://www.gatsbyjs.org/) - the blazing-fast static site generator for [React](https://facebook.github.io/react/).

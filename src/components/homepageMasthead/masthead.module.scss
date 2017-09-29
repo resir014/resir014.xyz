@@ -1,0 +1,76 @@
+@import "../../styles/variables";
+@import "../../styles/functions";
+@import "../../styles/mixins";
+
+.root {
+  @include clearfix;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  color: $inverse-color;
+  background-color: $gray-1;
+  background: url('./background.png') repeat;
+  border-top: 8px solid $masthead-border-color;
+
+  .title {
+    @media (min-width: $media-breakpoint-lg) {
+      max-width: 75%;
+    }
+  }
+
+  .titleText {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.25rem;
+
+    a,
+    span {
+      @include highlighted-text($body-bg);
+      color: $heading-color;
+      line-height: 1.5;
+
+      @include on-event {
+        text-decoration: none;
+      }
+    }
+
+    @media (min-width: $media-breakpoint-md) {
+      font-size: 2.5rem;
+      line-height: 1.125rem;
+    }
+
+    @media (min-width: $media-breakpoint-lg) {
+      font-size: 3rem;
+      line-height: 1.05rem;
+    }
+  }
+
+  .flavorText {
+    font-size: 2rem;
+    line-height: 1.25rem;
+
+    a,
+    span {
+      @include highlighted-text($orange-3);
+      font-family: $font-family-serif;
+      color: $heading-color;
+      line-height: 1.4;
+
+      @include on-event {
+        color: $heading-color;
+        text-decoration: none;
+      }
+    }
+
+    @media (min-width: $media-breakpoint-md) {
+      font-size: 2.5rem;
+      line-height: 1.125rem;
+    }
+
+    @media (min-width: $media-breakpoint-lg) {
+      font-size: 3rem;
+      line-height: 1.05rem;
+    }
+  }
+}
