@@ -36,7 +36,7 @@ module.exports = class HTML extends React.Component<HtmlProps, void> {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <link rel="shortcut icon" href="favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico" />
           {this.props.headComponents}
           {css}
         </head>
