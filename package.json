@@ -11,7 +11,8 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "deploy": "rimraf public && gatsby build --prefix-paths && gh-pages -d public",
+    "clean": "rimraf public",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "develop": "gatsby develop",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
     "start": "npm run develop",
