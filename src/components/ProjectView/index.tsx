@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
 
-import WidgetLinkButton from '../widgetLinkButton'
+import WidgetLinkButton from '../WidgetLinkButton'
 
 const styles = require('./styles.module.scss')
 

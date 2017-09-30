@@ -2,8 +2,8 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import HomepageMasthead from '../components/homepageMasthead'
-import Footer from '../components/footer'
+import HomepageMasthead from '../components/HomepageMasthead'
+import Footer from '../components/Footer'
 
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'

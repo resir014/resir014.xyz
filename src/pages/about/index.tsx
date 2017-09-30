@@ -4,8 +4,8 @@ import * as classnames from 'classnames'
 
 const styles = require('./styles.module.scss')
 
-import Intro from '../../components/intro'
-import WidgetLinkButton from '../../components/widgetLinkButton'
+import Intro from '../../components/Intro'
+import WidgetLinkButton from '../../components/WidgetLinkButton'
 
 const AboutPage: React.SFC<{}> = () => (
   <div>
