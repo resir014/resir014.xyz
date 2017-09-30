@@ -42,7 +42,9 @@ const AboutPage: React.SFC<{}> = () => (
       </WidgetLinkButton>
     </div>
     <div className={classnames(styles.root, 'container')}>
-      <h2 className={styles.sectionTitle}>Skills</h2>
+      <PageHeader>
+        <h1 className={styles.sectionTitle}>Skills</h1>
+      </PageHeader>
       <h3>Presentation</h3>
       <p>Bootstrap (3+), CSS, HTML, Sass</p>
       <h3>JavaScript</h3>
