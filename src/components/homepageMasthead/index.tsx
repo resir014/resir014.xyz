@@ -16,6 +16,10 @@ interface MastheadProps {
   title: string
 }
 
+interface MastheadState {
+  canShuffleSplash: boolean
+}
+
 const flavors = [
   'is a web developer',
   'writes code',
@@ -42,24 +46,48 @@ const flavors = [
   'probably likes you'
 ]
 
-const shuffleArray = (arr: any[]) => arr.sort(() => (Math.random() - 0.5))
+class HomepageMasthead extends React.Component<MastheadProps, MastheadState> {
+  constructor() {
+    super()
 
-const HomepageMasthead: React.SFC<MastheadProps> = ({ title }) => {
-  const shuffledFlavorText = shuffleArray(flavors)
-  return (
-    <header className={styles.root}>
-      <div className={classnames('container')}>
-        <div className={styles.title} onClick={() => navigateTo('/')}>
-          <div className={styles.titleText}>
-            <Link to="/">{title}</Link>
-          </div>
-          <div className={styles.flavorText}>
-            <span>{shuffledFlavorText[0]}</span>
+    this.state = {
+      canShuffleSplash: false
+    }
+  }
+
+  public componentDidMount() {
+    this.setState({ canShuffleSplash: true })
+  }
+
+  public render() {
+    const { title } = this.props
+    const { canShuffleSplash } = this.state
+
+    return (
+      <header className={styles.root}>
+        <div className={classnames('container')}>
+          <div className={styles.title} onClick={() => navigateTo('/')}>
+            <div className={styles.titleText}>
+              <Link to="/">{title}</Link>
+            </div>
+            <div className={styles.flavorText}>
+              <span>
+                {
+                  // Gatsby prerenders the splash text and puts it on the
+                  // static HTML, so we'll put the prerendered text around a
+                  // <noscript> tag so it'll only be shown when the user has
+                  // JavaScript disabled.
+                  canShuffleSplash
+                    ? flavors[Math.floor(Math.random() * flavors.length)]
+                    : (<noscript>{flavors[0]}</noscript>)
+                }
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
-  )
+      </header>
+    )
+  }
 }
 
 export default HomepageMasthead
