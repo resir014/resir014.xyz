@@ -6,12 +6,18 @@ const styles = require('./styles.module.scss')
 
 import Intro from '../../components/Intro'
 import WidgetLinkButton from '../../components/WidgetLinkButton'
+import PageHeader from '../../components/PageHeader'
+import PageSubtitle from '../../components/PageSubtitle'
 
 const AboutPage: React.SFC<{}> = () => (
   <div>
     <div className={classnames(styles.root, 'container')}>
-      <h1 className={styles.sectionTitle}>About</h1>
-      <p className="lead">Hey, call me Resi! I’m a web developer.</p>
+      <PageHeader>
+        <h1 className={styles.sectionTitle}>About</h1>
+      </PageHeader>
+      <p className="lead">
+        Hey, call me Resi! I'm a web developer.
+      </p>
       <p>
         I started getting into web development when I self-learned HTML and{' '}
         CSS back in high school. I currently work as a junior web developer{' '}

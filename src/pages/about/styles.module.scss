@@ -7,8 +7,7 @@
   padding-bottom: 2rem;
 
   .sectionTitle {
-    @include section-heading(.25rem);
-    margin-top: 0;
-    margin-bottom: 1rem;
+    margin: 0;
+    color: $inverse-heading-color;
   }
 }
