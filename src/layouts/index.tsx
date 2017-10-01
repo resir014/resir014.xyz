@@ -32,8 +32,7 @@ const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data }) => (
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
-        { name: 'description', content: data.site.siteMetadata.description },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: data.site.siteMetadata.description }
       ]}
     />
     <HomepageMasthead title={data.site.siteMetadata.title} />
