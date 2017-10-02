@@ -7,7 +7,7 @@
   padding-bottom: 2rem;
 
   .sectionTitle {
-    @include section-heading(.25rem);
+    @include section-heading();
     margin-top: 0;
     margin-bottom: 1rem;
   }
