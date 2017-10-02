@@ -2,9 +2,9 @@ import * as React from 'react'
 import * as classnames from 'classnames'
 import Link from 'gatsby-link'
 
-import WidgetLinkButton from '../WidgetLinkButton'
+import WidgetLinkButton from '../WidgetLinkButton/WidgetLinkButton'
 
-const styles = require('./styles.module.scss')
+const styles = require('./Intro.module.scss')
 
 const Intro: React.SFC<any> = () => (
   <div className={classnames(styles.root)}>

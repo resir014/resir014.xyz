@@ -10,7 +10,7 @@ import Link from 'gatsby-link'
 const { navigateTo } = require('gatsby-link')
 
 // These items do not have its necessary typings, so we simply `require()` it.
-const styles = require('./masthead.module.scss')
+const styles = require('./HomepageMasthead.module.scss')
 
 interface MastheadProps {
   title: string

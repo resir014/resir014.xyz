@@ -11,15 +11,4 @@
     margin-top: 0;
     margin-bottom: 1rem;
   }
-
-  .socialLink {
-    @include highlighted-text($blue-3);
-    color: $heading-color;
-    line-height: 1.6;
-
-    @include on-event {
-      background-color: darken($blue-3, 15%);
-      text-decoration: none;
-    }
-  }
 }

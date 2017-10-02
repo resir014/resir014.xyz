@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
 
-const styles = require('./styles.module.scss')
+const styles = require('./WidgetLinkButton.module.scss')
 
 interface WidgetLinkButtonProps extends React.HTMLProps<HTMLButtonElement> {
   tag?: React.ReactType | string

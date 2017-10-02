@@ -1,10 +1,13 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 
-import Intro from '../components/Intro'
-import ProjectView, { ProjectNode } from '../components/ProjectView'
-import SocialLinks, { SocialLinkNode } from '../components/SocialLinks'
-import MessageBox from '../components/MessageBox'
+import Intro from '../components/Intro/Intro'
+import ProjectView from '../components/ProjectView/ProjectView'
+import SocialLinks from '../components/SocialLinks/SocialLinks'
+import MessageBox from '../components/MessageBox/MessageBox'
+
+import { ProjectNode } from '../components/ProjectView/types'
+import { SocialLinkNode } from '../components/SocialLinks/types'
 
 interface IndexPageProps {
   data: {
