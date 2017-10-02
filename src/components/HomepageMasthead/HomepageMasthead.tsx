@@ -4,13 +4,12 @@ import * as React from 'react'
 import * as classnames from 'classnames'
 import Link from 'gatsby-link'
 
+import * as styles from './HomepageMasthead.module.scss'
+
 // FIXME: currently there's no TypeScript declarations for `navigateTo()`, so
 // the good ol' `require()` import is used until it's added.
 // https://github.com/gatsbyjs/gatsby/issues/2256
 const { navigateTo } = require('gatsby-link')
-
-// These items do not have its necessary typings, so we simply `require()` it.
-const styles = require('./HomepageMasthead.module.scss')
 
 interface MastheadProps {
   title: string

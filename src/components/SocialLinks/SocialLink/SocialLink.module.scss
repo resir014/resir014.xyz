@@ -1,3 +1,7 @@
+@import "../../../styles/variables";
+@import "../../../styles/functions";
+@import "../../../styles/mixins";
+
 .socialLink {
   @include highlighted-text($blue-3);
   color: $heading-color;

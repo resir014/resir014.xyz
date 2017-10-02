@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 
 import WidgetLinkButton from '../WidgetLinkButton/WidgetLinkButton'
 
-const styles = require('./Intro.module.scss')
+import * as styles from './Intro.module.scss'
 
 const Intro: React.SFC<any> = () => (
   <div className={classnames(styles.root)}>

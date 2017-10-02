@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const styles = require('./PageHeader.module.scss')
+import * as styles from './PageHeader.module.scss'
 
 interface PageProps {
   headerImage?: string

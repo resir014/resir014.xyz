@@ -4,7 +4,7 @@ import * as classnames from 'classnames'
 import SocialLink from './SocialLink/SocialLink'
 import { SocialLinkNode } from './types'
 
-const styles = require('./SocialLinks.module.scss')
+import * as styles from './SocialLinks.module.scss'
 
 export interface SocialLinksProps {
   links: SocialLinkNode[]

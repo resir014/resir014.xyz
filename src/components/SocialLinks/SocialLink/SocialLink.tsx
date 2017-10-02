@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { SocialLinkNode } from '../types'
 
-const styles = require('./SocialLink.module.scss')
+import * as styles from './SocialLink.module.scss'
 
 const SocialLink: React.SFC<SocialLinkNode> = ({ node }) => (
   <div>

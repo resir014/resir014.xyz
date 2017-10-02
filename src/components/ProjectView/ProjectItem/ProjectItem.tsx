@@ -3,7 +3,7 @@ import * as classnames from 'classnames'
 
 import { ProjectNode } from '../types'
 
-const styles = require('./styles.module.scss')
+import * as styles from './ProjectItem.module.scss'
 
 const ProjectItem: React.SFC<ProjectNode> = ({ node }) => (
   <div className={classnames(styles.projectItem)}>

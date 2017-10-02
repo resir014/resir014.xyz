@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const styles = require('./MessageBox.module.scss')
+import * as styles from './MessageBox.module.scss'
 
 const MessageBox: React.SFC<{}> = ({ children }) => (
   <div className={styles.root}>

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 
-const styles = require('./PageSubtitle.module.scss')
+import * as styles from './PageSubtitle.module.scss'
 
 interface PageSubtitleProps {
 }

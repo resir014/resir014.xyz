@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-const styles = require('./Footer.module.scss')
+import * as styles from './Footer.module.scss'
 
 const Footer = () => (
   <footer className={styles.root}>

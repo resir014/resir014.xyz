@@ -6,7 +6,7 @@ import ProjectItem from './ProjectItem/ProjectItem'
 
 import { ProjectNode } from './types'
 
-const styles = require('./ProjectView.module.scss')
+import * as styles from './ProjectView.module.scss'
 
 export interface ProjectViewProps {
   projects: ProjectNode[]
