@@ -40,24 +40,24 @@ module.exports = class HTML extends React.Component<HtmlProps, void> {
             rel="icon"
             type="image/png"
             sizes="192x192"
-            href={process.env.__PATH_PREFIX__ + '/android-touch-icon.png'}
+            href={process.env.__PATH_PREFIX__ || '' + '/android-touch-icon.png'}
           />
           <link
             rel="icon"
             type="image/png"
             sizes="180x180"
-            href={process.env.__PATH_PREFIX__ + '/apple-touch-icon.png'}
+            href={process.env.__PATH_PREFIX__ || '' + '/apple-touch-icon.png'}
           />
           <link
             rel="icon"
             type="image/png"
             sizes="144x144"
-            href={process.env.__PATH_PREFIX__ + '/windows-tile-icon.png'}
+            href={process.env.__PATH_PREFIX__ || '' + '/windows-tile-icon.png'}
           />
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href={process.env.__PATH_PREFIX__ + '/apple-touch-icon.png'}
+            href={process.env.__PATH_PREFIX__ || '' + '/apple-touch-icon.png'}
           />
           <link rel="shortcut icon" href={process.env.__PATH_PREFIX__ + '/favicon.png'} />
           {this.props.headComponents}
