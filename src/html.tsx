@@ -59,7 +59,7 @@ module.exports = class HTML extends React.Component<HtmlProps, void> {
             sizes="180x180"
             href={process.env.__PATH_PREFIX__ || '' + '/apple-touch-icon.png'}
           />
-          <link rel="shortcut icon" href={process.env.__PATH_PREFIX__ + '/favicon.png'} />
+          <link rel="shortcut icon" href={process.env.__PATH_PREFIX__ || '' + '/favicon.png'} />
           {this.props.headComponents}
           {css}
         </head>
