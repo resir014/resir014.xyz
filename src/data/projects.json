@@ -1,0 +1,83 @@
+[
+  {
+    "title": "node-mpw",
+    "year": 2017,
+    "tags": [
+      "typescript"
+    ],
+    "details": "Implementation of <a href=\"https://ssl.masterpasswordapp.com/algorithm.html\" target=\"_blank\">the Master Password algorithm</a> for nodejs and browser.",
+    "url": "https://github.com/blvdgroup/node-mpw"
+  },
+  {
+    "title": "stars-not-hearts",
+    "year": 2016,
+    "tags": [
+      "css"
+    ],
+    "details": "Custom CSS to replace the heart icons on <a href=\"https://twitter.com/\" target=\"_blank\">Twitter</a> and <a href=\"https://tweetdeck.twitter.com/\" target=\"_blank\">TweetDeck</a> to stars.",
+    "url": "https://github.com/resir014/stars-not-hearts"
+  },
+  {
+    "title": "gnu-social-status",
+    "year": 2016,
+    "tags": [
+      "html",
+      "css",
+      "js"
+    ],
+    "details": "Monitors the status of popular GNU Social instances.",
+    "url": "https://resir014.github.io/gnu-social-status/"
+  },
+  {
+    "title": "@everyjs",
+    "year": 2016,
+    "tags": [
+      "twitter"
+    ],
+    "details": "An everyword-like Twitter bot appending \".js\" to every word.",
+    "url": "https://twitter.com/everyjs"
+  },
+  {
+    "title": "Screeps",
+    "year": 2016,
+    "tags": [
+      "js",
+      "typescript",
+      "gaming"
+    ],
+    "details": "AI scripts and starter packs I've made for the game <a href=\"https://screeps.com/\" target=\"_blank\">Screeps</a>.",
+    "url": "/projects/2016/screeps/"
+  },
+  {
+    "title": "Most Reliable Lightweight CSS Reset™",
+    "year": 2015,
+    "tags": [
+      "css",
+      "satire"
+    ],
+    "details": "AI scripts and starter packs I've made for the game <a href=\"https://screeps.com/\" target=\"_blank\">Screeps</a>.",
+    "url": "/projects/2016/screeps/"
+  },
+  {
+    "title": "Clear Sans Webfont",
+    "year": 2014,
+    "tags": [
+      "css",
+      "webfonts"
+    ],
+    "langclass": "project-language--typescript",
+    "details": "Webfont conversion of the <a href=\"https://01.org/clear-sans\" target=\"_blank\">Clear Sans</a> typeface designed by Intel.",
+    "url": "https://resir014.github.io/Clear-Sans-Webfont/"
+  },
+  {
+    "title": "Tumblr Boilerplate",
+    "year": 2014,
+    "tags": [
+      "html",
+      "css",
+      "js"
+    ],
+    "details": "A base starter kit for developing Tumblr themes.",
+    "url": "https://github.com/resir014/Tumblr-Boilerplate"
+  }
+]

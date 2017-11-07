@@ -1,0 +1,17 @@
+// @import "~normalize.css";
+
+// 1. Configuration and helpers
+@import "variables";
+@import "functions";
+@import "mixins";
+
+// 2. Base stuff
+@import "base/base";
+@import "base/typography";
+@import "base/code";
+
+// Make min-height compulsory.
+#___gatsby,
+[data-reactroot] {
+  height: 100% !important;
+}
