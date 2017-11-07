@@ -56,7 +56,7 @@ const homepageContent = css({
     marginTop: 0,
     color: colors.black,
 
-    '& span': merge(sectionHeading(colors.white, '.25rem', '.25rem')),
+    '& span': merge(sectionHeading(colors.white, 0, '.25rem')),
 
     [breakpoints.lg]: {
       fontSize: '3rem'
