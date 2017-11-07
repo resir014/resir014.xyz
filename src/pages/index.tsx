@@ -59,7 +59,7 @@ const homepageContent = css({
     '& span': merge(sectionHeading(colors.white, '.25rem', '.25rem')),
 
     [breakpoints.lg]: {
-      fontSize: '4rem'
+      fontSize: '3rem'
     }
   },
 
@@ -71,7 +71,7 @@ const homepageContent = css({
     '& span': merge(sectionHeading(colors.white, 0, '.25rem')),
 
     [breakpoints.md]: {
-      fontSize: '1.75rem'
+      fontSize: '1.5rem'
     }
   },
 

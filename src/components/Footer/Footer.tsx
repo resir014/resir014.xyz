@@ -20,7 +20,8 @@ const Footer: React.SFC = () => (
     <Container>
       <p>
         <small>
-          &copy; 2017 Resi Respati. All right reserved.
+        Except where otherwise noted, contents are licensed under{' '}
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>.
         </small>
       </p>
       <p>
