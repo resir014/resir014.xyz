@@ -68,7 +68,7 @@ const homepageContent = css({
     fontSize: '1.25rem',
     color: colors.black,
 
-    '& span': merge(sectionHeading(colors.white, 0, '.25rem')),
+    '& span': merge(highlightedText(colors.white, 0, '.25rem')),
 
     [breakpoints.md]: {
       fontSize: '1.5rem'

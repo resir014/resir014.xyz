@@ -19,6 +19,9 @@ const Footer: React.SFC = () => (
   <footer className={css(styles.footer)}>
     <Container>
       <p>
+        <small>Now with 100% more colors&trade;.</small>
+      </p>
+      <p>
         <small>
         Except where otherwise noted, contents are licensed under{' '}
         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>.

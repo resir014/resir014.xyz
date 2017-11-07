@@ -15,9 +15,10 @@ export const highlightedText = (
   verticalPad: string | number = 0,
   horizontalPad: string | number = '.5rem'
 ) => ({
-  display: 'inline-block',
+  margin: 0,
   padding: `${verticalPad} ${horizontalPad}`,
   backgroundColor: background,
+  boxDecorationBreak: 'clone'
 })
 
 // 1. Negative margin is applied according to the container margin to

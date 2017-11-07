@@ -38,12 +38,12 @@ const pageHeaderTitleClass = css({
     marginBottom: '.5rem',
     fontSize: '80%',
 
-    '& span': merge(sectionHeading(colors.white, 0, '1rem'))
+    '& span': merge(sectionHeading(colors.white, 0, '.5rem'))
   },
 
   '& .page-title, & .post-title': {
     margin: 0,
-    '& span': merge(sectionHeading(colors.white, '.5rem', '1rem'))
+    '& span': merge(sectionHeading(colors.white, '.25rem', '.5rem'))
   },
 })
 
