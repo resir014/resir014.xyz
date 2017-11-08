@@ -59,7 +59,8 @@ const homepageContent = css({
     '& span': merge(sectionHeading(colors.white, 0, '.25rem')),
 
     [breakpoints.lg]: {
-      fontSize: '3rem'
+      fontSize: '3rem',
+      lineHeight: 1.15
     }
   },
 
