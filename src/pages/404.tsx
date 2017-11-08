@@ -1,11 +1,16 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
+import { css } from 'glamor'
 import Helmet from 'react-helmet'
 
 import { Masthead } from '../components/Masthead'
 import { Container } from '../components/Container'
 import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
+
+const notFoundPageContentClass = css({
+  marginTop: '3rem'
+})
 
 interface NotFoundPageProps {
   data: {
@@ -27,7 +32,9 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
           <h1 className="page-title"><span>404</span></h1>
         </PageHeader>
         <Container>
-          <p className="lead">You've hit the void. <Link to="/">Go back home.</Link></p>
+          <div className={`${notFoundPageContentClass}`}>
+            <p className="lead">You've hit the void. <Link to="/">Go back home.</Link></p>
+          </div>
         </Container>
       </article>
     </main>
