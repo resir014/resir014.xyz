@@ -87,10 +87,14 @@ const homeAboutButton = css({
   margin: '2rem 0',
 
   '& a': {
-    padding: '.5rem 1rem',
-    fontSize: '1.25rem',
+    padding: '.25rem .5rem',
     color: colors.white,
     border: `3px solid ${colors.white}`,
+
+    [breakpoints.lg]: {
+      padding: '.5rem 1rem',
+      fontSize: '1.25rem',
+    },
 
     '&:hover, &:focus': {
       color: colors.black,
