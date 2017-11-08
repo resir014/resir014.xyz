@@ -10,8 +10,8 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "search.exclude": {
-    ".cache/**": true,
     "public/**": true,
-    "node_modules/**": true
+    "node_modules/**": true,
+    ".cache/**": true
   }
 }

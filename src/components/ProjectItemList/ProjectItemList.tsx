@@ -1,19 +1,34 @@
 import * as React from 'react'
-import * as classnames from 'classnames'
+import { css } from 'glamor'
 
-import WidgetLinkButton from '../WidgetLinkButton/WidgetLinkButton'
-import ProjectItem from './ProjectItem/ProjectItem'
+import { WidgetLinkButton } from '../WidgetLinkButton'
+import { ProjectItem } from './ProjectItem'
 
-import { ProjectNode } from './types'
+import { colors, breakpoints } from '../../utils/theme'
+import { ProjectNode } from '../../utils/types'
 
-import * as styles from './ProjectItemList.module.scss'
+const projectsListClass = css({
+  display: 'flex',
+  flexDirection: 'column',
+  flexWrap: 'wrap',
+  borderBottom: `2px solid ${colors.black}`,
+
+  [breakpoints.md]: {
+    flexDirection: 'row',
+    borderBottom: 0
+  },
+
+  '> div': {
+    borderTop: `2px solid ${colors.black}`
+  }
+})
 
 export interface ProjectItemListProps {
   projects: ProjectNode[]
 }
 
 const ProjectItemList: React.SFC<ProjectItemListProps> = ({ projects }) => (
-  <div className={classnames(styles.projectItemList)}>
+  <div className={`${projectsListClass}`}>
     {projects.map(({ node }) => <ProjectItem key={node.title} node={node} />)}
   </div>
 )

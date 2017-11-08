@@ -1,14 +1,24 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import { css } from 'glamor'
 
-import HomepageMasthead from '../components/HomepageMasthead/HomepageMasthead'
+import { Masthead } from '../components/Masthead'
 import Footer from '../components/Footer/Footer'
+
+import { colors, breakpoints } from '../utils/theme'
 
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'
 
+import 'glamor/reset'
 import '../styles/globals.scss'
+import 'prism-themes/themes/prism-atom-dark.css'
+
+const contentWrapperClass = css({
+  position: 'relative',
+  height: '100%'
+})
 
 interface WrapperProps {
   children: () => any
@@ -32,14 +42,16 @@ const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data }) => (
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
-        { name: 'description', content: data.site.siteMetadata.description }
+        { name: 'description', content: data.site.siteMetadata.description },
+        { property: 'og:site_name', content: data.site.siteMetadata.title },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: data.site.siteMetadata.title },
+        { property: 'og:description', content: data.site.siteMetadata.description },
       ]}
     />
-    <HomepageMasthead title={data.site.siteMetadata.title} />
-    <main>
+    <div className={`${contentWrapperClass}`}>
       {children()}
-    </main>
-    <Footer />
+    </div>
   </div>
 )
 
@@ -49,11 +61,10 @@ export const query = graphql`
   query IndexQuery {
     site {
       siteMetadata {
-        title,
-        tagline,
-        description,
+        title
+        description
         author {
-          name,
+          name
           url
         }
       }

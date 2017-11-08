@@ -1,13 +1,30 @@
 import * as React from 'react'
+import { StyleSheet, css } from 'glamor/aphrodite'
 
-import * as styles from './Footer.module.scss'
+import { Container } from '../Container'
 
-const Footer = () => (
-  <footer className={styles.root}>
-    <div className="container">
+const styles = StyleSheet.create({
+  footer: {
+    marginTop: '3rem',
+    padding: '2rem 0',
+
+    '& p, & small': {
+      display: 'block',
+      margin: 0
+    }
+  }
+})
+
+const Footer: React.SFC = () => (
+  <footer className={css(styles.footer)}>
+    <Container>
+      <p>
+        <small>Now with 100% more colors&trade;.</small>
+      </p>
       <p>
         <small>
-          &copy; 2017 Resi Respati. All right reserved.
+        Except where otherwise noted, contents are licensed under{' '}
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>.
         </small>
       </p>
       <p>
@@ -16,7 +33,7 @@ const Footer = () => (
           Background by <a href="https://www.toptal.com/designers/subtlepatterns/" target="_blank">Subtle Patterns</a>.
         </small>
       </p>
-    </div>
+    </Container>
   </footer>
 )
 

@@ -1,26 +1,26 @@
 import * as React from 'react'
-import { StyleSheet, css } from 'aphrodite/no-important'
+import { css, merge } from 'glamor'
 
-const styles = StyleSheet.create({
-  widget: {
-    marginBottom: '3rem'
-  },
-  sectionTitle: {
-    display: 'inline-block',
+import { breakpoints, colors } from '../../utils/theme'
+import { sectionHeading } from '../../utils/mixins'
+
+const widgetClass = css({
+  padding: '1.5rem 0',
+  borderTop: `4px solid ${colors.black}`,
+
+  '& .widget-title': {
     marginTop: 0,
     marginBottom: '1rem',
-    marginLeft: 'calc(var(--container-padding) * -1)', // 1
-    marginRight: '-(var(--container-padding))', // 1
-    padding: '.5rem var(--container-padding)', // 2
-    backgroundColor: 'var(--post-header-background-color)',
-    color: 'var(--post-header-title-color)',
 
-    '@media (min-width: 992px)': {
-      marginLeft: 'calc(var(--container-padding-lg) * -1)', // 1
-      paddingLeft: 'var(--container-padding-lg)', // 2
-      paddingRight: '2rem' // 3
-    }
+    '& span': merge(sectionHeading(colors.black), {
+      paddingLeft: '1.5rem',
+      color: colors.white
+    })
   }
+})
+
+const widgetContentClass = css({
+  padding: '.5rem 1.5rem'
 })
 
 interface WidgetProps {
@@ -28,9 +28,9 @@ interface WidgetProps {
 }
 
 const Widget: React.SFC<WidgetProps> = ({ title, children }) => (
-  <div className={css(styles.widget)}>
-    {title ? <h2 className={css(styles.sectionTitle)}>{title}</h2> : ''}
-    {children}
+  <div className={`${widgetClass}`}>
+    {title ? <h2 className="widget-title"><span>{title}</span></h2> : ''}
+    <div className={`${widgetContentClass}`}>{children}</div>
   </div>
 )
 

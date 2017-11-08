@@ -1,81 +1,142 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
+import { css, merge } from 'glamor'
 
-import Intro from '../components/Intro/Intro'
-import ProjectItemList from '../components/ProjectItemList/ProjectItemList'
-import SocialLinks from '../components/SocialLinks/SocialLinks'
-import MessageBox from '../components/MessageBox/MessageBox'
-import Widget from '../components/Widget/Widget'
-import WidgetLinkButton from '../components/WidgetLinkButton/WidgetLinkButton'
+import { Masthead } from '../components/Masthead'
+import { Container } from '../components/Container'
+import { Footer } from '../components/Footer'
+import { Widget } from '../components/Widget'
 
-import { ProjectNode } from '../components/ProjectItemList/types'
-import { SocialLinkNode } from '../components/SocialLinks/types'
+import { colors, headerColors, breakpoints, widths } from '../utils/theme'
+import { sectionHeading, highlightedText } from '../utils/mixins'
+import flavorText from '../utils/flavorText'
+
+const getHeaderColor = () => headerColors[Math.floor(Math.random() * headerColors.length)]
+
+const homepageWrapper = css({
+  position: 'relative',
+  height: '100%',
+  background: `linear-gradient(to bottom right, ${getHeaderColor().gradientStart}, ${getHeaderColor().gradientEnd})`,
+  zIndex: 1,
+
+  ':before': {
+    content: ' ',
+    position: 'absolute',
+    zIndex: -1,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundImage: `url(/images/background.jpg)`,
+    backgroundSize: 'cover',
+    backgroundPositionY: 'center',
+    mixBlendMode: 'overlay',
+    opacity: 0.7
+  }
+})
+
+const homepageWrapperInner = css({
+  display: 'flex',
+  flexDirection: 'column',
+  paddingLeft: '1.5rem',
+  paddingRight: '1.5rem',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  maxWidth: widths.normal,
+
+  [breakpoints.lg]: {
+    maxWidth: widths.large
+  }
+})
+
+const homepageContent = css({
+  padding: '5rem 0',
+
+  '& .homepage-title': {
+    marginTop: 0,
+    color: colors.black,
+
+    '& span': merge(sectionHeading(colors.white, 0, '.25rem')),
+
+    [breakpoints.lg]: {
+      fontSize: '3rem',
+      lineHeight: 1.15
+    }
+  },
+
+  '& .homepage-flavour': {
+    margin: 0,
+    fontSize: '1.25rem',
+    color: colors.black,
+
+    '& span': merge(highlightedText(colors.white, 0, '.25rem')),
+
+    [breakpoints.md]: {
+      fontSize: '1.5rem'
+    }
+  },
+
+  [breakpoints.lg]: {
+    padding: '10rem 0'
+  }
+})
+
+const homeflavour = css(merge(highlightedText(colors.orange3, 0, '.25rem')))
+
+const homeAboutButton = css({
+  margin: '2rem 0',
+
+  '& a': {
+    padding: '.25rem .5rem',
+    color: colors.white,
+    border: `3px solid ${colors.white}`,
+
+    [breakpoints.lg]: {
+      padding: '.5rem 1rem',
+      fontSize: '1.25rem',
+    },
+
+    '&:hover, &:focus': {
+      color: colors.black,
+      textDecoration: 'none',
+      backgroundColor: colors.white
+    }
+  }
+})
 
 interface IndexPageProps {
   data: {
-    allProjectsJson: {
-      edges: ProjectNode[]
-    },
-    allSocialLinksJson: {
-      edges: SocialLinkNode[]
+    site: {
+      siteMetadata: {
+        title: string
+      }
     }
   }
 }
 
-const IndexPage: React.SFC<IndexPageProps> = ({ data }) => (
-  <div className="container">
-    <Widget title="Hey, call me Resi.">
-      <p className="lead">I'm a professional web developer based in Jakarta, Indonesia.</p>
-      <WidgetLinkButton tag={Link} to="/about">
-        More about me
-      </WidgetLinkButton>
-    </Widget>
-    <Widget title="Projects">
-      <ProjectItemList projects={data.allProjectsJson.edges} />
-      <WidgetLinkButton
-        href="https://resir014.github.io/projects"
-        target="_blank"
-      >
-        More projects<br />(on resir014.github.io)
-      </WidgetLinkButton>
-    </Widget>
-    <SocialLinks links={data.allSocialLinksJson.edges} />
+const IndexPage: React.SFC<IndexPageProps> = ({ children, data }) => (
+  <div className={`${homepageWrapper}`}>
+    <Masthead title={data.site.siteMetadata.title} isHomepage={true} />
+    <main className={`${homepageWrapperInner}`}>
+      <div className={`${homepageContent}`}>
+        <h1 className="homepage-title"><span>Hey, call me Resi.</span></h1>
+        <p className="homepage-flavour"><span>I'm a professional web developer based in Jakarta, Indonesia.</span></p>
+        <div className={`${homeAboutButton}`}>
+          <Link to="/about">More about me</Link>
+        </div>
+      </div>
+    </main>
   </div>
 )
 
 export default IndexPage
 
 export const query = graphql`
-query indexPageQuery {
-  allProjectsJson {
-    edges {
-      node {
-        title,
-        year,
-        languages,
-        details,
-        url
-      }
-    }
-  },
-  allSkillsetJson {
-    edges {
-      node {
-        type,
-        name,
-        level,
-        scale
-      }
-    }
-  },
-  allSocialLinksJson {
-    edges {
-      node {
-        title,
-        url,
-        description
+  query IndexPageQuery {
+    site {
+      siteMetadata {
+        title
       }
     }
   }
-}
 `
