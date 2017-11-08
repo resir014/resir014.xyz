@@ -103,6 +103,12 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#fff',
+      },
+    },
     'gatsby-transformer-json',
     'gatsby-plugin-twitter',
     'gatsby-plugin-sass',
