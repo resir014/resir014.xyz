@@ -101,8 +101,8 @@ interface MastheadState {
 }
 
 class Masthead extends React.Component<MastheadProps, MastheadState> {
-  constructor() {
-    super()
+  constructor(props: MastheadProps) {
+    super(props)
 
     this.state = {
       splash: 'is a web developer'
