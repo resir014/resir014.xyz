@@ -90,6 +90,11 @@ class Footer extends React.Component<FooterProps, FooterState> {
             <p className="footer-flavour"><span>{this.state.splash}</span></p>
           </div>
           <p>
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+            <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+          </a>
+          </p>
+          <p>
             <small>
             Except where otherwise noted, contents are licensed under{' '}
             <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>.
@@ -97,8 +102,9 @@ class Footer extends React.Component<FooterProps, FooterState> {
           </p>
           <p>
             <small>
-              Powered by <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a>.{' '}
-              Background by <a href="https://www.toptal.com/designers/subtlepatterns/" target="_blank">Subtle Patterns</a>.
+              Powered by <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a>{' '}
+              and <a href="https://www.reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>.{' '}
+              Code licensed under the <a href="https://github.com/resir014/resir014.xyz" target="_blank">MIT License</a>.
             </small>
           </p>
         </Container>

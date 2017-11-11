@@ -28,3 +28,9 @@ npm run deploy
 ## Credits
 
 Built with [Gatsby](https://www.gatsbyjs.org/) - the blazing-fast static site generator for [React](https://facebook.github.io/react/).
+
+## License
+
+Except where otherwise noted, all works published on this site (aka. everything inside the `pages/` and the `data/` directory) are licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+The source code to the website is available under the [MIT License](LICENSE).
