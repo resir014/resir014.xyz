@@ -30,7 +30,7 @@ const homepageWrapper = css({
     backgroundImage: `url(/images/background.jpg)`,
     backgroundSize: 'cover',
     backgroundPositionY: 'center',
-    mixBlendMode: 'overlay',
+    mixBlendMode: 'luninosity',
     opacity: 0.7
   }
 })
