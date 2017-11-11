@@ -7,6 +7,11 @@ const { createFilePath } = require('gatsby-source-filesystem')
 // Regex to parse date and title from the filename
 const BLOG_POST_SLUG_REGEX = /^\/blog\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)\/$/
 
+const extractQueryPlugin = path.resolve(
+  __dirname,
+  `node_modules/gatsby/dist/utils/babel-plugin-extract-graphql.js`
+)
+
 exports.modifyWebpackConfig = ({ config, stage }) => {
   if (stage === 'build-javascript') {
     // Temporary workaround.
@@ -15,7 +20,10 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
     // ES6 stuff littered in our final bundle...
     config.loader('typescript', {
       test: /\.tsx?$/,
-      loaders: ['ts-loader']
+      loaders: [
+        `babel-loader?${JSON.stringify({ presets: ['babel-preset-env'], plugins: [extractQueryPlugin] })}`,
+        'ts-loader'
+      ]
     })
   }
 }
