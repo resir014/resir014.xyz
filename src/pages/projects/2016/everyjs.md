@@ -4,7 +4,7 @@ title: "@everyjs"
 year: 2016
 lead: An everyword-like Twitter bot appending ".js" to every word.
 redirect_from:
-  - /projects/other/everyjs/
+  - projects/other/everyjs
 ---
 
 [@everyjs](https://twitter.com/everyjs) is a Twitter bot inspired by [@everyword](https://twitter.com/everyword). All it does is take a list of every word in the English language, and append ".js" to it.

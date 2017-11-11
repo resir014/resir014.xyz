@@ -3,7 +3,7 @@ category: blog
 layout: post
 title: "Windows 7 is the new XP"
 lead: "Microsoft's tone-deafness regarding the Windows 10 upgrade nag and several other issues left a majority of users out in the cold."
-redirect_from: /2016/06/02/windows-7-is-the-new-xp/
+redirect_from: 2016/06/02/windows-7-is-the-new-xp
 tags:
 - windows
 - rant

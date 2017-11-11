@@ -3,10 +3,10 @@ layout: page
 title: "The Ultimate foobar2000 Setup*"
 header_image_url: /images/etc/fb2k/2017-06-06_06-29-39.png
 redirect_from:
-  - /blog/2015/11/08/the-ultimate-foobar2000-setup/
-  - /2015/11/08/the-ultimate-foobar2000-setup/
-  - /foobar2000
-  - /fb2k
+  - blog/2015/11/08/the-ultimate-foobar2000-setup
+  - 2015/11/08/the-ultimate-foobar2000-setup
+  - foobar2000
+  - fb2k
 ---
 
 <div class="post-subtitle">

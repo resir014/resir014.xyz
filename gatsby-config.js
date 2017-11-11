@@ -42,6 +42,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        headers: {}
+      }
+    },
+    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: `https://resir014.xyz`
