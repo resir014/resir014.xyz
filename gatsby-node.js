@@ -32,7 +32,15 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark`) {
-    const { permalink, redirect_from, category, layout, lead, subtitle, header_image_url } = node.frontmatter
+    const {
+      permalink,
+      redirect_from,
+      category,
+      layout,
+      lead,
+      subtitle,
+      header_image_url
+    } = node.frontmatter
     const relativePath = createFilePath({ node, getNode, basePath: 'pages' })
 
     let slug = permalink;
@@ -73,6 +81,13 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       node,
       name: 'layout',
       value: layout || '',
+    })
+
+    // Used to determine the post category.
+    createNodeField({
+      node,
+      name: 'category',
+      value: category || '',
     })
 
     // Used to add a lead text.

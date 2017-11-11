@@ -14,12 +14,13 @@ const blogPostItemClass = css({
   paddingTop: '1rem',
   paddingBottom: '1rem',
 
-  '& .post__title': {
-    marginTop: 0
-  },
-
   '& .post__detail-box': {
-    '& p': {
+    '& .post__meta': {
+      marginTop: 0,
+      marginBottom: '1rem'
+    },
+
+    '& .post__title': {
       marginTop: 0
     }
   },
@@ -30,7 +31,7 @@ const blogPostItemClass = css({
 
   '& .post__footer-link': {
     display: 'inline-block',
-    marginTop: 'auto',
+    marginTop: '1rem',
     padding: '.25rem .5rem',
     border: `2px solid ${colors.neonblue2}`,
 
@@ -43,18 +44,28 @@ const blogPostItemClass = css({
   }
 })
 
-const BlogPostItem: React.SFC<BlogPostNode> = ({ node }) => (
-  <div className={`${blogPostItemClass}`}>
-    <h3 className="post__title">
-      {node.frontmatter.title}
-    </h3>
-    <div className="post__detail-box">
-      <p>{node.fields.date}</p>
-    </div>
-    <div className="post__footer">
-      <Link className="post__footer-link" to={node.fields.slug}>Read more</Link>
-    </div>
-  </div>
-)
+class BlogPostItem extends React.Component<BlogPostNode, {}> {
+  public render() {
+    const { node } = this.props
+
+    return this.renderBlogItem(this.props)
+  }
+
+  private renderBlogItem(props: BlogPostNode) {
+    const { node } = props
+    return (
+      <div className={`${blogPostItemClass}`}>
+        <div className="post__detail-box">
+          <div className="post__meta">{node.fields.date}</div>
+          <h3 className="post__title">{node.frontmatter.title}</h3>
+          {node.fields.lead ? <p>{node.fields.lead}</p> : null}
+        </div>
+        <div className="post__footer">
+          <Link className="post__footer-link" to={node.fields.slug}>Read more</Link>
+        </div>
+      </div>
+    )
+  }
+}
 
 export default BlogPostItem

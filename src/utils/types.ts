@@ -4,13 +4,14 @@ export interface BlogPostNode {
     excerpt: string
     fields: {
       slug: string
+      category?: string
       layout?: string
       headerImage?: string
       lead?: string
       date: string
     }
     frontmatter: {
-      title: string
+      title?: string
       path?: string
       layout: string
     }
