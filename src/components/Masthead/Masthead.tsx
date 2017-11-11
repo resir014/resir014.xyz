@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Link, { navigateTo } from 'gatsby-link'
+import * as Color from 'color'
 import { css, merge } from 'glamor'
 
 import { Container } from '../Container'
@@ -11,7 +12,7 @@ import { sectionHeading, highlightedText } from '../../utils/mixins'
 
 const mastheadClass = (isHomepage?: boolean) => css({
   padding: '1rem 0',
-  backgroundColor: isHomepage ? 'transparent' : colors.black,
+  backgroundColor: isHomepage ? 'transparent' : Color(colors.black).mix(Color(colors.white), 0.1),
 
   [breakpoints.md]: {
     padding: 0,

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
+import * as Color from 'color'
 import { merge } from 'glamor'
 import { StyleSheet, css } from 'glamor/aphrodite'
 
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     marginTop: '3rem',
     padding: '2rem 0',
     color: colors.white,
-    backgroundColor: colors.black,
+    backgroundColor: Color(colors.black).mix(Color(colors.white), 0.1),
 
     '& p, & small': {
       display: 'block',
