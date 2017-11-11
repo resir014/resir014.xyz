@@ -9,8 +9,6 @@ import flavorText from '../../utils/flavorText'
 import { colors, breakpoints, widths } from '../../utils/theme'
 import { sectionHeading, highlightedText } from '../../utils/mixins'
 
-const { withPrefix } = require('gatsby-link')
-
 const mastheadClass = (isHomepage?: boolean) => css({
   padding: '1rem 0',
   backgroundColor: isHomepage ? 'transparent' : colors.black,
@@ -107,10 +105,6 @@ class Masthead extends React.Component<MastheadProps, MastheadState> {
     this.state = {
       splash: 'is a web developer'
     }
-  }
-
-  public componentDidMount() {
-    this.setState({ splash: flavorText[Math.floor(Math.random() * flavorText.length)] })
   }
 
   public render() {

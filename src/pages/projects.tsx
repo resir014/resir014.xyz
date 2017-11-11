@@ -54,7 +54,7 @@ const ProjectsPage: React.SFC<IndexPageProps> = ({ data }) => {
           </Container>
         </article>
       </main>
-      <Footer />
+      <Footer title={data.site.siteMetadata.title} />
     </div>
   )
 }

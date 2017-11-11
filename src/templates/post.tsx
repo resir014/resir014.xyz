@@ -71,7 +71,7 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
           </Container>
         </article>
       </main>
-      <Footer />
+      <Footer title={data.site.siteMetadata.title} />
     </div>
   )
 }

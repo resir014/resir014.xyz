@@ -64,7 +64,7 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data }) => {
           </div>
         </Container>
       </article>
-      <Footer />
+      <Footer title={data.site.siteMetadata.title} />
     </main>
   )
 }
