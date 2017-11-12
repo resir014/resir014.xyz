@@ -43,7 +43,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify',
       options: {
-        headers: {}
+        headers: {
+          '/*': [
+            'X-Clacks-Overhead: GNU Natalie Nguyen'
+          ]
+        }
       }
     },
     {
