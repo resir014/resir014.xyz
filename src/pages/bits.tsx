@@ -27,7 +27,7 @@ const blogPostsListClass = css({
   }
 })
 
-interface BlogPageProps {
+interface BitsPageProps {
   data: {
     site: {
       siteMetadata: {
@@ -45,16 +45,16 @@ interface BlogPageProps {
   }
 }
 
-const BlogPage: React.SFC<BlogPageProps> = ({ data }) => {
+const BitsPage: React.SFC<BitsPageProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
     <main>
       <Masthead title={data.site.siteMetadata.title} />
       <article>
-        <Helmet title={`Posts · ${siteMetadata.title}`} />
+        <Helmet title={`Bits · ${siteMetadata.title}`} />
         <PageHeader>
-          <h1 className="page-title"><span>Posts</span></h1>
+          <h1 className="page-title"><span>Bits</span></h1>
         </PageHeader>
         <Container>
           <div className={`${blogPostsContentClass}`}>
@@ -69,10 +69,10 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data }) => {
   )
 }
 
-export default BlogPage
+export default BitsPage
 
 export const query = graphql`
-query BlogPageQuery {
+query BitsPageQuery {
   site {
     siteMetadata {
       title
@@ -84,7 +84,7 @@ query BlogPageQuery {
     }
   }
   allMarkdownRemark(
-    filter: {id: {regex: "/blog/"}},
+    filter: {id: {regex: "/bits/"}},
     sort: {fields: [fields___date], order: DESC}
   ) {
     edges {
@@ -96,9 +96,6 @@ query BlogPageQuery {
           slug
           category
           lead
-        }
-        frontmatter {
-          title
         }
       }
     }

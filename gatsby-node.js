@@ -5,7 +5,7 @@ const slugify = require('slug')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 // Regex to parse date and title from the filename
-const BLOG_POST_SLUG_REGEX = /^\/blog\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)\/$/
+const BLOG_POST_SLUG_REGEX = /^\/.+\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)\/$/
 
 const extractQueryPlugin = path.resolve(
   __dirname,
@@ -54,6 +54,26 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       const filename = match[4]
 
       slug = `/blog/${year}/${month}/${day}/${slugify(filename)}/`
+
+      const date = new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day))
+
+      // Blog posts are sorted by date and display the date in their header.
+      createNodeField({
+        node,
+        name: 'date',
+        value: date.toJSON()
+      })
+    }
+
+    if (!slug && relativePath.includes('bits')) {
+      // Generate final path + graphql fields for blog posts
+      const match = BLOG_POST_SLUG_REGEX.exec(relativePath)
+      const year = match[1]
+      const month = match[2]
+      const day = match[3]
+      const filename = match[4]
+
+      slug = `/bits/${year}/${month}/${day}/${slugify(filename)}/`
 
       const date = new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day))
 

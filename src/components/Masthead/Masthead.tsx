@@ -137,7 +137,7 @@ class Masthead extends React.Component<MastheadProps, MastheadState> {
                 activeClassName={`${mastheadNavLinkActiveClass(isHomepage)}`}
                 to="/blog"
               >
-                <span>blog</span>
+                <span>posts</span>
               </Link>
               <Link
                 className={`${mastheadNavLinkClass(isHomepage)}`}
