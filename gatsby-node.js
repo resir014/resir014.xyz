@@ -116,6 +116,13 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage, createRedirect } = boundActionCreators
 
+  // Redirect old `blog/` directory
+  createRedirect({
+    fromPath: '/blog/*',
+    redirectInBrowser: true,
+    toPath: '/posts/:splat',
+  })
+
   return new Promise((resolve, reject) => {
     graphql(
       `
