@@ -99,7 +99,7 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
         <div className={css(styles.blogPostDetailBox)}>
           <div className="post__meta">
             <span className="post__date">{node.fields.date}</span>
-            <span className="post__category post__category--bits">Bits</span>
+            <span className="post__category post__category--bits">bits</span>
           </div>
           <div className={css(styles.blogPostContentBits)} dangerouslySetInnerHTML={{ __html: node.html }} />
         </div>
@@ -114,7 +114,7 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
         <div className={css(styles.blogPostDetailBox)}>
           <div className="post__meta">
             <span className="post__date">{node.fields.date}</span>
-            <span className="post__category post__category--blog">Blog</span>
+            <span className="post__category post__category--blog">blog</span>
           </div>
           <h3 className="post__title">{node.frontmatter.title}</h3>
           {node.fields.lead ? <div className={css(styles.blogPostContent)}><p>{node.fields.lead}</p></div> : null}

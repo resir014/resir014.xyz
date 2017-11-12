@@ -1,5 +1,9 @@
 import * as React from 'react'
+import { css, merge } from 'glamor'
 import Helmet from 'react-helmet'
+
+import { sectionHeading, highlightedText } from '../utils/mixins'
+import { colors, headerColors, breakpoints, widths } from '../utils/theme'
 
 import { Masthead } from '../components/Masthead'
 import { Container } from '../components/Container'
@@ -7,6 +11,22 @@ import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 import { PageSubtitle } from '../components/PageSubtitle'
 import { MarkdownContent } from '../components/MarkdownContent'
+
+const postMetaClass = css({
+  marginBottom: '.5rem',
+  fontSize: '80%'
+})
+
+const postMetaDateClass = css(merge(sectionHeading(colors.white, 0, '.5rem')))
+
+const postMetaCategoryClass = css(merge(sectionHeading(colors.white, 0, '.5rem'), {
+  marginLeft: '.5rem'
+}))
+
+const postTitleClass = css({
+  margin: 0,
+  '& span': merge(sectionHeading(colors.white, '.25rem', '.5rem'))
+})
 
 interface PageProps {
   data: {
@@ -26,6 +46,7 @@ interface PageProps {
       fields: {
         slug: string
         layout?: string
+        category?: string
         headerImage?: string
         lead?: string
         date: string
@@ -62,8 +83,11 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
         />
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
-            <div className="post-meta"><span>{post.fields.date}</span></div>
-            <h1 className="post-title"><span>{post.frontmatter.title}</span></h1>
+            <div className={`${postMetaClass}`}>
+              <span className={`${postMetaDateClass}`}>{post.fields.date}</span>
+              {post.fields.category ? <span className={`${postMetaCategoryClass}`}>{post.fields.category}</span> : null}
+            </div>
+            <h1 className={`${postTitleClass}`}><span>{post.frontmatter.title}</span></h1>
           </PageHeader>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
@@ -96,6 +120,7 @@ export const query = graphql`
       fields {
         slug
         layout
+        category
         headerImage
         lead
         date(formatString: "DD MMMM YYYY")

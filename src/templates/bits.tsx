@@ -3,7 +3,7 @@ import { css, merge } from 'glamor'
 import Helmet from 'react-helmet'
 
 import { colors } from '../utils/theme'
-import { highlightedText } from '../utils/mixins'
+import { highlightedText, sectionHeading } from '../utils/mixins'
 
 import { Masthead } from '../components/Masthead'
 import { Container } from '../components/Container'
@@ -30,6 +30,7 @@ interface PageProps {
       fields: {
         slug: string
         layout?: string
+        category?: string
         headerImage?: string
         lead?: string
         date: string
@@ -44,15 +45,16 @@ interface PageProps {
   }
 }
 
-const postHeaderBitsClass = css({
-  marginTop: '3rem',
-
-  '& .post-meta': {
-    '& span': merge(highlightedText(colors.black, 0, '.25rem'), {
-      color: colors.white
-    })
-  }
+const postMetaClass = css({
+  marginBottom: 0,
+  fontSize: '80%'
 })
+
+const postMetaDateClass = css(merge(sectionHeading(colors.white, 0, '.5rem')))
+
+const postMetaCategoryClass = css(merge(sectionHeading(colors.white, 0, '.5rem'), {
+  marginLeft: '.5rem'
+}))
 
 const PageTemplate: React.SFC<PageProps> = ({ data }) => {
   const post = data.markdownRemark
@@ -72,11 +74,12 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
           ]}
         />
         <article>
-          <header className={`${postHeaderBitsClass}`}>
-            <Container>
-              <div className="post-meta"><span>{post.fields.date}</span></div>
-            </Container>
-          </header>
+          <PageHeader headerImage={post.fields.headerImage || null}>
+            <div className={`${postMetaClass}`}>
+              <span className={`${postMetaDateClass}`}>{post.fields.date}</span>
+              {post.fields.category ? <span className={`${postMetaCategoryClass}`}>{post.fields.category}</span> : null}
+            </div>
+          </PageHeader>
           <Container>
             <MarkdownContent html={post.html} />
           </Container>
@@ -107,6 +110,7 @@ export const query = graphql`
       fields {
         slug
         layout
+        category
         headerImage
         lead
         date(formatString: "DD MMMM YYYY")
