@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { css, merge } from 'glamor'
+import { StyleSheet, css } from 'glamor/aphrodite'
+import { merge } from 'glamor'
 import Link from 'gatsby-link'
 
 import { breakpoints, widths, colors } from '../../utils/theme'
@@ -7,15 +8,23 @@ import { highlightedText } from '../../utils/mixins'
 
 import { BlogPostNode } from '../../utils/types'
 
-const blogPostItemClass = css({
-  display: 'flex',
-  flexDirection: 'column',
-  flexWrap: 'wrap',
-  position: 'relative',
-  paddingTop: '1.5rem',
-  paddingBottom: '1.5rem',
+const styles = StyleSheet.create({
+  blogPostItem: {
+    position: 'relative',
+  },
 
-  '& .post__detail-box': {
+  blogPostDetailBox: {
+    marginTop: '1.5rem',
+    marginBottom: '1.5rem',
+
+    [breakpoints.md]: {
+      maxWidth: '85%'
+    },
+
+    [breakpoints.lg]: {
+      maxWidth: '70%'
+    },
+
     '& .post__meta': {
       marginTop: 0,
       marginBottom: '1rem',
@@ -45,33 +54,31 @@ const blogPostItemClass = css({
     }
   },
 
-  '& .post__content': {
+  blogPostContent: {
     '& p:last-child': {
       marginBottom: 0
     }
   },
 
-  '& .post__content--bits': {
+  blogPostContentBits: {
     marginTop: '1.5rem'
   },
 
-  '& .post__footer': {
-    marginTop: 'auto'
-  },
+  blogPostFooter: {
+    '& .post__footer-link': {
+      display: 'inline-block',
+      marginTop: '1rem',
+      padding: '.25rem .5rem',
+      border: `2px solid ${colors.neonblue2}`,
 
-  '& .post__footer-link': {
-    display: 'inline-block',
-    marginTop: '1rem',
-    padding: '.25rem .5rem',
-    border: `2px solid ${colors.neonblue2}`,
-
-    '&:hover, &:focus': {
-      color: colors.white,
-      borderColor: colors.neonblue3,
-      backgroundColor: colors.neonblue3,
-      textDecoration: 'none'
+      '&:hover, &:focus': {
+        color: colors.white,
+        borderColor: colors.neonblue3,
+        backgroundColor: colors.neonblue3,
+        textDecoration: 'none'
+      }
     }
-  }
+  },
 })
 
 class BlogPostItem extends React.Component<BlogPostNode, {}> {
@@ -88,13 +95,13 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
   private renderBitsItem(props: BlogPostNode) {
     const { node } = props
     return (
-      <div className={`${blogPostItemClass}`}>
-        <div className="post__detail-box">
+      <div className={css(styles.blogPostItem)}>
+        <div className={css(styles.blogPostDetailBox)}>
           <div className="post__meta">
             <span className="post__date">{node.fields.date}</span>
             <span className="post__category post__category--bits">Bits</span>
           </div>
-          <div className="post__content post__content--bits" dangerouslySetInnerHTML={{ __html: node.html }} />
+          <div className={css(styles.blogPostContentBits)} dangerouslySetInnerHTML={{ __html: node.html }} />
         </div>
       </div>
     )
@@ -103,17 +110,17 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
   private renderBlogItem(props: BlogPostNode) {
     const { node } = props
     return (
-      <div className={`${blogPostItemClass}`}>
-        <div className="post__detail-box">
-        <div className="post__meta">
+      <div className={css(styles.blogPostItem)}>
+        <div className={css(styles.blogPostDetailBox)}>
+          <div className="post__meta">
             <span className="post__date">{node.fields.date}</span>
             <span className="post__category post__category--blog">Blog</span>
           </div>
           <h3 className="post__title">{node.frontmatter.title}</h3>
-          {node.fields.lead ? <div className="post__content"><p>{node.fields.lead}</p></div> : null}
-        </div>
-        <div className="post__footer">
-          <Link className="post__footer-link" to={node.fields.slug}>Read more</Link>
+          {node.fields.lead ? <div className={css(styles.blogPostContent)}><p>{node.fields.lead}</p></div> : null}
+          <div className={css(styles.blogPostFooter)}>
+            <Link className="post__footer-link" to={node.fields.slug}>Read more</Link>
+          </div>
         </div>
       </div>
     )

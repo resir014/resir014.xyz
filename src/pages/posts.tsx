@@ -17,9 +17,6 @@ const blogPostsContentClass = css({
 })
 
 const blogPostsListClass = css({
-  display: 'flex',
-  flexDirection: 'column',
-  flexWrap: 'wrap',
   borderBottom: `2px solid ${colors.black}`,
 
   '> div': {
