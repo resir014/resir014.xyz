@@ -84,7 +84,7 @@ module.exports = {
               {
                 allMarkdownRemark(
                   limit: 10,
-                  filter: {id: {regex: "/blog/"}},
+                  filter: {id: {regex: "/posts/"}},
                   sort: {fields: [fields___date], order: DESC}
                 ) {
                   edges {
@@ -103,7 +103,7 @@ module.exports = {
                 }
               }
             `,
-            output: '/blog.xml',
+            output: '/posts.xml',
             feedTitle: 'All posts by @resir014'
           }
         ]
