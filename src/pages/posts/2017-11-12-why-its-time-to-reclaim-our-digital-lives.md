@@ -1,6 +1,7 @@
 ---
 category: bits
 layout: bits
+title: "Why it's time to reclaim our digital lives"
 ---
 
 [Why it's time to reclaim our digital lives](https://duncanstephen.co.uk/why-its-time-to-reclaim-our-digital-lives/)
