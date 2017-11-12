@@ -5,7 +5,7 @@ const slugify = require('slug')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 // Regex to parse date and title from the filename
-const BLOG_POST_SLUG_REGEX = /^\/blog\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)\/$/
+const BLOG_POST_SLUG_REGEX = /^\/.+\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)\/$/
 
 const extractQueryPlugin = path.resolve(
   __dirname,
@@ -45,7 +45,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
     let slug = permalink;
 
-    if (!slug && relativePath.includes('blog')) {
+    if (!slug && relativePath.includes('posts')) {
       // Generate final path + graphql fields for blog posts
       const match = BLOG_POST_SLUG_REGEX.exec(relativePath)
       const year = match[1]
@@ -53,7 +53,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       const day = match[3]
       const filename = match[4]
 
-      slug = `/blog/${year}/${month}/${day}/${slugify(filename)}/`
+      slug = `/posts/${year}/${month}/${day}/${slugify(filename)}/`
 
       const date = new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day))
 
@@ -115,6 +115,13 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage, createRedirect } = boundActionCreators
+
+  // Redirect old `blog/` directory
+  createRedirect({
+    fromPath: '/blog/*',
+    redirectInBrowser: true,
+    toPath: '/posts/:splat',
+  })
 
   return new Promise((resolve, reject) => {
     graphql(

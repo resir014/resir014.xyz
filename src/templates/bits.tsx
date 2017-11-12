@@ -2,8 +2,8 @@ import * as React from 'react'
 import { css, merge } from 'glamor'
 import Helmet from 'react-helmet'
 
-import { sectionHeading, highlightedText } from '../utils/mixins'
-import { colors, headerColors, breakpoints, widths } from '../utils/theme'
+import { colors } from '../utils/theme'
+import { highlightedText, sectionHeading } from '../utils/mixins'
 
 import { Masthead } from '../components/Masthead'
 import { Container } from '../components/Container'
@@ -11,22 +11,6 @@ import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 import { PageSubtitle } from '../components/PageSubtitle'
 import { MarkdownContent } from '../components/MarkdownContent'
-
-const postMetaClass = css({
-  marginBottom: '.5rem',
-  fontSize: '80%'
-})
-
-const postMetaDateClass = css(merge(sectionHeading(colors.white, 0, '.5rem')))
-
-const postMetaCategoryClass = css(merge(sectionHeading(colors.white, 0, '.5rem'), {
-  marginLeft: '.5rem'
-}))
-
-const postTitleClass = css({
-  margin: 0,
-  '& span': merge(sectionHeading(colors.white, '.25rem', '.5rem'))
-})
 
 interface PageProps {
   data: {
@@ -61,6 +45,17 @@ interface PageProps {
   }
 }
 
+const postMetaClass = css({
+  marginBottom: 0,
+  fontSize: '80%'
+})
+
+const postMetaDateClass = css(merge(sectionHeading(colors.white, 0, '.5rem')))
+
+const postMetaCategoryClass = css(merge(sectionHeading(colors.white, 0, '.5rem'), {
+  marginLeft: '.5rem'
+}))
+
 const PageTemplate: React.SFC<PageProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
@@ -76,9 +71,6 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
             { name: 'author', content: siteMetadata.author.name },
             { property: 'og:title', content: post.frontmatter.title },
             { property: 'og:description', content: post.fields.lead || post.excerpt },
-            { property: 'og:type', content: 'article' },
-            { property: 'og:article:author', content: siteMetadata.author.name },
-            { property: 'og:article:published_time', content: post.fields.date_ogp },
           ]}
         />
         <article>
@@ -87,10 +79,8 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
               <span className={`${postMetaDateClass}`}>{post.fields.date}</span>
               {post.fields.category ? <span className={`${postMetaCategoryClass}`}>{post.fields.category}</span> : null}
             </div>
-            <h1 className={`${postTitleClass}`}><span>{post.frontmatter.title}</span></h1>
           </PageHeader>
           <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
             <MarkdownContent html={post.html} />
           </Container>
         </article>
@@ -103,7 +93,7 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
 export default PageTemplate
 
 export const query = graphql`
-  query PostQuery($slug: String!) {
+  query BitsQuery($slug: String!) {
     site {
       siteMetadata {
         title

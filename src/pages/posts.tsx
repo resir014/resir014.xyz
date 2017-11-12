@@ -17,9 +17,6 @@ const blogPostsContentClass = css({
 })
 
 const blogPostsListClass = css({
-  display: 'flex',
-  flexDirection: 'column',
-  flexWrap: 'wrap',
   borderBottom: `2px solid ${colors.black}`,
 
   '> div': {
@@ -52,14 +49,14 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data }) => {
     <main>
       <Masthead title={data.site.siteMetadata.title} />
       <article>
-        <Helmet title={`Blog · ${siteMetadata.title}`} />
+        <Helmet title={`Posts · ${siteMetadata.title}`} />
         <PageHeader>
-          <h1 className="page-title"><span>Blog</span></h1>
+          <h1 className="page-title"><span>Posts</span></h1>
         </PageHeader>
         <Container>
           <div className={`${blogPostsContentClass}`}>
             <div className={`${blogPostsListClass}`}>
-              {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.frontmatter.title} node={node} />)}
+              {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
             </div>
           </div>
         </Container>
@@ -84,7 +81,7 @@ query BlogPageQuery {
     }
   }
   allMarkdownRemark(
-    filter: {id: {regex: "/blog/"}},
+    filter: {id: {regex: "/posts/"}},
     sort: {fields: [fields___date], order: DESC}
   ) {
     edges {
