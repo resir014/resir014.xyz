@@ -10,4 +10,4 @@ Among all of the games that I own, very few have I realised the importance of th
 
 And that's the reason I set up Timeless Games. It is a curated list of all the games that I've spent the most time on, had the most enjoyment in, and which experience I'll remember fondly for many years to come. Most of the games featured will be PC games, but I'll try to include some console games as well.
 
-To browse the collection, click [here]({{ site.baseurl }}/timeless-games).
+<p>To browse the collection, click <a href="https://tilde.town/~resir014/timeless-games" target="_blank" rel="noopener noreferrer">here</a>.</p>

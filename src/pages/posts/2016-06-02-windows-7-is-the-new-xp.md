@@ -32,7 +32,7 @@ Then there's the issue with privacy, and telemetry. You've seen a lot of those p
   <figcaption><a href="https://twitter.com/SwiftOnSecurity/status/735288301700026368" target="_blank">The above tweet were later corrected.</a></figcaption>
 </figure>
 
-I won't go into the whole Windows 10 privacy/telemetry debate in this post. It's already way too exhaustive of a topic for me to dig in even deeper. I've left my thoughts on privacy in my previous post. [Go check it out]({{ site.baseurl }}/2016/05/03/on-privacy/).
+I won't go into the whole Windows 10 privacy/telemetry debate in this post. It's already way too exhaustive of a topic for me to dig in even deeper. I've left my thoughts on privacy in my previous post. [Go check it out](/2016/05/03/on-privacy/).
 
 ---
 
