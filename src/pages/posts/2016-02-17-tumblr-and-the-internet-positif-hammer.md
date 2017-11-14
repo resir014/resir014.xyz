@@ -9,6 +9,8 @@ tags:
 - kemkominfo
 - internet-positif
 header_image_url: /images/blog/2016/tumblr-and-the-internet-positif-hammer/chrome_2016-02-17_15-00-37.png
+redirect_from:
+- 2016/02/17/tumblr-and-the-internet-positif-hammer
 ---
 
 So my journey to slowly detach from social media (more to come in a later post, I kept stalling on writing posts lately) has been interrupted once again when the Indonesian Ministry of Communications, notable for bringing in the borderline-censorship clusterfuck that is the [Internet Positif](http://trustpositif.kominfo.go.id/), has decided that [they will add Tumblr to their blocklist](http://inet.detik.com/read/2016/02/17/131551/3144254/399/banyak-pornografi-tumblr-diblokir-kominfo).

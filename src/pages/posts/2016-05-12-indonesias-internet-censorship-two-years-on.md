@@ -11,7 +11,7 @@ tags:
 - censorship
 ---
 
-It's been two years since I made [this blog post](https://resir014.github.io/2014/05/12/a-desperate-plea-for-internet-freedom/) about a filtering system made by the Ministry of Communications and Information called [Internet Positif](http://trustpositif.kominfo.go.id/), a tool often used to protect kids from viewing porn on the internet.
+It's been two years since I made [this blog post](https://resir014.xyz/2014/05/12/a-desperate-plea-for-internet-freedom/) about a filtering system made by the Ministry of Communications and Information called [Internet Positif](http://trustpositif.kominfo.go.id/), a tool often used to protect kids from viewing porn on the internet.
 
 However, as time goes it has done anything but that.
 
@@ -21,7 +21,7 @@ Not only that. There has also been a lot of stuff going on within our country th
 
 ## Tumblr, Reddit, Vimeo, and self-censorship
 
-Earlier this year, the Ministry of Communications and Information [added Tumblr to their blocklist](https://resir014.github.io/2016/02/17/tumblr-and-the-internet-positif-hammer/) for less than a day, due to pornographic material, before the decision was reverted.
+Earlier this year, the Ministry of Communications and Information [added Tumblr to their blocklist](https://resir014.xyz/2016/02/17/tumblr-and-the-internet-positif-hammer/) for less than a day, due to pornographic material, before the decision was reverted.
 
 This brought up a bit of a stir within the online community before the decision was reverted, especially with how the reason they found said "pornographic material". Their own perverted mind probably made them type "porn" on the search bar of websites and add the websites in question to the blocklist if anything shows up.
 

@@ -6,7 +6,7 @@ subtitle: "A go-to guide on how to mentally cope with your favourite website/app
 header_image_url: "/images/blog/2017/the-internet-censorship-five-stages-of-grief/2017-07-16_18-52-03.png"
 ---
 
-The Indonesian internet is known for its notorious [government censorship initiative](https://resir014.github.io/blog/2016/02/17/tumblr-and-the-internet-positif-hammer/). As a self-proclaimed [citizen of the world](https://www.youtube.com/watch?v=WSRt5zW1kOg), I believe that you can't entirely eradicate pornographic/radical content without pulling the plug of the whole internet and switching to a North Korea-style intranet. Besides, if you're **really** detemined, you can find various ways to [bypass the filters](https://www.youtube.com/watch?v=CcZdwX4noCE).
+The Indonesian internet is known for its notorious [government censorship initiative](https://resir014.xyz/blog/2016/02/17/tumblr-and-the-internet-positif-hammer/). As a self-proclaimed [citizen of the world](https://www.youtube.com/watch?v=WSRt5zW1kOg), I believe that you can't entirely eradicate pornographic/radical content without pulling the plug of the whole internet and switching to a North Korea-style intranet. Besides, if you're **really** detemined, you can find various ways to [bypass the filters](https://www.youtube.com/watch?v=CcZdwX4noCE).
 
 This whole censorship does not benefit *anyone* whatsoever. Sure, those people in the government think they do it "for the best interests of the people", but in reality, they just acted out of their own gut, while at the same time trying to undermine many others' freedom of expression by censoring online content in a single sweep without accounting for transparency. It hurts no one but the people who actually use these services *legitimately*.
 

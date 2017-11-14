@@ -119,6 +119,7 @@ module.exports = {
         showSpinner: false
       },
     },
+    'gatsby-plugin-catch-links',
     'gatsby-transformer-json',
     'gatsby-plugin-twitter',
     'gatsby-plugin-sass',
