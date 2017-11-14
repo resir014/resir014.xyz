@@ -133,7 +133,8 @@ a[href^="#fnref-"] {
 
   li[id^="fn-"] {
     p {
-      display: inline-block
+      // Remark for some reason puts the footnote reflink *after* the `p` tag.
+      display: inline
     }
   }
 }
