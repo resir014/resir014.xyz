@@ -95,7 +95,7 @@ const ProjectItem: React.SFC<ProjectNode> = ({ node }) => (
       <p dangerouslySetInnerHTML={{ __html: node.details }} />
     </div>
     <div className="project__footer">
-      <a className="project__footer-link" href={node.url} target="_blank">Visit project</a>
+      <a className="project__footer-link" href={node.url}>Visit project</a>
     </div>
   </div>
 )
