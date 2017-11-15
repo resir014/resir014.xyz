@@ -57,6 +57,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-11448343-3',
+        anonymize: true
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: '@resir014',
