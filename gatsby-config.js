@@ -25,6 +25,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: `https://resir014.xyz`
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -40,6 +46,20 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#fff',
+        showSpinner: false
+      },
+    },
+    'gatsby-plugin-catch-links',
+    'gatsby-transformer-json',
+    'gatsby-plugin-twitter',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-glamor',
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -59,22 +79,6 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: `https://resir014.xyz`
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        headers: {
-          '/*': [
-            'X-Clacks-Overhead: GNU Natalie Nguyen'
-          ]
-        }
-      }
-    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -132,25 +136,21 @@ module.exports = {
                 }
               }
             `,
-            output: '/posts.xml',
+            output: '/posts/rss.xml',
             feedTitle: 'All posts by @resir014'
           }
         ]
       }
     },
     {
-      resolve: 'gatsby-plugin-nprogress',
+      resolve: 'gatsby-plugin-netlify',
       options: {
-        color: '#fff',
-        showSpinner: false
-      },
-    },
-    'gatsby-plugin-catch-links',
-    'gatsby-transformer-json',
-    'gatsby-plugin-twitter',
-    'gatsby-plugin-sass',
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-glamor',
-    'gatsby-plugin-react-helmet'
+        headers: {
+          '/*': [
+            'X-Clacks-Overhead: GNU Natalie Nguyen'
+          ]
+        }
+      }
+    }
   ]
 }
