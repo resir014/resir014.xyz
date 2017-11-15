@@ -3298,6 +3298,13 @@ gatsby-plugin-glamor@^1.6.8:
     babel-runtime "^6.26.0"
     glamor "^2.20.29"
 
+gatsby-plugin-manifest@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-1.0.8.tgz#8c155cd2aed54759554c25bf9efb4a2c48de6429"
+  dependencies:
+    babel-runtime "^6.26.0"
+    bluebird "^3.5.0"
+
 gatsby-plugin-netlify@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-1.0.7.tgz#7e599b5f86ad727247726210343b220b0b7933c9"

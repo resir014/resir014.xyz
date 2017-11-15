@@ -57,6 +57,24 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: '@resir014',
+        short_name: '@resir014',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#000',
+        display: 'minimal-ui',
+        icons: [
+          {
+            src: '/android-touch-icon.png',
+            sizes: '192x192',
+            type: 'image/png',
+          }
+        ]
+      }
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
