@@ -16,13 +16,13 @@ My other interests include, video games, motorsports, photography, and music. I 
 Bootstrap (3+), CSS, HTML, Sass
 
 ### JavaScript
-Angular (2+), ES6, jQuery, Node.js, React, TypeScript, Webpack
+Angular (2+), ES6, Grunt, Gulp, jQuery, Node.js, React, TypeScript, Webpack
 
 ### Server-side
-Express, Laravel, Elixir + Phoenix (learning)
+Elixir (learning), Express, Laravel, Phoenix (learning), PHP
 
 ### Other
-C#, Git, Java, SQL
+C# (and .NET), Git, Java, Linux (basic command-line operations), SQL
 
 ## Get in touch
 
@@ -35,12 +35,12 @@ A catalogue of interests.
 ### [Twitter](https://twitter.com/resir014)
 Mostly just retweets now.
 
-### [Mastodon](https://tilde.town/~resir014/mastodon/)
+### [Mastodon](/mastodon)
 A fancy distributed social network.
 
 ## Email
 
-Due to the increasing email spam that I get nowadays, you will have to solve this simple puzzle in order to get my email address:
+Due to the increasing amount of spam that I get nowadays, you will have to solve this simple puzzle to get my email address:
 
 ```
 echo 'C6D:C_`co8>2:=]4@>' | tr '!-~' 'P-~!-O'
