@@ -1,7 +1,10 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import { css } from 'glamor'
+import { css, merge } from 'glamor'
 import Helmet from 'react-helmet'
+
+import { colors, fonts, breakpoints, widths } from '../utils/theme'
+import { sectionHeading, highlightedText } from '../utils/mixins'
 
 import { Masthead } from '../components/Masthead'
 import { Container } from '../components/Container'
@@ -9,7 +12,23 @@ import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 
 const notFoundPageContentClass = css({
-  marginTop: '3rem'
+  display: 'flex',
+  minHeight: '100%',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: colors.white,
+  backgroundColor: colors.black
+})
+
+const notFoundPageContentInnerClass = css({
+  textAlign: 'center',
+
+  '& h1': {
+    marginTop: 0,
+    fontFamily: fonts.sansSerif,
+
+    '& span': merge(sectionHeading(colors.white, 0, '.25rem'))
+  }
 })
 
 interface NotFoundPageProps {
@@ -23,22 +42,12 @@ interface NotFoundPageProps {
 }
 
 const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
-  <div>
-    <Masthead title={data.site.siteMetadata.title} />
-    <main>
-      <Helmet title={`Page not found · ${data.site.siteMetadata.title}`} />
-      <article>
-        <PageHeader>
-          <h1 className="page-title"><span>404</span></h1>
-        </PageHeader>
-        <Container>
-          <div className={`${notFoundPageContentClass}`}>
-            <p className="lead">You've hit the void. <Link to="/">Go back home.</Link></p>
-          </div>
-        </Container>
-      </article>
+  <div className={`${notFoundPageContentClass}`}>
+    <Helmet title={`Page not found · ${data.site.siteMetadata.title}`} />
+    <main className={`${notFoundPageContentInnerClass}`}>
+      <h1 className="page-title"><span>404</span></h1>
+      <p className="lead">You've hit the void. <Link to="/">Go back home.</Link></p>
     </main>
-    <Footer title={data.site.siteMetadata.title} />
   </div>
 )
 
