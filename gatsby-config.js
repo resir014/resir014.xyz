@@ -41,29 +41,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        headers: {
-          '/*': [
-            'X-Clacks-Overhead: GNU Natalie Nguyen'
-          ]
-        }
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: `https://resir014.xyz`
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-11448343-3',
-        anonymize: true
-      }
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: '@resir014',
@@ -82,6 +59,29 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: `https://resir014.xyz`
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-netlify',
+      options: {
+        headers: {
+          '/*': [
+            'X-Clacks-Overhead: GNU Natalie Nguyen'
+          ]
+        }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-11448343-3',
+        anonymize: true
+      }
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
