@@ -30,7 +30,11 @@ const styles = StyleSheet.create({
       marginBottom: '1rem',
 
       '& .post__date': merge(highlightedText(colors.black, 0, '.25rem'), {
-        color: colors.white
+        color: colors.white,
+
+        '&:hover, &:focus': {
+          textDecoration: 'none'
+        }
       }),
 
       '& .post__category': merge(highlightedText(colors.black, 0, '.25rem'), {
@@ -104,7 +108,7 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
       <div className={css(styles.blogPostItem)}>
         <div className={css(styles.blogPostDetailBox)}>
           <div className="post__meta">
-            <span className="post__date">{date}</span>
+            <Link className="post__date" to={node.fields.slug}>{date}</Link>
             <span className={`post__category ${category ? `post__category--${category}` : null}`}>
               {category || 'bits'}
             </span>
@@ -117,12 +121,13 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
 
   private renderBlogItem(props: BlogPostNode) {
     const { node } = props
+    const { date, category } = node.fields
     return (
       <div className={css(styles.blogPostItem)}>
         <div className={css(styles.blogPostDetailBox)}>
           <div className="post__meta">
-            <span className="post__date">{node.fields.date}</span>
-            <span className="post__category post__category--blog">blog</span>
+            <Link className="post__date" to={node.fields.slug}>{date}</Link>
+            <span className="post__category post__category--blog">{category}</span>
           </div>
           <h3 className="post__title">{node.frontmatter.title}</h3>
           {node.fields.lead ? <div className={css(styles.blogPostContent)}><p>{node.fields.lead}</p></div> : null}
