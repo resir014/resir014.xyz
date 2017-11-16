@@ -15,7 +15,7 @@ import 'glamor/reset'
 import '../styles/globals.scss'
 import 'prism-themes/themes/prism-atom-dark.css'
 
-const contentWrapperClass = css({
+const fullHeightWrapperClass = css({
   position: 'relative',
   height: '100%'
 })
@@ -38,7 +38,7 @@ interface WrapperProps {
 }
 
 const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data }) => (
-  <div>
+  <div className={`${fullHeightWrapperClass}`}>
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
@@ -49,7 +49,7 @@ const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data }) => (
         { property: 'og:description', content: data.site.siteMetadata.description },
       ]}
     />
-    <div className={`${contentWrapperClass}`}>
+    <div className={`${fullHeightWrapperClass}`}>
       {children()}
     </div>
   </div>
