@@ -3,6 +3,8 @@ import Link from 'gatsby-link'
 import { css } from 'glamor'
 import Helmet from 'react-helmet'
 
+import { sharedStyles } from '../utils/theme'
+
 import { Masthead } from '../components/Masthead'
 import { Footer } from '../components/Footer'
 import { Container } from '../components/Container'
@@ -23,6 +25,8 @@ const blogPostsListClass = css({
     borderTop: `2px solid ${colors.black}`
   }
 })
+
+const pageTitleClass = css(sharedStyles.pageTitle)
 
 interface BlogPageProps {
   data: {
@@ -51,7 +55,7 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data }) => {
       <article>
         <Helmet title={`Posts · ${siteMetadata.title}`} />
         <PageHeader>
-          <h1 className="page-title"><span>Posts</span></h1>
+          <h1 className={`${pageTitleClass}`}><span>Posts</span></h1>
         </PageHeader>
         <Container>
           <div className={`${blogPostsContentClass}`}>

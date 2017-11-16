@@ -1,12 +1,12 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import { css } from 'glamor'
+import { css, merge } from 'glamor'
 
 import { Masthead } from '../components/Masthead'
 import Footer from '../components/Footer/Footer'
 
-import { colors, breakpoints } from '../utils/theme'
+import { colors, sharedStyles, breakpoints } from '../utils/theme'
 
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'
@@ -15,9 +15,9 @@ import 'glamor/reset'
 import '../styles/globals.scss'
 import 'prism-themes/themes/prism-atom-dark.css'
 
-const fullHeightWrapperClass = css({
+const fullHeightWrapperClass = css(merge(sharedStyles.base), {
   position: 'relative',
-  height: '100%'
+  minHeight: '100%'
 })
 
 interface WrapperProps {

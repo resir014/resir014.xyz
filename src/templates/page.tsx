@@ -1,5 +1,9 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import { css, merge } from 'glamor'
+
+import { sectionHeading, highlightedText } from '../utils/mixins'
+import { photonColors, sharedStyles } from '../utils/theme'
 
 import { Masthead } from '../components/Masthead'
 import { Container } from '../components/Container'
@@ -38,6 +42,8 @@ interface PageProps {
   }
 }
 
+const pageTitleClass = css(sharedStyles.pageTitle)
+
 const PageTemplate: React.SFC<PageProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
@@ -57,7 +63,7 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
         />
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
-            <h1 className="page-title"><span>{post.frontmatter.title}</span></h1>
+            <h1 className={`${pageTitleClass}`}><span>{post.frontmatter.title}</span></h1>
           </PageHeader>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { css } from 'glamor'
 import * as Color from 'color'
 
-import { breakpoints, widths, colors, fonts } from '../../../utils/theme'
+import { breakpoints, widths, photonColors, fonts, sharedStyles } from '../../../utils/theme'
 import { ProjectNode } from '../../../utils/types'
 
 const projectItemClass = css({
@@ -35,16 +35,16 @@ const projectItemClass = css({
     marginLeft: '1rem',
     fontFamily: fonts.sansSerif,
     fontSize: '70%',
-    color: colors.gray2
+    color: photonColors.grey50
   },
 
   '& .project__tags': {
     '& span': {
       display: 'inline-block',
-      padding: '.25em .75em',
+      padding: '.25em .5em',
       fontSize: '85%',
-      color: colors.white,
-      backgroundColor: Color(colors.black).lighten(0.15).hex(),
+      color: photonColors.white,
+      backgroundColor: photonColors.grey70,
       borderRadius: '3px',
     },
 
@@ -65,19 +65,7 @@ const projectItemClass = css({
     marginTop: 'auto'
   },
 
-  '& .project__footer-link': {
-    display: 'inline-block',
-    marginTop: 'auto',
-    padding: '.25rem .5rem',
-    border: `2px solid ${colors.neonblue2}`,
-
-    '&:hover, &:focus': {
-      color: colors.white,
-      borderColor: colors.neonblue3,
-      backgroundColor: colors.neonblue3,
-      textDecoration: 'none'
-    }
-  }
+  '& .project__footer-link': sharedStyles.sectionFooterLink
 })
 
 const ProjectItem: React.SFC<ProjectNode> = ({ node }) => (

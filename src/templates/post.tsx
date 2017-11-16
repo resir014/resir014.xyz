@@ -3,7 +3,7 @@ import { css, merge } from 'glamor'
 import Helmet from 'react-helmet'
 
 import { sectionHeading, highlightedText } from '../utils/mixins'
-import { colors, headerColors, breakpoints, widths } from '../utils/theme'
+import { photonColors, headerColors, breakpoints, widths, sharedStyles } from '../utils/theme'
 
 import { Masthead } from '../components/Masthead'
 import { Container } from '../components/Container'
@@ -17,16 +17,13 @@ const postMetaClass = css({
   fontSize: '80%'
 })
 
-const postMetaDateClass = css(merge(sectionHeading(colors.white, 0, '.5rem')))
+const postMetaDateClass = css(merge(sectionHeading(photonColors.white, 0, '.5rem')))
 
-const postMetaCategoryClass = css(merge(sectionHeading(colors.white, 0, '.5rem'), {
+const postMetaCategoryClass = css(merge(sectionHeading(photonColors.white, 0, '.5rem'), {
   marginLeft: '.5rem'
 }))
 
-const postTitleClass = css({
-  margin: 0,
-  '& span': merge(sectionHeading(colors.white, '.25rem', '.5rem'))
-})
+const postTitleClass = css(sharedStyles.pageTitle)
 
 interface PageProps {
   data: {

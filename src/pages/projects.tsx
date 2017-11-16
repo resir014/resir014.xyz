@@ -3,6 +3,8 @@ import Link from 'gatsby-link'
 import { css } from 'glamor'
 import Helmet from 'react-helmet'
 
+import { sharedStyles } from '../utils/theme'
+
 import { Masthead } from '../components/Masthead'
 import { Container } from '../components/Container'
 import { Footer } from '../components/Footer'
@@ -14,6 +16,8 @@ import { ProjectNode } from '../utils/types'
 const projectsPageContentClass = css({
   marginTop: '3rem'
 })
+
+const pageTitleClass = css(sharedStyles.pageTitle)
 
 interface IndexPageProps {
   data: {
@@ -45,7 +49,7 @@ const ProjectsPage: React.SFC<IndexPageProps> = ({ data }) => {
         />
         <article>
           <PageHeader>
-            <h1 className="page-title"><span>Projects</span></h1>
+            <h1 className={`${pageTitleClass}`}><span>Projects</span></h1>
           </PageHeader>
           <Container>
             <div className={`${projectsPageContentClass}`}>

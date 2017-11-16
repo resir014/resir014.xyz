@@ -16,8 +16,11 @@ import flavorText from '../utils/flavorText'
 const getHeaderColor = (index: number) => headerColors[Math.floor(Math.random() * headerColors.length)]
 
 const homepageWrapper = (state: IndexPageState) => css({
-  position: 'relative',
-  height: '100%',
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
   background: `linear-gradient(to bottom right,
     ${getHeaderColor(state.gradientStartIndex).gradientStart},
     ${getHeaderColor(state.gradientStartIndex).gradientEnd})`,
