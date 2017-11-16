@@ -124,19 +124,38 @@ export const colors = {
 }
 
 // Colours for the header background to cycle by random
+
 export const headerColors = [
-  {
-    gradientStart: colors.neonblue3,
-    gradientEnd: colors.neonblue1
-  },
-  {
-    gradientStart: colors.neongreen3,
-    gradientEnd: colors.neongreen1
-  },
-  {
-    gradientStart: colors.neonpurple3,
-    gradientEnd: colors.neonpurple1
-  },
+  photonColors.blue50,
+  photonColors.blue60,
+  photonColors.blue70,
+  photonColors.blue80,
+  photonColors.green50,
+  photonColors.green60,
+  photonColors.green70,
+  photonColors.ink70,
+  photonColors.ink80,
+  photonColors.ink90,
+  photonColors.magenta60,
+  photonColors.magenta70,
+  photonColors.magenta80,
+  photonColors.orange50,
+  photonColors.orange60,
+  photonColors.orange70,
+  photonColors.purple50,
+  photonColors.purple60,
+  photonColors.purple70,
+  photonColors.purple80,
+  photonColors.red60,
+  photonColors.red70,
+  photonColors.red80,
+  photonColors.teal50,
+  photonColors.teal60,
+  photonColors.teal70,
+  photonColors.yellow50,
+  photonColors.yellow60,
+  photonColors.yellow70,
+  photonColors.yellow80,
 ]
 
 export const borderColors = [
@@ -152,7 +171,7 @@ export const borderColors = [
   photonColors.yellow70
 ]
 
-const getBorderColor = borderColors[Math.floor(Math.random() * borderColors.length)]
+export const getBorderColor = borderColors[Math.floor(Math.random() * borderColors.length)]
 
 export const linkStyle = {
   color: photonColors.blue60,

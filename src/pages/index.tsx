@@ -13,7 +13,7 @@ import flavorText from '../utils/flavorText'
 
 // TODO: stop using this when we finally convert to Photon colors:
 // http://design.firefox.com/photon/visuals/color.html
-const getHeaderColor = (index: number) => headerColors[Math.floor(Math.random() * headerColors.length)]
+const getHeaderColor = (index: number) => headerColors[index]
 
 const homepageWrapper = (state: IndexPageState) => css({
   position: 'absolute',
@@ -22,8 +22,8 @@ const homepageWrapper = (state: IndexPageState) => css({
   left: 0,
   right: 0,
   background: `linear-gradient(to bottom right,
-    ${getHeaderColor(state.gradientStartIndex).gradientStart},
-    ${getHeaderColor(state.gradientStartIndex).gradientEnd})`,
+    ${getHeaderColor(state.gradientStartIndex)},
+    ${getHeaderColor(state.gradientEndIndex)})`,
   zIndex: 1,
 
   ':before': {

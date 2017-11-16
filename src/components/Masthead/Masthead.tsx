@@ -12,7 +12,7 @@ import { sectionHeading, highlightedText } from '../../utils/mixins'
 
 const mastheadClass = (isHomepage?: boolean) => css({
   padding: '1rem 0',
-  backgroundColor: isHomepage ? 'transparent' : photonColors.grey90,
+  backgroundColor: isHomepage ? Color(photonColors.grey90).alpha(0.25) : photonColors.grey90,
   color: photonColors.white,
 
   [breakpoints.md]: {
