@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
       color: photonColors.blue40,
 
       '&:hover, &:focus': {
-        color: photonColors.blue50
+        color: photonColors.blue50,
       }
     }),
 
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
 
       '& a': merge(highlightedText(photonColors.white, 0, '0.25rem'), {
         color: photonColors.grey90,
+        textDecoration: 'none',
 
         '&:hover, &:focus': {
           textDecoration: 'none'
