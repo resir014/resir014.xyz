@@ -5,7 +5,9 @@ import { sectionHeading, highlightedText } from '../../utils/mixins'
 import { colors, headerColors, breakpoints, widths } from '../../utils/theme'
 import { Container } from '../Container'
 
-const getHeaderColor = () => headerColors[Math.floor(Math.random() * headerColors.length)]
+// TODO: stop using this when we finally convert to Photon colors:
+// http://design.firefox.com/photon/visuals/color.html
+const getHeaderColor = (index: number) => headerColors[index]
 
 const pageHeaderClass = css({
   minHeight: '12rem',
@@ -47,11 +49,13 @@ const pageHeaderTitleClass = css({
   },
 })
 
-const generateHeaderImage = (headerImage?: string) => {
+const generateHeaderImage = (state: PageState, headerImage?: string) => {
   if (headerImage) {
     return css({
       position: 'relative',
-      background: `linear-gradient(to bottom right, ${getHeaderColor().gradientStart}, ${getHeaderColor().gradientEnd})`,
+      background: `linear-gradient(to bottom right,
+        ${getHeaderColor(state.gradientStartIndex).gradientStart},
+        ${getHeaderColor(state.gradientStartIndex).gradientEnd})`,
       zIndex: 1,
 
       ':before': {
@@ -71,7 +75,9 @@ const generateHeaderImage = (headerImage?: string) => {
     })
   } else {
     return css({
-      background: `linear-gradient(to bottom right, ${getHeaderColor().gradientStart}, ${getHeaderColor().gradientEnd})`,
+      background: `linear-gradient(to bottom right,
+        ${getHeaderColor(state.gradientStartIndex).gradientStart},
+        ${getHeaderColor(state.gradientStartIndex).gradientEnd})`,
     })
   }
 }
@@ -80,16 +86,39 @@ interface PageProps {
   headerImage?: string
 }
 
-const PageHeader: React.SFC<PageProps> = ({ headerImage, children }) => {
-  return (
-    <header className={`${pageHeaderClass} ${generateHeaderImage(headerImage)}`}>
-      <Container>
-        <div className={`${pageHeaderInnerClass}`}>
-          <div className={`${pageHeaderTitleClass}`}>{children}</div>
-        </div>
-      </Container>
-    </header>
-  )
+interface PageState {
+  gradientStartIndex: number
+  gradientEndIndex: number
+}
+
+class PageHeader extends React.Component<PageProps, PageState> {
+  constructor (props: PageProps) {
+    super(props)
+    this.state = {
+      gradientStartIndex: 0,
+      gradientEndIndex: 0
+    }
+  }
+
+  public componentWillMount() {
+    this.setState({
+      gradientStartIndex: Math.floor(Math.random() * headerColors.length),
+      gradientEndIndex: Math.floor(Math.random() * headerColors.length)
+    })
+  }
+
+  public render() {
+    const { headerImage, children } = this.props
+    return (
+      <header className={`${pageHeaderClass} ${generateHeaderImage(this.state, headerImage)}`}>
+        <Container>
+          <div className={`${pageHeaderInnerClass}`}>
+            <div className={`${pageHeaderTitleClass}`}>{children}</div>
+          </div>
+        </Container>
+      </header>
+    )
+  }
 }
 
 export default PageHeader

@@ -11,12 +11,16 @@ import { colors, headerColors, breakpoints, widths } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/mixins'
 import flavorText from '../utils/flavorText'
 
-const getHeaderColor = () => headerColors[Math.floor(Math.random() * headerColors.length)]
+// TODO: stop using this when we finally convert to Photon colors:
+// http://design.firefox.com/photon/visuals/color.html
+const getHeaderColor = (index: number) => headerColors[Math.floor(Math.random() * headerColors.length)]
 
-const homepageWrapper = css({
+const homepageWrapper = (state: IndexPageState) => css({
   position: 'relative',
   height: '100%',
-  background: `linear-gradient(to bottom right, ${getHeaderColor().gradientStart}, ${getHeaderColor().gradientEnd})`,
+  background: `linear-gradient(to bottom right,
+    ${getHeaderColor(state.gradientStartIndex).gradientStart},
+    ${getHeaderColor(state.gradientStartIndex).gradientEnd})`,
   zIndex: 1,
 
   ':before': {
@@ -118,20 +122,45 @@ interface IndexPageProps {
   }
 }
 
-const IndexPage: React.SFC<IndexPageProps> = ({ children, data }) => (
-  <div className={`${homepageWrapper}`}>
-    <Masthead title={data.site.siteMetadata.title} isHomepage={true} />
-    <main className={`${homepageWrapperInner}`}>
-      <div className={`${homepageContent}`}>
-        <h1 className="homepage-title"><span>Hey, call me Resi.</span></h1>
-        <p className="homepage-flavour"><span>I'm a professional web developer based in Jakarta, Indonesia.</span></p>
-        <div className={`${homeAboutButton}`}>
-          <Link to="/about">More about me</Link>
-        </div>
+interface IndexPageState {
+  gradientStartIndex: number
+  gradientEndIndex: number
+}
+
+class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
+  constructor (props: IndexPageProps) {
+    super(props)
+    this.state = {
+      gradientStartIndex: 0,
+      gradientEndIndex: 0
+    }
+  }
+
+  public componentWillMount() {
+    this.setState({
+      gradientStartIndex: Math.floor(Math.random() * headerColors.length),
+      gradientEndIndex: Math.floor(Math.random() * headerColors.length)
+    })
+  }
+
+  public render() {
+    const { children, data } = this.props
+    return (
+      <div className={`${homepageWrapper(this.state)}`}>
+        <Masthead title={data.site.siteMetadata.title} isHomepage={true} />
+        <main className={`${homepageWrapperInner}`}>
+          <div className={`${homepageContent}`}>
+            <h1 className="homepage-title"><span>Hey, call me Resi.</span></h1>
+            <p className="homepage-flavour"><span>I'm a professional web developer based in Jakarta, Indonesia.</span></p>
+            <div className={`${homeAboutButton}`}>
+              <Link to="/about">More about me</Link>
+            </div>
+          </div>
+        </main>
       </div>
-    </main>
-  </div>
-)
+    )
+  }
+}
 
 export default IndexPage
 
