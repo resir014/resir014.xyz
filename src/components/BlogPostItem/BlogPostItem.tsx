@@ -46,6 +46,11 @@ const styles = StyleSheet.create({
       '& .post__category--bits': {
         color: colors.black,
         backgroundColor: colors.orange3
+      },
+
+      '& .post__category--tv': {
+        color: colors.black,
+        backgroundColor: colors.green3
       }
     },
 
@@ -85,21 +90,24 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
   public render() {
     const { node } = this.props
 
-    if (node.fields.category === 'bits') {
-      return this.renderBitsItem(this.props)
-    } else {
+    if (node.fields.category === 'blog') {
       return this.renderBlogItem(this.props)
+    } else {
+      return this.renderBitsItem(this.props)
     }
   }
 
   private renderBitsItem(props: BlogPostNode) {
     const { node } = props
+    const { date, category } = node.fields
     return (
       <div className={css(styles.blogPostItem)}>
         <div className={css(styles.blogPostDetailBox)}>
           <div className="post__meta">
-            <span className="post__date">{node.fields.date}</span>
-            <span className="post__category post__category--bits">bits</span>
+            <span className="post__date">{date}</span>
+            <span className={`post__category ${category ? `post__category--${category}` : null}`}>
+              {category || 'bits'}
+            </span>
           </div>
           <div className={css(styles.blogPostContentBits)} dangerouslySetInnerHTML={{ __html: node.html }} />
         </div>
