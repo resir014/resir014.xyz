@@ -2,7 +2,7 @@ import * as React from 'react'
 import { css, merge } from 'glamor'
 
 import { sectionHeading, highlightedText } from '../../utils/mixins'
-import { colors, headerColors, breakpoints, widths } from '../../utils/theme'
+import { colors, headerColors, borderColors, breakpoints, widths } from '../../utils/theme'
 import { Container } from '../Container'
 
 // TODO: stop using this when we finally convert to Photon colors:
@@ -41,12 +41,7 @@ const pageHeaderTitleClass = css({
     fontSize: '80%',
 
     '& span': merge(sectionHeading(colors.white, 0, '.5rem'))
-  },
-
-  '& .page-title, & .post-title': {
-    margin: 0,
-    '& span': merge(sectionHeading(colors.white, '.25rem', '.5rem'))
-  },
+  }
 })
 
 const generateHeaderImage = (state: PageState, headerImage?: string) => {
@@ -54,8 +49,8 @@ const generateHeaderImage = (state: PageState, headerImage?: string) => {
     return css({
       position: 'relative',
       background: `linear-gradient(to bottom right,
-        ${getHeaderColor(state.gradientStartIndex).gradientStart},
-        ${getHeaderColor(state.gradientStartIndex).gradientEnd})`,
+        ${getHeaderColor(state.gradientStartIndex)},
+        ${getHeaderColor(state.gradientEndIndex)})`,
       zIndex: 1,
 
       ':before': {
@@ -76,8 +71,8 @@ const generateHeaderImage = (state: PageState, headerImage?: string) => {
   } else {
     return css({
       background: `linear-gradient(to bottom right,
-        ${getHeaderColor(state.gradientStartIndex).gradientStart},
-        ${getHeaderColor(state.gradientStartIndex).gradientEnd})`,
+        ${getHeaderColor(state.gradientStartIndex)},
+        ${getHeaderColor(state.gradientEndIndex)})`,
     })
   }
 }

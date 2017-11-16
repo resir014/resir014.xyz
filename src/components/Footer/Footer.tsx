@@ -5,7 +5,7 @@ import { merge } from 'glamor'
 import { StyleSheet, css } from 'glamor/aphrodite'
 
 import flavorText from '../../utils/flavorText'
-import { colors, breakpoints, fonts } from '../../utils/theme'
+import { photonColors, breakpoints, fonts, sharedStyles } from '../../utils/theme'
 import { highlightedText } from '../../utils/mixins'
 
 import { Container } from '../Container'
@@ -14,12 +14,20 @@ const styles = StyleSheet.create({
   footer: {
     marginTop: '3rem',
     padding: '2rem 0',
-    color: colors.white,
-    backgroundColor: Color(colors.black).mix(Color(colors.white), 0.1),
+    color: photonColors.white,
+    backgroundColor: photonColors.grey90,
+
+    '& a': merge(sharedStyles.link, {
+      color: photonColors.blue40,
+
+      '&:hover, &:focus': {
+        color: photonColors.blue50
+      }
+    }),
 
     '& p, & small': {
       display: 'block',
-      margin: 0
+      margin: '0 !important'
     }
   },
   footerHeader: {
@@ -35,8 +43,8 @@ const styles = StyleSheet.create({
         fontSize: '1.5rem'
       },
 
-      '& a': merge(highlightedText(colors.white, 0, '0.25rem'), {
-        color: colors.black,
+      '& a': merge(highlightedText(photonColors.white, 0, '0.25rem'), {
+        color: photonColors.grey90,
 
         '&:hover, &:focus': {
           textDecoration: 'none'
@@ -53,8 +61,8 @@ const styles = StyleSheet.create({
         fontSize: '1.5rem'
       },
 
-      '& span': merge(highlightedText(colors.orange3, 0, '0.25rem'), {
-        color: colors.black
+      '& span': merge(highlightedText(photonColors.orange50, 0, '0.25rem'), {
+        color: photonColors.grey90
       })
     },
   }

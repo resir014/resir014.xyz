@@ -4,14 +4,14 @@ import { css } from 'glamor'
 import { WidgetLinkButton } from '../WidgetLinkButton'
 import { ProjectItem } from './ProjectItem'
 
-import { colors, breakpoints } from '../../utils/theme'
+import { photonColors, breakpoints } from '../../utils/theme'
 import { ProjectNode } from '../../utils/types'
 
 const projectsListClass = css({
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'wrap',
-  borderBottom: `2px solid ${colors.black}`,
+  borderBottom: `2px solid ${photonColors.grey90}`,
 
   [breakpoints.md]: {
     flexDirection: 'row',
@@ -19,7 +19,7 @@ const projectsListClass = css({
   },
 
   '> div': {
-    borderTop: `2px solid ${colors.black}`
+    borderTop: `2px solid ${photonColors.grey90}`
   }
 })
 

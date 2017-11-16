@@ -7,12 +7,13 @@ import { css, merge } from 'glamor'
 
 import { Container } from '../Container'
 import flavorText from '../../utils/flavorText'
-import { colors, breakpoints, widths } from '../../utils/theme'
+import { photonColors, breakpoints, widths } from '../../utils/theme'
 import { sectionHeading, highlightedText } from '../../utils/mixins'
 
 const mastheadClass = (isHomepage?: boolean) => css({
   padding: '1rem 0',
-  backgroundColor: isHomepage ? 'transparent' : Color(colors.black).mix(Color(colors.white), 0.1),
+  backgroundColor: isHomepage ? Color(photonColors.grey90).alpha(0.25) : photonColors.grey90,
+  color: photonColors.white,
 
   [breakpoints.md]: {
     padding: 0,
@@ -42,11 +43,11 @@ const mastheadTitleClass = css({
 })
 
 const mastheadTitleInnerClass = (isHomepage?: boolean) =>
-  css(merge(highlightedText(colors.white, 0, '.25rem'), {
-    color: colors.black,
+  css(merge(highlightedText(photonColors.white, 0, '.25rem'), {
+    color: photonColors.grey90,
 
     '&:hover, &:focus': {
-      color: colors.black,
+      color: photonColors.grey90,
       textDecoration: 'none'
     }
   }))
@@ -64,7 +65,7 @@ const mastheadNavLinkClass = (isHomepage?: boolean) => css({
   display: 'inline-block',
   marginTop: '1rem',
   paddingRight: '1.5rem',
-  color: colors.white,
+  color: photonColors.white,
   fontWeight: 600,
 
   [breakpoints.md]: {
@@ -78,16 +79,16 @@ const mastheadNavLinkClass = (isHomepage?: boolean) => css({
 
   '&:hover, &:focus': {
     textDecoration: 'none',
-    color: colors.black,
+    color: photonColors.grey90,
 
-    '& span': merge(highlightedText(colors.white, 0, '.25rem'))
+    '& span': merge(highlightedText(photonColors.white, 0, '.25rem'))
   }
 })
 
 const mastheadNavLinkActiveClass = (isHomepage?: boolean) => css({
-  color: colors.black,
+  color: photonColors.grey90,
 
-  '& span': merge(highlightedText(colors.white, 0, '.25rem'))
+  '& span': merge(highlightedText(photonColors.white, 0, '.25rem'))
 })
 
 interface MastheadProps {

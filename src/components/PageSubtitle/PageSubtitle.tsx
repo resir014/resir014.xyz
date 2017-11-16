@@ -2,9 +2,9 @@ import * as React from 'react'
 import { css } from 'glamor'
 
 import { sectionHeading, highlightedText } from '../../utils/mixins'
-import { colors, headerColors, breakpoints, widths } from '../../utils/theme'
+import { borderColors, breakpoints, widths } from '../../utils/theme'
 
-const getBorderColor = headerColors[Math.floor(Math.random() * headerColors.length)].gradientStart
+const getBorderColor = borderColors[Math.floor(Math.random() * borderColors.length)]
 
 const pageSubtitleClass = css({
   marginTop: '3rem',

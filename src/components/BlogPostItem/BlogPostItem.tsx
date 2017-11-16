@@ -3,7 +3,7 @@ import { StyleSheet, css } from 'glamor/aphrodite'
 import { merge } from 'glamor'
 import Link from 'gatsby-link'
 
-import { breakpoints, widths, colors } from '../../utils/theme'
+import { breakpoints, widths, photonColors, sharedStyles } from '../../utils/theme'
 import { highlightedText } from '../../utils/mixins'
 
 import { BlogPostNode } from '../../utils/types'
@@ -29,32 +29,32 @@ const styles = StyleSheet.create({
       marginTop: 0,
       marginBottom: '1rem',
 
-      '& .post__date': merge(highlightedText(colors.black, 0, '.25rem'), {
-        color: colors.white,
+      '& .post__date': merge(highlightedText(photonColors.grey90, 0, '.25rem'), {
+        color: photonColors.white,
 
         '&:hover, &:focus': {
           textDecoration: 'none'
         }
       }),
 
-      '& .post__category': merge(highlightedText(colors.black, 0, '.25rem'), {
+      '& .post__category': merge(highlightedText(photonColors.grey90, 0, '.25rem'), {
         marginLeft: '0.5rem',
-        color: colors.white
+        color: photonColors.white
       }),
 
       '& .post__category--blog': {
-        color: colors.black,
-        backgroundColor: colors.blue3
+        color: photonColors.white,
+        backgroundColor: photonColors.teal70
       },
 
       '& .post__category--bits': {
-        color: colors.black,
-        backgroundColor: colors.orange3
+        color: photonColors.white,
+        backgroundColor: photonColors.yellow70
       },
 
       '& .post__category--tv': {
-        color: colors.black,
-        backgroundColor: colors.green3
+        color: photonColors.white,
+        backgroundColor: photonColors.green70
       }
     },
 
@@ -69,24 +69,14 @@ const styles = StyleSheet.create({
     }
   },
 
-  blogPostContentBits: {
+  blogPostContentBits: merge(sharedStyles.markdown, {
     marginTop: '1.5rem'
-  },
+  }),
 
   blogPostFooter: {
-    '& .post__footer-link': {
-      display: 'inline-block',
-      marginTop: '1rem',
-      padding: '.25rem .5rem',
-      border: `2px solid ${colors.neonblue2}`,
-
-      '&:hover, &:focus': {
-        color: colors.white,
-        borderColor: colors.neonblue3,
-        backgroundColor: colors.neonblue3,
-        textDecoration: 'none'
-      }
-    }
+    '& .post__footer-link': merge(sharedStyles.sectionFooterLink, {
+      marginTop: '1rem'
+    })
   },
 })
 
