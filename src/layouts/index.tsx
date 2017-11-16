@@ -38,7 +38,7 @@ interface WrapperProps {
 }
 
 const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data }) => (
-  <div className={`${fullHeightWrapperClass}`}>
+  <div id="layout-root">
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
