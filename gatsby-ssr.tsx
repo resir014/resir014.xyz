@@ -3,9 +3,7 @@ import { Provider } from 'react-redux'
 import { renderToString } from 'react-dom/server'
 import { renderStaticOptimized } from 'glamor/server'
 
-import configureStore from './src/configureStore'
-
-const store = configureStore()
+import store from './src/configureStore'
 
 exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
   const ConnectedBody = () => (

@@ -1,13 +1,5 @@
 import { createStore, combineReducers } from 'redux'
 import { devToolsEnhancer } from 'redux-devtools-extension'
-import { ApplicationState, reducers } from './store'
+import { ApplicationState, initialState, reducer } from './store'
 
-export default function configureStore(initialState?: ApplicationState) {
-  const allReducers = buildRootReducer<ApplicationState>(reducers)
-  return createStore<ApplicationState>(allReducers, initialState, devToolsEnhancer({}))
-}
-
-function buildRootReducer<TReducer>(allReducers: any) {
-  // Gatsby doesn't like the object spread operator
-  return combineReducers<TReducer>(Object.assign({}, allReducers))
-}
+export default createStore<ApplicationState>(reducer, initialState, devToolsEnhancer({}))
