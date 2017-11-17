@@ -2,12 +2,18 @@
 layout: page
 title: "Screeps"
 year: 2016
-lead: AI scripts and starter packs I've made for the game Screeps.
+lead: Contributions and community projects for the game Screeps.
 header_image_url: /images/projects/screeps/preview.png
 ---
 
-**[Screeps](https://screeps.com)** is an MMORTS game where you control your units by writing JavaScript code. The core mechanics of the game is to program the AI of your units in order to achieve tasks such as harvesting energy &amp; resources, building your base, defending your colony from attackers, as well as controlling as much of the persistent, open world as possible.
+**[Screeps](https://screeps.com/)** is an MMORTS game where you control your units by writing pure JavaScript code. The core mechanics of the game is to program the AI of your units in order to achieve tasks such as harvesting energy &amp; resources, building your base, defending your colony from attackers, as well as controlling as much of the persistent open world as possible.
 
-<p>The game mostly revolves around JavaScript programming, however you can also use any other languages that compile to JavaScript. I'm currently writing my AI code in <a href="http://www.typescriptlang.org" target="_blank" rel="noopener noreferrer">TypeScript</a>, and the source code is available <a href="https://github.com/resir014/screeps" target="_blank" rel="noopener noreferrer">here</a> if you want to take a look.</p>
+The game mostly revolves around JavaScript programming, however you can also use [any other language](st-of-languages-that-compile-to-js) that transpiles to JavaScript. I'm currently active among the [TypeScript](http://www.typescriptlang.org) community of Screeps, contributing to a couple of TypeScript-based community efforts for the game itself, including a [starter kit](https://github.com/screepers/screeps-typescript-starter) for TypeScript-based Screeps AI codes.
 
-<p>I've also made a starter kit for people who wanted to start writing Screeps scripts in Typescript, which you can look at <a href="https://github.com/screepers/screeps-typescript-starter" target="_blank" rel="noopener noreferrer">here</a>.</p>
+Feel free to say hi by [signing up to the Slack chatroom](http://chat.screeps.com/), and joining the `#typescript` channel once you're there. Join us and ~~embrace the dark side~~ __enjoy the power__ of static typing in Screeps!
+
+## Projects
+
+* **[resir014/screeps](https://github.com/resir014/screeps)** - My personal AI code for Screeps, dubbed Stonehenge.
+* **[screeps-typescript-starter](https://github.com/screepers/screeps-typescript-starter)** - Starter kit for TypeScript-based Screeps AI codes.
+* **[typed-screeps](https://github.com/screepers/typed-screeps)** - Type declarations for the game Screeps.
