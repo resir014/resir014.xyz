@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import { css, merge } from 'glamor'
 import Helmet from 'react-helmet'
 
-import { colors, fonts, breakpoints, widths } from '../utils/theme'
+import { photonColors, fonts, breakpoints, widths } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/mixins'
 
 import { Masthead } from '../components/Masthead'
@@ -16,8 +16,8 @@ const notFoundPageContentClass = css({
   minHeight: '100%',
   alignItems: 'center',
   justifyContent: 'center',
-  color: colors.white,
-  backgroundColor: colors.black
+  color: photonColors.white,
+  backgroundColor: photonColors.grey90
 })
 
 const notFoundPageContentInnerClass = css({
@@ -27,7 +27,7 @@ const notFoundPageContentInnerClass = css({
     marginTop: 0,
     fontFamily: fonts.sansSerif,
 
-    '& span': merge(sectionHeading(colors.white, 0, '.25rem'))
+    '& span': merge(sectionHeading(photonColors.white, 0, '.25rem'))
   }
 })
 
