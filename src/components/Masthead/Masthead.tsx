@@ -1,32 +1,39 @@
 // tslint:disable:jsx-no-lambda
 
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 import Link, { navigateTo } from 'gatsby-link'
 import * as Color from 'color'
 import { css, merge } from 'glamor'
 
 import { Container } from '../Container'
+import { MastheadNavItem } from '../MastheadNavItem'
+import { ToggleMenu } from '../ToggleMenu'
+
+import { ApplicationState } from '../../store'
+import { LayoutState, toggleSidebar } from '../../store/layout'
 import flavorText from '../../utils/flavorText'
-import { photonColors, breakpoints, widths } from '../../utils/theme'
+import { photonColors, breakpoints, widths, heights } from '../../utils/theme'
+import { MenuProps } from '../../utils/types'
 import { sectionHeading, highlightedText } from '../../utils/mixins'
 
 const mastheadClass = (isHomepage?: boolean) => css({
-  padding: '1rem 0',
-  backgroundColor: isHomepage ? Color(photonColors.grey90).alpha(0.25) : photonColors.grey90,
-  color: photonColors.white,
-
-  [breakpoints.md]: {
-    padding: 0,
-    height: '75px'
-  }
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  zIndex: 10,
+  height: heights.masthead,
+  padding: 0,
+  backgroundColor: isHomepage ? 'transparent' : photonColors.grey90,
+  color: photonColors.white
 })
 
 const mastheadInnerClass = css({
-  [breakpoints.md]: {
-    display: 'flex',
-    flexDirection: 'row',
-    height: '75px'
-  }
+  display: 'flex',
+  flexDirection: 'row',
+  height: heights.masthead
 })
 
 const mastheadTitleClass = css({
@@ -37,7 +44,7 @@ const mastheadTitleClass = css({
   fontSize: '1.5rem',
 
   [breakpoints.lg]: {
-    width: 'calc(100% / 6)',
+    width: 'calc(100% / 4)',
     fontSize: '1.75rem'
   }
 })
@@ -52,30 +59,49 @@ const mastheadTitleInnerClass = (isHomepage?: boolean) =>
     }
   }))
 
-const mastheadNavClass = css({
+const mastheadRightClass = css({
+  display: 'flex',
+  height: '100%',
+  width: '100%',
+  alignItems: 'stretch',
+  justifyContent: 'flex-end'
+})
+
+const mastheadToggleClass = css({
+  display: 'flex',
+  alignItems: 'center',
+
   [breakpoints.md]: {
-    display: 'flex',
-    height: '100%',
-    width: '100%',
-    alignItems: 'stretch',
+    display: 'none'
+  },
+})
+
+const mastheadToggleMenuClass = css({
+  display: 'inline-block',
+  padding: '.25rem .5rem',
+  color: photonColors.grey90,
+  backgroundColor: photonColors.white,
+  cursor: 'pointer',
+  userSelect: 'none'
+})
+
+const mastheadNavClass = css({
+  display: 'none',
+
+  [breakpoints.md]: {
+    display: 'flex'
   },
 })
 
 const mastheadNavLinkClass = (isHomepage?: boolean) => css({
-  display: 'inline-block',
-  marginTop: '1rem',
-  paddingRight: '1.5rem',
+  display: 'flex',
+  alignItems: 'center',
+  margin: 0,
+  padding: '0 1.5rem',
   color: photonColors.white,
   fontWeight: 600,
 
-  [breakpoints.md]: {
-    display: 'flex',
-    alignItems: 'center',
-    margin: 0,
-    padding: '0 1.5rem',
-  },
-
-  '& span': merge(highlightedText('transparent', 0, '.25rem')),
+  '& span': merge(highlightedText(Color(photonColors.grey90).alpha(0.2), 0, '.25rem')),
 
   '&:hover, &:focus': {
     textDecoration: 'none',
@@ -91,17 +117,14 @@ const mastheadNavLinkActiveClass = (isHomepage?: boolean) => css({
   '& span': merge(highlightedText(photonColors.white, 0, '.25rem'))
 })
 
-interface MastheadProps {
+interface MastheadProps extends MenuProps {
   title: string
-  isHomepage?: boolean
+  transparent?: boolean
+  dispatch?: Dispatch<LayoutState>
 }
 
-interface MastheadState {
-  splash: string
-}
-
-class Masthead extends React.Component<MastheadProps, MastheadState> {
-  constructor(props: MastheadProps) {
+class Masthead extends React.Component<MastheadProps & LayoutState, {}> {
+  constructor(props: MastheadProps & LayoutState) {
     super(props)
 
     this.state = {
@@ -110,51 +133,30 @@ class Masthead extends React.Component<MastheadProps, MastheadState> {
   }
 
   public render() {
-    const { title, isHomepage } = this.props
-    const { splash } = this.state
+    const { title, transparent, items, dispatch, sidebarVisible } = this.props
 
     return (
-      <header className={`${mastheadClass(isHomepage)}`}>
+      <header className={`${mastheadClass(transparent)}`}>
         <Container>
           <div className={`${mastheadInnerClass}`}>
             <div className={`${mastheadTitleClass}`} onClick={() => navigateTo('/')}>
               <Link
                 to="/"
-                className={`${mastheadTitleInnerClass(isHomepage)}`}
+                className={`${mastheadTitleInnerClass(transparent)}`}
               >
                 {title}
               </Link>
             </div>
-            <nav className={`${mastheadNavClass}`}>
-              <Link
-                className={`${mastheadNavLinkClass(isHomepage)}`}
-                activeClassName={`${mastheadNavLinkActiveClass(isHomepage)}`}
-                to="/about"
-              >
-                <span>about</span>
-              </Link>
-              <Link
-                className={`${mastheadNavLinkClass(isHomepage)}`}
-                activeClassName={`${mastheadNavLinkActiveClass(isHomepage)}`}
-                to="/posts"
-              >
-                <span>posts</span>
-              </Link>
-              <Link
-                className={`${mastheadNavLinkClass(isHomepage)}`}
-                activeClassName={`${mastheadNavLinkActiveClass(isHomepage)}`}
-                to="/projects"
-              >
-                <span>projects</span>
-              </Link>
-              <Link
-                className={`${mastheadNavLinkClass(isHomepage)}`}
-                activeClassName={`${mastheadNavLinkActiveClass(isHomepage)}`}
-                to="/etc"
-              >
-                <span>stuff</span>
-              </Link>
-            </nav>
+            <div className={`${mastheadRightClass}`}>
+              <div className={`${mastheadToggleClass}`}>
+                <div className={`${mastheadToggleMenuClass}`} onClick={() => dispatch(toggleSidebar())}>☰</div>
+              </div>
+              <nav className={`${mastheadNavClass}`}>
+                {items.map(item => {
+                  return <MastheadNavItem key={item.path} name={item.name} path={item.path} />
+                })}
+              </nav>
+            </div>
           </div>
         </Container>
       </header>
@@ -162,4 +164,6 @@ class Masthead extends React.Component<MastheadProps, MastheadState> {
   }
 }
 
-export default Masthead
+const mapStateToProps = (state: ApplicationState) => state.layout
+
+export default connect<LayoutState, void, MastheadProps>(mapStateToProps)(Masthead)

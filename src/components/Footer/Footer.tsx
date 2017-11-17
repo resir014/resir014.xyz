@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
 
     '& .footer-title': {
       marginTop: 0,
+      marginBottom: '0.5rem',
       fontFamily: fonts.sansSerif,
       fontWeight: 400,
       fontSize: '1.25rem',

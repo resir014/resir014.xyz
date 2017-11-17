@@ -16,6 +16,10 @@ export const widths = {
   large: '970px'
 }
 
+export const heights = {
+  masthead: '75px'
+}
+
 export const fonts = {
   sansSerif: `"Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif`,
