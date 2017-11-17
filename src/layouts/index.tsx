@@ -1,12 +1,18 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import { css, merge } from 'glamor'
 
 import { Masthead } from '../components/Masthead'
+import { ToggleMenu } from '../components/ToggleMenu'
 import Footer from '../components/Footer/Footer'
 
+import { ApplicationState } from '../store'
+import { LayoutState, toggleSidebar } from '../store/layout'
 import { colors, sharedStyles, breakpoints } from '../utils/theme'
+import { MenuItem } from '../utils/types'
 
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'
@@ -20,7 +26,17 @@ const fullHeightWrapperClass = css(merge(sharedStyles.base), {
   minHeight: '100%'
 })
 
+export const menuItems: MenuItem[] = [
+  { name: 'About', path: '/about' },
+  { name: 'Posts', path: '/posts' },
+  { name: 'Projects', path: '/projects' },
+  { name: 'Stuff', path: '/etc' }
+]
+
 interface WrapperProps {
+  location: {
+    pathname: string
+  }
   children: () => any
   data: {
     site: {
@@ -37,25 +53,43 @@ interface WrapperProps {
   }
 }
 
-const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data }) => (
-  <div id="layout-root">
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: data.site.siteMetadata.description },
-        { property: 'og:site_name', content: data.site.siteMetadata.title },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: data.site.siteMetadata.title },
-        { property: 'og:description', content: data.site.siteMetadata.description },
-      ]}
-    />
-    <div className={`${fullHeightWrapperClass}`}>
-      {children()}
-    </div>
-  </div>
-)
+class TemplateWrapper extends React.PureComponent<WrapperProps & LayoutState, {}> {
+  public render() {
+    const { children, data, sidebarVisible } = this.props
+    const { pathname } = this.props.location
+    const isHomepage = pathname === '/'
 
-export default TemplateWrapper
+    return (
+      <div id="layout-root">
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: data.site.siteMetadata.description },
+            { property: 'og:site_name', content: data.site.siteMetadata.title },
+            { property: 'og:type', content: 'website' },
+            { property: 'og:title', content: data.site.siteMetadata.title },
+            { property: 'og:description', content: data.site.siteMetadata.description },
+          ]}
+        />
+        <Masthead
+          title={data.site.siteMetadata.title}
+          items={menuItems}
+          pathname={pathname}
+          transparent={true}
+        />
+        <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
+        <div className={`${fullHeightWrapperClass}`}>
+          {children()}
+        </div>
+        {!isHomepage ? <Footer title={data.site.siteMetadata.title} /> : ''}
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = (state: ApplicationState) => state.layout
+
+export default connect<LayoutState, void, WrapperProps>(mapStateToProps)(TemplateWrapper)
 
 export const query = graphql`
   query IndexQuery {

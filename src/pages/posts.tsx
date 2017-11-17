@@ -51,9 +51,8 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data }) => {
 
   return (
     <main>
-      <Masthead title={data.site.siteMetadata.title} />
+      <Helmet title={`Posts · ${siteMetadata.title}`} />
       <article>
-        <Helmet title={`Posts · ${siteMetadata.title}`} />
         <PageHeader>
           <h1 className={`${pageTitleClass}`}><span>Posts</span></h1>
         </PageHeader>
@@ -65,7 +64,6 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data }) => {
           </div>
         </Container>
       </article>
-      <Footer title={data.site.siteMetadata.title} />
     </main>
   )
 }

@@ -58,7 +58,7 @@ module.exports = {
     'gatsby-plugin-twitter',
     'gatsby-plugin-sass',
     'gatsby-plugin-typescript',
-    'gatsby-plugin-glamor',
+    // 'gatsby-plugin-glamor',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',

@@ -1,3 +1,16 @@
+import { GatsbyLinkProps } from 'gatsby-link'
+
+export interface MenuItem {
+  name: string
+  path: string
+  inverted?: boolean
+}
+
+export interface MenuProps {
+  items: MenuItem[]
+  pathname: string
+}
+
 export interface BlogPostNode {
   node: {
     html: string

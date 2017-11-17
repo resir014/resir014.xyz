@@ -61,32 +61,28 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <div>
-      <Masthead title={data.site.siteMetadata.title} />
-      <main>
-        <Helmet
-          title={`${post.frontmatter.title} · ${siteMetadata.title}`}
-          meta={[
-            { name: 'description', content: post.fields.lead || post.excerpt },
-            { name: 'author', content: siteMetadata.author.name },
-            { property: 'og:title', content: post.frontmatter.title },
-            { property: 'og:description', content: post.fields.lead || post.excerpt },
-          ]}
-        />
-        <article>
-          <PageHeader headerImage={post.fields.headerImage || null}>
-            <div className={`${postMetaClass}`}>
-              <span className={`${postMetaDateClass}`}>{post.fields.date}</span>
-              {post.fields.category ? <span className={`${postMetaCategoryClass}`}>{post.fields.category}</span> : null}
-            </div>
-          </PageHeader>
-          <Container>
-            <MarkdownContent html={post.html} />
-          </Container>
-        </article>
-      </main>
-      <Footer title={data.site.siteMetadata.title} />
-    </div>
+    <main>
+      <Helmet
+        title={`${post.frontmatter.title} · ${siteMetadata.title}`}
+        meta={[
+          { name: 'description', content: post.fields.lead || post.excerpt },
+          { name: 'author', content: siteMetadata.author.name },
+          { property: 'og:title', content: post.frontmatter.title },
+          { property: 'og:description', content: post.fields.lead || post.excerpt },
+        ]}
+      />
+      <article>
+        <PageHeader headerImage={post.fields.headerImage || null}>
+          <div className={`${postMetaClass}`}>
+            <span className={`${postMetaDateClass}`}>{post.fields.date}</span>
+            {post.fields.category ? <span className={`${postMetaCategoryClass}`}>{post.fields.category}</span> : null}
+          </div>
+        </PageHeader>
+        <Container>
+          <MarkdownContent html={post.html} />
+        </Container>
+      </article>
+    </main>
   )
 }
 

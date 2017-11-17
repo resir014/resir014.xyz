@@ -41,25 +41,21 @@ const ProjectsPage: React.SFC<IndexPageProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <div>
-      <Masthead title={data.site.siteMetadata.title} />
-      <main>
-        <Helmet
-          title={`Projects · ${siteMetadata.title}`}
-        />
-        <article>
-          <PageHeader>
-            <h1 className={`${pageTitleClass}`}><span>Projects</span></h1>
-          </PageHeader>
-          <Container>
-            <div className={`${projectsPageContentClass}`}>
-              <ProjectItemList projects={data.allProjectsJson.edges} />
-            </div>
-          </Container>
-        </article>
-      </main>
-      <Footer title={data.site.siteMetadata.title} />
-    </div>
+    <main>
+      <Helmet
+        title={`Projects · ${siteMetadata.title}`}
+      />
+      <article>
+        <PageHeader>
+          <h1 className={`${pageTitleClass}`}><span>Projects</span></h1>
+        </PageHeader>
+        <Container>
+          <div className={`${projectsPageContentClass}`}>
+            <ProjectItemList projects={data.allProjectsJson.edges} />
+          </div>
+        </Container>
+      </article>
+    </main>
   )
 }
 

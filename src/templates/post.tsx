@@ -63,37 +63,33 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <div>
-      <Masthead title={data.site.siteMetadata.title} />
-      <main>
-        <Helmet
-          title={`${post.frontmatter.title} · ${siteMetadata.title}`}
-          meta={[
-            { name: 'description', content: post.fields.lead || post.excerpt },
-            { name: 'author', content: siteMetadata.author.name },
-            { property: 'og:title', content: post.frontmatter.title },
-            { property: 'og:description', content: post.fields.lead || post.excerpt },
-            { property: 'og:type', content: 'article' },
-            { property: 'og:article:author', content: siteMetadata.author.name },
-            { property: 'og:article:published_time', content: post.fields.date_ogp },
-          ]}
-        />
-        <article>
-          <PageHeader headerImage={post.fields.headerImage || null}>
-            <div className={`${postMetaClass}`}>
-              <span className={`${postMetaDateClass}`}>{post.fields.date}</span>
-              {post.fields.category ? <span className={`${postMetaCategoryClass}`}>{post.fields.category}</span> : null}
-            </div>
-            <h1 className={`${postTitleClass}`}><span>{post.frontmatter.title}</span></h1>
-          </PageHeader>
-          <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <MarkdownContent html={post.html} />
-          </Container>
-        </article>
-      </main>
-      <Footer title={data.site.siteMetadata.title} />
-    </div>
+    <main>
+      <Helmet
+        title={`${post.frontmatter.title} · ${siteMetadata.title}`}
+        meta={[
+          { name: 'description', content: post.fields.lead || post.excerpt },
+          { name: 'author', content: siteMetadata.author.name },
+          { property: 'og:title', content: post.frontmatter.title },
+          { property: 'og:description', content: post.fields.lead || post.excerpt },
+          { property: 'og:type', content: 'article' },
+          { property: 'og:article:author', content: siteMetadata.author.name },
+          { property: 'og:article:published_time', content: post.fields.date_ogp },
+        ]}
+      />
+      <article>
+        <PageHeader headerImage={post.fields.headerImage || null}>
+          <div className={`${postMetaClass}`}>
+            <span className={`${postMetaDateClass}`}>{post.fields.date}</span>
+            {post.fields.category ? <span className={`${postMetaCategoryClass}`}>{post.fields.category}</span> : null}
+          </div>
+          <h1 className={`${postTitleClass}`}><span>{post.frontmatter.title}</span></h1>
+        </PageHeader>
+        <Container>
+          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+          <MarkdownContent html={post.html} />
+        </Container>
+      </article>
+    </main>
   )
 }
 

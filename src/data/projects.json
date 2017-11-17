@@ -3,6 +3,7 @@
     "title": "node-mpw",
     "year": 2017,
     "tags": [
+      "oss",
       "typescript"
     ],
     "details": "Implementation of <a href=\"https://ssl.masterpasswordapp.com/algorithm.html\" target=\"_blank\">the Master Password algorithm</a> for nodejs and browser.",
@@ -12,7 +13,8 @@
     "title": "stars-not-hearts",
     "year": 2016,
     "tags": [
-      "css"
+      "oss",
+      "custom-styles"
     ],
     "details": "Custom CSS to replace the heart icons on <a href=\"https://twitter.com/\" target=\"_blank\">Twitter</a> and <a href=\"https://tweetdeck.twitter.com/\" target=\"_blank\">TweetDeck</a> to stars.",
     "url": "https://github.com/resir014/stars-not-hearts"
@@ -21,6 +23,7 @@
     "title": "gnu-social-status",
     "year": 2016,
     "tags": [
+      "oss",
       "html",
       "css",
       "js"
@@ -32,26 +35,29 @@
     "title": "@everyjs",
     "year": 2016,
     "tags": [
+      "other",
       "twitter"
     ],
     "details": "An everyword-like Twitter bot appending \".js\" to every word.",
-    "url": "https://twitter.com/everyjs"
+    "url": "/projects/other/everyjs"
   },
   {
     "title": "Screeps",
     "year": 2016,
     "tags": [
+      "other",
       "js",
       "typescript",
       "gaming"
     ],
-    "details": "Contributions and community projects for the game <a href=\"https://screeps.com/\">Screeps</a>.",
-    "url": "/projects/2016/screeps/"
+    "details": "Contributions and community projects for <a href=\"https://screeps.com/\">Screeps</a>.",
+    "url": "/projects/other/screeps/"
   },
   {
     "title": "Most Reliable Lightweight CSS Reset™",
     "year": 2015,
     "tags": [
+      "other",
       "css",
       "satire"
     ],
@@ -62,6 +68,7 @@
     "title": "Clear Sans Webfont",
     "year": 2014,
     "tags": [
+      "oss",
       "css",
       "webfonts"
     ],
@@ -72,6 +79,7 @@
     "title": "Tumblr Boilerplate",
     "year": 2014,
     "tags": [
+      "oss",
       "html",
       "css",
       "js"

@@ -49,6 +49,9 @@ const homepageWrapper = (state: IndexPageState) => css({
 const homepageWrapperInner = css({
   display: 'flex',
   flexDirection: 'column',
+  minHeight: '100%',
+  alignItems: 'center',
+  justifyContent: 'center',
   paddingLeft: '1.5rem',
   paddingRight: '1.5rem',
   marginLeft: 'auto',
@@ -61,7 +64,7 @@ const homepageWrapperInner = css({
 })
 
 const homepageContent = css({
-  padding: '5rem 0',
+  width: '100%',
 
   '& .homepage-title': {
     marginTop: 0,
@@ -85,10 +88,6 @@ const homepageContent = css({
     [breakpoints.md]: {
       fontSize: '1.5rem'
     }
-  },
-
-  [breakpoints.lg]: {
-    padding: '10rem 0'
   }
 })
 
@@ -150,7 +149,6 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
     const { children, data } = this.props
     return (
       <div className={`${homepageWrapper(this.state)}`}>
-        <Masthead title={data.site.siteMetadata.title} isHomepage={true} />
         <main className={`${homepageWrapperInner}`}>
           <div className={`${homepageContent}`}>
             <h1 className="homepage-title"><span>Hey, call me Resi.</span></h1>

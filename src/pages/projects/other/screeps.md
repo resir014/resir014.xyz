@@ -2,8 +2,10 @@
 layout: page
 title: "Screeps"
 year: 2016
-lead: Contributions and community projects for the game Screeps.
+lead: Contributions and community projects for Screeps.
 header_image_url: /images/projects/screeps/preview.png
+redirect_from:
+  - projects/2016/screeps
 ---
 
 **[Screeps](https://screeps.com/)** is an MMORTS game where you control your units by writing pure JavaScript code. The core mechanics of the game is to program the AI of your units in order to achieve tasks such as harvesting energy &amp; resources, building your base, defending your colony from attackers, as well as controlling as much of the persistent open world as possible.
