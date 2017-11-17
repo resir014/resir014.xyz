@@ -1,6 +1,6 @@
 import { Action } from 'redux'
 
-export interface ApplicationState {
+export interface LayoutState {
   sidebarVisible: boolean
 }
 

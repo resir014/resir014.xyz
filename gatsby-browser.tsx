@@ -4,7 +4,9 @@ import { Provider } from 'react-redux'
 import { rehydrate } from 'glamor'
 import { ApplicationState } from './src/store'
 
-import store from './src/configureStore'
+import configureStore from './src/configureStore'
+
+const store = configureStore()
 
 // Redo what `gatsby-plugin-glamor` did since their `gatsby-ssr.js` is overridden.
 exports.onClientEntry = () => {
