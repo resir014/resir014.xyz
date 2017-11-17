@@ -62,7 +62,7 @@ const ToggleMenuItem: React.SFC<MenuItem> = ({ path, name }) => (
 const ToggleMenu: React.SFC<ToggleMenuProps & LayoutState> = ({ visible, items, dispatch }) => {
   return (
     <div className={`${toggleMenuClass(visible)}`}>
-      <div className={`${toggleMenuInnerClass}`}>
+      <div className={`${toggleMenuInnerClass}`} onClick={() => dispatch(toggleSidebar())}>
         <Container>
           {items.map(item => <ToggleMenuItem key={item.path} path={item.path} name={item.name} />)}
         </Container>
