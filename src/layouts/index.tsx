@@ -53,7 +53,7 @@ interface WrapperProps {
   }
 }
 
-class TemplateWrapper extends React.Component<WrapperProps & LayoutState, {}> {
+class TemplateWrapper extends React.PureComponent<WrapperProps & LayoutState, {}> {
   public render() {
     const { children, data, sidebarVisible } = this.props
     const { pathname } = this.props.location

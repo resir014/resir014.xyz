@@ -2,10 +2,16 @@ import { Action } from 'redux'
 
 export interface LayoutState {
   sidebarVisible: boolean
+  randomSplashIndex: number
 }
 
 export interface ToggleSidebarAction extends Action {
-  type: '@@gatsby/TOGGLE_SIDEBAR'
+  type: '@@layout/TOGGLE_SIDEBAR'
 }
 
-export type KnownAction = ToggleSidebarAction
+export interface RandomiseSplashAction extends Action {
+  payload: number
+  type: '@@layout/RANDOMISE_SPLASH'
+}
+
+export type KnownAction = ToggleSidebarAction | RandomiseSplashAction

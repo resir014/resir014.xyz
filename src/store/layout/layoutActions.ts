@@ -1,6 +1,12 @@
 import { ActionCreator } from 'redux'
-import { ToggleSidebarAction } from './types'
+import { ToggleSidebarAction, RandomiseSplashAction } from './types'
+import flavors from '../../utils/flavorText'
 
 export const toggleSidebar: ActionCreator<ToggleSidebarAction> = () => ({
-  type: '@@gatsby/TOGGLE_SIDEBAR'
+  type: '@@layout/TOGGLE_SIDEBAR'
+})
+
+export const randomiseSplash: ActionCreator<RandomiseSplashAction> = () => ({
+  payload: Math.floor(Math.random() * flavors.length),
+  type: '@@layout/RANDOMISE_SPLASH'
 })

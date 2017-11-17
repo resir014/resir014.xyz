@@ -1,9 +1,13 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import * as Color from 'color'
 import { merge } from 'glamor'
 import { StyleSheet, css } from 'glamor/aphrodite'
 
+import { ApplicationState } from '../../store'
+import { LayoutState, randomiseSplash } from '../../store/layout'
 import flavorText from '../../utils/flavorText'
 import { photonColors, breakpoints, fonts, sharedStyles } from '../../utils/theme'
 import { highlightedText } from '../../utils/mixins'
@@ -58,6 +62,7 @@ const styles = StyleSheet.create({
       fontFamily: fonts.serif,
       fontWeight: 400,
       fontSize: '1.25rem',
+      cursor: 'pointer',
 
       [breakpoints.lg]: {
         fontSize: '1.5rem'
@@ -72,23 +77,16 @@ const styles = StyleSheet.create({
 
 interface FooterProps {
   title: string
+  dispatch?: Dispatch<LayoutState>
 }
 
-interface FooterState {
-  splash: string
-}
-
-class Footer extends React.Component<FooterProps, FooterState> {
-  constructor(props: FooterProps) {
+class Footer extends React.Component<FooterProps & LayoutState> {
+  constructor(props: FooterProps & LayoutState) {
     super(props)
-
-    this.state = {
-      splash: 'is a web developer'
-    }
   }
 
   public componentWillMount() {
-    this.setState({ splash: flavorText[Math.floor(Math.random() * flavorText.length)] })
+    this.props.dispatch(randomiseSplash())
   }
 
   public render() {
@@ -97,7 +95,9 @@ class Footer extends React.Component<FooterProps, FooterState> {
         <Container>
           <div className={css(styles.footerHeader)}>
             <h3 className="footer-title"><Link to="/">{this.props.title}</Link></h3>
-            <p className="footer-flavour"><span>{this.state.splash}</span></p>
+            <p className="footer-flavour" title="Click to randomise!" onClick={() => this.props.dispatch(randomiseSplash())}>
+              <span>{flavorText[this.props.randomSplashIndex]}</span>
+            </p>
           </div>
           <p>
           <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
@@ -123,5 +123,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
   }
 }
 
-export default Footer
+const mapStateToProps = (state: ApplicationState) => state.layout
+
+export default connect<LayoutState, void, FooterProps>(mapStateToProps)(Footer)
 
