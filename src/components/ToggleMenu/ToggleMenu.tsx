@@ -14,19 +14,16 @@ import { sectionHeading, highlightedText } from '../../utils/mixins'
 import { MenuProps, MenuItem } from '../../utils/types'
 
 const toggleMenuClass = (visible: boolean) => css({
-  display: 'flex',
+  display: visible ? 'flex' : 'none',
   position: 'absolute',
   top: 0,
-  bottom: 0,
   left: 0,
   right: 0,
   zIndex: 9,
   paddingTop: heights.masthead,
+  paddingBottom: '2rem',
   color: photonColors.white,
-  backgroundColor: photonColors.grey90,
-  visibility: visible ? 'visible' : 'hidden',
-  opacity: visible ? 1 : 0,
-  transition: 'visibility 0s, opacity 0.25s linear'
+  backgroundColor: photonColors.grey90
 })
 
 const toggleMenuInnerClass = css({
