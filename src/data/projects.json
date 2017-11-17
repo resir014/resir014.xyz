@@ -45,7 +45,7 @@
       "typescript",
       "gaming"
     ],
-    "details": "AI scripts and starter packs I've made for the game <a href=\"https://screeps.com/\" target=\"_blank\">Screeps</a>.",
+    "details": "Contributions and community projects for the game <a href=\"https://screeps.com/\">Screeps</a>.",
     "url": "/projects/2016/screeps/"
   },
   {
@@ -65,7 +65,6 @@
       "css",
       "webfonts"
     ],
-    "langclass": "project-language--typescript",
     "details": "Webfont conversion of the <a href=\"https://01.org/clear-sans\" target=\"_blank\">Clear Sans</a> typeface designed by Intel.",
     "url": "https://resir014.github.io/Clear-Sans-Webfont/"
   },
