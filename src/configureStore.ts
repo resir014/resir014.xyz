@@ -7,7 +7,7 @@ export default function configureStore(initialState?: ApplicationState) {
   return createStore<ApplicationState>(allReducers, initialState, devToolsEnhancer({}))
 }
 
-function buildRootReducer<T>(allReducers: any) {
+function buildRootReducer<TReducer>(allReducers: any) {
   // Gatsby doesn't like the object spread operator
-  return combineReducers<T>(Object.assign({}, allReducers))
+  return combineReducers<TReducer>(Object.assign({}, allReducers))
 }
