@@ -58,7 +58,9 @@ const projectItemClass = css({
 
     '& p': {
       marginTop: 0
-    }
+    },
+
+    '& a': sharedStyles.link
   },
 
   '& .project__footer': {

@@ -186,7 +186,11 @@ export const linkStyle = {
   },
 
   [breakpoints.md]: {
-    textDecoration: 'none'
+    textDecoration: 'none',
+
+    ':hover, :focus': {
+      textDecoration: 'underline',
+    }
   }
 }
 
