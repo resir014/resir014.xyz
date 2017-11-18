@@ -101,11 +101,6 @@ const homeAboutButton = css({
     color: colors.white,
     border: `3px solid ${colors.white}`,
 
-    [breakpoints.lg]: {
-      padding: '.5rem 1rem',
-      fontSize: '1.25rem',
-    },
-
     '&:hover, &:focus': {
       color: colors.black,
       textDecoration: 'none',

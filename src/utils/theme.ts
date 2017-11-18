@@ -13,7 +13,8 @@ export const breakpoints = {
 
 export const widths = {
   normal: '750px',
-  large: '970px'
+  large: '970px',
+  xlarge: '1140px'
 }
 
 export const heights = {
