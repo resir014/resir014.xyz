@@ -63,11 +63,11 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
   return (
     <main>
       <Helmet
-        title={`${post.frontmatter.title} · ${siteMetadata.title}`}
+        title={`${post.frontmatter.title || post.fields.lead || post.excerpt} · ${siteMetadata.title}`}
         meta={[
           { name: 'description', content: post.fields.lead || post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
-          { property: 'og:title', content: post.frontmatter.title },
+          { property: 'og:title', content: post.frontmatter.title || post.fields.lead || post.excerpt },
           { property: 'og:description', content: post.fields.lead || post.excerpt },
         ]}
       />
