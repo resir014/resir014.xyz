@@ -10,7 +10,7 @@ import { ApplicationState } from '../../store'
 import { LayoutState, randomiseSplash } from '../../store/layout'
 import flavorText from '../../utils/flavorText'
 import { photonColors, breakpoints, fonts, sharedStyles } from '../../utils/theme'
-import { highlightedText } from '../../utils/mixins'
+import { highlightedText, sectionHeading } from '../../utils/mixins'
 
 import { Container } from '../Container'
 
@@ -42,13 +42,10 @@ const styles = StyleSheet.create({
       marginBottom: '0.5rem',
       fontFamily: fonts.sansSerif,
       fontWeight: 400,
-      fontSize: '1.25rem',
+      lineHeight: 1.25,
+      fontSize: '1.44rem',
 
-      [breakpoints.lg]: {
-        fontSize: '1.5rem'
-      },
-
-      '& a': merge(highlightedText(photonColors.white, 0, '0.25rem'), {
+      '& a': merge(sectionHeading(photonColors.white, 0, '0.25rem'), {
         color: photonColors.grey90,
         textDecoration: 'none',
 
@@ -61,14 +58,11 @@ const styles = StyleSheet.create({
     '& .footer-flavour': {
       fontFamily: fonts.serif,
       fontWeight: 400,
-      fontSize: '1.25rem',
+      lineHeight: 1.2,
+      fontSize: '1.44rem',
       cursor: 'pointer',
 
-      [breakpoints.lg]: {
-        fontSize: '1.5rem'
-      },
-
-      '& span': merge(highlightedText(photonColors.orange50, 0, '0.25rem'), {
+      '& span': merge(sectionHeading(photonColors.orange50, 0, '0.25rem'), {
         color: photonColors.grey90
       })
     },

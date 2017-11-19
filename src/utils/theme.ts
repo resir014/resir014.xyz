@@ -196,9 +196,11 @@ export const linkStyle = {
 }
 
 export const headingStyle = {
+  marginTop: '1.414rem',
   marginBottom: '.5rem',
   fontFamily: `"Zilla Slab", Georgia, "Times New Roman", Times, serif`,
   fontWeight: 600,
+  lineHeight: 1.2,
   color: photonColors.grey90,
   textRendering: 'optimizeLegibility'
 }
@@ -256,54 +258,64 @@ export const sharedStyles = {
     },
 
     // Headings mainly follow the typography scaling guidelines outlined here:
-    // https://typecast.com/blog/a-more-modern-scale-for-web-typography
+    // http://type-scale.com/
 
     '& h1, & h2, & h3, & h4, & h5, & h6': headingStyle,
 
     '& h1': {
-      fontSize: '2.5rem',
-      lineHeight: 1.125,
+      fontSize: '2.074rem',
+
+      [breakpoints.md]: {
+        fontSize: '2.441rem'
+      },
 
       [breakpoints.lg]: {
-        fontSize: '3rem',
-        lineHeight: 1.05
+        fontSize: '3.157rem'
       }
     },
 
     '& h2': {
-      fontSize: '2rem',
-      lineHeight: 1.25,
+      fontSize: '1.728rem',
 
       [breakpoints.md]: {
-        fontSize: '2rem',
-        lineHeight: 1.25,
+        fontSize: '1.953rem'
       },
 
       [breakpoints.lg]: {
-        fontSize: '2.25rem',
+        fontSize: '2.369rem'
       }
     },
 
     '& h3': {
-      fontSize: '1.5rem',
-      lineHeight: 1.25,
+      fontSize: '1.44rem',
+
+      [breakpoints.md]: {
+        fontSize: '1.563rem'
+      },
 
       [breakpoints.lg]: {
-        fontSize: '1.75rem',
+        fontSize: '1.777rem'
       }
     },
 
     '& h4, & h5, & h6': {
-      fontSize: '1.125rem',
-      lineHeight: 1.11111111,
+      fontSize: '1.2rem',
 
       [breakpoints.md]: {
-        lineHeight: 1.22222222
+        fontSize: '1.25rem'
+      },
+
+      [breakpoints.lg]: {
+        fontSize: '1.333rem'
       }
     },
 
     '& p': {
       margin: '0 0 1rem'
+    },
+
+    '& small': {
+      fontSize: '.75rem'
     },
 
     '& strong': {
