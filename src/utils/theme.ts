@@ -387,7 +387,8 @@ export const sharedStyles = {
     '& figure': {
       margin: '2rem',
       textAlign: 'center',
-      border: `8px solid ${photonColors.grey50}`,
+      backgroundColor: photonColors.grey70,
+      border: `8px solid ${photonColors.grey70}`,
 
       '& img': {
         display: 'block',
@@ -397,10 +398,10 @@ export const sharedStyles = {
         marginBottom: 0
       },
 
-      '& figcaption': {
+      '& figcaption:last-child': {
         paddingTop: '8px',
         color: photonColors.white,
-        backgroundColor: photonColors.grey50
+        backgroundColor: photonColors.grey70
       }
     },
 
