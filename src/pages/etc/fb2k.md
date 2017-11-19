@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "The Ultimate foobar2000 Setup*"
+lead: "*) Subjectively."
 header_image_url: /images/etc/fb2k/2017-06-06_06-29-39.png
 redirect_from:
   - blog/2015/11/08/the-ultimate-foobar2000-setup
@@ -9,31 +10,25 @@ redirect_from:
   - fb2k
 ---
 
-<div class="post-subtitle">
-  <span>*) Well, at least for me.</span>
-</div>
+<figure>
+  <img src="/images/etc/fb2k/2017-06-06_06-29-39.png" alt="foobar2000 screenshot">
+</figure>
 
-(Last updated: 09 July 2017)
+(Last updated: 19 November 2017)
 
 [foobar2000](http://www.foobar2000.org/) (fb2k) is the most lightweight, powerful, customizable music player I've ever used. I switched over from iTunes, as I was getting tired of the bloat it has become, and I have never turned back ever since.
 
-Of course, I did initially run into some concerns that it won't be able to do the things that I always found useful on iTunes. And with fb2k's bare, customisation-focused experience, it does certainly look unappealing to the casual music listeners, and it *really* involves a lot of tweaking to really improve the user experience.
+Of course, I did initially run into some concerns that it won't be able to do the things that I always found useful on iTunes. And with fb2k's bare, customisation-focused experience, it does certainly look unappealing to the casual music listeners, and it *really* involves a lot of tweaking to really improve the user experience. After hours of tweaking, I finally managed to pull it off, and my fb2k installation now looks beautiful.
 
-Here's a guide on how to make your fb2k look more like the one above. Sure, this might not be the best setup there is, but at least it makes your fb2k experience more bearable.
+Here's a guide on how to make your fb2k look more like the one above. Sure, this might not be the best setup there is, but at least it makes your fb2k experience more bearable. Each section will outline the required components for you to download and follow along.
 
 ---
 
-## Requirements
+## Interface
 
-First off, you will need the following plugins (or "components", as fb2k calls them).
+Required components:
 
 * [Columns UI](http://yuo.be/columns.php)
-* [Dynamic Field](https://www.hydrogenaud.io/forums/index.php?showtopic=86853&start=0&p=744320&#entry744320)
-* [Playback Statistics](http://www.foobar2000.org/components/view/foo_playcount)
-* [Queue Contents Editor](http://wiki.hydrogenaud.io/index.php?title=Foobar2000:Components/Queue_Contents_Editor_(foo_queuecontents))
-* [Discogs Tagger](https://www.foobar2000.org/components/view/foo_discogs)
-
-## Interface - Columns UI
 
 The default fb2k interface is fine, but unfortunately it lacks some pretty important features, like customizable playlist views, and most importantly, [thumbnail toolbars](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#thumbbars) with [playback controls](/images/etc/fb2k/2015-11-07_00-03-28.png) like most other music players have.
 
@@ -41,32 +36,38 @@ When I started transitioning to fb2k, a friend of mine recommended that I use [C
 
 After you've finished installing Columns UI and set it as your default UI, you will be presented with this screen.
 
-![foobar2000](/images/etc/fb2k/2015-11-07_22-25-11.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-07_22-25-11.png" alt="The initial Columns UI setup screen.">
+  <figcaption>The initial Columns UI setup screen.</figcaption>
+</figure>
 
 Here you can choose a number of quick UI presets for you to get started, but if needed, you can later customize it from `Preferences > Display > Columns UI > Layout`.
 
-![foobar2000](/images/etc/fb2k/2015-11-07_22-36-35.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-07_22-36-35.png" alt="Columns UI settings page.">
+  <figcaption>Columns UI settings page.</figcaption>
+</figure>
 
-Unfortunately, I've never touched this section, so look up on how you play around with this section yourself, I guess. The next few parts will explain why I chose to use Columns UI.
+Unfortunately, I've never touched this section, so look up on how you play around with this section yourself, I guess. If you're wondering why I recommended you use Columns UI, we'll get to that later.
 
-## DADA algorithm - automated track ratings
+## Automated track ratings
 
-One other thing that fb2k lacks is a rating system. I've tried looking for some random components that does this but none of them do what I wanted. Then I came across [this article](http://www.giantpygmy.net/gpa/index.php?id=dada-autorating) on an automated rating system for fb2k, known as the Date and Duration Adjusted (DADA) auto-rating algorithm.
-
-The article above provides an in-depth explanation on how the algorithm works. It does take a while to understand how the algorithm makes any sense, but four or five months in, you'll start to see it really kick in.
-
-### Getting DADA up and running
-
-You will need these two components:
+Required components:
 
 * [Dynamic Fields](https://www.hydrogenaud.io/forums/index.php?showtopic=86853&start=0&p=744320&#entry744320)
 * [Playback Statistics](http://www.foobar2000.org/components/view/foo_playcount)
 
-[This link](http://www.giantpygmy.net/gpa/data/uploads/files/dada_autorating_dar_latest_version.txt) shows in detail how to get the DADA algorithm up and running, complete with all of the options that are available. But if you want to get it up and running easily, here's my guide.
+One other thing that fb2k lacks is a rating system. I've tried looking for some random components that does this but none of them do what I wanted. Then I came across [this article](http://www.giantpygmy.net/gpa/index.php?id=dada-autorating) explaining the Date and Duration Adjusted (DADA) auto-rating algorithm, an automated, algorithm-based rating system for fb2k.
+
+The article above provides an in-depth explanation on how the algorithm works. It does take a while to understand how the algorithm makes any sense, but four or five months in, you'll start to see it really kick in.
+
+[This link](http://www.giantpygmy.net/gpa/data/uploads/files/dada_autorating_dar_latest_version.txt) shows in detail how to get the DADA algorithm up and running, complete with all of the options that are available. If reading's not your thing, follow these guides.
 
 First, open `File > Preferences > Media Library > Dynamic Fields`, click on the Add Field (+) button, and name this field `dynamic_rating`.
 
-![foobar2000](/images/etc/fb2k/2015-11-20_23-21-32.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-20_23-21-32.png" alt="dynamic_rating">
+</figure>
 
 Then, on the "Title formatting expression" textfield, paste the following:
 
@@ -109,7 +110,10 @@ Now, to add the column to our playlist view, go to `File > Preferences > Display
 
 Add a column at the very end. Let's call it "Rating."
 
-![foobar2000](/images/etc/fb2k/2015-11-20_23-37-20.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-20_23-37-20.png" alt="Creating the 'Rating' column">
+  <figcaption>Creating the 'Rating' column.</figcaption>
+</figure>
 
 Now, click on the Scripts tag, and paste the following into the textfield on the "Display" tab.
 
@@ -130,33 +134,52 @@ $ifgreater(%_dynamic_rating%,0,$get(display),$get(notplayed))
 
 This will give you a nice visual of the rating, with dots, as seen below. If you want to just use the actual number for this column, just type `%_dynamic_rating%` into the same textfield.
 
-![foobar2000](/images/etc/fb2k/2015-11-20_23-41-37.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-20_23-41-37.png" alt="Visual of the rating.">
+</figure>
 
 Congrats, you now have the DADA rating installed!
 
 ### DADA-curated playlist
 
-Now what I'd usually like to do after this, is to create a "Top Tracks" autoplaylist using the DADA algorithm to determine the ranks, and this is where Columns UI really stands out. The NG Playlist configurations built into Columns UI allows for further customisations on how your playlists are displayed.
+Required components:
 
-If you take a look at my first screenshot, the "All Music" playlist are grouped based on albums. Obviously I wouldn't want to same grouping for the Top Tracks playlists. So far, Columns UI is the only component that I can find that supports different grouping schemes for playlists.
+* [Columns UI](http://yuo.be/columns.php)
+
+Now that we have the DADA rating system set up, what I like to do now is to create a "Top Tracks" autoplaylist which sorts out all tracks based on its DADA rating, and this is where Columns UI comes into play. Columns UI includes something called "NG Playlist", which allows for further customisations to your playlists.
+
+If you take a look at my first screenshot, the "All Music" playlist are grouped based on albums. Obviously I wouldn't want the same grouping for the Top Tracks playlists. So far, Columns UI is the only component that I can find that supports different grouping schemes for playlists.
 
 If you open `Preferences > Playlist View > Grouping`, you will see this.
 
-![foobar2000](/images/etc/fb2k/2015-11-08_00-17-37.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-08_00-17-37.png" alt="Preferences > Playlist View > Grouping">
+</figure>
 
 The first grouping rule in that window is included by default. But we're gonna tweak it a bit by double clicking on it. Then, on the playlist filters, select "Hide on playlists" from the dropdown, and add the playlists that you want the grouping rules to be ignored at, separated by semicolons. Here's an example.
 
-![foobar2000](/images/etc/fb2k/2015-11-08_00-19-46.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-08_00-19-46.png" alt="Grouping rule example.">
+  <figcaption>Grouping rule example.</figcaption>
+</figure>
 
 Save your changes, and there you go, a 100%-working Top Tracks playlist.
-
-<a href="/images/etc/fb2k/2015-11-08_00-13-37.png" target="_blank">
-  <img src="/images/etc/fb2k/2015-11-08_00-13-37.png" alt="foobar2000">
-</a>
 
 ## Organising your music
 
 This section will be broken down in two parts. In the first part, I will explain on how to organise your music library with a neat, iTunes-like folder structure, and in the second part I will talk about automatic tagging with Discogs.
+
+### Editing queued tracks
+
+Required components:
+
+* [Queue Contents Editor](http://wiki.hydrogenaud.io/index.php?title=Foobar2000:Components/Queue_Contents_Editor_(foo_queuecontents))
+
+It appears that fb2k doesn't have a built-in utility to reorder queued tracks. Fortunately, Queue Contents Editor (`foo_queuecontents`) is here to the rescue! This component allows you to modify, add, and remove track from your queue.
+
+<figure>
+  <img src="/images/etc/fb2k/2017-11-19_13-01-15.png" alt="Queue Contents Editor">
+</figure>
 
 ### File Operations
 
@@ -166,7 +189,9 @@ Fortunately, there's a built-in component that does more or less the same thing.
 
 First thing to do would be to set up your FileOps configs. Right click on any track and go to `File Operations > Move to > ...`.
 
-![foobar2000](/images/etc/fb2k/2015-11-08_00-26-49.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-08_00-26-49.png" alt="File Operations">
+</figure>
 
 Here, you can add, remove, or save presets for FileOps. The most important option here would be "File name pattern". I use the following pattern, to make it look more like iTunes:
 
@@ -178,29 +203,44 @@ You can learn more about defining file name patterns on this [wiki page](http://
 
 In order to organise new music in your library, first you **must** move your new music into a placeholder directory inside your main library folder, like `_unsorted`. Then head over to `Library > Album List`, then right click on "All Music", then head over to `File Operations > Move to` then select your saved preset, like so.
 
-![foobar2000](/images/etc/fb2k/2015-11-08_00-35-07.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-08_00-35-07.png" alt="Moving tracks somewhere else in your system using FileOps.">
+  <figcaption>Moving tracks somewhere else in your system using FileOps.</figcaption>
+</figure>
 
 You will now see a preview of the changes made in your directory. Click "Run" to confirm your changes.
 
 ### Tagging with Discogs
 
+Required components:
+
+* [Discogs Tagger](https://www.foobar2000.org/components/view/foo_discogs)
+
 It's very important to properly tag your music library, for the sake of consistency, especially when you're sharing what you're listening to to services like [Last.fm](http://www.last.fm/).
 
-Well, good news: `foo_discogs` does exist. Unfortunately, before you want to use it, you will have to create an account at <http://www.discogs.com/> in order to get an OAuth token to access their API[^fn-discogs-oauth]. If you don't want to do that, you can try [MusicBrainz tagger](https://www.foobar2000.org/components/view/foo_musicbrainz), which grabs data from MusicBrainz's database, though it's not as robust as the one for Discogs. (You can always use a third-party tagging tool like [Picard](https://picard.musicbrainz.org/).)
+Well, good news: `foo_discogs` does exist. Unfortunately, before you want to use it, you will have to create an account at <http://www.discogs.com/> in order to get an OAuth token to [access their API](https://www.discogs.com/developers/#page:authentication,header:authentication-discogs-auth-flow). If you don't want to do that, you can try [MusicBrainz tagger](https://www.foobar2000.org/components/view/foo_musicbrainz), which grabs data from MusicBrainz's database, though it's not as robust as the one for Discogs. (You can always use a third-party tagging tool like [Picard](https://picard.musicbrainz.org/).)
 
 To use this component, right click on any track/album, and head over to `Tagging > Discogs > Write Tags`. It will then look up the Discogs database for your album details.
 
-![foobar2000](/images/etc/fb2k/2015-11-08_01-03-47.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-08_01-03-47.png" alt="foo_discogs automatically looks up your track on the Discogs database.">
+  <figcaption>foo_discogs automatically looks up your track on the Discogs database.</figcaption>
+</figure>
 
 Once found, choose the appropriate release for the album, and click Next. (You can also manually type the Release ID, if you know it.)
 
-![foobar2000](/images/etc/fb2k/2015-11-08_01-05-57.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-08_01-05-57.png" alt="The Release screen of foo_discogs.">
+</figure>
 
 Review your changes in the next dialog box, and click on "Write Tags" to write the new ID3 tags to your tracks.
 
-Though keep in mind that this only saves the album art into the album directory *without* writing it into the ID3 tags too. To do so, right click on the tracks again, and go to `Tagging > Batch attach pictures`.
+Though keep in mind that this only saves the album art into the album directory *without* writing it to the ID3 tags too. To do so, right click on the tracks again, and go to `Tagging > Batch attach pictures`.
 
-![foobar2000](/images/etc/fb2k/2015-11-08_01-08-51.png)
+<figure>
+  <img src="/images/etc/fb2k/2015-11-08_01-08-51.png" alt="Manually attaching the album art to the ID3 tags.">
+  <figcaption>Manually attaching the album art to the ID3 tags.</figcaption>
+</figure>
 
 Choose to overwrite the album art already attached to the track if necessary, then click "OK" to save your changes.
 
@@ -217,5 +257,3 @@ In conclusion: yes, you *can* actually make your fb2k experience to be more bear
 Feel free to use this guide as you wish. Customisation is one of fb2k's prime experience, in fact, I *encourage* you to improve on this setup yourself. The setup demonstrated here is what has always worked for me, and people's preferences can be different, so feel free to change things up here and there if you don't like how some stuff works.
 
 It's a tedious process at first, but trust me, it really *will* be worth it at the end of the day. Feel free to [tweet at me](https://twitter.com/resir014) if you need help in your setup procedure.
-
-[^fn-discogs-oauth]: [Source](https://www.discogs.com/developers/#page:authentication,header:authentication-discogs-auth-flow)
