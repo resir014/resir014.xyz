@@ -397,10 +397,14 @@ export const sharedStyles = {
     '& a': linkStyle,
 
     '& figure': {
-      margin: '2rem',
+      margin: '2rem 0',
       textAlign: 'center',
       backgroundColor: photonColors.grey70,
       border: `8px solid ${photonColors.grey70}`,
+
+      [breakpoints.lg]: {
+        margin: '2rem',
+      },
 
       '& img': {
         display: 'block',
