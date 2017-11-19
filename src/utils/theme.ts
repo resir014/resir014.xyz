@@ -385,12 +385,22 @@ export const sharedStyles = {
     '& a': linkStyle,
 
     '& figure': {
+      margin: '2rem',
       textAlign: 'center',
+      border: `8px solid ${photonColors.grey50}`,
 
       '& img': {
         display: 'block',
+        verticalAlign: 'middle',
         marginLeft: 'auto',
-        marginRight: 'auto'
+        marginRight: 'auto',
+        marginBottom: 0
+      },
+
+      '& figcaption': {
+        paddingTop: '8px',
+        color: photonColors.white,
+        backgroundColor: photonColors.grey50
       }
     },
 
