@@ -1,9 +1,17 @@
 ---
-category: design
-layout: page
+category: web
+layout: project
 title: "aquellex.ws"
+description: "Website design for Aquellex, a chiptune musician based in Australia."
 year: 2017
 header_image_url: /images/projects/aquellexws/preview.png
+project_url: "https://aquellex.ws"
+redirect_from:
+  - "projects/design/2017/aquellexws"
+tags:
+  - "design"
+  - "react"
+  - "javascript"
 ---
 
 <figure>

@@ -67,6 +67,40 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       }
     }
 
+    if (!slug && relativePath.includes('projects')) {
+      const { tags, year, description, project_url, jumpToProject } = node.frontmatter
+
+      createNodeField({
+        node,
+        name: 'tags',
+        value: tags ? JSON.stringify(tags) : '',
+      })
+
+      createNodeField({
+        node,
+        name: 'year',
+        value: year || '',
+      })
+
+      createNodeField({
+        node,
+        name: 'description',
+        value: description || '',
+      })
+
+      createNodeField({
+        node,
+        name: 'jumpToProject',
+        value: jumpToProject ? JSON.stringify(jumpToProject) : JSON.stringify(false),
+      })
+
+      createNodeField({
+        node,
+        name: 'project_url',
+        value: project_url || '',
+      })
+    }
+
     if (!slug) {
       slug = relativePath
     }

@@ -70,24 +70,44 @@ const projectItemClass = css({
   '& .project__footer-link': sharedStyles.sectionFooterLink
 })
 
-const ProjectItem: React.SFC<ProjectNode> = ({ node }) => (
-  <div className={`${projectItemClass}`}>
-    <h3 className="project__title">
-      {node.title}
-      <span className="project__year">{node.year}</span>
-    </h3>
-    <div className="project__tags">
-      {node.tags.map(tag => (
-        <span key={tag}>{tag}</span>
-      ))}
+const ProjectItem: React.SFC<ProjectNode> = ({ node }) => {
+  const tags = node.fields.tags ? JSON.parse(node.fields.tags) as string[] : undefined
+  return (
+    <div className={`${projectItemClass}`}>
+      <h3 className="project__title">
+        {node.frontmatter.title}
+        <span className="project__year">{node.fields.year}</span>
+      </h3>
+      {
+        tags
+          ? <div className="project__tags">
+            {tags.map(tag => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+          : null
+      }
+      <div className="project__detail-box">
+        <p dangerouslySetInnerHTML={{ __html: node.fields.description || node.fields.lead }} />
+      </div>
+      <div className="project__footer">
+        {node.fields.jumpToProject === 'true' && node.fields.project_url
+          ? renderLink(node.fields.project_url, true)
+          : renderLink(node.fields.slug, false)}
+      </div>
     </div>
-    <div className="project__detail-box">
-      <p dangerouslySetInnerHTML={{ __html: node.details }} />
-    </div>
-    <div className="project__footer">
-      <a className="project__footer-link" href={node.url}>Visit project</a>
-    </div>
-  </div>
+  )
+}
+
+const renderLink = (url: string, jumpToProject: boolean) => (
+  <a
+    className="project__footer-link"
+    href={url}
+    target={jumpToProject ? '_blank' : null}
+    rel={jumpToProject ? 'noopener noreferrer' : null}
+  >
+    Visit project
+  </a>
 )
 
 export default ProjectItem

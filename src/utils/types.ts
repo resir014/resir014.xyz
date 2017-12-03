@@ -33,11 +33,22 @@ export interface BlogPostNode {
 
 export interface ProjectNode {
   node: {
-    title: string
-    year: string
-    tags: string[]
-    details: string
-    url: string
+    excerpt: string
+    html: string
+    fields: {
+      year: string
+      description: string
+      tags: string
+      slug: string
+      headerImage: string
+      category: string
+      lead: string
+      jumpToProject: string
+      project_url: string
+    }
+    frontmatter: {
+      title: string
+    }
   }
 }
 

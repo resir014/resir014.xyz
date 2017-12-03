@@ -65,7 +65,7 @@ const generateHeaderImage = (state: PageState, headerImage?: string) => {
         backgroundImage: `url(${headerImage})`,
         backgroundSize: 'cover',
         backgroundPositionY: 'center',
-        mixBlendMode: 'color-burn',
+        mixBlendMode: 'luminosity',
         opacity: 0.7
       }
     })

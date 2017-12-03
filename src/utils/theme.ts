@@ -414,10 +414,20 @@ export const sharedStyles = {
         marginBottom: 0
       },
 
-      '& figcaption:last-child': {
-        paddingTop: '8px',
-        color: photonColors.white,
-        backgroundColor: photonColors.grey70
+      '& figcaption': {
+        '& a': {
+          color: photonColors.blue40,
+
+          '&:hover, &:focus': {
+            color: photonColors.blue50
+          }
+        },
+
+        '&:last-child': {
+          paddingTop: '8px',
+          color: photonColors.white,
+          backgroundColor: photonColors.grey70
+        }
       }
     },
 

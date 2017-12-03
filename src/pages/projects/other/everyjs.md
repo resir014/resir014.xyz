@@ -1,8 +1,14 @@
 ---
 layout: page
+category: other
 title: "@everyjs"
 year: 2016
-lead: An everyword-like Twitter bot appending ".js" to every word.
+description: An everyword-like Twitter bot appending ".js" to every word.
+project_url: "https://twitter.com/everyjs"
+jumpToProject: true
+tags:
+  - "twitter"
+  - "bots"
 redirect_from:
   - projects/2016/everyjs
 ---

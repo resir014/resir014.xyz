@@ -1,8 +1,13 @@
 ---
-layout: page
+category: other
+layout: project
 title: "Screeps"
 year: 2016
 lead: Contributions and community projects for Screeps.
+tags:
+  - javascript
+  - typescript
+  - gaming
 header_image_url: /images/projects/screeps/preview.png
 redirect_from:
   - projects/2016/screeps
