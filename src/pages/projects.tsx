@@ -96,6 +96,7 @@ query ProjectsPageQuery {
   }
   allMarkdownRemark(
     filter: {id: {regex: "/projects/"}}
+    sort: {fields: [fields___year], order: DESC}
   ) {
     edges {
       node {
