@@ -6,7 +6,7 @@ description: "Implementation of the Master Password algorithm for nodejs and bro
 tags:
   - "typescript"
 year: 2017
-project_url: "https://github.com/resir014/stars-not-hearts"
+project_url: "https://github.com/blvdgroup/node-mpw"
 jumpToProject: true
 ---
 
