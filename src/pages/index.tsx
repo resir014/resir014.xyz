@@ -49,6 +49,7 @@ const homepageWrapper = (state: IndexPageState) => css({
 const homepageWrapperInner = css({
   display: 'flex',
   flexDirection: 'column',
+  height: 'calc(100% - 0.5px)', // workaround for IE not centering shit properly w/ flexbox
   minHeight: '100%',
   alignItems: 'center',
   justifyContent: 'center',
