@@ -65,8 +65,12 @@ const generateHeaderImage = (state: PageState, headerImage?: string) => {
         backgroundImage: `url(${headerImage})`,
         backgroundSize: 'cover',
         backgroundPositionY: 'center',
-        mixBlendMode: 'luminosity',
-        opacity: 0.7
+        opacity: 0.7,
+
+        '@supports(mix-blend-mode: luminosity)': {
+          mixBlendMode: 'luminosity',
+          opacity: 0.7
+        }
       }
     })
   } else {
