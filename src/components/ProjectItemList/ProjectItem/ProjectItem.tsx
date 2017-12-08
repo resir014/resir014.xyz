@@ -10,12 +10,14 @@ const projectItemClass = css({
   flexDirection: 'column',
   flexWrap: 'wrap',
   position: 'relative',
-  paddingTop: '1rem',
-  paddingBottom: '1rem',
+  padding: '1rem',
+  marginTop: '0',
+  marginBottom: '2rem',
+  backgroundColor: photonColors.grey10,
 
   [breakpoints.md]: {
     width: 'calc(50% - 1.5rem)',
-    margin: '0 auto',
+    margin: '1rem',
 
     '&:nth-child(odd)': {
       marginLeft: 0

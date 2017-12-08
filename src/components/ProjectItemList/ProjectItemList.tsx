@@ -12,15 +12,10 @@ const projectsListClass = css({
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'wrap',
-  borderBottom: `2px solid ${photonColors.grey90}`,
 
   [breakpoints.md]: {
     flexDirection: 'row',
     borderBottom: 0
-  },
-
-  '> div': {
-    borderTop: `2px solid ${photonColors.grey90}`
   }
 })
 
