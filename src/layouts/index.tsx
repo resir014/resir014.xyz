@@ -58,6 +58,7 @@ class TemplateWrapper extends React.PureComponent<WrapperProps & LayoutState, {}
     const { children, data, sidebarVisible } = this.props
     const { pathname } = this.props.location
     const isHomepage = pathname === '/'
+    const is404 = pathname === '/404'
 
     return (
       <div id="layout-root">
@@ -71,17 +72,20 @@ class TemplateWrapper extends React.PureComponent<WrapperProps & LayoutState, {}
             { property: 'og:description', content: data.site.siteMetadata.description },
           ]}
         />
-        <Masthead
-          title={data.site.siteMetadata.title}
-          items={menuItems}
-          pathname={pathname}
-          transparent={true}
-        />
+        {!is404
+          ? <Masthead
+            title={data.site.siteMetadata.title}
+            items={menuItems}
+            pathname={pathname}
+            transparent={true}
+          />
+          : ''
+        }
         <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
         <div className={`${fullHeightWrapperClass}`}>
           {children()}
         </div>
-        {!isHomepage ? <Footer title={data.site.siteMetadata.title} /> : ''}
+        {!isHomepage && !is404 ? <Footer title={data.site.siteMetadata.title} /> : ''}
       </div>
     )
   }
