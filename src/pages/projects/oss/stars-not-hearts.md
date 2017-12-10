@@ -7,7 +7,7 @@ tags:
   - "css"
   - "custom-styles"
 year: 2017
-project_url: "https://github.com/blvdgroup/node-mpw"
+project_url: "https://github.com/resir014/stars-not-hearts"
 jumpToProject: true
 ---
 
