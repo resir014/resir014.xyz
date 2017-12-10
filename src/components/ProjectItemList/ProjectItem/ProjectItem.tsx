@@ -13,7 +13,7 @@ const projectItemClass = css({
   padding: '1rem',
   marginTop: '0',
   marginBottom: '2rem',
-  backgroundColor: photonColors.grey10,
+  backgroundColor: photonColors.grey20,
 
   [breakpoints.md]: {
     width: 'calc(50% - 1.5rem)',
