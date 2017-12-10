@@ -1,18 +1,27 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 import Helmet from 'react-helmet'
 import { css, merge } from 'glamor'
 
+import { ApplicationState } from '../store'
+import { LayoutState, toggleSidebar } from '../store/layout'
+import { menuItems } from '../utils/menus'
 import { sectionHeading, highlightedText } from '../utils/mixins'
 import { photonColors, sharedStyles } from '../utils/theme'
 
 import { Masthead } from '../components/Masthead'
+import { ToggleMenu } from '../components/ToggleMenu'
 import { Container } from '../components/Container'
 import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 import { PageSubtitle } from '../components/PageSubtitle'
 import { MarkdownContent } from '../components/MarkdownContent'
 
-interface ProjectPageProps {
+interface ProjectTemplateProps {
+  location: {
+    pathname: string
+  }
   data: {
     site: {
       siteMetadata: {
@@ -64,12 +73,13 @@ const pageFooterClass = css({
   '& .project__footer-link': sharedStyles.sectionFooterLink
 })
 
-const ProjectPageTemplate: React.SFC<ProjectPageProps> = ({ data }) => {
+const ProjectPageTemplate: React.SFC<ProjectTemplateProps & LayoutState> = ({ data, location, sidebarVisible }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const { pathname } = location
 
   return (
-    <main>
+    <React.Fragment>
       <Helmet
         title={`${post.frontmatter.title} · ${siteMetadata.title}`}
         meta={[
@@ -79,25 +89,35 @@ const ProjectPageTemplate: React.SFC<ProjectPageProps> = ({ data }) => {
           { property: 'og:description', content: post.fields.lead || post.excerpt },
         ]}
       />
-      <article>
-        <PageHeader headerImage={post.fields.headerImage || null}>
-          <div className={`${pageMetaClass}`}>
-            <span className={`${pageMetaSectionClass}`}>{post.fields.year}</span>
-            {post.fields.category ? <span className={`${pageMetaCategoryClass}`}>{post.fields.category}</span> : null}
-          </div>
-          <h1 className={`${pageTitleClass}`}><span>{post.frontmatter.title}</span></h1>
-        </PageHeader>
-        <Container>
-          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-          <MarkdownContent html={post.html} />
-          {post.fields.jumpToProject === 'true' || post.fields.project_url
-            ? <div className={`${pageFooterClass}`}>
-              {renderLink(post.fields.project_url)}
+      <Masthead
+        title={data.site.siteMetadata.title}
+        items={menuItems}
+        pathname={pathname}
+        transparent={true}
+      />
+      <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
+      <main>
+        <article>
+          <PageHeader headerImage={post.fields.headerImage || null}>
+            <div className={`${pageMetaClass}`}>
+              <span className={`${pageMetaSectionClass}`}>{post.fields.year}</span>
+              {post.fields.category ? <span className={`${pageMetaCategoryClass}`}>{post.fields.category}</span> : null}
             </div>
-            : null}
-        </Container>
-      </article>
-    </main>
+            <h1 className={`${pageTitleClass}`}><span>{post.frontmatter.title}</span></h1>
+          </PageHeader>
+          <Container>
+            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+            <MarkdownContent html={post.html} />
+            {post.fields.jumpToProject === 'true' || post.fields.project_url
+              ? <div className={`${pageFooterClass}`}>
+                {renderLink(post.fields.project_url)}
+              </div>
+              : null}
+          </Container>
+        </article>
+      </main>
+      <Footer title={data.site.siteMetadata.title} />
+    </React.Fragment>
   )
 }
 
@@ -105,7 +125,9 @@ const renderLink = (url: string) => (
   <a className="project__footer-link" href={url} target="_blank" rel="noopener noreferrer">Visit project</a>
 )
 
-export default ProjectPageTemplate
+const mapStateToProps = (state: ApplicationState) => state.layout
+
+export default connect<LayoutState, void, ProjectTemplateProps>(mapStateToProps)(ProjectPageTemplate)
 
 export const query = graphql`
   query ProjectPageQuery($slug: String!) {

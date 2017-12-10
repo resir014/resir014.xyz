@@ -1,18 +1,27 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 import Helmet from 'react-helmet'
 import { css, merge } from 'glamor'
 
+import { ApplicationState } from '../store'
+import { LayoutState, toggleSidebar } from '../store/layout'
+import { menuItems } from '../utils/menus'
 import { sectionHeading, highlightedText } from '../utils/mixins'
 import { photonColors, sharedStyles } from '../utils/theme'
 
 import { Masthead } from '../components/Masthead'
+import { ToggleMenu } from '../components/ToggleMenu'
 import { Container } from '../components/Container'
 import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 import { PageSubtitle } from '../components/PageSubtitle'
 import { MarkdownContent } from '../components/MarkdownContent'
 
-interface PageProps {
+interface PageTemplateProps {
+  location: {
+    pathname: string
+  }
   data: {
     site: {
       siteMetadata: {
@@ -44,12 +53,13 @@ interface PageProps {
 
 const pageTitleClass = css(sharedStyles.pageTitle)
 
-const PageTemplate: React.SFC<PageProps> = ({ data }) => {
+const PageTemplate: React.SFC<PageTemplateProps & LayoutState> = ({ data, location, sidebarVisible }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const { pathname } = location
 
   return (
-    <main>
+    <React.Fragment>
       <Helmet
         title={`${post.frontmatter.title} · ${siteMetadata.title}`}
         meta={[
@@ -59,20 +69,32 @@ const PageTemplate: React.SFC<PageProps> = ({ data }) => {
           { property: 'og:description', content: post.fields.lead || post.excerpt },
         ]}
       />
-      <article>
-        <PageHeader headerImage={post.fields.headerImage || null}>
-          <h1 className={`${pageTitleClass}`}><span>{post.frontmatter.title}</span></h1>
-        </PageHeader>
-        <Container>
-          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-          <MarkdownContent html={post.html} />
-        </Container>
-      </article>
-    </main>
+      <Masthead
+        title={data.site.siteMetadata.title}
+        items={menuItems}
+        pathname={pathname}
+        transparent={true}
+      />
+      <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
+      <main>
+        <article>
+          <PageHeader headerImage={post.fields.headerImage || null}>
+            <h1 className={`${pageTitleClass}`}><span>{post.frontmatter.title}</span></h1>
+          </PageHeader>
+          <Container>
+            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+            <MarkdownContent html={post.html} />
+          </Container>
+        </article>
+      </main>
+      <Footer title={data.site.siteMetadata.title} />
+    </React.Fragment>
   )
 }
 
-export default PageTemplate
+const mapStateToProps = (state: ApplicationState) => state.layout
+
+export default connect<LayoutState, void, PageTemplateProps>(mapStateToProps)(PageTemplate)
 
 export const query = graphql`
   query PageQuery($slug: String!) {

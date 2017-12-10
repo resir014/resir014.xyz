@@ -1,12 +1,18 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import { css, merge } from 'glamor'
 
 import { Masthead } from '../components/Masthead'
+import { ToggleMenu } from '../components/ToggleMenu'
 import { Container } from '../components/Container'
 import { Footer } from '../components/Footer'
 import { Widget } from '../components/Widget'
 
+import { ApplicationState } from '../store'
+import { LayoutState, toggleSidebar } from '../store/layout'
+import { menuItems } from '../utils/menus'
 import { colors, headerColors, breakpoints, widths } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/mixins'
 import flavorText from '../utils/flavorText'
@@ -111,6 +117,9 @@ const homeAboutButton = css({
 })
 
 interface IndexPageProps {
+  location: {
+    pathname: string
+  }
   data: {
     site: {
       siteMetadata: {
@@ -125,8 +134,8 @@ interface IndexPageState {
   gradientEndIndex: number
 }
 
-class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
-  constructor (props: IndexPageProps) {
+class IndexPage extends React.Component<IndexPageProps & LayoutState, IndexPageState> {
+  constructor(props: IndexPageProps & LayoutState) {
     super(props)
     this.state = {
       gradientStartIndex: 0,
@@ -142,9 +151,17 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
   }
 
   public render() {
-    const { children, data } = this.props
+    const { children, data, location, sidebarVisible } = this.props
+    const { pathname } = location
     return (
       <div className={`${homepageWrapper(this.state)}`}>
+        <Masthead
+          title={data.site.siteMetadata.title}
+          items={menuItems}
+          pathname={pathname}
+          transparent={true}
+        />
+        <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
         <main className={`${homepageWrapperInner}`}>
           <div className={`${homepageContent}`}>
             <h1 className="homepage-title"><span>Hey, call me Resi.</span></h1>
@@ -159,7 +176,9 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
   }
 }
 
-export default IndexPage
+const mapStateToProps = (state: ApplicationState) => state.layout
+
+export default connect<LayoutState, void, IndexPageProps>(mapStateToProps)(IndexPage)
 
 export const query = graphql`
   query IndexPageQuery {

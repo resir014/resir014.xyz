@@ -12,6 +12,7 @@ import Footer from '../components/Footer/Footer'
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { colors, sharedStyles, breakpoints } from '../utils/theme'
+import { menuItems } from '../utils/menus'
 import { MenuItem } from '../utils/types'
 
 import 'typeface-zilla-slab'
@@ -25,13 +26,6 @@ const fullHeightWrapperClass = css(merge(sharedStyles.base), {
   position: 'relative',
   minHeight: '100%'
 })
-
-export const menuItems: MenuItem[] = [
-  { name: 'About', path: '/about' },
-  { name: 'Posts', path: '/posts' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Stuff', path: '/etc' }
-]
 
 interface WrapperProps {
   location: {
@@ -53,47 +47,27 @@ interface WrapperProps {
   }
 }
 
-class TemplateWrapper extends React.PureComponent<WrapperProps & LayoutState, {}> {
-  public render() {
-    const { children, data, sidebarVisible } = this.props
-    const { pathname } = this.props.location
-    const isHomepage = pathname === '/'
-    const is404 = pathname === '/404'
+const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data, location }) => {
+  const { pathname } = location
 
-    return (
-      <div id="layout-root">
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
-            { property: 'og:site_name', content: data.site.siteMetadata.title },
-            { property: 'og:type', content: 'website' },
-            { property: 'og:title', content: data.site.siteMetadata.title },
-            { property: 'og:description', content: data.site.siteMetadata.description },
-          ]}
-        />
-        {!is404
-          ? <Masthead
-            title={data.site.siteMetadata.title}
-            items={menuItems}
-            pathname={pathname}
-            transparent={true}
-          />
-          : ''
-        }
-        <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
-        <div className={`${fullHeightWrapperClass}`}>
-          {children()}
-        </div>
-        {!isHomepage && !is404 ? <Footer title={data.site.siteMetadata.title} /> : ''}
-      </div>
-    )
-  }
+  return (
+    <div id="layout-root" className={`${fullHeightWrapperClass}`}>
+      <Helmet
+        title={data.site.siteMetadata.title}
+        meta={[
+          { name: 'description', content: data.site.siteMetadata.description },
+          { property: 'og:site_name', content: data.site.siteMetadata.title },
+          { property: 'og:type', content: 'website' },
+          { property: 'og:title', content: data.site.siteMetadata.title },
+          { property: 'og:description', content: data.site.siteMetadata.description },
+        ]}
+      />
+      {children()}
+    </div>
+  )
 }
 
-const mapStateToProps = (state: ApplicationState) => state.layout
-
-export default connect<LayoutState, void, WrapperProps>(mapStateToProps)(TemplateWrapper)
+export default TemplateWrapper
 
 export const query = graphql`
   query IndexQuery {
