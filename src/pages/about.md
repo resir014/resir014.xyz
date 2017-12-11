@@ -47,13 +47,3 @@ echo 'C6D:C_`co8>2:=]4@>' | tr '!-~' 'P-~!-O'
 ```
 
 ([You can also verify my Keybase PGP key here.](https://keybase.io/resir014))
-
----
-
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-  <img alt="Creative Commons License" style="border-radius:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
-</a>
-
-<p>Except where otherwise noted, all works published on this site are licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-
-The source code to the website is available under the [MIT License](https://github.com/resir014/resir014.xyz/blob/master/LICENSE).

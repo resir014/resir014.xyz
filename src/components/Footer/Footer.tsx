@@ -94,14 +94,24 @@ class Footer extends React.Component<FooterProps & LayoutState> {
             </p>
           </div>
           <p>
-          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-            <img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+          <a
+            rel="license noopener noreferrer"
+            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+            target="_blank"
+          >
+            <img alt="Creative Commons License" src="/images/cc-by-nc-sa.svg" style={{ height: '31px' }} />
           </a>
           </p>
           <p>
             <small>
-            Except where otherwise noted, contents are licensed under{' '}
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a>.
+              Except where otherwise noted, contents are licensed under{' '}
+              <a
+                rel="license noopener noreferrer"
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                target="_blank"
+              >
+                CC-BY-NC-SA 4.0
+              </a>.
             </small>
           </p>
           <p>
