@@ -12,6 +12,7 @@ const flavors = [
   'takes photos',
   'is afraid of dogs',
   'hates TV',
+  'dank memes (and code)',
   'likes vaporwave',
   'does React',
   'does TypeScript',
