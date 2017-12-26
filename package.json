@@ -45,6 +45,7 @@
     "gatsby-transformer-json": "^1.0.13",
     "gatsby-transformer-remark": "^1.7.23",
     "glamor": "^2.20.40",
+    "normalize.css": "^7.0.0",
     "prism-themes": "https://github.com/PrismJS/prism-themes.git",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -53,6 +54,7 @@
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "slug": "^0.9.1",
+    "styled-components": "^2.4.0",
     "typeface-open-sans": "^0.0.45",
     "typeface-zilla-slab": "^0.0.44",
     "typescript": "^2.6.2"
