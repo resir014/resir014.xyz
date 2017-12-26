@@ -394,8 +394,6 @@ export const sharedStyles = {
   },
 
   markdown: {
-    marginTop: '3rem',
-
     '& a': linkStyle,
 
     '& figure': {

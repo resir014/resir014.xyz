@@ -7,6 +7,7 @@ import Helmet from 'react-helmet'
 
 import { sharedStyles } from '../utils/theme'
 
+import { PageContent } from '../components/PageContent'
 import { Masthead } from '../components/Masthead'
 import { ToggleMenu } from '../components/ToggleMenu'
 import { Footer } from '../components/Footer'
@@ -25,11 +26,7 @@ const blogPostsContentClass = css({
 })
 
 const blogPostsListClass = css({
-  borderBottom: `2px solid ${colors.black}`,
-
-  '> div': {
-    borderTop: `2px solid ${colors.black}`
-  }
+  borderBottom: `2px solid ${colors.black}`
 })
 
 const pageTitleClass = css(sharedStyles.pageTitle)
@@ -75,18 +72,16 @@ const BlogPage: React.SFC<BlogPageProps & LayoutState> = ({ data, location, side
       />
       <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
       <main>
-        <article>
-          <PageHeader>
-            <h1 className={`${pageTitleClass}`}><span>Posts</span></h1>
-          </PageHeader>
-          <Container>
-            <div className={`${blogPostsContentClass}`}>
-              <div className={`${blogPostsListClass}`}>
-                {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
-              </div>
+        <PageHeader>
+          <h1 className={`${pageTitleClass}`}><span>Posts</span></h1>
+        </PageHeader>
+        <Container>
+          <PageContent>
+            <div className={`${blogPostsListClass}`}>
+              {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
             </div>
-          </Container>
-        </article>
+          </PageContent>
+        </Container>
       </main>
       <Footer title={data.site.siteMetadata.title} />
     </React.Fragment>
