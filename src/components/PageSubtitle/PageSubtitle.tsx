@@ -1,34 +1,33 @@
 import * as React from 'react'
-import { css } from 'glamor'
+import styled from 'styled-components'
 
 import { sectionHeading, highlightedText } from '../../utils/mixins'
 import { borderColors, breakpoints, widths } from '../../utils/theme'
 
 const getBorderColor = borderColors[Math.floor(Math.random() * borderColors.length)]
 
-const pageSubtitleClass = css({
-  marginTop: '3rem',
-  padding: '1rem 0',
-  borderTop: `4px solid ${getBorderColor}`,
-  borderBottom: `4px solid ${getBorderColor}`,
-  fontSize: '1.25rem',
-  fontWeight: 300,
-
-  [breakpoints.sm]: {
-    width: '75%',
-    fontSize: '1.5rem'
-  }
-})
-
 interface PageSubtitleProps {
+  className?: string
 }
 
-const PageSubtitle: React.SFC<PageSubtitleProps> = ({ children }) => {
+const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => {
   return (
-    <div className={`${pageSubtitleClass}`}>
+    <div className={className}>
       {children}
     </div>
   )
 }
 
-export default PageSubtitle
+export default styled(PageSubtitle)`
+  margin-top: 3rem;
+  padding: 1rem 0;
+  border-top: 4px solid ${getBorderColor};
+  border-bottom: 4px solid ${getBorderColor};
+  font-size: 1.25rem;
+  font-weight: 300;
+
+  [breakpoints.sm]: {
+    width: 75%;
+    fontSize: 1.5rem;
+  }
+`

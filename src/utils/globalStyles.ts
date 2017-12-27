@@ -107,7 +107,7 @@ export default () => injectGlobal`
     ${breakpoints.lg} {
       font-size: 3.157rem;
     }
-  },
+  }
 
   h2 {
     font-size: 1.728rem;
@@ -119,7 +119,7 @@ export default () => injectGlobal`
     ${breakpoints.lg} {
       font-size: 2.369rem;
     }
-  },
+  }
 
   h3 {
     font-size: 1.44rem;
@@ -131,7 +131,7 @@ export default () => injectGlobal`
     ${breakpoints.lg} {
       font-size: 1.777rem;
     }
-  },
+  }
 
   h4, h5, h6 {
     font-size: 1.2rem;

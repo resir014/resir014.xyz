@@ -17,6 +17,7 @@ import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 import { PageSubtitle } from '../components/PageSubtitle'
 import { MarkdownContent } from '../components/MarkdownContent'
+import { PageContent } from '../components/PageContent'
 
 interface BitsTemplateProps {
   location: {
@@ -97,7 +98,9 @@ const PageTemplate: React.SFC<BitsTemplateProps & LayoutState> = ({ data, locati
             </div>
           </PageHeader>
           <Container>
-            <MarkdownContent html={post.html} />
+            <PageContent>
+              <MarkdownContent html={post.html} />
+            </PageContent>
           </Container>
         </article>
       </main>

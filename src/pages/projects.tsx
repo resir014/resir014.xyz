@@ -15,6 +15,7 @@ import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 import { FeaturedProject } from '../components/FeaturedProject'
 import { ProjectItemList } from '../components/ProjectItemList'
+import { PageContent } from '../components/PageContent'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
@@ -73,7 +74,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps & LayoutState> = ({ data, locati
           <PageHeader>
             <h1 className={`${pageTitleClass}`}><span>Projects</span></h1>
           </PageHeader>
-          <div className={`${projectsPageContentClass}`}>
+          <PageContent>
             {
               featuredProject
                 ? <FeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
@@ -84,7 +85,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps & LayoutState> = ({ data, locati
               <ProjectItemList title="Open source stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')} />
               <ProjectItemList title="Other stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')} />
             </Container>
-          </div>
+          </PageContent>
         </article>
       </main>
       <Footer title={data.site.siteMetadata.title} />

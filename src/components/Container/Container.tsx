@@ -1,25 +1,26 @@
 import * as React from 'react'
-import { css } from 'glamor'
+import styled from 'styled-components'
 
 import { breakpoints, widths } from '../../utils/theme'
-import { HTMLProps } from 'react';
 
-const styles = css({
-  paddingLeft: '1.5rem',
-  paddingRight: '1.5rem',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  maxWidth: widths.normal,
+interface ContainerProps extends React.HTMLProps<HTMLDivElement> {
+  className?: string
+}
 
-  [breakpoints.lg]: {
-    maxWidth: widths.large
-  }
-})
-
-const Container: React.SFC<HTMLProps<HTMLDivElement>> = ({ children }) => (
-  <div className={`${styles}`}>
+const Container: React.SFC<ContainerProps> = ({ className, children }) => (
+  <div className={className}>
     {children}
   </div>
 )
 
-export default Container
+export default styled(Container)`
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${widths.normal};
+
+  ${breakpoints.lg} {
+    max-width: ${widths.large};
+  }
+`

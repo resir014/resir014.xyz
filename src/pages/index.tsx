@@ -8,7 +8,6 @@ import { Masthead } from '../components/Masthead'
 import { ToggleMenu } from '../components/ToggleMenu'
 import { Container } from '../components/Container'
 import { Footer } from '../components/Footer'
-import { Widget } from '../components/Widget'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'

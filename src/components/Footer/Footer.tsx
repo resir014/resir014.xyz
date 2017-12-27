@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import * as Color from 'color'
+import styled from 'styled-components'
 import { merge } from 'glamor'
 import { StyleSheet, css } from 'glamor/aphrodite'
 
@@ -69,6 +70,35 @@ const styles = StyleSheet.create({
   }
 })
 
+const StyledFooter = styled.footer`
+  margin-top: 3rem;
+  padding: 2rem 0;
+  color: ${photonColors.white};
+  background-color: ${photonColors.grey90};
+
+  a {
+    color: ${photonColors.blue40};
+    text-decoration: underline;
+
+    &:hover, &:focus {
+      color: ${photonColors.blue50};
+    }
+
+    ${breakpoints.md} {
+      text-decoration: none;
+
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p, small {
+    display: block;
+    margin: 0;
+  }
+`
+
 interface FooterProps {
   title: string
   dispatch?: Dispatch<LayoutState>
@@ -85,7 +115,7 @@ class Footer extends React.Component<FooterProps & LayoutState> {
 
   public render() {
     return (
-      <footer className={css(styles.footer)}>
+      <StyledFooter>
         <Container>
           <div className={css(styles.footerHeader)}>
             <h3 className="footer-title"><Link to="/">{this.props.title}</Link></h3>
@@ -122,7 +152,7 @@ class Footer extends React.Component<FooterProps & LayoutState> {
             </small>
           </p>
         </Container>
-      </footer>
+      </StyledFooter>
     )
   }
 }

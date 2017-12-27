@@ -120,7 +120,30 @@ const PostMetaDate = styled(Link)`
 `
 
 const StyledMarkdownContent = styled(MarkdownContent)`
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+`
+
+const PostTitle = styled.h3`
+  margin-top: 0;
+`
+
+const BlogPostFooter = styled.div`
+  margin-top: 1.5rem;
+`
+
+const BlogPostFooterLink = styled(Link)`
+  display: inline-block;
+  margin-top: auto;
+  padding: .25rem .5rem;
+  color: ${photonColors.blue60};
+  border: 2px solid ${photonColors.blue60};
+
+  &:hover, &:focus {
+    color: ${photonColors.white};
+    border-color: ${photonColors.blue70};
+    background-color: ${photonColors.blue70};
+    text-decoration: none;
+  }
 `
 
 class BlogPostItem extends React.Component<BlogPostNode, {}> {
@@ -160,11 +183,11 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
             <PostMetaDate to={node.fields.slug}>{date}</PostMetaDate>
             <PostCategory category="blog">{category || 'blog'}</PostCategory>
           </PostMeta>
-          <h3 className="post__title">{node.frontmatter.title}</h3>
+          <PostTitle>{node.frontmatter.title}</PostTitle>
           {node.fields.lead ? <div className={css(styles.blogPostContent)}><p>{node.fields.lead}</p></div> : null}
-          <div className={css(styles.blogPostFooter)}>
-            <Link className="post__footer-link" to={node.fields.slug}>Read more</Link>
-          </div>
+          <BlogPostFooter>
+            <BlogPostFooterLink to={node.fields.slug}>Read more</BlogPostFooterLink>
+          </BlogPostFooter>
         </PostDetailBox>
       </StyledPostItem>
     )

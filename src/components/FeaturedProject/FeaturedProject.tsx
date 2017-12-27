@@ -4,7 +4,6 @@ import { css, merge } from 'glamor'
 import * as Color from 'color'
 
 import { Container } from '../Container'
-import { WidgetLinkButton } from '../WidgetLinkButton'
 
 import { photonColors, headerColors, breakpoints } from '../../utils/theme'
 import { highlightedText, sectionHeading } from '../../utils/mixins'

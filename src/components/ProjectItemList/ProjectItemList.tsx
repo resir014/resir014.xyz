@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { css, merge } from 'glamor'
 
-import { WidgetLinkButton } from '../WidgetLinkButton'
 import { ProjectItem } from './ProjectItem'
 
 import { photonColors, breakpoints } from '../../utils/theme'

@@ -3,34 +3,7 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import { css, merge } from 'glamor'
-
 import styled from 'styled-components'
-
-import { Masthead } from '../components/Masthead'
-import { ToggleMenu } from '../components/ToggleMenu'
-import Footer from '../components/Footer/Footer'
-
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
-import { colors, sharedStyles, breakpoints, photonColors } from '../utils/theme'
-import injectGlobal from '../utils/globalStyles'
-import { menuItems } from '../utils/menus'
-import { MenuItem } from '../utils/types'
-
-import 'typeface-zilla-slab'
-import 'typeface-open-sans'
-
-import 'normalize.css'
-import 'prism-themes/themes/prism-atom-dark.css'
-
-// inject global styles
-injectGlobal()
-
-const fullHeightWrapperClass = css(merge(sharedStyles.base), {
-  position: 'relative',
-  minHeight: '100%'
-})
 
 const AppWrapper = styled.div`
   position: relative;

@@ -1,4 +1,14 @@
 import * as React from 'react'
+import globalStyles from './utils/globalStyles'
+
+import 'typeface-zilla-slab'
+import 'typeface-open-sans'
+
+import 'normalize.css'
+import 'prism-themes/themes/prism-atom-dark.css'
+
+// inject global styles
+globalStyles()
 
 let styles: string
 if (process.env.NODE_ENV === 'production') {

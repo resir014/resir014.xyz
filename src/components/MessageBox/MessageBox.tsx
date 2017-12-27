@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { css } from 'glamor'
+import styled from 'styled-components'
 import * as Color from 'color'
 
 import { photonColors } from '../../utils/theme'
@@ -15,10 +15,23 @@ const messageBoxClass = css({
   }
 })
 
-const MessageBox: React.SFC<{}> = ({ children }) => (
-  <div className={`${messageBoxClass}`}>
+interface MessageBoxProps {
+  className?: string
+}
+
+const MessageBox: React.SFC<MessageBoxProps> = ({ className, children }) => (
+  <div className={className}>
     {children}
   </div>
 )
 
-export default MessageBox
+export default styled(MessageBox)`
+  margin: 3rem 0;
+  padding: 1rem;
+  color: ${photonColors.grey80};
+  background-color: ${photonColors.grey10};
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+`
