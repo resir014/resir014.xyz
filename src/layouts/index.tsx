@@ -5,6 +5,17 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
+import globalStyles from '../utils/globalStyles'
+
+import 'typeface-zilla-slab'
+import 'typeface-open-sans'
+
+import 'normalize.css'
+import 'prism-themes/themes/prism-atom-dark.css'
+
+// inject global styles
+globalStyles()
+
 const AppWrapper = styled.div`
   position: relative;
   height: 100%;
