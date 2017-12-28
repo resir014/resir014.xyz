@@ -17,6 +17,7 @@ import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 import { PageSubtitle } from '../components/PageSubtitle'
 import { MarkdownContent } from '../components/MarkdownContent'
+import PageContent from '../components/PageContent/PageContent'
 
 interface PageTemplateProps {
   location: {
@@ -83,7 +84,9 @@ const PageTemplate: React.SFC<PageTemplateProps & LayoutState> = ({ data, locati
           </PageHeader>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <MarkdownContent html={post.html} />
+            <PageContent>
+              <MarkdownContent html={post.html} />
+            </PageContent>
           </Container>
         </article>
       </main>

@@ -26,8 +26,8 @@ export default styled(PageSubtitle)`
   font-size: 1.25rem;
   font-weight: 300;
 
-  [breakpoints.sm]: {
+  ${breakpoints.sm} {
     width: 75%;
-    fontSize: 1.5rem;
+    font-size: 1.5rem;
   }
 `

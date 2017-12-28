@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import { merge } from 'glamor'
 import styled, { css } from 'styled-components'
 import * as Color from 'color'
 

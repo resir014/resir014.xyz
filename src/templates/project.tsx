@@ -17,6 +17,7 @@ import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 import { PageSubtitle } from '../components/PageSubtitle'
 import { MarkdownContent } from '../components/MarkdownContent'
+import PageContent from '../components/PageContent/PageContent';
 
 interface ProjectTemplateProps {
   location: {
@@ -107,7 +108,9 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps & LayoutState> = ({ da
           </PageHeader>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <MarkdownContent html={post.html} />
+            <PageContent>
+              <MarkdownContent html={post.html} />
+            </PageContent>
             {post.fields.jumpToProject === 'true' || post.fields.project_url
               ? <div className={`${pageFooterClass}`}>
                 {renderLink(post.fields.project_url)}

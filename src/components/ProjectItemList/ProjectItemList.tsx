@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { css, merge } from 'glamor'
+import styled from 'styled-components'
 
 import { ProjectItem } from './ProjectItem'
 
@@ -7,22 +7,32 @@ import { photonColors, breakpoints } from '../../utils/theme'
 import { sectionHeading } from '../../utils/mixins'
 import { ProjectNode } from '../../utils/types'
 
-const projectsListClass = css({
-  display: 'flex',
-  flexDirection: 'column',
-  flexWrap: 'wrap',
+const ProjectSectionHeading = styled.h2`
+  margin: 1.5rem 0;
 
-  [breakpoints.md]: {
-    flexDirection: 'row',
-    borderBottom: 0
+  span {
+    display: inline-block;
+    margin: 0;
+    padding: 0 .5rem;
+    color: ${photonColors.white};
+    background-color: ${photonColors.grey90};
   }
-})
+`
 
-const sectionHeadingClass = css(merge(sectionHeading(photonColors.grey90), {
-  marginTop: '1.5rem',
-  marginBottom: '1.5rem',
-  color: photonColors.white
-}))
+const ProjectsList = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  ${breakpoints.md} {
+    flex-direction: row;
+    border-bottom: 0;
+  }
+`
+
+const ProjectEmpty = styled.p`
+  color: ${photonColors.grey50};
+`
 
 export interface ProjectItemListProps {
   title: string
@@ -31,16 +41,14 @@ export interface ProjectItemListProps {
 
 const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, projects }) => (
   <section>
-    <h2>
-      <span className={`${sectionHeadingClass}`}>{title}</span>
-    </h2>
-    {
-      projects.length !== 0
-        ? <div className={`${projectsListClass}`}>
-          {projects.map(({ node }) => <ProjectItem key={node.frontmatter.title} node={node} />)}
-        </div>
-        : <p style={{ color: photonColors.grey50 }}>No projects.</p>
-    }
+    <ProjectSectionHeading><span>{title}</span></ProjectSectionHeading>
+    {projects.length !== 0 ? (
+      <ProjectsList>
+        {projects.map(({ node }) => <ProjectItem key={node.frontmatter.title} node={node} />)}
+      </ProjectsList>
+    ) : (
+      <ProjectEmpty>No projects.</ProjectEmpty>
+    )}
   </section>
 )
 
