@@ -16,44 +16,6 @@ import { ProjectNode } from '../../utils/types'
 // http://design.firefox.com/photon/visuals/color.html
 const getHeaderColor = (index: number) => headerColors[index]
 
-const featuredProjectHeadingClass = css({
-  marginBottom: '.5rem',
-
-  '& span': merge(highlightedText(photonColors.white, 0, '.25rem'), {
-    color: photonColors.grey90,
-  })
-})
-
-const featuredProjectNameClass = css(merge(sectionHeading(photonColors.white, 0, '.25rem')), {
-  margin: '0 !important'
-})
-
-const featuredProjectDescriptionClass = css({
-  marginTop: '1rem',
-  marginBottom: '1rem',
-
-  '& p': {
-    margin: 0
-  }
-})
-
-const goToProjectButton = css({
-  marginTop: '1rem',
-
-  '& a': {
-    display: 'inline-block',
-    padding: '.25rem .5rem',
-    color: photonColors.white,
-    border: `3px solid ${photonColors.white}`,
-
-    '&:hover, &:focus': {
-      color: photonColors.grey90,
-      textDecoration: 'none',
-      backgroundColor: photonColors.white
-    }
-  }
-})
-
 const FeaturedProjectWrapper = styled.section`
   display: flex;
   flex-direction: column;
@@ -90,6 +52,7 @@ const FeaturedProjectHeading = styled.div`
 const FeaturedProjectName = styled.h3`
   display: inline-block;
   margin: 0;
+  margin-top: .5rem;
   padding: 0 .25rem;
   color: ${photonColors.grey90};
   background-color: ${photonColors.white};
@@ -101,6 +64,10 @@ const FeaturedProjectDescription = styled.div`
   p {
     margin: 0;
   }
+`
+
+const FeaturedProjectFooter = styled.div`
+  margin-top: 1rem;
 `
 
 interface FeaturedProjectProps extends ProjectNode {}
@@ -146,10 +113,9 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
               <FeaturedProjectDescription>
                 <p>{node.fields.description}</p>
               </FeaturedProjectDescription>
-              <div className={`${goToProjectButton}`}>
-                <Button elem="a" href="/test">Visit project</Button>
-                <Link to={node.fields.slug}>Visit project</Link>
-              </div>
+              <FeaturedProjectFooter>
+                <Button kind="nav-link" color="white" to={node.fields.slug}>Visit project</Button>
+              </FeaturedProjectFooter>
             </div>
           </FeaturedProjectDetails>
         </FeaturedProjectWrapper>

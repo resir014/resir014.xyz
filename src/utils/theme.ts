@@ -3,7 +3,11 @@ import { merge } from 'glamor'
 
 import { sectionHeading, highlightedText } from './mixins'
 
-export interface ThemeInterface {}
+export interface ThemeInterface {
+  foreground: string
+  background: string
+  heading: string
+}
 
 export const breakpoints = {
   xs: '@media (min-width: 0)',
