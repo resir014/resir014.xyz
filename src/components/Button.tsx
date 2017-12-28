@@ -31,15 +31,19 @@ const Button: React.SFC<ButtonProps> = ({ id, className, color, kind, href, to, 
     )
   } else if (kind === 'nav-link') {
     return (
-      <Link id={id} className={className} to={to}>
-        {children}
-      </Link>
+      <ThemeProvider theme={theme}>
+        <Link id={id} className={className} to={to}>
+          {children}
+        </Link>
+      </ThemeProvider>
     )
   } else {
     return (
-      <a id={id} className={className} href={href}>
-        {children}
-      </a>
+      <ThemeProvider theme={theme}>
+        <a id={id} className={className} href={href}>
+          {children}
+        </a>
+      </ThemeProvider>
     )
   }
 }
