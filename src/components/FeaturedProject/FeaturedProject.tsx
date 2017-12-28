@@ -1,9 +1,12 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import { css, merge } from 'glamor'
+import { merge } from 'glamor'
+import styled, { css } from 'styled-components'
 import * as Color from 'color'
 
+import Button from '../Button'
 import { Container } from '../Container'
+import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { photonColors, headerColors, breakpoints } from '../../utils/theme'
 import { highlightedText, sectionHeading } from '../../utils/mixins'
@@ -12,43 +15,6 @@ import { ProjectNode } from '../../utils/types'
 // TODO: stop using this when we finally convert to Photon colors:
 // http://design.firefox.com/photon/visuals/color.html
 const getHeaderColor = (index: number) => headerColors[index]
-
-const featuredProjectClass = css({
-  display: 'flex',
-  flexDirection: 'column',
-  marginTop: '3rem',
-  marginBottom: '3rem',
-  color: photonColors.white,
-
-  [breakpoints.md]: {
-    flexDirection: 'row'
-  },
-
-  '& .column': {
-    flex: 1
-  }
-})
-
-const featuredProjectThumbnailClass = css({
-  display: 'none',
-
-  [breakpoints.md]: {
-    display: 'block',
-  },
-
-  '& img': {
-    margin: 0,
-    verticalAlign: 'middle',
-    objectFit: 'cover'
-  }
-})
-
-const featuredProjectDetailsClass = css({
-  padding: '1.5rem',
-  background: `linear-gradient(to bottom right,
-    ${photonColors.blue50},
-    ${photonColors.purple50})`,
-})
 
 const featuredProjectHeadingClass = css({
   marginBottom: '.5rem',
@@ -88,15 +54,54 @@ const goToProjectButton = css({
   }
 })
 
-const projectImage = (state: FeaturedProjectState, headerImage?: string) => {
-  if (headerImage) {
-    return css({
-      backgroundImage: `url(${headerImage})`,
-      backgroundSize: 'cover',
-      backgroundPositionY: 'center'
-    })
+const FeaturedProjectWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  color: ${photonColors.white};
+
+  ${breakpoints.md} {
+    flex-direction: row;
   }
-}
+
+  .column {
+    flex: 1;
+  }
+`
+
+const FeaturedProjectDetails = styled.div`
+  padding: 1.5rem;
+  background: linear-gradient(to bottom right,
+    ${photonColors.blue50},
+    ${photonColors.purple50});
+`
+
+const FeaturedProjectHeading = styled.div`
+  span {
+    display: inline-block;
+    margin: 0;
+    padding: 0 .25rem;
+    color: ${photonColors.grey90};
+    background-color: ${photonColors.white};
+  }
+`
+
+const FeaturedProjectName = styled.h3`
+  display: inline-block;
+  margin: 0;
+  padding: 0 .25rem;
+  color: ${photonColors.grey90};
+  background-color: ${photonColors.white};
+`
+
+const FeaturedProjectDescription = styled.div`
+  margin-top: 1rem;
+
+  p {
+    margin: 0;
+  }
+`
 
 interface FeaturedProjectProps extends ProjectNode {}
 
@@ -126,27 +131,28 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
     const { headerImage } = node.fields
     return (
       <Container>
-        <section className={`${featuredProjectClass}`}>
+        <FeaturedProjectWrapper>
           {
             headerImage
-              ? <div className={`column ${featuredProjectThumbnailClass} ${projectImage(this.state, headerImage)}`} />
+              ? <FeaturedProjectThumbnail className="column" image={headerImage} />
               : null
           }
-          <div className={`column ${featuredProjectDetailsClass}`}>
-            <div className={`${featuredProjectHeadingClass}`}>
+          <FeaturedProjectDetails className="column">
+            <FeaturedProjectHeading>
               <span>Featured project</span>
-            </div>
+            </FeaturedProjectHeading>
             <div>
-              <h3 className={`${featuredProjectNameClass}`}>{node.frontmatter.title}</h3>
-              <div className={`${featuredProjectDescriptionClass}`}>
+              <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
+              <FeaturedProjectDescription>
                 <p>{node.fields.description}</p>
-              </div>
+              </FeaturedProjectDescription>
               <div className={`${goToProjectButton}`}>
+                <Button elem="a" href="/test">Visit project</Button>
                 <Link to={node.fields.slug}>Visit project</Link>
               </div>
             </div>
-          </div>
-        </section>
+          </FeaturedProjectDetails>
+        </FeaturedProjectWrapper>
       </Container>
     )
   }
