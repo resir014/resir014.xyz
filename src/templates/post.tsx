@@ -12,12 +12,12 @@ import { photonColors, headerColors, breakpoints, widths, sharedStyles } from '.
 
 import { Masthead } from '../components/Masthead'
 import { ToggleMenu } from '../components/ToggleMenu'
-import { Container } from '../components/Container'
+import Container from '../components/Container'
 import { Footer } from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
-import { PageSubtitle } from '../components/PageSubtitle'
-import { MarkdownContent } from '../components/MarkdownContent'
-import { PageContent } from '../components/PageContent'
+import PageSubtitle from '../components/PageSubtitle'
+import MarkdownContent from '../components/MarkdownContent'
+import PageContent from '../components/PageContent'
 
 const postMetaClass = css({
   marginBottom: '.5rem',

@@ -2,9 +2,9 @@ import * as React from 'react'
 import * as Color from 'color'
 import styled from 'styled-components'
 
-import flavorText from '../../utils/flavorText'
-import { colors, breakpoints, widths, sharedStyles, linkStyle, photonColors, getBorderColor } from '../../utils/theme'
-import { sectionHeading, highlightedText } from '../../utils/mixins'
+import flavorText from '../utils/flavorText'
+import { colors, breakpoints, widths, sharedStyles, linkStyle, photonColors, getBorderColor } from '../utils/theme'
+import { sectionHeading, highlightedText } from '../utils/mixins'
 
 interface MarkdownContentProps {
   className?: string

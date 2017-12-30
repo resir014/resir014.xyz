@@ -7,7 +7,7 @@ import Link, { navigateTo } from 'gatsby-link'
 import * as Color from 'color'
 import { css, merge } from 'glamor'
 
-import { Container } from '../Container'
+import Container from '../Container'
 import { MastheadNavItem } from '../MastheadNavItem'
 import { ToggleMenu } from '../ToggleMenu'
 

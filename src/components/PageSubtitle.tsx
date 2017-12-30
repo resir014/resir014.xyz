@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { sectionHeading, highlightedText } from '../../utils/mixins'
-import { borderColors, breakpoints, widths } from '../../utils/theme'
+import { sectionHeading, highlightedText } from '../utils/mixins'
+import { borderColors, breakpoints, widths } from '../utils/theme'
 
 const getBorderColor = borderColors[Math.floor(Math.random() * borderColors.length)]
 

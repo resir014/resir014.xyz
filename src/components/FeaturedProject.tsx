@@ -3,13 +3,13 @@ import Link from 'gatsby-link'
 import styled, { css } from 'styled-components'
 import * as Color from 'color'
 
-import Button from '../Button'
-import { Container } from '../Container'
+import Button from './Button'
+import Container from './Container'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
-import { photonColors, headerColors, breakpoints } from '../../utils/theme'
-import { highlightedText, sectionHeading } from '../../utils/mixins'
-import { ProjectNode } from '../../utils/types'
+import { photonColors, headerColors, breakpoints } from '../utils/theme'
+import { highlightedText, sectionHeading } from '../utils/mixins'
+import { ProjectNode } from '../utils/types'
 
 // TODO: stop using this when we finally convert to Photon colors:
 // http://design.firefox.com/photon/visuals/color.html

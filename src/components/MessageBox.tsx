@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import * as Color from 'color'
 
-import { photonColors } from '../../utils/theme'
+import { photonColors } from '../utils/theme'
 
 interface MessageBoxProps {
   className?: string

@@ -5,7 +5,7 @@ import Link, { navigateTo } from 'gatsby-link'
 import * as Color from 'color'
 import { css, merge } from 'glamor'
 
-import { Container } from '../Container'
+import Container from '../Container'
 import flavorText from '../../utils/flavorText'
 import { MenuItem } from '../../utils/types'
 import { photonColors, breakpoints, widths } from '../../utils/theme'

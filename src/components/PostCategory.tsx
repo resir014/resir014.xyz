@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
-import { photonColors } from '../../utils/theme'
+import { photonColors } from '../utils/theme'
 
 interface BlogCategoryProps {
   className?: string

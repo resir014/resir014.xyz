@@ -11,7 +11,7 @@ import flavorText from '../../utils/flavorText'
 import { photonColors, breakpoints, fonts, sharedStyles } from '../../utils/theme'
 import { highlightedText, sectionHeading } from '../../utils/mixins'
 
-import { Container } from '../Container'
+import Container from '../Container'
 
 const StyledFooter = styled.footer`
   margin-top: 3rem;

@@ -7,13 +7,13 @@ import Helmet from 'react-helmet'
 
 import { sharedStyles } from '../utils/theme'
 
-import { PageContent } from '../components/PageContent'
+import PageContent from '../components/PageContent'
 import { Masthead } from '../components/Masthead'
 import { ToggleMenu } from '../components/ToggleMenu'
 import { Footer } from '../components/Footer'
-import { Container } from '../components/Container'
+import Container from '../components/Container'
 import { PageHeader } from '../components/PageHeader'
-import { BlogPostItem } from '../components/BlogPostItem'
+import BlogPostItem from '../components/BlogPostItem'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'

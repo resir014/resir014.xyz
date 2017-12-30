@@ -3,7 +3,7 @@ import { css, merge } from 'glamor'
 
 import { sectionHeading, highlightedText } from '../../utils/mixins'
 import { colors, headerColors, borderColors, breakpoints, widths, heights } from '../../utils/theme'
-import { Container } from '../Container'
+import Container from '../Container'
 
 // TODO: stop using this when we finally convert to Photon colors:
 // http://design.firefox.com/photon/visuals/color.html

@@ -6,8 +6,8 @@ import { breakpoints, widths, photonColors, sharedStyles } from '../../utils/the
 import { highlightedText } from '../../utils/mixins'
 
 import { BlogPostNode } from '../../utils/types'
-import { PostCategory } from '../PostCategory'
-import { MarkdownContent } from '../MarkdownContent'
+import PostCategory from '../PostCategory'
+import MarkdownContent from '../MarkdownContent'
 
 const StyledPostItem = styled.article`
   position: relative;
