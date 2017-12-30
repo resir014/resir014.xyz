@@ -9,7 +9,7 @@ import { css, merge } from 'glamor'
 
 import Container from '../Container'
 import { MastheadNavItem } from '../MastheadNavItem'
-import { ToggleMenu } from '../ToggleMenu'
+import ToggleMenu from '../ToggleMenu'
 
 import { ApplicationState } from '../../store'
 import { LayoutState, toggleSidebar } from '../../store/layout'

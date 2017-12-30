@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { css } from 'glamor'
+import styled from 'styled-components'
 import * as Color from 'color'
+
+import Button from '../../Button'
 
 import { breakpoints, widths, photonColors, fonts, sharedStyles } from '../../../utils/theme'
 import { ProjectNode } from '../../../utils/types'
@@ -64,52 +67,108 @@ const projectItemClass = css({
 
     '& a': sharedStyles.link
   },
-
-  '& .project__footer': {
-    marginTop: 'auto'
-  },
-
-  '& .project__footer-link': sharedStyles.sectionFooterLink
 })
+
+const StyledProjectItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 1rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  background-color: ${photonColors.grey20};
+
+  ${breakpoints.md} {
+    width: calc(50% - 1.5rem);
+    margin: 1rem;
+
+    &:nth-child(odd) {
+      margin-left: 0;
+    }
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+`
+
+const ProjectTitle = styled.h3`
+  margin-top: 0;
+`
+
+const ProjectYear = styled.span`
+  display: inline-block;
+  margin-left: 1rem;
+  font-family: ${fonts.sansSerif};
+  font-size: 70%;
+  color: ${photonColors.grey50}
+`
+
+const ProjectTags = styled.div`
+  span {
+    display: inline-block;
+    padding: .25em .5em;
+    font-size: 85%;
+    color: ${photonColors.white};
+    background-color: ${photonColors.grey70};
+    border-radius: 3px;
+  }
+
+  span + span {
+    margin-left: .5rem;
+  }
+`
+
+const ProjectDetailBox = styled.div`
+  margin-top: 1rem;
+
+  p {
+    margin-top: 0;
+  }
+`
+
+const ProjectFooter = styled.div`
+  margin-top: auto;
+`
 
 const ProjectItem: React.SFC<ProjectNode> = ({ node }) => {
   const tags = node.fields.tags ? JSON.parse(node.fields.tags) as string[] : undefined
   return (
-    <div className={`${projectItemClass}`}>
-      <h3 className="project__title">
+    <StyledProjectItem>
+      <ProjectTitle>
         {node.frontmatter.title}
-        <span className="project__year">{node.fields.year}</span>
-      </h3>
-      {
-        tags
-          ? <div className="project__tags">
-            {tags.map(tag => (
-              <span key={tag}>{tag}</span>
-            ))}
-          </div>
-          : null
-      }
-      <div className="project__detail-box">
+        <ProjectYear>{node.fields.year}</ProjectYear>
+      </ProjectTitle>
+      {tags ? (
+        <ProjectTags>
+          {tags.map(tag => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </ProjectTags>
+      ) : null}
+      <ProjectDetailBox>
         <p dangerouslySetInnerHTML={{ __html: node.fields.description || node.fields.lead }} />
-      </div>
-      <div className="project__footer">
+      </ProjectDetailBox>
+      <ProjectFooter>
         {node.fields.jumpToProject === 'true' && node.fields.project_url
           ? renderLink(node.fields.project_url, true)
           : renderLink(node.fields.slug, false)}
-      </div>
-    </div>
+      </ProjectFooter>
+    </StyledProjectItem>
   )
 }
 
 const renderLink = (url: string, jumpToProject: boolean) => (
-  <a
-    className="project__footer-link"
+  <Button
+    kind="link"
+    color="primary"
     href={url}
     target={jumpToProject ? '_blank' : null}
     rel={jumpToProject ? 'noopener noreferrer' : null}
   >
     Visit project
-  </a>
+  </Button>
 )
 
 export default ProjectItem

@@ -5,9 +5,9 @@ import Link from 'gatsby-link'
 import { css, merge } from 'glamor'
 
 import { Masthead } from '../components/Masthead'
-import { ToggleMenu } from '../components/ToggleMenu'
+import ToggleMenu from '../components/ToggleMenu'
 import Container from '../components/Container'
-import { Footer } from '../components/Footer'
+import Footer from '../components/Footer'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'

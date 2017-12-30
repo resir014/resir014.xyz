@@ -1,5 +1,23 @@
-import { injectGlobal } from 'styled-components'
+import { injectGlobal, css } from 'styled-components'
 import { photonColors, breakpoints, fonts } from './theme'
+
+export const createLinkStyle = (color: string = photonColors.blue60, hoverColor: string = photonColors.blue70) =>
+css`
+  color: ${photonColors.blue60};
+  text-decoration: underline;
+
+  &:hover, &:focus {
+    color: ${photonColors.blue70};
+  }
+
+  ${breakpoints.md} {
+    text-decoration: none;
+
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+  }
+`
 
 export default () => injectGlobal`
   html {

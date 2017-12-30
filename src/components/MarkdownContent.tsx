@@ -2,8 +2,9 @@ import * as React from 'react'
 import * as Color from 'color'
 import styled from 'styled-components'
 
+import { createLinkStyle } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
-import { colors, breakpoints, widths, sharedStyles, linkStyle, photonColors, getBorderColor } from '../utils/theme'
+import { colors, breakpoints, widths, photonColors, getBorderColor } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/mixins'
 
 interface MarkdownContentProps {
@@ -17,20 +18,7 @@ const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) =
 
 export default styled(MarkdownContent)`
   a {
-    color: ${photonColors.blue60};
-    text-decoration: underline;
-
-    &:hover, &:focus {
-      color: ${photonColors.blue70};
-    }
-
-    ${breakpoints.md} {
-      text-decoration: none;
-
-      &:hover, &:focus {
-        text-decoration: underline;
-      }
-    }
+    ${createLinkStyle()}
   }
 
   figure {

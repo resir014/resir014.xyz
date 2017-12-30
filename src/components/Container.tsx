@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { breakpoints, widths } from '../../utils/theme'
+import { breakpoints, widths } from '../utils/theme'
 
 interface ContainerProps extends React.HTMLProps<HTMLDivElement> {
   className?: string

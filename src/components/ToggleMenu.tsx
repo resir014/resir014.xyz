@@ -5,7 +5,7 @@ import Link, { navigateTo } from 'gatsby-link'
 import * as Color from 'color'
 import styled from 'styled-components'
 
-import Container from '../Container'
+import Container from './Container'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'

@@ -5,13 +5,13 @@ import Link from 'gatsby-link'
 import * as Color from 'color'
 import styled from 'styled-components'
 
-import { ApplicationState } from '../../store'
-import { LayoutState, randomiseSplash } from '../../store/layout'
-import flavorText from '../../utils/flavorText'
-import { photonColors, breakpoints, fonts, sharedStyles } from '../../utils/theme'
-import { highlightedText, sectionHeading } from '../../utils/mixins'
+import { ApplicationState } from '../store'
+import { LayoutState, randomiseSplash } from '../store/layout'
+import flavorText from '../utils/flavorText'
+import { photonColors, breakpoints, fonts } from '../utils/theme'
+import { highlightedText, sectionHeading } from '../utils/mixins'
 
-import Container from '../Container'
+import Container from './Container'
 
 const StyledFooter = styled.footer`
   margin-top: 3rem;

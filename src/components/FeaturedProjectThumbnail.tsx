@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import { breakpoints } from '../../utils/theme'
+import { breakpoints } from '../utils/theme'
 
 interface FeaturedProjectThumbnailProps {
   className?: string
