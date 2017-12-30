@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { renderToString } from 'react-dom/server'
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components'
 import { renderStaticOptimized } from 'glamor/server'
 
 import configureStore from './src/configureStore'
@@ -8,40 +9,23 @@ import configureStore from './src/configureStore'
 const store = configureStore()
 
 exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
+  // We'll also redo what `gatsby-plugin-styled-components` did since their `gatsby-ssr.js` is overridden.
+
+  const sheet = new ServerStyleSheet()
+
   const ConnectedBody = () => (
-    <Provider store={store}>
-      {bodyComponent}
-    </Provider>
+    <StyleSheetManager sheet={sheet.instance}>
+      <Provider store={store}>
+        {bodyComponent}
+      </Provider>
+    </StyleSheetManager>
   )
 
-  // Redo what `gatsby-plugin-glamor` did since their `gatsby-ssr.js` is overridden.
 
-  let { html, css, ids } = renderStaticOptimized(() =>
-    renderToString(<ConnectedBody />)
-  )
+  const body = renderToString(<ConnectedBody />)
 
-  replaceBodyHTMLString(html)
+  replaceBodyHTMLString(body)
+  setHeadComponents([sheet.getStyleElement()])
 
-  setHeadComponents([
-    (
-    <style
-      id="glamor-styles"
-      key="glamor-styles"
-      dangerouslySetInnerHTML={{ __html: css }}
-    />
-    ),
-    (
-    <script
-      id="glamor-ids"
-      key="glamor-ids"
-      dangerouslySetInnerHTML={{
-        __html: `
-        // <![CDATA[
-        window._glamor = ${JSON.stringify(ids)}
-        // ]]>
-        `,
-      }}
-    />
-    ),
-  ])
+  return
 }
