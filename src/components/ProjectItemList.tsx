@@ -1,11 +1,11 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { ProjectItem } from './ProjectItem'
+import ProjectItem from './ProjectItem'
 
-import { photonColors, breakpoints } from '../../utils/theme'
-import { sectionHeading } from '../../utils/mixins'
-import { ProjectNode } from '../../utils/types'
+import { photonColors, breakpoints } from '../utils/theme'
+import { sectionHeading } from '../utils/mixins'
+import { ProjectNode } from '../utils/types'
 
 const ProjectSectionHeading = styled.h2`
   margin: 1.5rem 0;

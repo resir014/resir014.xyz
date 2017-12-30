@@ -14,7 +14,7 @@ import Container from '../components/Container'
 import Footer from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'
 import FeaturedProject from '../components/FeaturedProject'
-import { ProjectItemList } from '../components/ProjectItemList'
+import ProjectItemList from '../components/ProjectItemList'
 import PageContent from '../components/PageContent'
 
 import { ApplicationState } from '../store'

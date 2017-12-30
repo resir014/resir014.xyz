@@ -3,71 +3,10 @@ import { css } from 'glamor'
 import styled from 'styled-components'
 import * as Color from 'color'
 
-import Button from '../../Button'
+import Button from './Button'
 
-import { breakpoints, widths, photonColors, fonts, sharedStyles } from '../../../utils/theme'
-import { ProjectNode } from '../../../utils/types'
-
-const projectItemClass = css({
-  display: 'flex',
-  flexDirection: 'column',
-  flexWrap: 'wrap',
-  position: 'relative',
-  padding: '1rem',
-  marginTop: '0',
-  marginBottom: '2rem',
-  backgroundColor: photonColors.grey20,
-
-  [breakpoints.md]: {
-    width: 'calc(50% - 1.5rem)',
-    margin: '1rem',
-
-    '&:nth-child(odd)': {
-      marginLeft: 0
-    },
-
-    '&:nth-child(even)': {
-      marginRight: 0
-    }
-  },
-
-  '& .project__title': {
-    marginTop: 0
-  },
-
-  '& .project__year': {
-    display: 'inline-block',
-    marginLeft: '1rem',
-    fontFamily: fonts.sansSerif,
-    fontSize: '70%',
-    color: photonColors.grey50
-  },
-
-  '& .project__tags': {
-    '& span': {
-      display: 'inline-block',
-      padding: '.25em .5em',
-      fontSize: '85%',
-      color: photonColors.white,
-      backgroundColor: photonColors.grey70,
-      borderRadius: '3px',
-    },
-
-    '& span + span': {
-      marginLeft: '.5rem'
-    }
-  },
-
-  '& .project__detail-box': {
-    marginTop: '1rem',
-
-    '& p': {
-      marginTop: 0
-    },
-
-    '& a': sharedStyles.link
-  },
-})
+import { breakpoints, widths, photonColors, fonts, sharedStyles } from '../utils/theme'
+import { ProjectNode } from '../utils/types'
 
 const StyledProjectItem = styled.div`
   display: flex;
