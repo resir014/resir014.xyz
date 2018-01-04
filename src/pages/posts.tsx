@@ -12,7 +12,7 @@ import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Footer from '../components/Footer'
 import Container from '../components/Container'
-import { PageHeader } from '../components/PageHeader'
+import PageHeader from '../components/PageHeader'
 import BlogPostItem from '../components/BlogPostItem'
 
 import { ApplicationState } from '../store'
