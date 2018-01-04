@@ -10,11 +10,11 @@ import globalStyles from '../utils/globalStyles'
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'
 
-import 'normalize.css'
-import 'prism-themes/themes/prism-atom-dark.css'
-
 // inject global styles
+import 'normalize.css'
 globalStyles()
+
+import 'prism-themes/themes/prism-atom-dark.css'
 
 const AppWrapper = styled.div`
   position: relative;
