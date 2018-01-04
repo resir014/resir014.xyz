@@ -2,11 +2,11 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
-import { css } from 'glamor'
+import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { sharedStyles } from '../utils/theme'
 
+import PageTitle from '../components/PageTitle'
 import PageContent from '../components/PageContent'
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
@@ -19,17 +19,11 @@ import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
 import { BlogPostNode } from '../utils/types'
-import { breakpoints, widths, colors } from '../utils/theme'
+import { photonColors } from '../utils/theme'
 
-const blogPostsContentClass = css({
-  marginTop: '3rem'
-})
-
-const blogPostsListClass = css({
-  borderBottom: `2px solid ${colors.black}`
-})
-
-const pageTitleClass = css(sharedStyles.pageTitle)
+const BlogPostList = styled.div`
+  border-bottom: 2px solid ${photonColors.grey90};
+`
 
 interface BlogPageProps {
   location: {
@@ -73,13 +67,13 @@ const BlogPage: React.SFC<BlogPageProps & LayoutState> = ({ data, location, side
       <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
       <main>
         <PageHeader>
-          <h1 className={`${pageTitleClass}`}><span>Posts</span></h1>
+          <PageTitle><span>Posts</span></PageTitle>
         </PageHeader>
         <Container>
           <PageContent>
-            <div className={`${blogPostsListClass}`}>
+            <BlogPostList>
               {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
-            </div>
+            </BlogPostList>
           </PageContent>
         </Container>
       </main>

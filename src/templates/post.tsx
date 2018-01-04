@@ -1,14 +1,11 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { css, merge } from 'glamor'
 import Helmet from 'react-helmet'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
-import { sectionHeading, highlightedText } from '../utils/mixins'
-import { photonColors, headerColors, breakpoints, widths, sharedStyles } from '../utils/theme'
 
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
@@ -18,19 +15,10 @@ import PageHeader from '../components/PageHeader'
 import PageSubtitle from '../components/PageSubtitle'
 import MarkdownContent from '../components/MarkdownContent'
 import PageContent from '../components/PageContent'
-
-const postMetaClass = css({
-  marginBottom: '.5rem',
-  fontSize: '80%'
-})
-
-const postMetaDateClass = css(merge(sectionHeading(photonColors.white, 0, '.5rem')))
-
-const postMetaCategoryClass = css(merge(sectionHeading(photonColors.white, 0, '.5rem'), {
-  marginLeft: '.5rem'
-}))
-
-const postTitleClass = css(sharedStyles.pageTitle)
+import PostMeta from '../components/PostMeta'
+import PostMetaDate from '../components/PostMetaDate'
+import PostMetaCategory from '../components/PostMetaCategory'
+import PageTitle from '../components/PageTitle'
 
 interface PostTemplateProps {
   location: {
@@ -97,11 +85,11 @@ const PostTemplate: React.SFC<PostTemplateProps & LayoutState> = ({ data, locati
       <main>
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
-            <div className={`${postMetaClass}`}>
-              <span className={`${postMetaDateClass}`}>{post.fields.date}</span>
-              {post.fields.category ? <span className={`${postMetaCategoryClass}`}>{post.fields.category}</span> : null}
-            </div>
-            <h1 className={`${postTitleClass}`}><span>{post.frontmatter.title}</span></h1>
+            <PostMeta>
+              <PostMetaDate>{post.fields.date}</PostMetaDate>
+              {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
+            </PostMeta>
+            <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
           </PageHeader>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
