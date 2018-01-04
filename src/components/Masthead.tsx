@@ -9,8 +9,8 @@ import * as Color from 'color'
 import styled from 'styled-components'
 
 import Container from './Container'
-import { MastheadNavItem } from './MastheadNavItem'
 import ToggleMenu from './ToggleMenu'
+import MastheadNav from './MastheadNav'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
@@ -58,10 +58,6 @@ const MastheadToggleMenu = styled.div`
   background-color: ${photonColors.white};
   cursor: pointer;
   user-select: none;
-`
-
-const MastheadNav = styled.nav`
-  display: flex;
 `
 
 interface MastheadTitleLinkProps {
@@ -115,11 +111,7 @@ class Masthead extends React.Component<MastheadProps & LayoutState, {}> {
             <MastheadRight>
               <Media query={mediaQueries.md}>
                 {matches => matches ? (
-                  <MastheadNav>
-                    {items.map(item => {
-                      return <MastheadNavItem key={item.path} name={item.name} path={item.path} />
-                    })}
-                  </MastheadNav>
+                  <MastheadNav items={items} />
                 ) : (
                   <MastheadToggle>
                     <MastheadToggleMenu onClick={() => dispatch(toggleSidebar())}>☰</MastheadToggleMenu>
