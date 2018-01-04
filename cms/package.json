@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "resir014-netlify-cms",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "netlify-cms": "^1.0.1",
+    "webpack": "^3.10.0"
+  }
+}

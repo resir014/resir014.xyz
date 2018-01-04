@@ -7,7 +7,7 @@ import configureStore from './src/configureStore'
 
 const store = configureStore()
 
-exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents }) => {
+exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadComponents, setPostBodyComponents }) => {
   // We'll also redo what `gatsby-plugin-styled-components` did since their `gatsby-ssr.js` is overridden.
 
   const sheet = new ServerStyleSheet()
@@ -25,6 +25,24 @@ exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadCompon
 
   replaceBodyHTMLString(body)
   setHeadComponents([sheet.getStyleElement()])
+  setPostBodyComponents([
+    (
+      <script
+        key="netlify-cms"
+        dangerouslySetInnerHTML={{
+          __html: `if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+              if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                  document.location.href = "/admin/";
+                })
+              }
+            })
+          }`
+        }}
+      />
+    )
+  ])
 
   return
 }
