@@ -14,11 +14,10 @@ import ToggleMenu from './ToggleMenu'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
-import flavorText from '../utils/flavorText'
-import { photonColors, breakpoints, widths, heights } from '../utils/theme'
+import { photonColors, widths, heights } from '../utils/theme'
 import mediaQueries from '../utils/mediaQueries'
 import { MenuProps } from '../utils/types'
-import { sectionHeading, highlightedText } from '../utils/globalStyles'
+import { highlightedText } from '../utils/globalStyles'
 
 const MastheadInner = styled.div`
   display: flex;
@@ -33,7 +32,7 @@ const MastheadTitle = styled.div`
   margin-right: 1rem;
   font-size: 1.5rem;
 
-  ${breakpoints.lg} {
+  @media ${mediaQueries.lg} {
     width: calc(100% / 4);
     font-size: 1.75rem;
   }
