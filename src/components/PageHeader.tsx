@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import { sectionHeading, highlightedText } from '../utils/globalStyles'
-import { photonColors, headerColors, borderColors, breakpoints, widths, heights } from '../utils/theme'
+import { photonColors, headerColors, borderColors, widths, heights } from '../utils/theme'
 import Container from './Container'
 import mediaQueries from '../utils/mediaQueries'
 
@@ -14,7 +14,7 @@ const PageHeaderInner = styled.div`
   display: flex;
   min-height: 12rem;
 
-  ${breakpoints.lg} {
+  @media ${mediaQueries.lg} {
     min-height: 15rem;
   }
 `

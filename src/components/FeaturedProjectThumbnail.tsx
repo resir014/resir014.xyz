@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import { breakpoints } from '../utils/theme'
+import mediaQueries from '../utils/mediaQueries'
 
 interface FeaturedProjectThumbnailProps {
   className?: string
@@ -15,7 +15,7 @@ const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> = ({ im
 export default styled(FeaturedProjectThumbnail)`
   display: none
 
-  ${breakpoints.md} {
+  @media ${mediaQueries.md} {
     display: block
   }
 

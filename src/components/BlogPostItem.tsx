@@ -2,12 +2,13 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import { breakpoints, widths, photonColors } from '../utils/theme'
+import { widths, photonColors } from '../utils/theme'
 import { highlightedText } from '../utils/mixins'
 
 import { BlogPostNode } from '../utils/types'
 import PostCategory from './PostCategory'
 import MarkdownContent from './MarkdownContent'
+import mediaQueries from '../utils/mediaQueries'
 
 const StyledPostItem = styled.article`
   position: relative;
@@ -17,11 +18,11 @@ const StyledPostItem = styled.article`
 const PostDetailBox = styled.div`
   margin: 1.5rem 0;
 
-  ${breakpoints.md} {
+  @media ${mediaQueries.md} {
     max-width: 85%;
   }
 
-  ${breakpoints.lg} {
+  @media ${mediaQueries.lg} {
     max-width: 70%;
   }
 `

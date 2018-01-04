@@ -4,8 +4,9 @@ import styled from 'styled-components'
 
 import { createLinkStyle } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
-import { colors, breakpoints, widths, photonColors, getBorderColor } from '../utils/theme'
+import { colors, widths, photonColors, getBorderColor } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/mixins'
+import mediaQueries from '../utils/mediaQueries'
 
 interface MarkdownContentProps {
   className?: string
@@ -27,7 +28,7 @@ export default styled(MarkdownContent)`
     background-color: ${photonColors.grey70};
     border: 8px solid ${photonColors.grey70};
 
-    ${breakpoints.lg} {
+    @media ${mediaQueries.lg} {
       margin: 2rem;
     }
 
@@ -72,7 +73,7 @@ export default styled(MarkdownContent)`
     font-size: 1.25rem;
     font-weight: 300;
 
-    ${breakpoints.sm} {
+    @media ${mediaQueries.sm} {
       width: 75%;
       font-size: 1.5rem;
     }
@@ -111,7 +112,7 @@ export default styled(MarkdownContent)`
     font-size: 1.25rem;
     font-weight: 300;
 
-    ${breakpoints.md} {
+    @media ${mediaQueries.md} {
       font-size: 1.5rem;
     }
   }

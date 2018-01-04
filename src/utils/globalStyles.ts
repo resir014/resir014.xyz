@@ -1,5 +1,6 @@
 import { injectGlobal, css } from 'styled-components'
-import { photonColors, breakpoints, fonts } from './theme'
+import { photonColors, fonts } from './theme'
+import mediaQueries from './mediaQueries'
 
 export const createLinkStyle = (color: string = photonColors.blue60, hoverColor: string = photonColors.blue70) =>
 css`
@@ -10,7 +11,7 @@ css`
     color: ${photonColors.blue70};
   }
 
-  ${breakpoints.md} {
+  @media ${mediaQueries.md} {
     text-decoration: none;
 
     &:hover, &:focus {
@@ -141,11 +142,11 @@ export default () => injectGlobal`
   h1 {
     font-size: 2.074rem;
 
-    ${breakpoints.md} {
+    @media ${mediaQueries.md} {
       font-size: 2.441rem;
     }
 
-    ${breakpoints.lg} {
+    @media ${mediaQueries.lg} {
       font-size: 3.157rem;
     }
   }
@@ -153,11 +154,11 @@ export default () => injectGlobal`
   h2 {
     font-size: 1.728rem;
 
-    ${breakpoints.md} {
+    @media ${mediaQueries.md} {
       font-size: 1.953rem;
     }
 
-    ${breakpoints.lg} {
+    @media ${mediaQueries.lg} {
       font-size: 2.369rem;
     }
   }
@@ -165,11 +166,11 @@ export default () => injectGlobal`
   h3 {
     font-size: 1.44rem;
 
-    ${breakpoints.md} {
+    @media ${mediaQueries.md} {
       font-size: 1.563rem;
     }
 
-    ${breakpoints.lg} {
+    @media ${mediaQueries.lg} {
       font-size: 1.777rem;
     }
   }
@@ -177,11 +178,11 @@ export default () => injectGlobal`
   h4, h5, h6 {
     font-size: 1.2rem;
 
-    ${breakpoints.md} {
+    @media ${mediaQueries.md} {
       font-size: 1.25rem;
     }
 
-    ${breakpoints.lg} {
+    @media ${mediaQueries.lg} {
       font-size: 1.333rem;
     }
   }
@@ -239,7 +240,7 @@ export default () => injectGlobal`
       margin-bottom: 0;
     }
 
-    ${breakpoints.sm} {
+    @media ${mediaQueries.sm} {
       padding-right: 5rem;
       padding-left: 1.25rem;
     }

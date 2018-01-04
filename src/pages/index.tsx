@@ -12,10 +12,10 @@ import Footer from '../components/Footer'
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
-import { colors, headerColors, breakpoints, widths, photonColors } from '../utils/theme'
+import { colors, headerColors, photonColors } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
-import mediaQueries from '../utils/mediaQueries'
+import mediaQueries, { widths } from '../utils/mediaQueries'
 import Button from '../components/Button'
 
 // TODO: stop using this when we finally convert to Photon colors:

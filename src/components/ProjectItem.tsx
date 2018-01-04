@@ -4,8 +4,9 @@ import * as Color from 'color'
 
 import Button from './Button'
 
-import { breakpoints, widths, photonColors, fonts, sharedStyles } from '../utils/theme'
+import { widths, photonColors, fonts } from '../utils/theme'
 import { ProjectNode } from '../utils/types'
+import mediaQueries from '../utils/mediaQueries'
 
 const StyledProjectItem = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ const StyledProjectItem = styled.div`
   margin-bottom: 2rem;
   background-color: ${photonColors.grey20};
 
-  ${breakpoints.md} {
+  @media ${mediaQueries.md} {
     width: calc(50% - 1.5rem);
     margin: 1rem;
 

@@ -3,9 +3,10 @@ import styled from 'styled-components'
 
 import ProjectItem from './ProjectItem'
 
-import { photonColors, breakpoints } from '../utils/theme'
+import { photonColors } from '../utils/theme'
 import { sectionHeading } from '../utils/mixins'
 import { ProjectNode } from '../utils/types'
+import mediaQueries from '../utils/mediaQueries'
 
 const ProjectSectionHeading = styled.h2`
   margin: 1.5rem 0;
@@ -24,7 +25,7 @@ const ProjectsList = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
 
-  ${breakpoints.md} {
+  @media ${mediaQueries.md} {
     flex-direction: row;
     border-bottom: 0;
   }

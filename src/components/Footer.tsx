@@ -8,7 +8,8 @@ import styled from 'styled-components'
 import { ApplicationState } from '../store'
 import { LayoutState, randomiseSplash } from '../store/layout'
 import flavorText from '../utils/flavorText'
-import { photonColors, breakpoints, fonts } from '../utils/theme'
+import { photonColors, fonts } from '../utils/theme'
+import mediaQueries from '../utils/mediaQueries'
 import { highlightedText, sectionHeading } from '../utils/mixins'
 
 import Container from './Container'
@@ -27,7 +28,7 @@ const StyledFooter = styled.footer`
       color: ${photonColors.blue50};
     }
 
-    ${breakpoints.md} {
+    @media ${mediaQueries.md} {
       text-decoration: none;
 
       &:hover, &:focus {

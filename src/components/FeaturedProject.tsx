@@ -7,9 +7,10 @@ import Button from './Button'
 import Container from './Container'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
-import { photonColors, headerColors, breakpoints } from '../utils/theme'
+import { photonColors, headerColors } from '../utils/theme'
 import { highlightedText, sectionHeading } from '../utils/mixins'
 import { ProjectNode } from '../utils/types'
+import mediaQueries from '../utils/mediaQueries'
 
 // TODO: stop using this when we finally convert to Photon colors:
 // http://design.firefox.com/photon/visuals/color.html
@@ -22,7 +23,7 @@ const FeaturedProjectWrapper = styled.section`
   margin-bottom: 3rem;
   color: ${photonColors.white};
 
-  ${breakpoints.md} {
+  @media ${mediaQueries.md} {
     flex-direction: row;
   }
 

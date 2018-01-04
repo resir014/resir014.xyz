@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { breakpoints, widths } from '../utils/theme'
+import mediaQueries, { widths } from '../utils/mediaQueries'
 
 interface ContainerProps extends React.HTMLProps<HTMLDivElement> {
   className?: string
@@ -20,7 +20,7 @@ export default styled(Container)`
   margin-right: auto;
   max-width: ${widths.normal};
 
-  ${breakpoints.lg} {
+  @media ${mediaQueries.lg} {
     max-width: ${widths.large};
   }
 `
