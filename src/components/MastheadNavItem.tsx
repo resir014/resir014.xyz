@@ -8,9 +8,7 @@ import mediaQueries from '../utils/mediaQueries'
 import { photonColors } from '../utils/theme'
 import { MenuItem } from '../utils/types'
 
-const MastheadNavLink = styled(Link).attrs({
-  activeClassName: 'is-active'
-})`
+const MastheadNavLink = styled(Link)`
   display: inline-block;
   margin-top: 1rem;
   padding-right: 1.5rem;
@@ -38,7 +36,7 @@ const MastheadNavLink = styled(Link).attrs({
     }
   }
 
-  &.${activeClassName} {
+  &.is-active {
     color: ${photonColors.grey90}
 
     span {
@@ -54,6 +52,7 @@ interface MastheadNavItemProps extends MenuItem {
 const MastheadNavItem: React.SFC<MastheadNavItemProps> = ({ className, name, path }) => (
   <MastheadNavLink
     className={className}
+    activeClassName="is-active"
     to={path}
   >
     <span>{name}</span>
