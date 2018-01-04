@@ -2,37 +2,28 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
-import { css } from 'glamor'
+import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { sharedStyles } from '../utils/theme'
 
-import { Masthead } from '../components/Masthead'
-import { ToggleMenu } from '../components/ToggleMenu'
-import { Footer } from '../components/Footer'
-import { Container } from '../components/Container'
-import { PageHeader } from '../components/PageHeader'
-import { BlogPostItem } from '../components/BlogPostItem'
+import PageTitle from '../components/PageTitle'
+import PageContent from '../components/PageContent'
+import Masthead from '../components/Masthead'
+import ToggleMenu from '../components/ToggleMenu'
+import Footer from '../components/Footer'
+import Container from '../components/Container'
+import PageHeader from '../components/PageHeader'
+import BlogPostItem from '../components/BlogPostItem'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
 import { BlogPostNode } from '../utils/types'
-import { breakpoints, widths, colors } from '../utils/theme'
+import { photonColors } from '../utils/theme'
 
-const blogPostsContentClass = css({
-  marginTop: '3rem'
-})
-
-const blogPostsListClass = css({
-  borderBottom: `2px solid ${colors.black}`,
-
-  '> div': {
-    borderTop: `2px solid ${colors.black}`
-  }
-})
-
-const pageTitleClass = css(sharedStyles.pageTitle)
+const BlogPostList = styled.div`
+  border-bottom: 2px solid ${photonColors.grey90};
+`
 
 interface BlogPageProps {
   location: {
@@ -75,18 +66,16 @@ const BlogPage: React.SFC<BlogPageProps & LayoutState> = ({ data, location, side
       />
       <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
       <main>
-        <article>
-          <PageHeader>
-            <h1 className={`${pageTitleClass}`}><span>Posts</span></h1>
-          </PageHeader>
-          <Container>
-            <div className={`${blogPostsContentClass}`}>
-              <div className={`${blogPostsListClass}`}>
-                {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
-              </div>
-            </div>
-          </Container>
-        </article>
+        <PageHeader>
+          <PageTitle><span>Posts</span></PageTitle>
+        </PageHeader>
+        <Container>
+          <PageContent>
+            <BlogPostList>
+              {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
+            </BlogPostList>
+          </PageContent>
+        </Container>
       </main>
       <Footer title={data.site.siteMetadata.title} />
     </React.Fragment>

@@ -2,30 +2,25 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
-import { css, merge } from 'glamor'
 import Helmet from 'react-helmet'
 
 import { sharedStyles, photonColors } from '../utils/theme'
 import { sectionHeading } from '../utils/mixins'
 
-import { Masthead } from '../components/Masthead'
-import { ToggleMenu } from '../components/ToggleMenu'
-import { Container } from '../components/Container'
-import { Footer } from '../components/Footer'
-import { PageHeader } from '../components/PageHeader'
-import { FeaturedProject } from '../components/FeaturedProject'
-import { ProjectItemList } from '../components/ProjectItemList'
+import Masthead from '../components/Masthead'
+import ToggleMenu from '../components/ToggleMenu'
+import Container from '../components/Container'
+import Footer from '../components/Footer'
+import PageHeader from '../components/PageHeader'
+import FeaturedProject from '../components/FeaturedProject'
+import ProjectItemList from '../components/ProjectItemList'
+import PageTitle from '../components/PageTitle'
+import PageContent from '../components/PageContent'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
 import { ProjectNode } from '../utils/types'
-
-const projectsPageContentClass = css({
-  marginTop: '3rem'
-})
-
-const pageTitleClass = css(sharedStyles.pageTitle)
 
 interface ProjectsPageProps {
   location: {
@@ -71,9 +66,9 @@ const ProjectsPage: React.SFC<ProjectsPageProps & LayoutState> = ({ data, locati
       <main>
         <article>
           <PageHeader>
-            <h1 className={`${pageTitleClass}`}><span>Projects</span></h1>
+            <PageTitle><span>Projects</span></PageTitle>
           </PageHeader>
-          <div className={`${projectsPageContentClass}`}>
+          <PageContent>
             {
               featuredProject
                 ? <FeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
@@ -84,7 +79,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps & LayoutState> = ({ data, locati
               <ProjectItemList title="Open source stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')} />
               <ProjectItemList title="Other stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')} />
             </Container>
-          </div>
+          </PageContent>
         </article>
       </main>
       <Footer title={data.site.siteMetadata.title} />

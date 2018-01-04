@@ -2,119 +2,131 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
-import { css, merge } from 'glamor'
+import styled, { css } from 'styled-components'
 
-import { Masthead } from '../components/Masthead'
-import { ToggleMenu } from '../components/ToggleMenu'
-import { Container } from '../components/Container'
-import { Footer } from '../components/Footer'
-import { Widget } from '../components/Widget'
+import Masthead from '../components/Masthead'
+import ToggleMenu from '../components/ToggleMenu'
+import Container from '../components/Container'
+import Footer from '../components/Footer'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
-import { colors, headerColors, breakpoints, widths } from '../utils/theme'
-import { sectionHeading, highlightedText } from '../utils/mixins'
+import { colors, headerColors, photonColors } from '../utils/theme'
+import { sectionHeading, highlightedText } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
+import mediaQueries, { widths } from '../utils/mediaQueries'
+import Button from '../components/Button'
 
 // TODO: stop using this when we finally convert to Photon colors:
 // http://design.firefox.com/photon/visuals/color.html
 const getHeaderColor = (index: number) => headerColors[index]
 
-const homepageWrapper = (state: IndexPageState) => css({
-  position: 'absolute',
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  background: `linear-gradient(to bottom right,
-    ${getHeaderColor(state.gradientStartIndex)},
-    ${getHeaderColor(state.gradientEndIndex)})`,
-  zIndex: 1,
+interface HomepageWrapperProps {
+  state: {
+    gradientStartIndex: number
+    gradientEndIndex: number
+  }
+  headerImage: string
+  className?: string
+}
 
-  ':before': {
-    content: ' ',
-    position: 'absolute',
-    zIndex: -1,
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundImage: `url(/images/background.jpg)`,
-    backgroundSize: 'cover',
-    backgroundPositionY: 'center',
-    opacity: 0.7,
+const HomepageWrapperRoot: React.SFC<HomepageWrapperProps> = ({ state, className, headerImage, children }) => (
+  <div className={className}>
+    {children}
+  </div>
+)
 
-    '@supports(mix-blend-mode: luminosity)': {
-      mixBlendMode: 'luminosity',
-      opacity: 1
+const HomepageWrapper = styled(HomepageWrapperRoot)`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom right,
+    ${props => getHeaderColor(props.state.gradientStartIndex)},
+    ${props => getHeaderColor(props.state.gradientEndIndex)});
+
+  ${props => props.headerImage && hasHeaderImage}
+`
+
+const hasHeaderImage = css`
+  z-index: 1;
+
+  &:before {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-image: url(${(props: HomepageWrapperProps) => props.headerImage});
+    background-size: cover;
+    background-position-y: center;
+    opacity: 0.7;
+
+    @supports(mix-blend-mode: luminosity) {
+      mix-blend-mode: luminosity;
+      opacity: 1;
     }
   }
-})
+`
 
-const homepageWrapperInner = css({
-  display: 'flex',
-  flexDirection: 'column',
-  height: 'calc(100% - 0.5px)', // workaround for IE not centering shit properly w/ flexbox
-  minHeight: '100%',
-  alignItems: 'center',
-  justifyContent: 'center',
-  paddingLeft: '1.5rem',
-  paddingRight: '1.5rem',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  maxWidth: widths.normal,
+const HomepageWrapperInner = styled.main`
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 0.5px); // workaround for IE not centering shit properly w/ flexbox
+  min-height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${widths.normal};
 
-  [breakpoints.lg]: {
-    maxWidth: widths.large
+  @media ${mediaQueries.lg} {
+    max-width: ${widths.large};
   }
-})
+`
 
-const homepageContent = css({
-  width: '100%',
+const HomepageContent = styled.div`
+  width: 100%;
 
-  '& .homepage-title': {
-    marginTop: 0,
-    color: colors.black,
+  .homepage-title {
+    margin-top: 0;
+    color: ${photonColors.grey90};
 
-    '& span': merge(sectionHeading(colors.white, 0, '.25rem')),
-
-    [breakpoints.lg]: {
-      fontSize: '3rem',
-      lineHeight: 1.15
+    span {
+      ${sectionHeading(photonColors.white, 0, '.25rem')}
     }
-  },
 
-  '& .homepage-flavour': {
-    margin: 0,
-    fontSize: '1.25rem',
-    color: colors.black,
-
-    '& span': merge(highlightedText(colors.white, 0, '.25rem')),
-
-    [breakpoints.md]: {
-      fontSize: '1.5rem'
+    @media ${mediaQueries.lg} {
+      font-size: 3rem;
+      line-height: 1.15;
     }
   }
-})
 
-const homeflavour = css(merge(highlightedText(colors.orange3, 0, '.25rem')))
+  .homepage-flavour {
+    margin: 0;
+    font-size: 1.25rem;
+    color: ${photonColors.grey90};
 
-const homeAboutButton = css({
-  margin: '2rem 0',
+    span {
+      ${sectionHeading(photonColors.white, 0, '.25rem')}
+    }
 
-  '& a': {
-    padding: '.25rem .5rem',
-    color: colors.white,
-    border: `3px solid ${colors.white}`,
-
-    '&:hover, &:focus': {
-      color: colors.black,
-      textDecoration: 'none',
-      backgroundColor: colors.white
+    @media ${mediaQueries.md} {
+      font-size: 1.5rem;
     }
   }
-})
+`
+
+const PageFooter = styled.div`
+  margin-top: 2rem;
+`
 
 interface IndexPageProps {
   location: {
@@ -154,7 +166,7 @@ class IndexPage extends React.Component<IndexPageProps & LayoutState, IndexPageS
     const { children, data, location, sidebarVisible } = this.props
     const { pathname } = location
     return (
-      <div className={`${homepageWrapper(this.state)}`}>
+      <HomepageWrapper state={this.state} headerImage="/images/background.jpg">
         <Masthead
           title={data.site.siteMetadata.title}
           items={menuItems}
@@ -162,16 +174,16 @@ class IndexPage extends React.Component<IndexPageProps & LayoutState, IndexPageS
           transparent={true}
         />
         <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
-        <main className={`${homepageWrapperInner}`}>
-          <div className={`${homepageContent}`}>
+        <HomepageWrapperInner>
+          <HomepageContent>
             <h1 className="homepage-title"><span>Hey, call me Resi.</span></h1>
             <p className="homepage-flavour"><span>I'm a professional web developer based in Jakarta, Indonesia.</span></p>
-            <div className={`${homeAboutButton}`}>
-              <Link to="/about">More about me</Link>
-            </div>
-          </div>
-        </main>
-      </div>
+            <PageFooter>
+              <Button kind="nav-link" to="/about" color="white">More about me</Button>
+            </PageFooter>
+          </HomepageContent>
+        </HomepageWrapperInner>
+      </HomepageWrapper>
     )
   }
 }

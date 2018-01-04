@@ -144,11 +144,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify',
       options: {
-        headers: {
-          '/*': [
-            'X-Clacks-Overhead: GNU Natalie Nguyen'
-          ]
-        }
+        allPageHeaders: [
+          'X-Clacks-Overhead: GNU Natalie Nguyen'
+        ]
       }
     }
   ]

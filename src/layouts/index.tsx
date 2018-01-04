@@ -3,29 +3,23 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import { css, merge } from 'glamor'
+import styled from 'styled-components'
 
-import { Masthead } from '../components/Masthead'
-import { ToggleMenu } from '../components/ToggleMenu'
-import Footer from '../components/Footer/Footer'
-
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
-import { colors, sharedStyles, breakpoints } from '../utils/theme'
-import { menuItems } from '../utils/menus'
-import { MenuItem } from '../utils/types'
+import globalStyles from '../utils/globalStyles'
 
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'
 
-import 'glamor/reset'
-import '../styles/globals.scss'
+// inject global styles
+import 'normalize.css'
+globalStyles()
+
 import 'prism-themes/themes/prism-atom-dark.css'
 
-const fullHeightWrapperClass = css(merge(sharedStyles.base), {
-  position: 'relative',
-  minHeight: '100%'
-})
+const AppWrapper = styled.div`
+  position: relative;
+  height: 100%;
+`
 
 interface WrapperProps {
   location: {
@@ -51,7 +45,7 @@ const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data, location }) 
   const { pathname } = location
 
   return (
-    <div id="layout-root" className={`${fullHeightWrapperClass}`}>
+    <AppWrapper>
       <Helmet
         title={data.site.siteMetadata.title}
         meta={[
@@ -63,7 +57,7 @@ const TemplateWrapper: React.SFC<WrapperProps> = ({ children, data, location }) 
         ]}
       />
       {children()}
-    </div>
+    </AppWrapper>
   )
 }
 

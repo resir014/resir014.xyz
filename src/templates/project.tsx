@@ -2,21 +2,25 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import Helmet from 'react-helmet'
-import { css, merge } from 'glamor'
+import styled from 'styled-components'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
-import { sectionHeading, highlightedText } from '../utils/mixins'
-import { photonColors, sharedStyles } from '../utils/theme'
 
-import { Masthead } from '../components/Masthead'
-import { ToggleMenu } from '../components/ToggleMenu'
-import { Container } from '../components/Container'
-import { Footer } from '../components/Footer'
-import { PageHeader } from '../components/PageHeader'
-import { PageSubtitle } from '../components/PageSubtitle'
-import { MarkdownContent } from '../components/MarkdownContent'
+import Button from '../components/Button'
+import Masthead from '../components/Masthead'
+import ToggleMenu from '../components/ToggleMenu'
+import Container from '../components/Container'
+import Footer from '../components/Footer'
+import PageHeader from '../components/PageHeader'
+import PageSubtitle from '../components/PageSubtitle'
+import MarkdownContent from '../components/MarkdownContent'
+import PageContent from '../components/PageContent'
+import PageTitle from '../components/PageTitle'
+import PostMeta from '../components/PostMeta'
+import PostMetaDate from '../components/PostMetaDate'
+import PostMetaCategory from '../components/PostMetaCategory'
 
 interface ProjectTemplateProps {
   location: {
@@ -55,23 +59,9 @@ interface ProjectTemplateProps {
   }
 }
 
-const pageTitleClass = css(sharedStyles.pageTitle)
-
-const pageMetaClass = css({
-  marginBottom: '.5rem',
-  fontSize: '80%'
-})
-
-const pageMetaSectionClass = css(merge(sectionHeading(photonColors.white, 0, '.5rem')))
-
-const pageMetaCategoryClass = css(merge(sectionHeading(photonColors.white, 0, '.5rem'), {
-  marginLeft: '.5rem'
-}))
-
-const pageFooterClass = css({
-  marginTop: '2rem',
-  '& .project__footer-link': sharedStyles.sectionFooterLink
-})
+const ProjectFooter = styled.div`
+  margin-top: 2rem;
+`
 
 const ProjectPageTemplate: React.SFC<ProjectTemplateProps & LayoutState> = ({ data, location, sidebarVisible }) => {
   const post = data.markdownRemark
@@ -99,20 +89,24 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps & LayoutState> = ({ da
       <main>
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
-            <div className={`${pageMetaClass}`}>
-              <span className={`${pageMetaSectionClass}`}>{post.fields.year}</span>
-              {post.fields.category ? <span className={`${pageMetaCategoryClass}`}>{post.fields.category}</span> : null}
-            </div>
-            <h1 className={`${pageTitleClass}`}><span>{post.frontmatter.title}</span></h1>
+          <PostMeta>
+            <PostMetaDate>{post.fields.year}</PostMetaDate>
+            {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
+          </PostMeta>
+          <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
           </PageHeader>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <MarkdownContent html={post.html} />
-            {post.fields.jumpToProject === 'true' || post.fields.project_url
-              ? <div className={`${pageFooterClass}`}>
-                {renderLink(post.fields.project_url)}
-              </div>
-              : null}
+            <PageContent>
+              <MarkdownContent html={post.html} />
+            </PageContent>
+            {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
+              <ProjectFooter>
+                {renderLink(post.fields.project_url, true)}
+              </ProjectFooter>
+            ) : (
+              null
+            )}
           </Container>
         </article>
       </main>
@@ -121,8 +115,16 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps & LayoutState> = ({ da
   )
 }
 
-const renderLink = (url: string) => (
-  <a className="project__footer-link" href={url} target="_blank" rel="noopener noreferrer">Visit project</a>
+const renderLink = (url: string, jumpToProject: boolean) => (
+  <Button
+    kind="link"
+    color="primary"
+    href={url}
+    target={jumpToProject ? '_blank' : null}
+    rel={jumpToProject ? 'noopener noreferrer' : null}
+  >
+    Visit project
+  </Button>
 )
 
 const mapStateToProps = (state: ApplicationState) => state.layout

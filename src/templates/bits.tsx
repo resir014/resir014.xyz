@@ -1,22 +1,23 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
-import { css, merge } from 'glamor'
 import Helmet from 'react-helmet'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
-import { colors } from '../utils/theme'
-import { highlightedText, sectionHeading } from '../utils/mixins'
 
-import { Masthead } from '../components/Masthead'
-import { ToggleMenu } from '../components/ToggleMenu'
-import { Container } from '../components/Container'
-import { Footer } from '../components/Footer'
-import { PageHeader } from '../components/PageHeader'
-import { PageSubtitle } from '../components/PageSubtitle'
-import { MarkdownContent } from '../components/MarkdownContent'
+import Masthead from '../components/Masthead'
+import ToggleMenu from '../components/ToggleMenu'
+import Container from '../components/Container'
+import Footer from '../components/Footer'
+import PageHeader from '../components/PageHeader'
+import PageSubtitle from '../components/PageSubtitle'
+import MarkdownContent from '../components/MarkdownContent'
+import PageContent from '../components/PageContent'
+import PostMetaDate from '../components/PostMetaDate'
+import PostMetaCategory from '../components/PostMetaCategory'
+import PostMeta from '../components/PostMeta'
 
 interface BitsTemplateProps {
   location: {
@@ -54,17 +55,6 @@ interface BitsTemplateProps {
   }
 }
 
-const postMetaClass = css({
-  marginBottom: 0,
-  fontSize: '80%'
-})
-
-const postMetaDateClass = css(merge(sectionHeading(colors.white, 0, '.5rem')))
-
-const postMetaCategoryClass = css(merge(sectionHeading(colors.white, 0, '.5rem'), {
-  marginLeft: '.5rem'
-}))
-
 const PageTemplate: React.SFC<BitsTemplateProps & LayoutState> = ({ data, location, sidebarVisible }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
@@ -91,13 +81,15 @@ const PageTemplate: React.SFC<BitsTemplateProps & LayoutState> = ({ data, locati
       <main>
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
-            <div className={`${postMetaClass}`}>
-              <span className={`${postMetaDateClass}`}>{post.fields.date}</span>
-              {post.fields.category ? <span className={`${postMetaCategoryClass}`}>{post.fields.category}</span> : null}
-            </div>
+            <PostMeta>
+              <PostMetaDate>{post.fields.date}</PostMetaDate>
+              {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
+            </PostMeta>
           </PageHeader>
           <Container>
-            <MarkdownContent html={post.html} />
+            <PageContent>
+              <MarkdownContent html={post.html} />
+            </PageContent>
           </Container>
         </article>
       </main>

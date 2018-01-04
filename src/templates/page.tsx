@@ -2,21 +2,20 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import Helmet from 'react-helmet'
-import { css, merge } from 'glamor'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
-import { sectionHeading, highlightedText } from '../utils/mixins'
-import { photonColors, sharedStyles } from '../utils/theme'
 
-import { Masthead } from '../components/Masthead'
-import { ToggleMenu } from '../components/ToggleMenu'
-import { Container } from '../components/Container'
-import { Footer } from '../components/Footer'
-import { PageHeader } from '../components/PageHeader'
-import { PageSubtitle } from '../components/PageSubtitle'
-import { MarkdownContent } from '../components/MarkdownContent'
+import Masthead from '../components/Masthead'
+import ToggleMenu from '../components/ToggleMenu'
+import Container from '../components/Container'
+import Footer from '../components/Footer'
+import PageHeader from '../components/PageHeader'
+import PageSubtitle from '../components/PageSubtitle'
+import MarkdownContent from '../components/MarkdownContent'
+import PageContent from '../components/PageContent'
+import PageTitle from '../components/PageTitle'
 
 interface PageTemplateProps {
   location: {
@@ -51,8 +50,6 @@ interface PageTemplateProps {
   }
 }
 
-const pageTitleClass = css(sharedStyles.pageTitle)
-
 const PageTemplate: React.SFC<PageTemplateProps & LayoutState> = ({ data, location, sidebarVisible }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
@@ -79,11 +76,13 @@ const PageTemplate: React.SFC<PageTemplateProps & LayoutState> = ({ data, locati
       <main>
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
-            <h1 className={`${pageTitleClass}`}><span>{post.frontmatter.title}</span></h1>
+            <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
           </PageHeader>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <MarkdownContent html={post.html} />
+            <PageContent>
+              <MarkdownContent html={post.html} />
+            </PageContent>
           </Container>
         </article>
       </main>
