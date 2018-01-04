@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { css } from 'glamor'
 import styled from 'styled-components'
 import * as Color from 'color'
 
