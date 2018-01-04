@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
 import { createLinkStyle, sectionHeading, highlightedText } from '../utils/globalStyles'
-import { photonColors, fonts, breakpoints, widths, sharedStyles } from '../utils/theme'
+import { photonColors, fonts } from '../utils/theme'
 
 import Masthead from '../components/Masthead'
 import Container from '../components/Container'

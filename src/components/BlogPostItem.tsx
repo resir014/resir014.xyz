@@ -2,13 +2,12 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import { widths, photonColors } from '../utils/theme'
-import { highlightedText } from '../utils/mixins'
+import { photonColors } from '../utils/theme'
 
 import { BlogPostNode } from '../utils/types'
 import PostCategory from './PostCategory'
 import MarkdownContent from './MarkdownContent'
-import mediaQueries from '../utils/mediaQueries'
+import mediaQueries, { widths } from '../utils/mediaQueries'
 
 const StyledPostItem = styled.article`
   position: relative;

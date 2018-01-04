@@ -4,9 +4,9 @@ import * as Color from 'color'
 
 import Button from './Button'
 
-import { widths, photonColors, fonts } from '../utils/theme'
+import { photonColors, fonts } from '../utils/theme'
 import { ProjectNode } from '../utils/types'
-import mediaQueries from '../utils/mediaQueries'
+import mediaQueries, { widths } from '../utils/mediaQueries'
 
 const StyledProjectItem = styled.div`
   display: flex;

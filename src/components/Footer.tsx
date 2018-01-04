@@ -10,7 +10,6 @@ import { LayoutState, randomiseSplash } from '../store/layout'
 import flavorText from '../utils/flavorText'
 import { photonColors, fonts } from '../utils/theme'
 import mediaQueries from '../utils/mediaQueries'
-import { highlightedText, sectionHeading } from '../utils/mixins'
 
 import Container from './Container'
 

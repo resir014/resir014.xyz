@@ -14,8 +14,8 @@ import MastheadNav from './MastheadNav'
 
 import { ApplicationState } from '../store'
 import { LayoutState, toggleSidebar } from '../store/layout'
-import { photonColors, widths, heights } from '../utils/theme'
-import mediaQueries from '../utils/mediaQueries'
+import { photonColors, heights } from '../utils/theme'
+import mediaQueries, { widths } from '../utils/mediaQueries'
 import { MenuProps } from '../utils/types'
 import { highlightedText } from '../utils/globalStyles'
 

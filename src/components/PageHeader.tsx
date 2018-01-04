@@ -2,9 +2,9 @@ import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import { sectionHeading, highlightedText } from '../utils/globalStyles'
-import { photonColors, headerColors, borderColors, widths, heights } from '../utils/theme'
+import { photonColors, headerColors, borderColors, heights } from '../utils/theme'
 import Container from './Container'
-import mediaQueries from '../utils/mediaQueries'
+import mediaQueries, { widths } from '../utils/mediaQueries'
 
 // TODO: stop using this when we finally convert to Photon colors:
 // http://design.firefox.com/photon/visuals/color.html

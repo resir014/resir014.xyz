@@ -1,9 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { sectionHeading, highlightedText } from '../utils/mixins'
-import { borderColors, widths } from '../utils/theme'
-import mediaQueries from '../utils/mediaQueries'
+import { borderColors } from '../utils/theme'
+import mediaQueries, { widths } from '../utils/mediaQueries'
 
 const getBorderColor = borderColors[Math.floor(Math.random() * borderColors.length)]
 

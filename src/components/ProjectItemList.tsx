@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import ProjectItem from './ProjectItem'
 
 import { photonColors } from '../utils/theme'
-import { sectionHeading } from '../utils/mixins'
 import { ProjectNode } from '../utils/types'
 import mediaQueries from '../utils/mediaQueries'
 

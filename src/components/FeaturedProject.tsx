@@ -8,7 +8,6 @@ import Container from './Container'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { photonColors, headerColors } from '../utils/theme'
-import { highlightedText, sectionHeading } from '../utils/mixins'
 import { ProjectNode } from '../utils/types'
 import mediaQueries from '../utils/mediaQueries'
 

@@ -4,9 +4,8 @@ import styled from 'styled-components'
 
 import { createLinkStyle } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
-import { colors, widths, photonColors, getBorderColor } from '../utils/theme'
-import { sectionHeading, highlightedText } from '../utils/mixins'
-import mediaQueries from '../utils/mediaQueries'
+import { colors, photonColors, getBorderColor } from '../utils/theme'
+import mediaQueries, { widths } from '../utils/mediaQueries'
 
 interface MarkdownContentProps {
   className?: string
