@@ -10,7 +10,7 @@ import { menuItems } from '../utils/menus'
 import { colors } from '../utils/theme'
 import { highlightedText, sectionHeading } from '../utils/mixins'
 
-import { Masthead } from '../components/Masthead'
+import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Container from '../components/Container'
 import Footer from '../components/Footer'

@@ -8,7 +8,7 @@ import { createLinkStyle } from '../utils/globalStyles'
 import { photonColors, fonts, breakpoints, widths, sharedStyles } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/mixins'
 
-import { Masthead } from '../components/Masthead'
+import Masthead from '../components/Masthead'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
 import { PageHeader } from '../components/PageHeader'

@@ -4,7 +4,7 @@ import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import { css, merge } from 'glamor'
 
-import { Masthead } from '../components/Masthead'
+import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Container from '../components/Container'
 import Footer from '../components/Footer'

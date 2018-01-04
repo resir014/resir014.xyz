@@ -8,7 +8,7 @@ import Helmet from 'react-helmet'
 import { sharedStyles, photonColors } from '../utils/theme'
 import { sectionHeading } from '../utils/mixins'
 
-import { Masthead } from '../components/Masthead'
+import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
