@@ -27,22 +27,21 @@ exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadCompon
   setHeadComponents([sheet.getStyleElement()])
   setPostBodyComponents([
     (
+      <script key="netlify-cms" src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+    ),
+    (
       <script
-        key="netlify-cms"
+        key="netlify-cms-load"
         dangerouslySetInnerHTML={{
-          __html: `
-            (function () {
-              if (window.netlifyIdentity) {
-                window.netlifyIdentity.on('init', user => {
-                  if (!user) {
-                    window.netlifyIdentity.on('login', () => {
-                      document.location.href = '/admin/';
-                    })
-                  }
+          __html: `if (window.netlifyIdentity) {
+            window.netlifyIdentity.on('init', user => {
+              if (!user) {
+                window.netlifyIdentity.on('login', () => {
+                  document.location.href = '/admin/';
                 })
               }
-            })()
-          `
+            })
+          }`
         }}
       />
     )
