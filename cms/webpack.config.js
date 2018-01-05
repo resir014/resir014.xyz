@@ -1,4 +1,5 @@
 // This webpack config is used to compile the JS for the CMS
+const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
@@ -26,4 +27,7 @@ module.exports = {
       site: '../src/',
     },
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin()
+  ],
 }

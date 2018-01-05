@@ -4,6 +4,7 @@
 
 # Build directory
 public/
+static/admin/*.bundle.*
 
 # Gatsby cache
 .cache/
