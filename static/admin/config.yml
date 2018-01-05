@@ -12,12 +12,11 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Layout", name: "layout", widget: "select", options: ["bits", "post"]}
-      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Layout", name: "layout", widget: "select", options: ["page", "bits", "post"]}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Lead text", name: "lead", widget: "string"}
-      - {label: "Header image", name: "header_image_url", widget: "image"}
-      - {label: "Redirection", name: "redirect_from", widget: "list"}
+      - {label: "Lead text", name: "lead", widget: "string", required: false}
+      - {label: "Header image", name: "header_image_url", widget: "image", required: false}
+      - {label: "Redirection", name: "redirect_from", widget: "list", required: false}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "etc"
@@ -25,12 +24,11 @@ collections:
     folder: "src/pages/etc"
     create: true
     fields:
-      - {label: "Layout", name: "layout", widget: "select", options: ["bits", "post"]}
-      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Layout", name: "layout", widget: "select", options: ["page", "bits", "post"]}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Lead text", name: "lead", widget: "string"}
-      - {label: "Header image", name: "header_image_url", widget: "image"}
-      - {label: "Redirection", name: "redirect_from", widget: "list"}
+      - {label: "Lead text", name: "lead", widget: "string", required: false}
+      - {label: "Header image", name: "header_image_url", widget: "image", required: false}
+      - {label: "Redirection", name: "redirect_from", widget: "list", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
   - label: "Pages"
     name: "pages"
@@ -41,8 +39,8 @@ collections:
         fields:
           - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Lead text", name: "lead", widget: "string"}
-          - {label: "Header image", name: "header_image_url", widget: "image"}
+          - {label: "Lead text", name: "lead", widget: "string", required: false}
+          - {label: "Header image", name: "header_image_url", widget: "image", required: false}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Content Page"
         name: "content"
@@ -50,8 +48,8 @@ collections:
         fields:
           - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Lead text", name: "lead", widget: "string"}
-          - {label: "Header image", name: "header_image_url", widget: "image"}
+          - {label: "Lead text", name: "lead", widget: "string", required: false}
+          - {label: "Header image", name: "header_image_url", widget: "image", required: false}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "/etc/ index"
         name: "etc"
@@ -59,8 +57,8 @@ collections:
         fields:
           - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Lead text", name: "lead", widget: "string"}
-          - {label: "Header image", name: "header_image_url", widget: "image"}
+          - {label: "Lead text", name: "lead", widget: "string", required: false}
+          - {label: "Header image", name: "header_image_url", widget: "image", required: false}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Mastodon"
         name: "mastodon"
@@ -68,8 +66,8 @@ collections:
         fields:
           - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Lead text", name: "lead", widget: "string"}
-          - {label: "Header image", name: "header_image_url", widget: "image"}
+          - {label: "Lead text", name: "lead", widget: "string", required: false}
+          - {label: "Header image", name: "header_image_url", widget: "image", required: false}
           - {label: "Body", name: "body", widget: "markdown"}
       - label: "Timeless Games index"
         name: "timeless-games"
@@ -77,5 +75,6 @@ collections:
         fields:
           - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Lead text", name: "lead", widget: "string"}
+          - {label: "Lead text", name: "lead", widget: "string", required: false}
+          - {label: "Header image", name: "header_image_url", widget: "image", required: false}
           - {label: "Body", name: "body", widget: "markdown"}
