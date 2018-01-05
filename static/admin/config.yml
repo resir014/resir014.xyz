@@ -1,0 +1,81 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "src/pages/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "select", options: ["bits", "post"]}
+      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Lead text", name: "lead", widget: "string"}
+      - {label: "Header image", name: "header_image_url", widget: "image"}
+      - {label: "Redirection", name: "redirect_from", widget: "list"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "etc"
+    label: "/etc/"
+    folder: "src/pages/etc"
+    create: true
+    fields:
+      - {label: "Layout", name: "layout", widget: "select", options: ["bits", "post"]}
+      - {label: "Path", name: "path", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Lead text", name: "lead", widget: "string"}
+      - {label: "Header image", name: "header_image_url", widget: "image"}
+      - {label: "Redirection", name: "redirect_from", widget: "list"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "src/pages/about.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Lead text", name: "lead", widget: "string"}
+          - {label: "Header image", name: "header_image_url", widget: "image"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Content Page"
+        name: "content"
+        file: "src/pages/content.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Lead text", name: "lead", widget: "string"}
+          - {label: "Header image", name: "header_image_url", widget: "image"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "/etc/ index"
+        name: "etc"
+        file: "src/pages/etc.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Lead text", name: "lead", widget: "string"}
+          - {label: "Header image", name: "header_image_url", widget: "image"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Mastodon"
+        name: "mastodon"
+        file: "src/pages/mastodon.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Lead text", name: "lead", widget: "string"}
+          - {label: "Header image", name: "header_image_url", widget: "image"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Timeless Games index"
+        name: "timeless-games"
+        file: "src/pages/timeless-games.md"
+        fields:
+          - {label: "Layout", name: "layout", widget: "hidden", default: "page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Lead text", name: "lead", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
