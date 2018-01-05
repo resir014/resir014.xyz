@@ -30,15 +30,19 @@ exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString, setHeadCompon
       <script
         key="netlify-cms"
         dangerouslySetInnerHTML={{
-          __html: `if (window.netlifyIdentity) {
-            window.netlifyIdentity.on('init', user => {
-              if (!user) {
-                window.netlifyIdentity.on('login', () => {
-                  document.location.href = '/admin/';
+          __html: `
+            (function () {
+              if (window.netlifyIdentity) {
+                window.netlifyIdentity.on('init', user => {
+                  if (!user) {
+                    window.netlifyIdentity.on('login', () => {
+                      document.location.href = '/admin/';
+                    })
+                  }
                 })
               }
-            })
-          }`
+            })()
+          `
         }}
       />
     )
