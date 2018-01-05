@@ -11,6 +11,7 @@ collections:
     folder: "src/pages/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
     fields:
       - {label: "Layout", name: "layout", widget: "select", options: ["page", "bits", "post"]}
       - {label: "Title", name: "title", widget: "string"}
@@ -23,6 +24,7 @@ collections:
     label: "/etc/"
     folder: "src/pages/etc"
     create: true
+    extension: "md"
     fields:
       - {label: "Layout", name: "layout", widget: "select", options: ["page", "bits", "post"]}
       - {label: "Title", name: "title", widget: "string"}
