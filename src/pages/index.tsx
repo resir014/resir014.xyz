@@ -94,33 +94,34 @@ const HomepageWrapperInner = styled.main`
 
 const HomepageContent = styled.div`
   width: 100%;
+`
 
-  .homepage-title {
-    margin-top: 0;
-    color: ${photonColors.grey90};
+const HomepageTitle = styled.h1`
+  margin-top: 0;
+  margin-bottom: .5rem;
+  color: ${photonColors.grey90};
 
-    span {
-      ${sectionHeading(photonColors.white, 0, '.25rem')}
-    }
-
-    @media ${mediaQueries.lg} {
-      font-size: 3rem;
-      line-height: 1.15;
-    }
+  span {
+    ${sectionHeading(photonColors.white, 0, '.25rem')}
   }
 
-  .homepage-flavour {
-    margin: 0;
-    font-size: 1.25rem;
-    color: ${photonColors.grey90};
+  @media ${mediaQueries.lg} {
+    font-size: 3rem;
+    line-height: 1.15;
+  }
+`
 
-    span {
-      ${sectionHeading(photonColors.white, 0, '.25rem')}
-    }
+const HomepageFlavour = styled.p`
+  margin: 0;
+  font-size: 1.25rem;
+  color: ${photonColors.grey90};
 
-    @media ${mediaQueries.md} {
-      font-size: 1.5rem;
-    }
+  span {
+    ${sectionHeading(photonColors.white, 0, '.25rem')}
+  }
+
+  @media ${mediaQueries.md} {
+    font-size: 1.5rem;
   }
 `
 
@@ -176,8 +177,10 @@ class IndexPage extends React.Component<IndexPageProps & LayoutState, IndexPageS
         <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
         <HomepageWrapperInner>
           <HomepageContent>
-            <h1 className="homepage-title"><span>Hey, call me Resi.</span></h1>
-            <p className="homepage-flavour"><span>I'm a professional web developer based in Jakarta, Indonesia.</span></p>
+            <HomepageTitle><span>Hey, call me Resi.</span></HomepageTitle>
+            <HomepageFlavour>
+              <span>I'm a professional web developer based in Jakarta, Indonesia.</span>
+            </HomepageFlavour>
             <PageFooter>
               <Button kind="nav-link" to="/about" color="white">More about me</Button>
             </PageFooter>
