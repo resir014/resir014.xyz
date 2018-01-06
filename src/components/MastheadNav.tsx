@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import MastheadNavItem from './MastheadNavItem'
 
 import { MenuItem } from '../utils/types'
+import mediaQueries from '../utils/mediaQueries'
 
 interface MastheadNavProps {
   items: MenuItem[]
@@ -19,5 +20,9 @@ const MastheadNav: React.SFC<MastheadNavProps> = ({ className, items }) => (
 )
 
 export default styled(MastheadNav)`
-  display: flex;
+  display: none;
+
+  @media ${mediaQueries.md} {
+    display: flex;
+  }
 `

@@ -49,6 +49,10 @@ const MastheadRight = styled.div`
 const MastheadToggle = styled.div`
   display: flex;
   align-items: center;
+
+  @media ${mediaQueries.md} {
+    display: none;
+  }
 `
 
 const MastheadToggleMenu = styled.div`
