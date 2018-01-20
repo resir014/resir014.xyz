@@ -89,7 +89,7 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps & LayoutState> = ({ da
       <main>
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
-          <PostMeta>
+          <PostMeta hasBottomMargin={true}>
             <PostMetaDate>{post.fields.year}</PostMetaDate>
             {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
           </PostMeta>

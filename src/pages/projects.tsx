@@ -4,8 +4,7 @@ import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import { sharedStyles, photonColors } from '../utils/theme'
-import { sectionHeading } from '../utils/mixins'
+import { photonColors } from '../utils/theme'
 
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'

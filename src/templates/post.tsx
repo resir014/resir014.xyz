@@ -85,7 +85,7 @@ const PostTemplate: React.SFC<PostTemplateProps & LayoutState> = ({ data, locati
       <main>
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
-            <PostMeta>
+            <PostMeta hasBottomMargin={true}>
               <PostMetaDate>{post.fields.date}</PostMetaDate>
               {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
             </PostMeta>

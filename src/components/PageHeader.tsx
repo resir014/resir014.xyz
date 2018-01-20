@@ -49,9 +49,9 @@ interface HeaderWrapperProps {
 }
 
 const HeaderWrapperRoot: React.SFC<HeaderWrapperProps> = ({ state, className, headerImage, children }) => (
-  <header className={className}>
+  <div className={className}>
     {children}
-  </header>
+  </div>
 )
 
 const HeaderWrapper = styled(HeaderWrapperRoot)`
