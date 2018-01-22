@@ -20,7 +20,7 @@ import 'prism-themes/themes/prism-atom-dark.css'
 
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
-import Footer from '../components/Footer';
+import Footer from '../components/Footer'
 
 interface OverlayProps {
   visible: boolean
