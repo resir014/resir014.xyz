@@ -10,6 +10,7 @@ import Masthead from '../components/Masthead'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
 import PageHeader from '../components/PageHeader'
+import mediaQueries from '../utils/mediaQueries'
 
 const PageWrapper = styled.div`
   display: flex;
@@ -34,10 +35,24 @@ const PageInner = styled.main`
   h1 {
     margin-top: 0;
     font-family: ${fonts.sansSerif};
+    font-size: 2.074rem;
+
+    @media ${mediaQueries.md} {
+      font-size: 2.441rem;
+    }
+
+    @media ${mediaQueries.lg} {
+      font-size: 3.157rem;
+    }
 
     span {
       ${sectionHeading(photonColors.white, 0, '.25rem')}
     }
+  }
+
+  p {
+    font-size: 1.25rem;
+    font-weight: 300;
   }
 `
 
