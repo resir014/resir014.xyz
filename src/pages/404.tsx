@@ -34,6 +34,9 @@ const PageInner = styled.main`
 
   h1 {
     margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    line-height: 1.2;
     font-family: ${fonts.sansSerif};
     font-size: 2.074rem;
 
@@ -51,6 +54,7 @@ const PageInner = styled.main`
   }
 
   p {
+    margin: 0;
     font-size: 1.25rem;
     font-weight: 300;
   }
