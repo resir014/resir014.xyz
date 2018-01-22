@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
@@ -15,8 +13,6 @@ import Container from '../components/Container'
 import PageHeader from '../components/PageHeader'
 import BlogPostItem from '../components/BlogPostItem'
 
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
 import { BlogPostNode } from '../utils/types'
 import { photonColors } from '../utils/theme'
@@ -46,7 +42,7 @@ interface BlogPageProps {
   }
 }
 
-const BlogPage: React.SFC<BlogPageProps & LayoutState> = ({ data, location, sidebarVisible }) => {
+const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
   const { siteMetadata } = data.site
   const { pathname } = location
 
@@ -74,9 +70,7 @@ const BlogPage: React.SFC<BlogPageProps & LayoutState> = ({ data, location, side
   )
 }
 
-const mapStateToProps = (state: ApplicationState) => state.layout
-
-export default connect<LayoutState, void, BlogPageProps>(mapStateToProps)(BlogPage)
+export default BlogPage
 
 export const query = graphql`
 query BlogPageQuery {

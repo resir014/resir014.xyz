@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
 import Link, { withPrefix } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'

@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import styled, { css } from 'styled-components'
 
@@ -9,8 +7,6 @@ import ToggleMenu from '../components/ToggleMenu'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
 
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
 import { colors, headerColors, photonColors } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/globalStyles'
@@ -147,8 +143,8 @@ interface IndexPageState {
   gradientEndIndex: number
 }
 
-class IndexPage extends React.Component<IndexPageProps & LayoutState, IndexPageState> {
-  constructor(props: IndexPageProps & LayoutState) {
+class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
+  constructor(props: IndexPageProps) {
     super(props)
     this.state = {
       gradientStartIndex: 0,
@@ -164,7 +160,7 @@ class IndexPage extends React.Component<IndexPageProps & LayoutState, IndexPageS
   }
 
   public render() {
-    const { children, data, location, sidebarVisible } = this.props
+    const { children, data, location } = this.props
     const { pathname } = location
     return (
       <HomepageWrapper state={this.state} headerImage="/images/background.jpg">
@@ -184,9 +180,7 @@ class IndexPage extends React.Component<IndexPageProps & LayoutState, IndexPageS
   }
 }
 
-const mapStateToProps = (state: ApplicationState) => state.layout
-
-export default connect<LayoutState, void, IndexPageProps>(mapStateToProps)(IndexPage)
+export default IndexPage
 
 export const query = graphql`
   query IndexPageQuery {

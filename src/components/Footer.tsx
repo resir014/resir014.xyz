@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import * as Color from 'color'
 import styled from 'styled-components'
@@ -10,6 +8,7 @@ import { LayoutState, randomiseSplash } from '../store/layout'
 import flavorText from '../utils/flavorText'
 import { photonColors, fonts } from '../utils/theme'
 import mediaQueries from '../utils/mediaQueries'
+import flavors from '../utils/flavorText'
 
 import Container from './Container'
 
@@ -89,23 +88,34 @@ interface FooterProps {
   dispatch?: Dispatch<LayoutState>
 }
 
-class Footer extends React.Component<FooterProps & LayoutState> {
-  constructor(props: FooterProps & LayoutState) {
+interface FooterState {
+  randomSplashIndex: number
+}
+
+class Footer extends React.Component<FooterProps, FooterState> {
+  constructor(props: FooterProps) {
     super(props)
+    this.state = {
+      randomSplashIndex: 0
+    }
   }
 
   public componentWillMount() {
-    this.props.dispatch(randomiseSplash())
+    this.setState({
+      randomSplashIndex: Math.floor(Math.random() * flavors.length)
+    })
   }
 
   public render() {
+    const { randomSplashIndex } = this.state
+
     return (
       <StyledFooter>
         <Container>
           <FooterHeader>
             <h3 className="footer-title"><Link to="/">{this.props.title}</Link></h3>
             <p className="footer-flavour" title="Click to randomise!" onClick={() => this.props.dispatch(randomiseSplash())}>
-              <span>{flavorText[this.props.randomSplashIndex]}</span>
+              <span>{flavorText[randomSplashIndex]}</span>
             </p>
           </FooterHeader>
           <p>
@@ -142,7 +152,5 @@ class Footer extends React.Component<FooterProps & LayoutState> {
   }
 }
 
-const mapStateToProps = (state: ApplicationState) => state.layout
-
-export default connect<LayoutState, void, FooterProps>(mapStateToProps)(Footer)
+export default Footer
 

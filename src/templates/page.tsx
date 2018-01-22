@@ -1,10 +1,6 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import Helmet from 'react-helmet'
 
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
 
 import Masthead from '../components/Masthead'
@@ -50,7 +46,7 @@ interface PageTemplateProps {
   }
 }
 
-const PageTemplate: React.SFC<PageTemplateProps & LayoutState> = ({ data, location, sidebarVisible }) => {
+const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
@@ -85,7 +81,7 @@ const PageTemplate: React.SFC<PageTemplateProps & LayoutState> = ({ data, locati
 
 const mapStateToProps = (state: ApplicationState) => state.layout
 
-export default connect<LayoutState, void, PageTemplateProps>(mapStateToProps)(PageTemplate)
+export default PageTemplate
 
 export const query = graphql`
   query PageQuery($slug: String!) {

@@ -1,10 +1,6 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import Helmet from 'react-helmet'
 
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
 
 import Masthead from '../components/Masthead'
@@ -55,7 +51,7 @@ interface BitsTemplateProps {
   }
 }
 
-const PageTemplate: React.SFC<BitsTemplateProps & LayoutState> = ({ data, location, sidebarVisible }) => {
+const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
@@ -92,7 +88,7 @@ const PageTemplate: React.SFC<BitsTemplateProps & LayoutState> = ({ data, locati
 
 const mapStateToProps = (state: ApplicationState) => state.layout
 
-export default connect<LayoutState, void, BitsTemplateProps>(mapStateToProps)(PageTemplate)
+export default PageTemplate
 
 export const query = graphql`
   query BitsQuery($slug: String!) {

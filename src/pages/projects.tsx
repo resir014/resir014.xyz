@@ -1,6 +1,4 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
@@ -16,8 +14,6 @@ import ProjectItemList from '../components/ProjectItemList'
 import PageTitle from '../components/PageTitle'
 import PageContent from '../components/PageContent'
 
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
 import { ProjectNode } from '../utils/types'
 
@@ -45,7 +41,7 @@ interface ProjectsPageProps {
   }
 }
 
-const ProjectsPage: React.SFC<ProjectsPageProps & LayoutState> = ({ data, location, sidebarVisible }) => {
+const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
   const { siteMetadata } = data.site
   const { pathname } = location
   const featuredProject = getFeaturedProject(data.allMarkdownRemark.edges, 'aquellex.ws')
@@ -86,9 +82,7 @@ const filterProjectsByCategory = (edges: ProjectNode[], category: string) => (
   edges.filter(edge => edge.node.fields.category === category)
 )
 
-const mapStateToProps = (state: ApplicationState) => state.layout
-
-export default connect<LayoutState, void, ProjectsPageProps>(mapStateToProps)(ProjectsPage)
+export default ProjectsPage
 
 export const query = graphql`
 query ProjectsPageQuery {

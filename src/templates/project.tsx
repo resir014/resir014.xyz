@@ -1,11 +1,7 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
 import { menuItems } from '../utils/menus'
 
 import Button from '../components/Button'
@@ -63,7 +59,7 @@ const ProjectFooter = styled.div`
   margin-top: 2rem;
 `
 
-const ProjectPageTemplate: React.SFC<ProjectTemplateProps & LayoutState> = ({ data, location, sidebarVisible }) => {
+const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
@@ -119,9 +115,7 @@ const renderLink = (url: string, jumpToProject: boolean) => (
   </Button>
 )
 
-const mapStateToProps = (state: ApplicationState) => state.layout
-
-export default connect<LayoutState, void, ProjectTemplateProps>(mapStateToProps)(ProjectPageTemplate)
+export default ProjectPageTemplate
 
 export const query = graphql`
   query ProjectPageQuery($slug: String!) {
