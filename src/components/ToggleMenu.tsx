@@ -116,7 +116,7 @@ const ToggleMenu: React.SFC<ToggleMenuProps> = ({ visible, items, onCloseButtonC
           <MastheadToggleButton onClick={onCloseButtonClick}>✕</MastheadToggleButton>
         </ToggleMenuHeader>
         <ToggleMenuItems>
-          {items.map(item => <ToggleMenuItem key={item.path} to={item.path}>{item.name}</ToggleMenuItem>)}
+          {items.map(item => <ToggleMenuItem key={item.path} to={item.path} onClick={onCloseButtonClick}>{item.name}</ToggleMenuItem>)}
         </ToggleMenuItems>
         <ToggleMenuFooter>
           <p>

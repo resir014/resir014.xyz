@@ -125,7 +125,7 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
           onCloseButtonClick={this.onNavToggleClick}
         />
         {children()}
-        <Overlay visible={navigationVisible} />
+        <Overlay visible={navigationVisible} onClick={this.onNavToggleClick} />
         {isHomepage || is404 ? null : <Footer title={data.site.siteMetadata.title} />}
       </AppWrapper>
     )
