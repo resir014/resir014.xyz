@@ -57,6 +57,7 @@ module.exports = {
     'gatsby-transformer-json',
     'gatsby-plugin-twitter',
     'gatsby-plugin-sass',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     {
