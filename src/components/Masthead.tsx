@@ -17,7 +17,7 @@ import { LayoutState, toggleSidebar } from '../store/layout'
 import { photonColors, heights } from '../utils/theme'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 import { MenuProps } from '../utils/types'
-import { highlightedText } from '../utils/globalStyles'
+import { sectionHeading } from '../utils/globalStyles'
 
 const MastheadInner = styled.div`
   display: flex;
@@ -74,7 +74,7 @@ const MastheadTitleLinkRoot: React.SFC<MastheadTitleLinkProps> = ({ className, t
 )
 
 const MastheadTitleLink = styled(MastheadTitleLinkRoot)`
-  ${highlightedText(photonColors.white, 0, '.25rem')}
+  ${sectionHeading(photonColors.white, 0, '.25rem')}
 
   color: ${photonColors.grey90};
 
