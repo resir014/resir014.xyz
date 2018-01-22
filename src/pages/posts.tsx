@@ -58,13 +58,6 @@ const BlogPage: React.SFC<BlogPageProps & LayoutState> = ({ data, location, side
           { property: 'og:title', content: `Posts · ${siteMetadata.title}` },
         ]}
       />
-      <Masthead
-        title={data.site.siteMetadata.title}
-        items={menuItems}
-        pathname={pathname}
-        transparent={true}
-      />
-      <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
       <main>
         <PageHeader>
           <PageTitle><span>Posts</span></PageTitle>
@@ -77,7 +70,6 @@ const BlogPage: React.SFC<BlogPageProps & LayoutState> = ({ data, location, side
           </PageContent>
         </Container>
       </main>
-      <Footer title={data.site.siteMetadata.title} />
     </React.Fragment>
   )
 }

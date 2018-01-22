@@ -1,8 +1,6 @@
 // tslint:disable:jsx-no-lambda
 
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import Media from 'react-responsive'
 import Link, { navigateTo } from 'gatsby-link'
 import * as Color from 'color'
@@ -12,8 +10,6 @@ import Container from './Container'
 import ToggleMenu from './ToggleMenu'
 import MastheadNav from './MastheadNav'
 
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
 import { photonColors, heights } from '../utils/theme'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 import { MenuProps } from '../utils/types'
@@ -46,16 +42,12 @@ const MastheadRight = styled.div`
   justify-content: flex-end;
 `
 
-const MastheadToggle = styled.div`
+export const MastheadToggle = styled.div`
   display: flex;
   align-items: center;
-
-  @media ${mediaQueries.md} {
-    display: none;
-  }
 `
 
-const MastheadToggleMenu = styled.div`
+export const MastheadToggleButton = styled.div`
   display: inline-block;
   padding: .25rem .5rem;
   color: ${photonColors.grey90};
@@ -88,11 +80,11 @@ interface MastheadProps extends MenuProps {
   title: string
   className?: string
   transparent?: boolean
-  dispatch?: Dispatch<LayoutState>
+  onNavToggleClick: () => any
 }
 
-class Masthead extends React.Component<MastheadProps & LayoutState, {}> {
-  constructor(props: MastheadProps & LayoutState) {
+class Masthead extends React.Component<MastheadProps, {}> {
+  constructor(props: MastheadProps) {
     super(props)
 
     this.state = {
@@ -101,30 +93,22 @@ class Masthead extends React.Component<MastheadProps & LayoutState, {}> {
   }
 
   public render() {
-    const { title, className, transparent, items, dispatch, sidebarVisible } = this.props
+    const { title, className, transparent, items, onNavToggleClick } = this.props
 
     return (
       <header className={className}>
-        <Container>
-          <MastheadInner>
-            <MastheadTitle onClick={() => navigateTo('/')}>
-              <MastheadTitleLink to="/">
-                {title}
-              </MastheadTitleLink>
-            </MastheadTitle>
-            <MastheadRight>
-              <Media query={mediaQueries.md}>
-                {matches => matches ? (
-                  <MastheadNav items={items} />
-                ) : (
-                  <MastheadToggle>
-                    <MastheadToggleMenu onClick={() => dispatch(toggleSidebar())}>☰</MastheadToggleMenu>
-                  </MastheadToggle>
-                )}
-              </Media>
-            </MastheadRight>
-          </MastheadInner>
-        </Container>
+        <MastheadInner>
+          <MastheadTitle onClick={() => navigateTo('/')}>
+            <MastheadTitleLink to="/">
+              {title}
+            </MastheadTitleLink>
+          </MastheadTitle>
+          <MastheadRight>
+            <MastheadToggle>
+              <MastheadToggleButton onClick={onNavToggleClick}>☰</MastheadToggleButton>
+            </MastheadToggle>
+          </MastheadRight>
+        </MastheadInner>
       </header>
     )
   }
@@ -136,12 +120,11 @@ const StyledMasthead = styled(Masthead)`
   left: 0;
   right: 0;
   z-index: 10;
-  height: ${heights.masthead}
-  padding: 0;
+  height: ${heights.masthead};
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   background-color: ${props => props.transparent ? 'transparent' : photonColors.grey90};
   color: ${photonColors.white};
 `
 
-const mapStateToProps = (state: ApplicationState) => state.layout
-
-export default connect<LayoutState, void, MastheadProps>(mapStateToProps)(StyledMasthead)
+export default StyledMasthead

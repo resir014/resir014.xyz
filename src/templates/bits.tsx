@@ -71,13 +71,6 @@ const PageTemplate: React.SFC<BitsTemplateProps & LayoutState> = ({ data, locati
           { property: 'og:description', content: post.fields.lead || post.excerpt },
         ]}
       />
-      <Masthead
-        title={data.site.siteMetadata.title}
-        items={menuItems}
-        pathname={pathname}
-        transparent={true}
-      />
-      <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
       <main>
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
@@ -93,7 +86,6 @@ const PageTemplate: React.SFC<BitsTemplateProps & LayoutState> = ({ data, locati
           </Container>
         </article>
       </main>
-      <Footer title={data.site.siteMetadata.title} />
     </React.Fragment>
   )
 }

@@ -55,13 +55,6 @@ const ProjectsPage: React.SFC<ProjectsPageProps & LayoutState> = ({ data, locati
       <Helmet
         title={`Projects · ${siteMetadata.title}`}
       />
-      <Masthead
-        title={data.site.siteMetadata.title}
-        items={menuItems}
-        pathname={pathname}
-        transparent={true}
-      />
-      <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
       <main>
         <article>
           <PageHeader>
@@ -81,7 +74,6 @@ const ProjectsPage: React.SFC<ProjectsPageProps & LayoutState> = ({ data, locati
           </PageContent>
         </article>
       </main>
-      <Footer title={data.site.siteMetadata.title} />
     </React.Fragment>
   )
 }

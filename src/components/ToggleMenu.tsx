@@ -1,39 +1,95 @@
 import * as React from 'react'
-import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 import Link, { navigateTo } from 'gatsby-link'
 import * as Color from 'color'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import Container from './Container'
+import { MastheadToggleButton } from './Masthead'
 
-import { ApplicationState } from '../store'
-import { LayoutState, toggleSidebar } from '../store/layout'
-import { photonColors, widths, heights } from '../utils/theme'
-import { sectionHeading, highlightedText } from '../utils/mixins'
+import { photonColors, heights } from '../utils/theme'
 import { MenuProps, MenuItem } from '../utils/types'
+import mediaQueries from '../utils/mediaQueries'
 
 interface ToggleMenuProps extends MenuProps {
   visible?: boolean
-  dispatch?: Dispatch<LayoutState>
+  onCloseButtonClick: () => any
+}
+
+interface StyledToggleMenuProps {
+  isOpen?: boolean
 }
 
 const StyledToggleMenu = styled.div`
-  display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
   right: 0;
-  bottom: 0;
-  z-index: 9;
-  padding-top: ${heights.masthead};
-  padding-bottom: 2rem;
+  bottom: auto;
+  left: auto;
+  z-index: 250;
+  color: #000;
+  width: 100vw;
+  transition: -webkit-transform 275ms cubic-bezier(.5,.08,0,1);
+  transition: transform 275ms cubic-bezier(.5,.08,0,1);
+  transition: transform 275ms cubic-bezier(.5,.08,0,1),-webkit-transform 275ms cubic-bezier(.5,.08,0,1);
+
+  @media only screen and ${mediaQueries.md} {
+    width: 350px;
+  }
+
+  ${(props: StyledToggleMenuProps) => props.isOpen === true && css`
+    transform: translate(0);
+  `}
+
+  ${(props: StyledToggleMenuProps) => props.isOpen === false && css`
+    transform: translate(100%);
+  `}
+`
+
+const ToggleMenuInner = styled.nav`
   color: ${photonColors.white};
   background-color: ${photonColors.grey90};
 `
 
-const ToggleMenuInner = styled.nav`
-  width: 100%;
+const ToggleMenuHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 0 1.5rem;
+  height: ${heights.masthead};
+  align-items: center;
+  justify-content: flex-end;
+`
+
+const ToggleMenuItems = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+  padding-bottom: 1.5rem;
+`
+
+const ToggleMenuFooter = styled.div`
+  padding: 1.5rem;
+
+  a {
+    color: ${photonColors.blue40};
+    text-decoration: underline;
+
+    &:hover, &:focus {
+      color: ${photonColors.blue50};
+    }
+
+    @media ${mediaQueries.md} {
+      text-decoration: none;
+
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p, small {
+    display: block;
+    margin: 0 0 0.5rem;
+  }
 `
 
 const ToggleMenuItem = styled(Link)`
@@ -52,22 +108,49 @@ const ToggleMenuItem = styled(Link)`
   }
 `
 
-const ToggleMenu: React.SFC<ToggleMenuProps & LayoutState> = ({ visible, items, dispatch }) => {
+const ToggleMenu: React.SFC<ToggleMenuProps> = ({ visible, items, onCloseButtonClick }) => {
   return (
-    <React.Fragment>
-      {visible ? (
-        <StyledToggleMenu>
-          <ToggleMenuInner onClick={() => dispatch(toggleSidebar())}>
-            <Container>
-              {items.map(item => <ToggleMenuItem key={item.path} to={item.path}>{item.name}</ToggleMenuItem>)}
-            </Container>
-          </ToggleMenuInner>
-        </StyledToggleMenu>
-      ) : null}
-    </React.Fragment>
+    <StyledToggleMenu isOpen={visible}>
+      <ToggleMenuInner>
+        <ToggleMenuHeader>
+          <MastheadToggleButton onClick={onCloseButtonClick}>✕</MastheadToggleButton>
+        </ToggleMenuHeader>
+        <ToggleMenuItems>
+          {items.map(item => <ToggleMenuItem key={item.path} to={item.path}>{item.name}</ToggleMenuItem>)}
+        </ToggleMenuItems>
+        <ToggleMenuFooter>
+          <p>
+            <a
+              rel="license noopener noreferrer"
+              href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+              target="_blank"
+            >
+              <img alt="Creative Commons License" src="/images/cc-by-nc-sa.svg" style={{ height: '31px' }} />
+            </a>
+          </p>
+          <p>
+            <small>
+              Except where otherwise noted, contents are licensed under{' '}
+              <a
+                rel="license noopener noreferrer"
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                target="_blank"
+              >
+                CC-BY-NC-SA 4.0
+              </a>.
+            </small>
+          </p>
+          <p>
+            <small>
+              Powered by <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a>{' '}
+              and <a href="https://www.reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>.{' '}
+              Code licensed under the <a href="https://github.com/resir014/resir014.xyz" target="_blank">MIT License</a>.
+            </small>
+          </p>
+        </ToggleMenuFooter>
+      </ToggleMenuInner>
+    </StyledToggleMenu>
   )
 }
 
-const mapStateToProps = (state: ApplicationState) => state.layout
-
-export default connect<LayoutState, void, ToggleMenuProps>(mapStateToProps)(ToggleMenu)
+export default ToggleMenu

@@ -79,13 +79,6 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps & LayoutState> = ({ da
           { property: 'og:description', content: post.fields.lead || post.excerpt },
         ]}
       />
-      <Masthead
-        title={data.site.siteMetadata.title}
-        items={menuItems}
-        pathname={pathname}
-        transparent={true}
-      />
-      <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
       <main>
         <article>
           <PageHeader headerImage={post.fields.headerImage || null}>
@@ -110,7 +103,6 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps & LayoutState> = ({ da
           </Container>
         </article>
       </main>
-      <Footer title={data.site.siteMetadata.title} />
     </React.Fragment>
   )
 }

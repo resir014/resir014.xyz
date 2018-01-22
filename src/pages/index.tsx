@@ -168,13 +168,6 @@ class IndexPage extends React.Component<IndexPageProps & LayoutState, IndexPageS
     const { pathname } = location
     return (
       <HomepageWrapper state={this.state} headerImage="/images/background.jpg">
-        <Masthead
-          title={data.site.siteMetadata.title}
-          items={menuItems}
-          pathname={pathname}
-          transparent={true}
-        />
-        <ToggleMenu items={menuItems} pathname={pathname} visible={sidebarVisible} />
         <HomepageWrapperInner>
           <HomepageContent>
             <HomepageTitle><span>Hey, call me Resi.</span></HomepageTitle>
