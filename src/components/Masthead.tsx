@@ -21,12 +21,19 @@ const MastheadInner = styled.div`
   height: ${heights.masthead};
 `
 
-const MastheadTitle = styled.div`
+const MastheadLeft = styled.div`
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+`
+
+const MastheadTitleLink = styled(Link)`
   display: flex;
   height: 100%;
   align-items: center;
-  margin-right: 1rem;
-  font-size: 1.5rem;
 
   @media ${mediaQueries.lg} {
     width: calc(100% / 4);
@@ -58,14 +65,13 @@ export const MastheadToggleButton = styled.div`
 
 interface MastheadTitleLinkProps {
   className?: string
-  to: string
 }
 
-const MastheadTitleLinkRoot: React.SFC<MastheadTitleLinkProps> = ({ className, to, children }) => (
-  <Link className={className} to={to}>{children}</Link>
+const MastheadTitleRoot: React.SFC<MastheadTitleLinkProps> = ({ className, children }) => (
+  <div className={className}>{children}</div>
 )
 
-const MastheadTitleLink = styled(MastheadTitleLinkRoot)`
+const MastheadTitle = styled(MastheadTitleRoot)`
   ${sectionHeading(photonColors.white, 0, '.25rem')}
 
   color: ${photonColors.grey90};
@@ -98,11 +104,13 @@ class Masthead extends React.Component<MastheadProps, {}> {
     return (
       <header className={className}>
         <MastheadInner>
-          <MastheadTitle onClick={() => navigateTo('/')}>
+          <MastheadLeft>
             <MastheadTitleLink to="/">
-              {title}
+              <MastheadTitle>
+                {title}
+              </MastheadTitle>
             </MastheadTitleLink>
-          </MastheadTitle>
+          </MastheadLeft>
           <MastheadRight>
             <MastheadToggle>
               <MastheadToggleButton onClick={onNavToggleClick}>☰</MastheadToggleButton>
