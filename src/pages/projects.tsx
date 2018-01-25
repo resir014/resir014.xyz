@@ -50,6 +50,11 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
     <React.Fragment>
       <Helmet
         title={`Projects · ${siteMetadata.title}`}
+        meta={[
+          { name: 'description', content: data.site.siteMetadata.description },
+          { property: 'og:title', content: 'Projects' },
+          { property: 'og:description', content: data.site.siteMetadata.description },
+        ]}
       />
       <main>
         <article>

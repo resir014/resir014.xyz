@@ -51,7 +51,9 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
       <Helmet
         title={`Posts · ${siteMetadata.title}`}
         meta={[
-          { property: 'og:title', content: `Posts · ${siteMetadata.title}` },
+          { name: 'description', content: data.site.siteMetadata.description },
+          { property: 'og:title', content: 'Posts' },
+          { property: 'og:description', content: data.site.siteMetadata.description },
         ]}
       />
       <main>

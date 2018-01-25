@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'
 
 import Masthead from '../components/Masthead'
@@ -133,6 +134,12 @@ interface IndexPageProps {
     site: {
       siteMetadata: {
         title: string
+        tagline: string
+        description: string
+        author: {
+          name: string
+          url: string
+        }
       }
     }
   }
@@ -164,6 +171,14 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
     const { pathname } = location
     return (
       <HomepageWrapper state={this.state} headerImage="/images/background.jpg">
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            { name: 'description', content: data.site.siteMetadata.description },
+            { property: 'og:title', content: 'Home' },
+            { property: 'og:description', content: data.site.siteMetadata.description },
+          ]}
+        />
         <HomepageWrapperInner>
           <HomepageContent>
             <HomepageTitle><span>Hey, call me Resi.</span></HomepageTitle>
@@ -187,6 +202,11 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        description
+        author {
+          name
+          url
+        }
       }
     }
   }

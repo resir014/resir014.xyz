@@ -65,6 +65,12 @@ interface NotFoundPageProps {
     site: {
       siteMetadata: {
         title: string
+        tagline: string
+        description: string
+        author: {
+          name: string
+          url: string
+        }
       }
     }
   }
@@ -72,7 +78,14 @@ interface NotFoundPageProps {
 
 const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
   <PageWrapper>
-    <Helmet title={`404: Page not found. · ${data.site.siteMetadata.title}`} />
+    <Helmet
+      title={`404: Page not found. · ${data.site.siteMetadata.title}`}
+      meta={[
+        { name: 'description', content: data.site.siteMetadata.description },
+        { property: 'og:title', content: '404: Page not found.' },
+        { property: 'og:description', content: data.site.siteMetadata.description },
+      ]}
+    />
     <PageInner>
       <h1 className="page-title"><span>404</span></h1>
       <p className="lead">You've hit the void. <Link to="/">Go back home.</Link></p>
@@ -87,6 +100,11 @@ query NotFoundPageQuery {
   site {
     siteMetadata {
       title
+      description
+      author {
+        name
+        url
+      }
     }
   }
 }
