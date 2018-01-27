@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
 import { createLinkStyle, sectionHeading, highlightedText } from '../utils/globalStyles'
-import { photonColors, fonts } from '../utils/theme'
+import { colors, fonts } from '../utils/theme'
 
 import Masthead from '../components/Masthead'
 import Container from '../components/Container'
@@ -21,15 +21,15 @@ const PageWrapper = styled.div`
   right: 0;
   align-items: center;
   justify-content: center;
-  color: ${photonColors.white};
-  background-color: ${photonColors.grey90};
+  color: ${colors.white};
+  background-color: ${colors.grey90};
 `
 
 const PageInner = styled.main`
   text-align: center;
 
   a {
-    ${createLinkStyle(photonColors.blue40, photonColors.blue50)}
+    ${createLinkStyle(colors.blue40, colors.blue50)}
   }
 
   h1 {
@@ -49,7 +49,7 @@ const PageInner = styled.main`
     }
 
     span {
-      ${sectionHeading(photonColors.white, 0, '.25rem')}
+      ${sectionHeading(colors.white, 0, '.25rem')}
     }
   }
 

@@ -3,17 +3,16 @@ import Link, { withPrefix } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'
 
-import globalStyles from '../utils/globalStyles'
 import { menuItems } from '../utils/menus'
 import mediaQueries from '../utils/mediaQueries'
-import { photonColors } from '../utils/theme'
+import { colors } from '../utils/theme'
 
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'
 
 // inject global styles
 import 'normalize.css'
-globalStyles()
+import '../styles/globals.scss'
 
 import 'prism-themes/themes/prism-atom-dark.css'
 
@@ -61,7 +60,7 @@ const Overlay = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: ${photonColors.grey90};
+  background-color: ${colors.grey90};
   opacity: 0;
   visibility: hidden;
   cursor: pointer;

@@ -7,7 +7,7 @@ import Button from './Button'
 import Container from './Container'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
-import { photonColors, headerColors } from '../utils/theme'
+import { colors, headerColors } from '../utils/theme'
 import { ProjectNode } from '../utils/types'
 import mediaQueries from '../utils/mediaQueries'
 
@@ -20,7 +20,7 @@ const FeaturedProjectWrapper = styled.section`
   flex-direction: column;
   margin-top: 3rem;
   margin-bottom: 3rem;
-  color: ${photonColors.white};
+  color: ${colors.white};
 
   @media ${mediaQueries.md} {
     flex-direction: row;
@@ -34,8 +34,8 @@ const FeaturedProjectWrapper = styled.section`
 const FeaturedProjectDetails = styled.div`
   padding: 1.5rem;
   background: linear-gradient(to bottom right,
-    ${photonColors.blue50},
-    ${photonColors.purple50});
+    ${colors.blue50},
+    ${colors.purple50});
 `
 
 const FeaturedProjectHeading = styled.div`
@@ -43,8 +43,8 @@ const FeaturedProjectHeading = styled.div`
     display: inline-block;
     margin: 0;
     padding: 0 .25rem;
-    color: ${photonColors.grey90};
-    background-color: ${photonColors.white};
+    color: ${colors.grey90};
+    background-color: ${colors.white};
   }
 `
 
@@ -53,8 +53,8 @@ const FeaturedProjectName = styled.h3`
   margin: 0;
   margin-top: .5rem;
   padding: 0 .25rem;
-  color: ${photonColors.grey90};
-  background-color: ${photonColors.white};
+  color: ${colors.grey90};
+  background-color: ${colors.white};
 `
 
 const FeaturedProjectDescription = styled.div`

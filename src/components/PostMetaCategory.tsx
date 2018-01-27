@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { photonColors } from '../utils/theme'
+import { colors } from '../utils/theme'
 import { sectionHeading } from '../utils/globalStyles'
 
 interface PostMetaCategoryProps {
@@ -13,7 +13,7 @@ const PostMetaCategory: React.SFC<PostMetaCategoryProps> = ({ className, childre
 )
 
 export default styled(PostMetaCategory)`
-  ${sectionHeading(photonColors.white, 0, '.5rem')}
+  ${sectionHeading(colors.white, 0, '.5rem')}
 
   margin-left: .5rem !important;
 `

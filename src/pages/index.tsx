@@ -9,7 +9,7 @@ import Container from '../components/Container'
 import Footer from '../components/Footer'
 
 import { menuItems } from '../utils/menus'
-import { colors, headerColors, photonColors } from '../utils/theme'
+import { colors, headerColors, colors } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
 import mediaQueries, { widths } from '../utils/mediaQueries'
@@ -96,10 +96,10 @@ const HomepageContent = styled.div`
 const HomepageTitle = styled.h1`
   margin-top: 0;
   margin-bottom: .5rem;
-  color: ${photonColors.grey90};
+  color: ${colors.grey90};
 
   span {
-    ${sectionHeading(photonColors.white, 0, '.25rem')}
+    ${sectionHeading(colors.white, 0, '.25rem')}
   }
 
   @media ${mediaQueries.lg} {
@@ -111,7 +111,7 @@ const HomepageTitle = styled.h1`
 const HomepageFlavour = styled.p`
   margin: 0;
   font-size: 1.25rem;
-  color: ${photonColors.grey90};
+  color: ${colors.grey90};
 
   @media ${mediaQueries.md} {
     font-size: 1.5rem;
@@ -119,7 +119,7 @@ const HomepageFlavour = styled.p`
 `
 
 const HomepageFlavourIntro = styled.span`
-  ${sectionHeading(photonColors.white, 0, '.25rem')}
+  ${sectionHeading(colors.white, 0, '.25rem')}
   line-height: 1.45;
 `
 

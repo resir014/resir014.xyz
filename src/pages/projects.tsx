@@ -2,7 +2,7 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import { photonColors } from '../utils/theme'
+import { colors } from '../utils/theme'
 
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'

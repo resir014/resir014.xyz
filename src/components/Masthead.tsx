@@ -10,7 +10,7 @@ import Container from './Container'
 import ToggleMenu from './ToggleMenu'
 import MastheadNav from './MastheadNav'
 
-import { photonColors, heights } from '../utils/theme'
+import { colors, heights } from '../utils/theme'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 import { MenuProps } from '../utils/types'
 import { sectionHeading } from '../utils/globalStyles'
@@ -57,8 +57,8 @@ export const MastheadToggle = styled.div`
 export const MastheadToggleButton = styled.div`
   display: inline-block;
   padding: .25rem .5rem;
-  color: ${photonColors.grey90};
-  background-color: ${photonColors.white};
+  color: ${colors.grey90};
+  background-color: ${colors.white};
   cursor: pointer;
   user-select: none;
 `
@@ -72,12 +72,12 @@ const MastheadTitleRoot: React.SFC<MastheadTitleLinkProps> = ({ className, child
 )
 
 const MastheadTitle = styled(MastheadTitleRoot)`
-  ${sectionHeading(photonColors.white, 0, '.25rem')}
+  ${sectionHeading(colors.white, 0, '.25rem')}
 
-  color: ${photonColors.grey90};
+  color: ${colors.grey90};
 
   &:hover, &:focus {
-    color: ${photonColors.grey90};
+    color: ${colors.grey90};
     text-decoration: none;
   }
 `
@@ -131,8 +131,8 @@ const StyledMasthead = styled(Masthead)`
   height: ${heights.masthead};
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  background-color: ${props => props.transparent ? 'transparent' : photonColors.grey90};
-  color: ${photonColors.white};
+  background-color: ${props => props.transparent ? 'transparent' : colors.grey90};
+  color: ${colors.white};
 `
 
 export default StyledMasthead

@@ -5,14 +5,14 @@ import Link from 'gatsby-link'
 
 import { highlightedText } from '../utils/globalStyles'
 import mediaQueries from '../utils/mediaQueries'
-import { photonColors } from '../utils/theme'
+import { colors, colorsHex } from '../utils/theme'
 import { MenuItem } from '../utils/types'
 
 const MastheadNavLink = styled(Link)`
   display: inline-block;
   margin-top: 1rem;
   padding-right: 1.5rem;
-  color: ${photonColors.white};
+  color: ${colors.white};
   font-weight: 600;
   text-transform: lowercase;
 
@@ -24,23 +24,23 @@ const MastheadNavLink = styled(Link)`
   }
 
   span {
-    ${highlightedText(Color(photonColors.grey90).alpha(0.2).rgb().toString(), 0, '.25rem')}
+    ${highlightedText(Color(colorsHex.grey90).alpha(0.2).rgb().toString(), 0, '.25rem')}
   }
 
   &:hover, &:focus {
     text-decoration: none;
-    color: ${photonColors.grey90};
+    color: ${colors.grey90};
 
     span {
-      ${highlightedText(photonColors.white, 0, '.25rem')}
+      ${highlightedText(colors.white, 0, '.25rem')}
     }
   }
 
   &.is-active {
-    color: ${photonColors.grey90}
+    color: ${colors.grey90}
 
     span {
-      ${highlightedText(photonColors.white, 0, '.25rem')}
+      ${highlightedText(colors.white, 0, '.25rem')}
     }
   }
 `

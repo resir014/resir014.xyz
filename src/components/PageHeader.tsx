@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled, { css } from 'styled-components'
 
 import { sectionHeading, highlightedText } from '../utils/globalStyles'
-import { photonColors, headerColors, borderColors, heights } from '../utils/theme'
+import { colors, headerColors, borderColors, heights } from '../utils/theme'
 import Container from './Container'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 
@@ -34,7 +34,7 @@ const PageHeaderTitle = styled.div`
     font-size: 80%;
 
     span {
-      ${sectionHeading(photonColors.white, 0, '.5rem')}
+      ${sectionHeading(colors.white, 0, '.5rem')}
     }
   }
 `

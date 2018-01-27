@@ -7,9 +7,9 @@ const mediaQueries = {
 }
 
 export const widths = {
-  normal: '750px',
-  large: '970px',
-  xlarge: '1140px'
+  normal: 'var(--widths-normal)',
+  large: 'var(--widths-large)',
+  xlarge: 'var(--widths-xlarge)'
 }
 
 export default mediaQueries

@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { ApplicationState } from '../store'
 import { LayoutState, randomiseSplash } from '../store/layout'
 import flavorText from '../utils/flavorText'
-import { photonColors, fonts } from '../utils/theme'
+import { colors, fonts } from '../utils/theme'
 import mediaQueries from '../utils/mediaQueries'
 import flavors from '../utils/flavorText'
 
@@ -15,15 +15,15 @@ import Container from './Container'
 const StyledFooter = styled.footer`
   margin-top: 3rem;
   padding: 2rem 0;
-  color: ${photonColors.white};
-  background-color: ${photonColors.grey90};
+  color: ${colors.white};
+  background-color: ${colors.grey90};
 
   a {
-    color: ${photonColors.blue40};
+    color: ${colors.blue40};
     text-decoration: underline;
 
     &:hover, &:focus {
-      color: ${photonColors.blue50};
+      color: ${colors.blue50};
     }
 
     @media ${mediaQueries.md} {
@@ -56,8 +56,8 @@ const FooterHeader = styled.div`
       display: inline-block;
       margin: 0;
       padding: 0 0.25rem;
-      background-color: ${photonColors.white};
-      color: ${photonColors.grey90};
+      background-color: ${colors.white};
+      color: ${colors.grey90};
       text-decoration: none;
 
       &:hover, &:focus {
@@ -77,15 +77,14 @@ const FooterHeader = styled.div`
       display: inline-block;
       margin: 0;
       padding: 0 0.25rem;
-      background-color: ${photonColors.orange50};
-      color: ${photonColors.grey90};
+      background-color: ${colors.orange50};
+      color: ${colors.grey90};
     }
   }
 `
 
 interface FooterProps {
   title: string
-  dispatch?: Dispatch<LayoutState>
 }
 
 interface FooterState {

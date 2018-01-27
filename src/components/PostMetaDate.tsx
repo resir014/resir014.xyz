@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import { photonColors } from '../utils/theme'
+import { colors } from '../utils/theme'
 import { sectionHeading } from '../utils/globalStyles'
 
 interface PostMetaDateProps {
@@ -13,5 +13,5 @@ const PostMetaDate: React.SFC<PostMetaDateProps> = ({ className, children }) => 
 )
 
 export default styled(PostMetaDate)`
-  ${sectionHeading(photonColors.white, 0, '.5rem')}
+  ${sectionHeading(colors.white, 0, '.5rem')}
 `

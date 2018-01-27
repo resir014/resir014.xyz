@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import { photonColors } from '../utils/theme'
+import { colors } from '../utils/theme'
 
 import { BlogPostNode } from '../utils/types'
 import PostCategory from './PostCategory'
@@ -11,7 +11,7 @@ import mediaQueries, { widths } from '../utils/mediaQueries'
 
 const StyledPostItem = styled.article`
   position: relative;
-  border-top: 2px solid ${photonColors.grey90}
+  border-top: 2px solid ${colors.grey90}
 `
 
 const PostDetailBox = styled.div`
@@ -35,8 +35,8 @@ const PostMetaDate = styled(Link)`
   display: inline-block;
   margin: 0;
   padding: 0 .25rem;
-  color: ${photonColors.white};
-  background-color: ${photonColors.grey90};
+  color: ${colors.white};
+  background-color: ${colors.grey90};
   box-decoration-break: clone;
 
   &:hover,
@@ -67,13 +67,13 @@ const BlogPostFooterLink = styled(Link)`
   display: inline-block;
   margin-top: auto;
   padding: .25rem .5rem;
-  color: ${photonColors.blue60};
-  border: 2px solid ${photonColors.blue60};
+  color: ${colors.blue60};
+  border: 2px solid ${colors.blue60};
 
   &:hover, &:focus {
-    color: ${photonColors.white};
-    border-color: ${photonColors.blue70};
-    background-color: ${photonColors.blue70};
+    color: ${colors.white};
+    border-color: ${colors.blue70};
+    background-color: ${colors.blue70};
     text-decoration: none;
   }
 `

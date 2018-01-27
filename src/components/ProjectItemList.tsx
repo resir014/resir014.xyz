@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import ProjectItem from './ProjectItem'
 
-import { photonColors } from '../utils/theme'
+import { colors } from '../utils/theme'
 import { ProjectNode } from '../utils/types'
 import mediaQueries from '../utils/mediaQueries'
 
@@ -14,8 +14,8 @@ const ProjectSectionHeading = styled.h2`
     display: inline-block;
     margin: 0;
     padding: 0 .5rem;
-    color: ${photonColors.white};
-    background-color: ${photonColors.grey90};
+    color: ${colors.white};
+    background-color: ${colors.grey90};
   }
 `
 
@@ -31,7 +31,7 @@ const ProjectsList = styled.div`
 `
 
 const ProjectEmpty = styled.p`
-  color: ${photonColors.grey50};
+  color: ${colors.grey50};
 `
 
 export interface ProjectItemListProps {

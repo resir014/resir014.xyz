@@ -4,7 +4,7 @@ import * as Color from 'color'
 
 import Button from './Button'
 
-import { photonColors, fonts } from '../utils/theme'
+import { colors, fonts } from '../utils/theme'
 import { ProjectNode } from '../utils/types'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 
@@ -16,7 +16,7 @@ const StyledProjectItem = styled.div`
   padding: 1rem;
   margin-top: 0;
   margin-bottom: 2rem;
-  background-color: ${photonColors.grey20};
+  background-color: ${colors.grey20};
 
   @media ${mediaQueries.md} {
     width: calc(50% - 1.5rem);
@@ -41,7 +41,7 @@ const ProjectYear = styled.span`
   margin-left: 1rem;
   font-family: ${fonts.sansSerif};
   font-size: 70%;
-  color: ${photonColors.grey50}
+  color: ${colors.grey50}
 `
 
 const ProjectTags = styled.div`
@@ -49,8 +49,8 @@ const ProjectTags = styled.div`
     display: inline-block;
     padding: .25em .5em;
     font-size: 85%;
-    color: ${photonColors.white};
-    background-color: ${photonColors.grey70};
+    color: ${colors.white};
+    background-color: ${colors.grey70};
     border-radius: 3px;
   }
 

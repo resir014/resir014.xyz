@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { createLinkStyle } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
-import { colors, photonColors, getBorderColor } from '../utils/theme'
+import { colors, getBorderColor, colorsHex } from '../utils/theme'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 
 interface MarkdownContentProps {
@@ -24,8 +24,8 @@ export default styled(MarkdownContent)`
   figure {
     margin: 2rem 0;
     text-align: center;
-    background-color: ${photonColors.grey70};
-    border: 8px solid ${photonColors.grey70};
+    background-color: ${colors.grey70};
+    border: 8px solid ${colors.grey70};
 
     @media ${mediaQueries.lg} {
       margin: 2rem;
@@ -41,17 +41,17 @@ export default styled(MarkdownContent)`
 
     figcaption {
       a {
-        color: ${photonColors.blue40};
+        color: ${colors.blue40};
 
         &:hover, &:focus {
-          color: ${photonColors.blue50};
+          color: ${colors.blue50};
         }
       }
 
       &:last-child {
         padding-top: 8px;
-        color: ${photonColors.white};
-        background-color: ${photonColors.grey70};
+        color: ${colors.white};
+        background-color: ${colors.grey70};
       }
     }
   }
@@ -81,8 +81,8 @@ export default styled(MarkdownContent)`
   .message {
     margin-bottom: 1rem;
     padding: 1rem;
-    color: ${Color(colors.black).lighten(0.25).hex()};
-    background-color: ${Color(colors.white).darken(0.05).hex()};
+    color: ${Color(colorsHex.black).lighten(0.25).hex()};
+    background-color: ${Color(colorsHex.white).darken(0.05).hex()};
 
     p:last-child {
       margin-bottom: 0;

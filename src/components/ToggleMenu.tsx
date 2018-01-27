@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 import Container from './Container'
 import { MastheadToggleButton } from './Masthead'
 
-import { photonColors, heights } from '../utils/theme'
+import { colors, heights } from '../utils/theme'
 import { MenuProps, MenuItem } from '../utils/types'
 import mediaQueries from '../utils/mediaQueries'
 
@@ -46,8 +46,8 @@ const StyledToggleMenu = styled.div`
 `
 
 const ToggleMenuInner = styled.nav`
-  color: ${photonColors.white};
-  background-color: ${photonColors.grey90};
+  color: ${colors.white};
+  background-color: ${colors.grey90};
 `
 
 const ToggleMenuHeader = styled.div`
@@ -70,11 +70,11 @@ const ToggleMenuFooter = styled.div`
   padding: 1.5rem;
 
   a {
-    color: ${photonColors.blue40};
+    color: ${colors.blue40};
     text-decoration: underline;
 
     &:hover, &:focus {
-      color: ${photonColors.blue50};
+      color: ${colors.blue50};
     }
 
     @media ${mediaQueries.md} {
@@ -97,14 +97,14 @@ const ToggleMenuItem = styled(Link)`
   padding: .5rem 0;
   textDecoration: none;
   textAlign: center;
-  borderTop: 1px solid ${photonColors.white};
+  borderTop: 1px solid ${colors.white};
 
   &:hover, &:focus {
     textDecoration: 'none'
   }
 
   &:last-child {
-    borderBottom: 1px solid ${photonColors.white};
+    borderBottom: 1px solid ${colors.white};
   }
 `
 

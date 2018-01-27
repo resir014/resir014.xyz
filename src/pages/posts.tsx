@@ -15,10 +15,10 @@ import BlogPostItem from '../components/BlogPostItem'
 
 import { menuItems } from '../utils/menus'
 import { BlogPostNode } from '../utils/types'
-import { photonColors } from '../utils/theme'
+import { colors } from '../utils/theme'
 
 const BlogPostList = styled.div`
-  border-bottom: 2px solid ${photonColors.grey90};
+  border-bottom: 2px solid ${colors.grey90};
 `
 
 interface BlogPageProps {

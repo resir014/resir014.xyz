@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import * as Color from 'color'
 import Link from 'gatsby-link'
 
-import { photonColors, fonts } from '../utils/theme'
+import { colors, fonts, colorsHex } from '../utils/theme'
 
 interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
   id?: string
@@ -16,8 +16,8 @@ interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
 }
 
 const theme = {
-  primary: photonColors.blue60,
-  white: photonColors.white
+  primary: colors.blue60,
+  white: colors.white
 }
 
 const Button: React.SFC<ButtonProps> = ({ id, className, color, kind, href, to, onClick, children }) => {
@@ -46,14 +46,14 @@ export default styled(Button)`
   display: inline-block;
   padding: .25rem .5rem;
   background: transparent;
-  color: ${props => props.color ? theme[props.color] : photonColors.grey70};
-  border: 2px solid ${props => props.color ? theme[props.color] : photonColors.grey70};
+  color: ${props => props.color ? theme[props.color] : colors.grey70};
+  border: 2px solid ${props => props.color ? theme[props.color] : colors.grey70};
   font-family: ${fonts.sansSerif};
   cursor: pointer;
 
   &:hover,
   &:focus {
-    background-color: ${Color(photonColors.grey70).alpha(0.1).lighten(0.1).rgb().string()};
+    background-color: ${Color(colorsHex.grey70).alpha(0.1).lighten(0.1).rgb().string()};
     text-decoration: none;
   }
 `
