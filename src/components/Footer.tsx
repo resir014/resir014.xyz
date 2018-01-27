@@ -3,8 +3,6 @@ import Link from 'gatsby-link'
 import * as Color from 'color'
 import styled from 'styled-components'
 
-import { ApplicationState } from '../store'
-import { LayoutState, randomiseSplash } from '../store/layout'
 import flavorText from '../utils/flavorText'
 import { colors, fonts } from '../utils/theme'
 import mediaQueries from '../utils/mediaQueries'
@@ -100,6 +98,10 @@ class Footer extends React.Component<FooterProps, FooterState> {
   }
 
   public componentWillMount() {
+    this.randomiseSplash()
+  }
+
+  public randomiseSplash() {
     this.setState({
       randomSplashIndex: Math.floor(Math.random() * flavors.length)
     })
@@ -113,7 +115,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
         <Container>
           <FooterHeader>
             <h3 className="footer-title"><Link to="/">{this.props.title}</Link></h3>
-            <p className="footer-flavour" title="Click to randomise!" onClick={() => this.props.dispatch(randomiseSplash())}>
+            <p className="footer-flavour" title="Click to randomise!" onClick={() => this.randomiseSplash()}>
               <span>{flavorText[randomSplashIndex]}</span>
             </p>
           </FooterHeader>
