@@ -19,6 +19,7 @@ export interface BlogPostNode {
       slug: string
       category?: string
       layout?: string
+      link?: string
       headerImage?: string
       lead?: string
       date: string

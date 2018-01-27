@@ -1,7 +1,6 @@
 ---
 category: bits
 layout: bits
-title: "I'm giving Firefox Quantum a try and I'm hugely impressed!"
 ---
 
 I'm giving Firefox Quantum a try and I'm hugely impressed! It's a massive improvement over the old Firefox, so much so that it's actually usable now.

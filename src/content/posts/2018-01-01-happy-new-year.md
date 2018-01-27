@@ -1,7 +1,6 @@
 ---
 category: bits
 layout: bits
-title: "Happy New Year to you all."
 date: 2018-01-01T04:00:00+07:00
 ---
 

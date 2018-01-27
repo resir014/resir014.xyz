@@ -45,12 +45,16 @@ const PostMetaDate = styled(Link)`
   }
 `
 
-const StyledMarkdownContent = styled(MarkdownContent)`
+const StyledPostContent = styled.div`
   margin-top: 1.5rem;
 `
 
 const PostTitle = styled.h3`
   margin-top: 0;
+
+  a {
+    color: ${colors.blue60};
+  }
 `
 
 const BlogPostContent = styled.div`
@@ -99,7 +103,20 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
             <PostMetaDate to={node.fields.slug}>{date}</PostMetaDate>
             <PostCategory category={category}>{category || 'bits'}</PostCategory>
           </PostMeta>
-          <StyledMarkdownContent html={node.html} />
+          {node.fields.link ? (
+            <PostTitle>
+              <a
+                href={node.fields.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {node.frontmatter.title} &raquo;
+              </a>
+            </PostTitle>
+          ) : (
+            <PostTitle>{node.frontmatter.title}</PostTitle>
+          )}
+          <MarkdownContent html={node.html} />
         </PostDetailBox>
       </StyledPostItem>
     )
@@ -116,7 +133,9 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
             <PostCategory category="blog">{category || 'blog'}</PostCategory>
           </PostMeta>
           <PostTitle>{node.frontmatter.title}</PostTitle>
-          {node.fields.lead ? <BlogPostContent><p>{node.fields.lead}</p></BlogPostContent> : null}
+          {node.fields.lead || node.excerpt ? (
+            <BlogPostContent><p>{node.fields.lead || node.excerpt}</p></BlogPostContent>
+          ) : null}
           <BlogPostFooter>
             <BlogPostFooterLink to={node.fields.slug}>Read more</BlogPostFooterLink>
           </BlogPostFooter>

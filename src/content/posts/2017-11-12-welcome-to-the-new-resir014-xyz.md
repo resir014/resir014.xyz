@@ -1,7 +1,6 @@
 ---
 category: bits
 layout: bits
-title: "Welcome to the new resir014.xyz!"
 ---
 
 Welcome to the new resir014.xyz!

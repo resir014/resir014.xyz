@@ -18,7 +18,8 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       layout,
       lead,
       subtitle,
-      header_image_url
+      link,
+      header_image_url,
     } = node.frontmatter
     const relativePath = createFilePath({ node, getNode, basePath: 'pages' })
 
@@ -103,6 +104,12 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       node,
       name: 'category',
       value: category || '',
+    })
+
+    createNodeField({
+      node,
+      name: 'link',
+      value: link || '',
     })
 
     // Used to add a lead text.

@@ -86,8 +86,6 @@ const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
   )
 }
 
-const mapStateToProps = (state: ApplicationState) => state.layout
-
 export default PageTemplate
 
 export const query = graphql`
@@ -109,6 +107,7 @@ export const query = graphql`
         slug
         layout
         category
+        link
         headerImage
         lead
         date(formatString: "DD MMMM YYYY")

@@ -97,6 +97,7 @@ query BlogPageQuery {
         fields {
           date(formatString: "MMMM DD, YYYY")
           slug
+          link
           category
           lead
         }

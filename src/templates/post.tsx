@@ -113,6 +113,7 @@ export const query = graphql`
         slug
         layout
         category
+        link
         headerImage
         lead
         date(formatString: "DD MMMM YYYY")
