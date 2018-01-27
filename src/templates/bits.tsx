@@ -1,7 +1,9 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import styled from 'styled-components'
 
 import { menuItems } from '../utils/menus'
+import { colors } from '../utils/theme'
 
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
@@ -37,6 +39,7 @@ interface BitsTemplateProps {
         slug: string
         layout?: string
         category?: string
+        link?: string
         headerImage?: string
         lead?: string
         date: string
@@ -50,6 +53,14 @@ interface BitsTemplateProps {
     }
   }
 }
+
+const PostTitle = styled.h3`
+  margin-top: 0;
+
+  a {
+    color: ${colors.blue60};
+  }
+`
 
 const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
@@ -77,6 +88,19 @@ const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
           </PageHeader>
           <Container>
             <PageContent>
+              {post.fields.link ? (
+                <PostTitle>
+                  <a
+                    href={post.fields.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {post.frontmatter.title} &raquo;
+                  </a>
+                </PostTitle>
+              ) : (
+                <PostTitle>{post.frontmatter.title}</PostTitle>
+              )}
               <MarkdownContent html={post.html} />
             </PageContent>
           </Container>
