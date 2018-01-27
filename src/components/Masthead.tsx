@@ -32,7 +32,7 @@ const MastheadLeft = styled.div`
 
 const MastheadTitleLink = styled(Link)`
   display: flex;
-  height: 100%;
+  flex: 1;
   align-items: center;
 
   @media ${mediaQueries.lg} {

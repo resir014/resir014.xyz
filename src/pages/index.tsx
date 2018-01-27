@@ -113,13 +113,14 @@ const HomepageFlavour = styled.p`
   font-size: 1.25rem;
   color: ${photonColors.grey90};
 
-  span {
-    ${sectionHeading(photonColors.white, 0, '.25rem')}
-  }
-
   @media ${mediaQueries.md} {
     font-size: 1.5rem;
   }
+`
+
+const HomepageFlavourIntro = styled.span`
+  ${sectionHeading(photonColors.white, 0, '.25rem')}
+  line-height: 1.45;
 `
 
 const PageFooter = styled.div`
@@ -183,7 +184,9 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           <HomepageContent>
             <HomepageTitle><span>Hey, call me Resi.</span></HomepageTitle>
             <HomepageFlavour>
-              <span>I'm a professional web developer based in Jakarta, Indonesia.</span>
+              <HomepageFlavourIntro>
+                I'm a professional web developer based in Jakarta, Indonesia.
+              </HomepageFlavourIntro>
             </HomepageFlavour>
             <PageFooter>
               <Button kind="nav-link" to="/about" color="white">More about me</Button>
