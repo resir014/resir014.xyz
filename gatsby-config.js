@@ -42,7 +42,15 @@ module.exports = {
           },
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants'
+          'gatsby-remark-smartypants',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1140,
+              quality: 90,
+              linkImagesToOriginal: false,
+            },
+          },
         ]
       }
     },
@@ -54,6 +62,8 @@ module.exports = {
       },
     },
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-transformer-json',
     'gatsby-plugin-twitter',
     'gatsby-plugin-sass',
