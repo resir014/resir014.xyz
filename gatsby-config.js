@@ -127,7 +127,12 @@ module.exports = {
               {
                 allMarkdownRemark(
                   limit: 10,
-                  filter: {id: {regex: "/posts/"}},
+                  filter: {
+                    id: {regex: "/posts/"},
+                    fields: {
+                      category: {eq: "blog"}
+                    }
+                  },
                   sort: {fields: [fields___date], order: DESC}
                 ) {
                   edges {
