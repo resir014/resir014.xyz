@@ -19,7 +19,7 @@ I've experimented a lot before I settled with this method, and admittedly this i
 
 ### Use a dedicated `store/` directory
 
-A lot of the guides/projects out there structure there store separately inside a root `actions` and `reducers` directory, e.g.
+A lot of the guides/projects out there structure their store separately inside a root `actions` and `reducers` directory, e.g.
 
 ```
 .
