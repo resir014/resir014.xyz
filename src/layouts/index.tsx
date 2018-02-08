@@ -68,12 +68,10 @@ const Overlay = styled.div`
   z-index: 200;
 
   ${(props: OverlayProps) => props.visible && css`
-    @media only screen and ${mediaQueries.md} {
-      visibility: visible;
-      opacity: .55;
-      background-color: $color-black;
-      transition-delay: 0ms;
-    }
+    visibility: visible;
+    opacity: .55;
+    background-color: $color-black;
+    transition-delay: 0ms;
   `}
 `
 
