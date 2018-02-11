@@ -9,11 +9,13 @@ import Container from '../components/Container'
 import Footer from '../components/Footer'
 
 import { menuItems } from '../utils/menus'
-import { colors, headerColors, colors } from '../utils/theme'
+import { headerColors, colors } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 import Button from '../components/Button'
+
+const backgroundImage = require('../assets/images/background.jpg')
 
 // TODO: stop using this when we finally convert to Photon colors:
 // http://design.firefox.com/photon/visuals/color.html
@@ -171,7 +173,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
     const { children, data, location } = this.props
     const { pathname } = location
     return (
-      <HomepageWrapper state={this.state} headerImage="/images/background.jpg">
+      <HomepageWrapper state={this.state} headerImage={backgroundImage}>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[

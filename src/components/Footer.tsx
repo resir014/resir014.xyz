@@ -10,6 +10,8 @@ import flavors from '../utils/flavorText'
 
 import Container from './Container'
 
+const ccLogo = require('../assets/images/cc-by-nc-sa.svg')
+
 const StyledFooter = styled.footer`
   margin-top: 3rem;
   padding: 2rem 0;
@@ -125,7 +127,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
               target="_blank"
             >
-              <img alt="Creative Commons License" src="/images/cc-by-nc-sa.svg" style={{ height: '31px' }} />
+              <img alt="Creative Commons License" src={ccLogo} style={{ height: '31px' }} />
             </a>
           </p>
           <p>

@@ -49,6 +49,8 @@ module.exports = {
               maxWidth: 1140,
               quality: 90,
               linkImagesToOriginal: false,
+              wrapperStyle: 'margin-top: 1.5rem; margin-bottom: 1.5rem; border: 8px solid var(--color-grey70);',
+              backgroundColor: 'var(--color-grey70)'
             },
           },
         ]
