@@ -10,6 +10,8 @@ import { colors, heights } from '../utils/theme'
 import { MenuProps, MenuItem } from '../utils/types'
 import mediaQueries from '../utils/mediaQueries'
 
+const ccLogo = require('../assets/images/cc-by-nc-sa.svg')
+
 interface ToggleMenuProps extends MenuProps {
   visible?: boolean
   onCloseButtonClick: () => any
@@ -125,7 +127,7 @@ const ToggleMenu: React.SFC<ToggleMenuProps> = ({ visible, items, onCloseButtonC
               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
               target="_blank"
             >
-              <img alt="Creative Commons License" src="/images/cc-by-nc-sa.svg" style={{ height: '31px' }} />
+              <img alt="Creative Commons License" src={ccLogo} style={{ height: '31px' }} />
             </a>
           </p>
           <p>
