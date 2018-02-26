@@ -3,6 +3,8 @@ category: blog
 layout: post
 title: "A type-safe approach to Redux stores in TypeScript"
 lead: "Redux and TypeScript are a match made in heaven. Here's how to make the most out of static types to make your Redux store as type-safe as possible."
+redirect_from:
+  - "/article/2018/02/07/a-type-safe-approach-to-redux-stores-in-typescript/"
 ---
 
 I've been writing a lot of code in TypeScript lately. And alongside that, I've also been writing a lot of React code alongside [Redux](https://redux.js.org/). This lightweight state management library has been a time-saver for many React developers alike. And its TypeScript support is exceptional too, with an actively-maintained [type declaration file](https://github.com/reactjs/redux/blob/master/index.d.ts).

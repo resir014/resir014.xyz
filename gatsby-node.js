@@ -25,7 +25,8 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
     let slug = permalink;
 
-    if (!slug && relativePath.includes('posts')) {
+    // PostKind: /article/
+    if (!slug && relativePath.includes('article')) {
       // Generate final path + graphql fields for blog posts
       const match = BLOG_POST_SLUG_REGEX.exec(relativePath)
       if (match) {
@@ -34,7 +35,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         const day = match[3]
         const filename = match[4]
 
-        slug = `/posts/${year}/${month}/${day}/${slugify(filename)}/`
+        slug = `/article/${year}/${month}/${day}/${slugify(filename)}/`
 
         const date = new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day))
 
@@ -142,7 +143,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   createRedirect({
     fromPath: '/blog/*',
     redirectInBrowser: true,
-    toPath: '/posts/:splat',
+    toPath: '/article/:splat',
+  })
+
+  // Redirect old `posts/` directory
+  createRedirect({
+    fromPath: '/posts/*',
+    redirectInBrowser: true,
+    toPath: '/article/:splat',
   })
 
   return new Promise((resolve, reject) => {
