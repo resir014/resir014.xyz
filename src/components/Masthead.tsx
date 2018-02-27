@@ -14,6 +14,7 @@ import { colors, heights } from '../utils/theme'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 import { MenuProps } from '../utils/types'
 import { sectionHeading } from '../utils/globalStyles'
+import { menuItems } from '../utils/menus'
 
 const MastheadInner = styled.div`
   display: flex;
@@ -52,6 +53,10 @@ const MastheadRight = styled.div`
 export const MastheadToggle = styled.div`
   display: flex;
   align-items: center;
+
+  @media ${mediaQueries.md} {
+    display: none;
+  }
 `
 
 export const MastheadToggleButton = styled.div`
@@ -112,6 +117,7 @@ class Masthead extends React.Component<MastheadProps, {}> {
             </MastheadTitleLink>
           </MastheadLeft>
           <MastheadRight>
+            <MastheadNav items={menuItems} />
             <MastheadToggle>
               <MastheadToggleButton onClick={onNavToggleClick}>☰</MastheadToggleButton>
             </MastheadToggle>
