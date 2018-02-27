@@ -20,6 +20,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       subtitle,
       link,
       header_image_url,
+      date,
     } = node.frontmatter
     const relativePath = createFilePath({ node, getNode, basePath: 'pages' })
 
@@ -52,13 +53,15 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
           slug = `/${year}/${month}/${day}/${slugify(filename)}/`
         }
 
-        const date = new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day))
+        const pubDate = date
+          ? new Date(date)
+          : new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day))
 
         // Blog posts are sorted by date and display the date in their header.
         createNodeField({
           node,
           name: 'date',
-          value: date.toJSON()
+          value: pubDate.toJSON()
         })
       }
     }
