@@ -1,5 +1,5 @@
 ---
-category: tv
+category: video
 layout: bits
 ---
 

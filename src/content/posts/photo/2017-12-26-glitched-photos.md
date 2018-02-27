@@ -1,5 +1,5 @@
 ---
-category: bits
+category: photo
 layout: bits
 ---
 

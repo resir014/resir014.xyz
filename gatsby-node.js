@@ -25,8 +25,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
 
     let slug = permalink;
 
-    // PostKind: /article/
-    if (!slug && relativePath.includes('article')) {
+    if (!slug && relativePath.includes('posts')) {
       // Generate final path + graphql fields for blog posts
       const match = BLOG_POST_SLUG_REGEX.exec(relativePath)
       if (match) {
@@ -35,7 +34,23 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         const day = match[3]
         const filename = match[4]
 
-        slug = `/article/${year}/${month}/${day}/${slugify(filename)}/`
+        // Separate slug by PostKind. If no PostKind is set, just use the
+        // fallback of /yyyy/mm/dd/post-title/
+        if (relativePath.includes('article')) {
+          slug = `/article/${year}/${month}/${day}/${slugify(filename)}/`
+        } else if (relativePath.includes('note')) {
+          slug = `/note/${year}/${month}/${day}/${slugify(filename)}/`
+        } else if (relativePath.includes('photo')) {
+          slug = `/photo/${year}/${month}/${day}/${slugify(filename)}/`
+        } else if (relativePath.includes('jam')) {
+          slug = `/jam/${year}/${month}/${day}/${slugify(filename)}/`
+        } else if (relativePath.includes('video')) {
+          slug = `/video/${year}/${month}/${day}/${slugify(filename)}/`
+        } else if (relativePath.includes('bookmark')) {
+          slug = `/bookmark/${year}/${month}/${day}/${slugify(filename)}/`
+        } else {
+          slug = `/${year}/${month}/${day}/${slugify(filename)}/`
+        }
 
         const date = new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day))
 

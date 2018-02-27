@@ -1,6 +1,7 @@
 ---
-category: tv
+category: video
 layout: bits
+title: "Build Your Next Website with React, GatsbyJS, and Netlify"
 ---
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2-UdpRZEMfk" frameborder="0" allowfullscreen></iframe>

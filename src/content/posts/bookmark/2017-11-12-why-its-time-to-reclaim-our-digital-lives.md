@@ -1,5 +1,5 @@
 ---
-category: bits
+category: bookmark
 layout: bits
 title: "Why it's time to reclaim our digital lives"
 link: "https://duncanstephen.co.uk/why-its-time-to-reclaim-our-digital-lives/"

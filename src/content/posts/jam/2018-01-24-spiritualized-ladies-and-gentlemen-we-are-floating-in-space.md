@@ -1,5 +1,5 @@
 ---
-category: tv
+category: jam
 layout: bits
 title: "Spiritualized - Ladies and Gentlemen We Are Floating in Space"
 ---

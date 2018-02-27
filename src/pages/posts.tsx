@@ -87,7 +87,7 @@ query BlogPageQuery {
     }
   }
   allMarkdownRemark(
-    filter: {id: {regex: "/article/"}},
+    filter: {id: {regex: "/posts/"}},
     sort: {fields: [fields___date], order: DESC}
   ) {
     edges {

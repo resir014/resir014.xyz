@@ -1,5 +1,5 @@
 ---
-category: bits
+category: note
 layout: bits
 ---
 
