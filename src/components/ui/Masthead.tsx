@@ -5,6 +5,10 @@ import { transparentize } from 'polished'
 
 import { pxSizes, emSizes, colors } from '../../styles/variables'
 import { MenuProps } from '../../utils/types'
+import { media, onEvent } from '../../styles/mixins'
+import menuItems from '../../utils/menuItems'
+
+import MastheadNav from './MastheadNav'
 
 interface MastheadProps extends MenuProps {
   title: string
@@ -13,19 +17,42 @@ interface MastheadProps extends MenuProps {
   onNavToggleClick: () => any
 }
 
-const MastheadTitle = styled.span`
-  color: ${colors.white};
+const MastheadInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+
+  ${media.md`
+    flex-direction: row;
+  `}
 `
 
-const Masthead: React.SFC<MastheadProps> = ({ className, children, title }) => (
+const MastheadTitle = styled.div`
+  color: ${colors.white};
+
+  ${media.md`
+    margin-right: 1rem;
+  `}
+`
+
+const MastheadTitleLink = styled(Link)`
+  ${onEvent()`
+    text-decoration: none;
+  `}
+`
+
+const Masthead: React.SFC<MastheadProps> = ({ className, children, items, title }) => (
   <header className={className}>
-    <MastheadTitle>{title}</MastheadTitle>
+    <MastheadInner>
+      <MastheadTitle><MastheadTitleLink to="/">{title}</MastheadTitleLink></MastheadTitle>
+      <MastheadNav items={menuItems} />
+    </MastheadInner>
   </header>
 )
 
 export default styled(Masthead)`
-  height: ${pxSizes.heights.masthead}px;
-  padding: 0 ${emSizes.containerPadding}rem;
+  padding: ${emSizes.containerPadding / 2}rem ${emSizes.containerPadding}rem;
   background-color: ${colors.grey90};
   color: ${transparentize(0.25, colors.white)};
 `
