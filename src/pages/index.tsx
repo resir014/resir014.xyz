@@ -17,6 +17,9 @@ import Button from '../components/ui/Button'
 import Divider from '../components/ui/Divider'
 import Page from '../components/page/Page'
 import PageHeader from '../components/page/PageHeader'
+import PageContent from '../components/page/PageContent'
+import HomepageSection from '../components/home/HomepageSection'
+import HeaderImage from '../components/page/HeaderImage'
 
 const backgroundImage = require('../assets/images/background.jpg')
 
@@ -76,44 +79,6 @@ const hasHeaderImage = css`
   }
 `
 
-const HomepageWrapperInner = styled.main`
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - 0.5px); // workaround for IE not centering shit properly w/ flexbox
-  min-height: 100%;
-  align-items: center;
-  justify-content: center;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: ${widths.normal};
-
-  @media ${mediaQueries.lg} {
-    max-width: ${widths.large};
-  }
-`
-
-const HomepageContent = styled.div`
-  width: 100%;
-`
-
-const HomepageTitle = styled.h1`
-  margin-top: 0;
-  margin-bottom: .5rem;
-  color: ${colors.grey90};
-  text-align: center;
-
-  span {
-    ${sectionHeading(colors.white, 0, '.25rem')}
-  }
-
-  @media ${mediaQueries.lg} {
-    font-size: 3rem;
-    line-height: 1.15;
-  }
-`
-
 const HomepageFlavour = styled.p`
   margin: 0;
   font-size: 1.25rem;
@@ -122,16 +87,6 @@ const HomepageFlavour = styled.p`
   @media ${mediaQueries.md} {
     font-size: 1.5rem;
   }
-`
-
-const HomepageFlavourIntro = styled.p`
-  text-align: center;
-  font-weight: 300;
-  line-height: 1.45;
-`
-
-const PageFooter = styled.div`
-  margin-top: 2rem;
 `
 
 interface IndexPageProps {
@@ -149,6 +104,9 @@ interface IndexPageProps {
           url: string
         }
       }
+    }
+    headerImage: {
+      sizes: { [key: string]: any }
     }
   }
 }
@@ -187,25 +145,30 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             { property: 'og:description', content: data.site.siteMetadata.description },
           ]}
         />
-        <PageHeader />
-        <HomepageWrapperInner>
-          <HomepageContent>
-            <Divider spacing="large" />
-            <HomepageTitle><span>Hey, call me Resi.</span></HomepageTitle>
-            <HomepageFlavour>
-              <HomepageFlavourIntro>
-                I'm a professional web developer based in Jakarta, Indonesia.
-              </HomepageFlavourIntro>
-            </HomepageFlavour>
-            <Divider spacing="large" />
-            <HomepageTitle><span>I do (mostly) JavaScript.</span></HomepageTitle>
-            <HomepageFlavour>
-              <HomepageFlavourIntro>
-                Skillsets are below.
-              </HomepageFlavourIntro>
-            </HomepageFlavour>
-          </HomepageContent>
-        </HomepageWrapperInner>
+        <PageHeader>
+          <HeaderImage sizes={data.headerImage.sizes} alt="" />
+        </PageHeader>
+        <PageContent>
+          <Divider spacing="large" />
+          <HomepageSection>
+            <h1>Hey, call me Resi.</h1>
+            <p>I'm a professional web developer based in Jakarta, Indonesia.</p>
+          </HomepageSection>
+          <Divider spacing="large" />
+          <HomepageSection>
+            <h1>I do (mostly) JavaScript.</h1>
+            <p>Here are my skillsets.</p>
+          </HomepageSection>
+          <Divider spacing="large" />
+          <HomepageSection>
+            <h1>Projects.</h1>
+          </HomepageSection>
+          <Divider spacing="large" />
+          <HomepageSection>
+            <h1>Posts.</h1>
+            <p>Ramblings about computer stuffs.</p>
+          </HomepageSection>
+        </PageContent>
       </Page>
     )
   }
@@ -223,6 +186,11 @@ export const query = graphql`
           name
           url
         }
+      }
+    }
+    headerImage: imageSharp(id: { regex: "/background.jpg/" }) {
+      sizes(maxWidth: 1920) {
+        ...GatsbyImageSharpSizes
       }
     }
   }

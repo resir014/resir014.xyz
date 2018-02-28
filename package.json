@@ -20,6 +20,7 @@
   "dependencies": {
     "color": "^2.0.1",
     "gatsby": "^1.9.192",
+    "gatsby-image": "^1.0.39",
     "gatsby-link": "^1.6.36",
     "gatsby-plugin-canonical-urls": "^1.0.12",
     "gatsby-plugin-catch-links": "^1.0.15",

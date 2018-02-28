@@ -3702,6 +3702,13 @@ gatsby-cli@^1.1.39:
     yargs "^8.0.2"
     yurnalist "^0.2.1"
 
+gatsby-image@^1.0.39:
+  version "1.0.39"
+  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-1.0.39.tgz#2e8fdab8138e5d36839398874e51783e72e6dedc"
+  dependencies:
+    babel-runtime "^6.26.0"
+    prop-types "^15.6.0"
+
 gatsby-link@^1.6.36:
   version "1.6.36"
   resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-1.6.36.tgz#3f969d38e9396e2650d3804543c76881eab98feb"

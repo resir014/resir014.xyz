@@ -75,7 +75,7 @@ const FooterHeader = styled.div`
       display: inline-block;
       margin: 0;
       padding: 0 0.25rem;
-      background-color: ${colors.orange50};
+      background-color: ${colors.teal50};
       color: ${colors.grey90};
     }
   }

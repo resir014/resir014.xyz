@@ -5,9 +5,8 @@ import { emSizes } from '../../styles/variables'
 
 const StyledPage = styled.main`
   display: block;
-  flex: 1;
-  position: relative;
-  padding: 0;
+  padding: ${emSizes.containerPadding}rem;
+  padding-bottom: 3rem;
 `
 
 interface PageProps {
