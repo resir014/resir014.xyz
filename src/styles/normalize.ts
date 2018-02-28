@@ -94,6 +94,7 @@ export default () => injectGlobal`
   h1, h2, h3, h4, h5, h6 {
     margin-top: 1.414rem;
     margin-bottom: .5rem;
+    font-family: ${fonts.serif};
     font-weight: 600;
     line-height: 1.2;
     color: ${colors.grey80};
@@ -105,11 +106,11 @@ export default () => injectGlobal`
     font-size: ${emSizes.headingSmall.h1}rem;
 
     ${media.md`
-      font-size: ${emSizes.headingMedium.h1}
+      font-size: ${emSizes.headingMedium.h1}rem;
     `}
 
     ${media.lg`
-      font-size: ${emSizes.headingLarge.h1}
+      font-size: ${emSizes.headingLarge.h1}rem;
     `}
   }
 
@@ -117,11 +118,11 @@ export default () => injectGlobal`
     font-size: ${emSizes.headingSmall.h2}rem;
 
     ${media.md`
-      font-size: ${emSizes.headingMedium.h2}
+      font-size: ${emSizes.headingMedium.h2}rem;
     `}
 
     ${media.lg`
-      font-size: ${emSizes.headingLarge.h2}
+      font-size: ${emSizes.headingLarge.h2}rem;
     `}
   }
 
@@ -129,11 +130,11 @@ export default () => injectGlobal`
     font-size: ${emSizes.headingSmall.h3}rem;
 
     ${media.md`
-      font-size: ${emSizes.headingMedium.h3}
+      font-size: ${emSizes.headingMedium.h3}rem;
     `}
 
     ${media.lg`
-      font-size: ${emSizes.headingLarge.h3}
+      font-size: ${emSizes.headingLarge.h3}rem;
     `}
   }
 
@@ -141,11 +142,11 @@ export default () => injectGlobal`
     font-size: ${emSizes.headingSmall.h4}rem;
 
     ${media.md`
-      font-size: ${emSizes.headingMedium.h4}
+      font-size: ${emSizes.headingMedium.h4}rem;
     `}
 
     ${media.lg`
-      font-size: ${emSizes.headingLarge.h4}
+      font-size: ${emSizes.headingLarge.h4}rem;
     `}
   }
 

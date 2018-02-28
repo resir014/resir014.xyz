@@ -15,6 +15,7 @@ import 'typeface-open-sans'
 normalize()
 import 'prism-themes/themes/prism-atom-dark.css'
 
+import LayoutRoot from '../components/ui/LayoutRoot'
 import Masthead from '../components/ui/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Footer from '../components/ui/Footer'
@@ -47,33 +48,6 @@ interface WrapperState {
   navigationVisible: boolean
 }
 
-const AppWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`
-
-const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: ${colors.grey90};
-  opacity: 0;
-  visibility: hidden;
-  cursor: pointer;
-  transition: opacity .2s ease, visibility 0ms linear .2s;
-  z-index: 200;
-
-  ${(props: OverlayProps) => props.visible && css`
-    visibility: visible;
-    opacity: .55;
-    background-color: $color-black;
-    transition-delay: 0ms;
-  `}
-`
-
 class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
   constructor(props: WrapperProps) {
     super(props)
@@ -96,7 +70,7 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
     const is404 = pathname === withPrefix('/404')
 
     return (
-      <AppWrapper>
+      <LayoutRoot>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -114,16 +88,9 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
           transparent={true}
           onNavToggleClick={this.onNavToggleClick}
         />
-        <ToggleMenu
-          items={menuItems}
-          pathname={pathname}
-          visible={navigationVisible}
-          onCloseButtonClick={this.onNavToggleClick}
-        />
         {children()}
-        <Overlay visible={navigationVisible} onClick={this.onNavToggleClick} />
-        {isHomepage || is404 ? null : <Footer title={data.site.siteMetadata.title} />}
-      </AppWrapper>
+        {is404 ? null : <Footer title={data.site.siteMetadata.title} />}
+      </LayoutRoot>
     )
   }
 }

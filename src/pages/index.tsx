@@ -14,6 +14,9 @@ import { sectionHeading, highlightedText } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 import Button from '../components/ui/Button'
+import Divider from '../components/ui/Divider'
+import Page from '../components/page/Page'
+import PageHeader from '../components/page/PageHeader'
 
 const backgroundImage = require('../assets/images/background.jpg')
 
@@ -99,6 +102,7 @@ const HomepageTitle = styled.h1`
   margin-top: 0;
   margin-bottom: .5rem;
   color: ${colors.grey90};
+  text-align: center;
 
   span {
     ${sectionHeading(colors.white, 0, '.25rem')}
@@ -120,8 +124,9 @@ const HomepageFlavour = styled.p`
   }
 `
 
-const HomepageFlavourIntro = styled.span`
-  ${sectionHeading(colors.white, 0, '.25rem')}
+const HomepageFlavourIntro = styled.p`
+  text-align: center;
+  font-weight: 300;
   line-height: 1.45;
 `
 
@@ -173,7 +178,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
     const { children, data, location } = this.props
     const { pathname } = location
     return (
-      <HomepageWrapper state={this.state} headerImage={backgroundImage}>
+      <Page>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -182,20 +187,26 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             { property: 'og:description', content: data.site.siteMetadata.description },
           ]}
         />
+        <PageHeader />
         <HomepageWrapperInner>
           <HomepageContent>
+            <Divider spacing="large" />
             <HomepageTitle><span>Hey, call me Resi.</span></HomepageTitle>
             <HomepageFlavour>
               <HomepageFlavourIntro>
                 I'm a professional web developer based in Jakarta, Indonesia.
               </HomepageFlavourIntro>
             </HomepageFlavour>
-            <PageFooter>
-              <Button kind="nav-link" to="/about" color="white">More about me</Button>
-            </PageFooter>
+            <Divider spacing="large" />
+            <HomepageTitle><span>I do (mostly) JavaScript.</span></HomepageTitle>
+            <HomepageFlavour>
+              <HomepageFlavourIntro>
+                Skillsets are below.
+              </HomepageFlavourIntro>
+            </HomepageFlavour>
           </HomepageContent>
         </HomepageWrapperInner>
-      </HomepageWrapper>
+      </Page>
     )
   }
 }

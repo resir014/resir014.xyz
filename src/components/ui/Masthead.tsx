@@ -53,6 +53,6 @@ const Masthead: React.SFC<MastheadProps> = ({ className, children, items, title 
 
 export default styled(Masthead)`
   padding: ${emSizes.containerPadding / 2}rem ${emSizes.containerPadding}rem;
-  background-color: ${colors.grey90};
+  background-color: ${colors.ink90};
   color: ${transparentize(0.25, colors.white)};
 `

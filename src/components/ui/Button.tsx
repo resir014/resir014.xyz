@@ -54,7 +54,7 @@ export default styled(Button)`
   cursor: pointer;
 
   ${onEvent()`
-    background-color: ${transparentize(0.8, colors.grey70)};
+    background-color: ${transparentize(0.9, colors.grey70)};
     text-decoration: none;
   `}
 `

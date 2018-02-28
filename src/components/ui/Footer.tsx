@@ -12,7 +12,6 @@ import Container from './Container'
 const ccLogo = require('../../assets/images/cc-by-nc-sa.svg')
 
 const StyledFooter = styled.footer`
-  margin-top: 3rem;
   padding: 2rem 0;
   color: ${colors.white};
   background-color: ${colors.grey90};
