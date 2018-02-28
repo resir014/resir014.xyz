@@ -13,7 +13,7 @@ import { headerColors, colors } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/globalStyles'
 import flavorText from '../utils/flavorText'
 import mediaQueries, { widths } from '../utils/mediaQueries'
-import Button from '../components/Button'
+import Button from '../components/ui/Button'
 
 const backgroundImage = require('../assets/images/background.jpg')
 

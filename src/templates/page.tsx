@@ -5,7 +5,7 @@ import { menuItems } from '../utils/menus'
 
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
-import Container from '../components/Container'
+import Container from '../components/ui/Container'
 import Footer from '../components/Footer'
 import PageHeader from '../components/PageHeader'
 import PageSubtitle from '../components/PageSubtitle'
@@ -78,8 +78,6 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
     </React.Fragment>
   )
 }
-
-const mapStateToProps = (state: ApplicationState) => state.layout
 
 export default PageTemplate
 

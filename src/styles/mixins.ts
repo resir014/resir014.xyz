@@ -1,7 +1,8 @@
 import { css, SimpleInterpolation } from 'styled-components'
+import { em } from 'polished'
 import { pxSizes } from './variables'
 
-export const getEmSize = (size: number) => size / pxSizes.fontSize.regular
+export const getEmSize = (size: number) => em(size, pxSizes.fontSize.regular)
 
 // use em in breakpoints to work properly cross-browser and support users
 // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
@@ -10,7 +11,7 @@ export const media = {
     styles: TemplateStringsArray,
     ...interpolations: SimpleInterpolation[]
   ) => css`
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.sm)}em) {
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.sm)}) {
       ${css(styles, ...interpolations)};
     }
   `,
@@ -18,7 +19,7 @@ export const media = {
     styles: TemplateStringsArray,
     ...interpolations: SimpleInterpolation[]
   ) => css`
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}em) {
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
       ${css(styles, ...interpolations)};
     }
   `,
@@ -26,7 +27,7 @@ export const media = {
     styles: TemplateStringsArray,
     ...interpolations: SimpleInterpolation[]
   ) => css`
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}em) {
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
       ${css(styles, ...interpolations)};
     }
   `,
@@ -34,7 +35,7 @@ export const media = {
     styles: TemplateStringsArray,
     ...interpolations: SimpleInterpolation[]
   ) => css`
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.xl)}em) {
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.xl)}) {
       ${css(styles, ...interpolations)};
     }
   `,

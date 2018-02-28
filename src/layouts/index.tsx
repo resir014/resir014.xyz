@@ -6,19 +6,18 @@ import styled, { css } from 'styled-components'
 import { menuItems } from '../utils/menus'
 import mediaQueries from '../utils/mediaQueries'
 import { colors } from '../utils/theme'
+import normalize from '../styles/normalize'
 
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'
 
 // inject global styles
-import 'normalize.css'
-import '../styles/globals.scss'
-
+normalize()
 import 'prism-themes/themes/prism-atom-dark.css'
 
-import Masthead from '../components/Masthead'
+import Masthead from '../components/ui/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
-import Footer from '../components/Footer'
+import Footer from '../components/ui/Footer'
 
 interface OverlayProps {
   visible: boolean
