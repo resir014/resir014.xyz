@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { media } from '../../styles/mixins'
-import { colors } from '../../styles/variables'
+import { colors, emSizes } from '../../styles/variables'
 
 interface PageSubtitleProps {
   className?: string
@@ -21,11 +21,10 @@ export default styled(PageSubtitle)`
   padding: 1rem 0;
   border-top: 4px solid ${colors.ink70};
   border-bottom: 4px solid ${colors.ink70};
-  font-size: 1.25rem;
+  font-size: ${emSizes.headingSmall.h3}rem;
   font-weight: 300;
 
-  ${media.sm`
-    width: 75%;
-    font-size: 1.5rem;
+  ${media.md`
+    font-size: ${emSizes.headingMedium.h3}rem;
   `}
 `

@@ -7,7 +7,6 @@ import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Footer from '../components/Footer'
 import PageHeader from '../components/PageHeader'
-import PostMeta from '../components/PostMeta'
 import PostMetaDate from '../components/PostMetaDate'
 import PostMetaCategory from '../components/PostMetaCategory'
 import Container from '../components/ui/Container'
@@ -17,6 +16,7 @@ import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import Page from '../components/page/Page'
 import PostHeader from '../components/post/PostHeader'
+import PostMeta from '../components/post/PostMeta'
 
 interface PostTemplateProps {
   location: {
