@@ -7,15 +7,16 @@ import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Footer from '../components/Footer'
 import PageHeader from '../components/PageHeader'
-import MarkdownContent from '../components/MarkdownContent'
-import PageContent from '../components/PageContent'
 import PostMeta from '../components/PostMeta'
 import PostMetaDate from '../components/PostMetaDate'
 import PostMetaCategory from '../components/PostMetaCategory'
-import PageTitle from '../components/PageTitle'
-import Page from '../components/page/Page'
-import PageSubtitle from '../components/page/PageSubtitle'
 import Container from '../components/ui/Container'
+import MarkdownContent from '../components/page/MarkdownContent'
+import PageTitle from '../components/PageTitle'
+import PageContent from '../components/page/PageContent'
+import PageSubtitle from '../components/page/PageSubtitle'
+import Page from '../components/page/Page'
+import PostHeader from '../components/post/PostHeader'
 
 interface PostTemplateProps {
   location: {
@@ -73,22 +74,24 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
         ]}
       />
       <article>
-        <PageHeader>
+        <PostHeader>
           <PostMeta hasBottomMargin={true}>
             <PostMetaDate>{post.fields.date}</PostMetaDate>
             {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
           </PostMeta>
           <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
+          {post.fields.headerImage && (
+            <Container size="xl">
+              <img src={post.fields.headerImage} alt="" />
+            </Container>
+          )}
+        </PostHeader>
+        <PageContent>
           <Container>
-            <img src={post.fields.headerImage} alt="" />
+            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+              <MarkdownContent html={post.html} />
           </Container>
-        </PageHeader>
-        <Container>
-          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-          <PageContent>
-            <MarkdownContent html={post.html} />
-          </PageContent>
-        </Container>
+        </PageContent>
       </article>
     </Page>
   )
