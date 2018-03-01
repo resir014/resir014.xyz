@@ -7,11 +7,12 @@ import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Container from '../components/ui/Container'
 import Footer from '../components/Footer'
-import PageHeader from '../components/PageHeader'
+import PageHeader from '../components/page/PageHeader'
 import PageSubtitle from '../components/PageSubtitle'
 import MarkdownContent from '../components/MarkdownContent'
 import PageContent from '../components/PageContent'
 import PageTitle from '../components/PageTitle'
+import Page from '../components/page/Page'
 
 interface PageTemplateProps {
   location: {
@@ -52,7 +53,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
   const { pathname } = location
 
   return (
-    <React.Fragment>
+    <Page>
       <Helmet
         title={`${post.frontmatter.title} · ${siteMetadata.title}`}
         meta={[
@@ -62,20 +63,19 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
           { property: 'og:description', content: post.fields.lead || post.excerpt },
         ]}
       />
-      <main>
-        <article>
-          <PageHeader headerImage={post.fields.headerImage || null}>
-            <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
-          </PageHeader>
-          <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <PageContent>
-              <MarkdownContent html={post.html} />
-            </PageContent>
-          </Container>
-        </article>
-      </main>
-    </React.Fragment>
+
+      <PageHeader>
+        <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
+      </PageHeader>
+      <article>
+        <Container>
+          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+          <PageContent>
+            <MarkdownContent html={post.html} />
+          </PageContent>
+        </Container>
+      </article>
+    </Page>
   )
 }
 
