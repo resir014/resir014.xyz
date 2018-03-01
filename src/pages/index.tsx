@@ -153,6 +153,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           <HomepageSection>
             <h1>Hey, call me Resi.</h1>
             <p>I'm a professional web developer based in Jakarta, Indonesia.</p>
+            <Button kind="nav-link" color="primary" size="lg" to="/about">More about me</Button>
           </HomepageSection>
           <Divider spacing="large" />
           <HomepageSection>
