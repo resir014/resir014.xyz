@@ -85,7 +85,7 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
           title={data.site.siteMetadata.title}
           items={menuItems}
           pathname={pathname}
-          transparent={true}
+          transparent
           onNavToggleClick={this.onNavToggleClick}
         />
         {children()}

@@ -145,7 +145,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             { property: 'og:description', content: data.site.siteMetadata.description },
           ]}
         />
-        <PageHeader hasImage={true}>
+        <PageHeader hasImage>
           <HeaderImage sizes={data.headerImage.sizes} alt="" />
         </PageHeader>
         <PageContent>
