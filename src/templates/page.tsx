@@ -8,10 +8,10 @@ import ToggleMenu from '../components/ToggleMenu'
 import Container from '../components/ui/Container'
 import Footer from '../components/Footer'
 import PageHeader from '../components/page/PageHeader'
-import PageSubtitle from '../components/PageSubtitle'
 import MarkdownContent from '../components/MarkdownContent'
-import PageContent from '../components/PageContent'
-import PageTitle from '../components/PageTitle'
+import PageSubtitle from '../components/page/PageSubtitle'
+import PageContent from '../components/page/PageContent'
+import PageTitle from '../components/page/PageTitle'
 import Page from '../components/page/Page'
 
 interface PageTemplateProps {
@@ -63,17 +63,16 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
           { property: 'og:description', content: post.fields.lead || post.excerpt },
         ]}
       />
-
-      <PageHeader>
-        <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
-      </PageHeader>
       <article>
-        <Container>
-          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-          <PageContent>
-            <MarkdownContent html={post.html} />
-          </PageContent>
-        </Container>
+        <PageHeader>
+          <PageTitle>{post.frontmatter.title}</PageTitle>
+        </PageHeader>
+        <PageContent>
+            <Container>
+              {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+                <MarkdownContent html={post.html} />
+            </Container>
+        </PageContent>
       </article>
     </Page>
   )

@@ -3,18 +3,18 @@ import styled from 'styled-components'
 
 import { emSizes } from '../../styles/variables'
 
-const StyledPage = styled.main`
+const StyledPageContent = styled.main`
   display: block;
   padding: ${emSizes.containerPadding}rem;
   padding-bottom: 3rem;
 `
 
-interface PageProps {
+interface PageContentProps {
   className?: string
 }
 
-const Page: React.SFC<PageProps> = ({ children, className }) => (
-  <StyledPage className={className}>{children}</StyledPage>
+const PageContent: React.SFC<PageContentProps> = ({ children, className }) => (
+  <StyledPageContent className={className}>{children}</StyledPageContent>
 )
 
-export default Page
+export default PageContent

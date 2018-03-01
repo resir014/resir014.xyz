@@ -145,7 +145,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             { property: 'og:description', content: data.site.siteMetadata.description },
           ]}
         />
-        <PageHeader>
+        <PageHeader hasImage={true}>
           <HeaderImage sizes={data.headerImage.sizes} alt="" />
         </PageHeader>
         <PageContent>
@@ -163,6 +163,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           <Divider spacing="large" />
           <HomepageSection>
             <h1>Projects.</h1>
+            <Button kind="nav-link" color="primary" size="lg" to="/projects">View all projects</Button>
           </HomepageSection>
           <Divider spacing="large" />
           <HomepageSection>

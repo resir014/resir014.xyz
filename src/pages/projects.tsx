@@ -8,11 +8,12 @@ import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
-import PageHeader from '../components/PageHeader'
 import FeaturedProject from '../components/FeaturedProject'
 import ProjectItemList from '../components/ProjectItemList'
-import PageTitle from '../components/PageTitle'
-import PageContent from '../components/PageContent'
+import Page from '../components/page/Page'
+import PageHeader from '../components/page/PageHeader'
+import PageTitle from '../components/page/PageTitle'
+import PageContent from '../components/page/PageContent'
 
 import { menuItems } from '../utils/menus'
 import { ProjectNode } from '../utils/types'
@@ -47,7 +48,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
   const featuredProject = getFeaturedProject(data.allMarkdownRemark.edges, 'aquellex.ws')
 
   return (
-    <React.Fragment>
+    <Page>
       <Helmet
         title={`Projects · ${siteMetadata.title}`}
         meta={[
@@ -56,26 +57,24 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
           { property: 'og:description', content: data.site.siteMetadata.description },
         ]}
       />
-      <main>
-        <article>
-          <PageHeader>
-            <PageTitle><span>Projects</span></PageTitle>
-          </PageHeader>
-          <PageContent>
-            {
-              featuredProject
-                ? <FeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
-                : null
-            }
-            <Container>
-              <ProjectItemList title="Web development stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')} />
-              <ProjectItemList title="Open source stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')} />
-              <ProjectItemList title="Other stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')} />
-            </Container>
-          </PageContent>
-        </article>
-      </main>
-    </React.Fragment>
+      <article>
+        <PageHeader>
+          <PageTitle>Projects</PageTitle>
+        </PageHeader>
+        <PageContent>
+          {
+            featuredProject
+              ? <FeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
+              : null
+          }
+          <Container>
+            <ProjectItemList title="Web development stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')} />
+            <ProjectItemList title="Open source stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')} />
+            <ProjectItemList title="Other stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')} />
+          </Container>
+        </PageContent>
+      </article>
+    </Page>
   )
 }
 

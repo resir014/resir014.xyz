@@ -1,11 +1,12 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { media, getEmSize } from '../../styles/mixins'
 import { pxSizes } from '../../styles/variables'
 
-interface ContainerProps extends React.HTMLProps<HTMLDivElement> {
+interface ContainerProps {
   className?: string
+  size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
 const Container: React.SFC<ContainerProps> = ({ className, children }) => (
@@ -15,17 +16,18 @@ const Container: React.SFC<ContainerProps> = ({ className, children }) => (
 )
 
 export default styled(Container)`
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
   margin-left: auto;
   margin-right: auto;
-  max-width: ${getEmSize(pxSizes.widths.md)};
 
-  ${media.lg`
+  ${props => props.size !== 'fluid' && css`
+    max-width: ${getEmSize(pxSizes.widths.md)};
+  `}
+
+  ${props => props.size === 'lg' && media.lg`
     max-width: ${getEmSize(pxSizes.widths.lg)};
   `}
 
-  ${media.xl`
+  ${props => props.size === 'xl' && media.xl`
     max-width: ${getEmSize(pxSizes.widths.xl)};
   `}
 `

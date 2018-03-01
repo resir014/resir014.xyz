@@ -95,7 +95,7 @@ export default styled(MarkdownContent)`
     font-weight: bold;
   }
 
-  .footnotes': {
+  .footnotes {
     margin-top: 2rem;
     font-size: 85%;
 
@@ -107,7 +107,7 @@ export default styled(MarkdownContent)`
     }
   }
 
-  .lead': {
+  .lead {
     font-size: 1.25rem;
     font-weight: 300;
 

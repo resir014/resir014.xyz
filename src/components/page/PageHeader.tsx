@@ -6,6 +6,7 @@ import { media } from '../../styles/mixins'
 
 interface PageHeaderProps {
   className?: string
+  hasImage?: boolean
 }
 
 const PageHeader: React.SFC<PageHeaderProps> = ({ className, children }) => (
@@ -26,11 +27,11 @@ export default styled(PageHeader)`
     ${colors.teal50}, ${colors.purple70});
   z-index: -1;
 
-  ${media.md`
+  ${props => props.hasImage && media.md`
     height: 18rem;
   `}
 
-  ${media.lg`
+  ${props => props.hasImage && media.lg`
     height: 22rem;
   `}
 `

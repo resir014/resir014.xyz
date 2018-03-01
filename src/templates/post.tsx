@@ -5,16 +5,17 @@ import { menuItems } from '../utils/menus'
 
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
-import Container from '../components/Container'
 import Footer from '../components/Footer'
 import PageHeader from '../components/PageHeader'
-import PageSubtitle from '../components/PageSubtitle'
 import MarkdownContent from '../components/MarkdownContent'
 import PageContent from '../components/PageContent'
 import PostMeta from '../components/PostMeta'
 import PostMetaDate from '../components/PostMetaDate'
 import PostMetaCategory from '../components/PostMetaCategory'
 import PageTitle from '../components/PageTitle'
+import Page from '../components/page/Page'
+import PageSubtitle from '../components/page/PageSubtitle'
+import Container from '../components/ui/Container'
 
 interface PostTemplateProps {
   location: {
@@ -58,7 +59,7 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
   const { pathname } = location
 
   return (
-    <React.Fragment>
+    <Page>
       <Helmet
         title={`${post.frontmatter.title} · ${siteMetadata.title}`}
         meta={[
@@ -71,24 +72,25 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
           { property: 'og:article:published_time', content: post.fields.date_ogp },
         ]}
       />
-      <main>
-        <article>
-          <PageHeader headerImage={post.fields.headerImage || null}>
-            <PostMeta hasBottomMargin={true}>
-              <PostMetaDate>{post.fields.date}</PostMetaDate>
-              {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
-            </PostMeta>
-            <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
-          </PageHeader>
+      <article>
+        <PageHeader>
+          <PostMeta hasBottomMargin={true}>
+            <PostMetaDate>{post.fields.date}</PostMetaDate>
+            {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
+          </PostMeta>
+          <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
           <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <PageContent>
-              <MarkdownContent html={post.html} />
-            </PageContent>
+            <img src={post.fields.headerImage} alt="" />
           </Container>
-        </article>
-      </main>
-    </React.Fragment>
+        </PageHeader>
+        <Container>
+          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+          <PageContent>
+            <MarkdownContent html={post.html} />
+          </PageContent>
+        </Container>
+      </article>
+    </Page>
   )
 }
 

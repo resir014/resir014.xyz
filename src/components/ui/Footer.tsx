@@ -4,7 +4,7 @@ import * as Color from 'color'
 import styled from 'styled-components'
 
 import flavors from '../../utils/flavorText'
-import { colors, fonts } from '../../styles/variables'
+import { colors, fonts, emSizes } from '../../styles/variables'
 import { media, onEvent } from '../../styles/mixins'
 
 import Container from './Container'
@@ -12,7 +12,7 @@ import Container from './Container'
 const ccLogo = require('../../assets/images/cc-by-nc-sa.svg')
 
 const StyledFooter = styled.footer`
-  padding: 2rem 0;
+  padding: 2rem ${emSizes.containerPadding}rem;
   color: ${colors.white};
   background-color: ${colors.grey90};
 
@@ -112,7 +112,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
 
     return (
       <StyledFooter>
-        <Container>
+        <Container size="xl">
           <FooterHeader>
             <h3 className="footer-title"><Link to="/">{this.props.title}</Link></h3>
             <p className="footer-flavour" title="Click to randomise!" onClick={() => this.randomiseSplash()}>
