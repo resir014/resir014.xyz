@@ -4,14 +4,15 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
 
-import PageTitle from '../components/PageTitle'
-import PageContent from '../components/PageContent'
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Footer from '../components/Footer'
-import Container from '../components/Container'
-import PageHeader from '../components/PageHeader'
 import BlogPostItem from '../components/BlogPostItem'
+import Container from '../components/ui/Container'
+import Page from '../components/page/Page'
+import PageHeader from '../components/page/PageHeader'
+import PageTitle from '../components/page/PageTitle'
+import PageContent from '../components/page/PageContent'
 
 import { menuItems } from '../utils/menus'
 import { BlogPostNode } from '../utils/types'
@@ -47,7 +48,7 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
   const { pathname } = location
 
   return (
-    <React.Fragment>
+    <Page>
       <Helmet
         title={`Posts · ${siteMetadata.title}`}
         meta={[
@@ -56,19 +57,19 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
           { property: 'og:description', content: data.site.siteMetadata.description },
         ]}
       />
-      <main>
+      <div>
         <PageHeader>
-          <PageTitle><span>Posts</span></PageTitle>
+          <PageTitle>Posts</PageTitle>
         </PageHeader>
-        <Container>
+        <Container size="fluid">
           <PageContent>
             <BlogPostList>
               {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
             </BlogPostList>
           </PageContent>
         </Container>
-      </main>
-    </React.Fragment>
+      </div>
+    </Page>
   )
 }
 

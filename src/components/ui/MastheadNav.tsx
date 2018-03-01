@@ -28,6 +28,10 @@ const MastheadNavItem = styled.span`
 `
 
 const MastheadNavLink = styled(Link)`
+  &.is-active {
+    color: ${colors.white};
+  }
+
   ${onEvent()`
     color: ${colors.white};
     text-decoration: none;
