@@ -15,8 +15,10 @@ import PageTitle from '../components/PageTitle'
 import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import Page from '../components/page/Page'
+import HeaderImage from '../components/page/HeaderImage'
 import PostHeader from '../components/post/PostHeader'
 import PostMeta from '../components/post/PostMeta'
+import PostThumbnail from '../components/post/PostThumbnail'
 
 interface PostTemplateProps {
   location: {
@@ -51,6 +53,9 @@ interface PostTemplateProps {
         layout: string
       }
     }
+    headerImage: {
+      sizes: { [key: string]: any }
+    }
   }
 }
 
@@ -81,9 +86,9 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
           </PostMeta>
           <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
           {post.fields.headerImage && (
-            <Container size="xl">
+            <PostThumbnail>
               <img src={post.fields.headerImage} alt="" />
-            </Container>
+            </PostThumbnail>
           )}
         </PostHeader>
         <PageContent>

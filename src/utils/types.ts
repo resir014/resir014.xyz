@@ -21,6 +21,7 @@ export interface BlogPostNode {
       layout?: string
       link?: string
       headerImage?: string
+      headerRegex?: string
       lead?: string
       date: string
     }
