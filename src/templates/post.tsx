@@ -3,21 +3,17 @@ import Helmet from 'react-helmet'
 
 import { menuItems } from '../utils/menus'
 
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Footer from '../components/Footer'
-import PageHeader from '../components/PageHeader'
-import PostMetaDate from '../components/PostMetaDate'
-import PostMetaCategory from '../components/PostMetaCategory'
 import Container from '../components/ui/Container'
 import MarkdownContent from '../components/page/MarkdownContent'
-import PageTitle from '../components/PageTitle'
+import PageHeader from '../components/page/PageHeader'
 import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import Page from '../components/page/Page'
 import HeaderImage from '../components/page/HeaderImage'
 import PostHeader from '../components/post/PostHeader'
+import PostTitle from '../components/post/PostTitle'
 import PostMeta from '../components/post/PostMeta'
+import PostMetaItem from '../components/post/PostMetaItem'
 import PostThumbnail from '../components/post/PostThumbnail'
 
 interface PostTemplateProps {
@@ -80,11 +76,11 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
       />
       <article>
         <PostHeader>
-          <PostMeta hasBottomMargin={true}>
-            <PostMetaDate>{post.fields.date}</PostMetaDate>
-            {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
+          <PostMeta>
+            <PostMetaItem>{post.fields.date}</PostMetaItem>
+            {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
+            <PostTitle darkBackground>{post.frontmatter.title}</PostTitle>
           </PostMeta>
-          <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
         </PostHeader>
         {post.fields.headerImage && (
           <PostThumbnail>

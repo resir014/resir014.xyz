@@ -1,9 +1,10 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { transparentize } from 'polished'
+import { colors } from '../../styles/variables'
 
 interface PostMetaProps {
   className?: string
-  hasBottomMargin?: boolean
 }
 
 const PostMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
@@ -11,5 +12,5 @@ const PostMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
 )
 
 export default styled(PostMeta)`
-  margin-bottom: ${props => props.hasBottomMargin ? '.5rem' : '0'};
+  color ${transparentize(0.5, colors.grey90)};
 `
