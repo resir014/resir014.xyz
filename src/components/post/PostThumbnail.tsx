@@ -10,36 +10,40 @@ interface PostThumbnailProps {
   className?: string
 }
 
-const StyledThumbnail = styled(Container)`
+const StyledThumbnail = styled(Container)
+
+const PostThumbnail: React.SFC<PostThumbnailProps> = ({ className, children }) => (
+  <Container size="xl" className={className}>
+    {children}
+  </Container>
+)
+
+export default styled(PostThumbnail)`
   position: relative;
-  height: 30rem;
   margin-top: ${emSizes.containerPadding}rem;
   background: linear-gradient(to bottom right,
     ${colors.teal50}, ${colors.purple70});
 
+  ${media.lg`
+    max-height: 30rem;
+  `}
+
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    margin: 0 auto;
     opacity: 0.7;
 
     @supports(mix-blend-mode: overlay) {
       mix-blend-mode: overlay;
       opacity: 1;
     }
+
+    ${media.lg`
+      max-height: 30rem;
+
+      @supports (object-fit: cover) {
+        width: 100%;
+        object-fit: cover;
+      }
+    `}
   }
-`
-
-const PostThumbnail: React.SFC<PostThumbnailProps> = ({ className, children }) => (
-  <StyledThumbnail size="xl" className={className}>
-    {children}
-  </StyledThumbnail>
-)
-
-export default styled(PostThumbnail)`
-  padding: 3rem 1.5rem 0;
-  text-align: center;
 `
