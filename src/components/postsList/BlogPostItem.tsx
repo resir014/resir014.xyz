@@ -93,7 +93,7 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
           <StyledPostMetaItem><Link to={node.fields.slug}>{date}</Link></StyledPostMetaItem>
           <StyledPostMetaItem>{category}</StyledPostMetaItem>
         </StyledPostMeta>
-        {node.fields.category === 'blog' && this.renderArticleTemplate(node)}
+        {node.fields.category === 'article' && this.renderArticleTemplate(node)}
         {node.fields.category === 'note' && this.renderNoteTemplate(node)}
         {node.fields.category === 'video' && this.renderNoteTemplate(node)}
         {node.fields.category === 'photo' && this.renderNoteTemplate(node)}

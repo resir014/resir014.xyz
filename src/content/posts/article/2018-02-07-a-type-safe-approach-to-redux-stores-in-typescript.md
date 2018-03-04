@@ -333,7 +333,7 @@ Now let's see how well this whole structure hooks up to React.
 
 We're now going to connect our React component to Redux. Since we're mapping our state, we need to combine the state object of the store we're mapping to our component props as well.
 
-```ts
+```tsx
 // ./src/containers/ChatWindow.tsx
 
 import * as React from 'react';
@@ -370,7 +370,7 @@ const ChatWindow: React.SFC<AllProps> = ({ username, messages }) => (
 
 The `react-redux` `connect()` function is what connects our React component to the redux store. Note that we're **only** going to use the `mapStateToProps()` call in this case.
 
-```ts
+```tsx
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
@@ -388,7 +388,7 @@ Easy, when we call `connect()` on a component, it will also pass the `dispatch` 
 
 We can create a base interface for this. I usually put this inside `./src/store/index.ts`.
 
-```ts
+```tsx
 // Additional props for connected React components. This prop is passed by default with `connect()`
 export interface ConnectedReduxProps<S> {
   // Correct types for the `dispatch` prop passed by `react-redux`.
@@ -399,7 +399,7 @@ export interface ConnectedReduxProps<S> {
 
 So let's go back to the `ChatWindowProps` interface we made earlier, and make it extend the interface we just made:
 
-```ts
+```tsx
 import { connect, Dispatch } from 'react-redux';
 import { ConnectedReduxProps } from 'store';
 import { ChatState } from 'store/chat/types';

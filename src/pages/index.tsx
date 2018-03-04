@@ -4,10 +4,9 @@ import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'
 
 import { menuItems } from '../utils/menus'
-import { headerColors, colors } from '../utils/theme'
-import { sectionHeading, highlightedText } from '../utils/globalStyles'
-import flavorText from '../utils/flavorText'
-import mediaQueries, { widths } from '../utils/mediaQueries'
+import { BlogPostField, ProjectField } from '../utils/types'
+import getFeaturedProject from '../utils/getFeaturedProject'
+
 import Button from '../components/ui/Button'
 import Divider from '../components/ui/Divider'
 import Page from '../components/page/Page'
@@ -15,12 +14,11 @@ import PageHeader from '../components/page/PageHeader'
 import HeaderImage from '../components/page/HeaderImage'
 import HomepageContent from '../components/home/HomepageContent'
 import HomepageSection from '../components/home/HomepageSection'
+import BlogPostItem from '../components/postsList/BlogPostItem'
+import HomepageBlogContainer from '../components/home/HomepageBlogContainer'
+import FeaturedProject from '../components/projects/FeaturedProject'
 
 const backgroundImage = require('../assets/images/background.jpg')
-
-// TODO: stop using this when we finally convert to Photon colors:
-// http://design.firefox.com/photon/visuals/color.html
-const getHeaderColor = (index: number) => headerColors[index]
 
 interface HomepageWrapperProps {
   state: {
@@ -30,59 +28,6 @@ interface HomepageWrapperProps {
   headerImage: string
   className?: string
 }
-
-const HomepageWrapperRoot: React.SFC<HomepageWrapperProps> = ({ state, className, headerImage, children }) => (
-  <div className={className}>
-    {children}
-  </div>
-)
-
-const HomepageWrapper = styled(HomepageWrapperRoot)`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to bottom right,
-    ${props => getHeaderColor(props.state.gradientStartIndex)},
-    ${props => getHeaderColor(props.state.gradientEndIndex)});
-
-  ${props => props.headerImage && hasHeaderImage}
-`
-
-const hasHeaderImage = css`
-  z-index: 1;
-
-  &:before {
-    content: " ";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    background-image: url(${(props: HomepageWrapperProps) => props.headerImage});
-    background-size: cover;
-    background-position-y: center;
-    opacity: 0.7;
-
-    @supports(mix-blend-mode: luminosity) {
-      mix-blend-mode: luminosity;
-      opacity: 1;
-    }
-  }
-`
-
-const HomepageFlavour = styled.p`
-  margin: 0;
-  font-size: 1.25rem;
-  color: ${colors.grey90};
-
-  @media ${mediaQueries.md} {
-    font-size: 1.5rem;
-  }
-`
 
 interface IndexPageProps {
   location: {
@@ -103,6 +48,12 @@ interface IndexPageProps {
     headerImage: {
       sizes: { [key: string]: any }
     }
+    latestPosts: {
+      edges: BlogPostField[]
+    }
+    projects: {
+      edges: ProjectField[]
+    }
   }
 }
 
@@ -120,15 +71,9 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
     }
   }
 
-  public componentWillMount() {
-    this.setState({
-      gradientStartIndex: Math.floor(Math.random() * headerColors.length),
-      gradientEndIndex: Math.floor(Math.random() * headerColors.length)
-    })
-  }
-
   public render() {
     const { children, data, location } = this.props
+    const featuredProject = getFeaturedProject(data.projects.edges, 'aquellex.ws')
     const { pathname } = location
     return (
       <Page>
@@ -158,13 +103,22 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           <Divider spacing="large" />
           <HomepageSection>
             <h1>Projects.</h1>
+            {
+            featuredProject
+              ? <FeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
+              : null
+            }
             <Button kind="nav-link" color="primary" size="lg" to="/projects">View all projects</Button>
           </HomepageSection>
           <Divider spacing="large" />
           <HomepageSection>
             <h1>Posts.</h1>
             <p>Ramblings about computer stuffs.</p>
+            <Button kind="nav-link" color="primary" size="lg" to="/posts">View all posts</Button>
           </HomepageSection>
+          <HomepageBlogContainer size="lg">
+            {data.latestPosts.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
+          </HomepageBlogContainer>
         </HomepageContent>
       </Page>
     )
@@ -188,6 +142,53 @@ export const query = graphql`
     headerImage: imageSharp(id: { regex: "/background.jpg/" }) {
       sizes(maxWidth: 1920) {
         ...GatsbyImageSharpSizes
+      }
+    }
+    latestPosts: allMarkdownRemark(
+      filter: {id: {regex: "/posts/"}},
+      limit: 3,
+      sort: {fields: [fields___date], order: DESC}
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            date(formatString: "MMMM DD, YYYY")
+            slug
+            link
+            category
+            lead
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+    projects: allMarkdownRemark(
+      filter: {id: {regex: "/projects/"}}
+      sort: {fields: [fields___year], order: DESC}
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            year
+            description
+            tags
+            slug
+            headerImage
+            category
+            lead
+            project_url
+            jumpToProject
+          }
+          frontmatter {
+            title
+          }
+        }
       }
     }
   }

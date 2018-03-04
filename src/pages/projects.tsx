@@ -15,6 +15,8 @@ import ProjectItemList from '../components/projects/ProjectItemList'
 
 import { menuItems } from '../utils/menus'
 import { ProjectField } from '../utils/types'
+import filterProjectsByCategory from '../utils/filterProjectsByCategory'
+import getFeaturedProject from '../utils/getFeaturedProject'
 
 interface ProjectsPageProps {
   location: {
@@ -75,14 +77,6 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
     </Page>
   )
 }
-
-const getFeaturedProject = (edges: ProjectField[], name: string) => {
-  return edges.filter(edge => edge.node.frontmatter.title === name)[0]
-}
-
-const filterProjectsByCategory = (edges: ProjectField[], category: string) => (
-  edges.filter(edge => edge.node.fields.category === category)
-)
 
 export default ProjectsPage
 

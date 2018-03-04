@@ -18,7 +18,6 @@ export default styled(HomepageSection)`
   p {
     font-size: 1.25rem;
     font-weight: 300;
-    color: ${colors.grey90};
 
     ${media.md`
       font-size: 1.5rem;

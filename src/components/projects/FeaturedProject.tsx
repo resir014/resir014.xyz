@@ -15,7 +15,7 @@ import { media } from '../../styles/mixins'
 const FeaturedProjectWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
   color: ${transparentize(0.4, colors.white)};
 
   &:first-of-type {
@@ -27,7 +27,7 @@ const FeaturedProjectWrapper = styled.section`
   `}
 
   ${media.lg`
-    margin-bottom: 3rem;
+    margin: 3rem 0;
   `}
 
   .column {
