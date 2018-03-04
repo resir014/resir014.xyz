@@ -17,7 +17,6 @@ import 'prism-themes/themes/prism-atom-dark.css'
 
 import LayoutRoot from '../components/ui/LayoutRoot'
 import Masthead from '../components/ui/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
 import Footer from '../components/ui/Footer'
 
 interface OverlayProps {

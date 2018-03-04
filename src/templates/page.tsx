@@ -3,10 +3,7 @@ import Helmet from 'react-helmet'
 
 import { menuItems } from '../utils/menus'
 
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
 import Container from '../components/ui/Container'
-import Footer from '../components/Footer'
 import PageHeader from '../components/page/PageHeader'
 import MarkdownContent from '../components/page/MarkdownContent'
 import PageSubtitle from '../components/page/PageSubtitle'
