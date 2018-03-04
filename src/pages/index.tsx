@@ -16,7 +16,10 @@ import HomepageContent from '../components/home/HomepageContent'
 import HomepageSection from '../components/home/HomepageSection'
 import BlogPostItem from '../components/postsList/BlogPostItem'
 import HomepageBlogContainer from '../components/home/HomepageBlogContainer'
-import FeaturedProject from '../components/projects/FeaturedProject'
+import HomepageSectionTitle from '../components/home/HomepageSectionTitle'
+import HomepageSectionDescription from '../components/home/HomepageSectionDescription'
+import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
+import HomepageFeaturedProject from '../components/home/HomepageFeaturedProject'
 
 const backgroundImage = require('../assets/images/background.jpg')
 
@@ -91,34 +94,59 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
         <HomepageContent>
           <Divider spacing="large" />
           <HomepageSection>
-            <h1>Hey, call me Resi.</h1>
-            <p>I'm a professional web developer based in Jakarta, Indonesia.</p>
-            <Button kind="nav-link" color="primary" size="lg" to="/about">More about me</Button>
+            <HomepageSectionTitle>Hey, call me Resi.</HomepageSectionTitle>
+            <HomepageSectionDescription>
+              I'm a professional web developer based in Jakarta, Indonesia.
+            </HomepageSectionDescription>
+            <HomepageSectionFooter>
+              <Button kind="nav-link" color="primary" size="lg" to="/about">More about me</Button>
+            </HomepageSectionFooter>
           </HomepageSection>
           <Divider spacing="large" />
           <HomepageSection>
-            <h1>I do (mostly) JavaScript.</h1>
-            <p>Here are my skillsets.</p>
+            <HomepageSectionTitle>I do (mostly) JavaScript.</HomepageSectionTitle>
+            <HomepageSectionDescription>
+              Here are some technologies I'm currently crazy about.
+            </HomepageSectionDescription>
+            <HomepageSectionFooter>
+              <Button kind="nav-link" color="primary" size="lg" to="/about">View entire skillset</Button>
+            </HomepageSectionFooter>
           </HomepageSection>
           <Divider spacing="large" />
           <HomepageSection>
-            <h1>Projects.</h1>
+            <HomepageSectionTitle>Projects.</HomepageSectionTitle>
             {
             featuredProject
-              ? <FeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
+              ? <HomepageFeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
               : null
             }
-            <Button kind="nav-link" color="primary" size="lg" to="/projects">View all projects</Button>
+            <HomepageSectionFooter>
+              <Button kind="nav-link" color="primary" size="lg" to="/projects">View all projects</Button>
+            </HomepageSectionFooter>
           </HomepageSection>
           <Divider spacing="large" />
           <HomepageSection>
-            <h1>Posts.</h1>
-            <p>Ramblings about computer stuffs.</p>
-            <Button kind="nav-link" color="primary" size="lg" to="/posts">View all posts</Button>
+            <HomepageSectionTitle>Let's talk!</HomepageSectionTitle>
+            <HomepageSectionDescription>
+              Feel free to get in touch with me about anything.
+            </HomepageSectionDescription>
+            <HomepageSectionFooter>
+              <Button kind="nav-link" color="primary" size="lg" to="/contact">Get in touch.</Button>
+            </HomepageSectionFooter>
           </HomepageSection>
-          <HomepageBlogContainer size="lg">
-            {data.latestPosts.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
-          </HomepageBlogContainer>
+          <Divider spacing="large" />
+          <HomepageSection>
+            <HomepageSectionTitle>Posts.</HomepageSectionTitle>
+            <HomepageSectionDescription>
+              Ramblings about computer stuffs.
+            </HomepageSectionDescription>
+            <HomepageBlogContainer size="lg">
+              {data.latestPosts.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
+            </HomepageBlogContainer>
+            <HomepageSectionFooter>
+              <Button kind="nav-link" color="primary" size="lg" to="/posts">View all posts</Button>
+            </HomepageSectionFooter>
+          </HomepageSection>
         </HomepageContent>
       </Page>
     )

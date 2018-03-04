@@ -77,7 +77,9 @@ const FeaturedProjectFooter = styled.div`
   margin-top: 1rem;
 `
 
-interface FeaturedProjectProps extends ProjectField {}
+interface FeaturedProjectProps extends ProjectField {
+  className?: string
+}
 
 interface FeaturedProjectState {
   gradientStartIndex: number
@@ -94,12 +96,12 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
   }
 
   public render () {
-    const { node } = this.props
+    const { node, className } = this.props
     const { headerImage } = node.fields
     const tags = node.fields.tags ? JSON.parse(node.fields.tags) as string[] : undefined
     return (
       <Container size="xl">
-        <FeaturedProjectWrapper>
+        <FeaturedProjectWrapper className={className}>
           {
             headerImage
               ? <FeaturedProjectThumbnail className="column" image={headerImage} />
