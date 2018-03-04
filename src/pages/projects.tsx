@@ -59,7 +59,6 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
         ]}
       />
       <article>
-        <PageHeader />
         <PageMeta>
           <PageTitle>Projects</PageTitle>
         </PageMeta>

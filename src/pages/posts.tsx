@@ -59,7 +59,6 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
         ]}
       />
       <div>
-        <PageHeader />
         <PageMeta>
           <PageTitle>Posts</PageTitle>
         </PageMeta>

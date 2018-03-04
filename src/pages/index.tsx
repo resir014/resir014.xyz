@@ -17,9 +17,9 @@ import Button from '../components/ui/Button'
 import Divider from '../components/ui/Divider'
 import Page from '../components/page/Page'
 import PageHeader from '../components/page/PageHeader'
-import PageContent from '../components/page/PageContent'
-import HomepageSection from '../components/home/HomepageSection'
 import HeaderImage from '../components/page/HeaderImage'
+import HomepageContent from '../components/home/HomepageContent'
+import HomepageSection from '../components/home/HomepageSection'
 
 const backgroundImage = require('../assets/images/background.jpg')
 
@@ -148,7 +148,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
         <PageHeader fixedHeight>
           <HeaderImage sizes={data.headerImage.sizes} alt="" />
         </PageHeader>
-        <PageContent>
+        <HomepageContent>
           <Divider spacing="large" />
           <HomepageSection>
             <h1>Hey, call me Resi.</h1>
@@ -170,7 +170,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             <h1>Posts.</h1>
             <p>Ramblings about computer stuffs.</p>
           </HomepageSection>
-        </PageContent>
+        </HomepageContent>
       </Page>
     )
   }
