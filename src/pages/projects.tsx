@@ -4,17 +4,14 @@ import Helmet from 'react-helmet'
 
 import { colors } from '../utils/theme'
 
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Container from '../components/Container'
-import Footer from '../components/Footer'
-import ProjectItemList from '../components/ProjectItemList'
+import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
 import PageHeader from '../components/page/PageHeader'
 import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import FeaturedProject from '../components/projects/FeaturedProject'
+import ProjectItemList from '../components/projects/ProjectItemList'
 
 import { menuItems } from '../utils/menus'
 import { ProjectNode } from '../utils/types'
@@ -68,7 +65,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
               ? <FeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
               : null
           }
-          <Container>
+          <Container size="lg">
             <ProjectItemList title="Web development stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')} />
             <ProjectItemList title="Open source stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')} />
             <ProjectItemList title="Other stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')} />
