@@ -2,10 +2,11 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 import { emSizes } from '../../styles/variables'
+import { media } from '../../styles/mixins'
 
 const StyledPageContent = styled.div`
   display: block;
-  padding: ${emSizes.containerPadding}rem;
+  padding: 0 ${emSizes.containerPadding}rem;
   padding-bottom: 3rem;
 `
 

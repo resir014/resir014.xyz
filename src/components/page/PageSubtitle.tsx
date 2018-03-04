@@ -17,14 +17,19 @@ const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => 
 }
 
 export default styled(PageSubtitle)`
-  margin: 1.5rem 0 3rem;
+  margin-bottom: 1.5rem;
   padding: 1rem 0;
   border-top: 4px solid ${colors.ink70};
   border-bottom: 4px solid ${colors.ink70};
-  font-size: ${emSizes.headingSmall.h3}rem;
+  font-size: ${emSizes.headingSmall.h4}rem;
   font-weight: 300;
 
   ${media.md`
-    font-size: ${emSizes.headingMedium.h3}rem;
+    font-size: ${emSizes.headingMedium.h4}rem;
+  `}
+
+  ${media.lg`
+    font-size: ${emSizes.headingLarge.h4}rem;
+    margin-bottom: 3rem;
   `}
 `

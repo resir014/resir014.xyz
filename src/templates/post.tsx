@@ -85,12 +85,12 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
             {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
           </PostMeta>
           <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
-          {post.fields.headerImage && (
-            <PostThumbnail>
-              <img src={post.fields.headerImage} alt="" />
-            </PostThumbnail>
-          )}
         </PostHeader>
+        {post.fields.headerImage && (
+          <PostThumbnail>
+            <img src={post.fields.headerImage} alt="" />
+          </PostThumbnail>
+        )}
         <PageContent>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}

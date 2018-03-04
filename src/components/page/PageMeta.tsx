@@ -5,18 +5,22 @@ import { colors, pxSizes, emSizes } from '../../styles/variables'
 import { media } from '../../styles/mixins'
 import Container from '../ui/Container'
 
-interface PostHeaderProps {
+interface PageTitleProps {
   className?: string
-  hasImage?: boolean
 }
 
-const PostHeader: React.SFC<PostHeaderProps> = ({ className, children }) => (
+const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) => (
   <Container size="lg" className={className}>
     {children}
   </Container>
 )
 
-export default styled(PostHeader)`
-  padding: 3rem 1.5rem 0;
+export default styled(PageTitle)`
+  padding: ${emSizes.containerPadding}rem;
   text-align: center;
+
+  ${media.lg`
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  `}
 `

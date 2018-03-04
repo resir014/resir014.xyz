@@ -11,6 +11,7 @@ import PageHeader from '../components/page/PageHeader'
 import MarkdownContent from '../components/page/MarkdownContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import PageContent from '../components/page/PageContent'
+import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import Page from '../components/page/Page'
 
@@ -64,13 +65,14 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         ]}
       />
       <article>
-        <PageHeader>
+        <PageHeader />
+        <PageMeta>
           <PageTitle>{post.frontmatter.title}</PageTitle>
-        </PageHeader>
+        </PageMeta>
         <PageContent>
             <Container>
               {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-                <MarkdownContent html={post.html} />
+              <MarkdownContent html={post.html} />
             </Container>
         </PageContent>
       </article>
