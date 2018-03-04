@@ -1,8 +1,7 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import mediaQueries from '../utils/mediaQueries'
-import { colors } from '../styles/variables'
+import { media } from '../../styles/mixins'
 
 interface FeaturedProjectThumbnailProps {
   className?: string
@@ -16,9 +15,9 @@ const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> = ({ im
 export default styled(FeaturedProjectThumbnail)`
   display: none
 
-  @media ${mediaQueries.md} {
+  ${media.md`
     display: block
-  }
+  `}
 
   img {
     margin: 0

@@ -4,19 +4,17 @@ import styled from 'styled-components'
 
 import { menuItems } from '../utils/menus'
 
-import Button from '../components/Button'
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Container from '../components/Container'
-import Footer from '../components/Footer'
-import PageHeader from '../components/PageHeader'
-import PageSubtitle from '../components/PageSubtitle'
-import MarkdownContent from '../components/MarkdownContent'
-import PageContent from '../components/PageContent'
-import PageTitle from '../components/PageTitle'
-import PostMeta from '../components/PostMeta'
-import PostMetaDate from '../components/PostMetaDate'
-import PostMetaCategory from '../components/PostMetaCategory'
+import Button from '../components/ui/Button'
+import Container from '../components/ui/Container'
+import PageSubtitle from '../components/page/PageSubtitle'
+import MarkdownContent from '../components/page/MarkdownContent'
+import Page from '../components/page/Page'
+import PageMeta from '../components/page/PageMeta'
+import PageTitle from '../components/page/PageTitle'
+import PageContent from '../components/page/PageContent'
+import PostMetaItem from '../components/post/PostMetaItem'
+import PostThumbnail from '../components/post/PostThumbnail'
+import ProjectFooter from '../components/projects/ProjectFooter'
 
 interface ProjectTemplateProps {
   location: {
@@ -55,17 +53,13 @@ interface ProjectTemplateProps {
   }
 }
 
-const ProjectFooter = styled.div`
-  margin-top: 2rem;
-`
-
 const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
 
   return (
-    <React.Fragment>
+    <Page>
       <Helmet
         title={`${post.frontmatter.title} · ${siteMetadata.title}`}
         meta={[
@@ -75,20 +69,22 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
           { property: 'og:description', content: post.fields.lead || post.excerpt },
         ]}
       />
-      <main>
-        <article>
-          <PageHeader headerImage={post.fields.headerImage || null}>
-          <PostMeta hasBottomMargin={true}>
-            <PostMetaDate>{post.fields.year}</PostMetaDate>
-            {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
-          </PostMeta>
-          <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
-          </PageHeader>
+      <article>
+        <PageMeta>
+          <PostMetaItem>projects</PostMetaItem>
+          <PostMetaItem>{post.fields.year}</PostMetaItem>
+          {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
+          <PageTitle>{post.frontmatter.title}</PageTitle>
+        </PageMeta>
+        {post.fields.headerImage && (
+          <PostThumbnail>
+            <img src={post.fields.headerImage} alt="" />
+          </PostThumbnail>
+        )}
+        <PageContent>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <PageContent>
-              <MarkdownContent html={post.html} />
-            </PageContent>
+            <MarkdownContent html={post.html} />
             {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
               <ProjectFooter>
                 {renderLink(post.fields.project_url, true)}
@@ -97,9 +93,9 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
               null
             )}
           </Container>
-        </article>
-      </main>
-    </React.Fragment>
+        </PageContent>
+      </article>
+    </Page>
   )
 }
 

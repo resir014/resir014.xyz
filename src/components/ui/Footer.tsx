@@ -20,7 +20,8 @@ const StyledFooter = styled.footer`
     color: ${colors.blue40};
     text-decoration: underline;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: ${colors.blue50};
     }
 
@@ -30,10 +31,11 @@ const StyledFooter = styled.footer`
       ${onEvent()`
         text-decoration: underline;
       `}
-    `}
+    `};
   }
 
-  p, small {
+  p,
+  small {
     display: block;
     margin: 0;
   }
@@ -58,7 +60,8 @@ const FooterHeader = styled.div`
       color: ${colors.grey90};
       text-decoration: none;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         text-decoration: none;
       }
     }
@@ -112,42 +115,66 @@ class Footer extends React.Component<FooterProps, FooterState> {
 
     return (
       <StyledFooter>
-        <Container size="xl">
-          <FooterHeader>
-            <h3 className="footer-title"><Link to="/">{this.props.title}</Link></h3>
-            <p className="footer-flavour" title="Click to randomise!" onClick={() => this.randomiseSplash()}>
-              <span>{flavors[randomSplashIndex]}</span>
-            </p>
-          </FooterHeader>
-          <p>
+        <FooterHeader>
+          <h3 className="footer-title">
+            <Link to="/">{this.props.title}</Link>
+          </h3>
+          <p
+            className="footer-flavour"
+            title="Click to randomise!"
+            onClick={() => this.randomiseSplash()}
+          >
+            <span>{flavors[randomSplashIndex]}</span>
+          </p>
+        </FooterHeader>
+        <p>
+          <a
+            rel="license noopener noreferrer"
+            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+            target="_blank"
+          >
+            <img
+              alt="Creative Commons License"
+              src={ccLogo}
+              style={{ height: '31px' }}
+            />
+          </a>
+        </p>
+        <p>
+          <small>
+            Except where otherwise noted, contents are licensed under{' '}
             <a
               rel="license noopener noreferrer"
               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
               target="_blank"
             >
-              <img alt="Creative Commons License" src={ccLogo} style={{ height: '31px' }} />
-            </a>
-          </p>
-          <p>
-            <small>
-              Except where otherwise noted, contents are licensed under{' '}
-              <a
-                rel="license noopener noreferrer"
-                href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-                target="_blank"
-              >
-                CC-BY-NC-SA 4.0
-              </a>.
-            </small>
-          </p>
-          <p>
-            <small>
-              Powered by <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">Gatsby</a>{' '}
-              and <a href="https://www.reactjs.org/" target="_blank" rel="noopener noreferrer">React</a>.{' '}
-              Code licensed under the <a href="https://github.com/resir014/resir014.xyz" target="_blank">MIT License</a>.
-            </small>
-          </p>
-        </Container>
+              CC-BY-NC-SA 4.0
+            </a>.
+          </small>
+        </p>
+        <p>
+          <small>
+            Powered by{' '}
+            <a
+              href="https://www.gatsbyjs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Gatsby
+            </a>{' '}
+            and{' '}
+            <a
+              href="https://www.reactjs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              React
+            </a>. Code licensed under the{' '}
+            <a href="https://github.com/resir014/resir014.xyz" target="_blank">
+              MIT License
+            </a>.
+          </small>
+        </p>
       </StyledFooter>
     )
   }

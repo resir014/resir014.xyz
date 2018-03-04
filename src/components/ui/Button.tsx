@@ -15,6 +15,8 @@ interface ButtonProps {
   size?: 'sm' | 'md' | 'lg'
   href?: string
   to?: string
+  target?: string
+  rel?: string
   onClick?: () => void
 }
 
@@ -23,7 +25,7 @@ const theme = {
   white: colors.white
 }
 
-const Button: React.SFC<ButtonProps> = ({ id, className, color, kind, href, to, onClick, children }) => {
+const Button: React.SFC<ButtonProps> = ({ id, className, color, kind, href, to, onClick, target, rel, children }) => {
   if (kind === 'button') {
     return (
       <button id={id} className={className} onClick={onClick}>
@@ -38,7 +40,7 @@ const Button: React.SFC<ButtonProps> = ({ id, className, color, kind, href, to, 
     )
   } else {
     return (
-      <a id={id} className={className} href={href}>
+      <a id={id} className={className} href={href} target={target}>
         {children}
       </a>
     )

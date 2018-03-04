@@ -14,6 +14,7 @@ import PageContent from '../components/page/PageContent'
 import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import Page from '../components/page/Page'
+import PostThumbnail from '../components/post/PostThumbnail'
 
 interface PageTemplateProps {
   location: {
@@ -69,6 +70,11 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         <PageMeta>
           <PageTitle>{post.frontmatter.title}</PageTitle>
         </PageMeta>
+        {post.fields.headerImage && (
+          <PostThumbnail>
+            <img src={post.fields.headerImage} alt="" />
+          </PostThumbnail>
+        )}
         <PageContent>
             <Container>
               {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
