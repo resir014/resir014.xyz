@@ -26,8 +26,8 @@ export default styled(MarkdownContent)`
   figure {
     margin: 2rem 0;
     text-align: center;
-    background-color: ${colors.grey70};
-    border: 8px solid ${colors.grey70};
+    background-color: ${colors.ink90};
+    border: 8px solid ${colors.ink90};
 
     ${media.lg`
       margin: 2rem;
@@ -53,7 +53,7 @@ export default styled(MarkdownContent)`
       &:last-child {
         padding-top: 8px;
         color: ${colors.white};
-        background-color: ${colors.grey70};
+        background-color: ${colors.ink90};
       }
     }
   }

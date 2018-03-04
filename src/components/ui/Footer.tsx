@@ -14,7 +14,7 @@ const ccLogo = require('../../assets/images/cc-by-nc-sa.svg')
 const StyledFooter = styled.footer`
   padding: 2rem ${emSizes.containerPadding}rem;
   color: ${colors.white};
-  background-color: ${colors.grey90};
+  background-color: ${colors.ink90};
 
   a {
     color: ${colors.blue40};

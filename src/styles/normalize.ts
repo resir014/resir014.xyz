@@ -1,7 +1,7 @@
 import { injectGlobal } from 'styled-components'
 import styledNormalize from 'styled-normalize'
 import { fonts, pxSizes, emSizes } from './variables'
-import { colors } from '../utils/theme'
+import { colors } from '../styles/variables'
 import { onEvent, media } from './mixins'
 
 export default () => injectGlobal`
@@ -97,7 +97,7 @@ export default () => injectGlobal`
     font-family: ${fonts.serif};
     font-weight: 600;
     line-height: 1.2;
-    color: ${colors.grey80};
+    color: ${colors.grey90};
     text-rendering: optimizeLegibility;
   }
 
