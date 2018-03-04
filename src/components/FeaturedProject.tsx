@@ -8,7 +8,7 @@ import Container from './Container'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { colors, headerColors } from '../utils/theme'
-import { ProjectNode } from '../utils/types'
+import { ProjectField } from '../utils/types'
 import mediaQueries from '../utils/mediaQueries'
 
 // TODO: stop using this when we finally convert to Photon colors:
@@ -69,7 +69,7 @@ const FeaturedProjectFooter = styled.div`
   margin-top: 1rem;
 `
 
-interface FeaturedProjectProps extends ProjectNode {}
+interface FeaturedProjectProps extends ProjectField {}
 
 interface FeaturedProjectState {
   gradientStartIndex: number

@@ -14,7 +14,7 @@ import FeaturedProject from '../components/projects/FeaturedProject'
 import ProjectItemList from '../components/projects/ProjectItemList'
 
 import { menuItems } from '../utils/menus'
-import { ProjectNode } from '../utils/types'
+import { ProjectField } from '../utils/types'
 
 interface ProjectsPageProps {
   location: {
@@ -32,10 +32,10 @@ interface ProjectsPageProps {
       }
     }
     allMarkdownRemark: {
-      edges: ProjectNode[]
+      edges: ProjectField[]
     }
     allProjectsJson: {
-      edges: ProjectNode[]
+      edges: ProjectField[]
     }
   }
 }
@@ -76,11 +76,11 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
   )
 }
 
-const getFeaturedProject = (edges: ProjectNode[], name: string) => {
+const getFeaturedProject = (edges: ProjectField[], name: string) => {
   return edges.filter(edge => edge.node.frontmatter.title === name)[0]
 }
 
-const filterProjectsByCategory = (edges: ProjectNode[], category: string) => (
+const filterProjectsByCategory = (edges: ProjectField[], category: string) => (
   edges.filter(edge => edge.node.fields.category === category)
 )
 

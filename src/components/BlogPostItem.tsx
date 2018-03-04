@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 
 import { colors } from '../utils/theme'
 
-import { BlogPostNode } from '../utils/types'
+import { BlogPostField } from '../utils/types'
 import PostCategory from './PostCategory'
 import MarkdownContent from './MarkdownContent'
 import mediaQueries, { widths } from '../utils/mediaQueries'
@@ -82,7 +82,7 @@ const BlogPostFooterLink = styled(Link)`
   }
 `
 
-class BlogPostItem extends React.Component<BlogPostNode, {}> {
+class BlogPostItem extends React.Component<BlogPostField, {}> {
   public render() {
     const { node } = this.props
 
@@ -93,7 +93,7 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
     }
   }
 
-  private renderBitsItem(props: BlogPostNode) {
+  private renderBitsItem(props: BlogPostField) {
     const { node } = props
     const { date, category } = node.fields
     return (
@@ -122,7 +122,7 @@ class BlogPostItem extends React.Component<BlogPostNode, {}> {
     )
   }
 
-  private renderBlogItem(props: BlogPostNode) {
+  private renderBlogItem(props: BlogPostField) {
     const { node } = props
     const { date, category } = node.fields
     return (

@@ -5,7 +5,7 @@ import ProjectItem from './ProjectItem'
 
 import { colors } from '../../styles/variables'
 import { media } from '../../styles/mixins'
-import { ProjectNode } from '../../utils/types'
+import { ProjectField } from '../../utils/types'
 
 const ProjectSectionHeading = styled.h2`
   margin-top: 1.5rem;
@@ -29,7 +29,7 @@ const ProjectEmpty = styled.p`
 
 export interface ProjectItemListProps {
   title: string
-  projects: ProjectNode[]
+  projects: ProjectField[]
 }
 
 const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, projects }) => (

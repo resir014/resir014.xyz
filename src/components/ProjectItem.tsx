@@ -5,7 +5,7 @@ import * as Color from 'color'
 import Button from './Button'
 
 import { colors, fonts } from '../utils/theme'
-import { ProjectNode } from '../utils/types'
+import { ProjectField } from '../utils/types'
 import mediaQueries, { widths } from '../utils/mediaQueries'
 
 const StyledProjectItem = styled.div`
@@ -71,7 +71,7 @@ const ProjectFooter = styled.div`
   margin-top: auto;
 `
 
-const ProjectItem: React.SFC<ProjectNode> = ({ node }) => {
+const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
   const tags = node.fields.tags ? JSON.parse(node.fields.tags) as string[] : undefined
   return (
     <StyledProjectItem>

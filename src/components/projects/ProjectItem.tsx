@@ -6,7 +6,7 @@ import Button from '../ui/Button'
 
 import { colors, fonts } from '../../styles/variables'
 import { media } from '../../styles/mixins'
-import { ProjectNode } from '../../utils/types'
+import { ProjectField } from '../../utils/types'
 
 const StyledProjectItem = styled.div`
   display: flex;
@@ -66,7 +66,7 @@ const ProjectFooter = styled.div`
   margin-top: auto;
 `
 
-const ProjectItem: React.SFC<ProjectNode> = ({ node }) => {
+const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
   const tags = node.fields.tags ? JSON.parse(node.fields.tags) as string[] : undefined
   return (
     <StyledProjectItem>

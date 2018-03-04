@@ -44,7 +44,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1rem`
+              wrapperStyle: `margin-top: 1rem; margin-bottom: 1rem`
             }
           },
           'gatsby-remark-prismjs',
@@ -57,7 +57,6 @@ module.exports = {
               quality: 90,
               linkImagesToOriginal: false,
               wrapperStyle: 'margin-top: 1.5rem; margin-bottom: 1.5rem;',
-              backgroundColor: 'var(--color-grey70)'
             },
           },
         ]

@@ -7,21 +7,17 @@ import Helmet from 'react-helmet'
 import Masthead from '../components/Masthead'
 import ToggleMenu from '../components/ToggleMenu'
 import Footer from '../components/Footer'
-import BlogPostItem from '../components/BlogPostItem'
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
 import PageHeader from '../components/page/PageHeader'
 import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
+import BlogPostItem from '../components/postsList/BlogPostItem'
 
 import { menuItems } from '../utils/menus'
-import { BlogPostNode } from '../utils/types'
+import { BlogPostField } from '../utils/types'
 import { colors } from '../utils/theme'
-
-const BlogPostList = styled.div`
-  border-bottom: 2px solid ${colors.grey90};
-`
 
 interface BlogPageProps {
   location: {
@@ -39,7 +35,7 @@ interface BlogPageProps {
       }
     }
     allMarkdownRemark: {
-      edges: BlogPostNode[]
+      edges: BlogPostField[]
     }
   }
 }
@@ -58,18 +54,16 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
           { property: 'og:description', content: data.site.siteMetadata.description },
         ]}
       />
-      <div>
+      <section>
         <PageMeta>
           <PageTitle>Posts</PageTitle>
         </PageMeta>
-        <Container size="fluid">
+        <Container size="lg">
           <PageContent>
-            <BlogPostList>
-              {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
-            </BlogPostList>
+            {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
           </PageContent>
         </Container>
-      </div>
+      </section>
     </Page>
   )
 }

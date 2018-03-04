@@ -9,7 +9,7 @@ import Container from '../ui/Container'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { colors } from '../../styles/variables'
-import { ProjectNode } from '../../utils/types'
+import { ProjectField } from '../../utils/types'
 import { media } from '../../styles/mixins'
 
 const FeaturedProjectWrapper = styled.section`
@@ -77,7 +77,7 @@ const FeaturedProjectFooter = styled.div`
   margin-top: 1rem;
 `
 
-interface FeaturedProjectProps extends ProjectNode {}
+interface FeaturedProjectProps extends ProjectField {}
 
 interface FeaturedProjectState {
   gradientStartIndex: number
