@@ -11,6 +11,7 @@ import BlogPostItem from '../components/BlogPostItem'
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
 import PageHeader from '../components/page/PageHeader'
+import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 
@@ -58,9 +59,10 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
         ]}
       />
       <div>
-        <PageHeader>
+        <PageHeader />
+        <PageMeta>
           <PageTitle>Posts</PageTitle>
-        </PageHeader>
+        </PageMeta>
         <Container size="fluid">
           <PageContent>
             <BlogPostList>
