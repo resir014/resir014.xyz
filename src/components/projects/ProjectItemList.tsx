@@ -8,9 +8,13 @@ import { media } from '../../styles/mixins'
 import { ProjectNode } from '../../utils/types'
 
 const ProjectSectionHeading = styled.h2`
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
+
+  ${media.lg`
+    margin-top: 3rem;
+  `}
 `
 
 const ProjectsList = styled.div`

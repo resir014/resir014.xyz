@@ -15,8 +15,7 @@ import { media } from '../../styles/mixins'
 const FeaturedProjectWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   color: ${transparentize(0.4, colors.white)};
 
   &:first-of-type {
@@ -27,8 +26,29 @@ const FeaturedProjectWrapper = styled.section`
     flex-direction: row;
   `}
 
+  ${media.lg`
+    margin-bottom: 3rem;
+  `}
+
   .column {
     flex: 1;
+  }
+`
+
+const ProjectTags = styled.div`
+  margin: .5rem 0 1rem;
+
+  span {
+    display: inline-block;
+    padding: .25em .5em;
+    font-size: 85%;
+    color: ${colors.white};
+    background-color: ${colors.ink70};
+    border-radius: 3px;
+  }
+
+  span + span {
+    margin-left: .5rem;
   }
 `
 
@@ -76,6 +96,7 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
   public render () {
     const { node } = this.props
     const { headerImage } = node.fields
+    const tags = node.fields.tags ? JSON.parse(node.fields.tags) as string[] : undefined
     return (
       <Container size="xl">
         <FeaturedProjectWrapper>
@@ -87,9 +108,16 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
           <FeaturedProjectDetails className="column">
             <FeaturedProjectHeading>
               <span>Featured project</span>
+              <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
             </FeaturedProjectHeading>
             <div>
-              <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
+              {tags ? (
+                <ProjectTags>
+                  {tags.map(tag => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </ProjectTags>
+              ) : null}
               <FeaturedProjectDescription>
                 <p>{node.fields.description}</p>
               </FeaturedProjectDescription>
