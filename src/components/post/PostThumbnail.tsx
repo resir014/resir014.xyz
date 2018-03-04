@@ -25,6 +25,7 @@ export default styled(PostThumbnail)`
     ${colors.teal50}, ${colors.purple70});
 
   ${media.lg`
+    margin-top: ${emSizes.containerPadding}rem;
     max-height: 30rem;
   `}
 

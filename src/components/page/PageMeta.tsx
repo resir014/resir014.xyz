@@ -17,10 +17,10 @@ const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) => (
 
 export default styled(PageTitle)`
   padding: ${emSizes.containerPadding}rem;
+  padding-bottom: 0;
   text-align: center;
 
   ${media.lg`
     padding-top: 3rem;
-    padding-bottom: 3rem;
   `}
 `
