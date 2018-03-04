@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: Looking back on 2015
 tags:

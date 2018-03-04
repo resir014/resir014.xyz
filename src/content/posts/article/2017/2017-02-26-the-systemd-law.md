@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "The systemd law"
 ---

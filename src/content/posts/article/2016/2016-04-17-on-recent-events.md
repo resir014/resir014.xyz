@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "On recent events"
 lead: "The following thoughts were brought up during a recent drama that happened between two of my close friends online. So I wrote this as a response."

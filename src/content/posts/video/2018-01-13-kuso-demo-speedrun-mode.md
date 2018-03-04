@@ -1,6 +1,6 @@
 ---
 category: video
-layout: bits
+layout: video
 title: "[kuso Demo] Speedrun Mode | 1:15.512"
 ---
 

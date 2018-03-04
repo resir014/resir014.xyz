@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "A Phoenix+React initial setup that actually works"
 subtitle: "I got tired of following guides on connecting React with Phoenix that never seem to work, so I made my own."

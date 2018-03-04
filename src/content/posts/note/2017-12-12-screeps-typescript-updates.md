@@ -1,6 +1,6 @@
 ---
 category: note
-layout: bits
+layout: note
 ---
 
 The [Screeps](https://screeps.com) TypeScript ecosystem is evolving!

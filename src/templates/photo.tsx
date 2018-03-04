@@ -11,10 +11,11 @@ import PostMeta from '../components/post/PostMeta'
 import PostHeader from '../components/post/PostHeader'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PageContent from '../components/page/PageContent'
-import PageSubtitle from '../components/PageSubtitle'
+import PageSubtitle from '../components/page/PageSubtitle'
 import MarkdownContent from '../components/page/MarkdownContent'
+import PostTitle from '../components/post/PostTitle'
 
-interface BitsTemplateProps {
+interface PhotoTemplateProps {
   location: {
     pathname: string
   }
@@ -51,7 +52,7 @@ interface BitsTemplateProps {
   }
 }
 
-const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
+const PhotoTemplate: React.SFC<PhotoTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
@@ -59,11 +60,11 @@ const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
   return (
     <Page>
       <Helmet
-        title={`${post.frontmatter.title || post.fields.lead || post.excerpt} · ${siteMetadata.title}`}
+        title={`${post.frontmatter.title || 'Photo posted by @resir014'} · ${siteMetadata.title}`}
         meta={[
           { name: 'description', content: post.fields.lead || post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
-          { property: 'og:title', content: post.frontmatter.title || 'Note posted by @resir014' },
+          { property: 'og:title', content: post.frontmatter.title || 'Photo posted by @resir014' },
           { property: 'og:description', content: post.fields.lead || post.excerpt },
           { property: 'og:type', content: 'article' },
           { property: 'og:article:author', content: siteMetadata.author.name },
@@ -75,11 +76,11 @@ const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
           <PostMeta>
             <PostMetaItem>{post.fields.date}</PostMetaItem>
             {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
+            {post.frontmatter.title && <PostTitle>{post.frontmatter.title}</PostTitle>}
           </PostMeta>
         </PostHeader>
         <PageContent>
           <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
             <MarkdownContent html={post.html} />
           </Container>
         </PageContent>
@@ -88,10 +89,10 @@ const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
   )
 }
 
-export default PageTemplate
+export default PhotoTemplate
 
 export const query = graphql`
-  query BitsQuery($slug: String!) {
+  query PhotoTemplateQuery($slug: String!) {
     site {
       siteMetadata {
         title

@@ -3,10 +3,6 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Footer from '../components/Footer'
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
 import PageHeader from '../components/page/PageHeader'

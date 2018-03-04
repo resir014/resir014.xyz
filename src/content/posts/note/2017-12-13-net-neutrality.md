@@ -1,6 +1,6 @@
 ---
 category: note
-layout: bits
+layout: note
 ---
 
 ![net-neutrality-banner](../images/bits/2017/net-neutrality-banner.jpg)

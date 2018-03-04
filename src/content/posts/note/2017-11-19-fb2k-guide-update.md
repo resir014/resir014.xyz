@@ -1,6 +1,6 @@
 ---
 category: note
-layout: bits
+layout: note
 ---
 
 It's been a while since I updated my [foobar2000 guide](/etc/fb2k), so I did!

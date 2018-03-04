@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "Why 'porn filters' never work"
 lead: "In which I rant about the shit that is TRUST+ Positif, again."

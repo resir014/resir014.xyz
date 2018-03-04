@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "Why you moved from Angular 2 to Vue.js (and why you didn't understand what React is about)"
 subtitle: "Or, why we should never compare apples to oranges, again."

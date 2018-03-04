@@ -1,6 +1,6 @@
 ---
 category: jam
-layout: bits
+layout: jam
 title: "Spiritualized - Ladies and Gentlemen We Are Floating in Space"
 ---
 

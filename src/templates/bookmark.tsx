@@ -11,10 +11,11 @@ import PostMeta from '../components/post/PostMeta'
 import PostHeader from '../components/post/PostHeader'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PageContent from '../components/page/PageContent'
-import PageSubtitle from '../components/PageSubtitle'
+import PageSubtitle from '../components/page/PageSubtitle'
+import PostTitle from '../components/post/PostTitle'
 import MarkdownContent from '../components/page/MarkdownContent'
 
-interface BitsTemplateProps {
+interface BookmarkTemplateProps {
   location: {
     pathname: string
   }
@@ -51,7 +52,17 @@ interface BitsTemplateProps {
   }
 }
 
-const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
+const LinkTitle = styled(PostTitle)`
+  a {
+    color: ${colors.blue60};
+
+    &:hover, &:focus {
+      color: ${colors.blue70};
+    }
+  }
+`
+
+const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
@@ -59,11 +70,11 @@ const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
   return (
     <Page>
       <Helmet
-        title={`${post.frontmatter.title || post.fields.lead || post.excerpt} · ${siteMetadata.title}`}
+        title={`${post.frontmatter.title || 'Bookmark posted by @resir014'} · ${siteMetadata.title}`}
         meta={[
           { name: 'description', content: post.fields.lead || post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
-          { property: 'og:title', content: post.frontmatter.title || 'Note posted by @resir014' },
+          { property: 'og:title', content: post.frontmatter.title || 'Bookmark posted by @resir014' },
           { property: 'og:description', content: post.fields.lead || post.excerpt },
           { property: 'og:type', content: 'article' },
           { property: 'og:article:author', content: siteMetadata.author.name },
@@ -75,6 +86,12 @@ const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
           <PostMeta>
             <PostMetaItem>{post.fields.date}</PostMetaItem>
             {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
+            <LinkTitle>
+              <a href={post.fields.link} target="_blank" rel="noopener noreferrer">
+                {post.frontmatter.title}
+              </a>{' '}
+              &raquo;
+            </LinkTitle>
           </PostMeta>
         </PostHeader>
         <PageContent>
@@ -88,10 +105,10 @@ const PageTemplate: React.SFC<BitsTemplateProps> = ({ data, location }) => {
   )
 }
 
-export default PageTemplate
+export default BookmarkTemplate
 
 export const query = graphql`
-  query BitsQuery($slug: String!) {
+  query BookmarkTemplateQuery($slug: String!) {
     site {
       siteMetadata {
         title

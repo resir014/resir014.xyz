@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: Tourists, language barriers, and the act of helping
 lead: "Or, the day when I actually helped a bunch of foreign strangers and felt much better afterwards."

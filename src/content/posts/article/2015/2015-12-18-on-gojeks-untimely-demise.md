@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "Go-Jek and the Government: an unfortunate love-hate relationship"
 tags:

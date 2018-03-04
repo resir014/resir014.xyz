@@ -1,6 +1,6 @@
 ---
 category: note
-layout: bits
+layout: note
 ---
 
 I'm giving Firefox Quantum a try and I'm hugely impressed! It's a massive improvement over the old Firefox, so much so that it's actually usable now.

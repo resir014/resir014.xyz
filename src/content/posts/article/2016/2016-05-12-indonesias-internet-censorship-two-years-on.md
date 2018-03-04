@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "Indonesia's internet censorship, two years on"
 lead: "Slowly but surely, we're curving away from total net neutrality."

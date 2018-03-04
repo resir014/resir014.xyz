@@ -1,6 +1,6 @@
 ---
 category: note
-layout: bits
+layout: note
 date: 2018-01-01T04:00:00+07:00
 ---
 

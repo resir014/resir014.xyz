@@ -1,6 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
+import { onEvent } from '../../styles/mixins'
+
 interface PostMetaItemProps {
   className?: string
 }
@@ -17,5 +19,13 @@ export default styled(PostMetaItem)`
       content: "/";
       margin-right: .5rem;
     }
+  }
+
+  a {
+    color: inherit;
+
+    ${onEvent()`
+      text-decoration: none;
+    `}
   }
 `

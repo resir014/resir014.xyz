@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "Getting to know the Linux terminal"
 lead: "Can't get your way through the Linux terminal? This guide will get you up and running in minutes."

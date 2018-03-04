@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: Favourite Songs of 2015
 tags:

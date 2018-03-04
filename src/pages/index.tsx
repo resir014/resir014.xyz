@@ -3,11 +3,6 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'
 
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Container from '../components/Container'
-import Footer from '../components/Footer'
-
 import { menuItems } from '../utils/menus'
 import { headerColors, colors } from '../utils/theme'
 import { sectionHeading, highlightedText } from '../utils/globalStyles'

@@ -1,6 +1,6 @@
 ---
 category: photo
-layout: bits
+layout: photo
 ---
 
 So I pulled in some of my photos from my website's git repository, but for some reason they turned out glitched and the results are, well, spectacular.

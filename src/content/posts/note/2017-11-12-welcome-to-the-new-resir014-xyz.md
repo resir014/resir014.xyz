@@ -1,6 +1,6 @@
 ---
 category: note
-layout: bits
+layout: note
 ---
 
 Welcome to the new resir014.xyz!

@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "A type-safe approach to Redux stores in TypeScript"
 lead: "Redux and TypeScript are a match made in heaven. Here's how to make the most out of static types to make your Redux store as type-safe as possible."

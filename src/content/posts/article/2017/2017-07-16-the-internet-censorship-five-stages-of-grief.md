@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "The internet censorship five stages of grief"
 subtitle: "A go-to guide on how to mentally cope with your favourite website/app being blocked/censored by your country's government."

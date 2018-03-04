@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: How NOT to do crowdfunding
 lead: "In which I tear through quite possibly one of the worst Indiegogo projects ever made."

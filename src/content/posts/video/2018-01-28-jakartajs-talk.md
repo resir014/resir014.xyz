@@ -1,6 +1,6 @@
 ---
 category: video
-layout: bits
+layout: video
 title: "Build Your Next Website with React, GatsbyJS, and Netlify"
 ---
 

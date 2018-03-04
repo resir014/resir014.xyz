@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "Maybe we're just not ready for open-world space exploration games"
 lead: "No Man's Sky, Elite: Dangerous, and Star Citizen were meant to represent the best that space exploration games could offer. However, the current outcome looks worryingly underwhelming."

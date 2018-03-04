@@ -1,5 +1,5 @@
 ---
-category: blog
+category: article
 layout: post
 title: "The Social Media Fatigue"
 lead: "In the long run, social media will affect you mentally the more you invest your time into it."
