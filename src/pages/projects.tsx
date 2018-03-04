@@ -12,6 +12,7 @@ import FeaturedProject from '../components/FeaturedProject'
 import ProjectItemList from '../components/ProjectItemList'
 import Page from '../components/page/Page'
 import PageHeader from '../components/page/PageHeader'
+import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 
@@ -58,9 +59,10 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
         ]}
       />
       <article>
-        <PageHeader>
+        <PageHeader />
+        <PageMeta>
           <PageTitle>Projects</PageTitle>
-        </PageHeader>
+        </PageMeta>
         <PageContent>
           {
             featuredProject
