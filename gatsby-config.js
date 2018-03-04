@@ -123,8 +123,10 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
+                return Object.assign({}, {
+                  title: edge.node.frontmatter.title || 'New post by @resir014',
+                  description: edge.node.fields.lead || edge.node.excerpt,
+                  date: edge.node.fields.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.html }],
@@ -136,10 +138,7 @@ module.exports = {
                 allMarkdownRemark(
                   limit: 10,
                   filter: {
-                    id: {regex: "/posts/"},
-                    fields: {
-                      category: {eq: "blog"}
-                    }
+                    id: {regex: "/posts/"}
                   },
                   sort: {fields: [fields___date], order: DESC}
                 ) {
@@ -149,6 +148,7 @@ module.exports = {
                       html
                       fields {
                         slug
+                        lead
                         date
                       }
                       frontmatter {
