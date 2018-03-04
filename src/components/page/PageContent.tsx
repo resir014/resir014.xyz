@@ -6,8 +6,12 @@ import { media } from '../../styles/mixins'
 
 const StyledPageContent = styled.div`
   display: block;
-  padding: 0 ${emSizes.containerPadding}rem;
+  padding: ${emSizes.containerPadding}rem;
   padding-bottom: 3rem;
+
+  ${media.lg`
+    padding-top: 3rem
+  `}
 `
 
 interface PageContentProps {
