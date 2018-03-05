@@ -207,7 +207,6 @@ export const query = graphql`
             description
             tags
             slug
-            headerImage
             category
             lead
             project_url
@@ -215,6 +214,13 @@ export const query = graphql`
           }
           frontmatter {
             title
+            header_image {
+              childImageSharp {
+                sizes(maxWidth: 1140) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
         }
       }

@@ -105,7 +105,6 @@ query ProjectsPageQuery {
           description
           tags
           slug
-          headerImage
           category
           lead
           project_url
@@ -113,6 +112,13 @@ query ProjectsPageQuery {
         }
         frontmatter {
           title
+          header_image {
+            childImageSharp {
+              sizes(maxWidth: 1140) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
         }
       }
     }

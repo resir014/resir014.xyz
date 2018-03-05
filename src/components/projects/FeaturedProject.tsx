@@ -53,6 +53,8 @@ const ProjectTags = styled.div`
 `
 
 const FeaturedProjectDetails = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 1.5rem;
   background: ${colors.ink90}
 `
@@ -68,6 +70,8 @@ const FeaturedProjectName = styled.h3`
 `
 
 const FeaturedProjectDescription = styled.div`
+  flex: 1;
+
   p {
     margin: 0;
   }
@@ -97,14 +101,14 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
 
   public render () {
     const { node, className } = this.props
-    const { headerImage } = node.fields
+    const { header_image } = node.frontmatter
     const tags = node.fields.tags ? JSON.parse(node.fields.tags) as string[] : undefined
     return (
       <Container size="xl">
         <FeaturedProjectWrapper className={className}>
           {
-            headerImage
-              ? <FeaturedProjectThumbnail className="column" image={headerImage} />
+            header_image
+              ? <FeaturedProjectThumbnail className="column" image={header_image} />
               : null
           }
           <FeaturedProjectDetails className="column">
@@ -112,21 +116,19 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
               <span>Featured project</span>
               <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
             </FeaturedProjectHeading>
-            <div>
-              {tags ? (
-                <ProjectTags>
-                  {tags.map(tag => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </ProjectTags>
-              ) : null}
-              <FeaturedProjectDescription>
-                <p>{node.fields.description}</p>
-              </FeaturedProjectDescription>
-              <FeaturedProjectFooter>
-                <Button kind="nav-link" color="white" to={node.fields.slug}>Visit project</Button>
-              </FeaturedProjectFooter>
-            </div>
+            {tags ? (
+              <ProjectTags>
+                {tags.map(tag => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </ProjectTags>
+            ) : null}
+            <FeaturedProjectDescription>
+              <p>{node.fields.description}</p>
+            </FeaturedProjectDescription>
+            <FeaturedProjectFooter>
+              <Button kind="nav-link" color="white" to={node.fields.slug}>Visit project</Button>
+            </FeaturedProjectFooter>
           </FeaturedProjectDetails>
         </FeaturedProjectWrapper>
       </Container>

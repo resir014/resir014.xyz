@@ -5,7 +5,7 @@ const slugify = require('slug')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 // Regex to parse date and title from the filename
-const BLOG_POST_SLUG_REGEX = /^\/.+\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)\/$/
+const BLOG_POST_SLUG_REGEX = /^\/posts\/.+\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)\/$/
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
@@ -35,23 +35,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
         const day = match[3]
         const filename = match[4]
 
-        // Separate slug by PostKind. If no PostKind is set, just use the
-        // fallback of /yyyy/mm/dd/post-title/
-        if (relativePath.includes('article')) {
-          slug = `/article/${year}/${month}/${day}/${slugify(filename)}/`
-        } else if (relativePath.includes('note')) {
-          slug = `/note/${year}/${month}/${day}/${slugify(filename)}/`
-        } else if (relativePath.includes('photo')) {
-          slug = `/photo/${year}/${month}/${day}/${slugify(filename)}/`
-        } else if (relativePath.includes('jam')) {
-          slug = `/jam/${year}/${month}/${day}/${slugify(filename)}/`
-        } else if (relativePath.includes('video')) {
-          slug = `/video/${year}/${month}/${day}/${slugify(filename)}/`
-        } else if (relativePath.includes('bookmark')) {
-          slug = `/bookmark/${year}/${month}/${day}/${slugify(filename)}/`
-        } else {
-          slug = `/${year}/${month}/${day}/${slugify(filename)}/`
-        }
+        slug = `/posts/${year}/${month}/${day}/${slugify(filename)}/`
 
         const pubDate = date
           ? new Date(date)

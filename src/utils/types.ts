@@ -32,6 +32,11 @@ export interface BlogPostNode {
     title?: string
     path?: string
     layout: string
+    header_image?: {
+      childImageSharp: {
+        sizes: { [key: string]: any }
+      }
+    }
   }
 }
 
@@ -47,7 +52,6 @@ export interface ProjectNode {
     description: string
     tags: string
     slug: string
-    headerImage: string
     category: string
     lead: string
     jumpToProject: string
@@ -55,6 +59,11 @@ export interface ProjectNode {
   }
   frontmatter: {
     title: string
+    header_image?: {
+      childImageSharp: {
+        sizes: { [key: string]: any }
+      }
+    }
   }
 }
 
