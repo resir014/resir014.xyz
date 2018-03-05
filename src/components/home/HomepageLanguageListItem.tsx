@@ -21,7 +21,6 @@ export default styled(HomepageLanguageListItem)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
   height: 200px;
   margin-bottom: 1rem;
   padding: ${emSizes.containerPadding}rem;
@@ -30,4 +29,8 @@ export default styled(HomepageLanguageListItem)`
   font-weight: 600;
   color: ${props => props.color || colors.grey90};
   background-color: ${props => props.background || colors.grey20};
+
+  ${media.md`
+    width: 200px;
+  `}
 `
