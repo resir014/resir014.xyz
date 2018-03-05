@@ -15,7 +15,7 @@ interface FeaturedProjectThumbnailProps {
 
 const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> = ({ image, className }) => (
   <div className={className}>
-    <Img sizes={image.childImageSharp.sizes} style={{ position: 'absolute' }} alt="" />
+    <Img sizes={image.childImageSharp.sizes} alt="" />
   </div>
 )
 
@@ -24,7 +24,9 @@ export default styled(FeaturedProjectThumbnail)`
 
   ${media.md`
     display: block;
-    position: relative
+    position: relative;
+    width: 100%;
+    height: 100%;
   `}
 
   img {
