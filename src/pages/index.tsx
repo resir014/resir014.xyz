@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'
 
+import { colors } from '../styles/variables'
 import { menuItems } from '../utils/menus'
 import { BlogPostField, ProjectField } from '../utils/types'
 import getFeaturedProject from '../utils/getFeaturedProject'
@@ -20,6 +21,8 @@ import HomepageSectionTitle from '../components/home/HomepageSectionTitle'
 import HomepageSectionDescription from '../components/home/HomepageSectionDescription'
 import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
 import HomepageFeaturedProject from '../components/home/HomepageFeaturedProject'
+import HomepageLanguageList from '../components/home/HomepageLanguageList'
+import HomepageLanguageListItem from '../components/home/HomepageLanguageListItem'
 
 const backgroundImage = require('../assets/images/background.jpg')
 
@@ -104,10 +107,31 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           </HomepageSection>
           <Divider spacing="large" />
           <HomepageSection>
-            <HomepageSectionTitle>I do (mostly) JavaScript.</HomepageSectionTitle>
+            <HomepageSectionTitle>Professional programmer by day, hobbyist programmer by night.</HomepageSectionTitle>
             <HomepageSectionDescription>
               Here are some technologies I'm currently crazy about.
             </HomepageSectionDescription>
+            <HomepageLanguageList>
+              <HomepageLanguageListItem
+                background="#ffff00"
+                name="JavaScript (ES6)"
+              />
+              <HomepageLanguageListItem
+                color={colors.white}
+                background="#337ab7"
+                name="TypeScript"
+              />
+              <HomepageLanguageListItem
+                color="#61dafb"
+                background="#282c34"
+                name="React"
+              />
+              <HomepageLanguageListItem
+                color={colors.white}
+                background="#4e2a8e"
+                name="Elixir"
+              />
+            </HomepageLanguageList>
             <HomepageSectionFooter>
               <Button kind="nav-link" color="primary" size="lg" to="/about">View entire skillset</Button>
             </HomepageSectionFooter>

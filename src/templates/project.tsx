@@ -10,13 +10,14 @@ import Container from '../components/ui/Container'
 import PageSubtitle from '../components/page/PageSubtitle'
 import MarkdownContent from '../components/page/MarkdownContent'
 import Page from '../components/page/Page'
-import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PostThumbnail from '../components/post/PostThumbnail'
 import ProjectFooter from '../components/projects/ProjectFooter'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
+import PostHeader from '../components/post/PostHeader'
+import PostMeta from '../components/post/PostMeta'
 
 interface ProjectTemplateProps {
   location: {
@@ -77,12 +78,14 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
         ]}
       />
       <article>
-        <PageMeta>
+        <PostHeader>
+          <PostMeta>
           <PostMetaItem>projects</PostMetaItem>
           <PostMetaItem>{post.fields.year}</PostMetaItem>
           {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
           <PageTitle>{post.frontmatter.title}</PageTitle>
-        </PageMeta>
+          </PostMeta>
+        </PostHeader>
         {post.frontmatter.header_image && (
           <PostThumbnail>
             <PostThumbnailImage sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />

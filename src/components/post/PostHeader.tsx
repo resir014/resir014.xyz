@@ -19,4 +19,5 @@ const PostHeader: React.SFC<PostHeaderProps> = ({ className, children }) => (
 export default styled(PostHeader)`
   padding: 3rem 1.5rem 0;
   text-align: center;
+  font-size: 18px;
 `

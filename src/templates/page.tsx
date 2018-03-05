@@ -8,11 +8,12 @@ import PageHeader from '../components/page/PageHeader'
 import MarkdownContent from '../components/page/MarkdownContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import PageContent from '../components/page/PageContent'
-import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import Page from '../components/page/Page'
 import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
+import PostHeader from '../components/post/PostHeader'
+import PostMeta from '../components/post/PostMeta'
 
 interface PageTemplateProps {
   location: {
@@ -69,10 +70,11 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         ]}
       />
       <article>
-        <PageHeader />
-        <PageMeta>
-          <PageTitle>{post.frontmatter.title}</PageTitle>
-        </PageMeta>
+        <PostHeader>
+          <PostMeta>
+            <PageTitle>{post.frontmatter.title}</PageTitle>
+          </PostMeta>
+        </PostHeader>
         {post.frontmatter.header_image && (
           <PostThumbnail>
             <PostThumbnailImage sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
