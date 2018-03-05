@@ -8,7 +8,7 @@ tags:
   - javascript
   - typescript
   - gaming
-header_image_url: /images/projects/screeps/preview.png
+header_image: ../../images/projects/screeps/preview.png
 redirect_from:
   - projects/2016/screeps
 ---

@@ -38,7 +38,6 @@ interface BookmarkTemplateProps {
         layout?: string
         category?: string
         link?: string
-        headerImage?: string
         lead?: string
         date: string
         date_ogp?: string
@@ -127,7 +126,6 @@ export const query = graphql`
         layout
         category
         link
-        headerImage
         lead
         date(formatString: "DD MMMM YYYY")
         date_ogp: date

@@ -8,7 +8,7 @@ tags:
 - indonesia
 - kemkominfo
 - internet-positif
-header_image_url: /images/blog/2016/tumblr-and-the-internet-positif-hammer/chrome_2016-02-17_15-00-37.png
+header_image: ../../../images/blog/2016/tumblr-and-the-internet-positif-hammer/chrome_2016-02-17_15-00-37.png
 redirect_from:
 - 2016/02/17/tumblr-and-the-internet-positif-hammer
 ---

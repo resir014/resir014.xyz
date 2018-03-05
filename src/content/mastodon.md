@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Mastodon"
-header_image_url: /images/stuff/mastodon/header.png
+header_image: ./images/stuff/mastodon/header.png
 ---
 
 Mastodon is a free and open source (FOSS) federated social network. This means that anyone can host their own Mastodon node, and connect with people in other nodes running Mastodon, GNU Social, or Friendica. Not only that, the source code is available for everyone to tinker with.

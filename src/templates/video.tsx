@@ -111,7 +111,6 @@ export const query = graphql`
         layout
         category
         link
-        headerImage
         lead
         date(formatString: "DD MMMM YYYY")
         date_ogp: date

@@ -3,7 +3,7 @@ category: article
 layout: post
 title: "Maybe we're just not ready for open-world space exploration games"
 lead: "No Man's Sky, Elite: Dangerous, and Star Citizen were meant to represent the best that space exploration games could offer. However, the current outcome looks worryingly underwhelming."
-header_image_url: /images/blog/2016/open-world-space-exploration-games/NMS-NewEridu.png
+header_image: ../../../images/blog/2016/open-world-space-exploration-games/NMS-NewEridu.png
 ---
 
 Throughout the past few months, I've started to become increasingly interested in space-based exploration games. 2016 seems to be the year of space games. A few notable ones that have gained some publicity in the recent years are [No Man's Sky](http://no-mans-sky.com/), [Elite: Dangerous](https://www.elitedangerous.com/), and [Star Citizen](https://robertsspaceindustries.com/).

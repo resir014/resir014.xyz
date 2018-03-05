@@ -31,25 +31,12 @@ module.exports = {
         path: `${__dirname}/src/data`
       }
     },
-    {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: `https://resir014.xyz`
-      }
-    },
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-top: 1rem; margin-bottom: 1rem`
-            }
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -59,7 +46,22 @@ module.exports = {
               wrapperStyle: 'margin-top: 1.5rem; margin-bottom: 1.5rem;',
             },
           },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-top: 1rem; margin-bottom: 1rem`
+            }
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
         ]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: `https://resir014.xyz`
       }
     },
     {
@@ -71,8 +73,6 @@ module.exports = {
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-transformer-json',
     'gatsby-plugin-twitter',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import Img from 'gatsby-image'
 
 import { menuItems } from '../utils/menus'
 
@@ -41,6 +42,11 @@ interface PageTemplateProps {
         title: string
         path?: string
         layout: string
+        header_image?: {
+          childImageSharp: {
+            sizes: { [key: string]: any }
+          }
+        }
       }
     }
   }
@@ -67,9 +73,9 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         <PageMeta>
           <PageTitle>{post.frontmatter.title}</PageTitle>
         </PageMeta>
-        {post.fields.headerImage && (
+        {post.frontmatter.header_image && (
           <PostThumbnail>
-            <img src={post.fields.headerImage} alt="" />
+            <Img sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
           </PostThumbnail>
         )}
         <PageContent>
@@ -103,11 +109,17 @@ export const query = graphql`
       fields {
         slug
         layout
-        headerImage
         lead
       }
       frontmatter {
         title
+        header_image {
+          childImageSharp {
+            sizes(maxWidth: 1140) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }

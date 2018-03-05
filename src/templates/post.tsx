@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import Img from 'gatsby-image'
 
 import { menuItems } from '../utils/menus'
 
@@ -38,7 +39,6 @@ interface PostTemplateProps {
         slug: string
         layout?: string
         category?: string
-        headerImage?: string
         lead?: string
         date: string
         date_ogp?: string
@@ -47,10 +47,12 @@ interface PostTemplateProps {
         title: string
         path?: string
         layout: string
+        header_image?: {
+          childImageSharp: {
+            sizes: { [key: string]: any }
+          }
+        }
       }
-    }
-    headerImage: {
-      sizes: { [key: string]: any }
     }
   }
 }
@@ -82,9 +84,9 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
             <PostTitle darkBackground>{post.frontmatter.title}</PostTitle>
           </PostMeta>
         </PostHeader>
-        {post.fields.headerImage && (
+        {post.frontmatter.header_image && (
           <PostThumbnail>
-            <img src={post.fields.headerImage} alt="" />
+            <Img sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
           </PostThumbnail>
         )}
         <PageContent>
@@ -120,13 +122,19 @@ export const query = graphql`
         layout
         category
         link
-        headerImage
         lead
         date(formatString: "DD MMMM YYYY")
         date_ogp: date
       }
       frontmatter {
         title
+        header_image {
+          childImageSharp {
+            sizes(maxWidth: 1140) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }

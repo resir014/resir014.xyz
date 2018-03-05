@@ -3,7 +3,7 @@ category: article
 layout: post
 title: "The internet censorship five stages of grief"
 subtitle: "A go-to guide on how to mentally cope with your favourite website/app being blocked/censored by your country's government."
-header_image_url: "/images/blog/2017/the-internet-censorship-five-stages-of-grief/2017-07-16_18-52-03.png"
+header_image: "../../../images/blog/2017/the-internet-censorship-five-stages-of-grief/2017-07-16_18-52-03.png"
 ---
 
 The Indonesian internet is known for its notorious [government censorship initiative](/blog/2016/02/17/tumblr-and-the-internet-positif-hammer/). As a self-proclaimed [citizen of the world](https://www.youtube.com/watch?v=WSRt5zW1kOg), I believe that you can't entirely eradicate pornographic/radical content without pulling the plug of the whole internet and switching to a North Korea-style intranet. Besides, if you're **really** detemined, you can find various ways to [bypass the filters](https://www.youtube.com/watch?v=CcZdwX4noCE).

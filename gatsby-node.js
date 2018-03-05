@@ -19,7 +19,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       lead,
       subtitle,
       link,
-      header_image_url,
+      header_image,
       date,
     } = node.frontmatter
     const relativePath = createFilePath({ node, getNode, basePath: 'pages' })
@@ -142,7 +142,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     createNodeField({
       node,
       name: 'headerImage',
-      value: header_image_url || '',
+      value: header_image || '',
     })
 
     // Used by createPages() to register redirects.

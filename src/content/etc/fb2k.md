@@ -2,7 +2,7 @@
 layout: page
 title: "The Ultimate foobar2000 Setup*"
 lead: "*) Subjectively."
-header_image_url: /images/etc/fb2k/2017-06-06_06-29-39.png
+header_image: ../images/etc/fb2k/2017-06-06_06-29-39.png
 redirect_from:
   - blog/2015/11/08/the-ultimate-foobar2000-setup
   - 2015/11/08/the-ultimate-foobar2000-setup

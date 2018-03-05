@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 import { menuItems } from '../utils/menus'
 
@@ -48,6 +49,11 @@ interface ProjectTemplateProps {
         title: string
         path?: string
         layout: string
+        header_image?: {
+          childImageSharp: {
+            sizes: { [key: string]: any }
+          }
+        }
       }
     }
   }
@@ -76,9 +82,9 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
           {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
           <PageTitle>{post.frontmatter.title}</PageTitle>
         </PageMeta>
-        {post.fields.headerImage && (
+        {post.frontmatter.header_image && (
           <PostThumbnail>
-            <img src={post.fields.headerImage} alt="" />
+            <Img sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
           </PostThumbnail>
         )}
         <PageContent>
@@ -133,13 +139,19 @@ export const query = graphql`
         year
         slug
         layout
-        headerImage
         lead
         project_url
         jumpToProject
       }
       frontmatter {
         title
+        header_image {
+          childImageSharp {
+            sizes(maxWidth: 1140) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }

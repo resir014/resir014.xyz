@@ -9,7 +9,7 @@ jumpToProject: false
 tags:
   - minecraft
   - gaming
-header_image_url: /images/projects/broville/downtown-render-slider.jpg
+header_image: ../../images/projects/broville/downtown-render-slider.jpg
 ---
 
 <figure>
