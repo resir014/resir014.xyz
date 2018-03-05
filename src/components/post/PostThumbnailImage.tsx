@@ -1,41 +1,31 @@
 import * as React from 'react'
-import styled from 'styled-components'
 import Img from 'gatsby-image'
+import styled from 'styled-components'
 
-import { colors, pxSizes, emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { emSizes } from '../../styles/variables'
 
 interface PostThumbnailImageProps {
   className?: string
   sizes: { [key: string]: any }
-  alt?: string
+  alt: string
 }
 
-const PostThumbnailImage: React.SFC<PostThumbnailImageProps> = ({ className, sizes, alt }) => (
-  <Img
-    sizes={sizes}
-    alt={alt}
-    style={{ background: 'none' }}
-  />
+const PostThumbnailImage: React.SFC<PostThumbnailImageProps> = ({ sizes, alt, className }) => (
+  <Img className={className} position="absolute" sizes={sizes} alt={alt} />
 )
 
 export default styled(PostThumbnailImage)`
-  img {
-    margin: 0 auto !important;
-    opacity: 0.7 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  opacity: 0.7;
 
-    @supports(mix-blend-mode: overlay) {
-      mix-blend-mode: overlay !important;
-      opacity: 1 !important;
-    }
-
-    ${media.lg`
-      max-height: 30rem;
-
-      @supports (object-fit: cover) {
-        width: 100%;
-        object-fit: cover;
-      }
-    `}
+  @supports(mix-blend-mode: luminosity) {
+    mix-blend-mode: luminosity;
+    opacity: 1;
   }
 `

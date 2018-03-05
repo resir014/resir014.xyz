@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
 import { transparentize } from 'polished'
-import * as Color from 'color'
 import Link from 'gatsby-link'
 
 import { fonts, colors } from '../../styles/variables'

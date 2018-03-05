@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import * as Color from 'color'
 
 import Button from '../ui/Button'
 

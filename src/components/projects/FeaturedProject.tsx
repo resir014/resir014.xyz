@@ -2,7 +2,6 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import styled, { css } from 'styled-components'
 import { transparentize } from 'polished'
-import * as Color from 'color'
 
 import Button from '../ui/Button'
 import Container from '../ui/Container'

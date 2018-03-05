@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import * as Color from 'color'
 import styled from 'styled-components'
 
 import flavors from '../../utils/flavorText'
