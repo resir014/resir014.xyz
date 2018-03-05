@@ -15,11 +15,10 @@ import BlogPostExcerpt from './BlogPostExcerpt'
 const StyledPostItem = styled.article`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 
   ${media.lg`
     flex-direction: row;
-    margin-bottom: 3rem;
   `}
 
   &:last-of-type {
