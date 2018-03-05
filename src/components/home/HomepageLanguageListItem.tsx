@@ -21,7 +21,7 @@ export default styled(HomepageLanguageListItem)`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  height: 72px;
   margin-bottom: 1rem;
   padding: ${emSizes.containerPadding}rem;
   border-radius: 3px;
@@ -32,5 +32,6 @@ export default styled(HomepageLanguageListItem)`
 
   ${media.md`
     width: 200px;
+    height: 200px;
   `}
 `
