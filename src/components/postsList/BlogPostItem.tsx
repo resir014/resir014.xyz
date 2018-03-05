@@ -105,12 +105,12 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
   private renderArticleTemplate(node: BlogPostNode) {
     return (
       <PostDetailBox>
-        <PostTitle>{node.frontmatter.title}</PostTitle>
+        <PostTitle><Link to={node.fields.slug}>{node.frontmatter.title}</Link></PostTitle>
         {node.fields.lead || node.excerpt ? (
           <BlogPostExcerpt>{node.fields.lead || node.excerpt}</BlogPostExcerpt>
         ) : null}
         <BlogPostFooter>
-          <Button kind="nav-link" color="primary" to={node.fields.slug}>Read more</Button>
+          <Link to={node.fields.slug}>Read more</Link>
         </BlogPostFooter>
       </PostDetailBox>
     )
