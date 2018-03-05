@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 
 import { colors } from '../styles/variables'
 import { menuItems } from '../utils/menus'
-import { BlogPostField, ProjectField } from '../utils/types'
+import { BlogPostField, ProjectField, ProjectNode } from '../utils/types'
 import getFeaturedProject from '../utils/getFeaturedProject'
 
 import Button from '../components/ui/Button'
@@ -54,12 +54,7 @@ interface IndexPageProps {
     headerImage: {
       sizes: { [key: string]: any }
     }
-    latestPosts: {
-      edges: BlogPostField[]
-    }
-    projects: {
-      edges: ProjectField[]
-    }
+    featuredProject: ProjectNode
   }
 }
 
@@ -79,7 +74,6 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
 
   public render() {
     const { children, data, location } = this.props
-    const featuredProject = getFeaturedProject(data.projects.edges, 'aquellex.ws')
     const { pathname } = location
     return (
       <Page>
@@ -139,11 +133,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           <Divider spacing="large" />
           <HomepageSection>
             <HomepageSectionTitle>Projects.</HomepageSectionTitle>
-            {
-            featuredProject
-              ? <HomepageFeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
-              : null
-            }
+            <HomepageFeaturedProject node={data.featuredProject} />
             <HomepageSectionFooter>
               <Button kind="nav-link" color="primary" size="lg" to="/projects">View all projects</Button>
             </HomepageSectionFooter>
@@ -156,19 +146,6 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             </HomepageSectionDescription>
             <HomepageSectionFooter>
               <Button kind="nav-link" color="primary" size="lg" to="/contact">Get in touch.</Button>
-            </HomepageSectionFooter>
-          </HomepageSection>
-          <Divider spacing="large" />
-          <HomepageSection>
-            <HomepageSectionTitle>Posts.</HomepageSectionTitle>
-            <HomepageSectionDescription>
-              Ramblings about computer stuffs.
-            </HomepageSectionDescription>
-            <HomepageBlogContainer size="lg">
-              {data.latestPosts.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
-            </HomepageBlogContainer>
-            <HomepageSectionFooter>
-              <Button kind="nav-link" color="primary" size="lg" to="/posts">View all posts</Button>
             </HomepageSectionFooter>
           </HomepageSection>
         </HomepageContent>
@@ -196,54 +173,27 @@ export const query = graphql`
         ...GatsbyImageSharpSizes
       }
     }
-    latestPosts: allMarkdownRemark(
-      filter: {id: {regex: "/posts/"}},
-      limit: 3,
-      sort: {fields: [fields___date], order: DESC}
+    featuredProject: markdownRemark(
+      fields: { slug: {eq: "/projects/web/aquellexws/" } }
     ) {
-      edges {
-        node {
-          excerpt
-          html
-          fields {
-            date(formatString: "MMMM DD, YYYY")
-            slug
-            link
-            category
-            lead
-          }
-          frontmatter {
-            title
-          }
-        }
+      excerpt
+      html
+      fields {
+        year
+        description
+        tags
+        slug
+        category
+        lead
+        project_url
+        jumpToProject
       }
-    }
-    projects: allMarkdownRemark(
-      filter: {id: {regex: "/projects/"}}
-      sort: {fields: [fields___year], order: DESC}
-    ) {
-      edges {
-        node {
-          excerpt
-          html
-          fields {
-            year
-            description
-            tags
-            slug
-            category
-            lead
-            project_url
-            jumpToProject
-          }
-          frontmatter {
-            title
-            header_image {
-              childImageSharp {
-                sizes(maxWidth: 1140) {
-                  ...GatsbyImageSharpSizes
-                }
-              }
+      frontmatter {
+        title
+        header_image {
+          childImageSharp {
+            sizes(maxWidth: 1140) {
+              ...GatsbyImageSharpSizes
             }
           }
         }
