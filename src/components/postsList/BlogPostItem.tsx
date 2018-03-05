@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 
 import { colors } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { media, onEvent } from '../../styles/mixins'
 import { BlogPostField, BlogPostNode } from '../../utils/types'
 
 import Button from '../ui/Button'
@@ -50,14 +50,22 @@ const StyledPostMetaItem = styled(PostMetaItem)`
   `}
 `
 
+const PostTitleLink = styled(Link)`
+  color: inherit !important;
+`
+
+const FooterLink = styled(Link)`
+  color: ${colors.blue60};
+
+  ${onEvent()`
+    color: ${colors.blue70};
+  `}
+`
+
 const PostDetailBox = styled.div`
   ${media.lg`
     flex: 1;
   `}
-`
-
-const StyledPostContent = styled.div`
-  margin-top: 1.5rem;
 `
 
 const PostTitle = styled.h3`
@@ -68,14 +76,8 @@ const PostTitle = styled.h3`
   }
 `
 
-const BlogPostContent = styled.div`
-  p:last-child {
-    margin-bottom: 0;
-  }
-`
-
 const BlogPostFooter = styled.div`
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 `
 
 class BlogPostItem extends React.Component<BlogPostField, {}> {
@@ -105,12 +107,14 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
   private renderArticleTemplate(node: BlogPostNode) {
     return (
       <PostDetailBox>
-        <PostTitle><Link to={node.fields.slug}>{node.frontmatter.title}</Link></PostTitle>
+        <PostTitle>
+          <PostTitleLink to={node.fields.slug}>{node.frontmatter.title}</PostTitleLink>
+        </PostTitle>
         {node.fields.lead || node.excerpt ? (
           <BlogPostExcerpt>{node.fields.lead || node.excerpt}</BlogPostExcerpt>
         ) : null}
         <BlogPostFooter>
-          <Link to={node.fields.slug}>Read more</Link>
+          <FooterLink to={node.fields.slug}>Read more &rarr;</FooterLink>
         </BlogPostFooter>
       </PostDetailBox>
     )
