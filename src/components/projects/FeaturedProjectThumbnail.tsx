@@ -15,7 +15,7 @@ interface FeaturedProjectThumbnailProps {
 
 const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> = ({ image, className }) => (
   <div className={className}>
-    <Img sizes={image.childImageSharp.sizes} alt="" />
+    <Img sizes={image.childImageSharp.sizes} style={{ position: 'absolute' }} alt="" />
   </div>
 )
 

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
 
 import { menuItems } from '../utils/menus'
 
@@ -16,6 +15,7 @@ import PostTitle from '../components/post/PostTitle'
 import PostMeta from '../components/post/PostMeta'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PostThumbnail from '../components/post/PostThumbnail'
+import PostThumbnailImage from '../components/post/PostThumbnailImage'
 
 interface PostTemplateProps {
   location: {
@@ -86,7 +86,7 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
         </PostHeader>
         {post.frontmatter.header_image && (
           <PostThumbnail>
-            <Img sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
+            <PostThumbnailImage sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
           </PostThumbnail>
         )}
         <PageContent>

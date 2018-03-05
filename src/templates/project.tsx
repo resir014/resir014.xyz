@@ -16,6 +16,7 @@ import PageContent from '../components/page/PageContent'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PostThumbnail from '../components/post/PostThumbnail'
 import ProjectFooter from '../components/projects/ProjectFooter'
+import PostThumbnailImage from '../components/post/PostThumbnailImage'
 
 interface ProjectTemplateProps {
   location: {
@@ -84,7 +85,7 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
         </PageMeta>
         {post.frontmatter.header_image && (
           <PostThumbnail>
-            <Img sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
+            <PostThumbnailImage sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
           </PostThumbnail>
         )}
         <PageContent>

@@ -23,7 +23,7 @@ export default styled(Container)`
     max-width: ${getEmSize(pxSizes.widths.md)};
   `}
 
-  ${props => props.size === 'lg' && media.lg`
+  ${props => (props.size === 'lg' || props.size === 'xl') && media.lg`
     max-width: ${getEmSize(pxSizes.widths.lg)};
   `}
 

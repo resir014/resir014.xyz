@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import Img from 'gatsby-image'
 
 import { menuItems } from '../utils/menus'
 
@@ -13,6 +12,7 @@ import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import Page from '../components/page/Page'
 import PostThumbnail from '../components/post/PostThumbnail'
+import PostThumbnailImage from '../components/post/PostThumbnailImage'
 
 interface PageTemplateProps {
   location: {
@@ -75,7 +75,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         </PageMeta>
         {post.frontmatter.header_image && (
           <PostThumbnail>
-            <Img sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
+            <PostThumbnailImage sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
           </PostThumbnail>
         )}
         <PageContent>
