@@ -2,7 +2,7 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import { colors } from '../utils/theme'
+import { colors } from '../styles/variables'
 
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'

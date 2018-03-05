@@ -4,8 +4,7 @@ import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'
 
 import { menuItems } from '../utils/menus'
-import mediaQueries from '../utils/mediaQueries'
-import { colors } from '../utils/theme'
+import { colors } from '../styles/variables'
 import normalize from '../styles/normalize'
 
 import 'typeface-zilla-slab'

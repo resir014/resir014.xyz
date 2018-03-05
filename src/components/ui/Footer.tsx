@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import { darken } from 'polished'
 
 import flavors from '../../utils/flavorText'
 import { colors, fonts, emSizes } from '../../styles/variables'
@@ -11,9 +12,17 @@ import Container from './Container'
 const ccLogo = require('../../assets/images/cc-by-nc-sa.svg')
 
 const StyledFooter = styled.footer`
-  padding: 2rem ${emSizes.containerPadding}rem;
-  color: ${colors.white};
+  padding: 1rem ${emSizes.containerPadding}rem;
+  color: ${darken(0.4, colors.white)};
   background-color: ${colors.ink90};
+`
+
+const FooterHeader = styled.div`
+  margin-bottom: 1rem;
+`
+
+const FooterContent = styled.div`
+  margin-top: 1rem;
 
   a {
     color: ${colors.blue40};
@@ -40,47 +49,27 @@ const StyledFooter = styled.footer`
   }
 `
 
-const FooterHeader = styled.div`
-  margin-bottom: 1rem;
+const FooterTitle = styled(Link)`
+  color: ${colors.white};
 
-  .footer-title {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-family: ${fonts.sansSerif};
-    font-weight: 400;
-    line-height: 1.25;
-    font-size: 1.44rem;
+  ${onEvent()`
+    text-decoration: none;
+  `}
+`
 
-    a {
-      display: inline-block;
-      margin: 0;
-      padding: 0 0.25rem;
-      background-color: ${colors.white};
-      color: ${colors.grey90};
-      text-decoration: none;
+const FooterItem = styled.span`
+  :not(:first-child) {
+    margin-left: .5rem;
 
-      &:hover,
-      &:focus {
-        text-decoration: none;
-      }
+    &:before {
+      content: "/";
+      margin-right: .5rem;
     }
   }
+`
 
-  .footer-flavour {
-    font-family: ${fonts.serif};
-    font-weight: 400;
-    line-height: 1.2;
-    font-size: 1.44rem;
-    cursor: pointer;
-
-    span {
-      display: inline-block;
-      margin: 0;
-      padding: 0 0.25rem;
-      background-color: ${colors.orange50};
-      color: ${colors.grey90};
-    }
-  }
+const FooterSplash = styled(FooterItem)`
+  cursor: pointer;
 `
 
 interface FooterProps {
@@ -115,65 +104,64 @@ class Footer extends React.Component<FooterProps, FooterState> {
     return (
       <StyledFooter>
         <FooterHeader>
-          <h3 className="footer-title">
-            <Link to="/">{this.props.title}</Link>
-          </h3>
-          <p
-            className="footer-flavour"
+          <FooterTitle to="/">{this.props.title}</FooterTitle>
+          <FooterSplash
             title="Click to randomise!"
             onClick={() => this.randomiseSplash()}
           >
-            <span>{flavors[randomSplashIndex]}</span>
-          </p>
+            {flavors[randomSplashIndex]}
+          </FooterSplash>
         </FooterHeader>
-        <p>
-          <a
-            rel="license noopener noreferrer"
-            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-            target="_blank"
-          >
-            <img
-              alt="Creative Commons License"
-              src={ccLogo}
-              style={{ height: '31px' }}
-            />
-          </a>
-        </p>
-        <p>
-          <small>
-            Except where otherwise noted, contents are licensed under{' '}
+        <FooterContent>
+          <p>
             <a
               rel="license noopener noreferrer"
               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
               target="_blank"
             >
-              CC-BY-NC-SA 4.0
-            </a>.
-          </small>
-        </p>
-        <p>
-          <small>
-            Powered by{' '}
-            <a
-              href="https://www.gatsbyjs.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Gatsby
-            </a>{' '}
-            and{' '}
-            <a
-              href="https://www.reactjs.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              React
-            </a>. Code licensed under the{' '}
-            <a href="https://github.com/resir014/resir014.xyz" target="_blank">
-              MIT License
-            </a>.
-          </small>
-        </p>
+              <img
+                alt="Creative Commons License"
+                src={ccLogo}
+                style={{ height: '31px' }}
+              />
+            </a>
+          </p>
+          <p>
+            <small>
+              Except where otherwise noted, contents are licensed under{' '}
+              <a
+                rel="license noopener noreferrer"
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                target="_blank"
+              >
+                CC-BY-NC-SA 4.0
+              </a>.
+            </small>
+          </p>
+          <p>
+            <small>
+              Powered by{' '}
+              <a
+                href="https://www.gatsbyjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Gatsby
+              </a>{' '}
+              and{' '}
+              <a
+                href="https://www.reactjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                React
+              </a>. Code licensed under the{' '}
+              <a href="https://github.com/resir014/resir014.xyz" target="_blank">
+                MIT License
+              </a>.
+            </small>
+          </p>
+        </FooterContent>
       </StyledFooter>
     )
   }

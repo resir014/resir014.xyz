@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import { menuItems } from '../utils/menus'
-import { colors } from '../utils/theme'
+import { colors } from '../styles/variables'
 
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'

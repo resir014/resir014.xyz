@@ -13,7 +13,7 @@ import BlogPostItem from '../components/postsList/BlogPostItem'
 
 import { menuItems } from '../utils/menus'
 import { BlogPostField } from '../utils/types'
-import { colors } from '../utils/theme'
+import { colors } from '../styles/variables'
 
 interface BlogPageProps {
   location: {
