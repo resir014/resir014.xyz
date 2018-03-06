@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled, { css } from 'styled-components'
-import { darken } from 'polished'
+import { transparentize } from 'polished'
 import Link from 'gatsby-link'
 
 import { fonts, colors } from '../../styles/variables'
@@ -68,7 +68,7 @@ export default styled(Button)`
   cursor: pointer;
 
   ${onEvent()`
-    background-color: ${darken(0.9, colors.grey70)};
+    background-color: ${transparentize(0.9, colors.grey70)};
     text-decoration: none;
   `} ${props =>
     props.size === 'sm' &&
