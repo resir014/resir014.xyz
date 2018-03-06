@@ -3,18 +3,19 @@ import Helmet from 'react-helmet'
 
 import { menuItems } from '../utils/menus'
 
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Container from '../components/Container'
-import Footer from '../components/Footer'
-import PageHeader from '../components/PageHeader'
-import PageSubtitle from '../components/PageSubtitle'
-import MarkdownContent from '../components/MarkdownContent'
-import PageContent from '../components/PageContent'
-import PostMeta from '../components/PostMeta'
-import PostMetaDate from '../components/PostMetaDate'
-import PostMetaCategory from '../components/PostMetaCategory'
-import PageTitle from '../components/PageTitle'
+import Container from '../components/ui/Container'
+import MarkdownContent from '../components/page/MarkdownContent'
+import PageHeader from '../components/page/PageHeader'
+import PageContent from '../components/page/PageContent'
+import PageSubtitle from '../components/page/PageSubtitle'
+import Page from '../components/page/Page'
+import HeaderImage from '../components/page/HeaderImage'
+import PostHeader from '../components/post/PostHeader'
+import PostTitle from '../components/post/PostTitle'
+import PostMeta from '../components/post/PostMeta'
+import PostMetaItem from '../components/post/PostMetaItem'
+import PostThumbnail from '../components/post/PostThumbnail'
+import PostThumbnailImage from '../components/post/PostThumbnailImage'
 
 interface PostTemplateProps {
   location: {
@@ -38,7 +39,6 @@ interface PostTemplateProps {
         slug: string
         layout?: string
         category?: string
-        headerImage?: string
         lead?: string
         date: string
         date_ogp?: string
@@ -47,6 +47,11 @@ interface PostTemplateProps {
         title: string
         path?: string
         layout: string
+        header_image?: {
+          childImageSharp: {
+            sizes: { [key: string]: any }
+          }
+        }
       }
     }
   }
@@ -58,37 +63,62 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
   const { pathname } = location
 
   return (
-    <React.Fragment>
+    <Page>
       <Helmet
         title={`${post.frontmatter.title} · ${siteMetadata.title}`}
         meta={[
           { name: 'description', content: post.fields.lead || post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
           { property: 'og:title', content: post.frontmatter.title },
-          { property: 'og:description', content: post.fields.lead || post.excerpt },
+          {
+            property: 'og:description',
+            content: post.fields.lead || post.excerpt
+          },
           { property: 'og:type', content: 'article' },
           { property: 'og:article:author', content: siteMetadata.author.name },
-          { property: 'og:article:published_time', content: post.fields.date_ogp },
+          {
+            property: 'og:article:published_time',
+            content: post.fields.date_ogp
+          }
         ]}
       />
-      <main>
-        <article>
-          <PageHeader headerImage={post.fields.headerImage || null}>
-            <PostMeta hasBottomMargin={true}>
-              <PostMetaDate>{post.fields.date}</PostMetaDate>
-              {post.fields.category ? <PostMetaCategory>{post.fields.category}</PostMetaCategory> : null}
-            </PostMeta>
-            <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
-          </PageHeader>
+      <article className="h-entry">
+        <PostHeader>
+          <PostMeta>
+            <PostMetaItem>
+              <time
+                className="dt-published"
+                dateTime={new Date(post.fields.date_ogp).toISOString()}
+              >
+                {post.fields.date}
+              </time>
+            </PostMetaItem>
+            {post.fields.category ? (
+              <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
+            ) : null}
+            <PostTitle className="p-name" darkBackground>
+              {post.frontmatter.title}
+            </PostTitle>
+          </PostMeta>
+        </PostHeader>
+        {post.frontmatter.header_image && (
+          <PostThumbnail>
+            <PostThumbnailImage
+              sizes={post.frontmatter.header_image.childImageSharp.sizes}
+              alt={post.frontmatter.title}
+            />
+          </PostThumbnail>
+        )}
+        <PageContent>
           <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <PageContent>
-              <MarkdownContent html={post.html} />
-            </PageContent>
+            {post.fields.lead ? (
+              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+            ) : null}
+            <MarkdownContent className="e-content" html={post.html} />
           </Container>
-        </article>
-      </main>
-    </React.Fragment>
+        </PageContent>
+      </article>
+    </Page>
   )
 }
 
@@ -114,13 +144,19 @@ export const query = graphql`
         layout
         category
         link
-        headerImage
         lead
         date(formatString: "DD MMMM YYYY")
         date_ogp: date
       }
       frontmatter {
         title
+        header_image {
+          childImageSharp {
+            sizes(maxWidth: 1140) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }

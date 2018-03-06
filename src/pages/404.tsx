@@ -3,53 +3,46 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-import { createLinkStyle, sectionHeading, highlightedText } from '../utils/globalStyles'
-import { colors, fonts } from '../utils/theme'
+import { colors, fonts } from '../styles/variables'
+import { media } from '../styles/mixins'
 
-import Masthead from '../components/Masthead'
-import Container from '../components/Container'
-import Footer from '../components/Footer'
-import PageHeader from '../components/PageHeader'
-import mediaQueries from '../utils/mediaQueries'
+import Page from '../components/page/Page'
 
-const PageWrapper = styled.div`
+const PageWrapper = styled(Page)`
   display: flex;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   align-items: center;
   justify-content: center;
   color: ${colors.white};
-  background-color: ${colors.grey90};
+  background-color: ${colors.ink90};
 `
 
-const PageInner = styled.main`
+const PageInner = styled.div`
   text-align: center;
 
   a {
-    ${createLinkStyle(colors.blue40, colors.blue50)}
+    color: ${colors.blue40};
   }
 
   h1 {
     margin-top: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
     line-height: 1.2;
     font-family: ${fonts.sansSerif};
     font-size: 2.074rem;
 
-    @media ${mediaQueries.md} {
+    ${media.md`
       font-size: 2.441rem;
-    }
-
-    @media ${mediaQueries.lg} {
+    `} ${media.lg`
       font-size: 3.157rem;
-    }
+    `}
 
     span {
-      ${sectionHeading(colors.white, 0, '.25rem')}
+      display: inline-block;
+      margin: 0;
+      padding: 0 0.5rem;
+      background-color: ${colors.white};
+      color: ${colors.ink90};
     }
   }
 
@@ -83,12 +76,19 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
       meta={[
         { name: 'description', content: data.site.siteMetadata.description },
         { property: 'og:title', content: '404: Page not found.' },
-        { property: 'og:description', content: data.site.siteMetadata.description },
+        {
+          property: 'og:description',
+          content: data.site.siteMetadata.description
+        }
       ]}
     />
     <PageInner>
-      <h1 className="page-title"><span>404</span></h1>
-      <p className="lead">You've hit the void. <Link to="/">Go back home.</Link></p>
+      <h1 className="page-title">
+        <span>404</span>
+      </h1>
+      <p className="lead">
+        You've hit the void. <Link to="/">Go back home.</Link>
+      </p>
     </PageInner>
   </PageWrapper>
 )
@@ -96,16 +96,16 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
 export default NotFoundPage
 
 export const query = graphql`
-query NotFoundPageQuery {
-  site {
-    siteMetadata {
-      title
-      description
-      author {
-        name
-        url
+  query NotFoundPageQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author {
+          name
+          url
+        }
       }
     }
   }
-}
 `

@@ -3,15 +3,17 @@ import Helmet from 'react-helmet'
 
 import { menuItems } from '../utils/menus'
 
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Container from '../components/Container'
-import Footer from '../components/Footer'
-import PageHeader from '../components/PageHeader'
-import PageSubtitle from '../components/PageSubtitle'
-import MarkdownContent from '../components/MarkdownContent'
-import PageContent from '../components/PageContent'
-import PageTitle from '../components/PageTitle'
+import Container from '../components/ui/Container'
+import PageHeader from '../components/page/PageHeader'
+import MarkdownContent from '../components/page/MarkdownContent'
+import PageSubtitle from '../components/page/PageSubtitle'
+import PageContent from '../components/page/PageContent'
+import PageTitle from '../components/page/PageTitle'
+import Page from '../components/page/Page'
+import PostThumbnail from '../components/post/PostThumbnail'
+import PostThumbnailImage from '../components/post/PostThumbnailImage'
+import PostHeader from '../components/post/PostHeader'
+import PostMeta from '../components/post/PostMeta'
 
 interface PageTemplateProps {
   location: {
@@ -41,6 +43,11 @@ interface PageTemplateProps {
         title: string
         path?: string
         layout: string
+        header_image?: {
+          childImageSharp: {
+            sizes: { [key: string]: any }
+          }
+        }
       }
     }
   }
@@ -52,34 +59,43 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
   const { pathname } = location
 
   return (
-    <React.Fragment>
+    <Page>
       <Helmet
         title={`${post.frontmatter.title} · ${siteMetadata.title}`}
         meta={[
           { name: 'description', content: post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
           { property: 'og:title', content: post.frontmatter.title },
-          { property: 'og:description', content: post.fields.lead || post.excerpt },
+          {
+            property: 'og:description',
+            content: post.fields.lead || post.excerpt
+          }
         ]}
       />
-      <main>
-        <article>
-          <PageHeader headerImage={post.fields.headerImage || null}>
-            <PageTitle><span>{post.frontmatter.title}</span></PageTitle>
-          </PageHeader>
+      <article>
+        <PostHeader>
+          <PostMeta>
+            <PageTitle>{post.frontmatter.title}</PageTitle>
+          </PostMeta>
+        </PostHeader>
+        {post.frontmatter.header_image && (
+          <PostThumbnail>
+            <PostThumbnailImage
+              sizes={post.frontmatter.header_image.childImageSharp.sizes}
+              alt={post.frontmatter.title}
+            />
+          </PostThumbnail>
+        )}
+        <PageContent>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <PageContent>
-              <MarkdownContent html={post.html} />
-            </PageContent>
+            <MarkdownContent html={post.html} />
           </Container>
-        </article>
-      </main>
-    </React.Fragment>
+        </PageContent>
+      </article>
+    </Page>
   )
 }
-
-const mapStateToProps = (state: ApplicationState) => state.layout
 
 export default PageTemplate
 
@@ -101,11 +117,17 @@ export const query = graphql`
       fields {
         slug
         layout
-        headerImage
         lead
       }
       frontmatter {
         title
+        header_image {
+          childImageSharp {
+            sizes(maxWidth: 1140) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }

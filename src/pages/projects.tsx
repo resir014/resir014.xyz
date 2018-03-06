@@ -2,20 +2,21 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import { colors } from '../utils/theme'
+import { colors } from '../styles/variables'
 
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Container from '../components/Container'
-import Footer from '../components/Footer'
-import PageHeader from '../components/PageHeader'
-import FeaturedProject from '../components/FeaturedProject'
-import ProjectItemList from '../components/ProjectItemList'
-import PageTitle from '../components/PageTitle'
-import PageContent from '../components/PageContent'
+import Container from '../components/ui/Container'
+import Page from '../components/page/Page'
+import PageHeader from '../components/page/PageHeader'
+import PageMeta from '../components/page/PageMeta'
+import PageTitle from '../components/page/PageTitle'
+import PageContent from '../components/page/PageContent'
+import FeaturedProject from '../components/projects/FeaturedProject'
+import ProjectItemList from '../components/projects/ProjectItemList'
 
 import { menuItems } from '../utils/menus'
-import { ProjectNode } from '../utils/types'
+import { ProjectField } from '../utils/types'
+import filterProjectsByCategory from '../utils/filterProjectsByCategory'
+import getFeaturedProject from '../utils/getFeaturedProject'
 
 interface ProjectsPageProps {
   location: {
@@ -33,10 +34,10 @@ interface ProjectsPageProps {
       }
     }
     allMarkdownRemark: {
-      edges: ProjectNode[]
+      edges: ProjectField[]
     }
     allProjectsJson: {
-      edges: ProjectNode[]
+      edges: ProjectField[]
     }
   }
 }
@@ -47,84 +48,93 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
   const featuredProject = getFeaturedProject(data.allMarkdownRemark.edges, 'aquellex.ws')
 
   return (
-    <React.Fragment>
+    <Page>
       <Helmet
         title={`Projects · ${siteMetadata.title}`}
         meta={[
           { name: 'description', content: data.site.siteMetadata.description },
           { property: 'og:title', content: 'Projects' },
-          { property: 'og:description', content: data.site.siteMetadata.description },
+          {
+            property: 'og:description',
+            content: data.site.siteMetadata.description
+          }
         ]}
       />
-      <main>
-        <article>
-          <PageHeader>
-            <PageTitle><span>Projects</span></PageTitle>
-          </PageHeader>
-          <PageContent>
-            {
-              featuredProject
-                ? <FeaturedProject key={featuredProject.node.frontmatter.title} node={featuredProject.node} />
-                : null
-            }
-            <Container>
-              <ProjectItemList title="Web development stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')} />
-              <ProjectItemList title="Open source stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')} />
-              <ProjectItemList title="Other stuff" projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')} />
-            </Container>
-          </PageContent>
-        </article>
-      </main>
-    </React.Fragment>
+      <article>
+        <PageMeta>
+          <PageTitle>Projects</PageTitle>
+        </PageMeta>
+        <PageContent>
+          {featuredProject ? (
+            <FeaturedProject
+              key={featuredProject.node.frontmatter.title}
+              node={featuredProject.node}
+            />
+          ) : null}
+          <Container size="lg">
+            <ProjectItemList
+              title="Web development stuff"
+              projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}
+            />
+            <ProjectItemList
+              title="Open source stuff"
+              projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')}
+            />
+            <ProjectItemList
+              title="Other stuff"
+              projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')}
+            />
+          </Container>
+        </PageContent>
+      </article>
+    </Page>
   )
 }
-
-const getFeaturedProject = (edges: ProjectNode[], name: string) => {
-  return edges.filter(edge => edge.node.frontmatter.title === name)[0]
-}
-
-const filterProjectsByCategory = (edges: ProjectNode[], category: string) => (
-  edges.filter(edge => edge.node.fields.category === category)
-)
 
 export default ProjectsPage
 
 export const query = graphql`
-query ProjectsPageQuery {
-  site {
-    siteMetadata {
-      title
-      description
-      author {
-        name
-        url
-      }
-    }
-  }
-  allMarkdownRemark(
-    filter: {id: {regex: "/projects/"}}
-    sort: {fields: [fields___year], order: DESC}
-  ) {
-    edges {
-      node {
-        excerpt
-        html
-        fields {
-          year
-          description
-          tags
-          slug
-          headerImage
-          category
-          lead
-          project_url
-          jumpToProject
-        }
-        frontmatter {
-          title
+  query ProjectsPageQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author {
+          name
+          url
         }
       }
     }
+    allMarkdownRemark(
+      filter: { id: { regex: "/projects/" } }
+      sort: { fields: [fields___year], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            year
+            description
+            tags
+            slug
+            category
+            lead
+            project_url
+            jumpToProject
+          }
+          frontmatter {
+            title
+            header_image {
+              childImageSharp {
+                sizes(maxWidth: 1140) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
-}
 `

@@ -4,21 +4,19 @@ import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'
 
 import { menuItems } from '../utils/menus'
-import mediaQueries from '../utils/mediaQueries'
-import { colors } from '../utils/theme'
+import { colors } from '../styles/variables'
+import normalize from '../styles/normalize'
 
 import 'typeface-zilla-slab'
 import 'typeface-open-sans'
 
 // inject global styles
-import 'normalize.css'
-import '../styles/globals.scss'
-
+normalize()
 import 'prism-themes/themes/prism-atom-dark.css'
 
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Footer from '../components/Footer'
+import LayoutRoot from '../components/ui/LayoutRoot'
+import Masthead from '../components/ui/Masthead'
+import Footer from '../components/ui/Footer'
 
 interface OverlayProps {
   visible: boolean
@@ -48,44 +46,17 @@ interface WrapperState {
   navigationVisible: boolean
 }
 
-const AppWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`
-
-const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: ${colors.grey90};
-  opacity: 0;
-  visibility: hidden;
-  cursor: pointer;
-  transition: opacity .2s ease, visibility 0ms linear .2s;
-  z-index: 200;
-
-  ${(props: OverlayProps) => props.visible && css`
-    visibility: visible;
-    opacity: .55;
-    background-color: $color-black;
-    transition-delay: 0ms;
-  `}
-`
-
 class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
   constructor(props: WrapperProps) {
     super(props)
     this.state = {
-      navigationVisible: false,
+      navigationVisible: false
     }
   }
 
   public onNavToggleClick = () => {
     this.setState(prevState => ({
-      navigationVisible: !prevState.navigationVisible,
+      navigationVisible: !prevState.navigationVisible
     }))
   }
 
@@ -97,34 +68,33 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
     const is404 = pathname === withPrefix('/404')
 
     return (
-      <AppWrapper>
+      <LayoutRoot>
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description
+            },
             { property: 'og:site_name', content: data.site.siteMetadata.title },
             { property: 'og:type', content: 'website' },
             { property: 'og:title', content: data.site.siteMetadata.title },
-            { property: 'og:description', content: data.site.siteMetadata.description },
+            {
+              property: 'og:description',
+              content: data.site.siteMetadata.description
+            }
           ]}
         />
         <Masthead
           title={data.site.siteMetadata.title}
           items={menuItems}
           pathname={pathname}
-          transparent={true}
+          transparent
           onNavToggleClick={this.onNavToggleClick}
         />
-        <ToggleMenu
-          items={menuItems}
-          pathname={pathname}
-          visible={navigationVisible}
-          onCloseButtonClick={this.onNavToggleClick}
-        />
         {children()}
-        <Overlay visible={navigationVisible} onClick={this.onNavToggleClick} />
-        {isHomepage || is404 ? null : <Footer title={data.site.siteMetadata.title} />}
-      </AppWrapper>
+        {is404 ? null : <Footer title={data.site.siteMetadata.title} />}
+      </LayoutRoot>
     )
   }
 }

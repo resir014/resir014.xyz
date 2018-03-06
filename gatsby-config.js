@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = {
   siteMetadata: {
     title: '@resir014',
@@ -20,8 +22,42 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'assets',
+        path: `${__dirname}/src/assets`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'data',
         path: `${__dirname}/src/data`
+      }
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1140,
+              quality: 90,
+              linkImagesToOriginal: false,
+              wrapperStyle: 'margin: 0;'
+            }
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-top: 1rem; margin-bottom: 1rem`
+            }
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants'
+        ]
       }
     },
     {
@@ -31,42 +67,14 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {
-              wrapperStyle: `margin-bottom: 1rem`
-            }
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 1140,
-              quality: 90,
-              linkImagesToOriginal: false,
-              wrapperStyle: 'margin-top: 1.5rem; margin-bottom: 1.5rem;',
-              backgroundColor: 'var(--color-grey70)'
-            },
-          },
-        ]
-      }
-    },
-    {
       resolve: 'gatsby-plugin-nprogress',
       options: {
         color: '#fff',
         showSpinner: false
-      },
+      }
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    'gatsby-transformer-json',
     'gatsby-plugin-twitter',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
@@ -85,7 +93,7 @@ module.exports = {
           {
             src: '/android-touch-icon.png',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/png'
           }
         ]
       }
@@ -117,23 +125,26 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                });
-              });
+                return Object.assign(
+                  {},
+                  {
+                    title:
+                      edge.node.frontmatter.title || 'New post by @resir014',
+                    description: edge.node.fields.lead || edge.node.excerpt,
+                    date: edge.node.fields.date,
+                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    custom_elements: [{ 'content:encoded': edge.node.html }]
+                  }
+                )
+              })
             },
             query: `
               {
                 allMarkdownRemark(
                   limit: 10,
                   filter: {
-                    id: {regex: "/posts/"},
-                    fields: {
-                      category: {eq: "blog"}
-                    }
+                    id: {regex: "/posts/"}
                   },
                   sort: {fields: [fields___date], order: DESC}
                 ) {
@@ -143,6 +154,7 @@ module.exports = {
                       html
                       fields {
                         slug
+                        lead
                         date
                       }
                       frontmatter {
@@ -162,9 +174,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify',
       options: {
-        allPageHeaders: [
-          'X-Clacks-Overhead: GNU Natalie Nguyen'
-        ]
+        allPageHeaders: ['X-Clacks-Overhead: GNU Natalie Nguyen']
       }
     }
   ]

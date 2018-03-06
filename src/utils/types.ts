@@ -11,52 +11,68 @@ export interface MenuProps {
   pathname: string
 }
 
+export interface BlogPostField {
+  node: BlogPostNode
+}
+
 export interface BlogPostNode {
-  node: {
-    html: string
-    excerpt: string
-    fields: {
-      slug: string
-      category?: string
-      layout?: string
-      link?: string
-      headerImage?: string
-      lead?: string
-      date: string
-    }
-    frontmatter: {
-      title?: string
-      path?: string
-      layout: string
+  html: string
+  excerpt: string
+  fields: {
+    slug: string
+    category?: string
+    layout?: string
+    link?: string
+    headerImage?: string
+    headerRegex?: string
+    lead?: string
+    date: string
+  }
+  frontmatter: {
+    title?: string
+    path?: string
+    layout: string
+    header_image?: {
+      childImageSharp: {
+        sizes: { [key: string]: any }
+      }
     }
   }
+}
+
+export interface ProjectField {
+  node: ProjectNode
 }
 
 export interface ProjectNode {
-  node: {
-    excerpt: string
-    html: string
-    fields: {
-      year: string
-      description: string
-      tags: string
-      slug: string
-      headerImage: string
-      category: string
-      lead: string
-      jumpToProject: string
-      project_url: string
-    }
-    frontmatter: {
-      title: string
+  excerpt: string
+  html: string
+  fields: {
+    year: string
+    description: string
+    tags: string
+    slug: string
+    category: string
+    lead: string
+    jumpToProject: string
+    project_url: string
+  }
+  frontmatter: {
+    title: string
+    header_image?: {
+      childImageSharp: {
+        sizes: { [key: string]: any }
+      }
     }
   }
 }
 
+export interface SocialLinkField {
+  node: SocialLinkNode
+}
+
 export interface SocialLinkNode {
-  node: {
-    title: string
-    url: string
-    description: string
-  }
+  title: string
+  url: string
+  description: string
 }

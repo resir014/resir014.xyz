@@ -3,23 +3,17 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
-
-import PageTitle from '../components/PageTitle'
-import PageContent from '../components/PageContent'
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Footer from '../components/Footer'
-import Container from '../components/Container'
-import PageHeader from '../components/PageHeader'
-import BlogPostItem from '../components/BlogPostItem'
+import Container from '../components/ui/Container'
+import Page from '../components/page/Page'
+import PageHeader from '../components/page/PageHeader'
+import PageMeta from '../components/page/PageMeta'
+import PageTitle from '../components/page/PageTitle'
+import PageContent from '../components/page/PageContent'
+import BlogPostItem from '../components/postsList/BlogPostItem'
 
 import { menuItems } from '../utils/menus'
-import { BlogPostNode } from '../utils/types'
-import { colors } from '../utils/theme'
-
-const BlogPostList = styled.div`
-  border-bottom: 2px solid ${colors.grey90};
-`
+import { BlogPostField } from '../utils/types'
+import { colors } from '../styles/variables'
 
 interface BlogPageProps {
   location: {
@@ -37,7 +31,7 @@ interface BlogPageProps {
       }
     }
     allMarkdownRemark: {
-      edges: BlogPostNode[]
+      edges: BlogPostField[]
     }
   }
 }
@@ -47,65 +41,68 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
   const { pathname } = location
 
   return (
-    <React.Fragment>
+    <Page>
       <Helmet
         title={`Posts · ${siteMetadata.title}`}
         meta={[
           { name: 'description', content: data.site.siteMetadata.description },
           { property: 'og:title', content: 'Posts' },
-          { property: 'og:description', content: data.site.siteMetadata.description },
+          {
+            property: 'og:description',
+            content: data.site.siteMetadata.description
+          }
         ]}
       />
-      <main>
-        <PageHeader>
-          <PageTitle><span>Posts</span></PageTitle>
-        </PageHeader>
-        <Container>
+      <section>
+        <PageMeta>
+          <PageTitle>Posts</PageTitle>
+        </PageMeta>
+        <Container size="lg">
           <PageContent>
-            <BlogPostList>
-              {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
-            </BlogPostList>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <BlogPostItem key={node.fields.slug} node={node} />
+            ))}
           </PageContent>
         </Container>
-      </main>
-    </React.Fragment>
+      </section>
+    </Page>
   )
 }
 
 export default BlogPage
 
 export const query = graphql`
-query BlogPageQuery {
-  site {
-    siteMetadata {
-      title
-      description
-      author {
-        name
-        url
-      }
-    }
-  }
-  allMarkdownRemark(
-    filter: {id: {regex: "/posts/"}},
-    sort: {fields: [fields___date], order: DESC}
-  ) {
-    edges {
-      node {
-        excerpt
-        html
-        fields {
-          date(formatString: "MMMM DD, YYYY")
-          slug
-          link
-          category
-          lead
-        }
-        frontmatter {
-          title
+  query BlogPageQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author {
+          name
+          url
         }
       }
     }
+    allMarkdownRemark(
+      filter: { id: { regex: "/posts/" } }
+      sort: { fields: [fields___date], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            date(formatString: "MMMM DD, YYYY")
+            slug
+            link
+            category
+            lead
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
   }
-}
 `

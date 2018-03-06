@@ -3,23 +3,34 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'
 
-import Masthead from '../components/Masthead'
-import ToggleMenu from '../components/ToggleMenu'
-import Container from '../components/Container'
-import Footer from '../components/Footer'
-
+import { colors } from '../styles/variables'
 import { menuItems } from '../utils/menus'
-import { headerColors, colors } from '../utils/theme'
-import { sectionHeading, highlightedText } from '../utils/globalStyles'
-import flavorText from '../utils/flavorText'
-import mediaQueries, { widths } from '../utils/mediaQueries'
-import Button from '../components/Button'
+import { BlogPostField, ProjectField, ProjectNode } from '../utils/types'
+import flavors from '../utils/flavorText'
+import getFeaturedProject from '../utils/getFeaturedProject'
+import shuffleArray from '../utils/shuffleArray'
+
+import Button from '../components/ui/Button'
+import Divider from '../components/ui/Divider'
+import Page from '../components/page/Page'
+import PageHeader from '../components/page/PageHeader'
+import HeaderImage from '../components/page/HeaderImage'
+import HomepageContent from '../components/home/HomepageContent'
+import HomepageSection from '../components/home/HomepageSection'
+import BlogPostItem from '../components/postsList/BlogPostItem'
+import HomepageBlogContainer from '../components/home/HomepageBlogContainer'
+import HomepageSectionTitle from '../components/home/HomepageSectionTitle'
+import HomepageSectionDescription from '../components/home/HomepageSectionDescription'
+import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
+import HomepageFeaturedProject from '../components/home/HomepageFeaturedProject'
+import HomepageLanguageList from '../components/home/HomepageLanguageList'
+import HomepageLanguageListItem from '../components/home/HomepageLanguageListItem'
+import HomepageThumbnail from '../components/home/HomepageThumbnail'
+import HomepageThumbnailImage from '../components/home/HomepageThumbnailImage'
+import HomepageThumbnailText from '../components/home/HomepageThumbnailText'
+import HomepageThumbnailFlavour from '../components/home/HomepageThumbnailFlavour'
 
 const backgroundImage = require('../assets/images/background.jpg')
-
-// TODO: stop using this when we finally convert to Photon colors:
-// http://design.firefox.com/photon/visuals/color.html
-const getHeaderColor = (index: number) => headerColors[index]
 
 interface HomepageWrapperProps {
   state: {
@@ -29,105 +40,6 @@ interface HomepageWrapperProps {
   headerImage: string
   className?: string
 }
-
-const HomepageWrapperRoot: React.SFC<HomepageWrapperProps> = ({ state, className, headerImage, children }) => (
-  <div className={className}>
-    {children}
-  </div>
-)
-
-const HomepageWrapper = styled(HomepageWrapperRoot)`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to bottom right,
-    ${props => getHeaderColor(props.state.gradientStartIndex)},
-    ${props => getHeaderColor(props.state.gradientEndIndex)});
-
-  ${props => props.headerImage && hasHeaderImage}
-`
-
-const hasHeaderImage = css`
-  z-index: 1;
-
-  &:before {
-    content: " ";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    background-image: url(${(props: HomepageWrapperProps) => props.headerImage});
-    background-size: cover;
-    background-position-y: center;
-    opacity: 0.7;
-
-    @supports(mix-blend-mode: luminosity) {
-      mix-blend-mode: luminosity;
-      opacity: 1;
-    }
-  }
-`
-
-const HomepageWrapperInner = styled.main`
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - 0.5px); // workaround for IE not centering shit properly w/ flexbox
-  min-height: 100%;
-  align-items: center;
-  justify-content: center;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: ${widths.normal};
-
-  @media ${mediaQueries.lg} {
-    max-width: ${widths.large};
-  }
-`
-
-const HomepageContent = styled.div`
-  width: 100%;
-`
-
-const HomepageTitle = styled.h1`
-  margin-top: 0;
-  margin-bottom: .5rem;
-  color: ${colors.grey90};
-
-  span {
-    ${sectionHeading(colors.white, 0, '.25rem')}
-  }
-
-  @media ${mediaQueries.lg} {
-    font-size: 3rem;
-    line-height: 1.15;
-  }
-`
-
-const HomepageFlavour = styled.p`
-  margin: 0;
-  font-size: 1.25rem;
-  color: ${colors.grey90};
-
-  @media ${mediaQueries.md} {
-    font-size: 1.5rem;
-  }
-`
-
-const HomepageFlavourIntro = styled.span`
-  ${sectionHeading(colors.white, 0, '.25rem')}
-  line-height: 1.45;
-`
-
-const PageFooter = styled.div`
-  margin-top: 2rem;
-`
 
 interface IndexPageProps {
   location: {
@@ -145,59 +57,96 @@ interface IndexPageProps {
         }
       }
     }
-  }
-}
-
-interface IndexPageState {
-  gradientStartIndex: number
-  gradientEndIndex: number
-}
-
-class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
-  constructor(props: IndexPageProps) {
-    super(props)
-    this.state = {
-      gradientStartIndex: 0,
-      gradientEndIndex: 0
+    headerImage: {
+      sizes: { [key: string]: any }
     }
+    featuredProject: ProjectNode
   }
+}
 
-  public componentWillMount() {
-    this.setState({
-      gradientStartIndex: Math.floor(Math.random() * headerColors.length),
-      gradientEndIndex: Math.floor(Math.random() * headerColors.length)
-    })
-  }
-
-  public render() {
-    const { children, data, location } = this.props
-    const { pathname } = location
-    return (
-      <HomepageWrapper state={this.state} headerImage={backgroundImage}>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
-            { property: 'og:title', content: 'Home' },
-            { property: 'og:description', content: data.site.siteMetadata.description },
-          ]}
-        />
-        <HomepageWrapperInner>
-          <HomepageContent>
-            <HomepageTitle><span>Hey, call me Resi.</span></HomepageTitle>
-            <HomepageFlavour>
-              <HomepageFlavourIntro>
-                I'm a professional web developer based in Jakarta, Indonesia.
-              </HomepageFlavourIntro>
-            </HomepageFlavour>
-            <PageFooter>
-              <Button kind="nav-link" to="/about" color="white">More about me</Button>
-            </PageFooter>
-          </HomepageContent>
-        </HomepageWrapperInner>
-      </HomepageWrapper>
-    )
-  }
+const IndexPage: React.SFC<IndexPageProps> = ({ children, data, location }) => {
+  const { pathname } = location
+  const randomSplash = shuffleArray(flavors)[0]
+  return (
+    <Page>
+      <Helmet
+        title={data.site.siteMetadata.title}
+        meta={[
+          {
+            name: 'description',
+            content: data.site.siteMetadata.description
+          },
+          { property: 'og:title', content: 'Home' },
+          {
+            property: 'og:description',
+            content: data.site.siteMetadata.description
+          }
+        ]}
+      />
+      <HomepageThumbnail>
+        <HomepageThumbnailImage sizes={data.headerImage.sizes} alt="" />
+        <HomepageThumbnailText>
+          <HomepageThumbnailFlavour title="@resir014" flavour={randomSplash} />
+        </HomepageThumbnailText>
+      </HomepageThumbnail>
+      <HomepageContent>
+        <Divider spacing="large" />
+        <HomepageSection>
+          <HomepageSectionTitle>Hey, call me Resi.</HomepageSectionTitle>
+          <HomepageSectionDescription>
+            I'm a professional web developer based in Jakarta, Indonesia.
+          </HomepageSectionDescription>
+          <HomepageSectionFooter>
+            <Button kind="nav-link" color="primary" size="lg" to="/about">
+              More about me
+            </Button>
+          </HomepageSectionFooter>
+        </HomepageSection>
+        <Divider spacing="large" />
+        <HomepageSection>
+          <HomepageSectionTitle>
+            Professional programmer by day, hobbyist programmer by night.
+          </HomepageSectionTitle>
+          <HomepageSectionDescription>
+            Here are some technologies I'm currently crazy about.
+          </HomepageSectionDescription>
+          <HomepageLanguageList>
+            <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
+            <HomepageLanguageListItem color={colors.white} background="#337ab7" name="TypeScript" />
+            <HomepageLanguageListItem color="#61dafb" background="#282c34" name="React" />
+            <HomepageLanguageListItem color={colors.white} background="#4e2a8e" name="Elixir" />
+          </HomepageLanguageList>
+          <HomepageSectionFooter>
+            <Button kind="nav-link" color="primary" size="lg" to="/about">
+              View entire skillset
+            </Button>
+          </HomepageSectionFooter>
+        </HomepageSection>
+        <Divider spacing="large" />
+        <HomepageSection>
+          <HomepageSectionTitle>Projects.</HomepageSectionTitle>
+          <HomepageFeaturedProject node={data.featuredProject} />
+          <HomepageSectionFooter>
+            <Button kind="nav-link" color="primary" size="lg" to="/projects">
+              View all projects
+            </Button>
+          </HomepageSectionFooter>
+        </HomepageSection>
+        <Divider spacing="large" />
+        <HomepageSection>
+          <HomepageSectionTitle>Let's talk!</HomepageSectionTitle>
+          <HomepageSectionDescription>
+            Feel free to get in touch with me about anything.
+          </HomepageSectionDescription>
+          <HomepageSectionFooter>
+            <Button kind="nav-link" color="primary" size="lg" to="/contact">
+              Get in touch.
+            </Button>
+          </HomepageSectionFooter>
+        </HomepageSection>
+      </HomepageContent>
+    </Page>
+  )
 }
 
 export default IndexPage
@@ -211,6 +160,35 @@ export const query = graphql`
         author {
           name
           url
+        }
+      }
+    }
+    headerImage: imageSharp(id: { regex: "/background.jpg/" }) {
+      sizes(maxWidth: 1920) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    featuredProject: markdownRemark(fields: { slug: { eq: "/projects/web/aquellexws/" } }) {
+      excerpt
+      html
+      fields {
+        year
+        description
+        tags
+        slug
+        category
+        lead
+        project_url
+        jumpToProject
+      }
+      frontmatter {
+        title
+        header_image {
+          childImageSharp {
+            sizes(maxWidth: 1140) {
+              ...GatsbyImageSharpSizes
+            }
+          }
         }
       }
     }
