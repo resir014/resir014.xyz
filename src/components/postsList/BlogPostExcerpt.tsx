@@ -8,10 +8,9 @@ interface BlogPostExcerptProps {
   className?: string
 }
 
-const BlogPostExcerpt: React.SFC<BlogPostExcerptProps> = ({
-  className,
-  children
-}) => <p className={className}>{children}</p>
+const BlogPostExcerpt: React.SFC<BlogPostExcerptProps> = ({ className, children }) => (
+  <p className={className}>{children}</p>
+)
 
 export default styled(BlogPostExcerpt)`
   font-weight: 300;

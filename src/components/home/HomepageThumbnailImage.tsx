@@ -19,11 +19,7 @@ const HomepageThumbnailImage: React.SFC<HomepageThumbnailImageProps> = ({
 
 export default styled(HomepageThumbnailImage)`
   margin: 0;
-  background: linear-gradient(
-    to bottom right,
-    ${colors.teal50},
-    ${colors.purple70}
-  );
+  background: linear-gradient(to bottom right, ${colors.teal50}, ${colors.purple70});
 
   ${media.lg`
     max-height: 24rem;

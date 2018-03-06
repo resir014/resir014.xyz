@@ -38,11 +38,7 @@ module.exports = ({ node, getNode, boundActionCreators }) => {
 
         const pubDate = date
           ? new Date(date)
-          : new Date(
-              Number.parseInt(year),
-              Number.parseInt(month) - 1,
-              Number.parseInt(day)
-            )
+          : new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day))
 
         // Blog posts are sorted by date and display the date in their header.
         createNodeField({
@@ -54,13 +50,7 @@ module.exports = ({ node, getNode, boundActionCreators }) => {
     }
 
     if (!slug && relativePath.includes('projects')) {
-      const {
-        tags,
-        year,
-        description,
-        project_url,
-        jumpToProject
-      } = node.frontmatter
+      const { tags, year, description, project_url, jumpToProject } = node.frontmatter
 
       createNodeField({
         node,
@@ -83,9 +73,7 @@ module.exports = ({ node, getNode, boundActionCreators }) => {
       createNodeField({
         node,
         name: 'jumpToProject',
-        value: jumpToProject
-          ? JSON.stringify(jumpToProject)
-          : JSON.stringify(false)
+        value: jumpToProject ? JSON.stringify(jumpToProject) : JSON.stringify(false)
       })
 
       createNodeField({

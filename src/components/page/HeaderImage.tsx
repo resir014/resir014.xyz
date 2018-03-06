@@ -10,17 +10,8 @@ interface HeaderImageProps {
   alt: string
 }
 
-const HeaderImage: React.SFC<HeaderImageProps> = ({
-  sizes,
-  alt,
-  className
-}) => (
-  <Img
-    className={className}
-    style={{ position: 'absolute' }}
-    sizes={sizes}
-    alt={alt}
-  />
+const HeaderImage: React.SFC<HeaderImageProps> = ({ sizes, alt, className }) => (
+  <Img className={className} style={{ position: 'absolute' }} sizes={sizes} alt={alt} />
 )
 
 export default styled(HeaderImage)`

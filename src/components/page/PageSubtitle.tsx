@@ -8,10 +8,7 @@ interface PageSubtitleProps {
   className?: string
 }
 
-const PageSubtitle: React.SFC<PageSubtitleProps> = ({
-  className,
-  children
-}) => {
+const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => {
   return <div className={className}>{children}</div>
 }
 

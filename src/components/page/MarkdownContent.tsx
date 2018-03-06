@@ -10,10 +10,9 @@ interface MarkdownContentProps {
   html: string
 }
 
-const MarkdownContent: React.SFC<MarkdownContentProps> = ({
-  className,
-  html
-}) => <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
+const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) => (
+  <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
+)
 
 export default styled(MarkdownContent)`
   a {

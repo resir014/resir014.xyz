@@ -7,10 +7,9 @@ interface PostMetaItemProps {
   className?: string
 }
 
-const PostMetaItem: React.SFC<PostMetaItemProps> = ({
-  className,
-  children
-}) => <span className={className}>{children}</span>
+const PostMetaItem: React.SFC<PostMetaItemProps> = ({ className, children }) => (
+  <span className={className}>{children}</span>
+)
 
 export default styled(PostMetaItem)`
   &:not(:first-of-type) {

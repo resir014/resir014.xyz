@@ -108,11 +108,7 @@ class Footer extends React.Component<FooterProps, FooterState> {
               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
               target="_blank"
             >
-              <img
-                alt="Creative Commons License"
-                src={ccLogo}
-                style={{ height: '31px' }}
-              />
+              <img alt="Creative Commons License" src={ccLogo} style={{ height: '31px' }} />
             </a>
           </p>
           <p>
@@ -130,25 +126,14 @@ class Footer extends React.Component<FooterProps, FooterState> {
           <p>
             <small>
               Powered by{' '}
-              <a
-                href="https://www.gatsbyjs.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">
                 Gatsby
               </a>{' '}
               and{' '}
-              <a
-                href="https://www.reactjs.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://www.reactjs.org/" target="_blank" rel="noopener noreferrer">
                 React
               </a>. Code licensed under the{' '}
-              <a
-                href="https://github.com/resir014/resir014.xyz"
-                target="_blank"
-              >
+              <a href="https://github.com/resir014/resir014.xyz" target="_blank">
                 MIT License
               </a>.
             </small>

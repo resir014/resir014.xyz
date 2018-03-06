@@ -4,11 +4,7 @@ import { ApplicationState, reducers } from './store'
 
 export default function configureStore(initialState?: ApplicationState) {
   const allReducers = buildRootReducer<ApplicationState>(reducers)
-  return createStore<ApplicationState>(
-    allReducers,
-    initialState,
-    devToolsEnhancer({})
-  )
+  return createStore<ApplicationState>(allReducers, initialState, devToolsEnhancer({}))
 }
 
 function buildRootReducer<TState>(allReducers: any) {

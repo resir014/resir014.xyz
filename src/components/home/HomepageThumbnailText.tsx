@@ -19,10 +19,7 @@ const FlexInner = styled.div`
   background-color: ${colors.ink90};
 `
 
-const HomepageThumbnailText: React.SFC<HomepageThumbnailTextProps> = ({
-  className,
-  children
-}) => (
+const HomepageThumbnailText: React.SFC<HomepageThumbnailTextProps> = ({ className, children }) => (
   <div className={className}>
     <FlexInner>{children}</FlexInner>
   </div>

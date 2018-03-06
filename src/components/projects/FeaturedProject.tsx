@@ -87,10 +87,7 @@ interface FeaturedProjectState {
   gradientEndIndex: number
 }
 
-class FeaturedProject extends React.Component<
-  FeaturedProjectProps,
-  FeaturedProjectState
-> {
+class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProjectState> {
   constructor(props: FeaturedProjectProps) {
     super(props)
     this.state = {
@@ -102,9 +99,7 @@ class FeaturedProject extends React.Component<
   public render() {
     const { node, className } = this.props
     const { header_image } = node.frontmatter
-    const tags = node.fields.tags
-      ? (JSON.parse(node.fields.tags) as string[])
-      : undefined
+    const tags = node.fields.tags ? (JSON.parse(node.fields.tags) as string[]) : undefined
     return (
       <Container size="xl">
         <FeaturedProjectWrapper className={className}>
@@ -114,14 +109,10 @@ class FeaturedProject extends React.Component<
           <FeaturedProjectDetails className="column">
             <FeaturedProjectHeading>
               <span>Featured project</span>
-              <FeaturedProjectName>
-                {node.frontmatter.title}
-              </FeaturedProjectName>
+              <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
             </FeaturedProjectHeading>
             {tags ? (
-              <ProjectTags>
-                {tags.map(tag => <span key={tag}>{tag}</span>)}
-              </ProjectTags>
+              <ProjectTags>{tags.map(tag => <span key={tag}>{tag}</span>)}</ProjectTags>
             ) : null}
             <FeaturedProjectDescription>
               <p>{node.fields.description}</p>

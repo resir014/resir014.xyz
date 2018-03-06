@@ -10,10 +10,7 @@ interface HomepageSectionProps {
   className?: string
 }
 
-const HomepageSection: React.SFC<HomepageSectionProps> = ({
-  children,
-  className
-}) => (
+const HomepageSection: React.SFC<HomepageSectionProps> = ({ children, className }) => (
   <section className={className}>
     <Container size="lg">{children}</Container>
   </section>

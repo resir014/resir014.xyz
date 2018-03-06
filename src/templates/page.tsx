@@ -88,9 +88,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         )}
         <PageContent>
           <Container>
-            {post.fields.lead ? (
-              <PageSubtitle>{post.fields.lead}</PageSubtitle>
-            ) : null}
+            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
             <MarkdownContent html={post.html} />
           </Container>
         </PageContent>

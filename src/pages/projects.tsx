@@ -45,10 +45,7 @@ interface ProjectsPageProps {
 const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
   const { siteMetadata } = data.site
   const { pathname } = location
-  const featuredProject = getFeaturedProject(
-    data.allMarkdownRemark.edges,
-    'aquellex.ws'
-  )
+  const featuredProject = getFeaturedProject(data.allMarkdownRemark.edges, 'aquellex.ws')
 
   return (
     <Page>
@@ -77,24 +74,15 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data, location }) => {
           <Container size="lg">
             <ProjectItemList
               title="Web development stuff"
-              projects={filterProjectsByCategory(
-                data.allMarkdownRemark.edges,
-                'web'
-              )}
+              projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}
             />
             <ProjectItemList
               title="Open source stuff"
-              projects={filterProjectsByCategory(
-                data.allMarkdownRemark.edges,
-                'oss'
-              )}
+              projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')}
             />
             <ProjectItemList
               title="Other stuff"
-              projects={filterProjectsByCategory(
-                data.allMarkdownRemark.edges,
-                'other'
-              )}
+              projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')}
             />
           </Container>
         </PageContent>

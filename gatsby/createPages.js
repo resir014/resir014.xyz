@@ -54,10 +54,7 @@ module.exports = async ({ graphql, boundActionCreators }) => {
       // long as the corresponding template file exists in src/templates.
       // If no template is set, it will fall back to the default `page`
       // template.
-      component: path.resolve(
-        __dirname,
-        `../src/templates/${layout || 'page'}.tsx`
-      ),
+      component: path.resolve(__dirname, `../src/templates/${layout || 'page'}.tsx`),
       context: {
         // Data passed to context is available in page queries as GraphQL variables.
         slug

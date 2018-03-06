@@ -42,12 +42,7 @@ const MastheadTitleLink = styled(Link)`
   `};
 `
 
-const Masthead: React.SFC<MastheadProps> = ({
-  className,
-  children,
-  items,
-  title
-}) => (
+const Masthead: React.SFC<MastheadProps> = ({ className, children, items, title }) => (
   <header className={className}>
     <MastheadInner>
       <MastheadTitle>

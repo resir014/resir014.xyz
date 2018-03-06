@@ -92,25 +92,19 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
         <StyledPostMeta>
           <StyledPostMetaItem>
             <Link to={node.fields.slug}>
-              <time
-                className="dt-published"
-                dateTime={new Date(date).toISOString()}
-              >
+              <time className="dt-published" dateTime={new Date(date).toISOString()}>
                 {date}
               </time>
             </Link>
           </StyledPostMetaItem>
-          <StyledPostMetaItem className="p-category">
-            {category}
-          </StyledPostMetaItem>
+          <StyledPostMetaItem className="p-category">{category}</StyledPostMetaItem>
         </StyledPostMeta>
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}
         {node.fields.category === 'note' && this.renderNoteTemplate(node)}
         {node.fields.category === 'video' && this.renderNoteTemplate(node)}
         {node.fields.category === 'photo' && this.renderNoteTemplate(node)}
         {node.fields.category === 'jam' && this.renderNoteTemplate(node)}
-        {node.fields.category === 'bookmark' &&
-          this.renderBookmarkTemplate(node)}
+        {node.fields.category === 'bookmark' && this.renderBookmarkTemplate(node)}
       </StyledPostItem>
     )
   }

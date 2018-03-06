@@ -24,10 +24,7 @@ interface HomepageLanguageListProps {
   className?: string
 }
 
-const HomepageLanguageList: React.SFC<HomepageLanguageListProps> = ({
-  className,
-  children
-}) => (
+const HomepageLanguageList: React.SFC<HomepageLanguageListProps> = ({ className, children }) => (
   <StyledHomepageLanguageList className={className} size="lg">
     {children}
   </StyledHomepageLanguageList>

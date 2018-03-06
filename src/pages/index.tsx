@@ -111,25 +111,10 @@ const IndexPage: React.SFC<IndexPageProps> = ({ children, data, location }) => {
             Here are some technologies I'm currently crazy about.
           </HomepageSectionDescription>
           <HomepageLanguageList>
-            <HomepageLanguageListItem
-              background="#ffff00"
-              name="JavaScript (ES6)"
-            />
-            <HomepageLanguageListItem
-              color={colors.white}
-              background="#337ab7"
-              name="TypeScript"
-            />
-            <HomepageLanguageListItem
-              color="#61dafb"
-              background="#282c34"
-              name="React"
-            />
-            <HomepageLanguageListItem
-              color={colors.white}
-              background="#4e2a8e"
-              name="Elixir"
-            />
+            <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
+            <HomepageLanguageListItem color={colors.white} background="#337ab7" name="TypeScript" />
+            <HomepageLanguageListItem color="#61dafb" background="#282c34" name="React" />
+            <HomepageLanguageListItem color={colors.white} background="#4e2a8e" name="Elixir" />
           </HomepageLanguageList>
           <HomepageSectionFooter>
             <Button kind="nav-link" color="primary" size="lg" to="/about">
@@ -183,9 +168,7 @@ export const query = graphql`
         ...GatsbyImageSharpSizes
       }
     }
-    featuredProject: markdownRemark(
-      fields: { slug: { eq: "/projects/web/aquellexws/" } }
-    ) {
+    featuredProject: markdownRemark(fields: { slug: { eq: "/projects/web/aquellexws/" } }) {
       excerpt
       html
       fields {

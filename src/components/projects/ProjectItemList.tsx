@@ -32,17 +32,12 @@ export interface ProjectItemListProps {
   projects: ProjectField[]
 }
 
-const ProjectItemList: React.SFC<ProjectItemListProps> = ({
-  title,
-  projects
-}) => (
+const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, projects }) => (
   <section>
     <ProjectSectionHeading>{title}</ProjectSectionHeading>
     {projects.length !== 0 ? (
       <ProjectsList>
-        {projects.map(({ node }) => (
-          <ProjectItem key={node.frontmatter.title} node={node} />
-        ))}
+        {projects.map(({ node }) => <ProjectItem key={node.frontmatter.title} node={node} />)}
       </ProjectsList>
     ) : (
       <ProjectEmpty>No projects.</ProjectEmpty>

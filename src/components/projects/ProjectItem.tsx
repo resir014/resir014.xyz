@@ -66,20 +66,14 @@ const ProjectFooter = styled.div`
 `
 
 const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
-  const tags = node.fields.tags
-    ? (JSON.parse(node.fields.tags) as string[])
-    : undefined
+  const tags = node.fields.tags ? (JSON.parse(node.fields.tags) as string[]) : undefined
   return (
     <StyledProjectItem>
       <ProjectTitle>
         {node.frontmatter.title}
         <ProjectYear>{node.fields.year}</ProjectYear>
       </ProjectTitle>
-      {tags ? (
-        <ProjectTags>
-          {tags.map(tag => <span key={tag}>{tag}</span>)}
-        </ProjectTags>
-      ) : null}
+      {tags ? <ProjectTags>{tags.map(tag => <span key={tag}>{tag}</span>)}</ProjectTags> : null}
       <ProjectDetailBox>
         <p
           dangerouslySetInnerHTML={{

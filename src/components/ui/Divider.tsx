@@ -9,11 +9,9 @@ interface DividerProps {
   fullWidth?: boolean
 }
 
-const Divider: React.SFC<DividerProps> = ({
-  className,
-  spacing,
-  fullWidth
-}) => <hr className={className} />
+const Divider: React.SFC<DividerProps> = ({ className, spacing, fullWidth }) => (
+  <hr className={className} />
+)
 
 export default styled(Divider)`
   position: relative;

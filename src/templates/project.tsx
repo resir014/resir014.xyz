@@ -61,10 +61,7 @@ interface ProjectTemplateProps {
   }
 }
 
-const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({
-  data,
-  location
-}) => {
+const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
@@ -88,9 +85,7 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({
           <PostMeta>
             <PostMetaItem>projects</PostMetaItem>
             <PostMetaItem>{post.fields.year}</PostMetaItem>
-            {post.fields.category ? (
-              <PostMetaItem>{post.fields.category}</PostMetaItem>
-            ) : null}
+            {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
             <PageTitle>{post.frontmatter.title}</PageTitle>
           </PostMeta>
         </PostHeader>
@@ -104,14 +99,10 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({
         )}
         <PageContent>
           <Container>
-            {post.fields.lead ? (
-              <PageSubtitle>{post.fields.lead}</PageSubtitle>
-            ) : null}
+            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
             <MarkdownContent html={post.html} />
             {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
-              <ProjectFooter>
-                {renderLink(post.fields.project_url, true)}
-              </ProjectFooter>
+              <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
             ) : null}
           </Container>
         </PageContent>
