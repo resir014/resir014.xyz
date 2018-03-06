@@ -68,7 +68,6 @@ const PostDetailBox = styled.div`
 
 const PostTitle = styled.h3`
   margin-top: 0;
-  font-weight: 700;
 
   a {
     color: ${colors.blue60};

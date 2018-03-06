@@ -15,5 +15,4 @@ const PostTitle: React.SFC<PostTitleProps> = ({ className, children }) => (
 export default styled(PostTitle)`
   margin: 0;
   margin-top: 0.5rem;
-  font-weight: 700;
 `
