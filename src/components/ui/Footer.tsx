@@ -22,8 +22,6 @@ const FooterHeader = styled.div`
 `
 
 const FooterContent = styled.div`
-  margin-top: 1rem;
-
   a {
     color: ${colors.blue40};
     text-decoration: underline;
@@ -103,15 +101,6 @@ class Footer extends React.Component<FooterProps, FooterState> {
 
     return (
       <StyledFooter>
-        <FooterHeader>
-          <FooterTitle to="/">{this.props.title}</FooterTitle>
-          <FooterSplash
-            title="Click to randomise!"
-            onClick={() => this.randomiseSplash()}
-          >
-            {flavors[randomSplashIndex]}
-          </FooterSplash>
-        </FooterHeader>
         <FooterContent>
           <p>
             <a
