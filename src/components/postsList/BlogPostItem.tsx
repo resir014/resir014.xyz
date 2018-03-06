@@ -88,12 +88,21 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
     const { node } = props
     const { date, category } = node.fields
     return (
-      <StyledPostItem>
+      <StyledPostItem className="h-entry">
         <StyledPostMeta>
           <StyledPostMetaItem>
-            <Link to={node.fields.slug}>{date}</Link>
+            <Link to={node.fields.slug}>
+              <time
+                className="dt-published"
+                dateTime={new Date(date).toISOString()}
+              >
+                {date}
+              </time>
+            </Link>
           </StyledPostMetaItem>
-          <StyledPostMetaItem>{category}</StyledPostMetaItem>
+          <StyledPostMetaItem className="p-category">
+            {category}
+          </StyledPostMetaItem>
         </StyledPostMeta>
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}
         {node.fields.category === 'note' && this.renderNoteTemplate(node)}
@@ -110,12 +119,14 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
     return (
       <PostDetailBox>
         <PostTitle>
-          <PostTitleLink to={node.fields.slug}>
+          <PostTitleLink className="p-name" to={node.fields.slug}>
             {node.frontmatter.title}
           </PostTitleLink>
         </PostTitle>
         {node.fields.lead || node.excerpt ? (
-          <BlogPostExcerpt>{node.fields.lead || node.excerpt}</BlogPostExcerpt>
+          <BlogPostExcerpt className="p-summary">
+            {node.fields.lead || node.excerpt}
+          </BlogPostExcerpt>
         ) : null}
         <BlogPostFooter>
           <FooterLink to={node.fields.slug}>Read more &rarr;</FooterLink>
@@ -128,9 +139,9 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
     return (
       <PostDetailBox>
         {node.frontmatter.title && (
-          <PostTitle>{node.frontmatter.title}</PostTitle>
+          <PostTitle className="p-name">{node.frontmatter.title}</PostTitle>
         )}
-        <MarkdownContent html={node.html} />
+        <MarkdownContent className="e-content" html={node.html} />
       </PostDetailBox>
     )
   }
@@ -139,12 +150,17 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
     return (
       <PostDetailBox>
         <PostTitle>
-          <a href={node.fields.link} target="_blank" rel="noopener noreferrer">
+          <a
+            className="u-bookmark-of h-cite"
+            href={node.fields.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {node.frontmatter.title}
           </a>{' '}
           &raquo;
         </PostTitle>
-        <MarkdownContent html={node.html} />
+        <MarkdownContent className="e-content" html={node.html} />
       </PostDetailBox>
     )
   }

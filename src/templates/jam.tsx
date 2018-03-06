@@ -59,15 +59,15 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
   return (
     <Page>
       <Helmet
-        title={`${post.frontmatter.title ||
-          post.fields.lead ||
-          post.excerpt} · ${siteMetadata.title}`}
+        title={`${post.frontmatter.title || post.fields.lead || post.excerpt} · ${
+          siteMetadata.title
+        }`}
         meta={[
           { name: 'description', content: post.fields.lead || post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
           {
             property: 'og:title',
-            content: post.frontmatter.title || 'Note posted by @resir014'
+            content: post.frontmatter.title || 'Jam posted by @resir014'
           },
           {
             property: 'og:description',
@@ -84,18 +84,25 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
       <article>
         <PostHeader>
           <PostMeta>
-            <PostMetaItem>{post.fields.date}</PostMetaItem>
+            <PostMetaItem>
+              <time
+                className="dt-published"
+                dateTime={new Date(post.fields.date_ogp).toISOString()}
+              >
+                {post.fields.date}
+              </time>
+            </PostMetaItem>
             {post.fields.category ? (
-              <PostMetaItem>{post.fields.category}</PostMetaItem>
+              <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
             ) : null}
             {post.frontmatter.title && (
-              <PostTitle>{post.frontmatter.title}</PostTitle>
+              <PostTitle className="p-name">{post.frontmatter.title}</PostTitle>
             )}
           </PostMeta>
         </PostHeader>
         <PageContent>
           <Container>
-            <MarkdownContent html={post.html} />
+            <MarkdownContent className="e-content" html={post.html} />
           </Container>
         </PageContent>
       </article>

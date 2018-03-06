@@ -62,10 +62,7 @@ const LinkTitle = styled(PostTitle)`
   }
 `
 
-const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({
-  data,
-  location
-}) => {
+const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
@@ -98,12 +95,20 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({
       <article>
         <PostHeader>
           <PostMeta>
-            <PostMetaItem>{post.fields.date}</PostMetaItem>
+            <PostMetaItem>
+              <time
+                className="dt-published"
+                dateTime={new Date(post.fields.date_ogp).toISOString()}
+              >
+                {post.fields.date}
+              </time>
+            </PostMetaItem>
             {post.fields.category ? (
-              <PostMetaItem>{post.fields.category}</PostMetaItem>
+              <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
             ) : null}
             <LinkTitle>
               <a
+                className="u-bookmark-of h-cite"
                 href={post.fields.link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -116,10 +121,8 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({
         </PostHeader>
         <PageContent>
           <Container>
-            {post.fields.lead ? (
-              <PageSubtitle>{post.fields.lead}</PageSubtitle>
-            ) : null}
-            <MarkdownContent html={post.html} />
+            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+            <MarkdownContent className="e-content" html={post.html} />
           </Container>
         </PageContent>
       </article>

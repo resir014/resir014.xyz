@@ -82,14 +82,23 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
           }
         ]}
       />
-      <article>
+      <article className="h-entry">
         <PostHeader>
           <PostMeta>
-            <PostMetaItem>{post.fields.date}</PostMetaItem>
+            <PostMetaItem>
+              <time
+                className="dt-published"
+                dateTime={new Date(post.fields.date_ogp).toISOString()}
+              >
+                {post.fields.date}
+              </time>
+            </PostMetaItem>
             {post.fields.category ? (
-              <PostMetaItem>{post.fields.category}</PostMetaItem>
+              <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
             ) : null}
-            <PostTitle darkBackground>{post.frontmatter.title}</PostTitle>
+            <PostTitle className="p-name" darkBackground>
+              {post.frontmatter.title}
+            </PostTitle>
           </PostMeta>
         </PostHeader>
         {post.frontmatter.header_image && (
@@ -103,9 +112,9 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
         <PageContent>
           <Container>
             {post.fields.lead ? (
-              <PageSubtitle>{post.fields.lead}</PageSubtitle>
+              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
             ) : null}
-            <MarkdownContent html={post.html} />
+            <MarkdownContent className="e-content" html={post.html} />
           </Container>
         </PageContent>
       </article>
