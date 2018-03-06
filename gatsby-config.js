@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = {
   siteMetadata: {
     title: '@resir014',
@@ -43,8 +45,8 @@ module.exports = {
               maxWidth: 1140,
               quality: 90,
               linkImagesToOriginal: false,
-              wrapperStyle: 'margin: 0;',
-            },
+              wrapperStyle: 'margin: 0;'
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -54,7 +56,7 @@ module.exports = {
           },
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
+          'gatsby-remark-smartypants'
         ]
       }
     },
@@ -69,7 +71,7 @@ module.exports = {
       options: {
         color: '#fff',
         showSpinner: false
-      },
+      }
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sharp',
@@ -91,7 +93,7 @@ module.exports = {
           {
             src: '/android-touch-icon.png',
             sizes: '192x192',
-            type: 'image/png',
+            type: 'image/png'
           }
         ]
       }
@@ -123,15 +125,19 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, {
-                  title: edge.node.frontmatter.title || 'New post by @resir014',
-                  description: edge.node.fields.lead || edge.node.excerpt,
-                  date: edge.node.fields.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                });
-              });
+                return Object.assign(
+                  {},
+                  {
+                    title:
+                      edge.node.frontmatter.title || 'New post by @resir014',
+                    description: edge.node.fields.lead || edge.node.excerpt,
+                    date: edge.node.fields.date,
+                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    custom_elements: [{ 'content:encoded': edge.node.html }]
+                  }
+                )
+              })
             },
             query: `
               {
@@ -168,9 +174,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify',
       options: {
-        allPageHeaders: [
-          'X-Clacks-Overhead: GNU Natalie Nguyen'
-        ]
+        allPageHeaders: ['X-Clacks-Overhead: GNU Natalie Nguyen']
       }
     }
   ]
