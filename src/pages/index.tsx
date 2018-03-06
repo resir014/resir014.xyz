@@ -8,6 +8,7 @@ import { menuItems } from '../utils/menus'
 import { BlogPostField, ProjectField, ProjectNode } from '../utils/types'
 import flavors from '../utils/flavorText'
 import getFeaturedProject from '../utils/getFeaturedProject'
+import shuffleArray from '../utils/shuffleArray'
 
 import Button from '../components/ui/Button'
 import Divider from '../components/ui/Divider'
@@ -63,22 +64,15 @@ interface IndexPageProps {
   }
 }
 
-interface IndexPageState {
-  randomSplashIndex: number
-}
-
-class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
+class IndexPage extends React.Component<IndexPageProps, {}> {
   constructor(props: IndexPageProps) {
     super(props)
-    this.state = {
-      randomSplashIndex: Math.floor(Math.random() * flavors.length)
-    }
   }
 
   public render() {
     const { children, data, location } = this.props
-    const { randomSplashIndex } = this.state
     const { pathname } = location
+    const randomSplash = shuffleArray(flavors)[0]
     return (
       <Page>
         <Helmet
@@ -100,7 +94,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           <HomepageThumbnailText>
             <HomepageThumbnailFlavour
               title="@resir014"
-              flavour={flavors[randomSplashIndex]}
+              flavour={randomSplash}
             />
           </HomepageThumbnailText>
         </HomepageThumbnail>
