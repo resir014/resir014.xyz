@@ -53,6 +53,7 @@ export default styled(Button)`
   color: ${props => props.color ? theme[props.color] : colors.grey70};
   border: 2px solid ${props => props.color ? theme[props.color] : colors.grey70};
   font-family: ${fonts.sansSerif};
+  text-align: center;
   cursor: pointer;
 
   ${onEvent()`

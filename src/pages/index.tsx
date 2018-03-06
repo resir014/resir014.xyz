@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components'
 import { colors } from '../styles/variables'
 import { menuItems } from '../utils/menus'
 import { BlogPostField, ProjectField, ProjectNode } from '../utils/types'
+import flavors from '../utils/flavorText'
 import getFeaturedProject from '../utils/getFeaturedProject'
 
 import Button from '../components/ui/Button'
@@ -23,6 +24,10 @@ import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
 import HomepageFeaturedProject from '../components/home/HomepageFeaturedProject'
 import HomepageLanguageList from '../components/home/HomepageLanguageList'
 import HomepageLanguageListItem from '../components/home/HomepageLanguageListItem'
+import HomepageThumbnail from '../components/home/HomepageThumbnail'
+import HomepageThumbnailImage from '../components/home/HomepageThumbnailImage'
+import HomepageThumbnailText from '../components/home/HomepageThumbnailText'
+import HomepageThumbnailFlavour from '../components/home/HomepageThumbnailFlavour'
 
 const backgroundImage = require('../assets/images/background.jpg')
 
@@ -59,21 +64,30 @@ interface IndexPageProps {
 }
 
 interface IndexPageState {
-  gradientStartIndex: number
-  gradientEndIndex: number
+  randomSplashIndex: number
 }
 
 class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
   constructor(props: IndexPageProps) {
     super(props)
     this.state = {
-      gradientStartIndex: 0,
-      gradientEndIndex: 0
+      randomSplashIndex: 0
     }
+  }
+
+  public componentWillMount() {
+    this.randomiseSplash()
+  }
+
+  public randomiseSplash() {
+    this.setState({
+      randomSplashIndex: Math.floor(Math.random() * flavors.length)
+    })
   }
 
   public render() {
     const { children, data, location } = this.props
+    const { randomSplashIndex } = this.state
     const { pathname } = location
     return (
       <Page>
@@ -85,9 +99,12 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             { property: 'og:description', content: data.site.siteMetadata.description },
           ]}
         />
-        <PageHeader fixedHeight>
-          <HeaderImage sizes={data.headerImage.sizes} alt="" />
-        </PageHeader>
+        <HomepageThumbnail>
+          <HomepageThumbnailImage sizes={data.headerImage.sizes} alt="" />
+          <HomepageThumbnailText>
+            <HomepageThumbnailFlavour title="@resir014" flavour={flavors[randomSplashIndex]} />
+          </HomepageThumbnailText>
+        </HomepageThumbnail>
         <HomepageContent>
           <Divider spacing="large" />
           <HomepageSection>
