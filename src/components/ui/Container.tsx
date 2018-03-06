@@ -10,24 +10,28 @@ interface ContainerProps {
 }
 
 const Container: React.SFC<ContainerProps> = ({ className, children }) => (
-  <div className={className}>
-    {children}
-  </div>
+  <div className={className}>{children}</div>
 )
 
 export default styled(Container)`
   margin-left: auto;
   margin-right: auto;
 
-  ${props => props.size !== 'fluid' && css`
-    max-width: ${getEmSize(pxSizes.widths.md)};
-  `}
+  ${props =>
+    props.size !== 'fluid' &&
+    css`
+      max-width: ${getEmSize(pxSizes.widths.md)};
+    `}
 
-  ${props => (props.size === 'lg' || props.size === 'xl') && media.lg`
+  ${props =>
+    (props.size === 'lg' || props.size === 'xl') &&
+    media.lg`
     max-width: ${getEmSize(pxSizes.widths.lg)};
   `}
 
-  ${props => props.size === 'xl' && media.xl`
+  ${props =>
+    props.size === 'xl' &&
+    media.xl`
     max-width: ${getEmSize(pxSizes.widths.xl)};
   `}
 `

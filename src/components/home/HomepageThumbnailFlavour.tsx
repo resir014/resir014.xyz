@@ -19,11 +19,9 @@ const HomepageFlavourTitle = styled.span`
 
   ${media.md`
     font-size: ${emSizes.headingMedium.h2}rem;
-  `}
-
-  ${media.lg`
+  `} ${media.lg`
     font-size: ${emSizes.headingLarge.h2}rem;
-  `}
+  `};
 `
 
 const HomepageFlavourSub = styled.span`
@@ -37,14 +35,16 @@ const HomepageFlavourSub = styled.span`
       content: "/";
       margin-right: .5rem;
     }
-  `}
-
-  ${media.lg`
+  `} ${media.lg`
     font-size: ${emSizes.headingLarge.h2}rem;
-  `}
+  `};
 `
 
-const HomepageThumbnailFlavour: React.SFC<HomepageThumbnailFlavourProps> = ({ className, title, flavour }) => (
+const HomepageThumbnailFlavour: React.SFC<HomepageThumbnailFlavourProps> = ({
+  className,
+  title,
+  flavour
+}) => (
   <div className={className}>
     <HomepageFlavourTitle>{title}</HomepageFlavourTitle>
     <HomepageFlavourSub>{flavour}</HomepageFlavourSub>
@@ -57,5 +57,5 @@ export default styled(HomepageThumbnailFlavour)`
 
   ${media.md`
     flex-direction: row;
-  `}
+  `};
 `

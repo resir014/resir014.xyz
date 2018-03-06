@@ -47,7 +47,10 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
         meta={[
           { name: 'description', content: data.site.siteMetadata.description },
           { property: 'og:title', content: 'Posts' },
-          { property: 'og:description', content: data.site.siteMetadata.description },
+          {
+            property: 'og:description',
+            content: data.site.siteMetadata.description
+          }
         ]}
       />
       <section>
@@ -56,7 +59,9 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
         </PageMeta>
         <Container size="lg">
           <PageContent>
-            {data.allMarkdownRemark.edges.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <BlogPostItem key={node.fields.slug} node={node} />
+            ))}
           </PageContent>
         </Container>
       </section>
@@ -67,37 +72,37 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
 export default BlogPage
 
 export const query = graphql`
-query BlogPageQuery {
-  site {
-    siteMetadata {
-      title
-      description
-      author {
-        name
-        url
-      }
-    }
-  }
-  allMarkdownRemark(
-    filter: {id: {regex: "/posts/"}},
-    sort: {fields: [fields___date], order: DESC}
-  ) {
-    edges {
-      node {
-        excerpt
-        html
-        fields {
-          date(formatString: "MMMM DD, YYYY")
-          slug
-          link
-          category
-          lead
-        }
-        frontmatter {
-          title
+  query BlogPageQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author {
+          name
+          url
         }
       }
     }
+    allMarkdownRemark(
+      filter: { id: { regex: "/posts/" } }
+      sort: { fields: [fields___date], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            date(formatString: "MMMM DD, YYYY")
+            slug
+            link
+            category
+            lead
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
   }
-}
 `

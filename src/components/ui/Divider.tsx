@@ -9,9 +9,11 @@ interface DividerProps {
   fullWidth?: boolean
 }
 
-const Divider: React.SFC<DividerProps> = ({ className, spacing, fullWidth }) => (
-  <hr className={className} />
-)
+const Divider: React.SFC<DividerProps> = ({
+  className,
+  spacing,
+  fullWidth
+}) => <hr className={className} />
 
 export default styled(Divider)`
   position: relative;
@@ -39,11 +41,11 @@ export default styled(Divider)`
         `
       }
     }
-  }}
-
-  ${props => !props.fullWidth && css`
-    width: 6rem;
-    margin-left: auto;
-    margin-right: auto;
-  `}
+  }} ${props =>
+    !props.fullWidth &&
+    css`
+      width: 6rem;
+      margin-left: auto;
+      margin-right: auto;
+    `};
 `

@@ -38,7 +38,7 @@ export const media = {
     @media (min-width: ${getEmSize(pxSizes.breakpoints.xl)}) {
       ${css(styles, ...interpolations)};
     }
-  `,
+  `
 }
 
 // event wrapper
@@ -46,18 +46,18 @@ export const onEvent = (self: boolean = false) => (
   styles: TemplateStringsArray,
   ...interpolations: SimpleInterpolation[]
 ) => css`
-  ${self && css`
-    &,
-    &:hover,
-    &:focus {
-      ${css(styles, ...interpolations)}
-    }
-  `}
-
-  ${!self && css`
-    &:hover,
-    &:focus {
-      ${css(styles, ...interpolations)}
-    }
-  `}
+  ${self &&
+    css`
+      &,
+      &:hover,
+      &:focus {
+        ${css(styles, ...interpolations)};
+      }
+    `} ${!self &&
+    css`
+      &:hover,
+      &:focus {
+        ${css(styles, ...interpolations)};
+      }
+    `};
 `

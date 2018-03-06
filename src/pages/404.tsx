@@ -25,7 +25,7 @@ const PageInner = styled.div`
 
   h1 {
     margin-top: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
     line-height: 1.2;
     font-family: ${fonts.sansSerif};
@@ -33,16 +33,14 @@ const PageInner = styled.div`
 
     ${media.md`
       font-size: 2.441rem;
-    `}
-
-    ${media.lg`
+    `} ${media.lg`
       font-size: 3.157rem;
     `}
 
     span {
       display: inline-block;
       margin: 0;
-      padding: 0 .5rem;
+      padding: 0 0.5rem;
       background-color: ${colors.white};
       color: ${colors.ink90};
     }
@@ -78,12 +76,19 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
       meta={[
         { name: 'description', content: data.site.siteMetadata.description },
         { property: 'og:title', content: '404: Page not found.' },
-        { property: 'og:description', content: data.site.siteMetadata.description },
+        {
+          property: 'og:description',
+          content: data.site.siteMetadata.description
+        }
       ]}
     />
     <PageInner>
-      <h1 className="page-title"><span>404</span></h1>
-      <p className="lead">You've hit the void. <Link to="/">Go back home.</Link></p>
+      <h1 className="page-title">
+        <span>404</span>
+      </h1>
+      <p className="lead">
+        You've hit the void. <Link to="/">Go back home.</Link>
+      </p>
     </PageInner>
   </PageWrapper>
 )
@@ -91,16 +96,16 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
 export default NotFoundPage
 
 export const query = graphql`
-query NotFoundPageQuery {
-  site {
-    siteMetadata {
-      title
-      description
-      author {
-        name
-        url
+  query NotFoundPageQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author {
+          name
+          url
+        }
       }
     }
   }
-}
 `

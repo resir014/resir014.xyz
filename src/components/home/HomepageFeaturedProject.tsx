@@ -15,8 +15,9 @@ interface HomepageFeaturedProject extends ProjectField {
   className?: string
 }
 
-const HomepageFeaturedProject: React.SFC<HomepageFeaturedProject> = ({ node, className }) => (
-  <StyledHomepageFeaturedProject className={className} node={node} />
-)
+const HomepageFeaturedProject: React.SFC<HomepageFeaturedProject> = ({
+  node,
+  className
+}) => <StyledHomepageFeaturedProject className={className} node={node} />
 
 export default HomepageFeaturedProject

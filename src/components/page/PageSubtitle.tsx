@@ -8,12 +8,11 @@ interface PageSubtitleProps {
   className?: string
 }
 
-const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => {
-  return (
-    <div className={className}>
-      {children}
-    </div>
-  )
+const PageSubtitle: React.SFC<PageSubtitleProps> = ({
+  className,
+  children
+}) => {
+  return <div className={className}>{children}</div>
 }
 
 export default styled(PageSubtitle)`
@@ -26,10 +25,8 @@ export default styled(PageSubtitle)`
 
   ${media.md`
     font-size: ${emSizes.headingMedium.h4}rem;
-  `}
-
-  ${media.lg`
+  `} ${media.lg`
     font-size: ${emSizes.headingLarge.h4}rem;
     margin-bottom: 3rem;
-  `}
+  `};
 `

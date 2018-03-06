@@ -8,9 +8,7 @@ interface MessageBoxProps {
 }
 
 const MessageBox: React.SFC<MessageBoxProps> = ({ className, children }) => (
-  <div className={className}>
-    {children}
-  </div>
+  <div className={className}>{children}</div>
 )
 
 export default styled(MessageBox)`

@@ -6,7 +6,7 @@ const flavors = [
   'is online',
   'is offline',
   'is typing',
-  'doesn\'t smoke',
+  "doesn't smoke",
   'plays video games',
   'has a phone',
   'takes photos',

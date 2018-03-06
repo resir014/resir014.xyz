@@ -54,16 +54,16 @@ const FooterTitle = styled(Link)`
 
   ${onEvent()`
     text-decoration: none;
-  `}
+  `};
 `
 
 const FooterItem = styled.span`
   :not(:first-child) {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
 
     &:before {
-      content: "/";
-      margin-right: .5rem;
+      content: '/';
+      margin-right: 0.5rem;
     }
   }
 `
@@ -156,7 +156,10 @@ class Footer extends React.Component<FooterProps, FooterState> {
               >
                 React
               </a>. Code licensed under the{' '}
-              <a href="https://github.com/resir014/resir014.xyz" target="_blank">
+              <a
+                href="https://github.com/resir014/resir014.xyz"
+                target="_blank"
+              >
                 MIT License
               </a>.
             </small>

@@ -11,23 +11,25 @@ interface PostThumbnailImageProps {
   alt: string
 }
 
-const PostThumbnailImage: React.SFC<PostThumbnailImageProps> = ({ sizes, alt, className }) => (
-  <Img className={className} sizes={sizes} alt={alt} />
-)
+const PostThumbnailImage: React.SFC<PostThumbnailImageProps> = ({
+  sizes,
+  alt,
+  className
+}) => <Img className={className} sizes={sizes} alt={alt} />
 
 export default styled(PostThumbnailImage)`
   margin: 0;
-  background: linear-gradient(to bottom right,
-    ${colors.teal50}, ${colors.purple70});
+  background: linear-gradient(
+    to bottom right,
+    ${colors.teal50},
+    ${colors.purple70}
+  );
 
   ${media.lg`
     max-height: 30rem;
-  `}
-
-  img {
+  `} img {
     opacity: 0.7;
-
-    @supports(mix-blend-mode: overlay) {
+    @supports (mix-blend-mode: overlay) {
       mix-blend-mode: overlay;
       opacity: 1;
     }

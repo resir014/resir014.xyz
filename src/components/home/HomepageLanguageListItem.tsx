@@ -11,7 +11,10 @@ interface HomepageLanguageListItemProps {
   name: string
 }
 
-const HomepageLanguageListItem: React.SFC<HomepageLanguageListItemProps> = ({ name, className }) => (
+const HomepageLanguageListItem: React.SFC<HomepageLanguageListItemProps> = ({
+  name,
+  className
+}) => (
   <div className={className}>
     <span>{name}</span>
   </div>
@@ -32,5 +35,5 @@ export default styled(HomepageLanguageListItem)`
 
   ${media.md`
     width: 200px;
-  `}
+  `};
 `

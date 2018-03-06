@@ -55,13 +55,17 @@ const LinkTitle = styled(PostTitle)`
   a {
     color: ${colors.blue60};
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: ${colors.blue70};
     }
   }
 `
 
-const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) => {
+const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({
+  data,
+  location
+}) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
@@ -69,24 +73,41 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
   return (
     <Page>
       <Helmet
-        title={`${post.frontmatter.title || 'Bookmark posted by @resir014'} · ${siteMetadata.title}`}
+        title={`${post.frontmatter.title || 'Bookmark posted by @resir014'} · ${
+          siteMetadata.title
+        }`}
         meta={[
           { name: 'description', content: post.fields.lead || post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
-          { property: 'og:title', content: post.frontmatter.title || 'Bookmark posted by @resir014' },
-          { property: 'og:description', content: post.fields.lead || post.excerpt },
+          {
+            property: 'og:title',
+            content: post.frontmatter.title || 'Bookmark posted by @resir014'
+          },
+          {
+            property: 'og:description',
+            content: post.fields.lead || post.excerpt
+          },
           { property: 'og:type', content: 'article' },
           { property: 'og:article:author', content: siteMetadata.author.name },
-          { property: 'og:article:published_time', content: post.fields.date_ogp },
+          {
+            property: 'og:article:published_time',
+            content: post.fields.date_ogp
+          }
         ]}
       />
       <article>
         <PostHeader>
           <PostMeta>
             <PostMetaItem>{post.fields.date}</PostMetaItem>
-            {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
+            {post.fields.category ? (
+              <PostMetaItem>{post.fields.category}</PostMetaItem>
+            ) : null}
             <LinkTitle>
-              <a href={post.fields.link} target="_blank" rel="noopener noreferrer">
+              <a
+                href={post.fields.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {post.frontmatter.title}
               </a>{' '}
               &raquo;
@@ -95,7 +116,9 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
         </PostHeader>
         <PageContent>
           <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+            {post.fields.lead ? (
+              <PageSubtitle>{post.fields.lead}</PageSubtitle>
+            ) : null}
             <MarkdownContent html={post.html} />
           </Container>
         </PageContent>

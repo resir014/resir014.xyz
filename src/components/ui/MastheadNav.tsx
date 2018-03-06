@@ -24,7 +24,7 @@ const MastheadNavItem = styled.span`
       content: "/";
       margin-right: 1rem;
     }
-  `}
+  `};
 `
 
 const MastheadNavLink = styled(Link)`
@@ -35,16 +35,14 @@ const MastheadNavLink = styled(Link)`
   ${onEvent()`
     color: ${colors.white};
     text-decoration: none;
-  `}
+  `};
 `
 
 const MastheadNav: React.SFC<MastheadNavProps> = ({ className, items }) => (
   <nav className={className}>
     {items.map(item => {
       return (
-        <MastheadNavItem
-          key={item.path}
-        >
+        <MastheadNavItem key={item.path}>
           <MastheadNavLink activeClassName="is-active" to={item.path}>
             {item.name}
           </MastheadNavLink>

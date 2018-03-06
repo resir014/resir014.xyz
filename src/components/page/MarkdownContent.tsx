@@ -10,15 +10,17 @@ interface MarkdownContentProps {
   html: string
 }
 
-const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
-)
+const MarkdownContent: React.SFC<MarkdownContentProps> = ({
+  className,
+  html
+}) => <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
 
 export default styled(MarkdownContent)`
   a {
     color: ${colors.blue60};
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: ${colors.blue70};
     }
   }
@@ -31,9 +33,7 @@ export default styled(MarkdownContent)`
 
     ${media.lg`
       margin: 2rem;
-    `}
-
-    img {
+    `} img {
       display: block;
       vertical-align: middle;
       margin-left: auto;
@@ -45,7 +45,8 @@ export default styled(MarkdownContent)`
       a {
         color: ${colors.blue40};
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           color: ${colors.blue50};
         }
       }
@@ -59,14 +60,15 @@ export default styled(MarkdownContent)`
   }
 
   li + li {
-    margin-top: .25rem;
+    margin-top: 0.25rem;
   }
 
   .gatsby-highlight {
     margin: 1rem 0;
   }
 
-  .post-subtitle, .page-subtitle {
+  .post-subtitle,
+  .page-subtitle {
     margin: 1.5rem 0 3rem;
     padding: 1rem 0;
     border-top: 4px solid ${colors.ink90};
@@ -77,7 +79,7 @@ export default styled(MarkdownContent)`
     ${media.sm`
       width: 75%;
       font-size: 1.5rem;
-    `}
+    `};
   }
 
   .message {
@@ -91,9 +93,10 @@ export default styled(MarkdownContent)`
     }
   }
 
-  a[href^="#fn-"], a[href^="#fnref-"] {
+  a[href^='#fn-'],
+  a[href^='#fnref-'] {
     display: inline-block;
-    margin-left: .1rem;
+    margin-left: 0.1rem;
     font-weight: bold;
   }
 
@@ -101,7 +104,7 @@ export default styled(MarkdownContent)`
     margin-top: 2rem;
     font-size: 85%;
 
-    li[id^="fn-"] {
+    li[id^='fn-'] {
       p {
         // Remark for some reason puts the footnote reflink *after* the 'p' tag.
         display: inline;
@@ -115,6 +118,6 @@ export default styled(MarkdownContent)`
 
     ${media.md`
       font-size: 1.5rem;
-    `}
+    `};
   }
 `

@@ -66,7 +66,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
           { name: 'description', content: post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
           { property: 'og:title', content: post.frontmatter.title },
-          { property: 'og:description', content: post.fields.lead || post.excerpt },
+          {
+            property: 'og:description',
+            content: post.fields.lead || post.excerpt
+          }
         ]}
       />
       <article>
@@ -77,14 +80,19 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         </PostHeader>
         {post.frontmatter.header_image && (
           <PostThumbnail>
-            <PostThumbnailImage sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
+            <PostThumbnailImage
+              sizes={post.frontmatter.header_image.childImageSharp.sizes}
+              alt={post.frontmatter.title}
+            />
           </PostThumbnail>
         )}
         <PageContent>
-            <Container>
-              {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-              <MarkdownContent html={post.html} />
-            </Container>
+          <Container>
+            {post.fields.lead ? (
+              <PageSubtitle>{post.fields.lead}</PageSubtitle>
+            ) : null}
+            <MarkdownContent html={post.html} />
+          </Container>
         </PageContent>
       </article>
     </Page>

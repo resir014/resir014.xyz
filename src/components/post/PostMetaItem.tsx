@@ -7,17 +7,18 @@ interface PostMetaItemProps {
   className?: string
 }
 
-const PostMetaItem: React.SFC<PostMetaItemProps> = ({ className, children }) => (
-  <span className={className}>{children}</span>
-)
+const PostMetaItem: React.SFC<PostMetaItemProps> = ({
+  className,
+  children
+}) => <span className={className}>{children}</span>
 
 export default styled(PostMetaItem)`
   &:not(:first-of-type) {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
 
     &:before {
-      content: "/";
-      margin-right: .5rem;
+      content: '/';
+      margin-right: 0.5rem;
     }
   }
 
@@ -26,6 +27,6 @@ export default styled(PostMetaItem)`
 
     ${onEvent()`
       text-decoration: none;
-    `}
+    `};
   }
 `

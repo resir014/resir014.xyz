@@ -19,20 +19,18 @@ const StyledPostItem = styled.article`
 
   ${media.lg`
     flex-direction: row;
-  `}
-
-  &:last-of-type {
+  `} &:last-of-type {
     margin-bottom: 0;
   }
 `
 
 const StyledPostMeta = styled(PostMeta)`
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   ${media.lg`
     margin-bottom: 0;
     width: 20%;
-  `}
+  `};
 `
 
 const StyledPostMetaItem = styled(PostMetaItem)`
@@ -47,7 +45,7 @@ const StyledPostMetaItem = styled(PostMetaItem)`
     &:before {
       display: none;
     }
-  `}
+  `};
 `
 
 const PostTitleLink = styled(Link)`
@@ -59,13 +57,13 @@ const FooterLink = styled(Link)`
 
   ${onEvent()`
     color: ${colors.blue70};
-  `}
+  `};
 `
 
 const PostDetailBox = styled.div`
   ${media.lg`
     flex: 1;
-  `}
+  `};
 `
 
 const PostTitle = styled.h3`
@@ -91,7 +89,9 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
     return (
       <StyledPostItem>
         <StyledPostMeta>
-          <StyledPostMetaItem><Link to={node.fields.slug}>{date}</Link></StyledPostMetaItem>
+          <StyledPostMetaItem>
+            <Link to={node.fields.slug}>{date}</Link>
+          </StyledPostMetaItem>
           <StyledPostMetaItem>{category}</StyledPostMetaItem>
         </StyledPostMeta>
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}
@@ -99,7 +99,8 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
         {node.fields.category === 'video' && this.renderNoteTemplate(node)}
         {node.fields.category === 'photo' && this.renderNoteTemplate(node)}
         {node.fields.category === 'jam' && this.renderNoteTemplate(node)}
-        {node.fields.category === 'bookmark' && this.renderBookmarkTemplate(node)}
+        {node.fields.category === 'bookmark' &&
+          this.renderBookmarkTemplate(node)}
       </StyledPostItem>
     )
   }
@@ -108,7 +109,9 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
     return (
       <PostDetailBox>
         <PostTitle>
-          <PostTitleLink to={node.fields.slug}>{node.frontmatter.title}</PostTitleLink>
+          <PostTitleLink to={node.fields.slug}>
+            {node.frontmatter.title}
+          </PostTitleLink>
         </PostTitle>
         {node.fields.lead || node.excerpt ? (
           <BlogPostExcerpt>{node.fields.lead || node.excerpt}</BlogPostExcerpt>
@@ -123,7 +126,9 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
   private renderNoteTemplate(node: BlogPostNode) {
     return (
       <PostDetailBox>
-        {node.frontmatter.title && <PostTitle>{node.frontmatter.title}</PostTitle>}
+        {node.frontmatter.title && (
+          <PostTitle>{node.frontmatter.title}</PostTitle>
+        )}
         <MarkdownContent html={node.html} />
       </PostDetailBox>
     )

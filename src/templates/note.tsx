@@ -59,23 +59,38 @@ const NoteTemplate: React.SFC<NoteTemplateProps> = ({ data, location }) => {
   return (
     <Page>
       <Helmet
-        title={`${post.frontmatter.title || post.fields.lead || post.excerpt} · ${siteMetadata.title}`}
+        title={`${post.frontmatter.title ||
+          post.fields.lead ||
+          post.excerpt} · ${siteMetadata.title}`}
         meta={[
           { name: 'description', content: post.fields.lead || post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
-          { property: 'og:title', content: post.frontmatter.title || 'Note posted by @resir014' },
-          { property: 'og:description', content: post.fields.lead || post.excerpt },
+          {
+            property: 'og:title',
+            content: post.frontmatter.title || 'Note posted by @resir014'
+          },
+          {
+            property: 'og:description',
+            content: post.fields.lead || post.excerpt
+          },
           { property: 'og:type', content: 'article' },
           { property: 'og:article:author', content: siteMetadata.author.name },
-          { property: 'og:article:published_time', content: post.fields.date_ogp },
+          {
+            property: 'og:article:published_time',
+            content: post.fields.date_ogp
+          }
         ]}
       />
       <article>
         <PostHeader>
           <PostMeta>
             <PostMetaItem>{post.fields.date}</PostMetaItem>
-            {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
-            {post.frontmatter.title && <PostTitle>{post.frontmatter.title}</PostTitle>}
+            {post.fields.category ? (
+              <PostMetaItem>{post.fields.category}</PostMetaItem>
+            ) : null}
+            {post.frontmatter.title && (
+              <PostTitle>{post.frontmatter.title}</PostTitle>
+            )}
           </PostMeta>
         </PostHeader>
         <PageContent>

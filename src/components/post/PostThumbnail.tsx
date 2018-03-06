@@ -12,7 +12,10 @@ interface PostThumbnailProps {
 
 const StyledThumbnail = styled(Container)
 
-const PostThumbnail: React.SFC<PostThumbnailProps> = ({ className, children }) => (
+const PostThumbnail: React.SFC<PostThumbnailProps> = ({
+  className,
+  children
+}) => (
   <Container size="xl" className={className}>
     {children}
   </Container>
@@ -23,5 +26,5 @@ export default styled(PostThumbnail)`
 
   ${media.lg`
     margin-top: ${emSizes.containerPadding}rem;
-  `}
+  `};
 `

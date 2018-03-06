@@ -24,7 +24,18 @@ const theme = {
   white: colors.white
 }
 
-const Button: React.SFC<ButtonProps> = ({ id, className, color, kind, href, to, onClick, target, rel, children }) => {
+const Button: React.SFC<ButtonProps> = ({
+  id,
+  className,
+  color,
+  kind,
+  href,
+  to,
+  onClick,
+  target,
+  rel,
+  children
+}) => {
   if (kind === 'button') {
     return (
       <button id={id} className={className} onClick={onClick}>
@@ -48,10 +59,11 @@ const Button: React.SFC<ButtonProps> = ({ id, className, color, kind, href, to, 
 
 export default styled(Button)`
   display: inline-block;
-  padding: ${props => props.size === 'lg' ? '.5rem 1rem' : '.25rem .5rem'};
+  padding: ${props => (props.size === 'lg' ? '.5rem 1rem' : '.25rem .5rem')};
   background: transparent;
-  color: ${props => props.color ? theme[props.color] : colors.grey70};
-  border: 2px solid ${props => props.color ? theme[props.color] : colors.grey70};
+  color: ${props => (props.color ? theme[props.color] : colors.grey70)};
+  border: 2px solid
+    ${props => (props.color ? theme[props.color] : colors.grey70)};
   font-family: ${fonts.sansSerif};
   text-align: center;
   cursor: pointer;
@@ -59,9 +71,9 @@ export default styled(Button)`
   ${onEvent()`
     background-color: ${transparentize(0.9, colors.grey70)};
     text-decoration: none;
-  `}
-
-  ${props => props.size === 'sm' && css`
-    font-size: 85%;
-  `}
+  `} ${props =>
+    props.size === 'sm' &&
+    css`
+      font-size: 85%;
+    `};
 `

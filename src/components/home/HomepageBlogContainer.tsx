@@ -10,7 +10,7 @@ const StyledHomepageBlogContainer = styled(Container)`
 
   ${media.lg`
     padding: 3rem 0;
-  `}
+  `};
 `
 
 interface HomepageBlogContainerProps {
@@ -18,8 +18,14 @@ interface HomepageBlogContainerProps {
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-const HomepageBlogContainer: React.SFC<HomepageBlogContainerProps> = ({ children, size, className }) => (
-  <StyledHomepageBlogContainer className={className} size={size}>{children}</StyledHomepageBlogContainer>
+const HomepageBlogContainer: React.SFC<HomepageBlogContainerProps> = ({
+  children,
+  size,
+  className
+}) => (
+  <StyledHomepageBlogContainer className={className} size={size}>
+    {children}
+  </StyledHomepageBlogContainer>
 )
 
 export default HomepageBlogContainer

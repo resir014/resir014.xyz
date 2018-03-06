@@ -8,9 +8,10 @@ interface HomepageSectionProps {
   className?: string
 }
 
-const HomepageSection: React.SFC<HomepageSectionProps> = ({ children, className }) => (
-  <div className={className}>{children}</div>
-)
+const HomepageSection: React.SFC<HomepageSectionProps> = ({
+  children,
+  className
+}) => <div className={className}>{children}</div>
 
 export default styled(HomepageSection)`
   margin-top: 1.5rem;

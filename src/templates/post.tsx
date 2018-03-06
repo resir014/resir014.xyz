@@ -70,29 +70,42 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
           { name: 'description', content: post.fields.lead || post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
           { property: 'og:title', content: post.frontmatter.title },
-          { property: 'og:description', content: post.fields.lead || post.excerpt },
+          {
+            property: 'og:description',
+            content: post.fields.lead || post.excerpt
+          },
           { property: 'og:type', content: 'article' },
           { property: 'og:article:author', content: siteMetadata.author.name },
-          { property: 'og:article:published_time', content: post.fields.date_ogp },
+          {
+            property: 'og:article:published_time',
+            content: post.fields.date_ogp
+          }
         ]}
       />
       <article>
         <PostHeader>
           <PostMeta>
             <PostMetaItem>{post.fields.date}</PostMetaItem>
-            {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
+            {post.fields.category ? (
+              <PostMetaItem>{post.fields.category}</PostMetaItem>
+            ) : null}
             <PostTitle darkBackground>{post.frontmatter.title}</PostTitle>
           </PostMeta>
         </PostHeader>
         {post.frontmatter.header_image && (
           <PostThumbnail>
-            <PostThumbnailImage sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
+            <PostThumbnailImage
+              sizes={post.frontmatter.header_image.childImageSharp.sizes}
+              alt={post.frontmatter.title}
+            />
           </PostThumbnail>
         )}
         <PageContent>
           <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-              <MarkdownContent html={post.html} />
+            {post.fields.lead ? (
+              <PageSubtitle>{post.fields.lead}</PageSubtitle>
+            ) : null}
+            <MarkdownContent html={post.html} />
           </Container>
         </PageContent>
       </article>

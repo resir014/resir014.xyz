@@ -8,9 +8,10 @@ interface BlogPostExcerptProps {
   className?: string
 }
 
-const BlogPostExcerpt: React.SFC<BlogPostExcerptProps> = ({ className, children }) => (
-  <p className={className}>{children}</p>
-)
+const BlogPostExcerpt: React.SFC<BlogPostExcerptProps> = ({
+  className,
+  children
+}) => <p className={className}>{children}</p>
 
 export default styled(BlogPostExcerpt)`
   font-weight: 300;
@@ -18,9 +19,7 @@ export default styled(BlogPostExcerpt)`
 
   ${media.md`
     font-size: ${emSizes.headingMedium.h4}rem;
-  `}
-
-  ${media.lg`
+  `} ${media.lg`
     font-size: ${emSizes.headingLarge.h4}rem;
-  `}
+  `};
 `

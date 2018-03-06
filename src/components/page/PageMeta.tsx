@@ -22,5 +22,5 @@ export default styled(PageTitle)`
 
   ${media.lg`
     padding-top: 3rem;
-  `}
+  `};
 `

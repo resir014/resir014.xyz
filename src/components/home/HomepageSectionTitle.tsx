@@ -8,9 +8,10 @@ interface HomepageSectionTitleProps {
   className?: string
 }
 
-const HomepageSectionTitle: React.SFC<HomepageSectionTitleProps> = ({ children, className }) => (
-  <h1 className={className}>{children}</h1>
-)
+const HomepageSectionTitle: React.SFC<HomepageSectionTitleProps> = ({
+  children,
+  className
+}) => <h1 className={className}>{children}</h1>
 
 export default styled(HomepageSectionTitle)`
   text-align: center;

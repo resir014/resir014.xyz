@@ -50,13 +50,13 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
   constructor(props: WrapperProps) {
     super(props)
     this.state = {
-      navigationVisible: false,
+      navigationVisible: false
     }
   }
 
   public onNavToggleClick = () => {
     this.setState(prevState => ({
-      navigationVisible: !prevState.navigationVisible,
+      navigationVisible: !prevState.navigationVisible
     }))
   }
 
@@ -72,11 +72,17 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description
+            },
             { property: 'og:site_name', content: data.site.siteMetadata.title },
             { property: 'og:type', content: 'website' },
             { property: 'og:title', content: data.site.siteMetadata.title },
-            { property: 'og:description', content: data.site.siteMetadata.description },
+            {
+              property: 'og:description',
+              content: data.site.siteMetadata.description
+            }
           ]}
         />
         <Masthead

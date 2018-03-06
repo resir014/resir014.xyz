@@ -23,9 +23,7 @@ const FeaturedProjectWrapper = styled.section`
 
   ${media.md`
     flex-direction: row;
-  `}
-
-  ${media.lg`
+  `} ${media.lg`
     margin: 3rem 0;
   `}
 
@@ -35,11 +33,11 @@ const FeaturedProjectWrapper = styled.section`
 `
 
 const ProjectTags = styled.div`
-  margin: .5rem 0 1rem;
+  margin: 0.5rem 0 1rem;
 
   span {
     display: inline-block;
-    padding: .25em .5em;
+    padding: 0.25em 0.5em;
     font-size: 85%;
     color: ${colors.white};
     background-color: ${colors.ink70};
@@ -47,7 +45,7 @@ const ProjectTags = styled.div`
   }
 
   span + span {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 `
 
@@ -55,7 +53,7 @@ const FeaturedProjectDetails = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  background: ${colors.ink90}
+  background: ${colors.ink90};
 `
 
 const FeaturedProjectHeading = styled.div`
@@ -89,7 +87,10 @@ interface FeaturedProjectState {
   gradientEndIndex: number
 }
 
-class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProjectState> {
+class FeaturedProject extends React.Component<
+  FeaturedProjectProps,
+  FeaturedProjectState
+> {
   constructor(props: FeaturedProjectProps) {
     super(props)
     this.state = {
@@ -98,35 +99,37 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
     }
   }
 
-  public render () {
+  public render() {
     const { node, className } = this.props
     const { header_image } = node.frontmatter
-    const tags = node.fields.tags ? JSON.parse(node.fields.tags) as string[] : undefined
+    const tags = node.fields.tags
+      ? (JSON.parse(node.fields.tags) as string[])
+      : undefined
     return (
       <Container size="xl">
         <FeaturedProjectWrapper className={className}>
-          {
-            header_image
-              ? <FeaturedProjectThumbnail className="column" image={header_image} />
-              : null
-          }
+          {header_image ? (
+            <FeaturedProjectThumbnail className="column" image={header_image} />
+          ) : null}
           <FeaturedProjectDetails className="column">
             <FeaturedProjectHeading>
               <span>Featured project</span>
-              <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
+              <FeaturedProjectName>
+                {node.frontmatter.title}
+              </FeaturedProjectName>
             </FeaturedProjectHeading>
             {tags ? (
               <ProjectTags>
-                {tags.map(tag => (
-                  <span key={tag}>{tag}</span>
-                ))}
+                {tags.map(tag => <span key={tag}>{tag}</span>)}
               </ProjectTags>
             ) : null}
             <FeaturedProjectDescription>
               <p>{node.fields.description}</p>
             </FeaturedProjectDescription>
             <FeaturedProjectFooter>
-              <Button kind="nav-link" color="white" to={node.fields.slug}>Visit project</Button>
+              <Button kind="nav-link" color="white" to={node.fields.slug}>
+                Visit project
+              </Button>
             </FeaturedProjectFooter>
           </FeaturedProjectDetails>
         </FeaturedProjectWrapper>

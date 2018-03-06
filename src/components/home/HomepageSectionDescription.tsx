@@ -8,9 +8,9 @@ interface HomepageSectionDescriptionProps {
   className?: string
 }
 
-const HomepageSectionDescription: React.SFC<HomepageSectionDescriptionProps> = ({ children, className }) => (
-  <p className={className}>{children}</p>
-)
+const HomepageSectionDescription: React.SFC<
+  HomepageSectionDescriptionProps
+> = ({ children, className }) => <p className={className}>{children}</p>
 
 export default styled(HomepageSectionDescription)`
   text-align: center;
@@ -19,5 +19,5 @@ export default styled(HomepageSectionDescription)`
 
   ${media.md`
     font-size: 1.5rem;
-  `}
+  `};
 `

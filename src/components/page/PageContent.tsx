@@ -11,7 +11,7 @@ const StyledPageContent = styled.div`
 
   ${media.lg`
     padding-top: 3rem
-  `}
+  `};
 `
 
 interface PageContentProps {

@@ -23,7 +23,7 @@ const StyledProjectItem = styled.div`
 
   ${media.md`
     flex: 1;
-  `}
+  `};
 `
 
 const ProjectTitle = styled.h3`
@@ -35,13 +35,13 @@ const ProjectYear = styled.span`
   margin-left: 1rem;
   font-family: ${fonts.sansSerif};
   font-size: 70%;
-  color: ${colors.grey50}
+  color: ${colors.grey50};
 `
 
 const ProjectTags = styled.div`
   span {
     display: inline-block;
-    padding: .25em .5em;
+    padding: 0.25em 0.5em;
     font-size: 85%;
     color: ${colors.white};
     background-color: ${colors.grey70};
@@ -49,7 +49,7 @@ const ProjectTags = styled.div`
   }
 
   span + span {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 `
 
@@ -66,7 +66,9 @@ const ProjectFooter = styled.div`
 `
 
 const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
-  const tags = node.fields.tags ? JSON.parse(node.fields.tags) as string[] : undefined
+  const tags = node.fields.tags
+    ? (JSON.parse(node.fields.tags) as string[])
+    : undefined
   return (
     <StyledProjectItem>
       <ProjectTitle>
@@ -75,13 +77,15 @@ const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
       </ProjectTitle>
       {tags ? (
         <ProjectTags>
-          {tags.map(tag => (
-            <span key={tag}>{tag}</span>
-          ))}
+          {tags.map(tag => <span key={tag}>{tag}</span>)}
         </ProjectTags>
       ) : null}
       <ProjectDetailBox>
-        <p dangerouslySetInnerHTML={{ __html: node.fields.description || node.fields.lead }} />
+        <p
+          dangerouslySetInnerHTML={{
+            __html: node.fields.description || node.fields.lead
+          }}
+        />
       </ProjectDetailBox>
       <ProjectFooter>
         {node.fields.jumpToProject === 'true' && node.fields.project_url

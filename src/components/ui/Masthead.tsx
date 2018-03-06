@@ -25,7 +25,7 @@ const MastheadInner = styled.div`
 
   ${media.md`
     flex-direction: row;
-  `}
+  `};
 `
 
 const MastheadTitle = styled.div`
@@ -33,19 +33,26 @@ const MastheadTitle = styled.div`
 
   ${media.md`
     margin-right: 1rem;
-  `}
+  `};
 `
 
 const MastheadTitleLink = styled(Link)`
   ${onEvent()`
     text-decoration: none;
-  `}
+  `};
 `
 
-const Masthead: React.SFC<MastheadProps> = ({ className, children, items, title }) => (
+const Masthead: React.SFC<MastheadProps> = ({
+  className,
+  children,
+  items,
+  title
+}) => (
   <header className={className}>
     <MastheadInner>
-      <MastheadTitle><MastheadTitleLink to="/">{title}</MastheadTitleLink></MastheadTitle>
+      <MastheadTitle>
+        <MastheadTitleLink to="/">{title}</MastheadTitleLink>
+      </MastheadTitle>
       <MastheadNav items={menuItems} />
     </MastheadInner>
   </header>
@@ -59,5 +66,5 @@ export default styled(Masthead)`
   ${media.md`
     padding-top: ${emSizes.containerPadding / 2}rem;
     padding-bottom: ${emSizes.containerPadding / 2}rem;
-  `}
+  `};
 `

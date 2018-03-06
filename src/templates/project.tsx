@@ -61,7 +61,10 @@ interface ProjectTemplateProps {
   }
 }
 
-const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }) => {
+const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({
+  data,
+  location
+}) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const { pathname } = location
@@ -74,34 +77,42 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
           { name: 'description', content: post.excerpt },
           { name: 'author', content: siteMetadata.author.name },
           { property: 'og:title', content: post.frontmatter.title },
-          { property: 'og:description', content: post.fields.lead || post.excerpt },
+          {
+            property: 'og:description',
+            content: post.fields.lead || post.excerpt
+          }
         ]}
       />
       <article>
         <PostHeader>
           <PostMeta>
-          <PostMetaItem>projects</PostMetaItem>
-          <PostMetaItem>{post.fields.year}</PostMetaItem>
-          {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
-          <PageTitle>{post.frontmatter.title}</PageTitle>
+            <PostMetaItem>projects</PostMetaItem>
+            <PostMetaItem>{post.fields.year}</PostMetaItem>
+            {post.fields.category ? (
+              <PostMetaItem>{post.fields.category}</PostMetaItem>
+            ) : null}
+            <PageTitle>{post.frontmatter.title}</PageTitle>
           </PostMeta>
         </PostHeader>
         {post.frontmatter.header_image && (
           <PostThumbnail>
-            <PostThumbnailImage sizes={post.frontmatter.header_image.childImageSharp.sizes} alt={post.frontmatter.title} />
+            <PostThumbnailImage
+              sizes={post.frontmatter.header_image.childImageSharp.sizes}
+              alt={post.frontmatter.title}
+            />
           </PostThumbnail>
         )}
         <PageContent>
           <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+            {post.fields.lead ? (
+              <PageSubtitle>{post.fields.lead}</PageSubtitle>
+            ) : null}
             <MarkdownContent html={post.html} />
             {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
               <ProjectFooter>
                 {renderLink(post.fields.project_url, true)}
               </ProjectFooter>
-            ) : (
-              null
-            )}
+            ) : null}
           </Container>
         </PageContent>
       </article>

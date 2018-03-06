@@ -94,15 +94,24 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description
+            },
             { property: 'og:title', content: 'Home' },
-            { property: 'og:description', content: data.site.siteMetadata.description },
+            {
+              property: 'og:description',
+              content: data.site.siteMetadata.description
+            }
           ]}
         />
         <HomepageThumbnail>
           <HomepageThumbnailImage sizes={data.headerImage.sizes} alt="" />
           <HomepageThumbnailText>
-            <HomepageThumbnailFlavour title="@resir014" flavour={flavors[randomSplashIndex]} />
+            <HomepageThumbnailFlavour
+              title="@resir014"
+              flavour={flavors[randomSplashIndex]}
+            />
           </HomepageThumbnailText>
         </HomepageThumbnail>
         <HomepageContent>
@@ -113,12 +122,16 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               I'm a professional web developer based in Jakarta, Indonesia.
             </HomepageSectionDescription>
             <HomepageSectionFooter>
-              <Button kind="nav-link" color="primary" size="lg" to="/about">More about me</Button>
+              <Button kind="nav-link" color="primary" size="lg" to="/about">
+                More about me
+              </Button>
             </HomepageSectionFooter>
           </HomepageSection>
           <Divider spacing="large" />
           <HomepageSection>
-            <HomepageSectionTitle>Professional programmer by day, hobbyist programmer by night.</HomepageSectionTitle>
+            <HomepageSectionTitle>
+              Professional programmer by day, hobbyist programmer by night.
+            </HomepageSectionTitle>
             <HomepageSectionDescription>
               Here are some technologies I'm currently crazy about.
             </HomepageSectionDescription>
@@ -144,7 +157,9 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               />
             </HomepageLanguageList>
             <HomepageSectionFooter>
-              <Button kind="nav-link" color="primary" size="lg" to="/about">View entire skillset</Button>
+              <Button kind="nav-link" color="primary" size="lg" to="/about">
+                View entire skillset
+              </Button>
             </HomepageSectionFooter>
           </HomepageSection>
           <Divider spacing="large" />
@@ -152,7 +167,9 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             <HomepageSectionTitle>Projects.</HomepageSectionTitle>
             <HomepageFeaturedProject node={data.featuredProject} />
             <HomepageSectionFooter>
-              <Button kind="nav-link" color="primary" size="lg" to="/projects">View all projects</Button>
+              <Button kind="nav-link" color="primary" size="lg" to="/projects">
+                View all projects
+              </Button>
             </HomepageSectionFooter>
           </HomepageSection>
           <Divider spacing="large" />
@@ -162,7 +179,9 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               Feel free to get in touch with me about anything.
             </HomepageSectionDescription>
             <HomepageSectionFooter>
-              <Button kind="nav-link" color="primary" size="lg" to="/contact">Get in touch.</Button>
+              <Button kind="nav-link" color="primary" size="lg" to="/contact">
+                Get in touch.
+              </Button>
             </HomepageSectionFooter>
           </HomepageSection>
         </HomepageContent>
@@ -191,7 +210,7 @@ export const query = graphql`
       }
     }
     featuredProject: markdownRemark(
-      fields: { slug: {eq: "/projects/web/aquellexws/" } }
+      fields: { slug: { eq: "/projects/web/aquellexws/" } }
     ) {
       excerpt
       html
