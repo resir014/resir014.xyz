@@ -24,8 +24,6 @@ You couldn't believe it at first. You thought to yourself, "okay, okay, this won
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="in" dir="ltr">Line kan kontol.</p>&mdash; MartoⒶrt (@MartoArt) <a href="https://twitter.com/MartoArt/status/885835624690794496">July 14, 2017</a></blockquote>
 
-<blockquote class="twitter-tweet" data-lang="en"><p lang="in" dir="ltr">bapak ngeblokir telegram gara² ada blalalala apalah apalah itu radikal? terus sekarang endorse line? ha? apa? apa? gimana? gini ya pak</p>&mdash; Admin Netizen (@Usambinzed) <a href="https://twitter.com/Usambinzed/status/886156379374837760">July 15, 2017</a></blockquote>
-
 <blockquote class="twitter-tweet" data-lang="en"><p lang="in" dir="ltr">DI WHATSAPP JUGA ADAAAAAA!! <a href="https://t.co/ithvqJ2HSD">https://t.co/ithvqJ2HSD</a></p>&mdash; Aulia Masna (@amasna) <a href="https://twitter.com/amasna/status/885862609215299589">July 14, 2017</a></blockquote>
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="in" dir="ltr">Internet juga dipakai buat menyebarkan propaganda terorisme. Berani putus akses ke internet keseluruhan? Mau pake intranet ala Korea Utara? <a href="https://t.co/F78IzofFaB">https://t.co/F78IzofFaB</a></p>&mdash; Resi Respati (@resir014) <a href="https://twitter.com/resir014/status/885863375950856192">July 14, 2017</a></blockquote>
