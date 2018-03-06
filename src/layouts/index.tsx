@@ -34,7 +34,9 @@ interface WrapperProps {
         description: string
         author: {
           name: string
-          url: string
+          url: {
+            [key: string]: string
+          }
         }
       }
     }
@@ -62,28 +64,25 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
   public render() {
     const { children, data, location } = this.props
     const { navigationVisible } = this.state
+    const { author } = data.site.siteMetadata
     const { pathname } = location
     const isHomepage = pathname === withPrefix('/')
     const is404 = pathname === withPrefix('/404')
 
     return (
       <LayoutRoot>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {
-              name: 'description',
-              content: data.site.siteMetadata.description
-            },
-            { property: 'og:site_name', content: data.site.siteMetadata.title },
-            { property: 'og:type', content: 'website' },
-            { property: 'og:title', content: data.site.siteMetadata.title },
-            {
-              property: 'og:description',
-              content: data.site.siteMetadata.description
-            }
-          ]}
-        />
+        <Helmet>
+          <title>{data.site.siteMetadata.title}</title>
+          <meta name="description" content={data.site.siteMetadata.description} />
+          <meta property="og:site_name" content={data.site.siteMetadata.title} />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={data.site.siteMetadata.title} />
+          <meta property="og:description" content={data.site.siteMetadata.description} />
+          {author.url.twitter && <link rel="me" href={author.url.twitter} />}
+          {author.url.github && <link rel="me" href={author.url.github} />}
+          {author.url.tumblr && <link rel="me" href={author.url.tumblr} />}
+          {author.url.instagram && <link rel="me" href={author.url.instagram} />}
+        </Helmet>
         <Masthead
           title={data.site.siteMetadata.title}
           items={menuItems}
@@ -108,7 +107,12 @@ export const query = graphql`
         description
         author {
           name
-          url
+          url {
+            twitter
+            instagram
+            tumblr
+            github
+          }
         }
       }
     }

@@ -30,7 +30,7 @@ interface ProjectTemplateProps {
         description: string
         author: {
           name: string
-          url: string
+          url: { [key: string]: string }
         }
       }
     }
@@ -133,7 +133,12 @@ export const query = graphql`
         description
         author {
           name
-          url
+          url {
+            twitter
+            instagram
+            tumblr
+            github
+          }
         }
       }
     }

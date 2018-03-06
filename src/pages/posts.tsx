@@ -26,7 +26,7 @@ interface BlogPageProps {
         description: string
         author: {
           name: string
-          url: string
+          url: { [key: string]: string }
         }
       }
     }
@@ -58,7 +58,7 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
           <PageTitle>Posts</PageTitle>
         </PageMeta>
         <Container size="lg">
-          <PageContent>
+          <PageContent className="h-feed">
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <BlogPostItem key={node.fields.slug} node={node} />
             ))}
@@ -79,7 +79,12 @@ export const query = graphql`
         description
         author {
           name
-          url
+          url {
+            twitter
+            instagram
+            tumblr
+            github
+          }
         }
       }
     }

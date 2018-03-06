@@ -4,10 +4,17 @@ module.exports = {
   siteMetadata: {
     title: '@resir014',
     description: 'Web developer based in Jakarta, Indonesia.',
-    siteUrl: `https://resir014.xyz`,
+    siteUrl: 'https://resir014.xyz',
     author: {
       name: 'Resi Respati',
-      url: 'https://twitter.com/resir014',
+      description: 'Web developer based in Jakarta, Indonesia.',
+      website: 'https://resir014.xyz',
+      url: {
+        twitter: 'https://twitter.com/resir014',
+        instagram: 'https://instagram.com/resir014',
+        tumblr: 'https://resir014.tumblr.com/',
+        github: 'https://github.com/resir014'
+      },
       email: 'resir014@gmail.com'
     }
   },
@@ -128,8 +135,7 @@ module.exports = {
                 return Object.assign(
                   {},
                   {
-                    title:
-                      edge.node.frontmatter.title || 'New post by @resir014',
+                    title: edge.node.frontmatter.title || 'New post by @resir014',
                     description: edge.node.fields.lead || edge.node.excerpt,
                     date: edge.node.fields.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
