@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { transparentize } from 'polished'
+import { darken } from 'polished'
 import { colors } from '../../styles/variables'
 
 interface PostMetaProps {
@@ -12,5 +12,5 @@ const PostMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
 )
 
 export default styled(PostMeta)`
-  color ${transparentize(0.5, colors.grey90)};
+  color ${darken(0.5, colors.grey90)};
 `

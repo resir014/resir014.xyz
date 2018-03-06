@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import styled, { css } from 'styled-components'
-import { transparentize } from 'polished'
+import { darken } from 'polished'
 
 import Button from '../ui/Button'
 import Container from '../ui/Container'
@@ -15,7 +15,7 @@ const FeaturedProjectWrapper = styled.section`
   display: flex;
   flex-direction: column;
   margin: 1.5rem 0;
-  color: ${transparentize(0.4, colors.white)};
+  color: ${darken(0.4, colors.white)};
 
   &:first-of-type {
     margin-top: 0;

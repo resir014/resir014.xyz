@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link, { navigateTo } from 'gatsby-link'
 import styled from 'styled-components'
-import { transparentize } from 'polished'
+import { darken } from 'polished'
 
 import { pxSizes, emSizes, colors } from '../../styles/variables'
 import { MenuProps } from '../../utils/types'
@@ -56,7 +56,7 @@ const Masthead: React.SFC<MastheadProps> = ({ className, children, items, title 
 export default styled(Masthead)`
   padding: 1rem ${emSizes.containerPadding}rem;
   background-color: ${colors.ink90};
-  color: ${transparentize(0.5, colors.white)};
+  color: ${darken(0.5, colors.white)};
 
   ${media.md`
     padding-top: ${emSizes.containerPadding / 2}rem;
