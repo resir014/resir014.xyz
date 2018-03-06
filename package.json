@@ -13,10 +13,12 @@
     "build": "gatsby build",
     "clean": "rimraf public",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "dev": "gatsby develop","format": "npm run format:gatsby && npm run format:src",
+    "dev": "gatsby develop",
+    "format": "npm run format:gatsby && npm run format:src",
     "format:gatsby": "prettier --write \"gatsby/**/*.js\"",
-    "format:src": "prettier-tslint --write \"src/**/*.{ts,tsx}\"",
+    "format:src": "prettier --write \"src/**/*.{ts,tsx}\" && npm run lint:fix",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "tslint --fix 'src/**/*.{ts,tsx}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
