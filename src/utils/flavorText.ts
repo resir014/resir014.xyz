@@ -1,6 +1,7 @@
 const flavors = [
   'is a web developer',
   'writes code',
+  'is on GitHub',
   'drives an Asp Explorer',
   'likes racing cars',
   'is online',
@@ -10,6 +11,7 @@ const flavors = [
   'plays video games',
   'has a phone',
   'takes photos',
+  'has a Raspberry Pi',
   'is afraid of dogs',
   'hates TV',
   'dank memes (and code)',
@@ -22,10 +24,12 @@ const flavors = [
   'listens to music',
   'has a laptop',
   'wrote this flavor text',
-  'has an internet connection',
+  'has internet',
   'sleeps at night',
   'is not a furry',
-  'probably likes you'
+  'wishes you a good day',
+  'probably likes you',
+  "thinks you're cool"
 ]
 
 export default flavors
