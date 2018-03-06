@@ -10,6 +10,7 @@ import Container from '../ui/Container'
 interface HomepageThumbnailFlavourProps {
   className?: string
   title: string
+  randomised?: boolean
   flavour: string
 }
 
@@ -43,11 +44,12 @@ const HomepageFlavourSub = styled.span`
 const HomepageThumbnailFlavour: React.SFC<HomepageThumbnailFlavourProps> = ({
   className,
   title,
-  flavour
+  flavour,
+  randomised
 }) => (
   <div className={className}>
     <HomepageFlavourTitle>{title}</HomepageFlavourTitle>
-    <HomepageFlavourSub>{flavour}</HomepageFlavourSub>
+    {randomised && <HomepageFlavourSub>{flavour}</HomepageFlavourSub>}
   </div>
 )
 

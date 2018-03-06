@@ -64,89 +64,121 @@ interface IndexPageProps {
   }
 }
 
-const IndexPage: React.SFC<IndexPageProps> = ({ children, data, location }) => {
-  const { pathname } = location
-  const randomSplash = shuffleArray(flavors)[0]
-  return (
-    <Page>
-      <Helmet
-        title={data.site.siteMetadata.title}
-        meta={[
-          {
-            name: 'description',
-            content: data.site.siteMetadata.description
-          },
-          { property: 'og:title', content: 'Home' },
-          {
-            property: 'og:description',
-            content: data.site.siteMetadata.description
-          }
-        ]}
-      />
-      <HomepageThumbnail>
-        <HomepageThumbnailImage sizes={data.headerImage.sizes} alt="" />
-        <HomepageThumbnailText>
-          <HomepageThumbnailFlavour title="@resir014" flavour={randomSplash} />
-        </HomepageThumbnailText>
-      </HomepageThumbnail>
-      <HomepageContent>
-        <Divider spacing="large" />
-        <HomepageSection>
-          <HomepageSectionTitle>Hey, call me Resi.</HomepageSectionTitle>
-          <HomepageSectionDescription>
-            I'm a professional web developer based in Jakarta, Indonesia.
-          </HomepageSectionDescription>
-          <HomepageSectionFooter>
-            <Button kind="nav-link" color="primary" size="lg" to="/about">
-              More about me
-            </Button>
-          </HomepageSectionFooter>
-        </HomepageSection>
-        <Divider spacing="large" />
-        <HomepageSection>
-          <HomepageSectionTitle>
-            Professional programmer by day, hobbyist programmer by night.
-          </HomepageSectionTitle>
-          <HomepageSectionDescription>
-            Here are some technologies I'm currently crazy about.
-          </HomepageSectionDescription>
-          <HomepageLanguageList>
-            <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
-            <HomepageLanguageListItem color={colors.white} background="#337ab7" name="TypeScript" />
-            <HomepageLanguageListItem color="#61dafb" background="#282c34" name="React" />
-            <HomepageLanguageListItem color={colors.white} background="#4e2a8e" name="Elixir" />
-          </HomepageLanguageList>
-          <HomepageSectionFooter>
-            <Button kind="nav-link" color="primary" size="lg" to="/about">
-              View entire skillset
-            </Button>
-          </HomepageSectionFooter>
-        </HomepageSection>
-        <Divider spacing="large" />
-        <HomepageSection>
-          <HomepageSectionTitle>Projects.</HomepageSectionTitle>
-          <HomepageFeaturedProject node={data.featuredProject} />
-          <HomepageSectionFooter>
-            <Button kind="nav-link" color="primary" size="lg" to="/projects">
-              View all projects
-            </Button>
-          </HomepageSectionFooter>
-        </HomepageSection>
-        <Divider spacing="large" />
-        <HomepageSection>
-          <HomepageSectionTitle>Let's talk!</HomepageSectionTitle>
-          <HomepageSectionDescription>
-            Feel free to get in touch with me about anything.
-          </HomepageSectionDescription>
-          <HomepageSectionFooter>
-            <Button kind="nav-link" color="primary" size="lg" to="/contact">
-              Get in touch.
-            </Button>
-          </HomepageSectionFooter>
-        </HomepageSection>
-      </HomepageContent>
-    </Page>
-  )
+interface IndexPageState {
+  randomisedIndex: number
+  isRandomised: boolean
+}
+
+class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
+  constructor(props: IndexPageProps) {
+    super(props)
+    this.state = {
+      randomisedIndex: 0,
+      isRandomised: false
+    }
+  }
+
+  public componentDidMount() {
+    this.setState(prevState => ({
+      randomisedIndex: Math.floor(Math.random() * flavors.length),
+      isRandomised: !prevState.isRandomised
+    }))
+  }
+
+  public render() {
+    const { children, data, location } = this.props
+    const { randomisedIndex, isRandomised } = this.state
+    const { pathname } = location
+    const randomSplash = shuffleArray(flavors)[0]
+    return (
+      <Page>
+        <Helmet
+          title={data.site.siteMetadata.title}
+          meta={[
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description
+            },
+            { property: 'og:title', content: 'Home' },
+            {
+              property: 'og:description',
+              content: data.site.siteMetadata.description
+            }
+          ]}
+        />
+        <HomepageThumbnail>
+          <HomepageThumbnailImage sizes={data.headerImage.sizes} alt="" />
+          <HomepageThumbnailText>
+            <HomepageThumbnailFlavour
+              title="@resir014"
+              randomised={isRandomised}
+              flavour={randomSplash}
+            />
+          </HomepageThumbnailText>
+        </HomepageThumbnail>
+        <HomepageContent>
+          <Divider spacing="large" />
+          <HomepageSection>
+            <HomepageSectionTitle>Hey, call me Resi.</HomepageSectionTitle>
+            <HomepageSectionDescription>
+              I'm a professional web developer based in Jakarta, Indonesia.
+            </HomepageSectionDescription>
+            <HomepageSectionFooter>
+              <Button kind="nav-link" color="primary" size="lg" to="/about">
+                More about me
+              </Button>
+            </HomepageSectionFooter>
+          </HomepageSection>
+          <Divider spacing="large" />
+          <HomepageSection>
+            <HomepageSectionTitle>
+              Professional programmer by day, hobbyist programmer by night.
+            </HomepageSectionTitle>
+            <HomepageSectionDescription>
+              Here are some technologies I'm currently crazy about.
+            </HomepageSectionDescription>
+            <HomepageLanguageList>
+              <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
+              <HomepageLanguageListItem
+                color={colors.white}
+                background="#337ab7"
+                name="TypeScript"
+              />
+              <HomepageLanguageListItem color="#61dafb" background="#282c34" name="React" />
+              <HomepageLanguageListItem color={colors.white} background="#4e2a8e" name="Elixir" />
+            </HomepageLanguageList>
+            <HomepageSectionFooter>
+              <Button kind="nav-link" color="primary" size="lg" to="/about">
+                View entire skillset
+              </Button>
+            </HomepageSectionFooter>
+          </HomepageSection>
+          <Divider spacing="large" />
+          <HomepageSection>
+            <HomepageSectionTitle>Projects.</HomepageSectionTitle>
+            <HomepageFeaturedProject node={data.featuredProject} />
+            <HomepageSectionFooter>
+              <Button kind="nav-link" color="primary" size="lg" to="/projects">
+                View all projects
+              </Button>
+            </HomepageSectionFooter>
+          </HomepageSection>
+          <Divider spacing="large" />
+          <HomepageSection>
+            <HomepageSectionTitle>Let's talk!</HomepageSectionTitle>
+            <HomepageSectionDescription>
+              Feel free to get in touch with me about anything.
+            </HomepageSectionDescription>
+            <HomepageSectionFooter>
+              <Button kind="nav-link" color="primary" size="lg" to="/contact">
+                Get in touch.
+              </Button>
+            </HomepageSectionFooter>
+          </HomepageSection>
+        </HomepageContent>
+      </Page>
+    )
+  }
 }
 
 export default IndexPage
