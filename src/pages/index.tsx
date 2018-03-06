@@ -71,18 +71,8 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
   constructor(props: IndexPageProps) {
     super(props)
     this.state = {
-      randomSplashIndex: 0
-    }
-  }
-
-  public componentWillMount() {
-    this.randomiseSplash()
-  }
-
-  public randomiseSplash() {
-    this.setState({
       randomSplashIndex: Math.floor(Math.random() * flavors.length)
-    })
+    }
   }
 
   public render() {
