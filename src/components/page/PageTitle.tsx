@@ -13,4 +13,5 @@ const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) => (
 
 export default styled(PageTitle)`
   margin: 0;
+  font-weight: 700;
 `

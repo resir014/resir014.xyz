@@ -15,4 +15,5 @@ const HomepageSectionTitle: React.SFC<HomepageSectionTitleProps> = ({
 
 export default styled(HomepageSectionTitle)`
   text-align: center;
+  font-weight: 700;
 `
