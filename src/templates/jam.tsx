@@ -81,7 +81,7 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
           }
         ]}
       />
-      <article>
+      <article className="h-entry">
         <PostHeader>
           <PostMeta>
             <PostMetaItem>
@@ -102,7 +102,10 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
         </PostHeader>
         <PageContent>
           <Container>
-            <MarkdownContent className="e-content" html={post.html} />
+            <MarkdownContent
+              className={'e-content ' + !post.frontmatter.title && 'p-name'}
+              html={post.html}
+            />
           </Container>
         </PageContent>
       </article>

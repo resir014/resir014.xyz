@@ -92,7 +92,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
           }
         ]}
       />
-      <article>
+      <article className="h-entry">
         <PostHeader>
           <PostMeta>
             <PostMetaItem>
@@ -122,7 +122,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
         <PageContent>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <MarkdownContent className="e-content" html={post.html} />
+            <MarkdownContent className="e-content p-name" html={post.html} />
           </Container>
         </PageContent>
       </article>
