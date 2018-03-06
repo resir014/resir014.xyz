@@ -13,7 +13,9 @@
     "build": "gatsby build",
     "clean": "rimraf public",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "dev": "gatsby develop",
+    "dev": "gatsby develop","format": "npm run format:gatsby && npm run format:src",
+    "format:gatsby": "prettier --write \"gatsby/**/*.js\"",
+    "format:src": "prettier-tslint --write \"src/**/*.{ts,tsx}\"",
     "lint": "tslint 'src/**/*.{ts,tsx}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -73,8 +75,10 @@
     "@types/react-responsive": "^3.0.1",
     "@types/react-router-dom": "^4.2.4",
     "gh-pages": "^1.1.0",
+    "prettier": "^1.11.1",
     "rimraf": "^2.6.2",
     "tslint": "^5.9.1",
-    "tslint-react": "^3.5.1"
+    "tslint-config-blvd": "github:blvdgroup/tslint-config-blvd",
+    "tslint-config-prettier": "^1.9.0"
   }
 }
