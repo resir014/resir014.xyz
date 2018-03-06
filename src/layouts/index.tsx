@@ -8,7 +8,6 @@ import { colors } from '../styles/variables'
 import normalize from '../styles/normalize'
 
 import 'typeface-zilla-slab'
-import 'typeface-open-sans'
 
 // inject global styles
 normalize()
