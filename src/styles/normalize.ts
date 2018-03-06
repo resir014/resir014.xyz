@@ -26,7 +26,7 @@ export default () => injectGlobal`
 
   html {
     font-family: ${fonts.sansSerif};
-    font-size: ${pxSizes.fontSize}px;
+    font-size: ${pxSizes.fontSize.regular}px;
     line-height: ${emSizes.lineHeight.regular};
   }
 
