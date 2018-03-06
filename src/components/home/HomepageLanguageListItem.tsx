@@ -32,6 +32,5 @@ export default styled(HomepageLanguageListItem)`
 
   ${media.md`
     width: 200px;
-    height: 200px;
   `}
 `

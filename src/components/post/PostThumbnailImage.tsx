@@ -20,6 +20,10 @@ export default styled(PostThumbnailImage)`
   background: linear-gradient(to bottom right,
     ${colors.teal50}, ${colors.purple70});
 
+  ${media.lg`
+    max-height: 30rem;
+  `}
+
   img {
     opacity: 0.7;
 
