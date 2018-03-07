@@ -72,7 +72,12 @@ const HCardSocialLinks = styled.span`
 const HCard: React.SFC<HCardProps> = ({ className, icon, author }) => (
   <div className={classnames(className, 'h-card')}>
     <HCardAvatar>
-      <HCardAvatarImg position="relative" sizes={icon.sizes} alt={author.name} />
+      <HCardAvatarImg
+        className="u-photo"
+        position="relative"
+        sizes={icon.sizes}
+        alt={author.name}
+      />
     </HCardAvatar>
     <HCardDetails>
       <HCardName>
@@ -84,7 +89,7 @@ const HCard: React.SFC<HCardProps> = ({ className, icon, author }) => (
       <p>
         <Link to="/about/">More about me</Link>
       </p>
-      <HCardEmail className="email">{author.email}</HCardEmail>
+      <HCardEmail className="u-email">{author.email}</HCardEmail>
       <HCardFooter>
         {Object.keys(author.url).map(key => (
           <HCardSocialLinks key={author.url[key]}>
