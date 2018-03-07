@@ -155,7 +155,8 @@ module.exports = {
                 allMarkdownRemark(
                   limit: 10,
                   filter: {
-                    id: {regex: "/posts/"}
+                    id: {regex: "/posts/"},
+                    frontmatter: {draft: {ne: true}}
                   },
                   sort: {fields: [fields___date], order: DESC}
                 ) {
