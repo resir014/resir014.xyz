@@ -72,10 +72,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
           }
         ]}
       />
-      <article>
+      <article className="h-entry">
         <PostHeader>
           <PostMeta>
-            <PageTitle>{post.frontmatter.title}</PageTitle>
+            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
           </PostMeta>
         </PostHeader>
         {post.frontmatter.header_image && (
@@ -88,8 +88,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         )}
         <PageContent>
           <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <MarkdownContent html={post.html} />
+            {post.fields.lead ? (
+              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+            ) : null}
+            <MarkdownContent className="e-content" html={post.html} />
           </Container>
         </PageContent>
       </article>

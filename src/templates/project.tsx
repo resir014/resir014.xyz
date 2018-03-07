@@ -80,13 +80,13 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
           }
         ]}
       />
-      <article>
+      <article className="h-entry">
         <PostHeader>
           <PostMeta>
-            <PostMetaItem>projects</PostMetaItem>
+            <PostMetaItem className="p-category">projects</PostMetaItem>
             <PostMetaItem>{post.fields.year}</PostMetaItem>
             {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
-            <PageTitle>{post.frontmatter.title}</PageTitle>
+            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
           </PostMeta>
         </PostHeader>
         {post.frontmatter.header_image && (
@@ -99,8 +99,10 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
         )}
         <PageContent>
           <Container>
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <MarkdownContent html={post.html} />
+            {post.fields.lead ? (
+              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+            ) : null}
+            <MarkdownContent className="e-content" html={post.html} />
             {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
               <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
             ) : null}
