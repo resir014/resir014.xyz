@@ -113,7 +113,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
             ) : null}
             <LinkTitle>
               <a
-                className="u-bookmark-of h-cite"
+                className="u-bookmark-of h-cite p-name"
                 href={post.fields.link}
                 target="_blank"
                 rel="noopener noreferrer"
