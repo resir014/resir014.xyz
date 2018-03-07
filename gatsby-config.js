@@ -93,13 +93,18 @@ module.exports = {
         name: '@resir014',
         short_name: '@resir014',
         start_url: '/',
-        background_color: '#fff',
-        theme_color: '#000',
+        background_color: '#0f1126',
+        theme_color: '#0f1126',
         display: 'minimal-ui',
         icons: [
           {
-            src: '/android-touch-icon.png',
+            src: '/android-chrome-192x192.png',
             sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/android-chrome-512x512.png',
+            sizes: '512x512',
             type: 'image/png'
           }
         ]

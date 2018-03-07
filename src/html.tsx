@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { withPrefix } from 'gatsby-link'
+import { colors } from './styles/variables'
 
 let styles: string
 if (process.env.NODE_ENV === 'production') {
@@ -28,11 +30,11 @@ module.exports = class HTML extends React.Component<HtmlProps, void> {
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <link rel="icon" type="image/png" sizes="192x192" href="/android-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="144x144" href="/windows-tile-icon.png" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-          <link rel="shortcut icon" href="/favicon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href={withPrefix('/favicon-32x32.png')} />
+          <link rel="icon" type="image/png" sizes="16x16" href={withPrefix('/favicon-16x16.png')} />
+          <link rel="apple-touch-icon" sizes="180x180" href={withPrefix('/apple-touch-icon.png')} />
+          <meta name="msapplication-TileColor" content="#2b5797" />
+          <meta name="theme-color" content={colors.ink90} />
           {this.props.headComponents}
           {css}
         </head>
