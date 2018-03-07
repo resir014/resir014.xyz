@@ -2,7 +2,7 @@ import * as React from 'react'
 import { lighten, darken } from 'polished'
 import styled from 'styled-components'
 
-import { colors } from '../../styles/variables'
+import { colors, emSizes } from '../../styles/variables'
 import { media } from '../../styles/mixins'
 
 interface MarkdownContentProps {
@@ -31,7 +31,8 @@ export default styled(MarkdownContent)`
     border: 8px solid ${colors.ink90};
 
     ${media.lg`
-      margin: 2rem;
+      margin-left: -${emSizes.containerPadding * 2}rem;
+      margin-right: -${emSizes.containerPadding * 2}rem;
     `} img {
       display: block;
       vertical-align: middle;
