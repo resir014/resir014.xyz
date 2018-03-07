@@ -39,10 +39,7 @@ const HCardAvatar = styled.div`
 const HCardAvatarImg = styled.img`
   width: 180px;
   height: 180px;
-
-  img {
-    margin: 0;
-  }
+  margin: 0;
 `
 
 const HCardDetails = styled.div`
