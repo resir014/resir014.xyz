@@ -12,7 +12,7 @@ interface PostHeaderProps {
 
 const PostHeader: React.SFC<PostHeaderProps> = ({ className, children }) => (
   <section className={className}>
-    <Container size="lg">{children}</Container>
+    <Container>{children}</Container>
   </section>
 )
 
