@@ -9,7 +9,7 @@ interface PageSubtitleProps {
 }
 
 const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => {
-  return <div className={className}>{children}</div>
+  return <section className={className}>{children}</section>
 }
 
 export default styled(PageSubtitle)`

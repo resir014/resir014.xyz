@@ -10,7 +10,7 @@ interface PageHeaderProps {
 }
 
 const PageHeader: React.SFC<PageHeaderProps> = ({ className, children }) => (
-  <div className={className}>{children}</div>
+  <section className={className}>{children}</section>
 )
 
 export default styled(PageHeader)`

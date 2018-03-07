@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { emSizes } from '../../styles/variables'
 import { media } from '../../styles/mixins'
 
-const StyledPageContent = styled.div`
+const StyledPageContent = styled.section`
   display: block;
   padding: ${emSizes.containerPadding}rem;
   padding-bottom: 3rem;

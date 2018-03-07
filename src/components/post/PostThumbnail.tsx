@@ -10,12 +10,12 @@ interface PostThumbnailProps {
   className?: string
 }
 
-const StyledThumbnail = styled(Container)
-
 const PostThumbnail: React.SFC<PostThumbnailProps> = ({ className, children }) => (
-  <Container size="xl" className={className}>
-    {children}
-  </Container>
+  <section className={className}>
+    <Container size="xl" className={className}>
+      {children}
+    </Container>
+  </section>
 )
 
 export default styled(PostThumbnail)`

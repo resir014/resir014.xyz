@@ -11,9 +11,9 @@ interface PostHeaderProps {
 }
 
 const PostHeader: React.SFC<PostHeaderProps> = ({ className, children }) => (
-  <Container size="lg" className={className}>
-    {children}
-  </Container>
+  <section className={className}>
+    <Container size="lg">{children}</Container>
+  </section>
 )
 
 export default styled(PostHeader)`
@@ -22,5 +22,5 @@ export default styled(PostHeader)`
 
   ${media.lg`
     font-size: 18px;
-  `}
+  `};
 `
