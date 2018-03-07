@@ -51,7 +51,7 @@ They host tons of screencasts, all of which are hosted on - you guessed it - Vim
   <figcaption>See the difference? That's right, the video won't even load.</figcaption>
 </figure>
 
-I can't even refer my programming friends in Indonesia to any screencast materials on Laracasts without showing them how to circumvent Internet Positif as well. Apparently learning programming is now illegal now. Thanks Kemkominfo!
+I can't even refer my programming friends in Indonesia to any screencast materials on Laracasts without showing them how to circumvent Internet Positif as well. Apparently learning programming is illegal now. Thanks Kemkominfo!
 
 ### Tumblr
 
