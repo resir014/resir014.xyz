@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as classnames from 'classnames'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
@@ -108,7 +109,7 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
         <PageContent>
           <Container>
             <MarkdownContent
-              className={'e-content ' + !post.frontmatter.title && 'p-name'}
+              className={classnames('e-content', !post.frontmatter.title && 'p-name')}
               html={post.html}
             />
             <div className="hidden">
@@ -140,10 +141,12 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        siteUrl
         author {
           name
           description
           website
+          email
           url {
             twitter
             instagram

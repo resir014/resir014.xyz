@@ -102,6 +102,7 @@ export const query = graphql`
           name
           description
           website
+          email
           url {
             twitter
             instagram

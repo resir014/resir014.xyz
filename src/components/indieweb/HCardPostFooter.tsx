@@ -67,7 +67,7 @@ const HCardSocialLinks = styled.span`
 `
 
 const HCardPostFooter: React.SFC<HCardPostFooterProps> = ({ className, icon, author }) => (
-  <a rel="author" className={classnames(className, 'p-author h-card')} href={author.website}>
+  <a rel="author" className={classnames(className, 'p-author h-card')} href="/">
     <HCardAvatar>
       <HCardAvatarImg className="u-photo" src={icon.sizes.src} alt={author.name} />
     </HCardAvatar>

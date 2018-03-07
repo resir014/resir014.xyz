@@ -127,7 +127,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
         <PageContent>
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            <MarkdownContent className="e-content p-name" html={post.html} />
+            <MarkdownContent className="e-content" html={post.html} />
             <div className="hidden">
               <p>
                 <a
@@ -162,6 +162,7 @@ export const query = graphql`
           name
           description
           website
+          email
           url {
             twitter
             instagram

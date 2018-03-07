@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as classnames from 'classnames'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
@@ -107,7 +108,7 @@ const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data, location }) => {
         <PageContent>
           <Container>
             <MarkdownContent
-              className={'e-content ' + !post.frontmatter.title && 'p-name'}
+              className={classnames('e-content', !post.frontmatter.title && 'p-name')}
               html={post.html}
             />
             <div className="hidden">
@@ -144,6 +145,7 @@ export const query = graphql`
           name
           description
           website
+          email
           url {
             twitter
             instagram
