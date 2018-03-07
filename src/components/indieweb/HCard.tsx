@@ -50,7 +50,7 @@ const HCardDetails = styled.div`
   padding: 1.5rem;
 `
 
-const HCardEmail = styled.p`
+const HCardEmail = styled.a`
   display: none;
 `
 
@@ -84,7 +84,9 @@ const HCard: React.SFC<HCardProps> = ({ className, icon, author }) => (
       <p>
         <Link to="/about/">More about me</Link>
       </p>
-      <HCardEmail className="u-email">{author.email}</HCardEmail>
+      <HCardEmail className="u-email" href={`mailto:${author.email}`}>
+        {author.email}
+      </HCardEmail>
       <HCardFooter>
         {Object.keys(author.url).map(key => (
           <HCardSocialLinks key={author.url[key]}>

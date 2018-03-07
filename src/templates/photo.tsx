@@ -59,6 +59,7 @@ interface PhotoTemplateProps {
 const PhotoTemplate: React.SFC<PhotoTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const { author } = siteMetadata
   const { pathname } = location
 
   return (
@@ -109,6 +110,22 @@ const PhotoTemplate: React.SFC<PhotoTemplateProps> = ({ data, location }) => {
               className={'e-content ' + !post.frontmatter.title && 'p-name'}
               html={post.html}
             />
+            <div className="hidden">
+              <p>
+                Posted by{' '}
+                <a rel="author" className="p-author h-card" href={author.website}>
+                  {author.name}
+                </a>
+              </p>
+              <p>
+                <a
+                  className="u-url"
+                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                >
+                  Permalink
+                </a>
+              </p>
+            </div>
           </Container>
           <Divider spacing="large" />
           <Container>

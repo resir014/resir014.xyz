@@ -65,6 +65,7 @@ interface PostTemplateProps {
 const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const { author } = siteMetadata
   const { pathname } = location
 
   return (
@@ -120,12 +121,22 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
               <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
             ) : null}
             <MarkdownContent className="e-content" html={post.html} />
-            <a
-              className="hidden u-url"
-              href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-            >
-              Permalink
-            </a>
+            <div className="hidden">
+              <p>
+                Posted by{' '}
+                <a rel="author" className="p-author h-card" href={author.website}>
+                  {author.name}
+                </a>
+              </p>
+              <p>
+                <a
+                  className="u-url"
+                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                >
+                  Permalink
+                </a>
+              </p>
+            </div>
           </Container>
           <Divider spacing="large" />
           <Container>

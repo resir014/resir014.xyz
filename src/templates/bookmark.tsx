@@ -69,6 +69,7 @@ const LinkTitle = styled(PostTitle)`
 const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const { author } = siteMetadata
   const { pathname } = location
 
   return (
@@ -127,6 +128,22 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
           <Container>
             {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
             <MarkdownContent className="e-content p-name" html={post.html} />
+            <div className="hidden">
+              <p>
+                Posted by{' '}
+                <a rel="author" className="p-author h-card" href={author.website}>
+                  {author.name}
+                </a>
+              </p>
+              <p>
+                <a
+                  className="u-url"
+                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                >
+                  Permalink
+                </a>
+              </p>
+            </div>
           </Container>
           <Divider spacing="large" />
           <Container>

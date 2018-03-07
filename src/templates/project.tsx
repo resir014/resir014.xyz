@@ -66,6 +66,7 @@ interface ProjectTemplateProps {
 const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const { author } = siteMetadata
   const { pathname } = location
 
   return (
@@ -108,6 +109,22 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
             {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
               <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
             ) : null}
+            <div className="hidden">
+              <p>
+                Posted by{' '}
+                <a rel="author" className="p-author h-card" href={author.website}>
+                  {author.name}
+                </a>
+              </p>
+              <p>
+                <a
+                  className="u-url"
+                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                >
+                  Permalink
+                </a>
+              </p>
+            </div>
           </Container>
         </PageContent>
       </article>
