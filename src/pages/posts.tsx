@@ -12,6 +12,7 @@ import PageContent from '../components/page/PageContent'
 import BlogPostItem from '../components/postsList/BlogPostItem'
 
 import { menuItems } from '../utils/menus'
+import { SiteAuthor } from '../utils/types'
 import { BlogPostField } from '../utils/types'
 import { colors } from '../styles/variables'
 
@@ -24,10 +25,7 @@ interface BlogPageProps {
       siteMetadata: {
         title: string
         description: string
-        author: {
-          name: string
-          url: { [key: string]: string }
-        }
+        author: SiteAuthor
       }
     }
     allMarkdownRemark: {
@@ -79,6 +77,8 @@ export const query = graphql`
         description
         author {
           name
+          description
+          website
           url {
             twitter
             instagram

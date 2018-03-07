@@ -14,7 +14,7 @@ import FeaturedProject from '../components/projects/FeaturedProject'
 import ProjectItemList from '../components/projects/ProjectItemList'
 
 import { menuItems } from '../utils/menus'
-import { ProjectField } from '../utils/types'
+import { ProjectField, SiteAuthor } from '../utils/types'
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 import getFeaturedProject from '../utils/getFeaturedProject'
 
@@ -27,10 +27,7 @@ interface ProjectsPageProps {
       siteMetadata: {
         title: string
         description: string
-        author: {
-          name: string
-          url: { [key: string]: string }
-        }
+        author: SiteAuthor
       }
     }
     allMarkdownRemark: {
@@ -101,6 +98,8 @@ export const query = graphql`
         description
         author {
           name
+          description
+          website
           url {
             twitter
             instagram

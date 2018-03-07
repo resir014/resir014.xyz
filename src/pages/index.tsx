@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 
 import { colors } from '../styles/variables'
 import { menuItems } from '../utils/menus'
-import { BlogPostField, ProjectField, ProjectNode } from '../utils/types'
+import { BlogPostField, ProjectField, ProjectNode, SiteAuthor } from '../utils/types'
 import flavors from '../utils/flavorText'
 import getFeaturedProject from '../utils/getFeaturedProject'
 import shuffleArray from '../utils/shuffleArray'
@@ -29,6 +29,7 @@ import HomepageThumbnail from '../components/home/HomepageThumbnail'
 import HomepageThumbnailImage from '../components/home/HomepageThumbnailImage'
 import HomepageThumbnailText from '../components/home/HomepageThumbnailText'
 import HomepageThumbnailFlavour from '../components/home/HomepageThumbnailFlavour'
+import HCard from '../components/indieweb/HCard'
 
 const backgroundImage = require('../assets/images/background.jpg')
 
@@ -51,13 +52,13 @@ interface IndexPageProps {
         title: string
         tagline: string
         description: string
-        author: {
-          name: string
-          url: { [key: string]: string }
-        }
+        author: SiteAuthor
       }
     }
     headerImage: {
+      sizes: { [key: string]: any }
+    }
+    icon: {
       sizes: { [key: string]: any }
     }
     featuredProject: ProjectNode
@@ -176,6 +177,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             </HomepageSectionFooter>
           </HomepageSection>
         </HomepageContent>
+        <HCard icon={data.icon} author={data.site.siteMetadata.author} />
       </Page>
     )
   }
@@ -191,6 +193,8 @@ export const query = graphql`
         description
         author {
           name
+          description
+          website
           url {
             twitter
             instagram
@@ -200,8 +204,13 @@ export const query = graphql`
         }
       }
     }
-    headerImage: imageSharp(id: { regex: "/background.jpg/" }) {
+    headerImage: imageSharp(id: { regex: "/assets/images/background.jpg/" }) {
       sizes(maxWidth: 1920) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    icon: imageSharp(id: { regex: "/assets/images/resir014-icon.jpg/" }) {
+      sizes(maxWidth: 400, maxHeight: 400) {
         ...GatsbyImageSharpSizes
       }
     }

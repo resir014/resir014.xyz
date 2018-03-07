@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
 import { menuItems } from '../utils/menus'
+import { SiteAuthor } from '../utils/types'
 import { colors } from '../styles/variables'
 
 import Container from '../components/ui/Container'
@@ -14,6 +15,8 @@ import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import MarkdownContent from '../components/page/MarkdownContent'
 import PostTitle from '../components/post/PostTitle'
+import Divider from '../components/ui/Divider'
+import HCard from '../components/indieweb/HCard'
 
 interface VideoTemplateProps {
   location: {
@@ -24,11 +27,11 @@ interface VideoTemplateProps {
       siteMetadata: {
         title: string
         description: string
-        author: {
-          name: string
-          url: { [key: string]: string }
-        }
+        author: SiteAuthor
       }
+    }
+    icon: {
+      sizes: { [key: string]: any }
     }
     markdownRemark: {
       html: string
@@ -106,6 +109,10 @@ const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data, location }) => {
               html={post.html}
             />
           </Container>
+          <Divider spacing="large" />
+          <Container>
+            <HCard icon={data.icon} author={data.site.siteMetadata.author} />
+          </Container>
         </PageContent>
       </article>
     </Page>
@@ -122,6 +129,8 @@ export const query = graphql`
         description
         author {
           name
+          description
+          website
           url {
             twitter
             instagram
@@ -129,6 +138,11 @@ export const query = graphql`
             github
           }
         }
+      }
+    }
+    icon: imageSharp(id: { regex: "/assets/images/resir014-icon.jpg/" }) {
+      sizes(maxWidth: 400, maxHeight: 400) {
+        ...GatsbyImageSharpSizes
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

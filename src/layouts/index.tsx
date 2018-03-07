@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import styled, { css } from 'styled-components'
 
 import { menuItems } from '../utils/menus'
+import { SiteAuthor } from '../utils/types'
 import { colors } from '../styles/variables'
 import normalize from '../styles/normalize'
 
@@ -32,12 +33,7 @@ interface WrapperProps {
         title: string
         tagline: string
         description: string
-        author: {
-          name: string
-          url: {
-            [key: string]: string
-          }
-        }
+        author: SiteAuthor
       }
     }
   }

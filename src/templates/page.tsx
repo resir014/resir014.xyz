@@ -2,6 +2,7 @@ import * as React from 'react'
 import Helmet from 'react-helmet'
 
 import { menuItems } from '../utils/menus'
+import { SiteAuthor } from '../utils/types'
 
 import Container from '../components/ui/Container'
 import PageHeader from '../components/page/PageHeader'
@@ -24,11 +25,11 @@ interface PageTemplateProps {
       siteMetadata: {
         title: string
         description: string
-        author: {
-          name: string
-          url: { [key: string]: string }
-        }
+        author: SiteAuthor
       }
+    }
+    icon: {
+      sizes: { [key: string]: any }
     }
     markdownRemark: {
       html: string
@@ -109,6 +110,8 @@ export const query = graphql`
         description
         author {
           name
+          description
+          website
           url {
             twitter
             instagram

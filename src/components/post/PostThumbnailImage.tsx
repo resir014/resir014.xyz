@@ -20,13 +20,16 @@ export default styled(PostThumbnailImage)`
   margin: 0;
   background: linear-gradient(to bottom right, ${colors.teal50}, ${colors.purple70});
 
-  ${media.lg`
-    max-height: 30rem;
-  `} img {
+  img {
+    margin: 0;
     opacity: 0.7;
     @supports (mix-blend-mode: overlay) {
       mix-blend-mode: overlay;
       opacity: 1;
     }
   }
+
+  ${media.lg`
+    max-height: 30rem;
+  `};
 `

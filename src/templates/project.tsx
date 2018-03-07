@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 import { menuItems } from '../utils/menus'
+import { SiteAuthor } from '../utils/types'
 
 import Button from '../components/ui/Button'
 import Container from '../components/ui/Container'
@@ -28,11 +29,11 @@ interface ProjectTemplateProps {
       siteMetadata: {
         title: string
         description: string
-        author: {
-          name: string
-          url: { [key: string]: string }
-        }
+        author: SiteAuthor
       }
+    }
+    icon: {
+      sizes: { [key: string]: any }
     }
     markdownRemark: {
       html: string
@@ -135,6 +136,8 @@ export const query = graphql`
         description
         author {
           name
+          description
+          website
           url {
             twitter
             instagram
@@ -142,6 +145,11 @@ export const query = graphql`
             github
           }
         }
+      }
+    }
+    icon: imageSharp(id: { regex: "/assets/images/resir014-icon.jpg/" }) {
+      sizes(maxWidth: 400, maxHeight: 400) {
+        ...GatsbyImageSharpSizes
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

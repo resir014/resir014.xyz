@@ -2,8 +2,10 @@ import * as React from 'react'
 import Helmet from 'react-helmet'
 
 import { menuItems } from '../utils/menus'
+import { SiteAuthor } from '../utils/types'
 
 import Container from '../components/ui/Container'
+import Divider from '../components/ui/Divider'
 import MarkdownContent from '../components/page/MarkdownContent'
 import PageHeader from '../components/page/PageHeader'
 import PageContent from '../components/page/PageContent'
@@ -16,6 +18,7 @@ import PostMeta from '../components/post/PostMeta'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
+import HCard from '../components/indieweb/HCard'
 
 interface PostTemplateProps {
   location: {
@@ -26,11 +29,11 @@ interface PostTemplateProps {
       siteMetadata: {
         title: string
         description: string
-        author: {
-          name: string
-          url: { [key: string]: string }
-        }
+        author: SiteAuthor
       }
+    }
+    icon: {
+      sizes: { [key: string]: any }
     }
     markdownRemark: {
       html: string
@@ -116,6 +119,10 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
             ) : null}
             <MarkdownContent className="e-content" html={post.html} />
           </Container>
+          <Divider spacing="large" />
+          <Container>
+            <HCard icon={data.icon} author={data.site.siteMetadata.author} />
+          </Container>
         </PageContent>
       </article>
     </Page>
@@ -132,6 +139,8 @@ export const query = graphql`
         description
         author {
           name
+          description
+          website
           url {
             twitter
             instagram
@@ -139,6 +148,11 @@ export const query = graphql`
             github
           }
         }
+      }
+    }
+    icon: imageSharp(id: { regex: "/assets/images/resir014-icon.jpg/" }) {
+      sizes(maxWidth: 400, maxHeight: 400) {
+        ...GatsbyImageSharpSizes
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

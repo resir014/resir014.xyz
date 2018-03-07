@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 
 import { colors, fonts } from '../styles/variables'
 import { media } from '../styles/mixins'
+import { SiteAuthor } from '../utils/types'
 
 import Page from '../components/page/Page'
 
@@ -60,12 +61,7 @@ interface NotFoundPageProps {
         title: string
         tagline: string
         description: string
-        author: {
-          name: string
-          url: {
-            [key: string]: string
-          }
-        }
+        author: SiteAuthor
       }
     }
   }
@@ -105,6 +101,8 @@ export const query = graphql`
         description
         author {
           name
+          description
+          website
           url {
             twitter
             instagram
