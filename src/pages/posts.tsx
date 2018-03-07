@@ -89,7 +89,7 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { id: { regex: "/posts/" }, frontmatter: { draft: { ne: true } } }
+      filter: { id: { regex: "/posts/" } }
       sort: { fields: [fields___date], order: DESC }
     ) {
       edges {
