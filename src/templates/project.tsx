@@ -111,12 +111,6 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
             ) : null}
             <div className="hidden">
               <p>
-                Posted by{' '}
-                <a rel="author" className="p-author h-card" href={author.website}>
-                  {author.name}
-                </a>
-              </p>
-              <p>
                 <a
                   className="u-url"
                   href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}

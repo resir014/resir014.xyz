@@ -16,7 +16,7 @@ import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import MarkdownContent from '../components/page/MarkdownContent'
 import PostTitle from '../components/post/PostTitle'
-import HCard from '../components/indieweb/HCard'
+import HCardPostFooter from '../components/indieweb/HCardPostFooter'
 
 interface JamTemplateProps {
   location: {
@@ -113,12 +113,6 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
             />
             <div className="hidden">
               <p>
-                Posted by{' '}
-                <a rel="author" className="p-author h-card" href={author.website}>
-                  {author.name}
-                </a>
-              </p>
-              <p>
                 <a
                   className="u-url"
                   href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
@@ -130,7 +124,7 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
           </Container>
           <Divider spacing="large" />
           <Container>
-            <HCard icon={data.icon} author={data.site.siteMetadata.author} />
+            <HCardPostFooter icon={data.icon} author={data.site.siteMetadata.author} />
           </Container>
         </PageContent>
       </article>

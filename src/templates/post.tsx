@@ -19,7 +19,7 @@ import PostMeta from '../components/post/PostMeta'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
-import HCard from '../components/indieweb/HCard'
+import HCardPostFooter from '../components/indieweb/HCardPostFooter'
 
 interface PostTemplateProps {
   location: {
@@ -123,12 +123,6 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
             <MarkdownContent className="e-content" html={post.html} />
             <div className="hidden">
               <p>
-                Posted by{' '}
-                <a rel="author" className="p-author h-card" href={author.website}>
-                  {author.name}
-                </a>
-              </p>
-              <p>
                 <a
                   className="u-url"
                   href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
@@ -140,7 +134,7 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
           </Container>
           <Divider spacing="large" />
           <Container>
-            <HCard icon={data.icon} author={data.site.siteMetadata.author} />
+            <HCardPostFooter icon={data.icon} author={data.site.siteMetadata.author} />
           </Container>
         </PageContent>
       </article>

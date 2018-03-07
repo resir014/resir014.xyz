@@ -16,7 +16,7 @@ import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import PostTitle from '../components/post/PostTitle'
 import MarkdownContent from '../components/page/MarkdownContent'
-import HCard from '../components/indieweb/HCard'
+import HCardPostFooter from '../components/indieweb/HCardPostFooter'
 
 interface BookmarkTemplateProps {
   location: {
@@ -130,12 +130,6 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
             <MarkdownContent className="e-content p-name" html={post.html} />
             <div className="hidden">
               <p>
-                Posted by{' '}
-                <a rel="author" className="p-author h-card" href={author.website}>
-                  {author.name}
-                </a>
-              </p>
-              <p>
                 <a
                   className="u-url"
                   href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
@@ -147,7 +141,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
           </Container>
           <Divider spacing="large" />
           <Container>
-            <HCard icon={data.icon} author={data.site.siteMetadata.author} />
+            <HCardPostFooter icon={data.icon} author={data.site.siteMetadata.author} />
           </Container>
         </PageContent>
       </article>

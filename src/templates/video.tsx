@@ -16,7 +16,7 @@ import PageSubtitle from '../components/page/PageSubtitle'
 import MarkdownContent from '../components/page/MarkdownContent'
 import PostTitle from '../components/post/PostTitle'
 import Divider from '../components/ui/Divider'
-import HCard from '../components/indieweb/HCard'
+import HCardPostFooter from '../components/indieweb/HCardPostFooter'
 
 interface VideoTemplateProps {
   location: {
@@ -112,12 +112,6 @@ const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data, location }) => {
             />
             <div className="hidden">
               <p>
-                Posted by{' '}
-                <a rel="author" className="p-author h-card" href={author.website}>
-                  {author.name}
-                </a>
-              </p>
-              <p>
                 <a
                   className="u-url"
                   href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
@@ -129,7 +123,7 @@ const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data, location }) => {
           </Container>
           <Divider spacing="large" />
           <Container>
-            <HCard icon={data.icon} author={data.site.siteMetadata.author} />
+            <HCardPostFooter icon={data.icon} author={data.site.siteMetadata.author} />
           </Container>
         </PageContent>
       </article>

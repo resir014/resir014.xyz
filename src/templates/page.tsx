@@ -97,12 +97,6 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
             <MarkdownContent className="e-content" html={post.html} />
             <div className="hidden">
               <p>
-                Posted by{' '}
-                <a rel="author" className="p-author h-card" href={author.website}>
-                  {author.name}
-                </a>
-              </p>
-              <p>
                 <a
                   className="u-url"
                   href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
