@@ -87,7 +87,7 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
           onNavToggleClick={this.onNavToggleClick}
         />
         {children()}
-        {is404 ? null : <Footer title={data.site.siteMetadata.title} />}
+        <Footer title={data.site.siteMetadata.title} />
       </LayoutRoot>
     )
   }

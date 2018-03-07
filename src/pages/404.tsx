@@ -8,6 +8,11 @@ import { media } from '../styles/mixins'
 import { SiteAuthor } from '../utils/types'
 
 import Page from '../components/page/Page'
+import PostHeader from '../components/post/PostHeader'
+import PostMeta from '../components/post/PostMeta'
+import PageTitle from '../components/page/PageTitle'
+import PageContent from '../components/page/PageContent'
+import Container from '../components/ui/Container'
 
 const PageWrapper = styled(Page)`
   display: flex;
@@ -18,8 +23,6 @@ const PageWrapper = styled(Page)`
 `
 
 const PageInner = styled.div`
-  text-align: center;
-
   a {
     color: ${colors.blue40};
   }
@@ -68,7 +71,7 @@ interface NotFoundPageProps {
 }
 
 const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
-  <PageWrapper>
+  <Page>
     <Helmet
       title={`404: Page not found. · ${data.site.siteMetadata.title}`}
       meta={[
@@ -80,15 +83,23 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
         }
       ]}
     />
-    <PageInner>
-      <h1 className="page-title">
-        <span>404</span>
-      </h1>
-      <p className="lead">
-        You've hit the void. <Link to="/">Go back home.</Link>
-      </p>
-    </PageInner>
-  </PageWrapper>
+    <article>
+      <PostHeader>
+        <PostMeta>
+          <PageTitle>404.</PageTitle>
+        </PostMeta>
+      </PostHeader>
+      <PageContent>
+        <Container>
+          <PageInner>
+            <p className="lead">
+              You've hit the void. <Link to="/">Go back home.</Link>
+            </p>
+          </PageInner>
+        </Container>
+      </PageContent>
+    </article>
+  </Page>
 )
 
 export default NotFoundPage
