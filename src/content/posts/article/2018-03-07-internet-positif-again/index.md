@@ -1,9 +1,9 @@
 ---
-draft: true
 category: article
 layout: post
 title: "I can't believe I'm writing about Internet Positif again"
 lead: "Dear Kemkominfo, please stop."
+header_image: header.jpg
 ---
 
 So yeah. The time has come to yell about Internet Positif again.
