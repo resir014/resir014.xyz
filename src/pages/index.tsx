@@ -52,6 +52,7 @@ interface IndexPageProps {
         title: string
         tagline: string
         description: string
+        siteUrl: string
         author: SiteAuthor
       }
     }
@@ -191,6 +192,7 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        siteUrl
         author {
           name
           description

@@ -29,6 +29,7 @@ interface ProjectTemplateProps {
       siteMetadata: {
         title: string
         description: string
+        siteUrl: string
         author: SiteAuthor
       }
     }
@@ -134,6 +135,7 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        siteUrl
         author {
           name
           description

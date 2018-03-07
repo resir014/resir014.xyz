@@ -36,7 +36,7 @@ const HCardAvatar = styled.div`
   justify-content: center;
 `
 
-const HCardAvatarImg = styled(Img)`
+const HCardAvatarImg = styled.img`
   width: 180px;
   height: 180px;
 
@@ -72,16 +72,11 @@ const HCardSocialLinks = styled.span`
 const HCard: React.SFC<HCardProps> = ({ className, icon, author }) => (
   <div className={classnames(className, 'h-card')}>
     <HCardAvatar>
-      <HCardAvatarImg
-        className="u-photo"
-        position="relative"
-        sizes={icon.sizes}
-        alt={author.name}
-      />
+      <HCardAvatarImg className="u-photo" src={icon.sizes.src} alt={author.name} />
     </HCardAvatar>
     <HCardDetails>
       <HCardName>
-        <a className="p-name u-url" href={author.website}>
+        <a className="p-name u-url" rel="me" href={author.website}>
           {author.name}
         </a>
       </HCardName>

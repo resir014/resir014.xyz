@@ -27,6 +27,7 @@ interface JamTemplateProps {
       siteMetadata: {
         title: string
         description: string
+        siteUrl: string
         author: SiteAuthor
       }
     }

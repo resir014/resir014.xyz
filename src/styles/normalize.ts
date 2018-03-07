@@ -209,6 +209,10 @@ export default () => injectGlobal`
     `}
   }
 
+  .hidden {
+    display: none;
+  }
+
   code {
     padding: 0 .25em;
     font-size: 90%;

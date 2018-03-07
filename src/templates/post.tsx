@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import { withPrefix } from 'gatsby-link'
 
 import { menuItems } from '../utils/menus'
 import { SiteAuthor } from '../utils/types'
@@ -29,6 +30,7 @@ interface PostTemplateProps {
       siteMetadata: {
         title: string
         description: string
+        siteUrl: string
         author: SiteAuthor
       }
     }
@@ -118,6 +120,12 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
               <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
             ) : null}
             <MarkdownContent className="e-content" html={post.html} />
+            <a
+              className="hidden u-url"
+              href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+            >
+              Permalink
+            </a>
           </Container>
           <Divider spacing="large" />
           <Container>
@@ -137,6 +145,7 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        siteUrl
         author {
           name
           description
