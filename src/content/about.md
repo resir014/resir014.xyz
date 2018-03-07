@@ -15,6 +15,9 @@ My other interests include, video games, motorsports, photography, and music. I 
 ### Presentation
 Bootstrap (3+), CSS, HTML, Sass
 
+### CMS
+WordPress, Orchard
+
 ### JavaScript
 Angular (2+), ES6, Grunt, Gulp, jQuery, Node.js, React, TypeScript, Webpack
 
