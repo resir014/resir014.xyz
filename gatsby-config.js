@@ -11,6 +11,7 @@ module.exports = {
       website: 'https://resir014.xyz',
       url: {
         twitter: 'https://twitter.com/resir014',
+        mastodon: 'https://icosahedron.website/@resir014',
         instagram: 'https://instagram.com/resir014',
         tumblr: 'https://resir014.tumblr.com/',
         github: 'https://github.com/resir014'
