@@ -114,14 +114,6 @@ export const query = graphql`
         author {
           name
           description
-          website
-          email
-          url {
-            twitter
-            instagram
-            tumblr
-            github
-          }
         }
       }
     }

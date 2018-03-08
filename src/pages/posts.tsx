@@ -52,7 +52,7 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
           }
         ]}
       />
-      <section>
+      <article>
         <PageMeta>
           <PageTitle>Posts</PageTitle>
         </PageMeta>
@@ -63,7 +63,7 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
             ))}
           </PageContent>
         </Container>
-      </section>
+      </article>
     </Page>
   )
 }
@@ -81,13 +81,6 @@ export const query = graphql`
           name
           description
           website
-          email
-          url {
-            twitter
-            instagram
-            tumblr
-            github
-          }
         }
       }
     }
@@ -108,6 +101,14 @@ export const query = graphql`
           }
           frontmatter {
             title
+            header_image {
+              childImageSharp {
+                sizes(maxWidth: 1140) {
+                  srcSet
+                  src
+                }
+              }
+            }
           }
         }
       }

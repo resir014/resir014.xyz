@@ -200,6 +200,7 @@ export const query = graphql`
           email
           url {
             twitter
+            mastodon
             instagram
             tumblr
             github

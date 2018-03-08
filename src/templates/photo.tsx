@@ -52,6 +52,14 @@ interface PhotoTemplateProps {
         title: string
         path?: string
         layout: string
+        header_image: {
+          childImageSharp: {
+            sizes: {
+              src: string
+              srcSet: string
+            }
+          }
+        }
       }
     }
   }
@@ -107,6 +115,12 @@ const PhotoTemplate: React.SFC<PhotoTemplateProps> = ({ data, location }) => {
         </PostHeader>
         <PageContent>
           <Container>
+            <img
+              className="u-photo"
+              src={post.frontmatter.header_image.childImageSharp.sizes.src}
+              alt={post.frontmatter.title || 'Photo posted by @resir014'}
+              srcSet={post.frontmatter.header_image.childImageSharp.sizes.srcSet}
+            />
             <MarkdownContent
               className={classnames('e-content', !post.frontmatter.title && 'p-name')}
               html={post.html}
@@ -174,6 +188,14 @@ export const query = graphql`
       }
       frontmatter {
         title
+        header_image {
+          childImageSharp {
+            sizes(maxWidth: 1140) {
+              srcSet
+              src
+            }
+          }
+        }
       }
     }
   }

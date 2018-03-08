@@ -1,5 +1,7 @@
 import * as React from 'react'
+import * as classnames from 'classnames'
 import styled from 'styled-components'
+import { lighten } from 'polished'
 import Link from 'gatsby-link'
 
 import { colors } from '../../styles/variables'
@@ -24,8 +26,9 @@ const StyledPostItem = styled.article`
   }
 `
 
-const StyledPostMeta = styled(PostMeta)`
+const StyledPostMeta = styled.section`
   margin-bottom: 0.5rem;
+  color ${lighten(0.5, colors.grey90)};
 
   ${media.lg`
     margin-bottom: 0;
@@ -60,7 +63,16 @@ const FooterLink = styled(Link)`
   `};
 `
 
-const PostDetailBox = styled.div`
+const PostThumbnailImage = styled.img`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+`
+
+const PostDetailBox = styled.section`
   ${media.lg`
     flex: 1;
   `};
@@ -101,7 +113,7 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}
         {node.fields.category === 'note' && this.renderNoteTemplate(node)}
         {node.fields.category === 'video' && this.renderNoteTemplate(node)}
-        {node.fields.category === 'photo' && this.renderNoteTemplate(node)}
+        {node.fields.category === 'photo' && this.renderPhotoTemplate(node)}
         {node.fields.category === 'jam' && this.renderNoteTemplate(node)}
         {node.fields.category === 'bookmark' && this.renderBookmarkTemplate(node)}
       </StyledPostItem>
@@ -116,6 +128,14 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
             {node.frontmatter.title}
           </PostTitleLink>
         </PostTitle>
+        {node.frontmatter.header_image && (
+          <PostThumbnailImage
+            className="u-featured"
+            src={node.frontmatter.header_image.childImageSharp.sizes.src}
+            alt={node.frontmatter.title || 'Photo posted by @resir014'}
+            srcSet={node.frontmatter.header_image.childImageSharp.sizes.srcSet}
+          />
+        )}
         {node.fields.lead || node.excerpt ? (
           <BlogPostExcerpt className="p-summary">
             {node.fields.lead || node.excerpt}
@@ -132,9 +152,42 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
     return (
       <PostDetailBox>
         {node.frontmatter.title && (
-          <PostTitle className="p-name">{node.frontmatter.title}</PostTitle>
+          <PostTitle>
+            <PostTitleLink className="p-name" to={node.fields.slug}>
+              {node.frontmatter.title}
+            </PostTitleLink>
+          </PostTitle>
         )}
-        <MarkdownContent className="e-content" html={node.html} />
+        <MarkdownContent
+          className={classnames('e-content', !node.frontmatter.title && 'p-name')}
+          html={node.html}
+        />
+      </PostDetailBox>
+    )
+  }
+
+  private renderPhotoTemplate(node: BlogPostNode) {
+    return (
+      <PostDetailBox>
+        {node.frontmatter.title && (
+          <PostTitle>
+            <PostTitleLink className="p-name" to={node.fields.slug}>
+              {node.frontmatter.title}
+            </PostTitleLink>
+          </PostTitle>
+        )}
+        {node.frontmatter.header_image && (
+          <PostThumbnailImage
+            className="u-photo"
+            src={node.frontmatter.header_image.childImageSharp.sizes.src}
+            alt={node.frontmatter.title || 'Photo posted by @resir014'}
+            srcSet={node.frontmatter.header_image.childImageSharp.sizes.srcSet}
+          />
+        )}
+        <MarkdownContent
+          className={classnames('e-content', !node.frontmatter.title && 'p-name')}
+          html={node.html}
+        />
       </PostDetailBox>
     )
   }
@@ -144,7 +197,7 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
       <PostDetailBox>
         <PostTitle>
           <a
-            className="u-bookmark-of h-cite"
+            className="u-bookmark-of h-cite p-name"
             href={node.fields.link}
             target="_blank"
             rel="noopener noreferrer"

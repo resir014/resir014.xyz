@@ -74,10 +74,7 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
           <meta property="og:type" content="website" />
           <meta property="og:title" content={data.site.siteMetadata.title} />
           <meta property="og:description" content={data.site.siteMetadata.description} />
-          {author.url.twitter && <link rel="me" href={author.url.twitter} />}
-          {author.url.github && <link rel="me" href={author.url.github} />}
-          {author.url.tumblr && <link rel="me" href={author.url.tumblr} />}
-          {author.url.instagram && <link rel="me" href={author.url.instagram} />}
+          {Object.keys(author.url).map(key => <link key={key} rel="me" href={author.url[key]} />)}
         </Helmet>
         <Masthead
           title={data.site.siteMetadata.title}
@@ -105,6 +102,7 @@ export const query = graphql`
           name
           url {
             twitter
+            mastodon
             instagram
             tumblr
             github
