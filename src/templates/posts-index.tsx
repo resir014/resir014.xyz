@@ -15,6 +15,9 @@ import { menuItems } from '../utils/menus'
 import { SiteAuthor } from '../utils/types'
 import { BlogPostField } from '../utils/types'
 import { colors } from '../styles/variables'
+import PaginationLink from '../components/postsList/PaginationLink'
+import Divider from '../components/ui/Divider'
+import { media } from '../styles/mixins'
 
 interface BlogPageProps {
   location: {
@@ -33,16 +36,39 @@ interface BlogPageProps {
       edges: BlogPostField[]
     }
   }
+  pathContext: {
+    group: BlogPostField[]
+    index: number
+    first: boolean
+    last: boolean
+    pageCount: number
+    pathPrefix?: string
+  }
 }
 
-const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
+const Pagination = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  ${media.md`
+    flex-direction: row;
+    justify-content: space-between;
+  `};
+`
+
+const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext, location }) => {
   const { siteMetadata } = data.site
+  const { group, index, first, last, pageCount, pathPrefix } = pathContext
+  const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
+  const nextUrl = (index + 1).toString()
   const { pathname } = location
 
   return (
     <Page>
       <Helmet
-        title={`Posts · ${siteMetadata.title}`}
+        title={`Posts${index && index > 1 ? ` (page ${index} of ${pageCount})` : ''} · ${
+          siteMetadata.title
+        }`}
         meta={[
           { name: 'description', content: data.site.siteMetadata.description },
           { property: 'og:title', content: 'Posts' },
@@ -54,21 +80,33 @@ const BlogPage: React.SFC<BlogPageProps> = ({ data, location }) => {
       />
       <article>
         <PageMeta>
-          <PageTitle>Posts</PageTitle>
+          <PageTitle>
+            Posts
+            {index && index > 1 && ` (page ${index} of ${pageCount})`}
+          </PageTitle>
         </PageMeta>
-        <Container size="lg">
-          <PageContent className="h-feed">
-            {data.allMarkdownRemark.edges.map(({ node }) => (
-              <BlogPostItem key={node.fields.slug} node={node} />
-            ))}
-          </PageContent>
-        </Container>
+        <PageContent className="h-feed">
+          <Container size="lg">
+            {group.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
+          </Container>
+          <Divider spacing="large" />
+          <Container size="lg">
+            <Pagination>
+              <PaginationLink
+                test={first}
+                url={`/${pathPrefix!}/${previousUrl}`}
+                text="Newer posts"
+              />
+              <PaginationLink test={last} url={`/${pathPrefix!}/${nextUrl}`} text="Older posts" />
+            </Pagination>
+          </Container>
+        </PageContent>
       </article>
     </Page>
   )
 }
 
-export default BlogPage
+export default PostsIndexPage
 
 export const query = graphql`
   query BlogPageQuery {
@@ -81,35 +119,6 @@ export const query = graphql`
           name
           description
           website
-        }
-      }
-    }
-    allMarkdownRemark(
-      filter: { id: { regex: "/posts/" } }
-      sort: { fields: [fields___date], order: DESC }
-    ) {
-      edges {
-        node {
-          excerpt
-          html
-          fields {
-            date(formatString: "MMMM DD, YYYY")
-            slug
-            link
-            category
-            lead
-          }
-          frontmatter {
-            title
-            header_image {
-              childImageSharp {
-                sizes(maxWidth: 1140) {
-                  srcSet
-                  src
-                }
-              }
-            }
-          }
         }
       }
     }

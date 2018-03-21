@@ -2,6 +2,7 @@
 'use strict'
 
 const path = require('path')
+const createPaginatedPages = require('gatsby-paginate')
 
 module.exports = async ({ graphql, boundActionCreators }) => {
   const { createPage, createRedirect } = boundActionCreators
@@ -26,7 +27,7 @@ module.exports = async ({ graphql, boundActionCreators }) => {
   const allMarkdown = await graphql(
     `
       {
-        allMarkdownRemark(limit: 1000) {
+        allMarkdownRemark {
           edges {
             node {
               fields {
@@ -43,6 +44,47 @@ module.exports = async ({ graphql, boundActionCreators }) => {
 
   if (allMarkdown.errors) {
     throw new Error(allMarkdown.errors)
+  }
+
+  // GQL query for gatsby-paginate
+  const paginatedPosts = await graphql(
+    `
+      {
+        allMarkdownRemark(
+          filter: { id: { regex: "/posts/" } }
+          sort: { fields: [fields___date], order: DESC }
+        ) {
+          edges {
+            node {
+              excerpt
+              html
+              fields {
+                date(formatString: "MMMM DD, YYYY")
+                slug
+                link
+                category
+                lead
+              }
+              frontmatter {
+                title
+                header_image {
+                  childImageSharp {
+                    sizes(maxWidth: 1140) {
+                      srcSet
+                      src
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+
+  if (paginatedPosts.errors) {
+    throw new Error(paginatedPosts.errors)
   }
 
   allMarkdown.data.allMarkdownRemark.edges.forEach(({ node }) => {
@@ -92,5 +134,12 @@ module.exports = async ({ graphql, boundActionCreators }) => {
         })
       })
     }
+  })
+
+  createPaginatedPages({
+    edges: paginatedPosts.data.allMarkdownRemark.edges,
+    createPage,
+    pageTemplate: path.resolve(__dirname, '../src/templates/posts-index.tsx'),
+    pathPrefix: 'posts'
   })
 }

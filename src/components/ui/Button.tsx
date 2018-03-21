@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { transparentize } from 'polished'
 import Link from 'gatsby-link'
 
-import { fonts, colors } from '../../styles/variables'
+import { fonts, colors, emSizes } from '../../styles/variables'
 import { onEvent } from '../../styles/mixins'
 
 interface ButtonProps {
@@ -16,6 +16,7 @@ interface ButtonProps {
   to?: string
   target?: string
   rel?: string
+  disabled?: boolean
   onClick?: () => void
 }
 
@@ -31,6 +32,7 @@ const Button: React.SFC<ButtonProps> = ({
   kind,
   href,
   to,
+  disabled,
   onClick,
   target,
   rel,
@@ -38,7 +40,7 @@ const Button: React.SFC<ButtonProps> = ({
 }) => {
   if (kind === 'button') {
     return (
-      <button id={id} className={className} onClick={onClick}>
+      <button id={id} className={className} onClick={onClick} disabled={disabled}>
         {children}
       </button>
     )
@@ -65,11 +67,25 @@ export default styled(Button)`
   border: 2px solid ${props => (props.color ? theme[props.color] : colors.grey70)};
   font-family: ${fonts.sansSerif};
   text-align: center;
+  line-height: ${emSizes.lineHeight.regular};
   cursor: pointer;
+
+  &:disabled {
+    color: ${props =>
+      props.color ? transparentize(0.75, theme[props.color]) : transparentize(0.75, colors.grey70)};
+    border-color: ${props =>
+      props.color ? transparentize(0.75, theme[props.color]) : transparentize(0.75, colors.grey70)};
+    user-select: none;
+    cursor: unset;
+  }
 
   ${onEvent()`
     background-color: ${transparentize(0.9, colors.grey70)};
     text-decoration: none;
+
+    &:disabled {
+      background: none;
+    }
   `} ${props =>
     props.size === 'sm' &&
     css`
