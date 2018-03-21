@@ -74,6 +74,7 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
           <meta property="og:type" content="website" />
           <meta property="og:title" content={data.site.siteMetadata.title} />
           <meta property="og:description" content={data.site.siteMetadata.description} />
+          <meta name="twitter:dnt" content="on" />
           {Object.keys(author.url).map(key => <link key={key} rel="me" href={author.url[key]} />)}
         </Helmet>
         <Masthead
