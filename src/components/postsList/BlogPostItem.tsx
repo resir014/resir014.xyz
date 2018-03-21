@@ -42,7 +42,7 @@ const StyledPostMetaItem = styled(PostMetaItem)`
 
     &:not(:first-of-type) {
       margin-top: .25rem;
-      margin-left: 0;
+      margin-left: 0 !important;
     }
 
     &:before {
