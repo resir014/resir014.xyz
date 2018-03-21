@@ -72,7 +72,7 @@ module.exports = async ({ graphql, boundActionCreators }) => {
 
       toRedirect.forEach(fromPath => {
         if (redirectToSlugMap[fromPath] != null) {
-          reject(
+          console.error(
             `Duplicate redirect detected from "${fromPath}" to:\n` +
               `* ${redirectToSlugMap[fromPath]}\n` +
               `* ${slug}\n`
