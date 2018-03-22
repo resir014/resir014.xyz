@@ -83,6 +83,7 @@ module.exports = {
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-react-next',
     'gatsby-plugin-twitter',
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
