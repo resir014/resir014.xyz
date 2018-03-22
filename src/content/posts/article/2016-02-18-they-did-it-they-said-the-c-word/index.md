@@ -8,6 +8,9 @@ tags:
 - indonesia
 - kemkominfo
 - internet-positif
+syndication:
+  - name: Medium
+    url: https://medium.com/@resir014/they-did-it-they-said-the-c-word-c4b79e6f1b51
 ---
 
 Before I start, take this post as a *small* update to [this post](/2016/02/17/tumblr-and-the-internet-positif-hammer/). Quite a few things happened after that, and I'll focus on that only. So if you want to read what I thought about all this, read that post.

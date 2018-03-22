@@ -4,6 +4,9 @@ layout: post
 title: "I can't believe I'm writing about Internet Positif again"
 lead: "Dear Kemkominfo, please stop."
 header_image: header.jpg
+syndication:
+  - name: Medium
+    url: https://medium.com/southeast-asian-social-critique/i-cant-believe-i-m-writing-about-internet-positif-again-766a687f3cf5
 ---
 
 So yeah. The time has come to yell about Internet Positif again.

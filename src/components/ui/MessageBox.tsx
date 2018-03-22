@@ -17,7 +17,20 @@ export default styled(MessageBox)`
   color: ${colors.grey80};
   background-color: ${colors.grey10};
 
-  p:last-child {
-    margin-bottom: 0;
+  a {
+    color: ${colors.blue60};
+
+    &:hover,
+    &:focus {
+      color: ${colors.blue70};
+    }
+  }
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 `

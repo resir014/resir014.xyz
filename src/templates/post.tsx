@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import { withPrefix } from 'gatsby-link'
 
 import { menuItems } from '../utils/menus'
-import { SiteAuthor } from '../utils/types'
+import { SiteAuthor, SyndicationFormat } from '../utils/types'
 
 import Container from '../components/ui/Container'
 import Divider from '../components/ui/Divider'
@@ -20,6 +20,7 @@ import PostMetaItem from '../components/post/PostMetaItem'
 import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import HCardPostFooter from '../components/indieweb/HCardPostFooter'
+import MessageBox from '../components/ui/MessageBox'
 
 interface PostTemplateProps {
   location: {
@@ -52,6 +53,7 @@ interface PostTemplateProps {
         title: string
         path?: string
         layout: string
+        syndication?: SyndicationFormat[]
         header_image?: {
           childImageSharp: {
             sizes: { [key: string]: any }
@@ -120,6 +122,25 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
             {post.fields.lead ? (
               <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
             ) : null}
+            {post.frontmatter.syndication && (
+              <MessageBox>
+                <p>This post is also published on:</p>
+                <ul>
+                  {post.frontmatter.syndication.map(s => (
+                    <li key={s.name}>
+                      <a
+                        href={s.url}
+                        target="_blank"
+                        className="u-syndication"
+                        rel="noopener noreferrer external syndication"
+                      >
+                        {s.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </MessageBox>
+            )}
             <MarkdownContent className="e-content" html={post.html} />
             <div className="hidden">
               <p>
@@ -184,6 +205,10 @@ export const query = graphql`
       }
       frontmatter {
         title
+        syndication {
+          name
+          url
+        }
         header_image {
           childImageSharp {
             sizes(maxWidth: 1140) {

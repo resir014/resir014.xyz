@@ -3,6 +3,9 @@ category: article
 layout: post
 title: "A Phoenix+React initial setup that actually works"
 subtitle: "I got tired of following guides on connecting React with Phoenix that never seem to work, so I made my own."
+syndication:
+  - name: Medium
+    url: https://medium.com/@resir014/a-phoenix-react-initial-setup-that-actually-works-c943e48f1e9e
 ---
 
 *This post is also published on [Medium](https://medium.com/@resir014/a-phoenix-react-initial-setup-that-actually-works-c943e48f1e9e).*

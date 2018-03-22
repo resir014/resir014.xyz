@@ -3,6 +3,9 @@ category: article
 layout: post
 title: "Why you moved from Angular 2 to Vue.js (and why you didn't understand what React is about)"
 subtitle: "Or, why we should never compare apples to oranges, again."
+syndication:
+  - name: Medium
+    url: https://medium.com/@resir014/why-you-moved-from-angular-2-to-vue-js-and-why-you-didnt-understand-what-react-is-about-107ea9188912
 ---
 
 A few days ago an article surfaced on Medium titled ["Why we moved from Angular 2 to Vue.js (and why we didn’t choose React)"](https://medium.com/reverdev/why-we-moved-from-angular-2-to-vue-js-and-why-we-didnt-choose-react-ef807d9f4163). It finally made it to my circle of peers today, so I finally managed to read what the article is all about. What started out as a promising article quickly derailed into an endless stream of bad takes, to the point where I had to write a counter-critique.

@@ -4,6 +4,9 @@ layout: post
 title: "An idiot's guide to the 2017 Jakarta Local Elections"
 lead: "Find out what the fuss is all about the 2017 Jakarta Local Elections, as told by someone who has no idea what the fuss it's all about. I don't know. I'm high on caffeine right now."
 header_image: 2017-01-16_23-39-40.png
+syndication:
+  - name: Medium
+    url: https://medium.com/southeast-asian-social-critique/an-idiots-guide-to-the-2017-jakarta-local-elections-566980ba3605
 ---
 
 <div class="message">

@@ -9,6 +9,9 @@ tags:
 - indonesia
 - internet-positif
 - censorship
+syndication:
+  - name: Medium
+    url: https://medium.com/southeast-asian-social-critique/indonesias-internet-censorship-two-years-on-41831c6c16b4
 ---
 
 It's been two years since I made [this blog post](/2014/05/12/a-desperate-plea-for-internet-freedom/) about a filtering system made by the Ministry of Communications and Information called [Internet Positif](http://trustpositif.kominfo.go.id/), a tool often used to protect kids from viewing porn on the internet.

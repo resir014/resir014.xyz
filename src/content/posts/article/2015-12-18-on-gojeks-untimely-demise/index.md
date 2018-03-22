@@ -2,9 +2,13 @@
 category: article
 layout: post
 title: "Go-Jek and the Government: an unfortunate love-hate relationship"
+subtitle: How a government's inconsistency could kill innovation
 tags:
 - indonesia
 - go-jek
+syndication:
+  - name: Medium
+    url: https://medium.com/@resir014/go-jek-and-the-government-an-unfortunate-love-hate-relationship-bdda6d2d311c
 ---
 
 Most Indonesians were caught in shock when yesterday night, the Ministry of Transportation has pretty much decided to [ban all car and motorcycle-based ride-sharing services from operating in Indonesia](http://megapolitan.kompas.com/read/2015/12/17/21242351/Kemenhub.Apa.Pun.Namanya.Go-Jek.Grab-Bike.Dilarang.Beroperasi). This was subsequently followed the next morning by the Minister itself apparently [lifting the ban](http://inet.detik.com/read/2015/12/18/112424/3099280/399/menhub-jonan-cabut-larangan-persilakan-go-jek-dkk-tetap-beroperasi).

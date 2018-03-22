@@ -8,6 +8,9 @@ tags:
   - gaming
   - indonesia
   - indiegogo
+syndication:
+  - name: Medium
+    url: https://medium.com/the-crowdfunding-bible/how-not-to-do-crowdfunding-25d06ba83d53
 ---
 
 **Update:** The original Indiegogo page has been removed, but I'll just leave all of this here for the laughs.

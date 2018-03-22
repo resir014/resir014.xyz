@@ -7,6 +7,9 @@ redirect_from: 2016/03/23/npms-single-point-of-failure
 tags:
 - javascript
 - nodejs
+syndication:
+  - name: Medium
+    url: https://medium.com/@resir014/npm-s-single-point-of-failure-3ffecf5ed1ed
 ---
 
 A few hours earlier, a developer named [Azer Koçulu](https://twitter.com/azerbike) unpublished (or, depending on who you believe in, "liberated") [more than 250 of his modules](https://medium.com/@azerbike/i-ve-just-liberated-my-modules-9045c06be67c) from the `npm` registry. The move was sudden, and was made regarding a disagreement between him and a lawyer representing a messaging app called [Kik](http://www.kik.com/) over one of his modules, which was, incidentally, also named `kik`.

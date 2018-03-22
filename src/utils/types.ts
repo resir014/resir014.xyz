@@ -1,5 +1,10 @@
 import { GatsbyLinkProps } from 'gatsby-link'
 
+export interface SyndicationFormat {
+  name: string
+  url: string
+}
+
 export interface SiteAuthor {
   name: string
   description: string
