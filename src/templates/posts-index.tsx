@@ -78,30 +78,28 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext, location 
           }
         ]}
       />
-      <article>
-        <PageMeta>
-          <PageTitle>
-            Posts
-            {index && index > 1 && ` (page ${index} of ${pageCount})`}
-          </PageTitle>
-        </PageMeta>
-        <PageContent className="h-feed">
-          <Container size="lg">
-            {group.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
-          </Container>
-          <Divider spacing="large" />
-          <Container size="lg">
-            <Pagination>
-              <PaginationLink
-                test={first}
-                url={`/${pathPrefix!}/${previousUrl}`}
-                text="Newer posts"
-              />
-              <PaginationLink test={last} url={`/${pathPrefix!}/${nextUrl}`} text="Older posts" />
-            </Pagination>
-          </Container>
-        </PageContent>
-      </article>
+      <PageMeta>
+        <PageTitle>
+          Posts
+          {index && index > 1 && ` (page ${index} of ${pageCount})`}
+        </PageTitle>
+      </PageMeta>
+      <PageContent className="h-feed">
+        <Container size="lg">
+          {group.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
+        </Container>
+        <Divider spacing="large" />
+        <Container size="lg">
+          <Pagination>
+            <PaginationLink
+              test={first}
+              url={`/${pathPrefix!}/${previousUrl}`}
+              text="Newer posts"
+            />
+            <PaginationLink test={last} url={`/${pathPrefix!}/${nextUrl}`} text="Older posts" />
+          </Pagination>
+        </Container>
+      </PageContent>
     </Page>
   )
 }
