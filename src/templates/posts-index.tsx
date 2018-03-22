@@ -18,6 +18,7 @@ import { colors } from '../styles/variables'
 import PaginationLink from '../components/postsList/PaginationLink'
 import Divider from '../components/ui/Divider'
 import { media } from '../styles/mixins'
+import withPathPrefix from '../utils/withPathPrefix'
 
 interface BlogPageProps {
   location: {
@@ -59,8 +60,8 @@ const Pagination = styled.div`
 const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext, location }) => {
   const { siteMetadata } = data.site
   const { group, index, first, last, pageCount, pathPrefix } = pathContext
-  const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
-  const nextUrl = (index + 1).toString()
+  const previousUrl = withPathPrefix(index - 1 === 1 ? '' : (index - 1).toString(), pathPrefix)
+  const nextUrl = withPathPrefix((index + 1).toString(), pathPrefix)
   const { pathname } = location
 
   return (
@@ -91,12 +92,8 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext, location 
         <Divider spacing="large" />
         <Container size="lg">
           <Pagination>
-            <PaginationLink
-              test={first}
-              url={`${pathPrefix || ''}/${previousUrl}`}
-              text="Newer posts"
-            />
-            <PaginationLink test={last} url={`${pathPrefix || ''}/${nextUrl}`} text="Older posts" />
+            <PaginationLink test={first} url={previousUrl} text="Newer posts" />
+            <PaginationLink test={last} url={nextUrl} text="Older posts" />
           </Pagination>
         </Container>
       </PageContent>
