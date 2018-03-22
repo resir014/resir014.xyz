@@ -93,10 +93,10 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext, location 
           <Pagination>
             <PaginationLink
               test={first}
-              url={`/${pathPrefix!}/${previousUrl}`}
+              url={`${pathPrefix || ''}/${previousUrl}`}
               text="Newer posts"
             />
-            <PaginationLink test={last} url={`/${pathPrefix!}/${nextUrl}`} text="Older posts" />
+            <PaginationLink test={last} url={`${pathPrefix || ''}/${nextUrl}`} text="Older posts" />
           </Pagination>
         </Container>
       </PageContent>
