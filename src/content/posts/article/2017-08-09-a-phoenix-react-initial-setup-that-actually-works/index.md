@@ -8,7 +8,15 @@ syndication:
     url: https://medium.com/@resir014/a-phoenix-react-initial-setup-that-actually-works-c943e48f1e9e
 ---
 
-*This post is also published on [Medium](https://medium.com/@resir014/a-phoenix-react-initial-setup-that-actually-works-c943e48f1e9e).*
+*__Update 2018/03/27:__ The <a href="https://github.com/resir014/phoenix_react_playground">sample repo</a> included in this post has undergone some substantial changes since I wrote the article mentioned above. After doing enough Elixir/Phoenix development over the past few months, I’ve felt that a rewrite is long overdue.*
+
+*Some changes include:*
+
+* *upgraded to webpack 4 to make use of the brand-new optimisation strategies included out of the box, all with a smaller configuration file,*
+* *moved all the frontend stuff back inside the assets/ directory; and also*
+* *upgraded all dependencies to the latest version.*
+
+*A follow-up article will be written in the coming weeks.*
 
 ---
 
