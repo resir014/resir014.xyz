@@ -4,7 +4,7 @@ layout: post
 title: "A type-safe approach to Redux stores in TypeScript"
 lead: "Redux and TypeScript are a match made in heaven. Here's how to make the most out of static types to make your Redux store as type-safe as possible."
 redirect_from:
-  - "/article/2018/02/07/a-type-safe-approach-to-redux-stores-in-typescript/"
+  - "article/2018/02/07/a-type-safe-approach-to-redux-stores-in-typescript"
 syndication:
   - name: Medium
     url: https://medium.com/@resir014/a-type-safe-approach-to-redux-stores-in-typescript-6474e012b81e
