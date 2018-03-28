@@ -4,7 +4,7 @@ title: "About"
 lead: "Hey, call me Resi! I'm a web developer."
 ---
 
-I started getting into web development when I self-learned HTML and CSS back in high school. I currently work as a junior web developer for [C88 Financial Technologies](https://www.c88fin.com/), a well-known player in the Indonesian fintech industry.
+I started getting into web development when I self-learned HTML and CSS back in high school.
 
 I love open-source software, and I have been extensively contributing to the community for years. One of the biggest contributions I've made was to support the Indonesian localisation effort for the [Brackets editor](http://brackets.io/). On top of that, I also have many other utilities and personal projects that I host on my GitHub profile.
 
