@@ -25,13 +25,13 @@ So, essentially:
 
 Let's start with a basic setup. A Gatsby.js with minimal styles, and a basic service worker setup using `gatsby-plugin-offline`. We're going to see if Gatsby's "performance by default" mantra really takes hold. And yep, it is.
 
-https://twitter.com/resir014/status/963797504083902464
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/WWWIDChallenge?src=hash&amp;ref_src=twsrc%5Etfw">#WWWIDChallenge</a> Attempt #1.  JAMstack, statically-generated with <a href="https://twitter.com/gatsbyjs?ref_src=twsrc%5Etfw">@gatsbyjs</a>. <a href="https://t.co/FWJhD09agR">pic.twitter.com/FWJhD09agR</a></p>&mdash; 🎺KUINGIN KAU MENJADI ISTRIKU🎺 (@resir014) <a href="https://twitter.com/resir014/status/963797504083902464?ref_src=twsrc%5Etfw">February 14, 2018</a></blockquote>
 
 ## Attempt #2
 
 Since this website is statically generated, we're gonna have to find a way to dynamically generate the static pages. So I decided to move my hosting to [Netlify](https://www.netlify.com), which supports HTTP/2 as well as webhooks which can be used trigger Gatsby’s build command. I have a cron job running on a VPS to run said webhook to build our Gatsby site. Unfortunately, the PWA score goes down a bit, since by default, Netlify doesn't automatically redirect to HTTPS, but at least it's some progress.
 
-https://twitter.com/resir014/status/963812540231835649
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/WWWIDChallenge?src=hash&amp;ref_src=twsrc%5Etfw">#WWWIDChallenge</a> Attempt #2. Finally moving to Netlify for that sweet HTTP/2. Will look into image processing with Sharp tomorrow. <a href="https://t.co/w5MxdRN0ry">pic.twitter.com/w5MxdRN0ry</a></p>&mdash; 🎺KUINGIN KAU MENJADI ISTRIKU🎺 (@resir014) <a href="https://twitter.com/resir014/status/963812540231835649?ref_src=twsrc%5Etfw">February 14, 2018</a></blockquote>
 
 ## Attempt #3
 
@@ -39,7 +39,7 @@ Now we're gonna take it up a notch. We'll use all the best practices laid out by
 
 During this attempt, I then realised that I've been running the wrong WebPageTest test. I should've ran the Slow 3G quick test + Lighthouse. So I did just that, and the results are still promising.
 
-https://twitter.com/resir014/status/963970087320305664
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/WWWIDChallenge?src=hash&amp;ref_src=twsrc%5Etfw">#WWWIDChallenge</a> Attempt #3, added image processing with Sharp + lazyloading with `gatsby-image`. Bisa diakses di <a href="https://t.co/9VdCebOqWa">https://t.co/9VdCebOqWa</a> <a href="https://t.co/u7T6yqCdVA">pic.twitter.com/u7T6yqCdVA</a></p>&mdash; 🎺KUINGIN KAU MENJADI ISTRIKU🎺 (@resir014) <a href="https://twitter.com/resir014/status/963970087320305664?ref_src=twsrc%5Etfw">February 15, 2018</a></blockquote>
 
 ## The Result
 
