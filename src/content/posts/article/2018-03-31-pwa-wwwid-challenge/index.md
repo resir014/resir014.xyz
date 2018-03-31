@@ -29,7 +29,7 @@ https://twitter.com/resir014/status/963797504083902464
 
 ## Attempt #2
 
-Since this website is statically generated, we're gonna have to find a way to dynamically generate the static pages. So I decided to move my hosting to [Netlify](https://www.netlify.com), which supports webhooks to trigger a build command. I have a cron job running on a VPS to run said webhook to build our Gatsby site. Unfortunately, the PWA score goes down a bit, since by default, Netlify doesn't automatically redirect to HTTPS, but at least it's some progress.
+Since this website is statically generated, we're gonna have to find a way to dynamically generate the static pages. So I decided to move my hosting to [Netlify](https://www.netlify.com), which supports HTTP/2 as well as webhooks which can be used trigger Gatsby’s build command. I have a cron job running on a VPS to run said webhook to build our Gatsby site. Unfortunately, the PWA score goes down a bit, since by default, Netlify doesn't automatically redirect to HTTPS, but at least it's some progress.
 
 https://twitter.com/resir014/status/963812540231835649
 
