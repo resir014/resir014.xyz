@@ -33,7 +33,7 @@ export default styled(HomepageLanguageListItem)`
   color: ${props => props.color || colors.grey90};
   background-color: ${props => props.background || colors.grey20};
 
-  ${media.md`
+  ${media.lg`
     width: 200px;
   `};
 `
