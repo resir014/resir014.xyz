@@ -43,6 +43,6 @@ During this attempt, I then realised that I've been running the wrong WebPageTes
 
 ## The Result
 
-As a result. I managed to load a statically-generated, service-worker-enabled website to load in less than 5 seconds, thanks to Gatsby. The website remains statically-generated, to stick true to the [JAMstack](https://jamstack.org/) principles. but remains dynamic by having the content rebuilt daily. With a close-to-default service-worker-enabled GatsbyJS setup, it's possible to make a website load in less than 5 seconds on a slow 3G connection.
+As a result, I managed to load a statically-generated, service-worker-enabled website to load in less than 5 seconds, thanks to Gatsby. The website remains statically-generated, to stick true to the [JAMstack](https://jamstack.org/) principles, but remains dynamic by having the content rebuilt daily. With a close-to-default service-worker-enabled GatsbyJS setup, it's possible to make a website load in less than 5 seconds on a slow 3G connection.
 
 To view the final result of the project, [click here](https://wwwidchallenge-2018-feb.netlify.com/). To view the source code, [click here](https://github.com/resir014/wwwidchallenge-2018-feb).
