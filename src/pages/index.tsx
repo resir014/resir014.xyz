@@ -133,9 +133,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           </HomepageSection>
           <Divider spacing="large" />
           <HomepageSection>
-            <HomepageSectionTitle>
-              Professional programmer by day, hobbyist programmer by night.
-            </HomepageSectionTitle>
+            <HomepageSectionTitle>I write code for the web.</HomepageSectionTitle>
             <HomepageSectionDescription>
               Here are some technologies I'm currently crazy about.
             </HomepageSectionDescription>

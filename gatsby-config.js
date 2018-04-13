@@ -6,7 +6,7 @@ module.exports = {
     description: 'Web developer based in Jakarta, Indonesia.',
     siteUrl: 'https://resir014.xyz',
     author: {
-      name: 'Resi Respati',
+      name: '@resir014',
       description: 'Web developer based in Jakarta, Indonesia.',
       website: 'https://resir014.xyz',
       url: {
