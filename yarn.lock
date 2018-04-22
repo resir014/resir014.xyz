@@ -10180,16 +10180,17 @@ tslib@^1.7.1:
 
 "tslint-config-blvd@github:blvdgroup/tslint-config-blvd":
   version "0.1.0"
-  resolved "https://codeload.github.com/blvdgroup/tslint-config-blvd/tar.gz/43b0d31133bf96b0b61977889b79f899a26fcc01"
+  resolved "https://codeload.github.com/blvdgroup/tslint-config-blvd/tar.gz/a90bff04aeb934d459b2f4b6cc6ebd05863d2157"
   dependencies:
+    tslint-config-prettier "^1.12.0"
     tslint-consistent-codestyle "^1.11.1"
     tslint-eslint-rules "^4.1.1"
     tslint-microsoft-contrib "^5.0.3"
     tslint-react "^3.5.0"
 
-tslint-config-prettier@^1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/tslint-config-prettier/-/tslint-config-prettier-1.10.0.tgz#5063c413d43de4f6988c73727f65ecfc239054ec"
+tslint-config-prettier@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/tslint-config-prettier/-/tslint-config-prettier-1.12.0.tgz#bc8504f286ecf42b906f3d1126a093114f5729cc"
 
 tslint-consistent-codestyle@^1.11.1:
   version "1.11.1"

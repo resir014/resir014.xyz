@@ -82,7 +82,6 @@
     "prettier": "^1.11.1",
     "rimraf": "^2.6.2",
     "tslint": "^5.9.1",
-    "tslint-config-blvd": "github:blvdgroup/tslint-config-blvd",
-    "tslint-config-prettier": "^1.10.0"
+    "tslint-config-blvd": "github:blvdgroup/tslint-config-blvd"
   }
 }
