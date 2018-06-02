@@ -65,6 +65,13 @@ export default styled(MarkdownContent)`
 
   .gatsby-highlight {
     margin: 1rem 0;
+    font-size: 90%;
+  }
+
+  *:not(pre) > code[class*='language-'] {
+    padding: 0.125rem 0.25rem;
+    font-size: 90%;
+    border-radius: 3px;
   }
 
   .post-subtitle,
