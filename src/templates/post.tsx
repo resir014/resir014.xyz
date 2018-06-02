@@ -1,18 +1,14 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import { withPrefix } from 'gatsby-link'
 
-import { menuItems } from '../utils/menus'
 import { SiteAuthor, SyndicationFormat } from '../utils/types'
 
 import Container from '../components/ui/Container'
 import Divider from '../components/ui/Divider'
 import MarkdownContent from '../components/page/MarkdownContent'
-import PageHeader from '../components/page/PageHeader'
 import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import Page from '../components/page/Page'
-import HeaderImage from '../components/page/HeaderImage'
 import PostHeader from '../components/post/PostHeader'
 import PostTitle from '../components/post/PostTitle'
 import PostMeta from '../components/post/PostMeta'
@@ -64,11 +60,9 @@ interface PostTemplateProps {
   }
 }
 
-const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
+const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
-  const { author } = siteMetadata
-  const { pathname } = location
 
   return (
     <Page>
@@ -91,6 +85,14 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
         ]}
       />
       <article className="h-entry">
+        {post.frontmatter.header_image && (
+          <PostThumbnail>
+            <PostThumbnailImage
+              sizes={post.frontmatter.header_image.childImageSharp.sizes}
+              alt={post.frontmatter.title}
+            />
+          </PostThumbnail>
+        )}
         <PostHeader>
           <PostMeta>
             <PostMetaItem>
@@ -109,14 +111,6 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
             </PostTitle>
           </PostMeta>
         </PostHeader>
-        {post.frontmatter.header_image && (
-          <PostThumbnail>
-            <PostThumbnailImage
-              sizes={post.frontmatter.header_image.childImageSharp.sizes}
-              alt={post.frontmatter.title}
-            />
-          </PostThumbnail>
-        )}
         <PageContent>
           <Container>
             {post.fields.lead ? (

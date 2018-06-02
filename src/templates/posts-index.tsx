@@ -1,29 +1,23 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import { RouteComponentProps } from 'react-router'
 
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
-import PageHeader from '../components/page/PageHeader'
 import PageMeta from '../components/page/PageMeta'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import BlogPostItem from '../components/postsList/BlogPostItem'
 
-import { menuItems } from '../utils/menus'
 import { SiteAuthor } from '../utils/types'
 import { BlogPostField } from '../utils/types'
-import { colors } from '../styles/variables'
 import PaginationLink from '../components/postsList/PaginationLink'
 import Divider from '../components/ui/Divider'
 import { media } from '../styles/mixins'
 import withPathPrefix from '../utils/withPathPrefix'
 
-interface BlogPageProps {
-  location: {
-    pathname: string
-  }
+interface BlogPageProps extends RouteComponentProps<{}> {
   data: {
     site: {
       siteMetadata: {
@@ -57,12 +51,11 @@ const Pagination = styled.div`
   `};
 `
 
-const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext, location }) => {
+const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
   const { siteMetadata } = data.site
   const { group, index, first, last, pageCount, pathPrefix } = pathContext
   const previousUrl = withPathPrefix(index - 1 === 1 ? '' : (index - 1).toString(), pathPrefix)
   const nextUrl = withPathPrefix((index + 1).toString(), pathPrefix)
-  const { pathname } = location
 
   return (
     <Page>

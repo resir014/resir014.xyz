@@ -8,9 +8,7 @@ import { colors } from '../../styles/variables'
 import { media, onEvent } from '../../styles/mixins'
 import { BlogPostField, BlogPostNode } from '../../utils/types'
 
-import Button from '../ui/Button'
 import MarkdownContent from '../page/MarkdownContent'
-import PostMeta from '../post/PostMeta'
 import PostMetaItem from '../post/PostMetaItem'
 import BlogPostExcerpt from './BlogPostExcerpt'
 
@@ -28,7 +26,7 @@ const StyledPostItem = styled.article`
 
 const StyledPostMeta = styled.section`
   margin-bottom: 0.5rem;
-  color ${lighten(0.5, colors.grey90)};
+  color: ${lighten(0.5, colors.grey90)};
 
   ${media.lg`
     margin-bottom: 0;

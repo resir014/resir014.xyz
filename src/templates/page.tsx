@@ -1,11 +1,10 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import { RouteComponentProps } from 'react-router'
 
-import { menuItems } from '../utils/menus'
 import { SiteAuthor } from '../utils/types'
 
 import Container from '../components/ui/Container'
-import PageHeader from '../components/page/PageHeader'
 import MarkdownContent from '../components/page/MarkdownContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import PageContent from '../components/page/PageContent'
@@ -16,10 +15,7 @@ import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import PostHeader from '../components/post/PostHeader'
 import PostMeta from '../components/post/PostMeta'
 
-interface PageTemplateProps {
-  location: {
-    pathname: string
-  }
+interface PageTemplateProps extends RouteComponentProps<{}> {
   data: {
     site: {
       siteMetadata: {
@@ -55,11 +51,9 @@ interface PageTemplateProps {
   }
 }
 
-const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
+const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
-  const { author } = siteMetadata
-  const { pathname } = location
 
   return (
     <Page>
@@ -76,11 +70,6 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         ]}
       />
       <article className="h-entry">
-        <PostHeader>
-          <PostMeta>
-            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-          </PostMeta>
-        </PostHeader>
         {post.frontmatter.header_image && (
           <PostThumbnail>
             <PostThumbnailImage
@@ -89,6 +78,11 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
             />
           </PostThumbnail>
         )}
+        <PostHeader>
+          <PostMeta>
+            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+          </PostMeta>
+        </PostHeader>
         <PageContent>
           <Container>
             {post.fields.lead ? (

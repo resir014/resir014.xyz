@@ -2,7 +2,7 @@ import * as React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
-import { emSizes, colors } from '../../styles/variables'
+import { colors } from '../../styles/variables'
 import { media } from '../../styles/mixins'
 
 interface HomepageThumbnailImageProps {
@@ -22,7 +22,7 @@ export default styled(HomepageThumbnailImage)`
   background: linear-gradient(to bottom right, ${colors.teal50}, ${colors.purple70});
 
   ${media.lg`
-    max-height: 24rem;
+    max-height: 400px;
   `} img {
     opacity: 0.7;
 

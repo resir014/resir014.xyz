@@ -1,9 +1,7 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
-import Img from 'gatsby-image'
+import { RouteComponentProps } from 'react-router'
 
-import { menuItems } from '../utils/menus'
 import { SiteAuthor } from '../utils/types'
 
 import Button from '../components/ui/Button'
@@ -20,10 +18,7 @@ import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import PostHeader from '../components/post/PostHeader'
 import PostMeta from '../components/post/PostMeta'
 
-interface ProjectTemplateProps {
-  location: {
-    pathname: string
-  }
+interface ProjectTemplateProps extends RouteComponentProps<{}> {
   data: {
     site: {
       siteMetadata: {
@@ -63,11 +58,9 @@ interface ProjectTemplateProps {
   }
 }
 
-const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }) => {
+const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
-  const { author } = siteMetadata
-  const { pathname } = location
 
   return (
     <Page>
@@ -84,14 +77,6 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
         ]}
       />
       <article className="h-entry">
-        <PostHeader>
-          <PostMeta>
-            <PostMetaItem className="p-category">projects</PostMetaItem>
-            <PostMetaItem>{post.fields.year}</PostMetaItem>
-            {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
-            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-          </PostMeta>
-        </PostHeader>
         {post.frontmatter.header_image && (
           <PostThumbnail>
             <PostThumbnailImage
@@ -100,6 +85,14 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
             />
           </PostThumbnail>
         )}
+        <PostHeader>
+          <PostMeta>
+            <PostMetaItem className="p-category">projects</PostMetaItem>
+            <PostMetaItem>{post.fields.year}</PostMetaItem>
+            {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
+            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+          </PostMeta>
+        </PostHeader>
         <PageContent>
           <Container>
             {post.fields.lead ? (
