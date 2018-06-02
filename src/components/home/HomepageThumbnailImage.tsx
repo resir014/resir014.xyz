@@ -25,9 +25,16 @@ export default styled(HomepageThumbnailImage)`
     max-height: 24rem;
   `} img {
     opacity: 0.7;
-    @supports (mix-blend-mode: overlay) {
-      mix-blend-mode: overlay;
+
+    @supports (mix-blend-mode: multiply) {
+      background: ${colors.teal50};
+      mix-blend-mode: multiply;
       opacity: 1;
+
+      &:after {
+        background: linear-gradient(to bottom right, ${colors.teal50}, ${colors.purple70});
+        mix-blend-mode: lighten;
+      }
     }
   }
 `

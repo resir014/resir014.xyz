@@ -23,9 +23,15 @@ export default styled(PostThumbnailImage)`
   img {
     margin: 0;
     opacity: 0.7;
-    @supports (mix-blend-mode: overlay) {
-      mix-blend-mode: overlay;
+    @supports (mix-blend-mode: multiply) {
+      background: ${colors.teal50};
+      mix-blend-mode: multiply;
       opacity: 1;
+
+      &:after {
+        background: linear-gradient(to bottom right, ${colors.teal50}, ${colors.purple70});
+        mix-blend-mode: lighten;
+      }
     }
   }
 
