@@ -6,7 +6,9 @@
     "module": "commonjs",
     "target": "esnext",
     "jsx": "react",
-    "lib": ["dom", "esnext"]
+    "lib": ["dom", "esnext"],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": [
     "./src/**/*"
