@@ -62,7 +62,12 @@ module.exports = {
               wrapperStyle: `margin-top: 1rem; margin-bottom: 1rem`
             }
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              inlineCodeMarker: '›'
+            }
+          },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants'
         ]

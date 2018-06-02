@@ -216,7 +216,7 @@ export default () => injectGlobal`
   code {
     padding: 0 .25em;
     font-size: 90%;
-    color: ${colors.red50});
+    color: ${colors.red50};
     background-color: ${colors.grey10};
     border-radius: 3px;
   }

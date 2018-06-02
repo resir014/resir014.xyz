@@ -1,11 +1,9 @@
 import * as React from 'react'
-import Link, { withPrefix } from 'gatsby-link'
+import { withPrefix } from 'gatsby-link'
 import Helmet from 'react-helmet'
-import styled, { css } from 'styled-components'
 
 import { menuItems } from '../utils/menus'
 import { SiteAuthor } from '../utils/types'
-import { colors } from '../styles/variables'
 import normalize from '../styles/normalize'
 
 import 'typeface-zilla-slab'
