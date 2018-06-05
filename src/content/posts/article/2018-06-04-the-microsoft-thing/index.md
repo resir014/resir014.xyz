@@ -4,6 +4,9 @@ layout: post
 date: 2018-06-04T05:00:00+07:00
 title: "The Microsoft Thing"
 lead: "Why I'm not so worried about Microsoft buying GitHub."
+syndication:
+  - name: dev.to
+    url: https://dev.to/resir014/the-microsoft-thing-cb
 ---
 
 [Microsoft has reportedly agreed to buy GitHub.](https://www.theverge.com/2018/6/3/17422752/microsoft-github-acquisition-rumors) So there's that.
