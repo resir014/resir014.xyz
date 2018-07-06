@@ -4,9 +4,12 @@ layout: post
 date: 2018-07-06T20:36:00+07:00
 title: "Redux 4 + TypeScript 2.9: A type-safe approach"
 lead: "An updated version of my type-safe guide to Redux, now compatible with Redux 4 + TypeScript 2.9."
+syndication:
+  - name: dev.to
+    url: https://dev.to/resir014/redux-4--typescript-29-a-type-safe-approach-2lf4
 ---
 
-Even when people started looking for alternatives to it, I couldn't help but continue using [Redux](https://redux.js.org/). Its patterns on immutable state management has become all too familiar to us, and is especially useful when building large apps. Its TypeScript support is exceptional too, with much-needed improvements to its type declarations arriving in Redux 4.
+Even when the JavaScript community is slowly growing mixed opinions about it, I couldn't help but continue using [Redux](https://redux.js.org/). Its patterns on immutable state management has become all too familiar to us, and is especially useful when building large apps. Its TypeScript support is exceptional too, with much-needed improvements to its type declarations arriving in Redux 4.
 
 [I wrote a guide on it](/posts/2018/02/07/a-type-safe-approach-to-redux-stores-in-typescript/) a few months ago, and it has received some amount of attention. The feedback has helped me improve beyond what I normally would've done, and I couldn't thank you enough for that.
 
@@ -20,7 +23,7 @@ Note that the following guide is tested on:
 
 ## What we're building
 
-To demonstrate this post, we're going to build a simple app. We're going to create a website which pulls data from the [OpenDota API](https://docs.opendota.com/), and display information like professional teams, heroes, as well as top players by hero. This will also demonstrate how to structure your stores for each feature/module in a Redux-enabled app.
+To demonstrate this post, we're going to build a simple app. We're going to create a website which pulls data from the [OpenDota API](https://docs.opendota.com/), and display information about certain heroes and professional teams. This will also demonstrate how to structure your stores for each feature/module in a Redux-enabled app.
 
 ---
 
