@@ -7,6 +7,8 @@ lead: "An updated version of my type-safe guide to Redux, now compatible with Re
 syndication:
   - name: dev.to
     url: https://dev.to/resir014/redux-4--typescript-29-a-type-safe-approach-2lf4
+  - name: Medium
+    url: https://medium.com/@resir014/redux-4-typescript-2-9-a-type-safe-approach-7f073917b803
 ---
 
 Even when the JavaScript community is slowly growing mixed opinions about it, I couldn't help but continue using [Redux](https://redux.js.org/). Its patterns on immutable state management has become all too familiar to us, and is especially useful when building large apps. Its TypeScript support is exceptional too, with much-needed improvements to its type declarations arriving in Redux 4.
@@ -35,7 +37,7 @@ I'll level with you, one of the hardest steps in getting started with working on
 
 A lot of the guides/projects out there structure their store separately inside a root `actions/` and `reducers/` directory, to mimic the patterns in Redux architecture.
 
-Note that the following directory trees assume that your code is placed inside a `src/` directory
+*(Note that the following directory trees assume that your code is placed inside a `src/` directory.)*
 
 ```
 .
@@ -552,7 +554,7 @@ So now on any Redux-connected component, we can extend its props interface with 
 
 ```tsx
 // Extend the interface (for example).
-interface ComponentProps extends ConnectedReduxStore<HeroesState> {}
+interface ComponentProps extends ConnectedReduxStore {}
 
 class Component extends React.Component<ComponentProps> {
   public componentDidMount() {
