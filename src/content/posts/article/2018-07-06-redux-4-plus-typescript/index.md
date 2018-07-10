@@ -27,6 +27,10 @@ Note that the following guide is tested on:
 
 To demonstrate this post, we're going to build a simple app. We're going to create a website which pulls data from the [OpenDota API](https://docs.opendota.com/), and display information about certain heroes and professional teams. This will also demonstrate how to structure your stores for each feature/module in a Redux-enabled app.
 
+## TL;DR
+
+If you want to jump straight to the examples, I've also published a sample project in GitHub, based on the feedback from my previous post. Click [here](https://github.com/resir014/react-redux-typescript-example) to go there.
+
 ---
 
 ## Directory structure
@@ -61,7 +65,7 @@ A lot of the guides/projects out there structure their store separately inside a
 
 However, I personally find this to be distracting. When your codebase grows larger, you would end up scattering code which shares the same context across a great length of the directory tree, which wouldn't be intuitive for newcomers who wanted to take a quick glance at your code. Therefore, roughly following the Redux pattern in this case is less advantageous in terms of code readability.
 
-So I decided to dedicate a `store/` directory for all my Redux actions/reducers. This method is mostly borrowed from [this guide](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) made by Tal Kol of Wix, obviously with a few adjustments.
+So I decided to dedicate a `store/` directory for all my Redux actions/reducers. This method is mostly borrowed from [this guide](https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092) made by Tal Kol of Wix, with a few adjustments.
 
 ```
 .
@@ -117,7 +121,6 @@ Include an `index.ts` file at the root of the `store/` directory. We'll use this
 // ./src/store/index.ts
 
 import { combineReducers, Dispatch, Reducer, Action, AnyAction } from 'redux'
-import { routerReducer, RouterState } from 'react-router-redux'
 import { LayoutState, layoutReducer } from './layout'
 
 // The top-level state object.
@@ -188,7 +191,7 @@ Now that we have everything scaffolded, time to set up our actions!
 
 ### Writing typesafe actions with `typesafe-actions`
 
-[Piotrek Witek](https://github.com/piotrwitek) created the [`typesafe-actions`](https://github.com/piotrwitek/typesafe-actions) module, which provides useful helper functions to create type-safe Redux actions. We'll use this to write our Redux actions.
+[Piotrek Witek](https://github.com/piotrwitek) created the [`typesafe-actions`](https://github.com/piotrwitek/typesafe-actions) library, which provides useful helper functions to create type-safe Redux actions. We'll use this to write our Redux actions.
 
 ```tsx
 // ./src/store/heroes/actions.ts
