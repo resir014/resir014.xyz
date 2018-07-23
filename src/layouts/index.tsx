@@ -10,7 +10,7 @@ import 'typeface-zilla-slab'
 
 // inject global styles
 normalize()
-import 'prism-themes/themes/prism-atom-dark.css'
+import 'prism-themes/themes/prism-ghcolors.css'
 
 import LayoutRoot from '../components/ui/LayoutRoot'
 import Masthead from '../components/ui/Masthead'

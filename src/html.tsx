@@ -12,10 +12,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 interface HtmlProps {
-  body: any
-  preBodyComponents: any
-  postBodyComponents: any
-  headComponents: any
+  body: string
+  preBodyComponents: React.ReactNodeArray
+  postBodyComponents: React.ReactNodeArray
+  headComponents: React.ReactNodeArray
 }
 
 module.exports = class HTML extends React.Component<HtmlProps, void> {
