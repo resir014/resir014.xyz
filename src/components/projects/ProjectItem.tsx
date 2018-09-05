@@ -1,13 +1,13 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
 import Button from '../ui/Button'
 
-import { colors, fonts } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { colors, fonts, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 import { ProjectField } from '../../utils/types'
 
-const StyledProjectItem = styled.div`
+const StyledProjectItem = styled('div')`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -21,16 +21,16 @@ const StyledProjectItem = styled.div`
     margin-bottom: 0;
   }
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     flex: 1;
-  `};
+  }
 `
 
-const ProjectTitle = styled.h3`
+const ProjectTitle = styled('h3')`
   margin-top: 0;
 `
 
-const ProjectYear = styled.span`
+const ProjectYear = styled('span')`
   display: inline-block;
   margin-left: 1rem;
   font-family: ${fonts.sansSerif};
@@ -38,7 +38,7 @@ const ProjectYear = styled.span`
   color: ${colors.grey50};
 `
 
-const ProjectTags = styled.div`
+const ProjectTags = styled('div')`
   span {
     display: inline-block;
     padding: 0.25em 0.5em;
@@ -53,7 +53,7 @@ const ProjectTags = styled.div`
   }
 `
 
-const ProjectDetailBox = styled.div`
+const ProjectDetailBox = styled('div')`
   margin-top: 1rem;
 
   p {
@@ -61,7 +61,7 @@ const ProjectDetailBox = styled.div`
   }
 `
 
-const ProjectFooter = styled.div`
+const ProjectFooter = styled('div')`
   margin-top: auto;
 `
 

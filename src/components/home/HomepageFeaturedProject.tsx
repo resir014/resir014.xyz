@@ -1,8 +1,6 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
 import { ProjectField } from '../../utils/types'
 
 import FeaturedProject from '../projects/FeaturedProject'

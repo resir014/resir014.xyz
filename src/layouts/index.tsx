@@ -1,24 +1,17 @@
 import * as React from 'react'
-import { withPrefix } from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import { menuItems } from '../utils/menus'
 import { SiteAuthor } from '../utils/types'
-import normalize from '../styles/normalize'
 
 import 'typeface-zilla-slab'
-
-// inject global styles
-normalize()
+import 'modern-normalize'
+import '../styles/reset'
 import 'prism-themes/themes/prism-ghcolors.css'
 
 import LayoutRoot from '../components/ui/LayoutRoot'
 import Masthead from '../components/ui/Masthead'
 import Footer from '../components/ui/Footer'
-
-interface OverlayProps {
-  visible: boolean
-}
 
 interface WrapperProps {
   location: {
@@ -57,11 +50,8 @@ class TemplateWrapper extends React.Component<WrapperProps, WrapperState> {
 
   public render() {
     const { children, data, location } = this.props
-    const { navigationVisible } = this.state
     const { author } = data.site.siteMetadata
     const { pathname } = location
-    const isHomepage = pathname === withPrefix('/')
-    const is404 = pathname === withPrefix('/404')
 
     return (
       <LayoutRoot>

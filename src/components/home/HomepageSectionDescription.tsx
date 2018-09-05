@@ -1,8 +1,8 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { emSizes, colors } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 interface HomepageSectionDescriptionProps {
   className?: string
@@ -11,14 +11,16 @@ interface HomepageSectionDescriptionProps {
 const HomepageSectionDescription: React.SFC<HomepageSectionDescriptionProps> = ({
   children,
   className
-}) => <p className={className}>{children}</p>
+}) => <Paragraph className={className}>{children}</Paragraph>
 
-export default styled(HomepageSectionDescription)`
+export default HomepageSectionDescription
+
+const Paragraph = styled('p')`
   text-align: center;
   font-size: 1.25rem;
   font-weight: 300;
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     font-size: 1.5rem;
-  `};
+  }
 `

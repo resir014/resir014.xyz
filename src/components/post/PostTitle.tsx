@@ -1,7 +1,5 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
-
-import { colors } from '../../styles/variables'
+import styled from 'react-emotion'
 
 interface PostTitleProps {
   className?: string
@@ -9,10 +7,12 @@ interface PostTitleProps {
 }
 
 const PostTitle: React.SFC<PostTitleProps> = ({ className, children }) => (
-  <h1 className={className}>{children}</h1>
+  <H1 className={className}>{children}</H1>
 )
 
-export default styled(PostTitle)`
+export default PostTitle
+
+const H1 = styled('h1')`
   margin: 0;
   margin-top: 0.5rem;
 `

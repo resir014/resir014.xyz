@@ -1,7 +1,7 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-const StyledLayoutRoot = styled.div`
+const StyledLayoutRoot = styled('div')`
   display: flex;
   flex-direction: column;
   min-height: 100vh;

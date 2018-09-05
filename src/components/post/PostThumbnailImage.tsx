@@ -1,10 +1,10 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { emSizes, colors } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { colors, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 interface PostThumbnailImageProps {
   className?: string
@@ -13,10 +13,12 @@ interface PostThumbnailImageProps {
 }
 
 const PostThumbnailImage: React.SFC<PostThumbnailImageProps> = ({ sizes, alt, className }) => (
-  <Img className={classnames(className, 'u-featured')} sizes={sizes} alt={alt} />
+  <Image className={classnames(className, 'u-featured')} sizes={sizes} alt={alt} />
 )
 
-export default styled(PostThumbnailImage)`
+export default PostThumbnailImage
+
+const Image = styled(Img)`
   margin: 0;
   background: linear-gradient(to bottom right, ${colors.teal50}, ${colors.purple70});
 
@@ -35,7 +37,7 @@ export default styled(PostThumbnailImage)`
     }
   }
 
-  ${media.lg`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     max-height: 30rem;
-  `};
+  }
 `

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import Helmet from 'react-helmet'
 import { RouteComponentProps } from 'react-router'
 
@@ -14,8 +14,9 @@ import { SiteAuthor } from '../utils/types'
 import { BlogPostField } from '../utils/types'
 import PaginationLink from '../components/postsList/PaginationLink'
 import Divider from '../components/ui/Divider'
-import { media } from '../styles/mixins'
+import { getEmSize } from '../styles/mixins'
 import withPathPrefix from '../utils/withPathPrefix'
+import { pxSizes } from '../styles/variables'
 
 interface BlogPageProps extends RouteComponentProps<{}> {
   data: {
@@ -41,14 +42,14 @@ interface BlogPageProps extends RouteComponentProps<{}> {
   }
 }
 
-const Pagination = styled.div`
+const Pagination = styled('div')`
   display: flex;
   flex-direction: column;
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     flex-direction: row;
     justify-content: space-between;
-  `};
+  }
 `
 
 const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {

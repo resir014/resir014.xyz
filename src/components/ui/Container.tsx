@@ -1,7 +1,7 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from 'react-emotion'
 
-import { media, getEmSize } from '../../styles/mixins'
+import { getEmSize } from '../../styles/mixins'
 import { pxSizes } from '../../styles/variables'
 
 interface ContainerProps {
@@ -13,25 +13,29 @@ const Container: React.SFC<ContainerProps> = ({ className, children }) => (
   <div className={className}>{children}</div>
 )
 
-export default styled(Container)`
-  margin-left: auto;
-  margin-right: auto;
-
-  ${props =>
-    props.size !== 'fluid' &&
-    css`
-      max-width: ${getEmSize(pxSizes.widths.md)};
-    `}
-
-  ${props =>
-    (props.size === 'lg' || props.size === 'xl') &&
-    media.lg`
-    max-width: ${getEmSize(pxSizes.widths.lg)};
-  `}
-
-  ${props =>
-    props.size === 'xl' &&
-    media.xl`
-    max-width: ${getEmSize(pxSizes.widths.xl)};
-  `}
+const FluidStyle = css`
+  max-width: ${getEmSize(pxSizes.widths.md)};
 `
+
+const LargeStyles = css`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    max-width: ${getEmSize(pxSizes.widths.lg)};
+  }
+`
+
+const XLargeStyles = css`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.xl)}) {
+    max-width: ${getEmSize(pxSizes.widths.xl)};
+  }
+`
+
+const ContainerBase = (props: ContainerProps) => css`
+margin-left: auto;
+margin-right: auto;
+
+${props.size !== 'fluid' && FluidStyle}
+${(props.size === 'lg' || props.size === 'xl') && LargeStyles}
+${props.size === 'xl' && XLargeStyles}
+`
+
+export default styled(Container)(ContainerBase)

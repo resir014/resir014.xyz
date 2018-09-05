@@ -1,8 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
-
-import { colors, pxSizes, emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import styled from 'react-emotion'
 
 import Container from '../ui/Container'
 
@@ -11,12 +8,14 @@ interface HomepageThumbnailProps {
 }
 
 const HomepageThumbnail: React.SFC<HomepageThumbnailProps> = ({ className, children }) => (
-  <Container size="fluid" className={className}>
+  <Root size="fluid" className={className}>
     {children}
-  </Container>
+  </Root>
 )
 
-export default styled(HomepageThumbnail)`
+export default HomepageThumbnail
+
+const Root = styled(Container)`
   position: relative;
   margin-top: 0;
 `

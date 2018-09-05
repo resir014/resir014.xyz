@@ -1,9 +1,9 @@
 import * as React from 'react'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { colors } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { colors, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 interface HomepageThumbnailImageProps {
   className?: string
@@ -15,15 +15,19 @@ const HomepageThumbnailImage: React.SFC<HomepageThumbnailImageProps> = ({
   sizes,
   alt,
   className
-}) => <Img className={className} sizes={sizes} alt={alt} />
+}) => <Image className={className} sizes={sizes} alt={alt} />
 
-export default styled(HomepageThumbnailImage)`
+export default HomepageThumbnailImage
+
+const Image = styled(Img)`
   margin: 0;
   background: linear-gradient(to bottom right, ${colors.teal50}, ${colors.purple70});
 
-  ${media.lg`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     max-height: 400px;
-  `} img {
+  }
+
+  img {
     opacity: 0.7;
 
     @supports (mix-blend-mode: multiply) {

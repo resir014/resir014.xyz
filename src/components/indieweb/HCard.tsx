@@ -1,13 +1,12 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import Link from 'gatsby-link'
-import Img from 'gatsby-image'
 import { darken } from 'polished'
 
 import { SiteAuthor } from '../../utils/types'
-import { colors, emSizes, fonts } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 interface HCardProps {
   className?: string
@@ -18,17 +17,17 @@ interface HCardProps {
   author: SiteAuthor
 }
 
-const HCardName = styled.h3`
+const HCardName = styled('h3')`
   margin-top: 0;
   font-family: ${fonts.sansSerif};
   color: ${colors.white};
 `
 
-const HCardNote = styled.p`
+const HCardNote = styled('p')`
   font-size: ${emSizes.headingSmall.h4}rem;
 `
 
-const HCardAvatar = styled.div`
+const HCardAvatar = styled('div')`
   display: flex;
   position: relative;
   text-align: center;
@@ -36,26 +35,26 @@ const HCardAvatar = styled.div`
   justify-content: center;
 `
 
-const HCardAvatarImg = styled.img`
+const HCardAvatarImg = styled('img')`
   width: 180px;
   height: 180px;
   margin: 0;
 `
 
-const HCardDetails = styled.div`
+const HCardDetails = styled('div')`
   flex: 1;
   padding: 1.5rem;
 `
 
-const HCardEmail = styled.span`
+const HCardEmail = styled('span')`
   display: none;
 `
 
-const HCardFooter = styled.div`
+const HCardFooter = styled('div')`
   margin-top: 1rem;
 `
 
-const HCardSocialLinks = styled.span`
+const HCardSocialLinks = styled('span')`
   &:not(:first-of-type) {
     margin-left: 0.5rem;
 
@@ -66,8 +65,8 @@ const HCardSocialLinks = styled.span`
   }
 `
 
-const HCard: React.SFC<HCardProps> = ({ className, icon, author }) => (
-  <div className={classnames(className, 'h-card')}>
+const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
+  <Div className={classnames(className, 'h-card')} hidden={hidden}>
     <HCardAvatar>
       <HCardAvatarImg className="u-photo" src={icon.sizes.src} alt={author.name} />
     </HCardAvatar>
@@ -92,11 +91,13 @@ const HCard: React.SFC<HCardProps> = ({ className, icon, author }) => (
         ))}
       </HCardFooter>
     </HCardDetails>
-  </div>
+  </Div>
 )
 
-export default styled(HCard)`
-  display: ${props => (props.hidden ? 'none' : 'flex')};
+export default HCard
+
+const Div = styled('div')`
+  display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'flex')};
   flex-direction: column;
   margin: 0;
   background-color: ${colors.ink90};
@@ -110,7 +111,7 @@ export default styled(HCard)`
     color: ${colors.white};
   }
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     flex-direction: row;
-  `};
+  }
 `

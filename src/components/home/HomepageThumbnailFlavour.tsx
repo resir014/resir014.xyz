@@ -1,8 +1,8 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { colors, emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { colors, emSizes, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 interface HomepageThumbnailFlavourProps {
   className?: string
@@ -11,31 +11,35 @@ interface HomepageThumbnailFlavourProps {
   flavour?: string
 }
 
-const HomepageFlavourTitle = styled.span`
+const HomepageFlavourTitle = styled('span')`
   font-size: ${emSizes.headingSmall.h2}rem;
   color: ${colors.white};
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     font-size: ${emSizes.headingMedium.h2}rem;
-  `} ${media.lg`
+  }
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     font-size: ${emSizes.headingLarge.h2}rem;
-  `};
+  }
 `
 
-const HomepageFlavourSub = styled.span`
+const HomepageFlavourSub = styled('span')`
   font-size: ${emSizes.headingSmall.h4}rem;
 
-  ${media.md`
-    margin-left: .5rem;
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+    margin-left: 0.5rem;
     font-size: ${emSizes.headingMedium.h2}rem;
 
     &:before {
-      content: "/";
-      margin-right: .5rem;
+      content: '/';
+      margin-right: 0.5rem;
     }
-  `} ${media.lg`
+  }
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     font-size: ${emSizes.headingLarge.h2}rem;
-  `};
+  }
 `
 
 const HomepageThumbnailFlavour: React.SFC<HomepageThumbnailFlavourProps> = ({
@@ -43,17 +47,19 @@ const HomepageThumbnailFlavour: React.SFC<HomepageThumbnailFlavourProps> = ({
   title,
   flavour
 }) => (
-  <div className={className}>
+  <Div className={className}>
     <HomepageFlavourTitle>{title}</HomepageFlavourTitle>
     {flavour && <HomepageFlavourSub>{flavour}</HomepageFlavourSub>}
-  </div>
+  </Div>
 )
 
-export default styled(HomepageThumbnailFlavour)`
+export default HomepageThumbnailFlavour
+
+const Div = styled('div')`
   display: flex;
   flex-direction: column;
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     flex-direction: row;
-  `};
+  }
 `

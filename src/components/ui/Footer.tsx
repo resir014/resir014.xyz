@@ -1,27 +1,20 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import { darken } from 'polished'
 
 import flavors from '../../utils/flavorText'
-import { colors, fonts, emSizes } from '../../styles/variables'
-import { media, onEvent } from '../../styles/mixins'
-
-import Container from './Container'
+import { colors, emSizes, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 const ccLogo = require('../../assets/images/cc-by-nc-sa.svg')
 
-const StyledFooter = styled.footer`
+const StyledFooter = styled('footer')`
   padding: 1rem ${emSizes.containerPadding}rem;
   color: ${darken(0.4, colors.white)};
   background-color: ${colors.ink90};
 `
 
-const FooterHeader = styled.div`
-  margin-bottom: 1rem;
-`
-
-const FooterContent = styled.div`
+const FooterContent = styled('div')`
   a {
     color: ${colors.blue40};
     text-decoration: underline;
@@ -31,13 +24,14 @@ const FooterContent = styled.div`
       color: ${colors.blue50};
     }
 
-    ${media.md`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
       text-decoration: none;
 
-      ${onEvent()`
+      &:hover,
+      &:focus {
         text-decoration: underline;
-      `}
-    `};
+      }
+    }
   }
 
   p,
@@ -45,29 +39,6 @@ const FooterContent = styled.div`
     display: block;
     margin: 0;
   }
-`
-
-const FooterTitle = styled(Link)`
-  color: ${colors.white};
-
-  ${onEvent()`
-    text-decoration: none;
-  `};
-`
-
-const FooterItem = styled.span`
-  :not(:first-child) {
-    margin-left: 0.5rem;
-
-    &:before {
-      content: '/';
-      margin-right: 0.5rem;
-    }
-  }
-`
-
-const FooterSplash = styled(FooterItem)`
-  cursor: pointer;
 `
 
 interface FooterProps {
@@ -97,8 +68,6 @@ class Footer extends React.Component<FooterProps, FooterState> {
   }
 
   public render() {
-    const { randomSplashIndex } = this.state
-
     return (
       <StyledFooter>
         <FooterContent>

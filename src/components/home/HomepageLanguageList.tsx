@@ -1,9 +1,8 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
-import { ProjectField } from '../../utils/types'
+import { getEmSize } from '../../styles/mixins'
+import { pxSizes } from '../../styles/variables'
 
 import Container from '../ui/Container'
 
@@ -15,9 +14,9 @@ const StyledHomepageLanguageList = styled(Container)`
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 
-  ${media.lg`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     flex-direction: row;
-  `};
+  }
 `
 
 interface HomepageLanguageListProps {

@@ -1,13 +1,11 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
-import styled from 'styled-components'
-import Link from 'gatsby-link'
-import Img from 'gatsby-image'
+import styled from 'react-emotion'
 import { darken } from 'polished'
 
 import { SiteAuthor } from '../../utils/types'
-import { colors, emSizes, fonts } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 interface HCardPostFooterProps {
   className?: string
@@ -18,17 +16,17 @@ interface HCardPostFooterProps {
   author: SiteAuthor
 }
 
-const HCardName = styled.h3`
+const HCardName = styled('h3')`
   margin-top: 0;
   font-family: ${fonts.sansSerif};
   color: ${colors.white};
 `
 
-const HCardNote = styled.p`
+const HCardNote = styled('p')`
   font-size: ${emSizes.headingSmall.h4}rem;
 `
 
-const HCardAvatar = styled.div`
+const HCardAvatar = styled('div')`
   display: flex;
   position: relative;
   text-align: center;
@@ -36,38 +34,28 @@ const HCardAvatar = styled.div`
   justify-content: center;
 `
 
-const HCardAvatarImg = styled.img`
+const HCardAvatarImg = styled('img')`
   width: 128px;
   height: 128px;
   margin: 0;
 `
 
-const HCardDetails = styled.div`
+const HCardDetails = styled('div')`
   flex: 1;
   padding: 1.5rem;
 `
 
-const HCardEmail = styled.a`
+const HCardEmail = styled('a')`
   display: none;
 `
 
-const HCardFooter = styled.div`
-  margin-top: 1rem;
-`
-
-const HCardSocialLinks = styled.span`
-  &:not(:first-of-type) {
-    margin-left: 0.5rem;
-
-    &:before {
-      content: '/';
-      margin-right: 0.5rem;
-    }
-  }
-`
-
-const HCardPostFooter: React.SFC<HCardPostFooterProps> = ({ className, icon, author }) => (
-  <a rel="author" className={classnames(className, 'p-author h-card')} href="/">
+const HCardPostFooter: React.SFC<HCardPostFooterProps> = ({ className, icon, hidden, author }) => (
+  <Anchor
+    rel="author"
+    className={classnames(className, 'p-author h-card')}
+    href="/"
+    hidden={hidden}
+  >
     <HCardAvatar>
       <HCardAvatarImg className="u-photo" src={icon.sizes.src} alt={author.name} />
     </HCardAvatar>
@@ -78,11 +66,13 @@ const HCardPostFooter: React.SFC<HCardPostFooterProps> = ({ className, icon, aut
         {author.email}
       </HCardEmail>
     </HCardDetails>
-  </a>
+  </Anchor>
 )
 
-export default styled(HCardPostFooter)`
-  display: ${props => (props.hidden ? 'none' : 'flex')};
+export default HCardPostFooter
+
+const Anchor = styled('a')`
+  display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'flex')};
   flex-direction: column;
   margin: 0;
   background-color: ${colors.ink90};
@@ -97,7 +87,7 @@ export default styled(HCardPostFooter)`
     color: ${colors.white};
   }
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     flex-direction: row;
-  `};
+  }
 `

@@ -1,10 +1,9 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from 'react-emotion'
 import { transparentize } from 'polished'
 import Link from 'gatsby-link'
 
 import { fonts, colors, emSizes } from '../../styles/variables'
-import { onEvent } from '../../styles/mixins'
 
 interface ButtonProps {
   id?: string
@@ -57,36 +56,43 @@ const Button: React.SFC<ButtonProps> = ({
   }
 }
 
-export default styled(Button)`
+const SmallButtonStyles = css`
+  font-size: 85%;
+`
+
+const ButtonBase = (props: ButtonProps) => css`
   display: inline-block;
-  padding: ${props => (props.size === 'lg' ? '.5rem 1rem' : '.25rem .5rem')};
+  padding: ${props.size === 'lg' ? '.5rem 1rem' : '.25rem .5rem'};
   background: transparent;
-  color: ${props => (props.color ? theme[props.color] : colors.grey70)};
-  border: 2px solid ${props => (props.color ? theme[props.color] : colors.grey70)};
+  color: ${props.color ? theme[props.color] : colors.grey70};
+  border: 2px solid ${props.color ? theme[props.color] : colors.grey70};
   font-family: ${fonts.sansSerif};
   text-align: center;
   line-height: ${emSizes.lineHeight.regular};
   cursor: pointer;
 
   &:disabled {
-    color: ${props =>
-      props.color ? transparentize(0.75, theme[props.color]) : transparentize(0.75, colors.grey70)};
-    border-color: ${props =>
-      props.color ? transparentize(0.75, theme[props.color]) : transparentize(0.75, colors.grey70)};
+    color: ${props.color
+      ? transparentize(0.75, theme[props.color])
+      : transparentize(0.75, colors.grey70)};
+    border-color: ${props.color
+      ? transparentize(0.75, theme[props.color])
+      : transparentize(0.75, colors.grey70)};
     user-select: none;
     cursor: unset;
   }
 
-  ${onEvent()`
+  &:hover,
+  &:focus {
     background-color: ${transparentize(0.9, colors.grey70)};
     text-decoration: none;
 
     &:disabled {
       background: none;
     }
-  `} ${props =>
-    props.size === 'sm' &&
-    css`
-      font-size: 85%;
-    `};
+  }
+
+  ${props.size === 'sm' && SmallButtonStyles};
 `
+
+export default styled(Button)(ButtonBase)

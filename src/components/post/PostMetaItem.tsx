@@ -1,17 +1,17 @@
 import * as React from 'react'
-import styled from 'styled-components'
-
-import { onEvent } from '../../styles/mixins'
+import styled from 'react-emotion'
 
 interface PostMetaItemProps {
   className?: string
 }
 
 const PostMetaItem: React.SFC<PostMetaItemProps> = ({ className, children }) => (
-  <span className={className}>{children}</span>
+  <Span className={className}>{children}</Span>
 )
 
-export default styled(PostMetaItem)`
+export default PostMetaItem
+
+const Span = styled('span')`
   &:not(:first-of-type) {
     margin-left: 0.5rem;
 
@@ -24,8 +24,9 @@ export default styled(PostMetaItem)`
   a {
     color: inherit;
 
-    ${onEvent()`
+    &:hover,
+    &:focus {
       text-decoration: none;
-    `};
+    }
   }
 `

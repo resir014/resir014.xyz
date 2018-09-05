@@ -1,17 +1,16 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
-import styled, { css } from 'styled-components'
+import styled from 'react-emotion'
 import { darken } from 'polished'
 
 import Button from '../ui/Button'
 import Container from '../ui/Container'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
-import { colors } from '../../styles/variables'
+import { colors, pxSizes } from '../../styles/variables'
 import { ProjectField } from '../../utils/types'
-import { media } from '../../styles/mixins'
+import { getEmSize } from '../../styles/mixins'
 
-const FeaturedProjectWrapper = styled.section`
+const FeaturedProjectWrapper = styled('section')`
   display: flex;
   flex-direction: column;
   margin: 1.5rem 0;
@@ -21,18 +20,20 @@ const FeaturedProjectWrapper = styled.section`
     margin-top: 0;
   }
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     flex-direction: row;
-  `} ${media.lg`
+  }
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     margin: 3rem 0;
-  `}
+  }
 
   .column {
     flex: 1;
   }
 `
 
-const ProjectTags = styled.div`
+const ProjectTags = styled('div')`
   margin: 0.5rem 0 1rem;
 
   span {
@@ -49,24 +50,24 @@ const ProjectTags = styled.div`
   }
 `
 
-const FeaturedProjectDetails = styled.div`
+const FeaturedProjectDetails = styled('div')`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
   background: ${colors.ink90};
 `
 
-const FeaturedProjectHeading = styled.div`
+const FeaturedProjectHeading = styled('div')`
   color: ${colors.white};
   margin: 0;
 `
 
-const FeaturedProjectName = styled.h3`
+const FeaturedProjectName = styled('h3')`
   margin-top: 0;
   color: ${colors.white};
 `
 
-const FeaturedProjectDescription = styled.div`
+const FeaturedProjectDescription = styled('div')`
   flex: 1;
 
   p {
@@ -74,7 +75,7 @@ const FeaturedProjectDescription = styled.div`
   }
 `
 
-const FeaturedProjectFooter = styled.div`
+const FeaturedProjectFooter = styled('div')`
   margin-top: 1rem;
 `
 

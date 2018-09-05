@@ -1,7 +1,8 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { media } from '../../styles/mixins'
+import { getEmSize } from '../../styles/mixins'
+import { pxSizes } from '../../styles/variables'
 import Container from '../ui/Container'
 
 interface PostHeaderProps {
@@ -10,16 +11,18 @@ interface PostHeaderProps {
 }
 
 const PostHeader: React.SFC<PostHeaderProps> = ({ className, children }) => (
-  <section className={className}>
+  <Section className={className}>
     <Container>{children}</Container>
-  </section>
+  </Section>
 )
 
-export default styled(PostHeader)`
+export default PostHeader
+
+const Section = styled('section')`
   padding: 3rem 1.5rem 0;
   text-align: center;
 
-  ${media.lg`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     font-size: 18px;
-  `};
+  }
 `

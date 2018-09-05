@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Button from '../ui/Button'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
 interface PaginationLinkProps {
   test: boolean

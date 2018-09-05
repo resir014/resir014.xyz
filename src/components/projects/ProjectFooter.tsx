@@ -1,16 +1,16 @@
 import * as React from 'react'
-import styled from 'styled-components'
-
-import { emSizes } from '../../styles/variables'
+import styled from 'react-emotion'
 
 interface PageProps {
   className?: string
 }
 
 const ProjectFooter: React.SFC<PageProps> = ({ children, className }) => (
-  <div className={className}>{children}</div>
+  <Div className={className}>{children}</Div>
 )
 
-export default styled(ProjectFooter)`
+export default ProjectFooter
+
+const Div = styled('div')`
   margin-top: 2rem;
 `

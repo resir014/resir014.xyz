@@ -1,9 +1,7 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { emSizes } from '../../styles/variables'
-
-const StyledPage = styled.main`
+const StyledPage = styled('main')`
   display: block;
   flex: 1;
   position: relative;

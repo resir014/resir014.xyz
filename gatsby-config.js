@@ -90,7 +90,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-next',
     'gatsby-plugin-twitter',
-    'gatsby-plugin-styled-components',
+    'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',
     {

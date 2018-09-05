@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { lighten, darken } from 'polished'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { colors, emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { colors, emSizes, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 interface MarkdownContentProps {
   className?: string
@@ -11,10 +11,12 @@ interface MarkdownContentProps {
 }
 
 const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
+  <Div className={className} dangerouslySetInnerHTML={{ __html: html }} />
 )
 
-export default styled(MarkdownContent)`
+export default MarkdownContent
+
+const Div = styled('div')`
   a {
     color: ${colors.blue60};
 
@@ -30,10 +32,12 @@ export default styled(MarkdownContent)`
     background-color: ${colors.ink90};
     border: 8px solid ${colors.ink90};
 
-    ${media.lg`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
       margin-left: -${emSizes.containerPadding * 2}rem;
       margin-right: -${emSizes.containerPadding * 2}rem;
-    `} img {
+    }
+
+    img {
       display: block;
       vertical-align: middle;
       margin-left: auto;
@@ -83,10 +87,10 @@ export default styled(MarkdownContent)`
     font-size: 1.25rem;
     font-weight: 300;
 
-    ${media.sm`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.sm)}) {
       width: 75%;
       font-size: 1.5rem;
-    `};
+    }
   }
 
   .message {
@@ -123,8 +127,8 @@ export default styled(MarkdownContent)`
     font-size: 1.25rem;
     font-weight: 300;
 
-    ${media.md`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
       font-size: 1.5rem;
-    `};
+    }
   }
 `

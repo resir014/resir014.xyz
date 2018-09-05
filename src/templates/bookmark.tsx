@@ -1,8 +1,7 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { menuItems } from '../utils/menus'
 import { SiteAuthor } from '../utils/types'
 import { colors } from '../styles/variables'
 
@@ -66,11 +65,9 @@ const LinkTitle = styled(PostTitle)`
   }
 `
 
-const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) => {
+const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
-  const { author } = siteMetadata
-  const { pathname } = location
 
   return (
     <Page>

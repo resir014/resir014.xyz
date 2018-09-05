@@ -1,11 +1,11 @@
 import * as React from 'react'
-import Link, { navigateTo } from 'gatsby-link'
-import styled from 'styled-components'
+import Link from 'gatsby-link'
+import styled from 'react-emotion'
 import { darken } from 'polished'
 
 import { pxSizes, emSizes, colors } from '../../styles/variables'
 import { MenuProps } from '../../utils/types'
-import { media, onEvent } from '../../styles/mixins'
+import { getEmSize } from '../../styles/mixins'
 import menuItems from '../../utils/menuItems'
 
 import MastheadNav from './MastheadNav'
@@ -17,32 +17,33 @@ interface MastheadProps extends MenuProps {
   onNavToggleClick: () => any
 }
 
-const MastheadInner = styled.div`
+const MastheadInner = styled('div')`
   display: flex;
   flex-direction: column;
   height: 100%;
   align-items: center;
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     flex-direction: row;
-  `};
+  }
 `
 
-const MastheadTitle = styled.div`
+const MastheadTitle = styled('div')`
   color: ${colors.white};
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     margin-right: 1rem;
-  `};
+  }
 `
 
 const MastheadTitleLink = styled(Link)`
-  ${onEvent()`
+  &:hover,
+  &:focus {
     text-decoration: none;
-  `};
+  }
 `
 
-const Masthead: React.SFC<MastheadProps> = ({ className, children, items, title }) => (
+const Masthead: React.SFC<MastheadProps> = ({ className, title }) => (
   <header className={className}>
     <MastheadInner>
       <MastheadTitle>
@@ -58,8 +59,8 @@ export default styled(Masthead)`
   background-color: ${colors.grey90};
   color: ${darken(0.5, colors.white)};
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     padding-top: ${emSizes.containerPadding / 2}rem;
     padding-bottom: ${emSizes.containerPadding / 2}rem;
-  `};
+  }
 `

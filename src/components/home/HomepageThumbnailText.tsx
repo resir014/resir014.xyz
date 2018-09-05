@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import { darken } from 'polished'
 
 import { colors, pxSizes, emSizes } from '../../styles/variables'
@@ -20,7 +20,7 @@ const FlexContainer = styled(Container)`
   max-width: ${getEmSize(pxSizes.widths.lg)};
 `
 
-const FlexInner = styled.div`
+const FlexInner = styled('div')`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
@@ -29,14 +29,16 @@ const FlexInner = styled.div`
 `
 
 const HomepageThumbnailText: React.SFC<HomepageThumbnailTextProps> = ({ className, children }) => (
-  <div className={className}>
+  <Div className={className}>
     <FlexContainer>
       <FlexInner>{children}</FlexInner>
     </FlexContainer>
-  </div>
+  </Div>
 )
 
-export default styled(HomepageThumbnailText)`
+export default HomepageThumbnailText
+
+const Div = styled('div')`
   position: absolute;
   top: 0;
   left: 0;

@@ -1,18 +1,17 @@
 import * as React from 'react'
-import styled from 'styled-components'
-
-import { emSizes, colors } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import styled from 'react-emotion'
 
 interface HomepageSectionProps {
   className?: string
 }
 
-const HomepageSection: React.SFC<HomepageSectionProps> = ({ children, className }) => (
-  <div className={className}>{children}</div>
+const HomepageSectionFooter: React.SFC<HomepageSectionProps> = ({ children, className }) => (
+  <Div className={className}>{children}</Div>
 )
 
-export default styled(HomepageSection)`
+export default HomepageSectionFooter
+
+const Div = styled('div')`
   margin-top: 1.5rem;
   text-align: center;
 `

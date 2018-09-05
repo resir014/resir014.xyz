@@ -1,24 +1,28 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'react-emotion'
 
-import { colors, emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { emSizes, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 interface BlogPostExcerptProps {
   className?: string
 }
 
 const BlogPostExcerpt: React.SFC<BlogPostExcerptProps> = ({ className, children }) => (
-  <p className={className}>{children}</p>
+  <Paragraph className={className}>{children}</Paragraph>
 )
 
-export default styled(BlogPostExcerpt)`
+export default BlogPostExcerpt
+
+const Paragraph = styled('p')`
   font-weight: 300;
   font-size: ${emSizes.headingSmall.h4}rem;
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     font-size: ${emSizes.headingMedium.h4}rem;
-  `} ${media.lg`
+  }
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     font-size: ${emSizes.headingLarge.h4}rem;
-  `};
+  }
 `

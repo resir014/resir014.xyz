@@ -1,18 +1,20 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { media } from '../../styles/mixins'
-import { colors, emSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
+import { colors, emSizes, pxSizes } from '../../styles/variables'
 
 interface PageSubtitleProps {
   className?: string
 }
 
 const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => {
-  return <section className={className}>{children}</section>
+  return <Section className={className}>{children}</Section>
 }
 
-export default styled(PageSubtitle)`
+export default PageSubtitle
+
+const Section = styled('section')`
   margin-bottom: 1.5rem;
   padding: 1rem 0;
   border-top: 4px solid ${colors.ink70};
@@ -20,10 +22,12 @@ export default styled(PageSubtitle)`
   font-size: ${emSizes.headingSmall.h4}rem;
   font-weight: 300;
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     font-size: ${emSizes.headingMedium.h4}rem;
-  `} ${media.lg`
+  }
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     font-size: ${emSizes.headingLarge.h4}rem;
     margin-bottom: 3rem;
-  `};
+  }
 `

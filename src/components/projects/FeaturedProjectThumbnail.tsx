@@ -1,8 +1,9 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'react-emotion'
 import Img from 'gatsby-image'
 
-import { media } from '../../styles/mixins'
+import { getEmSize } from '../../styles/mixins'
+import { pxSizes } from '../../styles/variables'
 
 interface FeaturedProjectThumbnailProps {
   className?: string
@@ -17,20 +18,24 @@ const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> = ({
   image,
   className
 }) => (
-  <div className={className}>
+  <Div className={className}>
     <Img sizes={image.childImageSharp.sizes} alt="" />
-  </div>
+  </Div>
 )
 
-export default styled(FeaturedProjectThumbnail)`
+export default FeaturedProjectThumbnail
+
+const Div = styled('div')`
   display: none;
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     display: block;
     position: relative;
     width: 100%;
     height: 100%;
-  `} img {
+  }
+
+  img {
     margin: 0;
     verticalalign: middle;
     objectfit: cover;

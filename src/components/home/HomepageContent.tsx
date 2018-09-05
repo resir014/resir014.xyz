@@ -1,10 +1,9 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
 import { emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
 
-const StyledHomepageContent = styled.div`
+const StyledHomepageContent = styled('div')`
   display: block;
   padding: ${emSizes.containerPadding}rem;
   padding-bottom: 3rem;

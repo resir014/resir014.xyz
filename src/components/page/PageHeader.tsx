@@ -1,8 +1,8 @@
 import * as React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css } from 'react-emotion'
 
-import { colors, pxSizes, emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { colors, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 
 interface PageHeaderProps {
   className?: string
@@ -10,24 +10,28 @@ interface PageHeaderProps {
 }
 
 const PageHeader: React.SFC<PageHeaderProps> = ({ className, children }) => (
-  <section className={className}>{children}</section>
+  <Section className={className}>{children}</Section>
 )
 
-export default styled(PageHeader)`
+const FixedHeightStyles = css`
+  height: 14rem;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+    height: 18rem;
+  }
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    height: 22rem;
+  }
+`
+
+const Section = styled('section')`
   position: relative;
   margin: 0;
   background: linear-gradient(to bottom right, ${colors.teal50}, ${colors.purple70});
   z-index: -1;
 
-  ${props =>
-    props.fixedHeight &&
-    css`
-      height: 14rem;
-
-      ${media.md`
-      height: 18rem;
-    `} ${media.lg`
-      height: 22rem;
-    `};
-    `};
+  ${(props: PageHeaderProps) => props.fixedHeight && FixedHeightStyles};
 `
+
+export default PageHeader

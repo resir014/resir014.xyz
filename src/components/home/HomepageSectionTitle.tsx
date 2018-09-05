@@ -1,17 +1,16 @@
 import * as React from 'react'
-import styled from 'styled-components'
-
-import { emSizes, colors } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import styled from 'react-emotion'
 
 interface HomepageSectionTitleProps {
   className?: string
 }
 
 const HomepageSectionTitle: React.SFC<HomepageSectionTitleProps> = ({ children, className }) => (
-  <h1 className={className}>{children}</h1>
+  <H1 className={className}>{children}</H1>
 )
 
-export default styled(HomepageSectionTitle)`
+export default HomepageSectionTitle
+
+const H1 = styled('h1')`
   text-align: center;
 `

@@ -1,12 +1,11 @@
-import { injectGlobal } from 'styled-components'
-import styledNormalize from 'styled-normalize'
+// tslint:disable:no-unused-expression
+
+import { injectGlobal } from 'emotion'
 import { fonts, pxSizes, emSizes } from './variables'
-import { colors } from '../styles/variables'
-import { onEvent, media } from './mixins'
+import { colors } from './variables'
+import { getEmSize } from './mixins'
 
-export default () => injectGlobal`
-  ${styledNormalize}
-
+injectGlobal`
   html {
     box-sizing: border-box;
   }
@@ -41,9 +40,9 @@ export default () => injectGlobal`
     color: inherit;
     text-decoration: none;
 
-    ${onEvent()`
+    &:hover, &:focus {
       text-decoration: underline;
-    `}
+    }
   }
 
   img {
@@ -105,49 +104,49 @@ export default () => injectGlobal`
     margin-top: 0;
     font-size: ${emSizes.headingSmall.h1}rem;
 
-    ${media.md`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
       font-size: ${emSizes.headingMedium.h1}rem;
-    `}
+    }
 
-    ${media.lg`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
       font-size: ${emSizes.headingLarge.h1}rem;
-    `}
+    }
   }
 
   h2 {
     font-size: ${emSizes.headingSmall.h2}rem;
 
-    ${media.md`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
       font-size: ${emSizes.headingMedium.h2}rem;
-    `}
+    }
 
-    ${media.lg`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
       font-size: ${emSizes.headingLarge.h2}rem;
-    `}
+    }
   }
 
   h3 {
     font-size: ${emSizes.headingSmall.h3}rem;
 
-    ${media.md`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
       font-size: ${emSizes.headingMedium.h3}rem;
-    `}
+    }
 
-    ${media.lg`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
       font-size: ${emSizes.headingLarge.h3}rem;
-    `}
+    }
   }
 
   h4, h5, h6 {
     font-size: ${emSizes.headingSmall.h4}rem;
 
-    ${media.md`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
       font-size: ${emSizes.headingMedium.h4}rem;
-    `}
+    }
 
-    ${media.lg`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
       font-size: ${emSizes.headingLarge.h4}rem;
-    `}
+    }
   }
 
   p {
@@ -203,10 +202,10 @@ export default () => injectGlobal`
       margin-bottom: 0;
     }
 
-    ${media.sm`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.sm)}) {
       padding-right: 5rem;
       padding-left: 1.25rem;
-    `}
+    }
   }
 
   .hidden {

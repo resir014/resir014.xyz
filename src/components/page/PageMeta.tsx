@@ -1,26 +1,28 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
-import { colors, pxSizes, emSizes } from '../../styles/variables'
-import { media } from '../../styles/mixins'
+import { pxSizes, emSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 import Container from '../ui/Container'
 
 interface PageTitleProps {
   className?: string
 }
 
-const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) => (
-  <Container size="lg" className={className}>
+const PageMeta: React.SFC<PageTitleProps> = ({ className, children }) => (
+  <Root size="lg" className={className}>
     {children}
-  </Container>
+  </Root>
 )
 
-export default styled(PageTitle)`
+export default PageMeta
+
+const Root = styled(Container)`
   padding: ${emSizes.containerPadding}rem;
   padding-bottom: 0;
   text-align: center;
 
-  ${media.lg`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     padding-top: 3rem;
-  `};
+  }
 `

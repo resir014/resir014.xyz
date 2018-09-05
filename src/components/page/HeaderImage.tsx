@@ -1,8 +1,6 @@
 import * as React from 'react'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
-
-import { emSizes } from '../../styles/variables'
+import styled from 'react-emotion'
 
 interface HeaderImageProps {
   className?: string
@@ -11,10 +9,12 @@ interface HeaderImageProps {
 }
 
 const HeaderImage: React.SFC<HeaderImageProps> = ({ sizes, alt, className }) => (
-  <Img className={className} style={{ position: 'absolute' }} sizes={sizes} alt={alt} />
+  <Image className={className} style={{ position: 'absolute' }} sizes={sizes} alt={alt} />
 )
 
-export default styled(HeaderImage)`
+export default HeaderImage
+
+const Image = styled(Img)`
   position: absolute;
   top: 0;
   left: 0;

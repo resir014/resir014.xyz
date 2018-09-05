@@ -1,10 +1,10 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import Helmet from 'react-helmet'
 
-import { colors, fonts } from '../styles/variables'
-import { media } from '../styles/mixins'
+import { colors, fonts, pxSizes } from '../styles/variables'
+import { getEmSize } from '../styles/mixins'
 import { SiteAuthor } from '../utils/types'
 
 import Page from '../components/page/Page'
@@ -14,15 +14,7 @@ import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import Container from '../components/ui/Container'
 
-const PageWrapper = styled(Page)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${colors.white};
-  background-color: ${colors.ink90};
-`
-
-const PageInner = styled.div`
+const PageInner = styled('div')`
   a {
     color: ${colors.blue40};
   }
@@ -35,11 +27,13 @@ const PageInner = styled.div`
     font-family: ${fonts.sansSerif};
     font-size: 2.074rem;
 
-    ${media.md`
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
       font-size: 2.441rem;
-    `} ${media.lg`
+    }
+
+    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
       font-size: 3.157rem;
-    `}
+    }
 
     span {
       display: inline-block;

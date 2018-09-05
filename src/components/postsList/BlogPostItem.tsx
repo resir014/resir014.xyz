@@ -1,52 +1,54 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import { lighten } from 'polished'
 import Link from 'gatsby-link'
 
-import { colors } from '../../styles/variables'
-import { media, onEvent } from '../../styles/mixins'
+import { colors, pxSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 import { BlogPostField, BlogPostNode } from '../../utils/types'
 
 import MarkdownContent from '../page/MarkdownContent'
 import PostMetaItem from '../post/PostMetaItem'
 import BlogPostExcerpt from './BlogPostExcerpt'
 
-const StyledPostItem = styled.article`
+const StyledPostItem = styled('article')`
   display: flex;
   flex-direction: column;
   margin-bottom: 3rem;
 
-  ${media.lg`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     flex-direction: row;
-  `} &:last-of-type {
+  }
+
+  &:last-of-type {
     margin-bottom: 0;
   }
 `
 
-const StyledPostMeta = styled.section`
+const StyledPostMeta = styled('section')`
   margin-bottom: 0.5rem;
   color: ${lighten(0.5, colors.grey90)};
 
-  ${media.lg`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     margin-bottom: 0;
     width: 20%;
-  `};
+  }
 `
 
 const StyledPostMetaItem = styled(PostMetaItem)`
-  ${media.lg`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     display: block;
 
     &:not(:first-of-type) {
-      margin-top: .25rem;
+      margin-top: 0.25rem;
       margin-left: 0 !important;
     }
 
     &:before {
       display: none;
     }
-  `};
+  }
 `
 
 const PostTitleLink = styled(Link)`
@@ -56,12 +58,13 @@ const PostTitleLink = styled(Link)`
 const FooterLink = styled(Link)`
   color: ${colors.blue60};
 
-  ${onEvent()`
+  &:hover,
+  &:focus {
     color: ${colors.blue70};
-  `};
+  }
 `
 
-const PostThumbnailImage = styled.img`
+const PostThumbnailImage = styled('img')`
   margin-top: 1rem;
   margin-bottom: 1rem;
 
@@ -70,13 +73,13 @@ const PostThumbnailImage = styled.img`
   }
 `
 
-const PostDetailBox = styled.section`
-  ${media.lg`
+const PostDetailBox = styled('section')`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     flex: 1;
-  `};
+  }
 `
 
-const PostTitle = styled.h3`
+const PostTitle = styled('h3')`
   margin-top: 0;
 
   a {
@@ -84,7 +87,7 @@ const PostTitle = styled.h3`
   }
 `
 
-const BlogPostFooter = styled.div`
+const BlogPostFooter = styled('div')`
   margin-top: 1rem;
 `
 

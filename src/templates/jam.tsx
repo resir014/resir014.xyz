@@ -1,11 +1,8 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 
-import { menuItems } from '../utils/menus'
 import { SiteAuthor } from '../utils/types'
-import { colors } from '../styles/variables'
 
 import Container from '../components/ui/Container'
 import Divider from '../components/ui/Divider'
@@ -14,7 +11,6 @@ import PostMeta from '../components/post/PostMeta'
 import PostHeader from '../components/post/PostHeader'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PageContent from '../components/page/PageContent'
-import PageSubtitle from '../components/page/PageSubtitle'
 import MarkdownContent from '../components/page/MarkdownContent'
 import PostTitle from '../components/post/PostTitle'
 import HCardPostFooter from '../components/indieweb/HCardPostFooter'
@@ -56,11 +52,9 @@ interface JamTemplateProps {
   }
 }
 
-const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
+const JamTemplate: React.SFC<JamTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
-  const { author } = siteMetadata
-  const { pathname } = location
 
   return (
     <Page>

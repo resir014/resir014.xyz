@@ -1,17 +1,17 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
 import { MenuItem } from '../../utils/types'
-import { media, onEvent } from '../../styles/mixins'
-import { colors } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
+import { colors, pxSizes } from '../../styles/variables'
 
 interface MastheadNavProps {
   items: MenuItem[]
   className?: string
 }
 
-const MastheadNavItem = styled.span`
+const MastheadNavItem = styled('span')`
   margin-left: 1rem;
   text-transform: lowercase;
 
@@ -19,12 +19,12 @@ const MastheadNavItem = styled.span`
     margin-left: 0;
   }
 
-  ${media.md`
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     &:before {
-      content: "/";
+      content: '/';
       margin-right: 1rem;
     }
-  `};
+  }
 `
 
 const MastheadNavLink = styled(Link)`
@@ -32,10 +32,11 @@ const MastheadNavLink = styled(Link)`
     color: ${colors.white};
   }
 
-  ${onEvent()`
+  &:hover,
+  &:focus {
     color: ${colors.white};
     text-decoration: none;
-  `};
+  }
 `
 
 const MastheadNav: React.SFC<MastheadNavProps> = ({ className, items }) => (
