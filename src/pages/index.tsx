@@ -1,24 +1,15 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import styled, { css } from 'styled-components'
 
 import { colors } from '../styles/variables'
-import { menuItems } from '../utils/menus'
-import { BlogPostField, ProjectField, ProjectNode, SiteAuthor } from '../utils/types'
+import { ProjectNode, SiteAuthor } from '../utils/types'
 import flavors from '../utils/flavorText'
-import getFeaturedProject from '../utils/getFeaturedProject'
-import shuffleArray from '../utils/shuffleArray'
 
 import Button from '../components/ui/Button'
 import Divider from '../components/ui/Divider'
 import Page from '../components/page/Page'
-import PageHeader from '../components/page/PageHeader'
-import HeaderImage from '../components/page/HeaderImage'
 import HomepageContent from '../components/home/HomepageContent'
 import HomepageSection from '../components/home/HomepageSection'
-import BlogPostItem from '../components/postsList/BlogPostItem'
-import HomepageBlogContainer from '../components/home/HomepageBlogContainer'
 import HomepageSectionTitle from '../components/home/HomepageSectionTitle'
 import HomepageSectionDescription from '../components/home/HomepageSectionDescription'
 import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
@@ -30,17 +21,6 @@ import HomepageThumbnailImage from '../components/home/HomepageThumbnailImage'
 import HomepageThumbnailText from '../components/home/HomepageThumbnailText'
 import HomepageThumbnailFlavour from '../components/home/HomepageThumbnailFlavour'
 import HCard from '../components/indieweb/HCard'
-
-const backgroundImage = require('../assets/images/background.jpg')
-
-interface HomepageWrapperProps {
-  state: {
-    gradientStartIndex: number
-    gradientEndIndex: number
-  }
-  headerImage: string
-  className?: string
-}
 
 interface IndexPageProps {
   location: {
@@ -88,10 +68,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
   }
 
   public render() {
-    const { children, data, location } = this.props
-    const { randomisedIndex, isRandomised } = this.state
-    const { pathname } = location
-    const randomSplash = shuffleArray(flavors)[0]
+    const { data } = this.props
     return (
       <Page>
         <Helmet
@@ -111,11 +88,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
         <HomepageThumbnail>
           <HomepageThumbnailImage sizes={data.headerImage.sizes} alt="" />
           <HomepageThumbnailText>
-            <HomepageThumbnailFlavour
-              title="@resir014"
-              randomised={isRandomised}
-              flavour={randomSplash}
-            />
+            <HomepageThumbnailFlavour title="@resir014" flavour="is a web developer" />
           </HomepageThumbnailText>
         </HomepageThumbnail>
         <HomepageContent>

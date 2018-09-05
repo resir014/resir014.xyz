@@ -1,5 +1,8 @@
 {
   "extends": [
     "tslint-config-blvd/react"
-  ]
+  ],
+  "rules": {
+    "arrow-parens": false
+  }
 }

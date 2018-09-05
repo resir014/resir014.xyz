@@ -28,14 +28,12 @@ const theme = {
 const Button: React.SFC<ButtonProps> = ({
   id,
   className,
-  color,
   kind,
   href,
   to,
   disabled,
   onClick,
   target,
-  rel,
   children
 }) => {
   if (kind === 'button') {

@@ -1,17 +1,14 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { darken } from 'polished'
 
-import { colors, pxSizes, emSizes } from '../../styles/variables'
+import { colors, emSizes } from '../../styles/variables'
 import { media } from '../../styles/mixins'
-
-import Container from '../ui/Container'
 
 interface HomepageThumbnailFlavourProps {
   className?: string
   title: string
   randomised?: boolean
-  flavour: string
+  flavour?: string
 }
 
 const HomepageFlavourTitle = styled.span`
@@ -44,12 +41,11 @@ const HomepageFlavourSub = styled.span`
 const HomepageThumbnailFlavour: React.SFC<HomepageThumbnailFlavourProps> = ({
   className,
   title,
-  flavour,
-  randomised
+  flavour
 }) => (
   <div className={className}>
     <HomepageFlavourTitle>{title}</HomepageFlavourTitle>
-    {randomised && <HomepageFlavourSub>{flavour}</HomepageFlavourSub>}
+    {flavour && <HomepageFlavourSub>{flavour}</HomepageFlavourSub>}
   </div>
 )
 
