@@ -1,5 +1,7 @@
 # resir014.xyz
 
+[![CircleCI (all branches)](https://img.shields.io/circleci/project/github/resir014/resir014.xyz.svg)](https://circleci.com/gh/resir014/resir014.xyz)
+
 > Source code for [resir014.xyz](https://resir014.xyz).
 
 ## Developing
