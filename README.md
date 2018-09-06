@@ -14,15 +14,16 @@ yarn
 npm install
 
 # serve with hot reload at localhost:8000
-npm run dev
+yarn dev
 
 # build for production
-npm run build
+yarn build
 
 # build for production and push to gh-pages branch
-npm run deploy
+yarn deploy
 
-# TODO: tests
+# run tests (lint + type check)
+yarn test
 ```
 
 ## Credits
