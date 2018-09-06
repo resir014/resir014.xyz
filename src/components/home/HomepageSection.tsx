@@ -8,7 +8,7 @@ interface HomepageSectionProps {
 
 const HomepageSection: React.SFC<HomepageSectionProps> = ({ children, className }) => (
   <section className={className}>
-    <Container size="lg">{children}</Container>
+    <Container size="xl">{children}</Container>
   </section>
 )
 

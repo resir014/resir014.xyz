@@ -6,6 +6,7 @@ import { colors } from '../styles/variables'
 import flavors from '../utils/flavorText'
 
 import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
+import { ProjectField } from '../types/fields'
 import { ProjectNode } from '../types/nodes'
 
 import Button from '../components/ui/Button'
@@ -16,15 +17,17 @@ import HomepageSection from '../components/home/HomepageSection'
 import HomepageSectionTitle from '../components/home/HomepageSectionTitle'
 import HomepageSectionDescription from '../components/home/HomepageSectionDescription'
 import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
-import HomepageFeaturedProject from '../components/home/HomepageFeaturedProject'
 import HomepageLanguageList from '../components/home/HomepageLanguageList'
 import HomepageLanguageListItem from '../components/home/HomepageLanguageListItem'
 import HomepageThumbnail from '../components/home/HomepageThumbnail'
 import HomepageThumbnailImage from '../components/home/HomepageThumbnailImage'
 import HomepageThumbnailText from '../components/home/HomepageThumbnailText'
 import HomepageThumbnailFlavour from '../components/home/HomepageThumbnailFlavour'
+import ProjectItemList from '../components/projects/ProjectItemList'
 import HCard from '../components/indieweb/HCard'
 import TemplateWrapper from '../layouts'
+import FeaturedProject from '../components/projects/FeaturedProject'
+import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 
 interface IndexPageProps {
   location: {
@@ -37,6 +40,9 @@ interface IndexPageProps {
     headerImage: HeaderImage
     icon: HCardIcon
     featuredProject: ProjectNode
+    allProjects: {
+      edges: ProjectField[]
+    }
   }
 }
 
@@ -114,13 +120,19 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             </HomepageSection>
             <Divider spacing="large" />
             <HomepageSection>
-              <HomepageSectionTitle>Projects.</HomepageSectionTitle>
-              <HomepageFeaturedProject node={data.featuredProject} />
-              <HomepageSectionFooter>
-                <Button kind="nav-link" color="primary" size="lg" to="/projects">
-                  View all projects
-                </Button>
-              </HomepageSectionFooter>
+              <FeaturedProject node={data.featuredProject} />
+              <ProjectItemList
+                title="Web development stuff"
+                projects={filterProjectsByCategory(data.allProjects.edges, 'web')}
+              />
+              <ProjectItemList
+                title="Open source stuff"
+                projects={filterProjectsByCategory(data.allProjects.edges, 'oss')}
+              />
+              <ProjectItemList
+                title="Other stuff"
+                projects={filterProjectsByCategory(data.allProjects.edges, 'other')}
+              />
             </HomepageSection>
             <Divider spacing="large" />
             <HomepageSection>
@@ -200,6 +212,37 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 1140) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    allProjects: allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/projects/" } } }
+      sort: { fields: [fields___year], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            year
+            description
+            tags
+            slug
+            category
+            lead
+            project_url
+            jumpToProject
+          }
+          frontmatter {
+            title
+            header_image {
+              childImageSharp {
+                fluid(maxWidth: 1140) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

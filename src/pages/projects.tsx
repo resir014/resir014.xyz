@@ -63,7 +63,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
                 node={featuredProject.node}
               />
             ) : null}
-            <Container size="lg">
+            <Container size="fluid">
               <ProjectItemList
                 title="Web development stuff"
                 projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}

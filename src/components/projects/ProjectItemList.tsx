@@ -11,16 +11,15 @@ const ProjectSectionHeading = styled('h2')`
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    margin-top: 3rem;
-  }
 `
 
 const ProjectsList = styled('div')`
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    margin: 0 -1rem;
+  }
 `
 
 const ProjectEmpty = styled('p')`
@@ -28,13 +27,13 @@ const ProjectEmpty = styled('p')`
 `
 
 export interface ProjectItemListProps {
-  title: string
+  title?: string
   projects: ProjectField[]
 }
 
 const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, projects }) => (
   <section>
-    <ProjectSectionHeading>{title}</ProjectSectionHeading>
+    {title && <ProjectSectionHeading>{title}</ProjectSectionHeading>}
     {projects.length !== 0 ? (
       <ProjectsList>
         {projects.map(({ node }) => (

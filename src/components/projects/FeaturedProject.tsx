@@ -15,6 +15,8 @@ const FeaturedProjectWrapper = styled('section')`
   flex-direction: column;
   margin: 1.5rem 0;
   color: ${darken(0.4, colors.white)};
+  border-radius: 4px;
+  overflow: hidden;
 
   &:first-of-type {
     margin-top: 0;
