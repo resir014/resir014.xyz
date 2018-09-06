@@ -5,6 +5,7 @@ export interface SiteMetadata {
   tagline: string
   description: string
   siteUrl: string
+  flavourText?: string
   author: SiteAuthor
 }
 

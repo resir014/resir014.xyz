@@ -83,7 +83,10 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           <HomepageThumbnail>
             <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
             <HomepageThumbnailText>
-              <HomepageThumbnailFlavour title="@resir014" flavour="is a web developer" />
+              <HomepageThumbnailFlavour
+                title="@resir014"
+                flavour={data.site.siteMetadata.flavourText}
+              />
             </HomepageThumbnailText>
           </HomepageThumbnail>
           <HomepageContent>
@@ -148,6 +151,7 @@ export const pageQuery = graphql`
         title
         description
         siteUrl
+        flavourText
         author {
           name
           description

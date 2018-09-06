@@ -1,10 +1,13 @@
 'use strict'
 
+const flavours = require('./gatsby/flavourText')
+
 module.exports = {
   siteMetadata: {
     title: '@resir014',
     description: 'Web developer based in Jakarta, Indonesia.',
     siteUrl: 'https://resir014.xyz',
+    flavourText: flavours[Math.floor(Math.random() * flavours.length)],
     author: {
       name: '@resir014',
       description: 'Web developer based in Jakarta, Indonesia.',
