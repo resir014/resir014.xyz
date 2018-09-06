@@ -7,8 +7,8 @@ import Container from '../ui/Container'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { colors, pxSizes } from '../../styles/variables'
-import { ProjectField } from '../../utils/types'
 import { getEmSize } from '../../styles/mixins'
+import { ProjectField } from '../../types/fields'
 
 const FeaturedProjectWrapper = styled('section')`
   display: flex;
@@ -113,7 +113,11 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
               <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
             </FeaturedProjectHeading>
             {tags ? (
-              <ProjectTags>{tags.map(tag => <span key={tag}>{tag}</span>)}</ProjectTags>
+              <ProjectTags>
+                {tags.map(tag => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </ProjectTags>
             ) : null}
             <FeaturedProjectDescription>
               <p>{node.fields.description}</p>

@@ -1,4 +1,4 @@
-import { Reducer, Action } from 'redux'
+import { Reducer } from 'redux'
 import { LayoutState, KnownAction } from './types'
 
 export const initialState: LayoutState = {

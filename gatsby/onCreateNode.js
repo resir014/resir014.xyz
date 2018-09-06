@@ -6,8 +6,8 @@ const { createFilePath } = require('gatsby-source-filesystem')
 // Regex to parse date and title from the filename
 const BLOG_POST_SLUG_REGEX = /^\/posts\/.+\/([\d]{4})-([\d]{2})-([\d]{2})-(.+)\/$/
 
-module.exports = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators
+module.exports = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
     const {

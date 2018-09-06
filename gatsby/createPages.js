@@ -4,8 +4,8 @@
 const path = require('path')
 const createPaginatedPages = require('gatsby-paginate')
 
-module.exports = async ({ graphql, boundActionCreators }) => {
-  const { createPage, createRedirect } = boundActionCreators
+module.exports = async ({ graphql, actions }) => {
+  const { createPage, createRedirect } = actions
 
   // Used to detect and prevent duplicate redirects
   const redirectToSlugMap = {}
@@ -51,7 +51,7 @@ module.exports = async ({ graphql, boundActionCreators }) => {
     `
       {
         allMarkdownRemark(
-          filter: { id: { regex: "/posts/" } }
+          filter: { fileAbsolutePath: { regex: "/posts/" } }
           sort: { fields: [fields___date], order: DESC }
         ) {
           edges {
@@ -69,9 +69,17 @@ module.exports = async ({ graphql, boundActionCreators }) => {
                 title
                 header_image {
                   childImageSharp {
-                    sizes(maxWidth: 1140) {
-                      srcSet
+                    fluid(maxWidth: 1140) {
+                      base64
+                      tracedSVG
+                      aspectRatio
                       src
+                      srcSet
+                      srcWebp
+                      srcSetWebp
+                      sizes
+                      originalImg
+                      originalName
                     }
                   }
                 }

@@ -1,18 +1,17 @@
 import * as React from 'react'
-import * as classnames from 'classnames'
+import classnames from 'classnames'
 import styled from 'react-emotion'
 import { darken } from 'polished'
 
-import { SiteAuthor } from '../../utils/types'
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
+import { ChildImageSharp } from '../../types/gatsby'
+import { SiteAuthor } from '../../types/default'
 
 interface HCardPostFooterProps {
   className?: string
   hidden?: boolean
-  icon?: {
-    sizes: { [key: string]: any }
-  }
+  icon: ChildImageSharp
   author: SiteAuthor
 }
 
@@ -57,7 +56,7 @@ const HCardPostFooter: React.SFC<HCardPostFooterProps> = ({ className, icon, hid
     hidden={hidden}
   >
     <HCardAvatar>
-      <HCardAvatarImg className="u-photo" src={icon.sizes.src} alt={author.name} />
+      <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
     </HCardAvatar>
     <HCardDetails>
       <HCardName className="p-name">{author.name}</HCardName>

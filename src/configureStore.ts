@@ -2,9 +2,9 @@ import { createStore, combineReducers } from 'redux'
 import { devToolsEnhancer } from 'redux-devtools-extension'
 import { ApplicationState, reducers } from './store'
 
-export default function configureStore(initialState?: ApplicationState) {
+export default function configureStore(initialState: ApplicationState) {
   const allReducers = buildRootReducer<ApplicationState>(reducers)
-  return createStore<ApplicationState>(allReducers, initialState, devToolsEnhancer({}))
+  return createStore(allReducers, initialState, devToolsEnhancer({}))
 }
 
 function buildRootReducer<TState>(allReducers: any) {

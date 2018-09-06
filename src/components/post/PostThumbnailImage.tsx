@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as classnames from 'classnames'
+import classnames from 'classnames'
 import Img from 'gatsby-image'
 import styled from 'react-emotion'
 
@@ -8,12 +8,12 @@ import { getEmSize } from '../../styles/mixins'
 
 interface PostThumbnailImageProps {
   className?: string
-  sizes: { [key: string]: any }
+  fluid: { [key: string]: any }
   alt: string
 }
 
-const PostThumbnailImage: React.SFC<PostThumbnailImageProps> = ({ sizes, alt, className }) => (
-  <Image className={classnames(className, 'u-featured')} sizes={sizes} alt={alt} />
+const PostThumbnailImage: React.SFC<PostThumbnailImageProps> = ({ fluid, alt, className }) => (
+  <Image className={classnames(className, 'u-featured')} fluid={fluid} alt={alt} />
 )
 
 export default PostThumbnailImage

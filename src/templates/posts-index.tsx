@@ -1,7 +1,10 @@
 import * as React from 'react'
 import styled from 'react-emotion'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { RouteComponentProps } from 'react-router'
+
+import { SiteAuthor } from '../types/default'
+import { BlogPostField } from '../types/fields'
 
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
@@ -10,15 +13,14 @@ import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import BlogPostItem from '../components/postsList/BlogPostItem'
 
-import { SiteAuthor } from '../utils/types'
-import { BlogPostField } from '../utils/types'
 import PaginationLink from '../components/postsList/PaginationLink'
 import Divider from '../components/ui/Divider'
 import { getEmSize } from '../styles/mixins'
 import withPathPrefix from '../utils/withPathPrefix'
 import { pxSizes } from '../styles/variables'
+import TemplateWrapper from '../layouts'
 
-interface BlogPageProps extends RouteComponentProps<{}> {
+interface BlogPageProps {
   data: {
     site: {
       siteMetadata: {
@@ -59,45 +61,49 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
   const nextUrl = withPathPrefix((index + 1).toString(), pathPrefix)
 
   return (
-    <Page>
-      <Helmet
-        title={`Posts${index && index > 1 ? ` (page ${index} of ${pageCount})` : ''} · ${
-          siteMetadata.title
-        }`}
-        meta={[
-          { name: 'description', content: data.site.siteMetadata.description },
-          { property: 'og:title', content: 'Posts' },
-          {
-            property: 'og:description',
-            content: data.site.siteMetadata.description
-          }
-        ]}
-      />
-      <PageMeta>
-        <PageTitle>
-          Posts
-          {index && index > 1 && ` (page ${index} of ${pageCount})`}
-        </PageTitle>
-      </PageMeta>
-      <PageContent className="h-feed">
-        <Container size="lg">
-          {group.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
-        </Container>
-        <Divider spacing="large" />
-        <Container size="lg">
-          <Pagination>
-            <PaginationLink test={first} url={previousUrl} text="Newer posts" />
-            <PaginationLink test={last} url={nextUrl} text="Older posts" />
-          </Pagination>
-        </Container>
-      </PageContent>
-    </Page>
+    <TemplateWrapper>
+      <Page>
+        <Helmet
+          title={`Posts${index && index > 1 ? ` (page ${index} of ${pageCount})` : ''} · ${
+            siteMetadata.title
+          }`}
+          meta={[
+            { name: 'description', content: data.site.siteMetadata.description },
+            { property: 'og:title', content: 'Posts' },
+            {
+              property: 'og:description',
+              content: data.site.siteMetadata.description
+            }
+          ]}
+        />
+        <PageMeta>
+          <PageTitle>
+            Posts
+            {index && index > 1 && ` (page ${index} of ${pageCount})`}
+          </PageTitle>
+        </PageMeta>
+        <PageContent className="h-feed">
+          <Container size="lg">
+            {group.map(({ node }) => (
+              <BlogPostItem key={node.fields.slug} node={node} />
+            ))}
+          </Container>
+          <Divider spacing="large" />
+          <Container size="lg">
+            <Pagination>
+              <PaginationLink test={first} url={previousUrl} text="Newer posts" />
+              <PaginationLink test={last} url={nextUrl} text="Older posts" />
+            </Pagination>
+          </Container>
+        </PageContent>
+      </Page>
+    </TemplateWrapper>
   )
 }
 
 export default PostsIndexPage
 
-export const query = graphql`
+export const pageQuery = graphql`
   query BlogPageQuery {
     site {
       siteMetadata {

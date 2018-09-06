@@ -7,15 +7,15 @@ import { getEmSize } from '../../styles/mixins'
 
 interface HomepageThumbnailImageProps {
   className?: string
-  sizes: { [key: string]: any }
+  fluid: { [key: string]: any }
   alt: string
 }
 
 const HomepageThumbnailImage: React.SFC<HomepageThumbnailImageProps> = ({
-  sizes,
+  fluid,
   alt,
   className
-}) => <Image className={className} sizes={sizes} alt={alt} />
+}) => <Image className={className} fluid={fluid} alt={alt} />
 
 export default HomepageThumbnailImage
 

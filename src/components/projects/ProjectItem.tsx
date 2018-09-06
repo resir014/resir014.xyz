@@ -5,7 +5,7 @@ import Button from '../ui/Button'
 
 import { colors, fonts, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
-import { ProjectField } from '../../utils/types'
+import { ProjectField } from '../../types/fields'
 
 const StyledProjectItem = styled('div')`
   display: flex;
@@ -73,7 +73,13 @@ const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
         {node.frontmatter.title}
         <ProjectYear>{node.fields.year}</ProjectYear>
       </ProjectTitle>
-      {tags ? <ProjectTags>{tags.map(tag => <span key={tag}>{tag}</span>)}</ProjectTags> : null}
+      {tags ? (
+        <ProjectTags>
+          {tags.map(tag => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </ProjectTags>
+      ) : null}
       <ProjectDetailBox>
         <p
           dangerouslySetInnerHTML={{
@@ -95,8 +101,8 @@ const renderLink = (url: string, jumpToProject: boolean) => (
     kind="link"
     color="primary"
     href={url}
-    target={jumpToProject ? '_blank' : null}
-    rel={jumpToProject ? 'noopener noreferrer' : null}
+    target={jumpToProject ? '_blank' : undefined}
+    rel={jumpToProject ? 'noopener noreferrer' : undefined}
   >
     Visit project
   </Button>

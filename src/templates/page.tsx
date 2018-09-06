@@ -1,8 +1,9 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import { RouteComponentProps } from 'react-router'
+import { graphql } from 'gatsby'
 
-import { SiteAuthor } from '../utils/types'
+import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { PageNode } from '../types/nodes'
 
 import Container from '../components/ui/Container'
 import MarkdownContent from '../components/page/MarkdownContent'
@@ -14,40 +15,15 @@ import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import PostHeader from '../components/post/PostHeader'
 import PostMeta from '../components/post/PostMeta'
+import TemplateWrapper from '../layouts'
 
-interface PageTemplateProps extends RouteComponentProps<{}> {
+interface PageTemplateProps {
   data: {
     site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-        author: SiteAuthor
-      }
+      siteMetadata: SiteMetadata
     }
-    icon: {
-      sizes: { [key: string]: any }
-    }
-    markdownRemark: {
-      html: string
-      excerpt: string
-      fields: {
-        slug: string
-        layout?: string
-        headerImage?: string
-        lead?: string
-      }
-      frontmatter: {
-        title: string
-        path?: string
-        layout: string
-        header_image?: {
-          childImageSharp: {
-            sizes: { [key: string]: any }
-          }
-        }
-      }
-    }
+    icon: HCardIcon
+    markdownRemark: PageNode
   }
 }
 
@@ -56,59 +32,61 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <Page>
-      <Helmet
-        title={`${post.frontmatter.title} · ${siteMetadata.title}`}
-        meta={[
-          { name: 'description', content: post.excerpt },
-          { name: 'author', content: siteMetadata.author.name },
-          { property: 'og:title', content: post.frontmatter.title },
-          {
-            property: 'og:description',
-            content: post.fields.lead || post.excerpt
-          }
-        ]}
-      />
-      <article className="h-entry">
-        {post.frontmatter.header_image && (
-          <PostThumbnail>
-            <PostThumbnailImage
-              sizes={post.frontmatter.header_image.childImageSharp.sizes}
-              alt={post.frontmatter.title}
-            />
-          </PostThumbnail>
-        )}
-        <PostHeader>
-          <PostMeta>
-            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-          </PostMeta>
-        </PostHeader>
-        <PageContent>
-          <Container>
-            {post.fields.lead ? (
-              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-            ) : null}
-            <MarkdownContent className="e-content" html={post.html} />
-            <div className="hidden">
-              <p>
-                <a
-                  className="u-url"
-                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-                >
-                  Permalink
-                </a>
-              </p>
-            </div>
-          </Container>
-        </PageContent>
-      </article>
-    </Page>
+    <TemplateWrapper>
+      <Page>
+        <Helmet
+          title={`${post.frontmatter.title} · ${siteMetadata.title}`}
+          meta={[
+            { name: 'description', content: post.excerpt },
+            { name: 'author', content: siteMetadata.author.name },
+            { property: 'og:title', content: post.frontmatter.title },
+            {
+              property: 'og:description',
+              content: post.fields.lead || post.excerpt
+            }
+          ]}
+        />
+        <article className="h-entry">
+          {post.frontmatter.header_image && (
+            <PostThumbnail>
+              <PostThumbnailImage
+                fluid={post.frontmatter.header_image.childImageSharp.fluid}
+                alt={post.frontmatter.title}
+              />
+            </PostThumbnail>
+          )}
+          <PostHeader>
+            <PostMeta>
+              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+            </PostMeta>
+          </PostHeader>
+          <PageContent>
+            <Container>
+              {post.fields.lead ? (
+                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+              ) : null}
+              <MarkdownContent className="e-content" html={post.html} />
+              <div className="hidden">
+                <p>
+                  <a
+                    className="u-url"
+                    href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                  >
+                    Permalink
+                  </a>
+                </p>
+              </div>
+            </Container>
+          </PageContent>
+        </article>
+      </Page>
+    </TemplateWrapper>
   )
 }
 
 export default PageTemplate
 
-export const query = graphql`
+export const pageQuery = graphql`
   query PageQuery($slug: String!) {
     site {
       siteMetadata {
@@ -141,8 +119,8 @@ export const query = graphql`
         title
         header_image {
           childImageSharp {
-            sizes(maxWidth: 1140) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 1140) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

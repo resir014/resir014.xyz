@@ -1,10 +1,13 @@
 'use strict'
 
+const flavours = require('./gatsby/flavourText')
+
 module.exports = {
   siteMetadata: {
     title: '@resir014',
     description: 'Web developer based in Jakarta, Indonesia.',
     siteUrl: 'https://resir014.xyz',
+    flavourText: flavours[Math.floor(Math.random() * flavours.length)],
     author: {
       name: '@resir014',
       description: 'Web developer based in Jakarta, Indonesia.',
@@ -88,7 +91,6 @@ module.exports = {
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-react-next',
     'gatsby-plugin-twitter',
     'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
@@ -161,7 +163,7 @@ module.exports = {
                 allMarkdownRemark(
                   limit: 10,
                   filter: {
-                    id: {regex: "/posts/"}
+                    fields: {slug: {regex: "/posts/"}}
                   },
                   sort: {fields: [fields___date], order: DESC}
                 ) {

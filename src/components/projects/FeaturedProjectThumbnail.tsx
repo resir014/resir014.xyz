@@ -9,7 +9,7 @@ interface FeaturedProjectThumbnailProps {
   className?: string
   image: {
     childImageSharp: {
-      sizes: { [key: string]: any }
+      fluid: { [key: string]: any }
     }
   }
 }
@@ -19,7 +19,7 @@ const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> = ({
   className
 }) => (
   <Div className={className}>
-    <Img sizes={image.childImageSharp.sizes} alt="" />
+    <Img fluid={image.childImageSharp.fluid} alt="" />
   </Div>
 )
 

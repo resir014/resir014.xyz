@@ -1,12 +1,11 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'react-emotion'
-import { darken } from 'polished'
 
 import { pxSizes, emSizes, colors } from '../../styles/variables'
-import { MenuProps } from '../../utils/types'
 import { getEmSize } from '../../styles/mixins'
 import menuItems from '../../utils/menuItems'
+import { MenuProps } from '../../types/default'
 
 import MastheadNav from './MastheadNav'
 
@@ -57,7 +56,7 @@ const Masthead: React.SFC<MastheadProps> = ({ className, title }) => (
 export default styled(Masthead)`
   padding: 1rem ${emSizes.containerPadding}rem;
   background-color: ${colors.grey90};
-  color: ${darken(0.5, colors.white)};
+  color: ${colors.grey40};
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     padding-top: ${emSizes.containerPadding / 2}rem;

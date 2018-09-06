@@ -5,7 +5,7 @@ import ProjectItem from './ProjectItem'
 
 import { colors, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
-import { ProjectField } from '../../utils/types'
+import { ProjectField } from '../../types/fields'
 
 const ProjectSectionHeading = styled('h2')`
   margin-top: 1.5rem;
@@ -37,7 +37,9 @@ const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, projects }) =
     <ProjectSectionHeading>{title}</ProjectSectionHeading>
     {projects.length !== 0 ? (
       <ProjectsList>
-        {projects.map(({ node }) => <ProjectItem key={node.frontmatter.title} node={node} />)}
+        {projects.map(({ node }) => (
+          <ProjectItem key={node.frontmatter.title} node={node} />
+        ))}
       </ProjectsList>
     ) : (
       <ProjectEmpty>No projects.</ProjectEmpty>
