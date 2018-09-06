@@ -41,19 +41,21 @@ const Button: React.SFC<ButtonProps> = ({
         {children}
       </button>
     )
-  } else if (kind === 'nav-link' && to) {
+  }
+
+  if (kind === 'nav-link' && to) {
     return (
       <Link id={id} className={className} to={to}>
         {children}
       </Link>
     )
-  } else {
-    return (
-      <a id={id} className={className} href={href || to} target={target}>
-        {children}
-      </a>
-    )
   }
+
+  return (
+    <a id={id} className={className} href={href || to} target={target}>
+      {children}
+    </a>
+  )
 }
 
 const SmallButtonStyles = css`

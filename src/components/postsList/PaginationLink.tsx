@@ -21,13 +21,13 @@ const PaginationLink: React.SFC<PaginationLinkProps> = ({ test, url, text }) => 
         {text}
       </StyledPaginationLink>
     )
-  } else {
-    return (
-      <StyledPaginationLink kind="button" size="lg" disabled>
-        {text}
-      </StyledPaginationLink>
-    )
   }
+
+  return (
+    <StyledPaginationLink kind="button" size="lg" disabled>
+      {text}
+    </StyledPaginationLink>
+  )
 }
 
 export default PaginationLink

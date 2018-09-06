@@ -1,8 +1,7 @@
 // tslint:disable:no-unused-expression
 
 import { injectGlobal } from 'emotion'
-import { fonts, pxSizes, emSizes } from './variables'
-import { colors } from './variables'
+import { colors, fonts, pxSizes, emSizes } from './variables'
 import { getEmSize } from './mixins'
 
 injectGlobal`
