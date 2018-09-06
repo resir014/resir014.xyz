@@ -5,7 +5,7 @@ import ProjectItem from './ProjectItem'
 
 import { colors, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
-import { ProjectField } from '../../utils/types'
+import { ProjectField } from '../../types/fields'
 
 const ProjectSectionHeading = styled('h2')`
   margin-top: 1.5rem;

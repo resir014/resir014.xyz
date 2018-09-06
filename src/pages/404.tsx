@@ -6,7 +6,7 @@ import Helmet from 'react-helmet'
 
 import { colors, fonts, pxSizes } from '../styles/variables'
 import { getEmSize } from '../styles/mixins'
-import { SiteAuthor } from '../utils/types'
+import { SiteMetadata } from '../types/gatsby'
 
 import Page from '../components/page/Page'
 import PostHeader from '../components/post/PostHeader'
@@ -56,12 +56,7 @@ const PageInner = styled('div')`
 interface NotFoundPageProps {
   data: {
     site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-        author: SiteAuthor
-      }
+      siteMetadata: SiteMetadata
     }
   }
 }

@@ -3,6 +3,9 @@ import styled from 'react-emotion'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
+import { SiteAuthor } from '../types/default'
+import { BlogPostField } from '../types/fields'
+
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
 import PageMeta from '../components/page/PageMeta'
@@ -10,7 +13,6 @@ import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import BlogPostItem from '../components/postsList/BlogPostItem'
 
-import { SiteAuthor, BlogPostField } from '../utils/types'
 import PaginationLink from '../components/postsList/PaginationLink'
 import Divider from '../components/ui/Divider'
 import { getEmSize } from '../styles/mixins'

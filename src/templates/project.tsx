@@ -2,7 +2,7 @@ import * as React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import { SiteAuthor } from '../utils/types'
+import { SiteMetadata, HCardIcon } from '../types/gatsby'
 
 import Button from '../components/ui/Button'
 import Container from '../components/ui/Container'
@@ -22,18 +22,9 @@ import TemplateWrapper from '../layouts'
 interface ProjectTemplateProps {
   data: {
     site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-        author: SiteAuthor
-      }
+      siteMetadata: SiteMetadata
     }
-    icon: {
-      childImageSharp: {
-        fluid: { [key: string]: any }
-      }
-    }
+    icon: HCardIcon
     markdownRemark: {
       html: string
       excerpt: string

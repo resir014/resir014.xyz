@@ -2,7 +2,9 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { SiteAuthor, SyndicationFormat } from '../utils/types'
+import { SiteAuthor } from '../types/default'
+import { HCardIcon } from '../types/gatsby'
+import { BlogPostNode } from '../types/nodes'
 
 import Container from '../components/ui/Container'
 import Divider from '../components/ui/Divider'
@@ -33,34 +35,8 @@ interface PostTemplateProps {
         author: SiteAuthor
       }
     }
-    icon: {
-      childImageSharp: {
-        fluid: { [key: string]: any }
-      }
-    }
-    markdownRemark: {
-      html: string
-      excerpt: string
-      fields: {
-        slug: string
-        layout?: string
-        category?: string
-        lead?: string
-        date: string
-        date_ogp: string
-      }
-      frontmatter: {
-        title: string
-        path?: string
-        layout: string
-        syndication?: SyndicationFormat[]
-        header_image?: {
-          childImageSharp: {
-            fluid: { [key: string]: any }
-          }
-        }
-      }
-    }
+    icon: HCardIcon
+    markdownRemark: BlogPostNode
   }
 }
 

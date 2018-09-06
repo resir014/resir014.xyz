@@ -3,8 +3,10 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { colors } from '../styles/variables'
-import { ProjectNode, SiteAuthor } from '../utils/types'
 import flavors from '../utils/flavorText'
+
+import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
+import { ProjectNode } from '../types/nodes'
 
 import Button from '../components/ui/Button'
 import Divider from '../components/ui/Divider'
@@ -30,24 +32,10 @@ interface IndexPageProps {
   }
   data: {
     site: {
-      siteMetadata: {
-        title: string
-        tagline: string
-        description: string
-        siteUrl: string
-        author: SiteAuthor
-      }
+      siteMetadata: SiteMetadata
     }
-    headerImage: {
-      childImageSharp: {
-        fluid: { [key: string]: any }
-      }
-    }
-    icon: {
-      childImageSharp: {
-        fluid: { [key: string]: any }
-      }
-    }
+    headerImage: HeaderImage
+    icon: HCardIcon
     featuredProject: ProjectNode
   }
 }
@@ -99,18 +87,6 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             </HomepageThumbnailText>
           </HomepageThumbnail>
           <HomepageContent>
-            <Divider spacing="large" />
-            <HomepageSection>
-              <HomepageSectionTitle>Hey, call me Resi.</HomepageSectionTitle>
-              <HomepageSectionDescription>
-                I'm a professional web developer based in Jakarta, Indonesia.
-              </HomepageSectionDescription>
-              <HomepageSectionFooter>
-                <Button kind="nav-link" color="primary" size="lg" to="/about">
-                  More about me
-                </Button>
-              </HomepageSectionFooter>
-            </HomepageSection>
             <Divider spacing="large" />
             <HomepageSection>
               <HomepageSectionTitle>I write code for the web.</HomepageSectionTitle>

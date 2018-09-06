@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { menuItems } from '../utils/menus'
-import { SiteAuthor } from '../utils/types'
 
 import 'typeface-zilla-slab'
 import 'modern-normalize'
@@ -13,15 +12,11 @@ import 'prism-themes/themes/prism-ghcolors.css'
 import LayoutRoot from '../components/ui/LayoutRoot'
 import Masthead from '../components/ui/Masthead'
 import Footer from '../components/ui/Footer'
+import { SiteMetadata } from '../types/gatsby'
 
 interface WrapperData {
   site: {
-    siteMetadata: {
-      title: string
-      tagline: string
-      description: string
-      author: SiteAuthor
-    }
+    siteMetadata: SiteMetadata
   }
 }
 

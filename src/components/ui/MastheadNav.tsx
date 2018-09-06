@@ -1,11 +1,11 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import styled from 'react-emotion'
+import { LinkGetProps } from '@reach/router'
 
-import { MenuItem } from '../../utils/types'
+import { MenuItem } from '../../types/default'
 import { getEmSize } from '../../styles/mixins'
 import { colors, pxSizes } from '../../styles/variables'
-import { LinkGetProps } from '@reach/router'
 
 interface MastheadNavProps {
   items: MenuItem[]

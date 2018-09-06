@@ -3,7 +3,8 @@ import classnames from 'classnames'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { SiteAuthor } from '../utils/types'
+import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { PhotoNode } from '../types/nodes'
 
 import Container from '../components/ui/Container'
 import Divider from '../components/ui/Divider'
@@ -23,45 +24,10 @@ interface PhotoTemplateProps {
   }
   data: {
     site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-        author: SiteAuthor
-      }
+      siteMetadata: SiteMetadata
     }
-    icon: {
-      childImageSharp: {
-        fluid: { [key: string]: any }
-      }
-    }
-    markdownRemark: {
-      html: string
-      excerpt: string
-      fields: {
-        slug: string
-        layout?: string
-        category?: string
-        link?: string
-        headerImage?: string
-        lead?: string
-        date: string
-        date_ogp: string
-      }
-      frontmatter: {
-        title: string
-        path?: string
-        layout: string
-        header_image: {
-          childImageSharp: {
-            fluid: {
-              src: string
-              srcSet: string
-            }
-          }
-        }
-      }
-    }
+    icon: HCardIcon
+    markdownRemark: PhotoNode
   }
 }
 

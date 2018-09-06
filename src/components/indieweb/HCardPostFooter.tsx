@@ -3,16 +3,15 @@ import classnames from 'classnames'
 import styled from 'react-emotion'
 import { darken } from 'polished'
 
-import { SiteAuthor } from '../../utils/types'
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
+import { ChildImageSharp } from '../../types/gatsby'
+import { SiteAuthor } from '../../types/default'
 
 interface HCardPostFooterProps {
   className?: string
   hidden?: boolean
-  icon: {
-    fluid: { [key: string]: any }
-  }
+  icon: ChildImageSharp
   author: SiteAuthor
 }
 

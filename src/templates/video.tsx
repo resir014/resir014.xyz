@@ -3,7 +3,8 @@ import classnames from 'classnames'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { SiteAuthor } from '../utils/types'
+import { HCardIcon, SiteMetadata } from '../types/gatsby'
+import { VideoNode } from '../types/nodes'
 
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
@@ -23,37 +24,10 @@ interface VideoTemplateProps {
   }
   data: {
     site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-        author: SiteAuthor
-      }
+      siteMetadata: SiteMetadata
     }
-    icon: {
-      childImageSharp: {
-        fluid: { [key: string]: any }
-      }
-    }
-    markdownRemark: {
-      html: string
-      excerpt: string
-      fields: {
-        slug: string
-        layout?: string
-        category?: string
-        link?: string
-        headerImage?: string
-        lead?: string
-        date: string
-        date_ogp: string
-      }
-      frontmatter: {
-        title: string
-        path?: string
-        layout: string
-      }
-    }
+    icon: HCardIcon
+    markdownRemark: VideoNode
   }
 }
 

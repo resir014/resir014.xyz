@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'react-emotion'
 
-import { ProjectField } from '../../utils/types'
+import { ProjectField } from '../../types/fields'
 
 import FeaturedProject from '../projects/FeaturedProject'
 

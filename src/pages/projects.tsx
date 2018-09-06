@@ -2,6 +2,9 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
+import { SiteMetadata } from '../types/gatsby'
+import { ProjectField } from '../types/fields'
+
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
 import PageMeta from '../components/page/PageMeta'
@@ -10,7 +13,6 @@ import PageContent from '../components/page/PageContent'
 import FeaturedProject from '../components/projects/FeaturedProject'
 import ProjectItemList from '../components/projects/ProjectItemList'
 
-import { ProjectField, SiteAuthor } from '../utils/types'
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 import getFeaturedProject from '../utils/getFeaturedProject'
 import TemplateWrapper from '../layouts'
@@ -21,12 +23,7 @@ interface ProjectsPageProps {
   }
   data: {
     site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-        author: SiteAuthor
-      }
+      siteMetadata: SiteMetadata
     }
     allMarkdownRemark: {
       edges: ProjectField[]

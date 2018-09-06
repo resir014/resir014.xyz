@@ -2,7 +2,8 @@ import * as React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
-import { SiteAuthor } from '../utils/types'
+import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { PageNode } from '../types/nodes'
 
 import Container from '../components/ui/Container'
 import MarkdownContent from '../components/page/MarkdownContent'
@@ -19,38 +20,10 @@ import TemplateWrapper from '../layouts'
 interface PageTemplateProps {
   data: {
     site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-        author: SiteAuthor
-      }
+      siteMetadata: SiteMetadata
     }
-    icon: {
-      childImageSharp: {
-        fluid: { [key: string]: any }
-      }
-    }
-    markdownRemark: {
-      html: string
-      excerpt: string
-      fields: {
-        slug: string
-        layout?: string
-        headerImage?: string
-        lead?: string
-      }
-      frontmatter: {
-        title: string
-        path?: string
-        layout: string
-        header_image?: {
-          childImageSharp: {
-            fluid: { [key: string]: any }
-          }
-        }
-      }
-    }
+    icon: HCardIcon
+    markdownRemark: PageNode
   }
 }
 

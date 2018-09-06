@@ -3,9 +3,9 @@ import Link from 'gatsby-link'
 import styled from 'react-emotion'
 
 import { pxSizes, emSizes, colors } from '../../styles/variables'
-import { MenuProps } from '../../utils/types'
 import { getEmSize } from '../../styles/mixins'
 import menuItems from '../../utils/menuItems'
+import { MenuProps } from '../../types/default'
 
 import MastheadNav from './MastheadNav'
 

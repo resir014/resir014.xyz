@@ -4,16 +4,15 @@ import styled from 'react-emotion'
 import Link from 'gatsby-link'
 import { darken } from 'polished'
 
-import { SiteAuthor } from '../../utils/types'
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
+import { SiteAuthor } from '../../types/default'
+import { ChildImageSharp } from '../../types/gatsby'
 
 interface HCardProps {
   className?: string
   hidden?: boolean
-  icon: {
-    fluid: { [key: string]: any }
-  }
+  icon: ChildImageSharp
   author: SiteAuthor
 }
 

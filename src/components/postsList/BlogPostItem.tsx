@@ -6,7 +6,8 @@ import Link from 'gatsby-link'
 
 import { colors, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
-import { BlogPostField, BlogPostNode } from '../../utils/types'
+import { BlogPostField } from '../../types/fields'
+import { BlogPostNode } from '../../types/nodes'
 
 import MarkdownContent from '../page/MarkdownContent'
 import PostMetaItem from '../post/PostMetaItem'

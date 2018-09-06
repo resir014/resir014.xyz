@@ -5,7 +5,7 @@ import Button from '../ui/Button'
 
 import { colors, fonts, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
-import { ProjectField } from '../../utils/types'
+import { ProjectField } from '../../types/fields'
 
 const StyledProjectItem = styled('div')`
   display: flex;
