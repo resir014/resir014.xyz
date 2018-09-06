@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from 'react-emotion'
-import { darken } from 'polished'
 
 import Button from '../ui/Button'
 import Container from '../ui/Container'
@@ -14,7 +13,7 @@ const FeaturedProjectWrapper = styled('section')`
   display: flex;
   flex-direction: column;
   margin: 1.5rem 0;
-  color: ${darken(0.4, colors.white)};
+  color: ${colors.grey20};
   border-radius: 4px;
   overflow: hidden;
 
@@ -42,8 +41,8 @@ const ProjectTags = styled('div')`
     display: inline-block;
     padding: 0.25em 0.5em;
     font-size: 85%;
-    color: ${colors.white};
-    background-color: ${colors.ink70};
+    color: ${colors.ink80};
+    background-color: ${colors.grey30};
     border-radius: 3px;
   }
 
@@ -56,7 +55,7 @@ const FeaturedProjectDetails = styled('div')`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  background: ${colors.ink90};
+  background: linear-gradient(to bottom right, ${colors.ink90}, ${colors.ink70});
 `
 
 const FeaturedProjectHeading = styled('div')`
