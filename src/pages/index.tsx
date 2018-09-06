@@ -144,7 +144,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
                 homepage
               />
               <HomepageSectionFooter>
-                <Button kind="nav-link" color="primary" size="lg" to="/contact">
+                <Button kind="nav-link" color="primary" size="lg" to="/projects">
                   View more of my stuff
                 </Button>
               </HomepageSectionFooter>
