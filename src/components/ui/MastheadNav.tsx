@@ -5,6 +5,7 @@ import styled from 'react-emotion'
 import { MenuItem } from '../../utils/types'
 import { getEmSize } from '../../styles/mixins'
 import { colors, pxSizes } from '../../styles/variables'
+import { LinkGetProps } from '@reach/router'
 
 interface MastheadNavProps {
   items: MenuItem[]
@@ -19,6 +20,18 @@ const MastheadNavItem = styled('span')`
     margin-left: 0;
   }
 
+  a {
+    &.is-active {
+      color: ${colors.white};
+    }
+
+    &:hover,
+    &:focus {
+      color: ${colors.white};
+      text-decoration: none;
+    }
+  }
+
   @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     &:before {
       content: '/';
@@ -27,26 +40,19 @@ const MastheadNavItem = styled('span')`
   }
 `
 
-const MastheadNavLink = styled(Link)`
-  &.is-active {
-    color: ${colors.white};
-  }
-
-  &:hover,
-  &:focus {
-    color: ${colors.white};
-    text-decoration: none;
-  }
-`
+// Workaround for activeClassName: https://github.com/gatsbyjs/gatsby/issues/7737
+const isActive = ({ isPartiallyCurrent }: LinkGetProps) => {
+  return isPartiallyCurrent ? { className: 'is-active' } : {}
+}
 
 const MastheadNav: React.SFC<MastheadNavProps> = ({ className, items }) => (
   <nav className={className}>
     {items.map(item => {
       return (
         <MastheadNavItem key={item.path}>
-          <MastheadNavLink activeClassName="is-active" to={item.path}>
+          <Link getProps={isActive} to={item.path}>
             {item.name}
-          </MastheadNavLink>
+          </Link>
         </MastheadNavItem>
       )
     })}

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from 'react-emotion'
-import { darken } from 'polished'
 
 import { colors, pxSizes, emSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
@@ -24,7 +23,7 @@ const FlexInner = styled('div')`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  color: ${darken(0.4, colors.white)};
+  color: ${colors.grey40};
   background-color: ${colors.grey90};
 `
 
