@@ -113,7 +113,11 @@ class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProj
               <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
             </FeaturedProjectHeading>
             {tags ? (
-              <ProjectTags>{tags.map(tag => <span key={tag}>{tag}</span>)}</ProjectTags>
+              <ProjectTags>
+                {tags.map(tag => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </ProjectTags>
             ) : null}
             <FeaturedProjectDescription>
               <p>{node.fields.description}</p>

@@ -89,7 +89,8 @@ class Footer extends React.Component<FooterProps, FooterState> {
                 target="_blank"
               >
                 CC-BY-NC-SA 4.0
-              </a>.
+              </a>
+              .
             </small>
           </p>
           <p>
@@ -101,10 +102,12 @@ class Footer extends React.Component<FooterProps, FooterState> {
               and{' '}
               <a href="https://www.reactjs.org/" target="_blank" rel="noopener noreferrer">
                 React
-              </a>. Code licensed under the{' '}
+              </a>
+              . Code licensed under the{' '}
               <a href="https://github.com/resir014/resir014.xyz" target="_blank">
                 MIT License
-              </a>.
+              </a>
+              .
             </small>
           </p>
         </FooterContent>

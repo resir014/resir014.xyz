@@ -37,7 +37,9 @@ const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, projects }) =
     <ProjectSectionHeading>{title}</ProjectSectionHeading>
     {projects.length !== 0 ? (
       <ProjectsList>
-        {projects.map(({ node }) => <ProjectItem key={node.frontmatter.title} node={node} />)}
+        {projects.map(({ node }) => (
+          <ProjectItem key={node.frontmatter.title} node={node} />
+        ))}
       </ProjectsList>
     ) : (
       <ProjectEmpty>No projects.</ProjectEmpty>

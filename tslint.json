@@ -1,8 +1,9 @@
 {
-  "extends": [
-    "tslint-config-blvd/react"
-  ],
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "extends": ["tslint-config-blvd/react", "tslint-config-prettier"],
   "rules": {
-    "arrow-parens": false
+    "prettier": true,
+    "interface-over-type-literal": false,
+    "no-use-before-declare": false
   }
 }

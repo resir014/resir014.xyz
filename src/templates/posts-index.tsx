@@ -83,7 +83,9 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
         </PageMeta>
         <PageContent className="h-feed">
           <Container size="lg">
-            {group.map(({ node }) => <BlogPostItem key={node.fields.slug} node={node} />)}
+            {group.map(({ node }) => (
+              <BlogPostItem key={node.fields.slug} node={node} />
+            ))}
           </Container>
           <Divider spacing="large" />
           <Container size="lg">
