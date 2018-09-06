@@ -32,6 +32,10 @@ const Div = styled('div')`
     background-color: ${colors.ink90};
     border: 8px solid ${colors.ink90};
 
+    &:first-child {
+      margin-top: 0;
+    }
+
     @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
       margin-left: -${emSizes.containerPadding * 2}rem;
       margin-right: -${emSizes.containerPadding * 2}rem;

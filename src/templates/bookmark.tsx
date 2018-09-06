@@ -100,11 +100,11 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
                 </a>{' '}
                 &raquo;
               </LinkTitle>
+              {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
             </PostMeta>
           </PostHeader>
           <PageContent>
             <Container>
-              {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
               <MarkdownContent className="e-content" html={post.html} />
               <div className="hidden">
                 <p>

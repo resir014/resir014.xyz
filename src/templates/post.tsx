@@ -91,12 +91,12 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
                 {post.frontmatter.title}
               </PostTitle>
             </PostMeta>
+            {post.fields.lead ? (
+              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+            ) : null}
           </PostHeader>
           <PageContent>
             <Container>
-              {post.fields.lead ? (
-                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-              ) : null}
               {post.frontmatter.syndication && (
                 <MessageBox>
                   <p>This post is also published on:</p>

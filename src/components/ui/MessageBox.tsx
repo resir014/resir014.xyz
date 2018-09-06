@@ -17,6 +17,10 @@ export default styled(MessageBox)`
   color: ${colors.grey80};
   background-color: ${colors.grey10};
 
+  &:first-child {
+    margin-top: 0;
+  }
+
   a {
     color: ${colors.blue60};
 
