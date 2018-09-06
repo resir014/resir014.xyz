@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as classnames from 'classnames'
+import classnames from 'classnames'
 import styled from 'react-emotion'
 import Link from 'gatsby-link'
 import { darken } from 'polished'
@@ -11,8 +11,8 @@ import { getEmSize } from '../../styles/mixins'
 interface HCardProps {
   className?: string
   hidden?: boolean
-  icon?: {
-    sizes: { [key: string]: any }
+  icon: {
+    fluid: { [key: string]: any }
   }
   author: SiteAuthor
 }
@@ -68,7 +68,7 @@ const HCardSocialLinks = styled('span')`
 const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
   <Div className={classnames(className, 'h-card')} hidden={hidden}>
     <HCardAvatar>
-      <HCardAvatarImg className="u-photo" src={icon.sizes.src} alt={author.name} />
+      <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
     </HCardAvatar>
     <HCardDetails>
       <HCardName>

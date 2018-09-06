@@ -88,7 +88,6 @@ module.exports = {
     },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-react-next',
     'gatsby-plugin-twitter',
     'gatsby-plugin-emotion',
     'gatsby-plugin-typescript',
@@ -161,7 +160,7 @@ module.exports = {
                 allMarkdownRemark(
                   limit: 10,
                   filter: {
-                    id: {regex: "/posts/"}
+                    fields: {slug: {regex: "/posts/"}}
                   },
                   sort: {fields: [fields___date], order: DESC}
                 ) {

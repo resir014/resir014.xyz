@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import { RouteComponentProps } from 'react-router'
+import { graphql } from 'gatsby'
 
 import { SiteAuthor } from '../utils/types'
 
@@ -17,8 +17,9 @@ import ProjectFooter from '../components/projects/ProjectFooter'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import PostHeader from '../components/post/PostHeader'
 import PostMeta from '../components/post/PostMeta'
+import TemplateWrapper from '../layouts'
 
-interface ProjectTemplateProps extends RouteComponentProps<{}> {
+interface ProjectTemplateProps {
   data: {
     site: {
       siteMetadata: {
@@ -29,7 +30,9 @@ interface ProjectTemplateProps extends RouteComponentProps<{}> {
       }
     }
     icon: {
-      sizes: { [key: string]: any }
+      childImageSharp: {
+        fluid: { [key: string]: any }
+      }
     }
     markdownRemark: {
       html: string
@@ -50,7 +53,7 @@ interface ProjectTemplateProps extends RouteComponentProps<{}> {
         layout: string
         header_image?: {
           childImageSharp: {
-            sizes: { [key: string]: any }
+            fluid: { [key: string]: any }
           }
         }
       }
@@ -63,59 +66,61 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <Page>
-      <Helmet
-        title={`${post.frontmatter.title} · ${siteMetadata.title}`}
-        meta={[
-          { name: 'description', content: post.excerpt },
-          { name: 'author', content: siteMetadata.author.name },
-          { property: 'og:title', content: post.frontmatter.title },
-          {
-            property: 'og:description',
-            content: post.fields.lead || post.excerpt
-          }
-        ]}
-      />
-      <article className="h-entry">
-        {post.frontmatter.header_image && (
-          <PostThumbnail>
-            <PostThumbnailImage
-              sizes={post.frontmatter.header_image.childImageSharp.sizes}
-              alt={post.frontmatter.title}
-            />
-          </PostThumbnail>
-        )}
-        <PostHeader>
-          <PostMeta>
-            <PostMetaItem className="p-category">projects</PostMetaItem>
-            <PostMetaItem>{post.fields.year}</PostMetaItem>
-            {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
-            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-          </PostMeta>
-        </PostHeader>
-        <PageContent>
-          <Container>
-            {post.fields.lead ? (
-              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-            ) : null}
-            <MarkdownContent className="e-content" html={post.html} />
-            {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
-              <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
-            ) : null}
-            <div className="hidden">
-              <p>
-                <a
-                  className="u-url"
-                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-                >
-                  Permalink
-                </a>
-              </p>
-            </div>
-          </Container>
-        </PageContent>
-      </article>
-    </Page>
+    <TemplateWrapper>
+      <Page>
+        <Helmet
+          title={`${post.frontmatter.title} · ${siteMetadata.title}`}
+          meta={[
+            { name: 'description', content: post.excerpt },
+            { name: 'author', content: siteMetadata.author.name },
+            { property: 'og:title', content: post.frontmatter.title },
+            {
+              property: 'og:description',
+              content: post.fields.lead || post.excerpt
+            }
+          ]}
+        />
+        <article className="h-entry">
+          {post.frontmatter.header_image && (
+            <PostThumbnail>
+              <PostThumbnailImage
+                fluid={post.frontmatter.header_image.childImageSharp.fluid}
+                alt={post.frontmatter.title}
+              />
+            </PostThumbnail>
+          )}
+          <PostHeader>
+            <PostMeta>
+              <PostMetaItem className="p-category">projects</PostMetaItem>
+              <PostMetaItem>{post.fields.year}</PostMetaItem>
+              {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
+              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+            </PostMeta>
+          </PostHeader>
+          <PageContent>
+            <Container>
+              {post.fields.lead ? (
+                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+              ) : null}
+              <MarkdownContent className="e-content" html={post.html} />
+              {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
+                <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
+              ) : null}
+              <div className="hidden">
+                <p>
+                  <a
+                    className="u-url"
+                    href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                  >
+                    Permalink
+                  </a>
+                </p>
+              </div>
+            </Container>
+          </PageContent>
+        </article>
+      </Page>
+    </TemplateWrapper>
   )
 }
 
@@ -124,8 +129,8 @@ const renderLink = (url: string, jumpToProject: boolean) => (
     kind="link"
     color="primary"
     href={url}
-    target={jumpToProject ? '_blank' : null}
-    rel={jumpToProject ? 'noopener noreferrer' : null}
+    target={jumpToProject ? '_blank' : undefined}
+    rel={jumpToProject ? 'noopener noreferrer' : undefined}
   >
     Visit project
   </Button>
@@ -133,7 +138,7 @@ const renderLink = (url: string, jumpToProject: boolean) => (
 
 export default ProjectPageTemplate
 
-export const query = graphql`
+export const pageQuery = graphql`
   query ProjectPageQuery($slug: String!) {
     site {
       siteMetadata {
@@ -154,9 +159,13 @@ export const query = graphql`
         }
       }
     }
-    icon: imageSharp(id: { regex: "/assets/images/resir014-icon.jpg/" }) {
-      sizes(maxWidth: 400, maxHeight: 400) {
-        ...GatsbyImageSharpSizes
+    icon: file(absolutePath: { regex: "/assets/images/resir014-icon.jpg/" }) {
+      childImageSharp {
+        # Specify the image processing specifications right in the query.
+        # Makes it trivial to update as your page's design changes.
+        fluid(maxWidth: 400, maxHeight: 400) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -175,8 +184,8 @@ export const query = graphql`
         title
         header_image {
           childImageSharp {
-            sizes(maxWidth: 1140) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 1140) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

@@ -1,5 +1,3 @@
-import { GatsbyLinkProps } from 'gatsby-link'
-
 export interface SyndicationFormat {
   name: string
   url: string
@@ -21,7 +19,6 @@ export interface MenuItem {
 
 export interface MenuProps {
   items: MenuItem[]
-  pathname: string
 }
 
 export interface BlogPostField {
@@ -47,7 +44,7 @@ export interface BlogPostNode {
     layout: string
     header_image?: {
       childImageSharp: {
-        sizes: { [key: string]: any }
+        fluid: { [key: string]: any }
       }
     }
   }
@@ -74,7 +71,7 @@ export interface ProjectNode {
     title: string
     header_image?: {
       childImageSharp: {
-        sizes: { [key: string]: any }
+        fluid: { [key: string]: any }
       }
     }
   }

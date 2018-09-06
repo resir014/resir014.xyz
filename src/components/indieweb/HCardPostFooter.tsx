@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as classnames from 'classnames'
+import classnames from 'classnames'
 import styled from 'react-emotion'
 import { darken } from 'polished'
 
@@ -10,8 +10,8 @@ import { getEmSize } from '../../styles/mixins'
 interface HCardPostFooterProps {
   className?: string
   hidden?: boolean
-  icon?: {
-    sizes: { [key: string]: any }
+  icon: {
+    fluid: { [key: string]: any }
   }
   author: SiteAuthor
 }
@@ -57,7 +57,7 @@ const HCardPostFooter: React.SFC<HCardPostFooterProps> = ({ className, icon, hid
     hidden={hidden}
   >
     <HCardAvatar>
-      <HCardAvatarImg className="u-photo" src={icon.sizes.src} alt={author.name} />
+      <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
     </HCardAvatar>
     <HCardDetails>
       <HCardName className="p-name">{author.name}</HCardName>

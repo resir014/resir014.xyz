@@ -4,12 +4,12 @@ import styled from 'react-emotion'
 
 interface HeaderImageProps {
   className?: string
-  sizes: { [key: string]: any }
+  fluid: { [key: string]: any }
   alt: string
 }
 
-const HeaderImage: React.SFC<HeaderImageProps> = ({ sizes, alt, className }) => (
-  <Image className={className} style={{ position: 'absolute' }} sizes={sizes} alt={alt} />
+const HeaderImage: React.SFC<HeaderImageProps> = ({ fluid, alt, className }) => (
+  <Image className={className} style={{ position: 'absolute' }} fluid={fluid} alt={alt} />
 )
 
 export default HeaderImage

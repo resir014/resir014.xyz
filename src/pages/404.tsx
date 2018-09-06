@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import styled from 'react-emotion'
 import Helmet from 'react-helmet'
@@ -13,6 +14,7 @@ import PostMeta from '../components/post/PostMeta'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import Container from '../components/ui/Container'
+import TemplateWrapper from '../layouts'
 
 const PageInner = styled('div')`
   a {
@@ -65,40 +67,42 @@ interface NotFoundPageProps {
 }
 
 const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
-  <Page>
-    <Helmet
-      title={`404: Page not found. · ${data.site.siteMetadata.title}`}
-      meta={[
-        { name: 'description', content: data.site.siteMetadata.description },
-        { property: 'og:title', content: '404: Page not found.' },
-        {
-          property: 'og:description',
-          content: data.site.siteMetadata.description
-        }
-      ]}
-    />
-    <article>
-      <PostHeader>
-        <PostMeta>
-          <PageTitle>404.</PageTitle>
-        </PostMeta>
-      </PostHeader>
-      <PageContent>
-        <Container>
-          <PageInner>
-            <p className="lead">
-              You've hit the void. <Link to="/">Go back home.</Link>
-            </p>
-          </PageInner>
-        </Container>
-      </PageContent>
-    </article>
-  </Page>
+  <TemplateWrapper>
+    <Page>
+      <Helmet
+        title={`404: Page not found. · ${data.site.siteMetadata.title}`}
+        meta={[
+          { name: 'description', content: data.site.siteMetadata.description },
+          { property: 'og:title', content: '404: Page not found.' },
+          {
+            property: 'og:description',
+            content: data.site.siteMetadata.description
+          }
+        ]}
+      />
+      <article>
+        <PostHeader>
+          <PostMeta>
+            <PageTitle>404.</PageTitle>
+          </PostMeta>
+        </PostHeader>
+        <PageContent>
+          <Container>
+            <PageInner>
+              <p className="lead">
+                You've hit the void. <Link to="/">Go back home.</Link>
+              </p>
+            </PageInner>
+          </Container>
+        </PageContent>
+      </article>
+    </Page>
+  </TemplateWrapper>
 )
 
 export default NotFoundPage
 
-export const query = graphql`
+export const pageQuery = graphql`
   query NotFoundPageQuery {
     site {
       siteMetadata {

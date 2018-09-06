@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as classnames from 'classnames'
+import classnames from 'classnames'
 import styled from 'react-emotion'
 import { lighten } from 'polished'
 import Link from 'gatsby-link'
@@ -132,9 +132,9 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
         {node.frontmatter.header_image && (
           <PostThumbnailImage
             className="u-featured"
-            src={node.frontmatter.header_image.childImageSharp.sizes.src}
+            src={node.frontmatter.header_image.childImageSharp.fluid.src}
             alt={node.frontmatter.title || 'Photo posted by @resir014'}
-            srcSet={node.frontmatter.header_image.childImageSharp.sizes.srcSet}
+            srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
           />
         )}
         {node.fields.lead || node.excerpt ? (
@@ -180,9 +180,9 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
         {node.frontmatter.header_image && (
           <PostThumbnailImage
             className="u-photo"
-            src={node.frontmatter.header_image.childImageSharp.sizes.src}
+            src={node.frontmatter.header_image.childImageSharp.fluid.src}
             alt={node.frontmatter.title || 'Photo posted by @resir014'}
-            srcSet={node.frontmatter.header_image.childImageSharp.sizes.srcSet}
+            srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
           />
         )}
         <MarkdownContent

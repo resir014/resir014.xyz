@@ -41,7 +41,7 @@ const Button: React.SFC<ButtonProps> = ({
         {children}
       </button>
     )
-  } else if (kind === 'nav-link') {
+  } else if (kind === 'nav-link' && to) {
     return (
       <Link id={id} className={className} to={to}>
         {children}
@@ -49,7 +49,7 @@ const Button: React.SFC<ButtonProps> = ({
     )
   } else {
     return (
-      <a id={id} className={className} href={href} target={target}>
+      <a id={id} className={className} href={href || to} target={target}>
         {children}
       </a>
     )
