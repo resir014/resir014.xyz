@@ -29,21 +29,26 @@ const ProjectEmpty = styled('p')`
 export interface ProjectItemListProps {
   title?: string
   projects: ProjectField[]
+  homepage?: boolean
 }
 
-const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, projects }) => (
-  <section>
-    {title && <ProjectSectionHeading>{title}</ProjectSectionHeading>}
-    {projects.length !== 0 ? (
-      <ProjectsList>
-        {projects.map(({ node }) => (
-          <ProjectItem key={node.frontmatter.title} node={node} />
-        ))}
-      </ProjectsList>
-    ) : (
-      <ProjectEmpty>No projects.</ProjectEmpty>
-    )}
-  </section>
-)
+const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, homepage, projects }) => {
+  if (projects && projects.length !== 0) {
+    const slicedProjects = homepage ? projects.slice(0, 9) : projects
+
+    return (
+      <React.Fragment>
+        {title && <ProjectSectionHeading>{title}</ProjectSectionHeading>}
+        <ProjectsList>
+          {slicedProjects.map(({ node }) => (
+            <ProjectItem key={node.frontmatter.title} node={node} />
+          ))}
+        </ProjectsList>
+      </React.Fragment>
+    )
+  }
+
+  return <ProjectEmpty>No projects.</ProjectEmpty>
+}
 
 export default ProjectItemList

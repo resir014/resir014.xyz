@@ -98,9 +98,13 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
           <HomepageContent>
             <Divider spacing="large" />
             <HomepageSection>
-              <HomepageSectionTitle>I write code for the web.</HomepageSectionTitle>
+              <HomepageSectionTitle>Hey, call me Resi!</HomepageSectionTitle>
               <HomepageSectionDescription>
-                Here are some technologies I'm currently crazy about.
+                I make and post stuff on the web.
+              </HomepageSectionDescription>
+              <HomepageSectionDescription>
+                When I no longer do either of them, then something <em>really</em> bad must have
+                happened to me.
               </HomepageSectionDescription>
               <HomepageLanguageList>
                 <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
@@ -114,35 +118,34 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               </HomepageLanguageList>
               <HomepageSectionFooter>
                 <Button kind="nav-link" color="primary" size="lg" to="/about">
-                  View entire skillset
+                  More about me
+                </Button>{' '}
+                <Button kind="nav-link" color="primary" size="lg" to="/posts">
+                  Read my posts
                 </Button>
               </HomepageSectionFooter>
             </HomepageSection>
             <Divider spacing="large" />
-            <HomepageSection>
+            <HomepageSection size="xl">
               <FeaturedProject node={data.featuredProject} />
               <ProjectItemList
                 title="Web development stuff"
                 projects={filterProjectsByCategory(data.allProjects.edges, 'web')}
+                homepage
               />
               <ProjectItemList
                 title="Open source stuff"
                 projects={filterProjectsByCategory(data.allProjects.edges, 'oss')}
+                homepage
               />
               <ProjectItemList
                 title="Other stuff"
                 projects={filterProjectsByCategory(data.allProjects.edges, 'other')}
+                homepage
               />
-            </HomepageSection>
-            <Divider spacing="large" />
-            <HomepageSection>
-              <HomepageSectionTitle>Let's talk!</HomepageSectionTitle>
-              <HomepageSectionDescription>
-                Feel free to get in touch with me about anything.
-              </HomepageSectionDescription>
               <HomepageSectionFooter>
                 <Button kind="nav-link" color="primary" size="lg" to="/contact">
-                  Get in touch.
+                  View more of my stuff
                 </Button>
               </HomepageSectionFooter>
             </HomepageSection>
