@@ -1,10 +1,13 @@
 ---
 category: video
 layout: video
-title: "Video Games and Depression | Sidcourse"
 ---
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/pIvcys_IPcQ" frameborder="0" allowfullscreen></iframe>
+
+#### Video Games and Depression | Sidcourse
+
+<!-- end -->
 
 A beautifully-edited video looking at mental health, depression, and how games and gaming can or could help for those suffering. I feel like I can relate to Sid's story where even just playing a certain video games with a friend, or a group of friends, just helps you switch off for a moment from the outside world.
 

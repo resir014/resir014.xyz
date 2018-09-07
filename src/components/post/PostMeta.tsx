@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from 'react-emotion'
-import { lighten } from 'polished'
 import { colors } from '../../styles/variables'
 
 interface PostMetaProps {
@@ -14,5 +13,5 @@ const PostMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
 export default PostMeta
 
 const Div = styled('div')`
-color ${lighten(0.5, colors.grey90)};
+  color ${colors.grey50};
 `

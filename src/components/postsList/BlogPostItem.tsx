@@ -1,11 +1,9 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import styled from 'react-emotion'
-import { lighten } from 'polished'
 import Link from 'gatsby-link'
 
-import { colors, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import { colors } from '../../styles/variables'
 import { BlogPostField } from '../../types/fields'
 import { BlogPostNode } from '../../types/nodes'
 
@@ -17,6 +15,8 @@ const StyledPostItem = styled('article')`
   display: flex;
   flex-direction: column;
   margin-bottom: 3rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid ${colors.grey30};
 
   &:last-of-type {
     margin-bottom: 0;
@@ -24,8 +24,7 @@ const StyledPostItem = styled('article')`
 `
 
 const StyledPostMeta = styled('section')`
-  margin-bottom: 0.5rem;
-  color: ${lighten(0.5, colors.grey90)};
+  margin-bottom: 1rem;
 `
 
 const PostTitleLink = styled(Link)`
@@ -50,13 +49,9 @@ const PostThumbnailImage = styled('img')`
   }
 `
 
-const PostDetailBox = styled('section')`
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    flex: 1;
-  }
-`
+const PostDetailBox = styled('section')``
 
-const PostTitle = styled('h3')`
+const PostTitle = styled('h2')`
   margin-top: 0;
 
   a {
