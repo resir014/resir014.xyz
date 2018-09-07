@@ -135,26 +135,25 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
                 </Button>
               </HomepageSectionFooter>
             </HomepageSection>
+            <Divider spacing="large" />
+            <HomepageSection>
+              <HomepageSectionTitle>Current skillset</HomepageSectionTitle>
+              <HomepageSectionDescription>
+                Got an interesting project in mind? Want me to help do it?{' '}
+                <Link to="/contact">Let's talk!</Link>
+              </HomepageSectionDescription>
+              <HomepageLanguageList>
+                <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
+                <HomepageLanguageListItem
+                  color={colors.white}
+                  background="#337ab7"
+                  name="TypeScript"
+                />
+                <HomepageLanguageListItem color="#61dafb" background="#282c34" name="React" />
+                <HomepageLanguageListItem color={colors.white} background="#4e2a8e" name="Elixir" />
+              </HomepageLanguageList>
+            </HomepageSection>
           </HomepageContent>
-          <Divider spacing="large" />
-          <HomepageSection>
-            <HomepageSectionTitle>Current skillset</HomepageSectionTitle>
-            <HomepageSectionDescription>
-              Got an interesting project in mind? Want me to help do it?{' '}
-              <Link to="/contact">Let's talk!</Link>
-            </HomepageSectionDescription>
-            <HomepageLanguageList>
-              <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
-              <HomepageLanguageListItem
-                color={colors.white}
-                background="#337ab7"
-                name="TypeScript"
-              />
-              <HomepageLanguageListItem color="#61dafb" background="#282c34" name="React" />
-              <HomepageLanguageListItem color={colors.white} background="#4e2a8e" name="Elixir" />
-            </HomepageLanguageList>
-          </HomepageSection>
-          <Divider spacing="large" />
           <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
         </Page>
       </TemplateWrapper>
