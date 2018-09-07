@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'react-emotion'
 
-import { pxSizes } from '../../styles/variables'
+import { pxSizes, colors } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
 
 interface HomepageSectionDescriptionProps {
@@ -20,6 +20,15 @@ const Paragraph = styled('p')`
   text-align: center;
   font-size: 1.25rem;
   font-weight: 300;
+
+  a {
+    color: ${colors.blue60};
+
+    &:hover,
+    &:focus {
+      color: ${colors.blue70};
+    }
+  }
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     font-size: 1.5rem;
