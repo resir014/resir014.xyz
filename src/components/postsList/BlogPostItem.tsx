@@ -18,10 +18,6 @@ const StyledPostItem = styled('article')`
   flex-direction: column;
   margin-bottom: 3rem;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    flex-direction: row;
-  }
-
   &:last-of-type {
     margin-bottom: 0;
   }
@@ -30,26 +26,6 @@ const StyledPostItem = styled('article')`
 const StyledPostMeta = styled('section')`
   margin-bottom: 0.5rem;
   color: ${lighten(0.5, colors.grey90)};
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    margin-bottom: 0;
-    width: 20%;
-  }
-`
-
-const StyledPostMetaItem = styled(PostMetaItem)`
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    display: block;
-
-    &:not(:first-of-type) {
-      margin-top: 0.25rem;
-      margin-left: 0 !important;
-    }
-
-    &:before {
-      display: none;
-    }
-  }
 `
 
 const PostTitleLink = styled(Link)`
@@ -103,14 +79,14 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
     return (
       <StyledPostItem className="h-entry">
         <StyledPostMeta>
-          <StyledPostMetaItem>
+          <PostMetaItem>
             <Link to={node.fields.slug}>
               <time className="dt-published" dateTime={new Date(date).toISOString()}>
                 {date}
               </time>
             </Link>
-          </StyledPostMetaItem>
-          <StyledPostMetaItem className="p-category">{category}</StyledPostMetaItem>
+          </PostMetaItem>
+          <PostMetaItem className="p-category">{category}</PostMetaItem>
         </StyledPostMeta>
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}
         {node.fields.category === 'note' && this.renderNoteTemplate(node)}
