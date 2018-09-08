@@ -1,10 +1,10 @@
 ---
 category: article
 layout: post
-title: "A type-safe approach to Redux stores in TypeScript"
+title: 'A type-safe approach to Redux stores in TypeScript'
 lead: "Redux and TypeScript are a match made in heaven. Here's how to make the most out of static types to make your Redux store as type-safe as possible."
 redirect_from:
-  - "article/2018/02/07/a-type-safe-approach-to-redux-stores-in-typescript"
+  - 'article/2018/02/07/a-type-safe-approach-to-redux-stores-in-typescript'
 syndication:
   - name: Medium
     url: https://medium.com/@resir014/a-type-safe-approach-to-redux-stores-in-typescript-6474e012b81e
@@ -18,11 +18,11 @@ There are many guides on structuring the codebase for your Redux store lying aro
 
 I've experimented a lot before I settled with this method, and admittedly this is still an ongoing experiment, so I'm open for suggestions. I decided to write this partly as a personal guide, so most of the things mentioned here are based on personal preference, but I also hope anyone else reading this will get something out of it.
 
-*Note: This article is valid for `redux@^3.7.2`. I'll look into updating this to support `redux@^4.0.0` when it's released!*
+_Note: This article is valid for `redux@^3.7.2`. I'll look into updating this to support `redux@^4.0.0` when it's released!_
 
 ## Directory structure
 
- I'll level with you, one of the hardest steps in getting started with working on React + Redux for me is figuring out how to structure your project. There's really no *de facto* way to do this, but it's still important to get this right so to not cause further distractions down the road. Here's how I normally do it.
+I'll level with you, one of the hardest steps in getting started with working on React + Redux for me is figuring out how to structure your project. There's really no _de facto_ way to do this, but it's still important to get this right so to not cause further distractions down the road. Here's how I normally do it.
 
 ### Use a dedicated `store/` directory
 
@@ -78,7 +78,6 @@ So I decided to dedicate a `store/` directory for all my Redux actions/reducers.
 
 As an extension to the guides above, the state tree should be structured **by context**.
 
-
 ```
 .
 `- store
@@ -100,18 +99,18 @@ Include an `index.ts` file at the root of the `store/` directory. We'll use this
 ```ts
 // ./src/store/index.ts
 
-import { combineReducers, Dispatch, Reducer } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import { combineReducers, Dispatch, Reducer } from 'redux'
+import { routerReducer } from 'react-router-redux'
 
 // Import your state types and reducers here.
-import { ChatState } from 'store/chat/types';
-import { LayoutState } from 'store/layout/types';
-import chatReducer from 'store/chat/reducer';
-import layoutReducer from 'store/layout/reducer';
+import { ChatState } from 'store/chat/types'
+import { LayoutState } from 'store/layout/types'
+import chatReducer from 'store/chat/reducer'
+import layoutReducer from 'store/layout/reducer'
 
 // The top-level state object
 export interface ApplicationState {
-  chat: ChatState;
+  chat: ChatState
   layout: LayoutState
 }
 
@@ -121,8 +120,8 @@ export interface ApplicationState {
 export const reducers: Reducer<ApplicationState> = combineReducers<ApplicationState>({
   router: routerReducer,
   chat: chatReducer,
-  layout: layoutReducer,
-});
+  layout: layoutReducer
+})
 ```
 
 ### Separate presentational and container components
@@ -156,31 +155,31 @@ The first thing to do is type each of our reducers' state. Open the `types.ts` f
 
 // Our chat-level state object
 export interface ChatState {
-  username: string;
-  connectedUsers: UserInfo[];
-  messages: MessagePayload[];
+  username: string
+  connectedUsers: UserInfo[]
+  messages: MessagePayload[]
 }
 
 // Feel free to include more types for good measure.
 
 export interface UserInfo {
-  name: string;
-  id: number;
+  name: string
+  id: number
 }
 
 export interface TemplateItem {
-  item: string;
-  text: string;
+  item: string
+  text: string
 }
 
 export interface MessagePayload {
-  timestamp: Date;
-  user: string;
+  timestamp: Date
+  user: string
   message: {
-    type: 'text' | 'template';
-    content?: string;
-    items?: TemplateItem[];
-  };
+    type: 'text' | 'template'
+    content?: string
+    items?: TemplateItem[]
+  }
 }
 ```
 
@@ -191,29 +190,29 @@ To properly type our action creators, declare them as `interface`s. We'll also e
 ```ts
 // ./src/store/chat/types.ts
 
-import { Action } from 'redux';
+import { Action } from 'redux'
 
 // Declare our action types using our interface. For a better debugging experience,
 // I use the `@@context/ACTION_TYPE` convention for naming action types.
 
 export interface UsersListUpdatedAction extends Action {
-  type: '@@chat/USERS_LIST_UPDATED';
+  type: '@@chat/USERS_LIST_UPDATED'
   payload: {
-    users: UserInfo[];
-  };
+    users: UserInfo[]
+  }
 }
 
 export interface MessageReceivedAction extends Action {
-  type: '@@chat/MESSAGE_RECEIVED';
+  type: '@@chat/MESSAGE_RECEIVED'
   payload: {
-    timestamp: Date;
-    user: string;
-    message: MessagePayload;
-  };
+    timestamp: Date
+    user: string
+    message: MessagePayload
+  }
 }
 
 // Down here, we'll create a discriminated union type of all actions which will be used for our reducer.
-export type ChatActions = UsersListUpdatedAction | MessageReceivedAction;
+export type ChatActions = UsersListUpdatedAction | MessageReceivedAction
 ```
 
 ### `ActionCreator` is your friend
@@ -223,13 +222,8 @@ Time to write our action creators! First we'll import `ActionCreator` from Redux
 ```ts
 // ./src/store/chat/actions.ts
 
-import { ActionCreator } from 'redux';
-import {
-  UsersListUpdatedAction,
-  UserInfo,
-  MessageReceivedAction,
-  MessagePayload,
-} from './types';
+import { ActionCreator } from 'redux'
+import { UsersListUpdatedAction, UserInfo, MessageReceivedAction, MessagePayload } from './types'
 
 // Type these action creators with `: ActionCreator<ActionTypeYouWantToPass>`.
 // Remember, you can also pass parameters into an action creator. Make sure to
@@ -238,21 +232,21 @@ import {
 export const updateUsersList: ActionCreator<UsersListUpdatedAction> = (users: UserInfo[]) => ({
   type: '@@chat/USERS_LIST_UPDATED',
   payload: {
-    users,
-  },
-});
+    users
+  }
+})
 
 export const messageReceived: ActionCreator<MessageReceivedAction> = (
   user: string,
-  message: MessagePayload,
+  message: MessagePayload
 ) => ({
   type: '@@chat/MESSAGE_RECEIVED',
   payload: {
     timestamp: new Date(),
     user,
-    message,
-  },
-});
+    message
+  }
+})
 ```
 
 ## Typing reducers
@@ -260,15 +254,15 @@ export const messageReceived: ActionCreator<MessageReceivedAction> = (
 ```ts
 // ./src/store/chat/reducer.ts
 
-import { Reducer } from 'redux';
-import { ChatState, ChatActions } from './types';
+import { Reducer } from 'redux'
+import { ChatState, ChatActions } from './types'
 
 // Type-safe initialState!
 export const initialState: ChatState = {
   username: '',
   connectedUsers: [],
-  messages: [],
-};
+  messages: []
+}
 
 // Unfortunately, typing of the `action` parameter seems to be broken at the moment.
 // This should be fixed in Redux 4.x, but for now, just augment your types.
@@ -278,17 +272,17 @@ const reducer: Reducer<ChatState> = (state: ChatState = initialState, action) =>
   // all the cases handled.
   switch ((action as ChatActions).type) {
     case '@@chat/SET_USERNAME':
-      return { ...state, username: action.username };
+      return { ...state, username: action.username }
     case '@@chat/USERS_LIST_UPDATED':
-      return { ...state, connectedUsers: action.users };
+      return { ...state, connectedUsers: action.users }
     case '@@chat/MESSAGE_RECEIVED':
-      return { ...state, messages: [...state.messages, action.payload] };
+      return { ...state, messages: [...state.messages, action.payload] }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default reducer;
+export default reducer
 ```
 
 ## Store configuration
@@ -298,35 +292,33 @@ Initialising the Redux store should be done inside a `configureStore()` function
 ```ts
 // ./stc/configureStore.ts
 
-import { createStore, applyMiddleware, Store } from 'redux';
+import { createStore, applyMiddleware, Store } from 'redux'
 
 // react-router has its own Redux middleware, so we'll use this
-import { routerMiddleware } from 'react-router-redux';
+import { routerMiddleware } from 'react-router-redux'
 // We'll be using Redux Devtools. We can use the `composeWithDevTools()`
 // directive so we can pass our middleware along with it
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension'
 // If you use react-router, don't forget to pass in your history type.
-import { History } from 'history';
+import { History } from 'history'
 
 // Import the state interface and our combined reducers.
-import { ApplicationState, reducers } from './store';
+import { ApplicationState, reducers } from './store'
 
 export default function configureStore(
   history: History,
-  initialState: ApplicationState,
+  initialState: ApplicationState
 ): Store<ApplicationState> {
   // create the composing function for our middlewares
-  const composeEnhancers = composeWithDevTools({});
+  const composeEnhancers = composeWithDevTools({})
 
   // We'll create our store with the combined reducers and the initial Redux state that
   // we'll be passing from our entry point.
   return createStore<ApplicationState>(
     reducers,
     initialState,
-    composeEnhancers(applyMiddleware(
-      routerMiddleware(history),
-    )),
-  );
+    composeEnhancers(applyMiddleware(routerMiddleware(history)))
+  )
 }
 ```
 
@@ -341,9 +333,9 @@ We're now going to connect our React component to Redux. Since we're mapping our
 ```tsx
 // ./src/containers/ChatWindow.tsx
 
-import * as React from 'react';
-import { connect, Dispatch } from 'react-redux';
-import { ChatState } from 'store/chat/types';
+import * as React from 'react'
+import { connect, Dispatch } from 'react-redux'
+import { ChatState } from 'store/chat/types'
 
 // Standard component props
 interface ChatWindowProps {
@@ -351,7 +343,7 @@ interface ChatWindowProps {
 }
 
 // Create an intersection type of the component props and our state.
-type AllProps = ChatWindowProps & ChatState;
+type AllProps = ChatWindowProps & ChatState
 
 // You can now safely use the mapped state as our component props!
 const ChatWindow: React.SFC<AllProps> = ({ username, messages }) => (
@@ -359,18 +351,21 @@ const ChatWindow: React.SFC<AllProps> = ({ username, messages }) => (
     <div className={styles.root}>
       <ChatHeader username={username} />
       <ChatMessages>
-        {messages && messages.map(message => (
-          <ChatMessageItem
-            key={`[${message.timestamp.toISOString()}]${message.user}`}
-            payload={message}
-            isCurrentUser={username === message.user}
-          />
-        ))}
+        {messages &&
+          messages.map(message => (
+            <ChatMessageItem
+              key={`[${message.timestamp.toISOString()}]${message.user}`}
+              payload={message}
+              isCurrentUser={username === message.user}
+            />
+          ))}
       </ChatMessages>
-      <div className={styles.chatNewMessage}><AddMessage /></div>
+      <div className={styles.chatNewMessage}>
+        <AddMessage />
+      </div>
     </div>
   </Container>
-);
+)
 ```
 
 The `react-redux` `connect()` function is what connects our React component to the redux store. Note that we're **only** going to use the `mapStateToProps()` call in this case.
@@ -379,15 +374,15 @@ The `react-redux` `connect()` function is what connects our React component to t
 // It's usually good practice to only include one context at a time in a connected component.
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
-const mapStateToProps = (state: ApplicationState) => state.chat;
+const mapStateToProps = (state: ApplicationState) => state.chat
 
 // Now let's connect our component!
-export default connect(mapStateToProps)(ChatWindow);
+export default connect(mapStateToProps)(ChatWindow)
 ```
 
 ### Dispatching actions
 
-I know what you're probably thinking. *You didn't call `mapDispatchToProps()`? How the hell do you dispatch your action?*
+I know what you're probably thinking. _You didn't call `mapDispatchToProps()`? How the hell do you dispatch your action?_
 
 Easy, when we call `connect()` on a component, it will also pass the `dispatch` prop which you can use to call the action creators!
 
@@ -398,16 +393,16 @@ We can create a base interface for this. I usually put this inside `./src/store/
 export interface ConnectedReduxProps<S> {
   // Correct types for the `dispatch` prop passed by `react-redux`.
   // Additional type information is given through generics.
-  dispatch: Dispatch<S>;
+  dispatch: Dispatch<S>
 }
 ```
 
 So let's go back to the `ChatWindowProps` interface we made earlier, and make it extend the interface we just made:
 
 ```tsx
-import { connect, Dispatch } from 'react-redux';
-import { ConnectedReduxProps } from 'store';
-import { ChatState } from 'store/chat/types';
+import { connect, Dispatch } from 'react-redux'
+import { ConnectedReduxProps } from 'store'
+import { ChatState } from 'store/chat/types'
 
 // Extend the interface.
 interface ChatWindowProps extends ConnectedReduxStore<ChatState> {}

@@ -17,11 +17,11 @@ Yes. As of 25 April 2014, Reddit and Imgur was blocked by my ISP as part of comp
 
 This program was incited by Indonesia's current Communications & Information Ministry, [Tifatul Sembiring](http://en.wikipedia.org/wiki/Tifatul_Sembiring). He &mdash; or as I will further refer to him as "Tiffy" &mdash; has a pretty huge Islamist background (more on this later), and so by his powers as the Communications Ministry he decided to launch a "porn filter" program, where ISPs are required to block these so-called "abusive" websites, which, according to them, contain one of the following:
 
-* Pornography
-* Gambling
-* Phishing/malware
-* Racism
-* Proxy
+- Pornography
+- Gambling
+- Phishing/malware
+- Racism
+- Proxy
 
 Of course, this was made for our own good, right? So we can safely browse the Internet without fear of malicious websites attacking our computers? Well, it's more than that.
 
@@ -29,7 +29,7 @@ The Internet Positif program mostly work on submission report, and although they
 
 And herein lies the huge flaw behind the entire program.
 
-***
+---
 
 Fast-forward to around yesterday, someone on Twitter pointed out that Vimeo is also blocked by their ISP for reasons unknown.
 
@@ -59,7 +59,7 @@ And where's the transparency? I never seen them bring out any valid reasoning as
 
 I'm sorry Tiffy, your so-called "porn filter" is good I know, but when you start to misuse it by blocking websites they don't want you to see? That's borderline censorship to me. That's abuse of power.
 
-***
+---
 
 As I said earlier, Tiffy, our Communications & Information minister has a pretty huge Islamist background. He is affiliated with the Prosperous Justice Party (PKS), and is known to have incited some controversial discussions, mainly on his [Twitter account](https://twitter.com/tifsembiring).
 
@@ -71,11 +71,11 @@ As for his contributions to the tech world in Indonesia, he **has contributed no
 
 <blockquote class="twitter-tweet" lang="en"><p>We have a communications and technology minister who fear technology. &#10;What a fucking joke.</p>&mdash; Bernadette Maria (@doggudoggu) <a href="https://twitter.com/doggudoggu/statuses/465474282059878401">May 11, 2014</a></blockquote>
 
-***
+---
 
 That pretty much sums up how our Internet has become. Now I stand before you, begging for help as this is starting to get out of hand.
 
-***
+---
 
 **Update:** The blocking of Vimeo has brought up protests in the Indonesian twitterverse, and as of Monday morning, [the Ministry of Communications & Information has unblocked access to Vimeo](http://www.tempo.co/read/news/2014/05/12/072577071/Banjir-Protes-Menteri-Kominfo-Buka-Blokir-Vimeo) Everything else remains blocked.
 

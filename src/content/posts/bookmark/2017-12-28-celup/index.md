@@ -1,8 +1,8 @@
 ---
 category: bookmark
 layout: bookmark
-title: "[ID] Kampanye CELUP: Demi Berantas Asusila, Rela Terobos Hukum Positif dan Etika"
-link: "http://www.plasticdeath.com/2017/12/kampanye-celup-demi-berantas-asusila.html"
+title: '[ID] Kampanye CELUP: Demi Berantas Asusila, Rela Terobos Hukum Positif dan Etika'
+link: 'http://www.plasticdeath.com/2017/12/kampanye-celup-demi-berantas-asusila.html'
 date: 2017-12-28T00:00:00+07:00
 ---
 

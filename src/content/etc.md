@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "/etc/ - the land of 'anything goes'"
-lead: "These are some random, maybe dumb things I used to make some time ago. I am solely not responsible for what might happen to your sanity after looking through them."
+lead: 'These are some random, maybe dumb things I used to make some time ago. I am solely not responsible for what might happen to your sanity after looking through them.'
 ---
 
 ## 2017
@@ -26,7 +26,7 @@ A crash course guide on <a href="https://dnscrypt.org/">DNSCrypt</a>, a protocol
 
 ## 2015
 
-### [The Ultimate foobar2000 Setup*](/etc/fb2k)
+### [The Ultimate foobar2000 Setup\*](/etc/fb2k)
 
 My very own foobar2000 tweaking guide.
 

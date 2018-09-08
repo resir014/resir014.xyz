@@ -1,11 +1,11 @@
 ---
 category: article
 layout: post
-title: "The Social Media Fatigue"
-lead: "In the long run, social media will affect you mentally the more you invest your time into it."
+title: 'The Social Media Fatigue'
+lead: 'In the long run, social media will affect you mentally the more you invest your time into it.'
 ---
 
-*This post has been hard to write. The initial version of this post was put together last year, within the course of three months until I stopped working on it. I have never been able to pour all of these mundane thoughts and experiences into paper. However, a few weeks ago I removed almost everything and basically started from scratch. I feel like recent events made me find the courage to finish this post once and for all.*
+_This post has been hard to write. The initial version of this post was put together last year, within the course of three months until I stopped working on it. I have never been able to pour all of these mundane thoughts and experiences into paper. However, a few weeks ago I removed almost everything and basically started from scratch. I feel like recent events made me find the courage to finish this post once and for all._
 
 ---
 
@@ -31,4 +31,4 @@ It's time for my brief respite.
 
 ---
 
-*If you liked this post, you should also read this [wonderful post](https://medium.com/@katikrause/facebook-s-mental-health-problem-9c48374c1bd8) by Kati Krause on Medium, which inspired me into writing this post. Sure, the title says Facebook, but I think it applies well to any other social networks.*
+_If you liked this post, you should also read this [wonderful post](https://medium.com/@katikrause/facebook-s-mental-health-problem-9c48374c1bd8) by Kati Krause on Medium, which inspired me into writing this post. Sure, the title says Facebook, but I think it applies well to any other social networks._

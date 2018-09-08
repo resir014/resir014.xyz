@@ -1,10 +1,10 @@
 ---
-permalink: "/something-amazing-that-happened-2017-01-03"
+permalink: '/something-amazing-that-happened-2017-01-03'
 layout: page
-title: "Something Amazing that Happened"
+title: 'Something Amazing that Happened'
 ---
 
-*Originally posted on [bold.io](https://bold.io/something-amazing-that-happened-2017-01-03) at 03 January 2017.*
+_Originally posted on [bold.io](https://bold.io/something-amazing-that-happened-2017-01-03) at 03 January 2017._
 
 ---
 
@@ -14,7 +14,7 @@ When my interest with the game diminished, we still talked together, firstly on 
 
 On December 28th, I received a random message on Hangouts, out of the blue. I couldn't believe my eyes. It was him.
 
-We were finally reunited after being separated for *two and a half years*.
+We were finally reunited after being separated for _two and a half years_.
 
 I asked how were they able to find me again, they said they found me back because they noticed one of their email drafts that were supposed to be sent to me. We ended up talking a lot that day, because there were just so many things that we wanted to exchange during the whole separation.
 

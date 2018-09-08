@@ -2,7 +2,7 @@
 category: article
 layout: post
 date: 2018-06-04T05:00:00+07:00
-title: "The Microsoft Thing"
+title: 'The Microsoft Thing'
 lead: "Why I'm not so worried about Microsoft buying GitHub."
 syndication:
   - name: dev.to

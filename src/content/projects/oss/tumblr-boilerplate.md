@@ -1,14 +1,14 @@
 ---
 category: oss
 layout: project
-title: "Tumblr Boilerplate"
-description: "A base starter kit for developing Tumblr themes."
+title: 'Tumblr Boilerplate'
+description: 'A base starter kit for developing Tumblr themes.'
 tags:
-  - "html"
-  - "css"
-  - "js"
+  - 'html'
+  - 'css'
+  - 'js'
 year: 2014
-project_url: "https://github.com/resir014/Tumblr-Boilerplate"
+project_url: 'https://github.com/resir014/Tumblr-Boilerplate'
 jumpToProject: true
 ---
 

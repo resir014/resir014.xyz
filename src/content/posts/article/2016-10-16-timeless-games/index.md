@@ -1,7 +1,7 @@
 ---
 category: article
 layout: post
-title: "Timeless Games"
+title: 'Timeless Games'
 ---
 
 The day I started transitioning into a full-time PC gamer was the day I started exploring all kinds of games that I could ever get my hands on, from any genre and background. Sure, I played more on consoles/handhelds than on PCs back in the day, but PC gaming was never out of the question.

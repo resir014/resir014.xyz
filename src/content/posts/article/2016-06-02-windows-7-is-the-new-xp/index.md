@@ -1,12 +1,12 @@
 ---
 category: article
 layout: post
-title: "Windows 7 is the new XP"
+title: 'Windows 7 is the new XP'
 lead: "Microsoft's tone-deafness regarding the Windows 10 upgrade nag and several other issues left a majority of users out in the cold."
 redirect_from: 2016/06/02/windows-7-is-the-new-xp
 tags:
-- windows
-- rant
+  - windows
+  - rant
 ---
 
 You might recall the Windows Vista disaster, an operating system by Microsoft which, as a result of [various failures and resets in its development stage](http://longhorn.ms/), resulting in an end product so buggy, it failed to grab its consumers' acceptance after the revolutionary XP. The same mistake was unwittingly repeated by Microsoft themselves with the introduction of Windows 8, and as of recently, Windows 10.
@@ -15,11 +15,11 @@ Windows 10 was met with staunch resistance from quite a lot of average users. As
 
 ---
 
-Let me start by getting this out of the way: Windows 10 is a *fine* operating system. I use it as my daily driver. It's not *great*, but it's *fine*. The new features being introduced in the initial release of Windows 10, such as Cortana and Action Center, had some great ambitions, even though the end results are rather half-baked. There are also features included in the upcoming Anniversary Update which caught some attention, such as Windows Subsystems for Linux, complete with Bash on Windows(!), Windows Ink Workspace, and much more.
+Let me start by getting this out of the way: Windows 10 is a _fine_ operating system. I use it as my daily driver. It's not _great_, but it's _fine_. The new features being introduced in the initial release of Windows 10, such as Cortana and Action Center, had some great ambitions, even though the end results are rather half-baked. There are also features included in the upcoming Anniversary Update which caught some attention, such as Windows Subsystems for Linux, complete with Bash on Windows(!), Windows Ink Workspace, and much more.
 
 Windows 10 was initially introduced to fix the mess that Windows 8 and 8.1 had brought up. You see, Windows 8 was a mess. It's not as much of a mess as Windows Vista was, but it was still a mess nonetheless. Then out came Windows 10, which fixes all of the main issues with Windows 8, complete with lots of promising new features, security improvements, and so on. And to make up with their past, Microsoft offered Windows 10 to consumers as a free upgrade, which applies for the first year of its existence.
 
-However, there's one problem with it: Microsoft *forced* the free upgrade on everyone. People weren't given much of a choice to upgrade on their own terms, and Microsoft [resorted to using "malware-like" tactics](http://www.theregister.co.uk/2016/03/17/microsoft_windows_10_upgrade_gwx_vs_humanity/) to push Windows 10 out to everyone. There's about a month left before the free upgrade offer ends, and we can see Microsoft is trying to push it even more before it ends. The whole push has become so viral, it has often been turned into a meme.
+However, there's one problem with it: Microsoft _forced_ the free upgrade on everyone. People weren't given much of a choice to upgrade on their own terms, and Microsoft [resorted to using "malware-like" tactics](http://www.theregister.co.uk/2016/03/17/microsoft_windows_10_upgrade_gwx_vs_humanity/) to push Windows 10 out to everyone. There's about a month left before the free upgrade offer ends, and we can see Microsoft is trying to push it even more before it ends. The whole push has become so viral, it has often been turned into a meme.
 
 <figure>
   <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Help. I need a Windows XP recovery disc, urgently. Please, I think the wooden frame is starting to give. <a href="https://t.co/jtgotzAgKO">pic.twitter.com/jtgotzAgKO</a></p>&mdash; Matt Lees (@Jam_sponge) <a href="https://twitter.com/Jam_sponge/status/679256624746397696">December 22, 2015</a></blockquote>
@@ -51,4 +51,4 @@ And unfortunately for Microsoft, this means that Windows 7's market share will m
 
 ---
 
-*Discuss on [Lobsters](https://lobste.rs/s/n8ggih/windows_7_is_new_xp)*
+_Discuss on [Lobsters](https://lobste.rs/s/n8ggih/windows_7_is_new_xp)_

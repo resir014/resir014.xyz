@@ -3,10 +3,10 @@ category: article
 layout: post
 title: Looking back on 2015
 tags:
-- personal
+  - personal
 ---
 
-This is actually the first time I've ever done a year-in-review of some sort so I don't really know how to do this thing, but *man*, 2015 has been **one hell of a year** for me. Lots of things happened throughout this past year, some good, some bad, and going through all of them would be a pain.
+This is actually the first time I've ever done a year-in-review of some sort so I don't really know how to do this thing, but _man_, 2015 has been **one hell of a year** for me. Lots of things happened throughout this past year, some good, some bad, and going through all of them would be a pain.
 
 But I'm gonna try and highlight some of those things so... here goes.
 
@@ -46,4 +46,4 @@ I've never actually had any New Year's resolution. If I were ever to make one I 
 
 And hey, that's another year done, let us see what the next year will bring for us.
 
-*See you in 2016!*
+_See you in 2016!_

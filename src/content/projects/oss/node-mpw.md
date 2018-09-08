@@ -1,12 +1,12 @@
 ---
 category: oss
 layout: project
-title: "node-mpw"
-description: "Implementation of the Master Password algorithm for nodejs and browser."
+title: 'node-mpw'
+description: 'Implementation of the Master Password algorithm for nodejs and browser.'
 tags:
-  - "typescript"
+  - 'typescript'
 year: 2017
-project_url: "https://github.com/blvdgroup/node-mpw"
+project_url: 'https://github.com/blvdgroup/node-mpw'
 jumpToProject: true
 ---
 

@@ -10,10 +10,10 @@ English &#124; Bahasa Indonesia (coming soon!)
 
 ## Table of Contents
 
-* [Introduction](#introduction)
-* [What is DNSCrypt?](#what-is-dnscrypt)
-* [Guide for Windows](#guide-for-windows)
-* [Guide for macOS](#guide-for-macos)
+- [Introduction](#introduction)
+- [What is DNSCrypt?](#what-is-dnscrypt)
+- [Guide for Windows](#guide-for-windows)
+- [Guide for macOS](#guide-for-macos)
 
 ---
 
@@ -61,9 +61,9 @@ In this section, we'll cover some ways to install DNSCrypt into your Windows mac
 
 If you don't know how to set up DNSCrypt through a command line, a few DNSCrypt clients are available for Windows:
 
-* [Simple DNSCrypt](https://simplednscrypt.org/)
-* [DNSCrypt WinClient](https://github.com/Noxwizard/dnscrypt-winclient)
-* [DNSCrypt Windows Service Manager](http://simonclausen.dk/projects/dnscrypt-winservicemgr/)
+- [Simple DNSCrypt](https://simplednscrypt.org/)
+- [DNSCrypt WinClient](https://github.com/Noxwizard/dnscrypt-winclient)
+- [DNSCrypt Windows Service Manager](http://simonclausen.dk/projects/dnscrypt-winservicemgr/)
 
 This guide will use Simple DNSCrypt. If you would like to use other clients within the list, please read through the manual for the client you want to use.
 

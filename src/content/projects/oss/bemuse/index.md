@@ -1,15 +1,15 @@
 ---
 category: oss
 layout: project
-title: "Bemuse"
+title: 'Bemuse'
 header_image: preview.jpg
-description: "Web-based online rhythm action game."
+description: 'Web-based online rhythm action game.'
 tags:
-  - "gaming"
-  - "javascript"
-  - "react"
+  - 'gaming'
+  - 'javascript'
+  - 'react'
 year: 2018
-project_url: "https://bemuse.ninja/"
+project_url: 'https://bemuse.ninja/'
 ---
 
 <figure>

@@ -2,7 +2,7 @@
 category: article
 layout: post
 title: "Why you moved from Angular 2 to Vue.js (and why you didn't understand what React is about)"
-subtitle: "Or, why we should never compare apples to oranges, again."
+subtitle: 'Or, why we should never compare apples to oranges, again.'
 syndication:
   - name: Medium
     url: https://medium.com/@resir014/why-you-moved-from-angular-2-to-vue-js-and-why-you-didnt-understand-what-react-is-about-107ea9188912
@@ -22,7 +22,7 @@ TypeScript is not "a different language". This is pretty much misconception #1 w
 
 To reiterate, the typing syntax provided by TypeScript is entirely optional. You don't need it, but TypeScript offers optional stricter type-checking, which better catches typing errors at compile time.
 
-That's because TypeScript *is* JavaScript.
+That's because TypeScript _is_ JavaScript.
 
 ## Beating the Angular dead horse
 
@@ -40,7 +40,7 @@ The table outlines that Angular is "slow" to code in, which is a highly subjecti
 
 > Reactivity: Kind of
 
-Actually, Angular 2+ is built *for* reactive programming! There's a reason that it's built on top of [RxJS](http://reactivex.io/), a library that improves the functional reactive programming capabilities of JavaScript.
+Actually, Angular 2+ is built _for_ reactive programming! There's a reason that it's built on top of [RxJS](http://reactivex.io/), a library that improves the functional reactive programming capabilities of JavaScript.
 
 ## Glancing over React like it's nothing
 
@@ -64,7 +64,7 @@ And these frameworks do adapt to very specific use cases. For instance, Angular 
 
 Either way, if you understand the general gist of how these frameworks work, you can easily adapt yourself to all the other frameworks easily. These three frameworks are nearly similar by the typical pattern of a framework, they're just packaged in a different way.
 
-I personally classify Angular and Vue as *frameworks* while React as a *library*. The former forces design decisions on you and promotes best practices, while the other forces you to make your own decisions about how your own coding practices are going to shape up as your project grows. While people still love to compare these three frameworks, I believe that comparing them are like comparing apples to oranges.
+I personally classify Angular and Vue as _frameworks_ while React as a _library_. The former forces design decisions on you and promotes best practices, while the other forces you to make your own decisions about how your own coding practices are going to shape up as your project grows. While people still love to compare these three frameworks, I believe that comparing them are like comparing apples to oranges.
 
 In which case, the decision falls on you.
 
@@ -74,6 +74,8 @@ In which case, the decision falls on you.
 
 ---
 
-*This story is also published on [Medium](https://medium.com/@resir014/why-you-moved-from-angular-2-to-vue-js-and-why-you-didnt-understand-what-react-is-about-107ea9188912).*
+_This story is also published on [Medium](https://medium.com/@resir014/why-you-moved-from-angular-2-to-vue-js-and-why-you-didnt-understand-what-react-is-about-107ea9188912)._
 
-[^fn-ng1]: Google insists Angular 1 be referred to as "AngularJS" and Angular 2+ as "just Angular". This just creates further confusion and is probably part of the reason why it threw people off from upgrading to it in the first place.
+[^fn-ng1]:
+
+  Google insists Angular 1 be referred to as "AngularJS" and Angular 2+ as "just Angular". This just creates further confusion and is probably part of the reason why it threw people off from upgrading to it in the first place.

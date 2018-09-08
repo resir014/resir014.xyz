@@ -1,8 +1,8 @@
 ---
 category: bookmark
 layout: bookmark
-title: "How to write CSS that works in every browser, even the old ones"
-link: "https://hacks.mozilla.org/2018/03/how-to-write-css-that-works-in-every-browser-even-the-old-ones/"
+title: 'How to write CSS that works in every browser, even the old ones'
+link: 'https://hacks.mozilla.org/2018/03/how-to-write-css-that-works-in-every-browser-even-the-old-ones/'
 date: 2018-03-08T12:14:38+07:00
 ---
 

@@ -5,10 +5,10 @@ title: "Indonesia's internet censorship, two years on"
 lead: "Slowly but surely, we're curving away from total net neutrality."
 external_url: https://medium.com/southeast-asian-social-critique/indonesias-internet-censorship-two-years-on-41831c6c16b4
 tags:
-- personal
-- indonesia
-- internet-positif
-- censorship
+  - personal
+  - indonesia
+  - internet-positif
+  - censorship
 syndication:
   - name: Medium
     url: https://medium.com/southeast-asian-social-critique/indonesias-internet-censorship-two-years-on-41831c6c16b4
@@ -90,4 +90,4 @@ It's also about getting educated about the wonders (and dangers) of the internet
 
 ---
 
-*Hey! This post was originally published on [Southeast Asian Social Critique](https://medium.com/southeast-asian-social-critique), a Medium publication by the amazing Bonni Rambatan ([@bonni07](https://twitter.com/bonni07)). Go check it out!*
+_Hey! This post was originally published on [Southeast Asian Social Critique](https://medium.com/southeast-asian-social-critique), a Medium publication by the amazing Bonni Rambatan ([@bonni07](https://twitter.com/bonni07)). Go check it out!_

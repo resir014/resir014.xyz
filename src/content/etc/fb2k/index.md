@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "The Ultimate foobar2000 Setup*"
-lead: "*) Subjectively."
+title: 'The Ultimate foobar2000 Setup*'
+lead: '*) Subjectively.'
 redirect_from:
   - blog/2015/11/08/the-ultimate-foobar2000-setup
   - 2015/11/08/the-ultimate-foobar2000-setup
@@ -17,7 +17,7 @@ redirect_from:
 
 [foobar2000](http://www.foobar2000.org/) (fb2k) is the most lightweight, powerful, customizable music player I've ever used. I switched over from iTunes, as I was getting tired of the bloat it has become, and I have never turned back ever since.
 
-Of course, I did initially run into some concerns that it won't be able to do the things that I always found useful on iTunes. And with fb2k's bare, customisation-focused experience, it does certainly look unappealing to the casual music listeners, and it *really* involves a lot of tweaking to really improve the user experience. After hours of tweaking, I finally managed to pull it off, and my fb2k installation now looks beautiful.
+Of course, I did initially run into some concerns that it won't be able to do the things that I always found useful on iTunes. And with fb2k's bare, customisation-focused experience, it does certainly look unappealing to the casual music listeners, and it _really_ involves a lot of tweaking to really improve the user experience. After hours of tweaking, I finally managed to pull it off, and my fb2k installation now looks beautiful.
 
 Here's a guide on how to make your fb2k look more like the one above. Sure, this might not be the best setup there is, but at least it makes your fb2k experience more bearable. Each section will outline the required components for you to download and follow along.
 
@@ -27,9 +27,9 @@ Here's a guide on how to make your fb2k look more like the one above. Sure, this
 
 Required components:
 
-* [Columns UI](http://yuo.be/columns.php)
+- [Columns UI](http://yuo.be/columns.php)
 
-The default fb2k interface is fine, but unfortunately it lacks some pretty important features, like customizable playlist views, and most importantly, [thumbnail toolbars](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#thumbbars) with [playback controls](/images/etc/fb2k/2015-11-07_00-03-28.png) like most other music players have.
+The default fb2k interface is fine, but unfortunately it lacks some pretty important features, like customizable playlist views, and most importantly, [thumbnail toolbars](<https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#thumbbars>) with [playback controls](/images/etc/fb2k/2015-11-07_00-03-28.png) like most other music players have.
 
 When I started transitioning to fb2k, a friend of mine recommended that I use [Columns UI](http://yuo.be/columns.php), and I loved it at first sight. It improves much of fb2k's user experience, and it also adds thumbnail toolbars to your taskbar, without any additional components needed. It's pretty much a multi-purpose UI kit for fb2k.
 
@@ -53,8 +53,8 @@ Unfortunately, I've never touched this section, so look up on how you play aroun
 
 Required components:
 
-* [Dynamic Fields](https://www.hydrogenaud.io/forums/index.php?showtopic=86853&start=0&p=744320&#entry744320)
-* [Playback Statistics](http://www.foobar2000.org/components/view/foo_playcount)
+- [Dynamic Fields](https://www.hydrogenaud.io/forums/index.php?showtopic=86853&start=0&p=744320&#entry744320)
+- [Playback Statistics](http://www.foobar2000.org/components/view/foo_playcount)
 
 One other thing that fb2k lacks is a rating system. I've tried looking for some random components that does this but none of them do what I wanted. Then I came across [this article](http://www.giantpygmy.net/gpa/index.php?id=dada-autorating) explaining the Date and Duration Adjusted (DADA) auto-rating algorithm, an automated, algorithm-based rating system for fb2k.
 
@@ -143,7 +143,7 @@ Congrats, you now have the DADA rating installed!
 
 Required components:
 
-* [Columns UI](http://yuo.be/columns.php)
+- [Columns UI](http://yuo.be/columns.php)
 
 Now that we have the DADA rating system set up, what I like to do now is to create a "Top Tracks" autoplaylist which sorts out all tracks based on its DADA rating, and this is where Columns UI comes into play. Columns UI includes something called "NG Playlist", which allows for further customisations to your playlists.
 
@@ -172,7 +172,7 @@ This section will be broken down in two parts. In the first part, I will explain
 
 Required components:
 
-* [Queue Contents Editor](http://wiki.hydrogenaud.io/index.php?title=Foobar2000:Components/Queue_Contents_Editor_(foo_queuecontents))
+- [Queue Contents Editor](<http://wiki.hydrogenaud.io/index.php?title=Foobar2000:Components/Queue_Contents_Editor_(foo_queuecontents)>)
 
 It appears that fb2k doesn't have a built-in utility to reorder queued tracks. Fortunately, Queue Contents Editor (`foo_queuecontents`) is here to the rescue! This component allows you to modify, add, and remove track from your queue.
 
@@ -213,7 +213,7 @@ You will now see a preview of the changes made in your directory. Click "Run" to
 
 Required components:
 
-* [Discogs Tagger](https://www.foobar2000.org/components/view/foo_discogs)
+- [Discogs Tagger](https://www.foobar2000.org/components/view/foo_discogs)
 
 It's very important to properly tag your music library, for the sake of consistency, especially when you're sharing what you're listening to to services like [Last.fm](http://www.last.fm/).
 
@@ -234,7 +234,7 @@ Once found, choose the appropriate release for the album, and click Next. (You c
 
 Review your changes in the next dialog box, and click on "Write Tags" to write the new ID3 tags to your tracks.
 
-Though keep in mind that this only saves the album art into the album directory *without* writing it to the ID3 tags too. To do so, right click on the tracks again, and go to `Tagging > Batch attach pictures`.
+Though keep in mind that this only saves the album art into the album directory _without_ writing it to the ID3 tags too. To do so, right click on the tracks again, and go to `Tagging > Batch attach pictures`.
 
 <figure>
   <img src="./2015-11-08_01-08-51.png" alt="Manually attaching the album art to the ID3 tags.">
@@ -251,8 +251,8 @@ If in some cases you'll need to reinstall your computer, and you couldn't afford
 
 ## Conclusion
 
-In conclusion: yes, you *can* actually make your fb2k experience to be more bearable. Yes, fb2k is the one of the best, most customisable music players out there, and yes, you *should* use it yourself too.
+In conclusion: yes, you _can_ actually make your fb2k experience to be more bearable. Yes, fb2k is the one of the best, most customisable music players out there, and yes, you _should_ use it yourself too.
 
-Feel free to use this guide as you wish. Customisation is one of fb2k's prime experience, in fact, I *encourage* you to improve on this setup yourself. The setup demonstrated here is what has always worked for me, and people's preferences can be different, so feel free to change things up here and there if you don't like how some stuff works.
+Feel free to use this guide as you wish. Customisation is one of fb2k's prime experience, in fact, I _encourage_ you to improve on this setup yourself. The setup demonstrated here is what has always worked for me, and people's preferences can be different, so feel free to change things up here and there if you don't like how some stuff works.
 
-It's a tedious process at first, but trust me, it really *will* be worth it at the end of the day. Feel free to [tweet at me](https://twitter.com/resir014) if you need help in your setup procedure.
+It's a tedious process at first, but trust me, it really _will_ be worth it at the end of the day. Feel free to [tweet at me](https://twitter.com/resir014) if you need help in your setup procedure.

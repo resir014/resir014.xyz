@@ -2,12 +2,12 @@
 category: article
 layout: post
 title: "Why 'porn filters' never work"
-lead: "In which I rant about the shit that is TRUST+ Positif, again."
+lead: 'In which I rant about the shit that is TRUST+ Positif, again.'
 tags:
-- personal
-- indonesia
-- internet-positif
-- censorship
+  - personal
+  - indonesia
+  - internet-positif
+  - censorship
 header_image: chrome_2016-08-20_15-00-15.png
 ---
 

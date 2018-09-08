@@ -1,17 +1,17 @@
 ---
 category: web
 layout: project
-title: "aquellex.ws"
-description: "Website design for Aquellex, a chiptune musician based in Australia."
+title: 'aquellex.ws'
+description: 'Website design for Aquellex, a chiptune musician based in Australia.'
 year: 2017
 header_image: preview.png
-project_url: "https://aquellex.ws"
+project_url: 'https://aquellex.ws'
 redirect_from:
-  - "projects/design/2017/aquellexws"
+  - 'projects/design/2017/aquellexws'
 tags:
-  - "design"
-  - "react"
-  - "javascript"
+  - 'design'
+  - 'react'
+  - 'javascript'
 ---
 
 <figure>
@@ -24,6 +24,6 @@ This was a fun project overall, since I got the chance to play around with moder
 
 ## Technologies Used
 
-* [React](https://reactjs.org/)
-* [Gatsby.js](https://www.gatsbyjs.org/)
-* [CSS Modules](https://github.com/css-modules/css-modules)
+- [React](https://reactjs.org/)
+- [Gatsby.js](https://www.gatsbyjs.org/)
+- [CSS Modules](https://github.com/css-modules/css-modules)

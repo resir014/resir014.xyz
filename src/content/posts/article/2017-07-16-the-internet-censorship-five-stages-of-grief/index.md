@@ -1,7 +1,7 @@
 ---
 category: article
 layout: post
-title: "The internet censorship five stages of grief"
+title: 'The internet censorship five stages of grief'
 subtitle: "A go-to guide on how to mentally cope with your favourite website/app being blocked/censored by your country's government."
 header_image: 2017-07-16_18-52-03.png
 syndication:
@@ -11,7 +11,7 @@ syndication:
 
 The Indonesian internet is known for its notorious [government censorship initiative](/blog/2016/02/17/tumblr-and-the-internet-positif-hammer/). As a self-proclaimed [citizen of the world](https://www.youtube.com/watch?v=WSRt5zW1kOg), I believe that you can't entirely eradicate pornographic/radical content without pulling the plug of the whole internet and switching to a North Korea-style intranet. Besides, if you're **really** detemined, you can find various ways to [bypass the filters](https://www.youtube.com/watch?v=CcZdwX4noCE).
 
-This whole censorship does not benefit *anyone* whatsoever. Sure, those people in the government think they do it "for the best interests of the people", but in reality, they just acted out of their own gut, while at the same time trying to undermine many others' freedom of expression by censoring online content in a single sweep without accounting for transparency. It hurts no one but the people who actually use these services *legitimately*.
+This whole censorship does not benefit _anyone_ whatsoever. Sure, those people in the government think they do it "for the best interests of the people", but in reality, they just acted out of their own gut, while at the same time trying to undermine many others' freedom of expression by censoring online content in a single sweep without accounting for transparency. It hurts no one but the people who actually use these services _legitimately_.
 
 We're not going to see this go away anytime soon, and until then, we will have to reel in whenever shit like this happens once again. Of course, the [Kübler-Ross five stages of grief](https://en.wikipedia.org/wiki/K%C3%BCbler-Ross_model) applies to all of us while trying to come to terms with it. Here are some examples of what you might feel when that happens.
 

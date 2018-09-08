@@ -1,7 +1,7 @@
 ---
 category: article
 layout: post
-title: "The systemd law"
+title: 'The systemd law'
 ---
 
 [systemd](https://www.freedesktop.org/wiki/Software/systemd/) is somewhat of a controversial topic in the Linux ecosystem. This init system for Linux distributions is loved and hated by many people, and people never seem to stop complaining about it. Meanwhile, Linux distros are slowly adopting `systemd` to the point of scaring the hard-line `systemd` detractors into creating [their own spin-off of their favourite distro](https://devuan.org/) with `systemd` violently ripped apart from it.

@@ -1,8 +1,8 @@
 ---
 category: bookmark
 layout: bookmark
-title: "Formula 1 unveils new identity by Wieden + Kennedy London"
-link: "https://www.creativereview.co.uk/formula-1-unveils-new-identity-wieden-kennedy-london/"
+title: 'Formula 1 unveils new identity by Wieden + Kennedy London'
+link: 'https://www.creativereview.co.uk/formula-1-unveils-new-identity-wieden-kennedy-london/'
 ---
 
 Okay, a bit of an unpopular opinion: I don't think the new F1 logo is bad at all.

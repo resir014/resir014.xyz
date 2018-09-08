@@ -4,13 +4,13 @@ layout: post
 title: Tumblr and the Internet Positif hammer
 lead: Or, the Indonesian government still not understanding how technology works.
 tags:
-- tumblr
-- indonesia
-- kemkominfo
-- internet-positif
+  - tumblr
+  - indonesia
+  - kemkominfo
+  - internet-positif
 header_image: chrome_2016-02-17_15-00-37.png
 redirect_from:
-- 2016/02/17/tumblr-and-the-internet-positif-hammer
+  - 2016/02/17/tumblr-and-the-internet-positif-hammer
 syndication:
   - name: Medium
     url: https://medium.com/@resir014/tumblr-and-the-internet-positif-hammer-8a2dd24eb8dc
@@ -40,7 +40,7 @@ When I log in, now I have food in my dashboard.
 
 ![chrome_2016-02-17_15-12-55](./chrome_2016-02-17_15-12-55.png)
 
-Do *you* have food in your Tumblr dashboard? No? Didn't think so.
+Do _you_ have food in your Tumblr dashboard? No? Didn't think so.
 
 What you just did is search for "porn" on the searchbox and things come out. Mind you, these are all user-generated content, and Tumblr is simply a middleman. They provide a medium to post whatever they like, which, of course, adhere to the [Tumblr Community Guidelines](https://www.tumblr.com/policy/en/community).
 
@@ -52,11 +52,11 @@ The community guidelines explicitly disallows blogs that post NSFW content that 
 
 So, government, could you let me know how you found these "sexual content" again? Has there ever been any in-depth study on whether or not Tumblr has said content? Or did you just type "porn" on the search box and flag the website if results come up?
 
-If you did the latter, then it's not us who are lusting for NSFW content. No, we're sick of being treated as perverts. In which case, *you* are the actual pervert here.
+If you did the latter, then it's not us who are lusting for NSFW content. No, we're sick of being treated as perverts. In which case, _you_ are the actual pervert here.
 
 ---
 
-I did mention about the Internet Positif being "borderline censorship" earlier. I mean, it's okay to filter out the internet for your kids, but *please* don't do it on a national scale. And don't put it under a shady system that never showed any form of transparency.
+I did mention about the Internet Positif being "borderline censorship" earlier. I mean, it's okay to filter out the internet for your kids, but _please_ don't do it on a national scale. And don't put it under a shady system that never showed any form of transparency.
 
 Because you see, when you visit the official [government website](http://trustpositif.kominfo.go.id/) and look up their database, this is the only information you will get.
 
@@ -72,4 +72,4 @@ There's no point going with the "shoot first, ask questions later" approach on i
 
 ---
 
-*This post is also published on [Medium](https://medium.com/@resir014/tumblr-and-the-internet-positif-hammer-8a2dd24eb8dc).*
+_This post is also published on [Medium](https://medium.com/@resir014/tumblr-and-the-internet-positif-hammer-8a2dd24eb8dc)._

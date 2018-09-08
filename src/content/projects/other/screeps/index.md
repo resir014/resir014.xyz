@@ -1,7 +1,7 @@
 ---
 category: other
 layout: project
-title: "Screeps"
+title: 'Screeps'
 year: 2016
 lead: Contributions and community projects for Screeps.
 tags:
@@ -17,10 +17,10 @@ redirect_from:
 
 The game mostly revolves around JavaScript programming, however you can also use [any other language](st-of-languages-that-compile-to-js) that transpiles to JavaScript. I'm currently active among the [TypeScript](http://www.typescriptlang.org) community of Screeps, contributing to a couple of TypeScript-based community efforts for the game itself, including a [starter kit](https://github.com/screepers/screeps-typescript-starter) for TypeScript-based Screeps AI codes.
 
-Feel free to say hi by [signing up to the Slack chatroom](http://chat.screeps.com/), and joining the `#typescript` channel once you're there. Join us and ~~embrace the dark side~~ __enjoy the power__ of static typing in Screeps!
+Feel free to say hi by [signing up to the Slack chatroom](http://chat.screeps.com/), and joining the `#typescript` channel once you're there. Join us and ~~embrace the dark side~~ **enjoy the power** of static typing in Screeps!
 
 ## Projects
 
-* **[resir014/screeps](https://github.com/resir014/screeps)** - My personal AI code for Screeps, dubbed Stonehenge.
-* **[screeps-typescript-starter](https://github.com/screepers/screeps-typescript-starter)** - Starter kit for TypeScript-based Screeps AI codes.
-* **[typed-screeps](https://github.com/screepers/typed-screeps)** - Type declarations for the game Screeps.
+- **[resir014/screeps](https://github.com/resir014/screeps)** - My personal AI code for Screeps, dubbed Stonehenge.
+- **[screeps-typescript-starter](https://github.com/screepers/screeps-typescript-starter)** - Starter kit for TypeScript-based Screeps AI codes.
+- **[typed-screeps](https://github.com/screepers/typed-screeps)** - Type declarations for the game Screeps.

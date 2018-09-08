@@ -2,8 +2,8 @@
 category: article
 layout: post
 date: 2018-03-31T23:00:00+07:00
-title: "Building a faster, snappier feed reader with PWA + JAMstack"
-lead: "Written as part of the #WWWIDChallenge on Progressive Web Apps."
+title: 'Building a faster, snappier feed reader with PWA + JAMstack'
+lead: 'Written as part of the #WWWIDChallenge on Progressive Web Apps.'
 header_image: header.jpg
 syndication:
   - name: Medium
@@ -16,10 +16,10 @@ About a month ago, Yohan Totting posted the [#WWWIDChallenge](https://medium.com
 
 So, essentially:
 
-* A statically-generated PWA built with [GatsbyJS](https://www.gatsbyjs.org/), hosted on [Netlify](https://www.netlify.com/).
-* A cron job runs the Netlify webhook to re-build pages once a day
-* HTTP/2 (provided by default on Netlify) with server push
-* Uses `gatsby-image` to enable image optimisation with Sharp + lazy-loading
+- A statically-generated PWA built with [GatsbyJS](https://www.gatsbyjs.org/), hosted on [Netlify](https://www.netlify.com/).
+- A cron job runs the Netlify webhook to re-build pages once a day
+- HTTP/2 (provided by default on Netlify) with server push
+- Uses `gatsby-image` to enable image optimisation with Sharp + lazy-loading
 
 ## Attempt #1
 

@@ -1,11 +1,11 @@
 ---
 category: article
 layout: post
-title: "Go-Jek and the Government: an unfortunate love-hate relationship"
+title: 'Go-Jek and the Government: an unfortunate love-hate relationship'
 subtitle: How a government's inconsistency could kill innovation
 tags:
-- indonesia
-- go-jek
+  - indonesia
+  - go-jek
 syndication:
   - name: Medium
     url: https://medium.com/@resir014/go-jek-and-the-government-an-unfortunate-love-hate-relationship-bdda6d2d311c
@@ -23,7 +23,7 @@ The statement was signed on the 9th of November by the Minister of Transportatio
 
 The decision came suddenly, much to the dismay and outrage of Indonesian netizens, including yours truly. [Angry tweets](https://twitter.com/jokoanwar/status/677681572141793281) were everywhere, it made the morning news, and even someone made a [petition](https://www.change.org/p/ignasius-jonan-tinjau-ulang-larangan-pemerintah-terhadap-layanan-ojek-dan-taksi-berbasis-online-daring) for it. What actually caused this decision to come in effect, and where is the reasoning behind this banning?
 
-This article was written partly in response to [Tom Pepinsky](https://twitter.com/TomPepinsky)'s post [*GO-JEK: from 'Disruptive Innovation' to 'Disrupted Innovation'*](http://tompepinsky.com/2015/12/17/go-jek-from-disruptive-innovation/), while at the same time calling out the lack of logic that has made this decision to come in effect.
+This article was written partly in response to [Tom Pepinsky](https://twitter.com/TomPepinsky)'s post [_GO-JEK: from 'Disruptive Innovation' to 'Disrupted Innovation'_](http://tompepinsky.com/2015/12/17/go-jek-from-disruptive-innovation/), while at the same time calling out the lack of logic that has made this decision to come in effect.
 
 ## Background
 
@@ -75,9 +75,11 @@ There also have been words that the Minister of Transportation has pulled a 180 
 
 As for the current state of our public transport, as long as it remains however it is right now, it is safe to say that we will still need these alternatives for quite a while.
 
-***
+---
 
-*This post is also published on [Medium](https://medium.com/@resir014/go-jek-and-the-government-an-unfortunate-love-hate-relationship-bdda6d2d311c).*
+_This post is also published on [Medium](https://medium.com/@resir014/go-jek-and-the-government-an-unfortunate-love-hate-relationship-bdda6d2d311c)._
 
 [^fn-cite-1]: [\[Source\]](http://tompepinsky.com/2015/08/03/on-the-disruption-of-go-jek/)
-[^fn-cite-2]: [\[Source\]](http://megapolitan.kompas.com/read/2015/09/01/14043961/Pertemukan.Pengemudi.Ojek.Pangkalan.dan.Aplikasi.Jokowi.Minta.Bersaing.Sehat)
+[^fn-cite-2]:
+
+  [\[Source\]](http://megapolitan.kompas.com/read/2015/09/01/14043961/Pertemukan.Pengemudi.Ojek.Pangkalan.dan.Aplikasi.Jokowi.Minta.Bersaing.Sehat)

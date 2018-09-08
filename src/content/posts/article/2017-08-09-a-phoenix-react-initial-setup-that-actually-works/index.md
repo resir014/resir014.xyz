@@ -1,22 +1,22 @@
 ---
 category: article
 layout: post
-title: "A Phoenix+React initial setup that actually works"
-subtitle: "I got tired of following guides on connecting React with Phoenix that never seem to work, so I made my own."
+title: 'A Phoenix+React initial setup that actually works'
+subtitle: 'I got tired of following guides on connecting React with Phoenix that never seem to work, so I made my own.'
 syndication:
   - name: Medium
     url: https://medium.com/@resir014/a-phoenix-react-initial-setup-that-actually-works-c943e48f1e9e
 ---
 
-*__Update 2018/03/27:__ The <a href="https://github.com/resir014/phoenix_react_playground">sample repo</a> included in this post has undergone some substantial changes since I wrote the article mentioned above. After doing enough Elixir/Phoenix development over the past few months, I’ve felt that a rewrite is long overdue.*
+_**Update 2018/03/27:** The <a href="https://github.com/resir014/phoenix_react_playground">sample repo</a> included in this post has undergone some substantial changes since I wrote the article mentioned above. After doing enough Elixir/Phoenix development over the past few months, I’ve felt that a rewrite is long overdue._
 
-*Some changes include:*
+_Some changes include:_
 
-* *upgraded to webpack 4 to make use of the brand-new optimisation strategies included out of the box, all with a smaller configuration file,*
-* *moved all the frontend stuff back inside the assets/ directory; and also*
-* *upgraded all dependencies to the latest version.*
+- _upgraded to webpack 4 to make use of the brand-new optimisation strategies included out of the box, all with a smaller configuration file,_
+- _moved all the frontend stuff back inside the assets/ directory; and also_
+- _upgraded all dependencies to the latest version._
 
-*A follow-up article will be written in the coming weeks.*
+_A follow-up article will be written in the coming weeks._
 
 ---
 
@@ -40,13 +40,13 @@ If reading's not your thing, I have prepared the end result of this guide [here]
 
 Once you're all set up, you should have a working Phoenix setup with the following stack:
 
-* Elixir (^1.5.0)
-* Node.js (^8.2.1)
-* npm (^5.3.0)
-* Phoenix (^1.3.0)
-* React (^15.6.1)
-* TypeScript (^2.4.2)
-* Webpack (^3.4.1)
+- Elixir (^1.5.0)
+- Node.js (^8.2.1)
+- npm (^5.3.0)
+- Phoenix (^1.3.0)
+- React (^15.6.1)
+- TypeScript (^2.4.2)
+- Webpack (^3.4.1)
 
 ---
 
@@ -154,7 +154,7 @@ const plugins = {
   production: [
     // Only run in production. Produce minified JS.
     new webpack.optimize.UglifyJsPlugin({
-      compress: {warnings: false}
+      compress: { warnings: false }
     })
   ],
   development: []
@@ -162,10 +162,7 @@ const plugins = {
 
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    path.join(__dirname, 'assets/js/app.tsx'),
-    path.join(__dirname, 'assets/scss/app.scss')
-  ],
+  entry: [path.join(__dirname, 'assets/js/app.tsx'), path.join(__dirname, 'assets/scss/app.scss')],
   output: {
     path: path.join(__dirname, '/priv/static'),
     filename: 'js/app.js'
@@ -203,13 +200,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin([
-      path.join(__dirname, 'priv/static')
-    ]),
+    new CleanWebpackPlugin([path.join(__dirname, 'priv/static')]),
     // Important to keep React file size down
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify(env)
+        NODE_ENV: JSON.stringify(env)
       }
     }),
     // Type checker for `awesome-typescript-loader`
@@ -221,15 +216,10 @@ module.exports = {
       filename: 'css/app.css',
       allChunks: true
     }),
-    new CopyWebpackPlugin([
-      { from: path.join(__dirname, 'assets', 'static') }
-    ])
+    new CopyWebpackPlugin([{ from: path.join(__dirname, 'assets', 'static') }])
   ].concat(plugins[env]),
   resolve: {
-    modules: [
-      'node_modules',
-      'assets/js'
-    ],
+    modules: ['node_modules', 'assets/js'],
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
@@ -344,7 +334,7 @@ Now we can set up our base React boilerplate.
 `assets/css/app.scss`
 
 ```scss
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 // Include extra SCSS down here.
 ```
@@ -360,10 +350,7 @@ import { routes } from './routes'
 
 // This code starts up the React app when it runs in a browser. It sets up the routing
 // configuration and injects the app into a DOM element.
-ReactDOM.render(
-  <BrowserRouter children={ routes } />,
-  document.getElementById('react-app')
-)
+ReactDOM.render(<BrowserRouter children={routes} />, document.getElementById('react-app'))
 ```
 
 `assets/js/Root.tsx`
@@ -395,7 +382,7 @@ import Home from './components/Home'
 
 export const routes = (
   <Root>
-    <Route exact path="/" component={ Home } />
+    <Route exact path="/" component={Home} />
   </Root>
 )
 ```
@@ -413,12 +400,8 @@ export default class Home extends React.Component<{}, {}> {
   }
 
   public render(): JSX.Element {
-    return (
-      <div>
-        {/* Be sure to always wrap the content of a component in an enclosing
-         element (e.g. `<div>`) */}
-      </div>
-    )
+    return <div>{/* Be sure to always wrap the content of a component in an enclosing
+         element (e.g. `<div>`) */}</div>
   }
 }
 ```
@@ -511,14 +494,39 @@ export default class Counter extends React.Component<{}, CounterState> {
       <div>
         <h1>Counter</h1>
         <p>The Counter is the simplest example of what you can do with a React component.</p>
-        <p>Current count: <strong>{this.state.currentCount}</strong></p>
-
+        <p>
+          Current count: <strong>{this.state.currentCount}</strong>
+        </p>
         {/* We apply an onClick event to these buttons to their corresponding functions */}
-        <Button color="primary" onClick={() => { this.incrementCounter() }}>Increment counter</Button>{' '}
-        <Button color="secondary" onClick={() => { this.decrementCounter() }}>Decrement counter</Button>{' '}
-        <Button color="secondary" onClick={() => { this.resetCounter() }}>Reset counter</Button>
-        <br /><br />
-        <p><Link to="/">Back to home</Link></p>
+        <Button
+          color="primary"
+          onClick={() => {
+            this.incrementCounter()
+          }}
+        >
+          Increment counter
+        </Button>{' '}
+        <Button
+          color="secondary"
+          onClick={() => {
+            this.decrementCounter()
+          }}
+        >
+          Decrement counter
+        </Button>{' '}
+        <Button
+          color="secondary"
+          onClick={() => {
+            this.resetCounter()
+          }}
+        >
+          Reset counter
+        </Button>
+        <br />
+        <br />
+        <p>
+          <Link to="/">Back to home</Link>
+        </p>
       </div>
     )
   }
@@ -553,7 +561,7 @@ Now go to `localhost:4000/counter` and test your creation. If it works, we can c
 
 As mentioned earlier, almost every React+Phoenix tutorial that I ever found on the internet only go as far as rendering a single React component, with no regard on how to set both React and Phoenix properly so that they could communicate with each other. Hopefully this will explain everything.
 
-Before you start, please please *please* make sure that on `router.ex`, you have the `"/api"` scope declared *on top of* the `/*path` declaration. Seriously. I spent a whole week figuring this out and then only recently realised that I had the routing declarations the other way around.
+Before you start, please please _please_ make sure that on `router.ex`, you have the `"/api"` scope declared _on top of_ the `/*path` declaration. Seriously. I spent a whole week figuring this out and then only recently realised that I had the routing declarations the other way around.
 
 `router.ex`
 
@@ -709,4 +717,4 @@ Good luck! Feel free to [tweet at me](https://twitter.com/resir014) if you have 
 
 ---
 
-*Thanks to [~selsky](https://tilde.town/~selsky) for their help on proofreading this post!*
+_Thanks to [~selsky](https://tilde.town/~selsky) for their help on proofreading this post!_

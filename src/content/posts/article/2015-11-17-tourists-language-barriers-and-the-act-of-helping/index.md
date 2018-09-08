@@ -2,7 +2,7 @@
 category: article
 layout: post
 title: Tourists, language barriers, and the act of helping
-lead: "Or, the day when I actually helped a bunch of foreign strangers and felt much better afterwards."
+lead: 'Or, the day when I actually helped a bunch of foreign strangers and felt much better afterwards.'
 external_url: https://medium.com/@resir014/tourists-language-barriers-and-the-act-of-helping-bd9fdafb7067
 tags:
   - language
@@ -16,7 +16,7 @@ It was at a small restaurant on the side of the road where I saw that ad from a 
 
 My phone's battery was dying out, so I reluctantly locked my eyes to the old CRT TV on the far end of the restaurant. It was tuned to the local public television.
 
-You know, *that* one.
+You know, _that_ one.
 
 Oh boy, here we go, I thought. It was during the middle of an afternoon cooking show where this public service announcement ad caught up my attention.
 
@@ -24,15 +24,15 @@ In the ad, was a man out to get some groceries, but ended up losing his directio
 
 "Oh, another one of that patriotic ads, I guess." I thought to myself as I shrugged it off. Shortly after, my order of beef rendang was ready, then I paid for them at the cashier and walked back home.
 
-***
+---
 
 I could pretty much consider myself growing up around the English language. My parents took me to an English course for the first time when I was around 3 years old, and kept going there until around the beginning of secondary school (~Year 7), and after that, I sorta continued learning English myself, through cable TV programmes, English language books, and conversing with people on the internet. It kind of fell to the point where people would say "Hey, your English is very good!" even though I knew full well I still had flaws here and there, and it's not really that special.
 
 Despite all this, my English-speaking abilities has always been locked inside of me, almost never having the chance to actually apply them to my immediate surroundings. Sure, I could still write normally on the Internet, but in real life, I kept feeling like it's a waste of time to actually use them in real life, so I'd usually just follow the herd and continued on as people around me would speak.
 
-***
+---
 
-Fast forward to about 5 hours later, I just got out of a very boring university class. Web programming is a boring class. I *knew* most of the shit taught here for a while now. And as a recently-growing habit of de-stressing myself, I went out to the nearby McDonald's to order some fast food. It was raining as well, so I thought it would be a nice place to wait for the rain to stop, so I sat there, got my laptop ready, and started doing random things to kill the time.
+Fast forward to about 5 hours later, I just got out of a very boring university class. Web programming is a boring class. I _knew_ most of the shit taught here for a while now. And as a recently-growing habit of de-stressing myself, I went out to the nearby McDonald's to order some fast food. It was raining as well, so I thought it would be a nice place to wait for the rain to stop, so I sat there, got my laptop ready, and started doing random things to kill the time.
 
 There were, strangely enough, a bunch of foreigners, which were weird, because the area around my university has never been really that popular among tourists. I shrugged that off at first as a minor coincidence.
 
@@ -52,7 +52,7 @@ We walked for a bit and we started to talk about things, ultimately getting the 
 
 As soon as I found their cab, and told their directions to the driver, I nodded, signing that the driver could take them there, then I shook their hands as we said goodbye to each other.
 
-***
+---
 
 It was actually one of the best feelings that I've had in weeks, after meeting and helping those Polish tourists. For one, I was finally able to use my English skills to its full potential, a moment that I rarely could have nowadays. I also got to feel that feeling of being able to help people in need, that really made you feel like you've accomplished something, and also the joy that you get when you could pass along some goodwill to other people.
 
@@ -66,10 +66,10 @@ Also, remember that public service announcement ad I told you earlier? This is w
 
 Because staying enclosed in your own native tongue without any means of learning other languages will most likely make you miss this opportunity of actually showing the true nature of us humans as a social being, which is helping people.
 
-***
+---
 
 And last but not least, to that group of unknown Polish tourists that I met, I know you probably wouldn't read this, but: dziękuję bardzo.
 
-***
+---
 
-*This post is also published on [Medium](https://medium.com/@resir014/tourists-language-barriers-and-the-act-of-helping-bd9fdafb7067).*
+_This post is also published on [Medium](https://medium.com/@resir014/tourists-language-barriers-and-the-act-of-helping-bd9fdafb7067)._

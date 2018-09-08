@@ -1,8 +1,8 @@
 ---
 category: bookmark
 layout: bookmark
-title: "How a Norwegian comment section turned chaos into order—with a simple quiz"
-link: "https://arstechnica.com/gaming/2018/03/how-a-norwegian-comment-section-turned-chaos-into-order-with-a-simple-quiz/"
+title: 'How a Norwegian comment section turned chaos into order—with a simple quiz'
+link: 'https://arstechnica.com/gaming/2018/03/how-a-norwegian-comment-section-turned-chaos-into-order-with-a-simple-quiz/'
 date: 2018-03-22T12:35:36+07:00
 ---
 

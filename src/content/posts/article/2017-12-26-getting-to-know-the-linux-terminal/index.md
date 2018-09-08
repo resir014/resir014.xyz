@@ -1,21 +1,21 @@
 ---
 category: article
 layout: post
-title: "Getting to know the Linux terminal"
+title: 'Getting to know the Linux terminal'
 lead: "Can't get your way through the Linux terminal? This guide will get you up and running in minutes."
 ---
 
 <!-- Add image here in the future. -->
 
-*This article was originally published for one of the blogs that I formerly run, [fuck yeah, elementary OS!](https://fuckyeah-elementaryos.tumblr.com/post/84584655168/getting-to-know-the-linux-terminal-a-fyeos-guide) After three years, I've decided to bring it up to date and republish it on my personal website.*
+_This article was originally published for one of the blogs that I formerly run, [fuck yeah, elementary OS!](https://fuckyeah-elementaryos.tumblr.com/post/84584655168/getting-to-know-the-linux-terminal-a-fyeos-guide) After three years, I've decided to bring it up to date and republish it on my personal website._
 
-***
+---
 
 The Terminal is where the magic happens in any UNIX-based operating systems, including Linux. It allows you to do more with your computer than you never knew you could. That is, if you know what you're doing.
 
 This guide is a friendly way to help you get started with the Linux terminal. We will see some basic terminal commands as well as some basic examples on using it, plus some cool simple things that you can do yourself.
 
-***
+---
 
 ## Finding the Terminal.
 
@@ -127,7 +127,7 @@ In the modern day, apps usually profide a graphical interface, but there are als
 
 Here are some of my recommended terminal-based apps.
 
-* **[htop](http://hisham.hm/htop/)** -- Interactive process viewer for UNIX-based systems.
-* **[Weechat](https://weechat.org/)** -- An extensible, command line-based IRC chat client.
-* **[vim](https://vim.sourceforge.io/)** -- A popular terminal-based text editor designed to be compatible with the UNIX text editor `vi`.
-* **[Emacs](https://www.gnu.org/software/emacs/)** -- The **other** terminal-based text editor. Completely extensible, and has a thriving extensions ecosystem. (Check out [Spacemacs](http://spacemacs.org/)!)
+- **[htop](http://hisham.hm/htop/)** -- Interactive process viewer for UNIX-based systems.
+- **[Weechat](https://weechat.org/)** -- An extensible, command line-based IRC chat client.
+- **[vim](https://vim.sourceforge.io/)** -- A popular terminal-based text editor designed to be compatible with the UNIX text editor `vi`.
+- **[Emacs](https://www.gnu.org/software/emacs/)** -- The **other** terminal-based text editor. Completely extensible, and has a thriving extensions ecosystem. (Check out [Spacemacs](http://spacemacs.org/)!)

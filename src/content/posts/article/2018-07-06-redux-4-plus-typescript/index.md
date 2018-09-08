@@ -2,8 +2,8 @@
 category: article
 layout: post
 date: 2018-07-06T20:36:00+07:00
-title: "Redux 4 + TypeScript 2.9: A type-safe approach"
-lead: "An updated version of my type-safe guide to Redux, now compatible with Redux 4 + TypeScript 2.9."
+title: 'Redux 4 + TypeScript 2.9: A type-safe approach'
+lead: 'An updated version of my type-safe guide to Redux, now compatible with Redux 4 + TypeScript 2.9.'
 syndication:
   - name: dev.to
     url: https://dev.to/resir014/redux-4--typescript-29-a-type-safe-approach-2lf4
@@ -35,13 +35,13 @@ If you want to jump straight to the examples, I've also published a sample proje
 
 ## Directory structure
 
-I'll level with you, one of the hardest steps in getting started with working on React + Redux for me is figuring out how to structure your project. There's really no *de facto* way to do this, but it's still important to get this right so to not cause further distractions down the road. Here's how I normally do it.
+I'll level with you, one of the hardest steps in getting started with working on React + Redux for me is figuring out how to structure your project. There's really no _de facto_ way to do this, but it's still important to get this right so to not cause further distractions down the road. Here's how I normally do it.
 
 ### Use a dedicated `store/` directory
 
 A lot of the guides/projects out there structure their store separately inside a root `actions/` and `reducers/` directory, to mimic the patterns in Redux architecture.
 
-*(Note that the following directory trees assume that your code is placed inside a `src/` directory.)*
+_(Note that the following directory trees assume that your code is placed inside a `src/` directory.)_
 
 ```
 .
@@ -93,8 +93,6 @@ So I decided to dedicate a `store/` directory for all my Redux actions/reducers.
 `-- types.d.ts
 ```
 
-
-
 ### Group stores by context
 
 As an extension to the guides above, the state tree should be structured **by context**.
@@ -135,7 +133,7 @@ export interface ApplicationState {
 // using the reducer with the matching name. It's important that the names match exactly, and that
 // the reducer acts on the corresponding ApplicationState property type.
 export const rootReducer = combineReducers<ApplicationState>({
-  layout: layoutReducer,
+  layout: layoutReducer
 })
 ```
 
@@ -182,7 +180,6 @@ export interface HeroesState {
   readonly data: Hero[]
   readonly errors?: string
 }
-
 ```
 
 ## Typing actions
@@ -313,7 +310,7 @@ import { all, fork } from 'redux-saga/effects'
 export function* rootSaga() {
   yield all([
     fork(heroesSaga),
-    fork(teamsSaga),
+    fork(teamsSaga)
     // `fork()` any other store sagas down here...
   ])
 }
@@ -424,9 +421,7 @@ const Header: React.SFC = ({ children }) => (
     {({ theme, setTheme }) => (
       <React.Fragment>
         <CurrentTheme>Current theme: {theme}</CurrentTheme>
-        <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-          Switch theme
-        </button>
+        <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>Switch theme</button>
       </React.Fragment>
     )}
   </LayoutContainer>

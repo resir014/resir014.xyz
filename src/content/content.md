@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Content"
+title: 'Content'
 ---
 
-* [Blog](/blog) - long-form blog posts
-* [Bits](/bits) - shorter, more free-form updates
+- [Blog](/blog) - long-form blog posts
+- [Bits](/bits) - shorter, more free-form updates

@@ -19,7 +19,7 @@ But unfortunately, there is one major event that's about to occur on 15 February
 
 That's right, the 2017 Indonesian local elections is just right around the corner. This pain-inducing, mouth-watering, traffic-jam-causing, piece of shit of an election has become the spotlight of many Jakartans, or, many people who come from other towns and cities pretending to be Jakartans. Including me. Because I actually live in South Tangerang. Sue me.
 
-Tonight, under the influence of caffeine, I have decided to write up a quick guide to the 2017 Indonesian Local Elections, written by an idiot who actually knows jack shit about the recent news, which is probably helpful for people who *still* don't know what the fuck is up about this elections, and probably foreigners who just have no idea.
+Tonight, under the influence of caffeine, I have decided to write up a quick guide to the 2017 Indonesian Local Elections, written by an idiot who actually knows jack shit about the recent news, which is probably helpful for people who _still_ don't know what the fuck is up about this elections, and probably foreigners who just have no idea.
 
 So how do I gather all these information, you may ask? Simple. It's through my lazy googling of each candidates, as well as speed-reading (read: skimming) through some news articles of some notable events that occured to some of these candidates some time ago, all with the help of my awesome Twitter timeline, which has never stopped supplying me with dank memes that we've found throughout the build-up to the gubernatorial race.
 
@@ -32,7 +32,7 @@ So, without further ado, let's begin.
 
 ## So, what is it?
 
-The official title of this series of elections is supposed to be the 2017 Indonesian Local Elections. Yes, in case you didn't know, we actually have *more than one* local elections going on at that exact same dates, but no one ever gives a fuck about them, so we're going to only focus on the gubernatorial race in Jakarta. Hence, the 2017 *Jakarta* Local Elections.
+The official title of this series of elections is supposed to be the 2017 Indonesian Local Elections. Yes, in case you didn't know, we actually have _more than one_ local elections going on at that exact same dates, but no one ever gives a fuck about them, so we're going to only focus on the gubernatorial race in Jakarta. Hence, the 2017 _Jakarta_ Local Elections.
 
 Even when there are roughly half a dozen other provinces holding their own local elections this year, nope, apparently Indonesia only consists of Jakarta and we only care about that one city. So sorry people who live in Aceh, Bangka & Belitung Islands, Banten, Gorontalo, West Sulawesi, and West Papua. We're not meant to say you don't matter, more like constant exposure of Jakarta's election also sparked conversations about the 2017 local elections, in a way. So we actually helped you guys in a way, right? Right?
 
@@ -119,4 +119,4 @@ I'm still high on caffeine, too.
 
 ---
 
-*This post has been updated to clarify that the GNPF is not "officially" controlled by the MUI.*
+_This post has been updated to clarify that the GNPF is not "officially" controlled by the MUI._

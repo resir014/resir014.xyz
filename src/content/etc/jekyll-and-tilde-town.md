@@ -1,6 +1,6 @@
 ---
-layout: "page"
-title: "Jekyll and tilde.town"
+layout: 'page'
+title: 'Jekyll and tilde.town'
 ---
 
 > This post has been moved to:

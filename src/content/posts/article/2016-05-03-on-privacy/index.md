@@ -1,11 +1,11 @@
 ---
 category: article
 layout: post
-title: "On privacy"
-lead: "After the Snowden revelations, our trust in technology is at an all-time low. At the same time, the debate on privacy and encryption is getting even more heated."
+title: 'On privacy'
+lead: 'After the Snowden revelations, our trust in technology is at an all-time low. At the same time, the debate on privacy and encryption is getting even more heated.'
 tags:
-- personal
-- privacy
+  - personal
+  - privacy
 ---
 
 It's a weird world of technology that we live in nowadays.
@@ -42,7 +42,7 @@ There's also one other argument that has pretty much become the epicenter of the
 
 To put my viewpoint in perspective, let's say that you told me that you have nothing to hide. Are you sure? Like, absolutely sure? How about that one time when you were browsing porn on a public wifi? How about those porn sites lying around in your history? How about that sticky note lying on your phone which contains everything that you hate about that other guy?
 
-In a modern age, having "nothing to hide" is relative. Sure, you can say that you have nothing to hide, whilst forgetting that you have that dark moment in your past lives which you just wanted to erase. And what I've learned over the past few months regarding this whole debate is that you have to have *something* to hide, to an extent.
+In a modern age, having "nothing to hide" is relative. Sure, you can say that you have nothing to hide, whilst forgetting that you have that dark moment in your past lives which you just wanted to erase. And what I've learned over the past few months regarding this whole debate is that you have to have _something_ to hide, to an extent.
 
 However, another quirk of the privacy debate is how people would start to take people's arguments about this out of context, purporting that the opposing party stated that they have nothing to hide, which means it's the perfect time to pull the ["I have nothing to hide" fallacy](https://twitter.com/SoatokDhole/status/691704485933105152). This has happened a lot of times that I start to find this fallacious in of itself.
 
@@ -58,7 +58,7 @@ My whole take on privacy is inspired from a really long YouTube comment I've rea
 >
 > So that's pretty much why instead of grouching about how we're losing our privacy, I choose to be discreet about what personal information I disclose online.
 >
-> As I'm not someone who can easily trust someone to the core level, this has actually pretty much helped me. Not even my closest friends, both IRL and online know *some* of my weirdest, darkest secrets.
+> As I'm not someone who can easily trust someone to the core level, this has actually pretty much helped me. Not even my closest friends, both IRL and online know _some_ of my weirdest, darkest secrets.
 >
 > Think of it as layers of onion. These stuffs are what you peel from inside of your mind, and those at the very inner layer are less likely to be peeled out. If I trust someone enough, then I'll slowly open up those layers and share it with them.
 

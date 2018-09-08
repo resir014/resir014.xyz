@@ -1,10 +1,10 @@
 ---
 category: other
 layout: project
-title: "Broville v11"
+title: 'Broville v11'
 year: 2016
 lead: A fully-detailed custom map for Minecraft.
-project_url: "http://oldshoes.ca/broville"
+project_url: 'http://oldshoes.ca/broville'
 jumpToProject: false
 tags:
   - minecraft

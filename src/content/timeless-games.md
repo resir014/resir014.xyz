@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Timeless Games"
+title: 'Timeless Games'
 ---
 
 > This section has been moved to:
