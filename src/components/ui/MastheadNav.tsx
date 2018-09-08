@@ -21,15 +21,19 @@ const MastheadNavItem = styled('span')`
   }
 
   a {
-    &.is-active {
-      color: ${colors.white};
-      text-decoration: underline;
-    }
-
     &:hover,
     &:focus {
       color: ${colors.white};
       text-decoration: none;
+    }
+
+    &.is-active {
+      color: ${colors.white};
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
     }
   }
 
