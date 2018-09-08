@@ -91,7 +91,9 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             <HomepageThumbnailText>
               <HomepageThumbnailFlavour
                 title="@resir014"
-                flavour={data.site.siteMetadata.flavourText}
+                flavour={
+                  process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText
+                }
               />
             </HomepageThumbnailText>
           </HomepageThumbnail>

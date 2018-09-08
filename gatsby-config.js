@@ -2,6 +2,11 @@
 
 require('dotenv').config()
 
+// also load node-env for each environment
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`
+})
+
 const flavours = require('./gatsby/flavourText')
 
 module.exports = {

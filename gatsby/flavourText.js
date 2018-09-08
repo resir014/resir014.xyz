@@ -9,6 +9,7 @@ module.exports = [
   'is typing',
   "doesn't smoke",
   'plays video games',
+  'is hyped for Ace Combat 7',
   'has a phone',
   'takes photos',
   'has a Raspberry Pi',
