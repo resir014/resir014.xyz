@@ -194,6 +194,7 @@ module.exports = {
         ]
       }
     },
+    'gatsby-plugin-netlify-cache',
     {
       resolve: 'gatsby-plugin-netlify',
       options: {
