@@ -1,5 +1,7 @@
 'use strict'
 
+require('dotenv').config()
+
 const flavours = require('./gatsby/flavourText')
 
 module.exports = {
@@ -122,8 +124,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-11448343-3',
-        anonymize: true
+        trackingId: process.env.GATSBY_GA_TRACKING_ID,
+        anonymize: true,
+        respectDNT: true
       }
     },
     `gatsby-plugin-sitemap`,
