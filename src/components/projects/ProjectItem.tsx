@@ -34,14 +34,16 @@ const ProjectYear = styled('span')`
   color: ${colors.grey50};
 `
 
-const ProjectTitle = styled('div')`
+const ProjectTitle = styled('h4')``
+
+const ProjectHeader = styled('div')`
   display: flex;
   flex-direction: row;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   background: ${(props: ProjectTitleProps) => colorByCategory(props.category)};
   border-radius: 4px;
 
-  h3 {
+  ${ProjectTitle} {
     flex: 1 1 auto;
     margin: 0;
     color: ${colors.white};
@@ -76,7 +78,7 @@ const ProjectTags = styled('div')`
 `
 
 const ProjectDetailBox = styled('div')`
-  padding: 1rem 0;
+  padding: 1rem 0.5rem;
   flex: 1 0 auto;
 
   p {
@@ -142,18 +144,18 @@ const renderLink = (title: string, category: string, url: string, jumpToProject:
   if (jumpToProject) {
     return (
       <JumpToProjectLink href={url} target="_blank" rel="noopener noreferrer">
-        <ProjectTitle category={category}>
-          <h3>{title}</h3>
-        </ProjectTitle>
+        <ProjectHeader category={category}>
+          <ProjectTitle>{title}</ProjectTitle>
+        </ProjectHeader>
       </JumpToProjectLink>
     )
   }
 
   return (
     <ProjectLink to={url}>
-      <ProjectTitle category={category}>
-        <h3>{title}</h3>
-      </ProjectTitle>
+      <ProjectHeader category={category}>
+        <ProjectTitle>{title}</ProjectTitle>
+      </ProjectHeader>
     </ProjectLink>
   )
 }

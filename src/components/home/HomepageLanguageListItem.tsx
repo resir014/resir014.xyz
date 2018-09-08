@@ -31,9 +31,10 @@ const Div = styled('div')`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 72px;
+  height: 100%;
+  max-height: 72px;
   margin-bottom: 1rem;
-  padding: ${emSizes.containerPadding}rem;
+  padding: ${emSizes.containerPadding / 2}rem ${emSizes.containerPadding}rem;
   border-radius: 3px;
   font-size: 1.25rem;
   font-weight: 600;
