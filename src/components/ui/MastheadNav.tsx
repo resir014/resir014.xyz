@@ -23,6 +23,7 @@ const MastheadNavItem = styled('span')`
   a {
     &.is-active {
       color: ${colors.white};
+      text-decoration: underline;
     }
 
     &:hover,
