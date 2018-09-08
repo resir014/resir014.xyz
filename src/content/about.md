@@ -4,11 +4,11 @@ title: "About"
 lead: "Hey, call me Resi! I'm a web developer."
 ---
 
-I started getting into web development when I self-learned HTML and CSS back in high school.
+I started getting into web development when I self-learned HTML and CSS back in high school. Nowadays I continue to build web stuff, both professionally and as a hobby.
 
-I love open-source software, and I have been extensively contributing to the community for years. One of the biggest contributions I've made was to support the Indonesian localisation effort for the [Brackets editor](http://brackets.io/). On top of that, I also have many other utilities and personal projects that I host on my GitHub profile.
+When I'm not doing work stuff, I either contribute to open-source software, work on my own stuff, or find something else to do to keep myself occupied. When I no longer do either of those things, then something *really* bad must have happened to me.
 
-My other interests include, video games, motorsports, photography, and music. I keep a catalogue of interests on my [tilde.town page](https://tilde.town/~resir014/). Be sure to check them out, we might have some things in common!
+I keep a catalogue of interests on my [tilde.town page](https://tilde.town/~resir014/). Be sure to check them out, we might have some things in common!
 
 ## Skills
 

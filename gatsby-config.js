@@ -1,5 +1,12 @@
 'use strict'
 
+require('dotenv').config()
+
+// also load node-env for each environment
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`
+})
+
 const flavours = require('./gatsby/flavourText')
 
 module.exports = {
@@ -49,6 +56,7 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: '<!-- end -->',
         plugins: [
           {
             resolve: 'gatsby-remark-images',
@@ -121,8 +129,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-11448343-3',
-        anonymize: true
+        trackingId: process.env.GATSBY_GA_TRACKING_ID,
+        anonymize: true,
+        respectDNT: true
       }
     },
     `gatsby-plugin-sitemap`,
@@ -190,6 +199,7 @@ module.exports = {
         ]
       }
     },
+    'gatsby-plugin-netlify-cache',
     {
       resolve: 'gatsby-plugin-netlify',
       options: {

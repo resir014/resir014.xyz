@@ -87,12 +87,12 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
               {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
               <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
             </PostMeta>
+            {post.fields.lead ? (
+              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+            ) : null}
           </PostHeader>
           <PageContent>
             <Container>
-              {post.fields.lead ? (
-                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-              ) : null}
               <MarkdownContent className="e-content" html={post.html} />
               {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
                 <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>

@@ -1,44 +1,68 @@
 import * as React from 'react'
-import styled from 'react-emotion'
-
-import Button from '../ui/Button'
+import styled, { css } from 'react-emotion'
+import { Link } from 'gatsby'
 
 import { colors, fonts, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
 import { ProjectField } from '../../types/fields'
+import { getEmSize } from '../../styles/mixins'
 
 const StyledProjectItem = styled('div')`
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   position: relative;
-  padding: 1rem;
-  margin-top: 0;
   margin-bottom: 2rem;
-  background-color: ${colors.grey20};
+  flex: 1 1 100%;
 
   &:last-of-type {
     margin-bottom: 0;
   }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    flex: 1;
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    margin: 0 1rem 2rem;
+    flex: 0 1 calc(50% - 2rem);
   }
-`
 
-const ProjectTitle = styled('h3')`
-  margin-top: 0;
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.xl)}) {
+    flex: 0 1 calc(33.3% - 2rem);
+  }
 `
 
 const ProjectYear = styled('span')`
   display: inline-block;
-  margin-left: 1rem;
+  font-size: 1.25rem;
   font-family: ${fonts.sansSerif};
-  font-size: 70%;
   color: ${colors.grey50};
 `
 
+const ProjectTitle = styled('h4')``
+
+const ProjectHeader = styled('div')`
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  background: ${(props: ProjectTitleProps) => colorByCategory(props.category)};
+  border-radius: 4px;
+
+  ${ProjectTitle} {
+    flex: 1 1 auto;
+    margin: 0;
+    color: ${colors.white};
+  }
+`
+
+const UnstyledLink = css`
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+`
+
+const ProjectLink = styled(Link)(UnstyledLink)
+
+const JumpToProjectLink = styled('a')(UnstyledLink)
+
 const ProjectTags = styled('div')`
+  margin-bottom: 1rem;
   span {
     display: inline-block;
     padding: 0.25em 0.5em;
@@ -54,58 +78,86 @@ const ProjectTags = styled('div')`
 `
 
 const ProjectDetailBox = styled('div')`
-  margin-top: 1rem;
+  padding: 0.5rem;
+  flex: 1 0 auto;
 
   p {
-    margin-top: 0;
+    margin: 0;
   }
 `
 
 const ProjectFooter = styled('div')`
-  margin-top: auto;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid ${colors.grey30};
 `
+
+interface ProjectTitleProps {
+  category: string
+}
 
 const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
   const tags = node.fields.tags ? (JSON.parse(node.fields.tags) as string[]) : undefined
+  const { title } = node.frontmatter
+  const { description, lead, category, year, project_url, slug, jumpToProject } = node.fields
+
   return (
     <StyledProjectItem>
-      <ProjectTitle>
-        {node.frontmatter.title}
-        <ProjectYear>{node.fields.year}</ProjectYear>
-      </ProjectTitle>
-      {tags ? (
-        <ProjectTags>
-          {tags.map(tag => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </ProjectTags>
-      ) : null}
+      {jumpToProject === 'true' && project_url
+        ? renderLink(title, category, project_url, true)
+        : renderLink(title, category, slug, false)}
       <ProjectDetailBox>
+        <ProjectYear>{year}</ProjectYear>
         <p
           dangerouslySetInnerHTML={{
-            __html: node.fields.description || node.fields.lead
+            __html: description || lead
           }}
         />
+        <ProjectFooter>
+          {tags ? (
+            <ProjectTags>
+              {tags.map(tag => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </ProjectTags>
+          ) : null}
+        </ProjectFooter>
       </ProjectDetailBox>
-      <ProjectFooter>
-        {node.fields.jumpToProject === 'true' && node.fields.project_url
-          ? renderLink(node.fields.project_url, true)
-          : renderLink(node.fields.slug, false)}
-      </ProjectFooter>
     </StyledProjectItem>
   )
 }
 
-const renderLink = (url: string, jumpToProject: boolean) => (
-  <Button
-    kind="link"
-    color="primary"
-    href={url}
-    target={jumpToProject ? '_blank' : undefined}
-    rel={jumpToProject ? 'noopener noreferrer' : undefined}
-  >
-    Visit project
-  </Button>
-)
+const colorByCategory = (category: string) => {
+  switch (category) {
+    case 'web':
+      return `linear-gradient(to right, ${colors.blue70}, ${colors.blue50})`
+    case 'oss':
+      return `linear-gradient(to right, ${colors.purple70}, ${colors.purple50})`
+    case 'other':
+      return `linear-gradient(to right, ${colors.magenta70}, ${colors.magenta50})`
+    default:
+      return `linear-gradient(to right, ${colors.grey70}, ${colors.grey50})`
+  }
+}
+
+const renderLink = (title: string, category: string, url: string, jumpToProject: boolean) => {
+  if (jumpToProject) {
+    return (
+      <JumpToProjectLink href={url} target="_blank" rel="noopener noreferrer">
+        <ProjectHeader category={category}>
+          <ProjectTitle>{title}</ProjectTitle>
+        </ProjectHeader>
+      </JumpToProjectLink>
+    )
+  }
+
+  return (
+    <ProjectLink to={url}>
+      <ProjectHeader category={category}>
+        <ProjectTitle>{title}</ProjectTitle>
+      </ProjectHeader>
+    </ProjectLink>
+  )
+}
 
 export default ProjectItem

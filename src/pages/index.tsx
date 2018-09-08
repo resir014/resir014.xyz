@@ -1,11 +1,12 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { colors } from '../styles/variables'
 import flavors from '../utils/flavorText'
 
 import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
+import { ProjectField } from '../types/fields'
 import { ProjectNode } from '../types/nodes'
 
 import Button from '../components/ui/Button'
@@ -16,15 +17,17 @@ import HomepageSection from '../components/home/HomepageSection'
 import HomepageSectionTitle from '../components/home/HomepageSectionTitle'
 import HomepageSectionDescription from '../components/home/HomepageSectionDescription'
 import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
-import HomepageFeaturedProject from '../components/home/HomepageFeaturedProject'
 import HomepageLanguageList from '../components/home/HomepageLanguageList'
 import HomepageLanguageListItem from '../components/home/HomepageLanguageListItem'
 import HomepageThumbnail from '../components/home/HomepageThumbnail'
 import HomepageThumbnailImage from '../components/home/HomepageThumbnailImage'
 import HomepageThumbnailText from '../components/home/HomepageThumbnailText'
 import HomepageThumbnailFlavour from '../components/home/HomepageThumbnailFlavour'
+import ProjectItemList from '../components/projects/ProjectItemList'
 import HCard from '../components/indieweb/HCard'
 import TemplateWrapper from '../layouts'
+import FeaturedProject from '../components/projects/FeaturedProject'
+import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 
 interface IndexPageProps {
   location: {
@@ -37,6 +40,9 @@ interface IndexPageProps {
     headerImage: HeaderImage
     icon: HCardIcon
     featuredProject: ProjectNode
+    allProjects: {
+      edges: ProjectField[]
+    }
   }
 }
 
@@ -85,16 +91,58 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             <HomepageThumbnailText>
               <HomepageThumbnailFlavour
                 title="@resir014"
-                flavour={data.site.siteMetadata.flavourText}
+                flavour={
+                  process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText
+                }
               />
             </HomepageThumbnailText>
           </HomepageThumbnail>
           <HomepageContent>
             <Divider spacing="large" />
             <HomepageSection>
-              <HomepageSectionTitle>I write code for the web.</HomepageSectionTitle>
+              <HomepageSectionTitle>Hey, call me Resi!</HomepageSectionTitle>
               <HomepageSectionDescription>
-                Here are some technologies I'm currently crazy about.
+                I'm a professional web developer based in Jakarta, Indonesia.
+              </HomepageSectionDescription>
+              <HomepageSectionFooter>
+                <Button kind="nav-link" color="primary" size="lg" to="/about">
+                  More about me
+                </Button>{' '}
+                <Button kind="nav-link" color="primary" size="lg" to="/posts">
+                  Read my posts
+                </Button>
+              </HomepageSectionFooter>
+            </HomepageSection>
+            <Divider spacing="large" />
+            <HomepageSection size="xl">
+              <FeaturedProject node={data.featuredProject} />
+              <ProjectItemList
+                title="Web development stuff"
+                projects={filterProjectsByCategory(data.allProjects.edges, 'web')}
+                homepage
+              />
+              <ProjectItemList
+                title="Open source stuff"
+                projects={filterProjectsByCategory(data.allProjects.edges, 'oss')}
+                homepage
+              />
+              <ProjectItemList
+                title="Other stuff"
+                projects={filterProjectsByCategory(data.allProjects.edges, 'other')}
+                homepage
+              />
+              <HomepageSectionFooter>
+                <Button kind="nav-link" color="primary" size="lg" to="/projects">
+                  View more of my stuff
+                </Button>
+              </HomepageSectionFooter>
+            </HomepageSection>
+            <Divider spacing="large" />
+            <HomepageSection>
+              <HomepageSectionTitle>Current skillset</HomepageSectionTitle>
+              <HomepageSectionDescription>
+                Got an interesting project in mind? Want me to know about it?{' '}
+                <Link to="/contact">Let's talk!</Link>
               </HomepageSectionDescription>
               <HomepageLanguageList>
                 <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
@@ -106,33 +154,6 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
                 <HomepageLanguageListItem color="#61dafb" background="#282c34" name="React" />
                 <HomepageLanguageListItem color={colors.white} background="#4e2a8e" name="Elixir" />
               </HomepageLanguageList>
-              <HomepageSectionFooter>
-                <Button kind="nav-link" color="primary" size="lg" to="/about">
-                  View entire skillset
-                </Button>
-              </HomepageSectionFooter>
-            </HomepageSection>
-            <Divider spacing="large" />
-            <HomepageSection>
-              <HomepageSectionTitle>Projects.</HomepageSectionTitle>
-              <HomepageFeaturedProject node={data.featuredProject} />
-              <HomepageSectionFooter>
-                <Button kind="nav-link" color="primary" size="lg" to="/projects">
-                  View all projects
-                </Button>
-              </HomepageSectionFooter>
-            </HomepageSection>
-            <Divider spacing="large" />
-            <HomepageSection>
-              <HomepageSectionTitle>Let's talk!</HomepageSectionTitle>
-              <HomepageSectionDescription>
-                Feel free to get in touch with me about anything.
-              </HomepageSectionDescription>
-              <HomepageSectionFooter>
-                <Button kind="nav-link" color="primary" size="lg" to="/contact">
-                  Get in touch.
-                </Button>
-              </HomepageSectionFooter>
             </HomepageSection>
           </HomepageContent>
           <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
@@ -200,6 +221,37 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 1140) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    allProjects: allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/projects/" } } }
+      sort: { fields: [fields___year], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            year
+            description
+            tags
+            slug
+            category
+            lead
+            project_url
+            jumpToProject
+          }
+          frontmatter {
+            title
+            header_image {
+              childImageSharp {
+                fluid(maxWidth: 1140) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

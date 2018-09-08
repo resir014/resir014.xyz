@@ -59,12 +59,12 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
             <PostMeta>
               <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
             </PostMeta>
+            {post.fields.lead ? (
+              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+            ) : null}
           </PostHeader>
           <PageContent>
             <Container>
-              {post.fields.lead ? (
-                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-              ) : null}
               <MarkdownContent className="e-content" html={post.html} />
               <div className="hidden">
                 <p>

@@ -23,10 +23,5 @@ const Span = styled('span')`
 
   a {
     color: inherit;
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-    }
   }
 `

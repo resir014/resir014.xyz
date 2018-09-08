@@ -1,11 +1,9 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import styled from 'react-emotion'
-import { lighten } from 'polished'
 import Link from 'gatsby-link'
 
-import { colors, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import { colors } from '../../styles/variables'
 import { BlogPostField } from '../../types/fields'
 import { BlogPostNode } from '../../types/nodes'
 
@@ -17,10 +15,8 @@ const StyledPostItem = styled('article')`
   display: flex;
   flex-direction: column;
   margin-bottom: 3rem;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    flex-direction: row;
-  }
+  padding-top: 0.5rem;
+  border-top: 1px solid ${colors.grey30};
 
   &:last-of-type {
     margin-bottom: 0;
@@ -28,28 +24,7 @@ const StyledPostItem = styled('article')`
 `
 
 const StyledPostMeta = styled('section')`
-  margin-bottom: 0.5rem;
-  color: ${lighten(0.5, colors.grey90)};
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    margin-bottom: 0;
-    width: 20%;
-  }
-`
-
-const StyledPostMetaItem = styled(PostMetaItem)`
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    display: block;
-
-    &:not(:first-of-type) {
-      margin-top: 0.25rem;
-      margin-left: 0 !important;
-    }
-
-    &:before {
-      display: none;
-    }
-  }
+  margin-bottom: 1rem;
 `
 
 const PostTitleLink = styled(Link)`
@@ -74,13 +49,9 @@ const PostThumbnailImage = styled('img')`
   }
 `
 
-const PostDetailBox = styled('section')`
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    flex: 1;
-  }
-`
+const PostDetailBox = styled('section')``
 
-const PostTitle = styled('h3')`
+const PostTitle = styled('h2')`
   margin-top: 0;
 
   a {
@@ -103,14 +74,14 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
     return (
       <StyledPostItem className="h-entry">
         <StyledPostMeta>
-          <StyledPostMetaItem>
+          <PostMetaItem>
             <Link to={node.fields.slug}>
               <time className="dt-published" dateTime={new Date(date).toISOString()}>
                 {date}
               </time>
             </Link>
-          </StyledPostMetaItem>
-          <StyledPostMetaItem className="p-category">{category}</StyledPostMetaItem>
+          </PostMetaItem>
+          <PostMetaItem className="p-category">{category}</PostMetaItem>
         </StyledPostMeta>
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}
         {node.fields.category === 'note' && this.renderNoteTemplate(node)}

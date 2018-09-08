@@ -83,13 +83,13 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
           </PageTitle>
         </PageMeta>
         <PageContent className="h-feed">
-          <Container size="lg">
+          <Container size="md">
             {group.map(({ node }) => (
               <BlogPostItem key={node.fields.slug} node={node} />
             ))}
           </Container>
           <Divider spacing="large" />
-          <Container size="lg">
+          <Container size="md">
             <Pagination>
               <PaginationLink test={first} url={previousUrl} text="Newer posts" />
               <PaginationLink test={last} url={nextUrl} text="Older posts" />

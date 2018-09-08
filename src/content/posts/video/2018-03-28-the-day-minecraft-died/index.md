@@ -1,10 +1,13 @@
 ---
 category: video
 layout: video
-title: "The Day That Minecraft Died"
 ---
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/BtEjurzvEqU" frameborder="0" allowfullscreen></iframe>
+
+#### The Day That Minecraft Died
+
+<!-- end -->
 
 While this video is a bit uncomfortable to watch because pokes at the
 "blame Microsoft" thing quite a lot, I agree with the general sentiment.

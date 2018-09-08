@@ -31,17 +31,24 @@ const HCardAvatar = styled('div')`
   text-align: center;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+    margin-bottom: 0;
+    margin-right: 1.5rem;
+  }
 `
 
 const HCardAvatarImg = styled('img')`
   width: 128px;
   height: 128px;
   margin: 0;
+  border: 4px solid ${colors.white};
+  border-radius: 50%;
 `
 
 const HCardDetails = styled('div')`
   flex: 1;
-  padding: 1.5rem;
 `
 
 const HCardEmail = styled('a')`
@@ -74,6 +81,7 @@ const Anchor = styled('a')`
   display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'flex')};
   flex-direction: column;
   margin: 0;
+  padding: 1.5rem;
   background-color: ${colors.ink90};
   color: ${darken(0.3, colors.white)};
   text-decoration: none !important;
@@ -88,5 +96,6 @@ const Anchor = styled('a')`
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     flex-direction: row;
+    align-items: center;
   }
 `

@@ -12,6 +12,6 @@ const HomepageSectionFooter: React.SFC<HomepageSectionProps> = ({ children, clas
 export default HomepageSectionFooter
 
 const Div = styled('div')`
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   text-align: center;
 `

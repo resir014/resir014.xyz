@@ -71,6 +71,8 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.development
+.env.production
 
 # =========================
 # Operating System Files
