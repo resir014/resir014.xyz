@@ -141,7 +141,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             <HomepageSection>
               <HomepageSectionTitle>Current skillset</HomepageSectionTitle>
               <HomepageSectionDescription>
-                Got an interesting project in mind? Want me to help do it?{' '}
+                Got an interesting project in mind? Want me to know about it?{' '}
                 <Link to="/contact">Let's talk!</Link>
               </HomepageSectionDescription>
               <HomepageLanguageList>
