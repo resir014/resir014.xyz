@@ -78,17 +78,17 @@ const ProjectTags = styled('div')`
 `
 
 const ProjectDetailBox = styled('div')`
-  padding: 1rem 0.5rem;
+  padding: 0.5rem;
   flex: 1 0 auto;
 
   p {
-    margin-top: 0;
+    margin: 0;
   }
 `
 
 const ProjectFooter = styled('div')`
-  margin-top: auto;
-  padding-top: 1rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   border-top: 1px solid ${colors.grey30};
 `
 
