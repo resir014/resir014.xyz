@@ -14,7 +14,7 @@ interface HtmlProps {
 export default class HTML extends React.Component<HtmlProps, void> {
   public render() {
     return (
-      <html {...this.props.htmlAttributes}>
+      <html lang="en" {...this.props.htmlAttributes}>
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
