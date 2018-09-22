@@ -86,7 +86,8 @@ const ButtonBase = (props: ButtonProps) => css`
 
   &:hover,
   &:focus {
-    background-color: ${transparentize(0.9, colors.grey70)};
+    background-color: ${props.color ? theme[props.color] : colors.grey70};
+    color: ${props.color && props.color === 'white' ? colors.grey70 : colors.white};
     text-decoration: none;
 
     &:disabled {
