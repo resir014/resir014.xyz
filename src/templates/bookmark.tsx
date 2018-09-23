@@ -1,9 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import styled from 'react-emotion'
-
-import { colors } from '../styles/variables'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { BookmarkNode } from '../types/nodes'
@@ -16,10 +13,10 @@ import PostHeader from '../components/post/PostHeader'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
-import PostTitle from '../components/post/PostTitle'
 import MarkdownContent from '../components/page/MarkdownContent'
 import HCardPostFooter from '../components/indieweb/HCardPostFooter'
 import TemplateWrapper from '../layouts'
+import BookmarkLink from '../components/post/BookmarkLink'
 
 interface BookmarkTemplateProps {
   location: {
@@ -33,17 +30,6 @@ interface BookmarkTemplateProps {
     markdownRemark: BookmarkNode
   }
 }
-
-const LinkTitle = styled(PostTitle)`
-  a {
-    color: ${colors.blue60};
-
-    &:hover,
-    &:focus {
-      color: ${colors.blue70};
-    }
-  }
-`
 
 const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
@@ -89,17 +75,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
               {post.fields.category ? (
                 <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
               ) : null}
-              <LinkTitle>
-                <a
-                  className="u-bookmark-of h-cite p-name"
-                  href={post.fields.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {post.frontmatter.title}
-                </a>{' '}
-                &raquo;
-              </LinkTitle>
+              <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
               {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
             </PostMeta>
           </PostHeader>

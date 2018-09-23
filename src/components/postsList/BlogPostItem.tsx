@@ -10,6 +10,7 @@ import { BlogPostNode } from '../../types/nodes'
 import MarkdownContent from '../page/MarkdownContent'
 import PostMetaItem from '../post/PostMetaItem'
 import BlogPostExcerpt from './BlogPostExcerpt'
+import BookmarkLink from '../post/BookmarkLink'
 
 const StyledPostItem = styled('article')`
   display: flex;
@@ -168,17 +169,7 @@ class BlogPostItem extends React.Component<BlogPostField, {}> {
   private renderBookmarkTemplate(node: BlogPostNode) {
     return (
       <PostDetailBox>
-        <PostTitle>
-          <a
-            className="u-bookmark-of h-cite p-name"
-            href={node.fields.link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {node.frontmatter.title}
-          </a>{' '}
-          &raquo;
-        </PostTitle>
+        <BookmarkLink inPostList link={node.fields.link} title={node.frontmatter.title} />
         <MarkdownContent className="e-content" html={node.html} />
       </PostDetailBox>
     )

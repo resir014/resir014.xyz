@@ -193,9 +193,13 @@ injectGlobal`
 
   blockquote {
     padding: .5rem 1rem;
-    margin: .8rem 0;
+    margin: 1rem 0;
     color: ${colors.grey50};
     border-left: .25rem solid ${colors.grey20};
+
+    &:first-child {
+      margin-top: 0;
+    }
 
     p:last-child {
       margin-bottom: 0;
