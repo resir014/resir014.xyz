@@ -70,7 +70,8 @@
     "redux-devtools-extension": "^2.13.5",
     "slug": "^0.9.1",
     "typeface-zilla-slab": "^0.0.54",
-    "typescript": "^3.0.3"
+    "typescript": "^3.0.3",
+    "url-parse": "^1.4.3"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.6",
@@ -81,6 +82,7 @@
     "@types/react-redux": "^6.0.7",
     "@types/react-responsive": "^3.0.1",
     "@types/react-router-dom": "^4.3.0",
+    "@types/url-parse": "^1.4.1",
     "gh-pages": "^1.2.0",
     "prettier": "^1.14.2",
     "rimraf": "^2.6.2",
