@@ -17,16 +17,16 @@ const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, inPostList, title })
 
   return (
     <Root
-      className="u-bookmark-of h-cite p-name"
+      className="u-bookmark-of h-cite"
       href={link}
       inPostList={inPostList}
       target="_blank"
       rel="noopener noreferrer"
     >
       <LinkHeader>
-        <LinkTitle>{title}</LinkTitle> &raquo;
+        <LinkTitle className="p-name">{title}</LinkTitle> &raquo;
       </LinkHeader>
-      <LinkSource>({url.host})</LinkSource>
+      <LinkSource className="p-publication">{url.host}</LinkSource>
     </Root>
   )
 }
