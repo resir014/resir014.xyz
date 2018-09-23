@@ -17,18 +17,16 @@ const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, inPostList, title })
   const url = new Url(link!)
 
   return (
-    <Root inPostList={inPostList}>
+    <Root
+      inPostList={inPostList}
+      className="u-bookmark-of h-cite p-name"
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <LinkHeader>
-        <LinkTitle
-          className="u-bookmark-of h-cite p-name"
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {title}
-        </LinkTitle>{' '}
-        &raquo;
-      </LinkHeader>
+        <LinkTitle className="p-name">{title}</LinkTitle> &raquo;
+      </LinkHeader>{' '}
       <LinkSource className="p-publication">{url.host}</LinkSource>
     </Root>
   )
@@ -44,14 +42,7 @@ const LinkHeader = styled(BookmarkTitle)`
   color: ${colors.white};
 `
 
-const LinkTitle = styled('a')`
-  &:hover,
-  &:focus {
-    ${LinkHeader} {
-      text-decoration: underline;
-    }
-  }
-`
+const LinkTitle = styled('span')``
 
 const LinkSource = styled('span')`
   display: block;
@@ -60,7 +51,7 @@ const LinkSource = styled('span')`
   user-select: none;
 `
 
-const Root = styled('div')`
+const Root = styled('a')`
   display: block;
   margin-top: ${(props: RootProps) => (props.inPostList ? 0 : '1rem')};
   margin-bottom: ${(props: RootProps) => (props.inPostList ? '1rem' : 0)};
@@ -72,5 +63,9 @@ const Root = styled('div')`
   &:hover,
   &:focus {
     text-decoration: none;
+
+    ${LinkTitle} {
+      text-decoration: underline;
+    }
   }
 `
