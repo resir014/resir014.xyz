@@ -87,9 +87,7 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
               {post.fields.category ? (
                 <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
               ) : null}
-              <PostTitle className="p-name" darkBackground>
-                {post.frontmatter.title}
-              </PostTitle>
+              <PostTitle className="p-name">{post.frontmatter.title}</PostTitle>
             </PostMeta>
             {post.fields.lead ? (
               <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
