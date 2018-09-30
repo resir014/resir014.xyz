@@ -7,7 +7,7 @@ import { menuItems } from '../utils/menus'
 import 'typeface-zilla-slab'
 import 'modern-normalize'
 import '../styles/reset'
-import 'prism-themes/themes/prism-ghcolors.css'
+import 'prism-themes/themes/prism-darcula.css'
 
 import LayoutRoot from '../components/ui/LayoutRoot'
 import Masthead from '../components/ui/Masthead'
