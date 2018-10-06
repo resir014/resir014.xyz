@@ -104,7 +104,11 @@ class Footer extends React.Component<FooterProps, FooterState> {
                 React
               </a>
               . Code licensed under the{' '}
-              <a href="https://github.com/resir014/resir014.xyz" target="_blank">
+              <a
+                href="https://github.com/resir014/resir014.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 MIT License
               </a>
               .
