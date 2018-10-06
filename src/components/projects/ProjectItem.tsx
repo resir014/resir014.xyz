@@ -84,6 +84,15 @@ const ProjectDetailBox = styled('div')`
   p {
     margin: 0;
   }
+
+  a {
+    color: ${colors.blue60};
+
+    &:hover,
+    &:focus {
+      color: ${colors.blue70};
+    }
+  }
 `
 
 const ProjectFooter = styled('div')`
