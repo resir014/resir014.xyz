@@ -8,17 +8,19 @@ syndication:
     url: https://medium.com/@resir014/a-phoenix-react-initial-setup-that-actually-works-c943e48f1e9e
 ---
 
-_**Update 2018/03/27:** The <a href="https://github.com/resir014/phoenix_react_playground">sample repo</a> included in this post has undergone some substantial changes since I wrote the article mentioned above. After doing enough Elixir/Phoenix development over the past few months, I’ve felt that a rewrite is long overdue._
+<div class="message">
 
-_Some changes include:_
+**Update 2018/03/27:** The [sample repo](https://github.com/resir014/phoenix_react_playground) included in this post has undergone some substantial changes since I wrote this article. After doing enough Elixir/Phoenix development over the past few months, I’ve felt that a rewrite is long overdue.
 
-- _upgraded to webpack 4 to make use of the brand-new optimisation strategies included out of the box, all with a smaller configuration file,_
-- _moved all the frontend stuff back inside the assets/ directory; and also_
-- _upgraded all dependencies to the latest version._
+Some changes include:
 
-_A follow-up article will be written in the coming weeks._
+- upgraded to webpack 4 to make use of the brand-new optimisation strategies included out of the box, all with a smaller configuration file,
+- moved all the frontend stuff back inside the assets/ directory; and also
+- upgraded all dependencies to the latest version.
 
----
+A follow-up article will be written in the coming weeks.
+
+</div>
 
 I've been playing around with [Elixir](https://elixir-lang.org/) a lot lately. Recently a friend showed me [this blog post](https://blog.discordapp.com/scaling-elixir-f9b8e1e7c29b) by the Discord engineering team about how they could scale their platform through the power of Elixir, and after reading it I was convinced to give it a try. If you're about to learn the language, and you came from Node.js like me, I suggest you go watch [this introductory video](https://www.youtube.com/watch?v=q8wueg2hswA).
 
