@@ -73,7 +73,8 @@ const ButtonBase = (props: ButtonProps) => css`
   line-height: ${emSizes.lineHeight.regular};
   cursor: pointer;
 
-  &:disabled {
+  &:disabled,
+  &.disabled {
     color: ${props.color
       ? transparentize(0.75, theme[props.color])
       : transparentize(0.75, colors.grey70)};
@@ -82,16 +83,19 @@ const ButtonBase = (props: ButtonProps) => css`
       : transparentize(0.75, colors.grey70)};
     user-select: none;
     cursor: unset;
+
+    &:hover,
+    &:focus {
+      background-color: none;
+    }
   }
 
-  &:hover,
-  &:focus {
-    background-color: ${props.color ? theme[props.color] : colors.grey70};
-    color: ${props.color && props.color === 'white' ? colors.grey70 : colors.white};
-    text-decoration: none;
-
-    &:disabled {
-      background: none;
+  &:not(:disabled):not(.disabled) {
+    &:hover,
+    &:focus {
+      background-color: ${props.color ? theme[props.color] : colors.grey70};
+      color: ${props.color && props.color === 'white' ? colors.grey70 : colors.white};
+      text-decoration: none;
     }
   }
 
