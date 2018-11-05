@@ -42,7 +42,6 @@ const Div = styled('div')`
     }
 
     img {
-      display: block;
       vertical-align: middle;
       margin-left: auto;
       margin-right: auto;
@@ -113,6 +112,10 @@ const Div = styled('div')`
     display: inline-block;
     margin-left: 0.1rem;
     font-weight: bold;
+  }
+
+  hr {
+    margin: 2rem 0;
   }
 
   .footnotes {
