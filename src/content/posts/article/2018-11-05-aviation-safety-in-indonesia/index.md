@@ -2,7 +2,7 @@
 category: article
 layout: post
 date: 2018-11-05T23:40:00+07:00
-title: 'Aviation safety in Indonesia: clearing up the and fearmongering'
+title: 'Aviation safety in Indonesia: clearing up the fearmongering'
 lead: "Initial reaction of foreign media and commenters alike on the Lion Air 610 crash were quick to blame Indonesia's aviation industry for never improving. However, I think they should put down their pitchforks."
 header_image: header.jpg
 ---
