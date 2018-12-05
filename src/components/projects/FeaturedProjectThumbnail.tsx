@@ -37,7 +37,7 @@ const Div = styled('div')`
 
   img {
     margin: 0;
-    verticalalign: middle;
-    objectfit: cover;
+    vertical-align: middle;
+    object-fit: cover;
   }
 `
