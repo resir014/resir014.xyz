@@ -3,7 +3,8 @@ category: article
 layout: post
 title: "npm's single point of failure"
 lead: "Another take on the left-pad disaster, and how it could've been avoided."
-redirect_from: 2016/03/23/npms-single-point-of-failure
+redirect_from:
+  - 2016/03/23/npms-single-point-of-failure
 tags:
   - javascript
   - nodejs
