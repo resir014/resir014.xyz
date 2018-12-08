@@ -2,7 +2,7 @@
 category: article
 layout: post
 date: 2018-07-06T20:36:00+07:00
-title: 'Redux 4 + TypeScript 2.9: A type-safe approach'
+title: 'Redux 4 + TypeScript: A type-safe approach'
 lead: 'An updated version of my type-safe guide to Redux, now compatible with Redux 4 + TypeScript 2.9.'
 syndication:
   - name: dev.to
@@ -21,7 +21,7 @@ Note that the following guide is tested on:
 
 - `react@^16.4.0`
 - `redux@^4.0.0`
-- `typescript@~2.9.2`
+- `typescript@^3.0.0`
 
 ## What we're building
 
@@ -30,6 +30,12 @@ To demonstrate this post, we're going to build a simple app. We're going to crea
 ## TL;DR
 
 If you want to jump straight to the examples, I've also published a sample project in GitHub, based on the feedback from my previous post. Click [here](https://github.com/resir014/react-redux-typescript-example) to go there.
+
+---
+
+## Updates
+
+- **2018-12-08:** Updated `Dispatch` to be imported from `redux` instead of `react-redux`. The guide is also now tested to work on TypeScript `^3.0.0`. (Thanks [cancerberoSgx](https://github.com/resir014/react-redux-typescript-example/pull/2)!)
 
 ---
 
@@ -477,12 +483,11 @@ class HeroesIndexPage extends React.Component<AllProps> {
 
     return (
       <HeroesTable columns={['Name', 'Legs']} widths={['auto', '120px']}>
-        {loading &&
-          data.length === 0 && (
-            <HeroLoading>
-              <td colSpan={2}>Loading...</td>
-            </HeroLoading>
-          )}
+        {loading && data.length === 0 && (
+          <HeroLoading>
+            <td colSpan={2}>Loading...</td>
+          </HeroLoading>
+        )}
         {data.map(hero => (
           <tr key={hero.id}>
             <HeroDetail>
@@ -507,7 +512,8 @@ The `react-redux` `connect()` function is what connects our React component to t
 ```tsx
 // ./src/pages/heroes.tsx
 
-import { connect, Dispatch } from 'react-redux'
+import { Dispatch } from 'redux'
+import { connect } from 'react-redux'
 import { ApplicationState } from '../store'
 
 // ...
