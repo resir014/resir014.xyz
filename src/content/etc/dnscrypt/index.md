@@ -101,7 +101,39 @@ If you're an advanced user and you want more control of the DNSCrypt service, yo
 
 ## Guide for macOS
 
-Coming soon!
+The `dnscrypt-proxy` service is available for install via [Homebrew](https://brew.sh/) package manager. To install it, run:
+
+```sh-session
+$ brew install dnscrypt-proxy
+```
+
+Out of the box, it will find the fastest DNS resolver from the [public servers list](https://dnscrypt.info/public-servers), but you can change it. The config file is located in `/usr/local/etc/dnscrypt-proxy.toml`. Open it with your favourite text editor.
+
+![dnscrypt-proxy-config](./dnscrypt-proxy-config.png)
+
+To change your preferred DNS resolver, uncomment the `server_names` line, and add your preferred names based on the [public servers list](https://dnscrypt.info/public-servers). So for example, if you want to include Google DNS, Cloudflare DNS, and OpenNIC, write down:
+
+```toml
+server_names = ['google', 'cloudflare', 'opennic-onic']
+```
+
+Save the config, and start the `dnscrypt-proxy` service. This will allow `dnscrypt-proxy` to automatically start next time you boot up your Macbook.
+
+```sh-session
+$ sudo brew services start dnscrypt-proxy
+```
+
+By default, the DNSCrypt proxy will run on `127.0.0.1.` Therefore, we will need to change our DNS server to that. Open `System Preferences > Network`, then select the device currently connected to the internet.
+
+![network-preferences](./network-preferences.png)
+
+Then, we will need to change our DNS. Click on "Advanced" and go to the "DNS" tab. Then on the left column, click the plus icon to add a new DNS address. Type `127.0.0.1`, the address of our DNSCrypt proxy.
+
+![network-preferences-dns](./network-preferences-dns.png)
+
+Press Enter to add it to the list, then press OK and Apply.
+
+Congratulations, DNSCrypt is now configured on your Mac! Run the DNS leak test again, just to make sure.
 
 ---
 
