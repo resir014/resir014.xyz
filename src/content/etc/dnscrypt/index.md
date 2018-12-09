@@ -133,7 +133,7 @@ Then, we will need to change our DNS. Click on "Advanced" and go to the "DNS" ta
 
 Press Enter to add it to the list, then press OK and Apply.
 
-Congratulations, DNSCrypt is now configured on your Mac! Run the DNS leak test again, just to make sure.
+Congratulations, DNSCrypt is now configured on your Mac! Run the DNS leak test again, just to make sure it's configured correctly.
 
 ---
 
