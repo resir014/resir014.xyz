@@ -9,7 +9,7 @@ import Container from '../components/ui/Container'
 import Divider from '../components/ui/Divider'
 import Page from '../components/page/Page'
 import PostMeta from '../components/post/PostMeta'
-import PostHeader from '../components/post/PostHeader'
+import PageHeader from '../components/page/PageHeader'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
@@ -62,7 +62,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
           ]}
         />
         <article className="h-entry">
-          <PostHeader>
+          <PageHeader>
             <PostMeta>
               <PostMetaItem>
                 <time
@@ -78,7 +78,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
               <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
               {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
             </PostMeta>
-          </PostHeader>
+          </PageHeader>
           <PageContent>
             <Container>
               <MarkdownContent className="e-content" html={post.html} />

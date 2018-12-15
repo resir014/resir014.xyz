@@ -29,7 +29,7 @@ const MastheadInner = styled('div')`
 `
 
 const MastheadTitle = styled('div')`
-  color: ${colors.white};
+  color: ${colors.grey90};
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     margin-right: 1rem;
@@ -58,8 +58,8 @@ const Masthead: React.SFC<MastheadProps> = ({ className, title }) => (
 
 export default styled(Masthead)`
   padding: 1rem ${emSizes.containerPadding}rem;
-  background-color: ${colors.grey90};
-  color: ${colors.grey40};
+  /* background-color: ${colors.grey90}; */
+  color: ${colors.grey80};
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     padding-top: ${emSizes.containerPadding / 2}rem;

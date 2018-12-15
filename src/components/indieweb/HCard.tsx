@@ -2,7 +2,6 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from 'react-emotion'
 import Link from 'gatsby-link'
-import { darken } from 'polished'
 
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
@@ -19,8 +18,8 @@ interface HCardProps {
 
 const HCardName = styled('h3')`
   margin-top: 0;
-  font-family: ${fonts.sansSerif};
-  color: ${colors.white};
+  font-family: ${fonts.serif};
+  color: ${colors.grey90};
 `
 
 const HCardNote = styled('p')`
@@ -121,14 +120,14 @@ const Div = styled('div')`
   display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'block')};
   margin: 0;
   padding: 1.5rem;
-  background-color: ${colors.ink90};
-  color: ${darken(0.3, colors.white)};
+  background-color: ${colors.white};
+  color: ${colors.grey70};
 
   p {
     margin: 0.5rem 0;
   }
 
   a {
-    color: ${colors.white};
+    color: ${colors.grey90};
   }
 `

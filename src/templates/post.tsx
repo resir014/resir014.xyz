@@ -21,6 +21,7 @@ import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import HCardPostFooter from '../components/indieweb/HCardPostFooter'
 import MessageBox from '../components/ui/MessageBox'
 import TemplateWrapper from '../layouts'
+import PageHeader from '../components/page/PageHeader'
 
 interface PostTemplateProps {
   location: {
@@ -66,34 +67,57 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
           ]}
         />
         <article className="h-entry">
-          {post.frontmatter.header_image && (
-            <PostThumbnail>
-              <PostThumbnailImage
-                fluid={post.frontmatter.header_image.childImageSharp.fluid}
-                alt={post.frontmatter.title}
-              />
-            </PostThumbnail>
-          )}
-          <PostHeader>
-            <PostMeta>
-              <PostMetaItem>
-                <time
-                  className="dt-published"
-                  dateTime={new Date(post.fields.date_ogp).toISOString()}
-                >
-                  {post.fields.date}
-                </time>
-              </PostMetaItem>
-              {post.fields.category ? (
-                <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
+          {post.frontmatter.header_image ? (
+            <Container size="xl">
+              <PostThumbnail>
+                <PostThumbnailImage
+                  fluid={post.frontmatter.header_image.childImageSharp.fluid}
+                  alt={post.frontmatter.title}
+                />
+              </PostThumbnail>
+
+              <PostHeader>
+                <PostMeta>
+                  <PostMetaItem>
+                    <time
+                      className="dt-published"
+                      dateTime={new Date(post.fields.date_ogp).toISOString()}
+                    >
+                      {post.fields.date}
+                    </time>
+                  </PostMetaItem>
+                  {post.fields.category ? (
+                    <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
+                  ) : null}
+                  <PostTitle className="p-name">{post.frontmatter.title}</PostTitle>
+                </PostMeta>
+                {post.fields.lead ? (
+                  <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+                ) : null}
+              </PostHeader>
+            </Container>
+          ) : (
+            <PageHeader>
+              <PostMeta>
+                <PostMetaItem>
+                  <time
+                    className="dt-published"
+                    dateTime={new Date(post.fields.date_ogp).toISOString()}
+                  >
+                    {post.fields.date}
+                  </time>
+                </PostMetaItem>
+                {post.fields.category ? (
+                  <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
+                ) : null}
+                <PostTitle className="p-name">{post.frontmatter.title}</PostTitle>
+              </PostMeta>
+              {post.fields.lead ? (
+                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
               ) : null}
-              <PostTitle className="p-name">{post.frontmatter.title}</PostTitle>
-            </PostMeta>
-            {post.fields.lead ? (
-              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-            ) : null}
-          </PostHeader>
-          <PageContent>
+            </PageHeader>
+          )}
+          <PageContent hasHeaderImage={!!post.frontmatter.header_image}>
             <Container>
               {post.frontmatter.syndication && (
                 <MessageBox>

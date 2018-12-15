@@ -4,26 +4,23 @@ import styled from 'react-emotion'
 import { emSizes, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
 
-const StyledPageContent = styled('section')`
+const StyledPostContent = styled('section')`
   display: block;
   padding: ${emSizes.containerPadding}rem;
   padding-bottom: 3rem;
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     padding-top: 3rem;
-    margin-top: ${(props: PageContentProps) => (props.hasHeaderImage ? '10rem' : 0)};
   }
 `
 
-interface PageContentProps {
+interface PostContentProps {
   className?: string
   hasHeaderImage?: boolean
 }
 
-const PageContent: React.SFC<PageContentProps> = ({ children, className, hasHeaderImage }) => (
-  <StyledPageContent className={className} hasHeaderImage={hasHeaderImage}>
-    {children}
-  </StyledPageContent>
+const PostContent: React.SFC<PostContentProps> = ({ children, className }) => (
+  <StyledPostContent className={className}>{children}</StyledPostContent>
 )
 
-export default PageContent
+export default PostContent

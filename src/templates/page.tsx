@@ -11,9 +11,9 @@ import PageSubtitle from '../components/page/PageSubtitle'
 import PageContent from '../components/page/PageContent'
 import PageTitle from '../components/page/PageTitle'
 import Page from '../components/page/Page'
+import PageHeader from '../components/page/PageHeader'
 import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
-import PostHeader from '../components/post/PostHeader'
 import PostMeta from '../components/post/PostMeta'
 import TemplateWrapper from '../layouts'
 
@@ -55,14 +55,14 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
               />
             </PostThumbnail>
           )}
-          <PostHeader>
+          <PageHeader>
             <PostMeta>
               <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
             </PostMeta>
             {post.fields.lead ? (
               <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
             ) : null}
-          </PostHeader>
+          </PageHeader>
           <PageContent>
             <Container>
               <MarkdownContent className="e-content" html={post.html} />

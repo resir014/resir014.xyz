@@ -1,5 +1,12 @@
 /* tslint:disable:max-line-length */
 
+export const systemFonts = {
+  sansSerif:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif',
+  serif: 'Georgia, "Times New Roman", Times, serif',
+  monospace: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, monospace'
+}
+
 export const colors = {
   blue40: '#45a1ff',
   blue50: '#0a84ff',
@@ -58,10 +65,9 @@ export const colors = {
 }
 
 export const fonts = {
-  sansSerif:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif',
-  serif: '"Zilla Slab", Georgia, "Times New Roman", Times, serif',
-  monospace: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, monospace'
+  sansSerif: systemFonts.sansSerif,
+  serif: `"Barlow", ${systemFonts.sansSerif}`,
+  monospace: systemFonts.monospace
 }
 
 export const pxSizes = {

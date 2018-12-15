@@ -8,7 +8,7 @@ import { getEmSize } from '../../styles/mixins'
 
 interface PostThumbnailImageProps {
   className?: string
-  fluid: { [key: string]: any }
+  fluid: any
   alt: string
 }
 
@@ -21,6 +21,7 @@ export default PostThumbnailImage
 const Image = styled(Img)`
   margin: 0;
   background: linear-gradient(to bottom right, ${colors.teal50}, ${colors.purple70});
+  z-index: 1;
 
   img {
     margin: 0;
@@ -39,5 +40,6 @@ const Image = styled(Img)`
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     max-height: 30rem;
+    margin-bottom: -5rem;
   }
 `

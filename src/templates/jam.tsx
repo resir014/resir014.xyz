@@ -10,7 +10,7 @@ import Container from '../components/ui/Container'
 import Divider from '../components/ui/Divider'
 import Page from '../components/page/Page'
 import PostMeta from '../components/post/PostMeta'
-import PostHeader from '../components/post/PostHeader'
+import PageHeader from '../components/page/PageHeader'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PageContent from '../components/page/PageContent'
 import MarkdownContent from '../components/page/MarkdownContent'
@@ -62,7 +62,7 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data }) => {
           ]}
         />
         <article className="h-entry">
-          <PostHeader>
+          <PageHeader>
             <PostMeta>
               <PostMetaItem>
                 <time
@@ -79,7 +79,7 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data }) => {
                 <PostTitle className="p-name">{post.frontmatter.title}</PostTitle>
               )}
             </PostMeta>
-          </PostHeader>
+          </PageHeader>
           <PageContent>
             <Container>
               <MarkdownContent

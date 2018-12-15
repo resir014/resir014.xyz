@@ -1,7 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import styled from 'react-emotion'
-import { darken } from 'polished'
 
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
@@ -17,8 +16,8 @@ interface HCardPostFooterProps {
 
 const HCardName = styled('h3')`
   margin-top: 0;
-  font-family: ${fonts.sansSerif};
-  color: ${colors.white};
+  font-family: ${fonts.serif};
+  color: ${colors.grey90};
 `
 
 const HCardNote = styled('p')`
@@ -43,12 +42,12 @@ const HCardAvatarImg = styled('img')`
   width: 128px;
   height: 128px;
   margin: 0;
-  border: 4px solid ${colors.white};
+  border: 4px solid ${colors.grey90};
   border-radius: 50%;
 `
 
 const HCardDetails = styled('div')`
-  flex: 1;
+  margin-top: 1rem;
 `
 
 const HCardEmail = styled('a')`
@@ -80,10 +79,11 @@ export default HCardPostFooter
 const Anchor = styled('a')`
   display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'flex')};
   flex-direction: column;
+  text-align: center;
   margin: 0;
   padding: 1.5rem;
-  background-color: ${colors.ink90};
-  color: ${darken(0.3, colors.white)};
+  background-color: ${colors.white};
+  color: ${colors.grey70};
   text-decoration: none !important;
 
   p {
@@ -91,11 +91,6 @@ const Anchor = styled('a')`
   }
 
   a {
-    color: ${colors.white};
-  }
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    flex-direction: row;
-    align-items: center;
+    color: ${colors.grey90};
   }
 `

@@ -2,8 +2,7 @@ import * as React from 'react'
 import styled from 'react-emotion'
 
 import { getEmSize } from '../../styles/mixins'
-import { pxSizes } from '../../styles/variables'
-import Container from '../ui/Container'
+import { pxSizes, colors } from '../../styles/variables'
 
 interface PostHeaderProps {
   className?: string
@@ -11,18 +10,20 @@ interface PostHeaderProps {
 }
 
 const PostHeader: React.SFC<PostHeaderProps> = ({ className, children }) => (
-  <Section className={className}>
-    <Container size="lg">{children}</Container>
-  </Section>
+  <Section className={className}>{children}</Section>
 )
 
 export default PostHeader
 
 const Section = styled('section')`
-  padding: 3rem 1.5rem 0;
-  text-align: center;
+  padding: 1.5rem;
+  background-color: ${colors.white};
+  z-index: 5;
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    position: absolute;
+    bottom: -5rem;
     font-size: 18px;
+    max-width: 75%;
   }
 `

@@ -93,7 +93,7 @@ injectGlobal`
     margin-top: 1.414rem;
     margin-bottom: .5rem;
     font-family: ${fonts.serif};
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1.2;
     color: ${colors.grey90};
     text-rendering: optimizeLegibility;

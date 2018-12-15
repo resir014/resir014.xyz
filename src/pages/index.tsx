@@ -28,6 +28,7 @@ import HCard from '../components/indieweb/HCard'
 import TemplateWrapper from '../layouts'
 import FeaturedProject from '../components/projects/FeaturedProject'
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
+import Container from '../components/ui/Container'
 
 interface IndexPageProps {
   location: {
@@ -86,17 +87,19 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               }
             ]}
           />
-          <HomepageThumbnail>
-            <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
-            <HomepageThumbnailText>
-              <HomepageThumbnailFlavour
-                title="@resir014"
-                flavour={
-                  process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText
-                }
-              />
-            </HomepageThumbnailText>
-          </HomepageThumbnail>
+          <Container size="xl">
+            <HomepageThumbnail>
+              <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
+              <HomepageThumbnailText>
+                <HomepageThumbnailFlavour
+                  title="@resir014"
+                  flavour={
+                    process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText
+                  }
+                />
+              </HomepageThumbnailText>
+            </HomepageThumbnail>
+          </Container>
           <HomepageContent>
             <Divider spacing="large" />
             <HomepageSection>
