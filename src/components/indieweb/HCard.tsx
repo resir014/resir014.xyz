@@ -8,6 +8,7 @@ import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
+import Container from '../ui/Container'
 
 interface HCardProps {
   className?: string
@@ -73,38 +74,51 @@ const HCardSocialLinks = styled('span')`
 
 const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
   <Div className={classnames(className, 'h-card')} hidden={hidden}>
-    <HCardAvatar>
-      <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
-    </HCardAvatar>
-    <HCardDetails>
-      <HCardName>
-        <a className="p-name u-url" rel="me" href={author.website}>
-          {author.name}
-        </a>
-      </HCardName>
-      <HCardNote className="p-note">{author.description}</HCardNote>
-      <p>
-        <Link to="/about/">More about me</Link>
-      </p>
-      <HCardEmail className="u-email">{author.email}</HCardEmail>
-      <HCardFooter>
-        {Object.keys(author.url).map(key => (
-          <HCardSocialLinks key={author.url[key]}>
-            <a target="_blank" rel="me noopener noreferrer" href={author.url[key]}>
-              {key}
+    <Container size="xl">
+      <Inner>
+        <HCardAvatar>
+          <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
+        </HCardAvatar>
+        <HCardDetails>
+          <HCardName>
+            <a className="p-name u-url" rel="me" href={author.website}>
+              {author.name}
             </a>
-          </HCardSocialLinks>
-        ))}
-      </HCardFooter>
-    </HCardDetails>
+          </HCardName>
+          <HCardNote className="p-note">{author.description}</HCardNote>
+          <p>
+            <Link to="/about/">More about me</Link>
+          </p>
+          <HCardEmail className="u-email">{author.email}</HCardEmail>
+          <HCardFooter>
+            {Object.keys(author.url).map(key => (
+              <HCardSocialLinks key={author.url[key]}>
+                <a target="_blank" rel="me noopener noreferrer" href={author.url[key]}>
+                  {key}
+                </a>
+              </HCardSocialLinks>
+            ))}
+          </HCardFooter>
+        </HCardDetails>
+      </Inner>
+    </Container>
   </Div>
 )
 
 export default HCard
 
-const Div = styled('div')`
-  display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'flex')};
+const Inner = styled('div')`
+  display: flex;
   flex-direction: column;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+    flex-direction: row;
+    align-items: center;
+  }
+`
+
+const Div = styled('div')`
+  display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'block')};
   margin: 0;
   padding: 1.5rem;
   background-color: ${colors.ink90};
@@ -116,10 +130,5 @@ const Div = styled('div')`
 
   a {
     color: ${colors.white};
-  }
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    flex-direction: row;
-    align-items: center;
   }
 `

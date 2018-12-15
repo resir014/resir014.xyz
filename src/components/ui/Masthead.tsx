@@ -8,6 +8,7 @@ import menuItems from '../../utils/menuItems'
 import { MenuProps } from '../../types/default'
 
 import MastheadNav from './MastheadNav'
+import Container from './Container'
 
 interface MastheadProps extends MenuProps {
   title: string
@@ -44,12 +45,14 @@ const MastheadTitleLink = styled(Link)`
 
 const Masthead: React.SFC<MastheadProps> = ({ className, title }) => (
   <header className={className}>
-    <MastheadInner>
-      <MastheadTitle>
-        <MastheadTitleLink to="/">{title}</MastheadTitleLink>
-      </MastheadTitle>
-      <MastheadNav items={menuItems} />
-    </MastheadInner>
+    <Container size="xl">
+      <MastheadInner>
+        <MastheadTitle>
+          <MastheadTitleLink to="/">{title}</MastheadTitleLink>
+        </MastheadTitle>
+        <MastheadNav items={menuItems} />
+      </MastheadInner>
+    </Container>
   </header>
 )
 
