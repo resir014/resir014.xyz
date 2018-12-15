@@ -8,7 +8,7 @@ import { BlogPostField } from '../types/fields'
 
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
-import PageMeta from '../components/page/PageMeta'
+import PageHeader from '../components/page/PageHeader'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import BlogPostItem from '../components/postsList/BlogPostItem'
@@ -76,12 +76,12 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
             }
           ]}
         />
-        <PageMeta>
+        <PageHeader>
           <PageTitle>
             Posts
             {index && index > 1 && ` (page ${index} of ${pageCount})`}
           </PageTitle>
-        </PageMeta>
+        </PageHeader>
         <PageContent className="h-feed">
           <Container size="md">
             {group.map(({ node }) => (
