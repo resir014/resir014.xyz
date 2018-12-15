@@ -87,8 +87,8 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               }
             ]}
           />
-          <Container size="xl">
-            <HomepageThumbnail>
+          <HomepageThumbnail>
+            <Container size="xl">
               <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
               <HomepageThumbnailText>
                 <HomepageThumbnailFlavour
@@ -98,25 +98,9 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
                   }
                 />
               </HomepageThumbnailText>
-            </HomepageThumbnail>
-          </Container>
-          <HomepageContent>
-            <Divider spacing="large" />
-            <HomepageSection>
-              <HomepageSectionTitle>Hey, call me Resi!</HomepageSectionTitle>
-              <HomepageSectionDescription>
-                I'm a professional web developer based in Jakarta, Indonesia.
-              </HomepageSectionDescription>
-              <HomepageSectionFooter>
-                <Button kind="nav-link" color="primary" size="lg" to="/about">
-                  More about me
-                </Button>{' '}
-                <Button kind="nav-link" color="primary" size="lg" to="/posts">
-                  Read my posts
-                </Button>
-              </HomepageSectionFooter>
-            </HomepageSection>
-            <Divider spacing="large" />
+            </Container>
+          </HomepageThumbnail>
+          <HomepageContent withHomepageFlavour>
             <HomepageSection size="xl">
               <FeaturedProject node={data.featuredProject} />
               <ProjectItemList

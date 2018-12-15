@@ -3,8 +3,7 @@ import classnames from 'classnames'
 import styled from 'react-emotion'
 import Link from 'gatsby-link'
 
-import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import { colors, emSizes, fonts } from '../../styles/variables'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import Container from '../ui/Container'
@@ -33,11 +32,6 @@ const HCardAvatar = styled('div')`
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    margin-bottom: 0;
-    margin-right: 2rem;
-  }
 `
 
 const HCardAvatarImg = styled('img')`
@@ -109,11 +103,7 @@ export default HCard
 const Inner = styled('div')`
   display: flex;
   flex-direction: column;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    flex-direction: row;
-    align-items: center;
-  }
+  text-align: center;
 `
 
 const Div = styled('div')`

@@ -2,8 +2,7 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from 'react-emotion'
 
-import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import { colors, emSizes, fonts } from '../../styles/variables'
 import { ChildImageSharp } from '../../types/gatsby'
 import { SiteAuthor } from '../../types/default'
 
@@ -31,11 +30,6 @@ const HCardAvatar = styled('div')`
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    margin-bottom: 0;
-    margin-right: 1.5rem;
-  }
 `
 
 const HCardAvatarImg = styled('img')`
@@ -47,7 +41,7 @@ const HCardAvatarImg = styled('img')`
 `
 
 const HCardDetails = styled('div')`
-  margin-top: 1rem;
+  flex: 1;
 `
 
 const HCardEmail = styled('a')`
