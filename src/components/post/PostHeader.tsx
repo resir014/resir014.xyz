@@ -24,6 +24,6 @@ const Section = styled('section')`
     position: absolute;
     bottom: -5rem;
     font-size: 18px;
-    max-width: 80%;
+    max-width: 85%;
   }
 `
