@@ -4,7 +4,7 @@ title: DNSCrypt Field Guide
 has_toc: true
 ---
 
-The following page is a quick guide to [DNSCrypt](https://dnscrypt.org/), a protocol designed to improve your DNS security.
+The following page is a quick guide to [DNSCrypt](https://dnscrypt.info/), a protocol designed to improve your DNS security.
 
 English &#124; Bahasa Indonesia (coming soon!)
 
@@ -20,7 +20,7 @@ English &#124; Bahasa Indonesia (coming soon!)
 
 ## Introduction
 
-There comes a time where you would use an alternate Domain Name System (DNS) server over the DNS servers provided by your internet service provider (ISP), be it to improve your Internet performance, get around filters, etc. How-To Geek has [a good article](http://www.howtogeek.com/167239/7-reasons-to-use-a-third-party-dns-service/) explaining why you would prefer to use an alternate DNS service. A few popular alternate DNS servers include [Google Public DNS](https://developers.google.com/speed/public-dns/), [Cisco OpenDNS](https://www.opendns.com/) or [OpenNIC](https://www.opennicproject.org/).
+There comes a time where you would use an alternate Domain Name System (DNS) server over the DNS servers provided by your internet service provider (ISP), be it to improve your Internet performance, get around filters, etc. How-To Geek has [a good article](http://www.howtogeek.com/167239/7-reasons-to-use-a-third-party-dns-service/) explaining why you would prefer to use an alternate DNS service. A few popular alternate DNS servers include [Google Public DNS](https://developers.google.com/speed/public-dns/), [Cloudflare 1.1.1.1](https://1.1.1.1/) or [OpenNIC](https://www.opennicproject.org/).
 
 However, at some times, these alternate DNS servers might be intercepted by your ISP, allowing your ISP to be able to log your Internet activities again. This is called a **DNS leak**. A good way to test this is through the [DNS leak test](https://dnsleaktest.com/).
 
