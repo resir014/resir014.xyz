@@ -8,11 +8,12 @@ import Container from '../ui/Container'
 interface PageHeaderProps {
   className?: string
   hasImage?: boolean
+  size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-const PageHeader: React.SFC<PageHeaderProps> = ({ className, children }) => (
+const PageHeader: React.SFC<PageHeaderProps> = ({ className, children, size }) => (
   <Section className={className}>
-    <Container size="md">{children}</Container>
+    <Container size={size || 'md'}>{children}</Container>
   </Section>
 )
 

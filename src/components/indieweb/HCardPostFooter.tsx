@@ -2,9 +2,10 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from 'react-emotion'
 
-import { colors, emSizes, fonts } from '../../styles/variables'
+import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { ChildImageSharp } from '../../types/gatsby'
 import { SiteAuthor } from '../../types/default'
+import { getEmSize } from '../../styles/mixins'
 
 interface HCardPostFooterProps {
   className?: string
@@ -30,18 +31,26 @@ const HCardAvatar = styled('div')`
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    margin-bottom: 0;
+  }
 `
 
 const HCardAvatarImg = styled('img')`
   width: 128px;
   height: 128px;
   margin: 0;
-  border: 4px solid ${colors.grey90};
+  border: 4px solid ${colors.white};
   border-radius: 50%;
 `
 
 const HCardDetails = styled('div')`
   flex: 1;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    margin-left: 1.5rem;
+  }
 `
 
 const HCardEmail = styled('a')`
@@ -75,7 +84,7 @@ const Anchor = styled('a')`
   flex-direction: column;
   text-align: center;
   margin: 0;
-  padding: 1.5rem;
+  padding: 0;
   background-color: ${colors.white};
   color: ${colors.grey70};
   text-decoration: none !important;
@@ -86,5 +95,11 @@ const Anchor = styled('a')`
 
   a {
     color: ${colors.grey90};
+  }
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
   }
 `

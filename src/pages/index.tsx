@@ -2,7 +2,6 @@ import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { colors } from '../styles/variables'
 import flavors from '../utils/flavorText'
 
 import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
@@ -17,8 +16,6 @@ import HomepageSection from '../components/home/HomepageSection'
 import HomepageSectionTitle from '../components/home/HomepageSectionTitle'
 import HomepageSectionDescription from '../components/home/HomepageSectionDescription'
 import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
-import HomepageLanguageList from '../components/home/HomepageLanguageList'
-import HomepageLanguageListItem from '../components/home/HomepageLanguageListItem'
 import HomepageThumbnail from '../components/home/HomepageThumbnail'
 import HomepageThumbnailImage from '../components/home/HomepageThumbnailImage'
 import HomepageThumbnailText from '../components/home/HomepageThumbnailText'
@@ -125,22 +122,12 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               </HomepageSectionFooter>
             </HomepageSection>
             <Divider spacing="large" />
-            <HomepageSection>
-              <HomepageSectionTitle>Current skillset</HomepageSectionTitle>
+            <HomepageSection size="xl">
+              <HomepageSectionTitle>Contact</HomepageSectionTitle>
               <HomepageSectionDescription>
-                Got an interesting project in mind? Want me to know about it?{' '}
+                Got an interesting project in mind? Want me to help you with it?{' '}
                 <Link to="/contact">Let's talk!</Link>
               </HomepageSectionDescription>
-              <HomepageLanguageList>
-                <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
-                <HomepageLanguageListItem
-                  color={colors.white}
-                  background="#337ab7"
-                  name="TypeScript"
-                />
-                <HomepageLanguageListItem color="#61dafb" background="#282c34" name="React" />
-                <HomepageLanguageListItem color={colors.white} background="#4e2a8e" name="Elixir" />
-              </HomepageLanguageList>
             </HomepageSection>
           </HomepageContent>
           <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />

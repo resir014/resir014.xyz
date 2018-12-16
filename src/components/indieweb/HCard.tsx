@@ -3,10 +3,11 @@ import classnames from 'classnames'
 import styled from 'react-emotion'
 import Link from 'gatsby-link'
 
-import { colors, emSizes, fonts } from '../../styles/variables'
+import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import Container from '../ui/Container'
+import { getEmSize } from '../../styles/mixins'
 
 interface HCardProps {
   className?: string
@@ -32,6 +33,10 @@ const HCardAvatar = styled('div')`
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    margin-bottom: 0;
+  }
 `
 
 const HCardAvatarImg = styled('img')`
@@ -44,6 +49,10 @@ const HCardAvatarImg = styled('img')`
 
 const HCardDetails = styled('div')`
   flex: 1;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    margin-left: 1.5rem;
+  }
 `
 
 const HCardEmail = styled('span')`
@@ -104,6 +113,12 @@ const Inner = styled('div')`
   display: flex;
   flex-direction: column;
   text-align: center;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
 `
 
 const Div = styled('div')`
