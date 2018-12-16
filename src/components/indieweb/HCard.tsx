@@ -43,8 +43,7 @@ const HCardAvatarImg = styled('img')`
   width: 180px;
   height: 180px;
   margin: 0;
-  border: 4px solid ${colors.white};
-  border-radius: 50%;
+  border-radius: 180px;
 `
 
 const HCardDetails = styled('div')`
