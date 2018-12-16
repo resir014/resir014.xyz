@@ -56,9 +56,9 @@ If you're really concerned about your privacy and want to stay anonymous, consid
 
 ## Guide
 
-The DNSCrypt team has release `dnscrypt-proxy` 2.0, which has a more streamlined setup compared to version 1.0. If you don't know how to set up DNSCrypt through a command line, setting it up is a lot easier now.
+The DNSCrypt team has release `dnscrypt-proxy` 2.0, which has a more streamlined setup compared to version 1.0. Whether you have no command-line knowledge, or know the basics of it, setting it up is a lot easier now.
 
-`dnscrypt-proxy` 2.0 is supported by other DNSCrypt clients for Windows listed [here](https://dnscrypt.info/implementations). If you would like to use other clients within the list, please read through the manual for the client you want to use.
+`dnscrypt-proxy` 2.0 is supported by other DNSCrypt clients listed [here](https://dnscrypt.info/implementations). If you would like to use other clients within the list, please read through the manual for the client you want to use.
 
 ### Windows
 
