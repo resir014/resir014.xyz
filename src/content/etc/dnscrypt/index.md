@@ -53,53 +53,39 @@ If you're really concerned about your privacy and want to stay anonymous, consid
 
 ---
 
-## Guide for Windows
+## Guide
 
-In this section, we'll cover some ways to install DNSCrypt into your Windows machine. The easiest way would be to install a GUI client that will help you set it up, or if you're a little more advanced, you can [skip forward](#the-hard-way-command-line) for a guide on setting it up on the command line.
+The DNSCrypt team has release `dnscrypt-proxy` 2.0, which has a more streamlined setup compared to version 1.0. If you don't know how to set up DNSCrypt through a command line, setting it up is a lot easier now.
 
-### The easy way (GUI client)
+`dnscrypt-proxy` 2.0 is supported by other DNSCrypt clients for Windows listed [here](https://dnscrypt.info/implementations). If you would like to use other clients within the list, please read through the manual for the client you want to use.
 
-If you don't know how to set up DNSCrypt through a command line, a few DNSCrypt clients are available for Windows:
+### Windows
 
-- [Simple DNSCrypt](https://simplednscrypt.org/)
-- [DNSCrypt WinClient](https://github.com/Noxwizard/dnscrypt-winclient)
-- [DNSCrypt Windows Service Manager](http://simonclausen.dk/projects/dnscrypt-winservicemgr/)
-
-This guide will use Simple DNSCrypt. If you would like to use other clients within the list, please read through the manual for the client you want to use.
-
-Simple DNSCrypt provides an easy interface to manage your DNSCrypt services, the DNS resolvers you use as well as linking your computer's network adapters to the DNSCrypt service.
+This guide will use [Simple DNSCrypt](https://simplednscrypt.org/). Simple DNSCrypt provides an easy interface to manage your DNSCrypt services, the DNS resolvers you use as well as linking your computer's network adapters to the DNSCrypt service.
 
 First, download the installer from [the Simple DNSCrypt website](https://simplednscrypt.org/), and install it. (**Note:** administrator rights might be required in order to install and run this app!)
 
 Once the setup has been completed, and you run the app, you will see this.
 
-![simple-dnscrypt](./1HM6plq.png)
+![simplednscrypt-mainmenu](./simplednscrypt-mainmenu.png)
 
-The top part of this window is your network adapters. Active network adapters that aren't linked to the DNSCrypt service are marked grey, and when you link it to the DNSCrypt service, it will turn green. Inactive adapters are marked grey.
+For the most part, you can ignore this section. However, on the "Service" section, activate the "DNSCrypt Service" toggle. This will turn on your DNSCrypt service. Then select the network adapters you'd like to route through the DNSCrypt service on the section below. It's that simple!
 
-The middle part is where you configure your DNS resolvers. So far Simple DNSCrypt doesn't have support for secondary resolvers, but this will come in a later update. The bottom part of the window is an option to toggle your DNSCrypt services off.
+Next, go to the "Resolvers" tab.
 
-To configure your DNSCrypt service, first you will have to choose which DNSCrypt resolvers you will use. I prefer OpenNIC.
+![simplednscrypt-resolvers](./simplednscrypt-resolvers.png)
 
-![simple-dnscrypt](./irEsIdW.png)
+By default, `dnscrypt-proxy` will automatically pick the fastest DNSCrypt resolver from the list in this section. If you want to pick a resolver manually, disable the "Automatic" toggle and select one or more DNSCrypt resolvers from the list below.
 
-Then, toggle this switch to activate your DNSCrypt service.
+My recommended DNSCrypt resolvers from this list are:
 
-![simple-dnscrypt](./8RsN9AV.png)
+- Cloudflare 1.1.1.1 (cloudflare)
+- Google Public DNS (google)
+- OpenNIC (opennic-onic)
 
-And lastly, click on a network adapter to activate the service for that adapter. Basically, what this does is replace your preferred DNS server to `127.0.0.1`, since that's where the DNSCrypt service runs on.
+Once everything is set up, run the DNS leak test again, and your DNS resolver should work normally again!
 
-![simple-dnscrypt](./hIy0l2E.png)
-
-Run the DNS leak test again, and your DNS resolver should work normally again!
-
-### The hard way (command line)
-
-If you're an advanced user and you want more control of the DNSCrypt service, you can always set it up from the command line. [Dominus Temporis](https://dominustemporis.com/2014/05/dnscrypt-on-windows-update/) has a nice guide to get the DNSCrypt service running through the command line.
-
----
-
-## Guide for macOS
+### macOS
 
 The `dnscrypt-proxy` service is available for install via [Homebrew](https://brew.sh/) package manager. To install it, run:
 
