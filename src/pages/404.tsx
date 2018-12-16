@@ -9,7 +9,7 @@ import { getEmSize } from '../styles/mixins'
 import { SiteMetadata } from '../types/gatsby'
 
 import Page from '../components/page/Page'
-import PostHeader from '../components/post/PostHeader'
+import PageHeader from '../components/page/PageHeader'
 import PostMeta from '../components/post/PostMeta'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
@@ -76,11 +76,11 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
         ]}
       />
       <article>
-        <PostHeader>
+        <PageHeader>
           <PostMeta>
             <PageTitle>404.</PageTitle>
           </PostMeta>
-        </PostHeader>
+        </PageHeader>
         <PageContent>
           <Container>
             <PageInner>
