@@ -12663,11 +12663,6 @@ typeface-barlow@^0.0.54:
   resolved "https://registry.yarnpkg.com/typeface-barlow/-/typeface-barlow-0.0.54.tgz#67f33bb32a79ccd414c251b273ea20c26131eda6"
   integrity sha512-41Iwl07pFvSYOL7bG+9A/G/SpmALAm67rzd6TK5c85FgGrpfH6Ux5gT1vNf6mYspSWOKWoSlFeay662Reg67BQ==
 
-typeface-zilla-slab@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.yarnpkg.com/typeface-zilla-slab/-/typeface-zilla-slab-0.0.54.tgz#15dd53e50a7a0071ef8eb25e6fa1bd30fbc88842"
-  integrity sha512-WvwsGsPtPZtJEfGP8SPI2bnLmPlGq1l8/N/2XPSjEF0qgIXzktoXQHxO6jBIvrvh260tUsn5wfxU2OtQVxU55w==
-
 typescript@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.2.tgz#fe8101c46aa123f8353523ebdcf5730c2ae493e5"

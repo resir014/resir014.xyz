@@ -69,7 +69,6 @@
     "redux-devtools-extension": "^2.13.7",
     "slug": "^0.9.2",
     "typeface-barlow": "^0.0.54",
-    "typeface-zilla-slab": "^0.0.54",
     "typescript": "^3.2.2",
     "url-parse": "^1.4.4"
   },

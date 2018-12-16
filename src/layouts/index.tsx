@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import { menuItems } from '../utils/menus'
 
-import 'typeface-zilla-slab'
 import 'typeface-barlow'
 import 'modern-normalize'
 import '../styles/reset'
