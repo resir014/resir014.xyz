@@ -12,8 +12,9 @@ English &#124; Bahasa Indonesia (coming soon!)
 
 - [Introduction](#introduction)
 - [What is DNSCrypt?](#what-is-dnscrypt)
-- [Guide for Windows](#guide-for-windows)
-- [Guide for macOS](#guide-for-macos)
+- [Guide](#guide)
+  - [Windows](#windows)
+  - [macOS](#macos)
 
 ---
 

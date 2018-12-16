@@ -150,6 +150,10 @@ injectGlobal`
 
   p {
     margin: 0 0 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   small {

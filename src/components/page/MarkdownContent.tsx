@@ -56,6 +56,14 @@ const Div = styled('div')`
     }
   }
 
+  li {
+    p {
+      &:last-of-type {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
   li + li {
     margin-top: 0.25rem;
   }
