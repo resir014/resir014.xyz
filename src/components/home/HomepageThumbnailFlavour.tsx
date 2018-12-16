@@ -1,9 +1,9 @@
 import * as React from 'react'
 import styled from 'react-emotion'
+import { Link } from 'gatsby'
 
 import { colors, emSizes, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
-import Button from '../ui/Button'
 
 interface HomepageThumbnailFlavourProps {
   className?: string
@@ -15,6 +15,7 @@ interface HomepageThumbnailFlavourProps {
 const HomepageFlavourTitle = styled('h1')`
   font-size: ${emSizes.headingSmall.h2}rem;
   color: ${colors.grey90};
+  margin-bottom: 0.5rem;
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
     font-size: ${emSizes.headingMedium.h1}rem;
@@ -38,8 +39,28 @@ const HomepageFlavourSub = styled('span')`
   }
 `
 
+const Span = styled('span')`
+  a {
+    color: ${colors.blue60};
+
+    &:hover,
+    &:focus {
+      color: ${colors.blue70};
+    }
+  }
+`
+
 const HomepageFlavourFooter = styled('div')`
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+
+  ${Span} + ${Span} {
+    margin-left: 0.5rem;
+
+    &::before {
+      content: '/';
+      margin-right: 0.5rem;
+    }
+  }
 `
 
 const HomepageThumbnailFlavour: React.SFC<HomepageThumbnailFlavourProps> = ({
@@ -51,12 +72,12 @@ const HomepageThumbnailFlavour: React.SFC<HomepageThumbnailFlavourProps> = ({
     <HomepageFlavourTitle>{title}</HomepageFlavourTitle>
     {flavour && <HomepageFlavourSub>{flavour}</HomepageFlavourSub>}
     <HomepageFlavourFooter>
-      <Button kind="nav-link" color="primary" size="lg" to="/about">
-        More about me
-      </Button>{' '}
-      <Button kind="nav-link" color="primary" size="lg" to="/posts">
-        Read my posts
-      </Button>
+      <Span>
+        <Link to="/about">More about me</Link>
+      </Span>
+      <Span>
+        <Link to="/posts">Read my posts</Link>
+      </Span>
     </HomepageFlavourFooter>
   </Div>
 )
