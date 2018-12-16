@@ -29,8 +29,6 @@ const Div = styled('div')`
   figure {
     margin: 2rem 0;
     text-align: center;
-    background-color: ${colors.ink90};
-    border: 8px solid ${colors.ink90};
 
     &:first-child {
       margin-top: 0;
@@ -41,27 +39,19 @@ const Div = styled('div')`
       margin-right: -${emSizes.containerPadding * 2}rem;
     }
 
+    .gatsby-resp-image-wrapper {
+      margin: 0 auto !important;
+    }
+
     img {
       vertical-align: middle;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 0;
     }
 
     figcaption {
-      a {
-        color: ${colors.blue40};
-
-        &:hover,
-        &:focus {
-          color: ${colors.blue50};
-        }
-      }
-
       &:last-child {
         padding-top: 8px;
-        color: ${colors.white};
-        background-color: ${colors.ink90};
       }
     }
   }

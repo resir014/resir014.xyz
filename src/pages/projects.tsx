@@ -7,7 +7,7 @@ import { ProjectField } from '../types/fields'
 
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
-import PageMeta from '../components/page/PageMeta'
+import PageHeader from '../components/page/PageHeader'
 import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import FeaturedProject from '../components/projects/FeaturedProject'
@@ -53,9 +53,9 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
           ]}
         />
         <article>
-          <PageMeta>
+          <PageHeader size="xl">
             <PageTitle>Projects</PageTitle>
-          </PageMeta>
+          </PageHeader>
           <PageContent>
             {featuredProject ? (
               <FeaturedProject
@@ -63,7 +63,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
                 node={featuredProject.node}
               />
             ) : null}
-            <Container size="fluid">
+            <Container size="xl">
               <ProjectItemList
                 title="Web development stuff"
                 projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}

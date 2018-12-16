@@ -2,7 +2,6 @@ import * as React from 'react'
 import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import { colors } from '../styles/variables'
 import flavors from '../utils/flavorText'
 
 import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
@@ -17,8 +16,6 @@ import HomepageSection from '../components/home/HomepageSection'
 import HomepageSectionTitle from '../components/home/HomepageSectionTitle'
 import HomepageSectionDescription from '../components/home/HomepageSectionDescription'
 import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
-import HomepageLanguageList from '../components/home/HomepageLanguageList'
-import HomepageLanguageListItem from '../components/home/HomepageLanguageListItem'
 import HomepageThumbnail from '../components/home/HomepageThumbnail'
 import HomepageThumbnailImage from '../components/home/HomepageThumbnailImage'
 import HomepageThumbnailText from '../components/home/HomepageThumbnailText'
@@ -28,6 +25,7 @@ import HCard from '../components/indieweb/HCard'
 import TemplateWrapper from '../layouts'
 import FeaturedProject from '../components/projects/FeaturedProject'
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
+import Container from '../components/ui/Container'
 
 interface IndexPageProps {
   location: {
@@ -87,33 +85,19 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             ]}
           />
           <HomepageThumbnail>
-            <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
-            <HomepageThumbnailText>
-              <HomepageThumbnailFlavour
-                title="@resir014"
-                flavour={
-                  process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText
-                }
-              />
-            </HomepageThumbnailText>
+            <Container size="xl">
+              <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
+              <HomepageThumbnailText>
+                <HomepageThumbnailFlavour
+                  title="@resir014"
+                  flavour={
+                    process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText
+                  }
+                />
+              </HomepageThumbnailText>
+            </Container>
           </HomepageThumbnail>
-          <HomepageContent>
-            <Divider spacing="large" />
-            <HomepageSection>
-              <HomepageSectionTitle>Hey, call me Resi!</HomepageSectionTitle>
-              <HomepageSectionDescription>
-                I'm a professional web developer based in Jakarta, Indonesia.
-              </HomepageSectionDescription>
-              <HomepageSectionFooter>
-                <Button kind="nav-link" color="primary" size="lg" to="/about">
-                  More about me
-                </Button>{' '}
-                <Button kind="nav-link" color="primary" size="lg" to="/posts">
-                  Read my posts
-                </Button>
-              </HomepageSectionFooter>
-            </HomepageSection>
-            <Divider spacing="large" />
+          <HomepageContent withHomepageFlavour>
             <HomepageSection size="xl">
               <FeaturedProject node={data.featuredProject} />
               <ProjectItemList
@@ -138,22 +122,12 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               </HomepageSectionFooter>
             </HomepageSection>
             <Divider spacing="large" />
-            <HomepageSection>
-              <HomepageSectionTitle>Current skillset</HomepageSectionTitle>
+            <HomepageSection size="xl">
+              <HomepageSectionTitle>Contact</HomepageSectionTitle>
               <HomepageSectionDescription>
-                Got an interesting project in mind? Want me to know about it?{' '}
+                Got an interesting project in mind? Want me to help you with it?{' '}
                 <Link to="/contact">Let's talk!</Link>
               </HomepageSectionDescription>
-              <HomepageLanguageList>
-                <HomepageLanguageListItem background="#ffff00" name="JavaScript (ES6)" />
-                <HomepageLanguageListItem
-                  color={colors.white}
-                  background="#337ab7"
-                  name="TypeScript"
-                />
-                <HomepageLanguageListItem color="#61dafb" background="#282c34" name="React" />
-                <HomepageLanguageListItem color={colors.white} background="#4e2a8e" name="Elixir" />
-              </HomepageLanguageList>
             </HomepageSection>
           </HomepageContent>
           <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />

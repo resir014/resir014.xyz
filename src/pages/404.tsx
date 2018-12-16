@@ -1,57 +1,16 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
-import styled from 'react-emotion'
 import Helmet from 'react-helmet'
 
-import { colors, fonts, pxSizes } from '../styles/variables'
-import { getEmSize } from '../styles/mixins'
 import { SiteMetadata } from '../types/gatsby'
 
 import Page from '../components/page/Page'
-import PostHeader from '../components/post/PostHeader'
+import PageHeader from '../components/page/PageHeader'
 import PostMeta from '../components/post/PostMeta'
 import PageTitle from '../components/page/PageTitle'
-import PageContent from '../components/page/PageContent'
-import Container from '../components/ui/Container'
 import TemplateWrapper from '../layouts'
-
-const PageInner = styled('div')`
-  a {
-    color: ${colors.blue40};
-  }
-
-  h1 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    font-family: ${fonts.sansSerif};
-    font-size: 2.074rem;
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-      font-size: 2.441rem;
-    }
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-      font-size: 3.157rem;
-    }
-
-    span {
-      display: inline-block;
-      margin: 0;
-      padding: 0 0.5rem;
-      background-color: ${colors.white};
-      color: ${colors.ink90};
-    }
-  }
-
-  p {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 300;
-  }
-`
+import PageSubtitle from '../components/page/PageSubtitle'
 
 interface NotFoundPageProps {
   data: {
@@ -76,20 +35,14 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
         ]}
       />
       <article>
-        <PostHeader>
+        <PageHeader>
           <PostMeta>
             <PageTitle>404.</PageTitle>
+            <PageSubtitle>
+              You've hit the void. <Link to="/">Go back home.</Link>
+            </PageSubtitle>
           </PostMeta>
-        </PostHeader>
-        <PageContent>
-          <Container>
-            <PageInner>
-              <p className="lead">
-                You've hit the void. <Link to="/">Go back home.</Link>
-              </p>
-            </PageInner>
-          </Container>
-        </PageContent>
+        </PageHeader>
       </article>
     </Page>
   </TemplateWrapper>

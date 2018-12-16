@@ -2,13 +2,12 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from 'react-emotion'
 import Link from 'gatsby-link'
-import { darken } from 'polished'
 
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import Container from '../ui/Container'
+import { getEmSize } from '../../styles/mixins'
 
 interface HCardProps {
   className?: string
@@ -19,8 +18,8 @@ interface HCardProps {
 
 const HCardName = styled('h3')`
   margin-top: 0;
-  font-family: ${fonts.sansSerif};
-  color: ${colors.white};
+  font-family: ${fonts.serif};
+  color: ${colors.grey90};
 `
 
 const HCardNote = styled('p')`
@@ -35,9 +34,8 @@ const HCardAvatar = styled('div')`
   justify-content: center;
   margin-bottom: 1.5rem;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     margin-bottom: 0;
-    margin-right: 2rem;
   }
 `
 
@@ -45,12 +43,15 @@ const HCardAvatarImg = styled('img')`
   width: 180px;
   height: 180px;
   margin: 0;
-  border: 4px solid ${colors.white};
-  border-radius: 50%;
+  border-radius: 180px;
 `
 
 const HCardDetails = styled('div')`
   flex: 1;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    margin-left: 1.5rem;
+  }
 `
 
 const HCardEmail = styled('span')`
@@ -110,10 +111,12 @@ export default HCard
 const Inner = styled('div')`
   display: flex;
   flex-direction: column;
+  text-align: center;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     flex-direction: row;
     align-items: center;
+    text-align: left;
   }
 `
 
@@ -121,14 +124,14 @@ const Div = styled('div')`
   display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'block')};
   margin: 0;
   padding: 1.5rem;
-  background-color: ${colors.ink90};
-  color: ${darken(0.3, colors.white)};
+  background-color: ${colors.white};
+  color: ${colors.grey70};
 
   p {
     margin: 0.5rem 0;
   }
 
   a {
-    color: ${colors.white};
+    color: ${colors.grey90};
   }
 `

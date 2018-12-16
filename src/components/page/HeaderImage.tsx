@@ -4,7 +4,7 @@ import styled from 'react-emotion'
 
 interface HeaderImageProps {
   className?: string
-  fluid: { [key: string]: any }
+  fluid: any
   alt: string
 }
 

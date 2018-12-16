@@ -14,22 +14,23 @@ const Container: React.SFC<ContainerProps> = ({ className, children }) => (
 )
 
 const FluidStyle = css`
-  max-width: ${getEmSize(pxSizes.widths.md)};
+  max-width: ${pxSizes.widths.md}px;
 `
 
 const LargeStyles = css`
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    max-width: ${getEmSize(pxSizes.widths.lg)};
+    max-width: ${pxSizes.widths.lg}px;
   }
 `
 
 const XLargeStyles = css`
   @media (min-width: ${getEmSize(pxSizes.breakpoints.xl)}) {
-    max-width: ${getEmSize(pxSizes.widths.xl)};
+    max-width: ${pxSizes.widths.xl}px;
   }
 `
 
 const ContainerBase = (props: ContainerProps) => css`
+position: relative;
 margin-left: auto;
 margin-right: auto;
 

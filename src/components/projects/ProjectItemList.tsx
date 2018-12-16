@@ -10,7 +10,6 @@ import { ProjectField } from '../../types/fields'
 const ProjectSectionHeading = styled('h2')`
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  text-align: center;
 `
 
 const ProjectsList = styled('div')`

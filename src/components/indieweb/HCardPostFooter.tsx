@@ -1,12 +1,11 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import styled from 'react-emotion'
-import { darken } from 'polished'
 
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
 import { ChildImageSharp } from '../../types/gatsby'
 import { SiteAuthor } from '../../types/default'
+import { getEmSize } from '../../styles/mixins'
 
 interface HCardPostFooterProps {
   className?: string
@@ -17,8 +16,8 @@ interface HCardPostFooterProps {
 
 const HCardName = styled('h3')`
   margin-top: 0;
-  font-family: ${fonts.sansSerif};
-  color: ${colors.white};
+  font-family: ${fonts.serif};
+  color: ${colors.grey90};
 `
 
 const HCardNote = styled('p')`
@@ -33,9 +32,8 @@ const HCardAvatar = styled('div')`
   justify-content: center;
   margin-bottom: 1.5rem;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     margin-bottom: 0;
-    margin-right: 1.5rem;
   }
 `
 
@@ -43,12 +41,15 @@ const HCardAvatarImg = styled('img')`
   width: 128px;
   height: 128px;
   margin: 0;
-  border: 4px solid ${colors.white};
-  border-radius: 50%;
+  border-radius: 128px;
 `
 
 const HCardDetails = styled('div')`
   flex: 1;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    margin-left: 1.5rem;
+  }
 `
 
 const HCardEmail = styled('a')`
@@ -80,10 +81,11 @@ export default HCardPostFooter
 const Anchor = styled('a')`
   display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'flex')};
   flex-direction: column;
+  text-align: center;
   margin: 0;
-  padding: 1.5rem;
-  background-color: ${colors.ink90};
-  color: ${darken(0.3, colors.white)};
+  padding: 0;
+  background-color: ${colors.white};
+  color: ${colors.grey70};
   text-decoration: none !important;
 
   p {
@@ -91,11 +93,12 @@ const Anchor = styled('a')`
   }
 
   a {
-    color: ${colors.white};
+    color: ${colors.grey90};
   }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     flex-direction: row;
     align-items: center;
+    text-align: left;
   }
 `

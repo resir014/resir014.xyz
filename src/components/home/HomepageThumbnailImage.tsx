@@ -7,7 +7,7 @@ import { getEmSize } from '../../styles/mixins'
 
 interface HomepageThumbnailImageProps {
   className?: string
-  fluid: { [key: string]: any }
+  fluid: any
   alt: string
 }
 

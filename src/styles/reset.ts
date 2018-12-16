@@ -91,9 +91,9 @@ injectGlobal`
 
   h1, h2, h3, h4, h5, h6 {
     margin-top: 1.414rem;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
     font-family: ${fonts.serif};
-    font-weight: 600;
+    font-weight: 400;
     line-height: 1.2;
     color: ${colors.grey90};
     text-rendering: optimizeLegibility;

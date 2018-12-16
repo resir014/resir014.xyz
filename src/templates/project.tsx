@@ -18,6 +18,7 @@ import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import PostHeader from '../components/post/PostHeader'
 import PostMeta from '../components/post/PostMeta'
 import TemplateWrapper from '../layouts'
+import PageHeader from '../components/page/PageHeader'
 
 interface ProjectTemplateProps {
   data: {
@@ -72,26 +73,42 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
           ]}
         />
         <article className="h-entry">
-          {post.frontmatter.header_image && (
-            <PostThumbnail>
-              <PostThumbnailImage
-                fluid={post.frontmatter.header_image.childImageSharp.fluid}
-                alt={post.frontmatter.title}
-              />
-            </PostThumbnail>
+          {post.frontmatter.header_image ? (
+            <Container size="xl">
+              <PostThumbnail>
+                <PostThumbnailImage
+                  fluid={post.frontmatter.header_image.childImageSharp.fluid}
+                  alt={post.frontmatter.title}
+                />
+              </PostThumbnail>
+              <PostHeader>
+                <PostMeta>
+                  <PostMetaItem className="p-category">projects</PostMetaItem>
+                  <PostMetaItem>{post.fields.year}</PostMetaItem>
+                  {post.fields.category ? (
+                    <PostMetaItem>{post.fields.category}</PostMetaItem>
+                  ) : null}
+                  <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+                </PostMeta>
+                {post.fields.lead ? (
+                  <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+                ) : null}
+              </PostHeader>
+            </Container>
+          ) : (
+            <PageHeader>
+              <PostMeta>
+                <PostMetaItem className="p-category">projects</PostMetaItem>
+                <PostMetaItem>{post.fields.year}</PostMetaItem>
+                {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
+                <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+              </PostMeta>
+              {post.fields.lead ? (
+                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+              ) : null}
+            </PageHeader>
           )}
-          <PostHeader>
-            <PostMeta>
-              <PostMetaItem className="p-category">projects</PostMetaItem>
-              <PostMetaItem>{post.fields.year}</PostMetaItem>
-              {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
-              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-            </PostMeta>
-            {post.fields.lead ? (
-              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-            ) : null}
-          </PostHeader>
-          <PageContent>
+          <PageContent hasHeaderImage={!!post.frontmatter.header_image}>
             <Container>
               <MarkdownContent className="e-content" html={post.html} />
               {post.fields.jumpToProject === 'true' || post.fields.project_url ? (

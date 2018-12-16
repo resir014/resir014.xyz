@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from 'react-emotion'
-import { darken } from 'polished'
 
 import flavors from '../../utils/flavorText'
 import { colors, emSizes, pxSizes } from '../../styles/variables'
@@ -11,18 +10,18 @@ const ccLogo = require('../../assets/images/cc-by-nc-sa.svg')
 
 const StyledFooter = styled('footer')`
   padding: 1rem ${emSizes.containerPadding}rem;
-  color: ${darken(0.4, colors.white)};
-  background-color: ${colors.ink90};
+  color: ${colors.grey60};
+  background-color: ${colors.white};
 `
 
 const FooterContent = styled('div')`
   a {
-    color: ${colors.blue40};
+    color: ${colors.blue60};
     text-decoration: underline;
 
     &:hover,
     &:focus {
-      color: ${colors.blue50};
+      color: ${colors.blue70};
     }
 
     @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {

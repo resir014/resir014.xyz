@@ -17,7 +17,6 @@ export default HomepageSectionDescription
 
 const Paragraph = styled('p')`
   margin-bottom: 0.5rem;
-  text-align: center;
   font-size: 1.25rem;
   font-weight: 300;
 
