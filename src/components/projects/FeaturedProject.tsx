@@ -65,6 +65,7 @@ const FeaturedProjectHeading = styled('div')`
 
 const FeaturedProjectName = styled('h3')`
   margin-top: 0;
+  margin-bottom: 0.5rem;
   color: ${colors.white};
 `
 
