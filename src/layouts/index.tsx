@@ -7,14 +7,13 @@ import { menuItems } from '../utils/menus'
 
 import 'typeface-barlow'
 import 'modern-normalize'
-import '../styles/reset'
 import 'prism-themes/themes/prism-darcula.css'
 
 import LayoutRoot from '../components/ui/LayoutRoot'
 import Masthead from '../components/ui/Masthead'
 import Footer from '../components/ui/Footer'
-import { SiteMetadata } from '../types/gatsby'
 import { GlobalStyles } from '../styles/reset'
+import { SiteMetadata } from '../types/gatsby'
 
 interface WrapperData {
   site: {
