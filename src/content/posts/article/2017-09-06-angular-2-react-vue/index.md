@@ -76,6 +76,4 @@ In which case, the decision falls on you.
 
 _This story is also published on [Medium](https://medium.com/@resir014/why-you-moved-from-angular-2-to-vue-js-and-why-you-didnt-understand-what-react-is-about-107ea9188912)._
 
-[^fn-ng1]:
-
-  Google insists Angular 1 be referred to as "AngularJS" and Angular 2+ as "just Angular". This just creates further confusion and is probably part of the reason why it threw people off from upgrading to it in the first place.
+[^fn-ng1]: Google insists Angular 1 be referred to as "AngularJS" and Angular 2+ as "just Angular". This just creates further confusion and is probably part of the reason why it threw people off from upgrading to it in the first place.

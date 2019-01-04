@@ -67,7 +67,7 @@ And in this case, quality _is_ the issue.
 
 Now this is the part that concerns me this might be a scam: The donation perks. There are only two perks available, and they are the following.
 
-> $20 — A single perk
+> \$20 — A single perk
 > We will share you the Alpha Versions of this game. Until now, no other than our team ever played. You would be lucky guys can be played this alpha versions before someday this game will be greatest game in Indonesia
 
 Alpha access to the _GREATEST_ game in Indonesia! Trying hard to beat DreadOut, I see?

@@ -41,7 +41,7 @@ You took your painkillers as you try to kill the headache you acquired from all 
 
 But then, you suddenly stopped and thought, "I should probably find out how to bypass this."
 
-So you started looking for guides on the internet, and asking around for ways to do it. Alternative DNSes, proxy servers, VPNs, you name it. You figured that you might be able to fork $5 a month for a DigitalOcean droplet and use it to host your VPN, maybe it will help your friends too. You collect **every single solution** that you can find and try every single one of them.
+So you started looking for guides on the internet, and asking around for ways to do it. Alternative DNSes, proxy servers, VPNs, you name it. You figured that you might be able to fork \$5 a month for a DigitalOcean droplet and use it to host your VPN, maybe it will help your friends too. You collect **every single solution** that you can find and try every single one of them.
 
 ## Acceptance
 

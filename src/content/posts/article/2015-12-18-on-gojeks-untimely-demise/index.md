@@ -80,6 +80,4 @@ As for the current state of our public transport, as long as it remains however 
 _This post is also published on [Medium](https://medium.com/@resir014/go-jek-and-the-government-an-unfortunate-love-hate-relationship-bdda6d2d311c)._
 
 [^fn-cite-1]: [\[Source\]](http://tompepinsky.com/2015/08/03/on-the-disruption-of-go-jek/)
-[^fn-cite-2]:
-
-  [\[Source\]](http://megapolitan.kompas.com/read/2015/09/01/14043961/Pertemukan.Pengemudi.Ojek.Pangkalan.dan.Aplikasi.Jokowi.Minta.Bersaing.Sehat)
+[^fn-cite-2]: [\[Source\]](http://megapolitan.kompas.com/read/2015/09/01/14043961/Pertemukan.Pengemudi.Ojek.Pangkalan.dan.Aplikasi.Jokowi.Minta.Bersaing.Sehat)
