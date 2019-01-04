@@ -56,7 +56,6 @@
     "gatsby-transformer-sharp": "^2.1.10",
     "modern-normalize": "^0.5.0",
     "polished": "^2.3.1",
-    "prism-themes": "^1.0.1",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
