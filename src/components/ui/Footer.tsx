@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 import flavors from '../../utils/flavorText'
 import { colors, emSizes, pxSizes } from '../../styles/variables'

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { lighten, darken } from 'polished'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 import { colors, emSizes, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'

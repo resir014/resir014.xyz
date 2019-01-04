@@ -1,6 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import Link from 'gatsby-link'
 
 import { colors } from '../../styles/variables'

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import { Global } from '@emotion/core'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { menuItems } from '../utils/menus'
@@ -13,6 +14,7 @@ import LayoutRoot from '../components/ui/LayoutRoot'
 import Masthead from '../components/ui/Masthead'
 import Footer from '../components/ui/Footer'
 import { SiteMetadata } from '../types/gatsby'
+import { GlobalStyles } from '../styles/reset'
 
 interface WrapperData {
   site: {
@@ -66,6 +68,7 @@ class TemplateWrapper extends React.Component<{}, WrapperState> {
       >
         {(data: WrapperData) => (
           <LayoutRoot>
+            <Global styles={GlobalStyles} />
             <Helmet>
               <title>{data.site.siteMetadata.title}</title>
               <meta name="description" content={data.site.siteMetadata.description} />

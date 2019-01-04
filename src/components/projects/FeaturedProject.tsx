@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 import Button from '../ui/Button'
 import Container from '../ui/Container'

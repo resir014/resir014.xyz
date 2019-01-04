@@ -1,10 +1,10 @@
 // tslint:disable:no-unused-expression
 
-import { injectGlobal } from 'emotion'
+import { css } from '@emotion/core'
 import { colors, fonts, pxSizes, emSizes } from './variables'
 import { getEmSize } from './mixins'
 
-injectGlobal`
+export const GlobalStyles = css`
   html {
     box-sizing: border-box;
   }
@@ -39,7 +39,8 @@ injectGlobal`
     color: inherit;
     text-decoration: none;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       text-decoration: underline;
     }
   }
@@ -74,8 +75,9 @@ injectGlobal`
     border: 1px solid ${colors.grey20};
     border-collapse: collapse;
 
-    td, th {
-      padding: .25rem .5rem;
+    td,
+    th {
+      padding: 0.25rem 0.5rem;
       border: 1px solid ${colors.grey20};
     }
 
@@ -89,7 +91,12 @@ injectGlobal`
     }
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 1.414rem;
     margin-bottom: 1rem;
     font-family: ${fonts.serif};
@@ -136,7 +143,9 @@ injectGlobal`
     }
   }
 
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     font-size: ${emSizes.headingSmall.h4}rem;
 
     @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
@@ -157,14 +166,16 @@ injectGlobal`
   }
 
   small {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 
   strong {
     color: ${colors.grey90};
   }
 
-  ul, ol, dl {
+  ul,
+  ol,
+  dl {
     margin-top: 0;
     margin-bottom: 1rem;
   }
@@ -175,7 +186,7 @@ injectGlobal`
 
   dd {
     margin-left: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 
   hr {
@@ -196,10 +207,10 @@ injectGlobal`
   }
 
   blockquote {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     margin: 1rem 0;
     color: ${colors.grey50};
-    border-left: .25rem solid ${colors.grey20};
+    border-left: 0.25rem solid ${colors.grey20};
 
     &:first-child {
       margin-top: 0;
@@ -220,7 +231,7 @@ injectGlobal`
   }
 
   code {
-    padding: 0 .25em;
+    padding: 0 0.25em;
     font-size: 90%;
     color: ${colors.red50};
     background-color: ${colors.grey10};

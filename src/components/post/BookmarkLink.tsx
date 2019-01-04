@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import Url from 'url-parse'
 import { colors } from '../../styles/variables'
 import PostTitle from './PostTitle'

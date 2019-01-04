@@ -1,5 +1,6 @@
 import * as React from 'react'
-import styled, { css } from 'react-emotion'
+import { css } from '@emotion/core'
+import styled from '@emotion/styled'
 
 import { getEmSize } from '../../styles/mixins'
 import { pxSizes } from '../../styles/variables'

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 import { pxSizes, emSizes, colors } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
