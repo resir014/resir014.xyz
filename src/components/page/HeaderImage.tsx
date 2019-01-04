@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Img from 'gatsby-image'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 
 interface HeaderImageProps {
   className?: string

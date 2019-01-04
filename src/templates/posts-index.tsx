@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
