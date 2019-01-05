@@ -3,7 +3,7 @@ category: article
 layout: post
 date: 2018-07-06T20:36:00+07:00
 title: 'Redux 4 + TypeScript: A type-safe approach'
-lead: 'An updated version of my type-safe guide to Redux, now compatible with Redux 4 + TypeScript 2.9.'
+lead: 'An updated version of my type-safe guide to Redux, now compatible with Redux 4 + TypeScript 3.'
 syndication:
   - name: dev.to
     url: https://dev.to/resir014/redux-4--typescript-29-a-type-safe-approach-2lf4
@@ -36,6 +36,7 @@ If you want to jump straight to the examples, I've also published a sample proje
 ## Updates
 
 - **2018-12-08:** Updated `Dispatch` to be imported from `redux` instead of `react-redux`. The guide is also now tested to work on TypeScript `^3.0.0`. (Thanks [cancerberoSgx](https://github.com/resir014/react-redux-typescript-example/pull/2)!)
+- **2019-01-05:** Changed `const enum`s to `enum`s due to Babel not supporting it. (Thanks [Kyle Gillen](https://github.com/nextriot)!)
 
 ---
 
@@ -166,13 +167,13 @@ export interface Hero {
 // the expected return type of your API response.
 export type ApiResponse = Record<string, any>
 
-// Use `const enum`s for better autocompletion of action type names. These will
+// Use `enum`s for better autocompletion of action type names. These will
 // be compiled away leaving only the final value in your compiled code.
 //
 // Define however naming conventions you'd like for your action types, but
 // personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
 // of Redux's `@@INIT` action.
-export const enum HeroesActionTypes {
+export enum HeroesActionTypes {
   FETCH_REQUEST = '@@heroes/FETCH_REQUEST',
   FETCH_SUCCESS = '@@heroes/FETCH_SUCCESS',
   FETCH_ERROR = '@@heroes/FETCH_ERROR',
@@ -297,12 +298,11 @@ function* watchFetchRequest() {
   yield takeEvery(HeroesActionTypes.FETCH_REQUEST, handleFetch)
 }
 
+// Export our root saga.
 // We can also use `fork()` here to split our saga into multiple watchers.
-function* heroesSaga() {
+export function* heroesSaga() {
   yield all([fork(watchFetchRequest)])
 }
-
-export default heroesSaga
 ```
 
 To include them in our root store, we add a `rootSaga()` generator function which collects all of our store sagas.
