@@ -161,4 +161,4 @@ There are three options that define how your TS code is interpreted by the compi
 
 And that's it for this part. In part 2, we'll go through how to make your TypeScript migration painless by adding types gradually. We'll also go through the quirks of TypeScript's type system, as well as changing your way of thinking to write TypeScript apps.
 
-Once again, I really recommend the [TypeScript Deep Dive](https://basarat.gitbooks.io/typescript/) book by Basarat. His book on TypeScript helps me a lot on getting started. Should you ever get stuck, the `#typescript` channel on the [Reactiflux](https://www.reactiflux.com/) Discord server has a bunch of lovely people who know TypeScript inside and out. Feel free to hop in and ask questions!
+Once again, I really recommend the [TypeScript Deep Dive](https://basarat.gitbooks.io/typescript/) book by Basarat. His book on TypeScript has helped me a lot on learning this language. Should you ever get stuck, the `#typescript` channel on the [Reactiflux](https://www.reactiflux.com/) Discord server has a bunch of lovely people who know TypeScript inside and out. Feel free to hop in and ask questions!
