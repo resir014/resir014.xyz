@@ -5,6 +5,9 @@ date: 2019-01-09T16:48:00+07:00
 title: 'Migrating to TypeScript, Part 1: Getting started'
 lead: 'In this first article of a multi-part series on migrating to TypeScript, we look into the things you need to do to prepare your project for the Big Rewrite.'
 header_image: franz-harvin-aceituna-432708-unsplash.jpg
+syndication:
+  - name: dev.to
+    url: https://dev.to/resir014/migrating-to-typescript-part-1-getting-started-n4l
 ---
 
 <em>Header image by [Franz Harvin Aceituna](https://unsplash.com/photos/vkfrFrAIO4o) on [Unsplash](https://unsplash.com/).</em>
