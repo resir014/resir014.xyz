@@ -2,7 +2,7 @@
 category: article
 layout: post
 date: 2019-01-09T16:48:00+07:00
-title: 'Migrating to TypeScript, Part 1: Getting started'
+title: 'Migrating to TypeScript, Part 1: Introduction and getting started'
 lead: 'In this first article of a multi-part series on migrating to TypeScript, we look into the things you need to do to prepare your project for the Big Rewrite.'
 header_image: franz-harvin-aceituna-432708-unsplash.jpg
 syndication:
@@ -23,6 +23,11 @@ For many of us already using TypeScript, we could never imagine writing JS witho
 A lot of TypeScript learning materials out there never seem to dive deep on migrating a well-matured app to TypeScript. Worse still, TypeScript does have their own, [official migration guide](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html) - but it's horribly outdated.
 
 So in this series of posts, I try to outline my personal steps on how to migrate an existing codebase to TypeScript. The first part will go through the steps on preparing your project for the Big Rewrite. This includes setting up the TS compiler, and the basic essentials of the TypeScript compiler.
+
+## Table of contents
+
+- Part 1: Introduction and getting started (you are here)
+- Part 2: Thinking in TypeScript
 
 ---
 
