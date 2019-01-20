@@ -24,9 +24,7 @@ So if you're like me and have been wondering how the heck do you actually get it
 
 ## TL;DR
 
-If reading's not your thing, I have prepared the end result of this guide [here](https://github.com/resir014/phoenix_react_playground). To make it easier to understand, the commit logs outline the steps taken on this guide.
-
-Once you're all set up, you should have a working Phoenix setup with the following stack:
+If reading's not your thing, I have prepared the end result of this guide [here](https://github.com/resir014/phoenix_react_playground). Once you're all set up, you should have a working Phoenix setup with the following stack:
 
 - Elixir (^1.7.4)
 - Node.js (^10.15.0)
