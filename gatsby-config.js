@@ -157,7 +157,9 @@ module.exports = {
                 return Object.assign(
                   {},
                   {
-                    title: edge.node.frontmatter.title || 'New post by @resir014',
+                    title:
+                      edge.node.frontmatter.title ||
+                      `New ${edge.node.fields.category || 'post'} by @resir014`,
                     description: edge.node.fields.lead || edge.node.excerpt,
                     date: edge.node.fields.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
@@ -184,6 +186,7 @@ module.exports = {
                         slug
                         lead
                         date
+                        category
                       }
                       frontmatter {
                         title
