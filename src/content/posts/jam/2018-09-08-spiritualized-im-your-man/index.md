@@ -8,6 +8,4 @@ date: 2018-09-08T23:51:00+07:00
 
 #### Spiritualized - I'm Your Man
 
-<!-- end -->
-
 One of my favourite tracks from the all-new Spiritualized album.

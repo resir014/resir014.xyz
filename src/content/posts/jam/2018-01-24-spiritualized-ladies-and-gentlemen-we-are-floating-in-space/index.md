@@ -7,8 +7,6 @@ layout: jam
 
 #### Spiritualized - Ladies and Gentlemen We Are Floating in Space
 
-<!-- end -->
-
 Do you ever have this song that you randomly encounter out of the blue one day, but you're SURE you've heard it somewhere before, a long time ago?
 
 This is one of them. Especially that ending, where it fades to a beautiful cover of "I Can't Help Falling in Love".

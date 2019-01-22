@@ -7,8 +7,6 @@ layout: video
 
 #### The Day That Minecraft Died
 
-<!-- end -->
-
 While this video is a bit uncomfortable to watch because pokes at the
 "blame Microsoft" thing quite a lot, I agree with the general sentiment.
 

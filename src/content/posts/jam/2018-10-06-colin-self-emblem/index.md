@@ -8,6 +8,4 @@ date: 2018-10-06T18:26:00+07:00
 
 #### Colin Self - Emblem
 
-<!-- end -->
-
 Featured on the latest [Love + Radio](http://loveandradio.org/) episode, "The Battle of Cumorah".
