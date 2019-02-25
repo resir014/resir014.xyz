@@ -374,8 +374,6 @@ Some libraries include their own declaration files. If a project is compiled fro
 }
 ```
 
-Note that some modules may bundle TypeScript declarations alongside it, so it will automatically get picked up by TS. For modules that don't bundle these declarations, we can install type declarations from DefinitelyTyped, as mentioned earlier in this guide.
-
 OK, so now we have the type declarations installed, how does our TS file look like?
 
 ![5-installed-declarations](./5-installed-declarations.png)
