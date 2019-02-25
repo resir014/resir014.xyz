@@ -27,7 +27,7 @@ So in this series of posts, I try to outline my personal steps on how to migrate
 ## Table of contents
 
 - Part 1: Introduction and getting started (you are here)
-- Part 2: Thinking in TypeScript
+- [Part 2: Trust the compiler!](/posts/2019/02/20/migrating-to-typescript-part-2/)
 
 ---
 
