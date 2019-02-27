@@ -17,4 +17,4 @@ date: 2019-02-27T23:51:00+07:00
 
 Yes, this! A million times this.
 
-We shouldn't solely blame a framework for its accessibility issues. We should rather help its users understand the semantics of web elements, and that starts w/ community leaders which champion a11y.
+We shouldn't solely blame a framework for its accessibility issues. We should rather help its users understand the semantics of web elements, and that starts with community leaders which champion accessibility.
