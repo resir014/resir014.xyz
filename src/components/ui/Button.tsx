@@ -59,6 +59,11 @@ const Button: React.SFC<ButtonProps> = ({
   )
 }
 
+Button.defaultProps = {
+  color: 'primary',
+  size: 'md'
+}
+
 const SmallButtonStyles = css`
   font-size: 85%;
 `

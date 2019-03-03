@@ -8,7 +8,7 @@ import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
 import { ProjectNode } from '../types/nodes'
 
-import Button from '../components/ui/Button'
+import Button from '../chungking/components/ui/Button'
 import Divider from '../components/ui/Divider'
 import Page from '../components/page/Page'
 import HomepageContent from '../components/home/HomepageContent'
@@ -68,7 +68,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
   public render() {
     const { data } = this.props
     return (
-      <TemplateWrapper>
+      <TemplateWrapper withChungking>
         <Page>
           <Helmet
             title={data.site.siteMetadata.title}
@@ -84,6 +84,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               }
             ]}
           />
+          <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
           <HomepageThumbnail>
             <Container size="xl">
               <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
@@ -130,7 +131,6 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               </HomepageSectionDescription>
             </HomepageSection>
           </HomepageContent>
-          <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
         </Page>
       </TemplateWrapper>
     )

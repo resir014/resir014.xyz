@@ -8,8 +8,6 @@ import { BlogPostField } from '../types/fields'
 
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
-import PageHeader from '../components/page/PageHeader'
-import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
 import BlogPostItem from '../components/postsList/BlogPostItem'
 
@@ -19,6 +17,8 @@ import { getEmSize } from '../styles/mixins'
 import withPathPrefix from '../utils/withPathPrefix'
 import { pxSizes } from '../styles/variables'
 import TemplateWrapper from '../layouts'
+
+import { PageHeader, PageTitle } from '../chungking/components/page'
 
 interface BlogPageProps {
   data: {
@@ -61,7 +61,7 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
   const nextUrl = withPathPrefix((index + 1).toString(), pathPrefix)
 
   return (
-    <TemplateWrapper>
+    <TemplateWrapper withChungking>
       <Page>
         <Helmet
           title={`Posts${index && index > 1 ? ` (page ${index} of ${pageCount})` : ''} · ${
