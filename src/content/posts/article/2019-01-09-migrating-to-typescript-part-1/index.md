@@ -6,6 +6,8 @@ title: 'Migrating to TypeScript, Part 1: Introduction and getting started'
 lead: 'In this first article of a multi-part series on migrating to TypeScript, we look into the things you need to do to prepare your project for the Big Rewrite.'
 header_image: franz-harvin-aceituna-432708-unsplash.jpg
 syndication:
+  - name: Medium
+    url: https://medium.com/kata-engineering/migrating-to-typescript-part-1-getting-started-f81e8d8c81aa
   - name: dev.to
     url: https://dev.to/resir014/migrating-to-typescript-part-1-getting-started-n4l
 ---

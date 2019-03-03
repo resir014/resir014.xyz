@@ -5,6 +5,11 @@ date: 2019-02-25T15:53:00+07:00
 title: 'Migrating to TypeScript, Part 2: Trust the compiler!'
 lead: 'Or, The Part Where We Get to Write Some Code.'
 header_image: irina-iriser-497161-unsplash.jpg
+syndication:
+  - name: Medium
+    url: https://medium.com/kata-engineering/migrating-to-typescript-part-2-trust-the-compiler-c488d3946eaf
+  - name: dev.to
+    url: https://dev.to/resir014/migrating-to-typescript-part-2-trust-the-compiler-4o87
 ---
 
 <em>Header image by [Irina Iriser](https://unsplash.com/photos/nYIQYg8cQVc) on [Unsplash](https://unsplash.com/).</em>
