@@ -14,6 +14,7 @@ interface MastheadProps extends MenuProps {
   title: string
   className?: string
   transparent?: boolean
+  size?: 'md' | 'lg' | 'xl'
   onNavToggleClick: () => any
 }
 
@@ -41,9 +42,9 @@ const MastheadTitleLink = styled(Link)`
   }
 `
 
-const Masthead: React.SFC<MastheadProps> = ({ className, title }) => (
+const Masthead: React.SFC<MastheadProps> = ({ className, title, size }) => (
   <header className={className}>
-    <Container size="md">
+    <Container size={size}>
       <MastheadInner>
         <MastheadTitle>
           <MastheadTitleLink to="/">{title}</MastheadTitleLink>
@@ -53,6 +54,10 @@ const Masthead: React.SFC<MastheadProps> = ({ className, title }) => (
     </Container>
   </header>
 )
+
+Masthead.defaultProps = {
+  size: 'md'
+}
 
 export default styled(Masthead)`
   padding: 1rem ${emSizes.containerPadding}rem;

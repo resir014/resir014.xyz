@@ -36,7 +36,7 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <TemplateWrapper>
+    <TemplateWrapper withChungking>
       <Page>
         <Helmet
           title={`${post.frontmatter.title || post.fields.lead || post.excerpt} · ${

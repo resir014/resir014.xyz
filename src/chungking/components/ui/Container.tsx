@@ -14,6 +14,11 @@ const Container: React.SFC<ContainerProps> = ({ className, children }) => (
   <div className={className}>{children}</div>
 )
 
+Container.defaultProps = {
+  className: undefined,
+  size: 'md'
+}
+
 const FluidStyle = css`
   max-width: ${pxSizes.widths.md}px;
 `

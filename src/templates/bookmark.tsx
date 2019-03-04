@@ -9,14 +9,15 @@ import Container from '../components/ui/Container'
 import Divider from '../components/ui/Divider'
 import Page from '../components/page/Page'
 import PostMeta from '../components/post/PostMeta'
-import PageHeader from '../components/page/PageHeader'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import MarkdownContent from '../components/page/MarkdownContent'
-import HCardPostFooter from '../components/indieweb/HCardPostFooter'
 import TemplateWrapper from '../layouts'
-import BookmarkLink from '../components/post/BookmarkLink'
+
+import { PageHeader } from '../chungking/components/page'
+import { HCardPost } from '../chungking/components/indieweb'
+import { BookmarkLink } from '../chungking/components/bookmark'
 
 interface BookmarkTemplateProps {
   location: {
@@ -36,7 +37,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <TemplateWrapper>
+    <TemplateWrapper withChungking>
       <Page>
         <Helmet
           title={`${post.frontmatter.title || 'Bookmark posted by @resir014'} · ${
@@ -75,6 +76,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
               {post.fields.category ? (
                 <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
               ) : null}
+              <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
               <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
               {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
             </PostMeta>
@@ -94,12 +96,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
               </div>
             </Container>
             <Divider spacing="large" />
-            <Container>
-              <HCardPostFooter
-                icon={data.icon.childImageSharp}
-                author={data.site.siteMetadata.author}
-              />
-            </Container>
+            <Container />
           </PageContent>
         </article>
       </Page>
