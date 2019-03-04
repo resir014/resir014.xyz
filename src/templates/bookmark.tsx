@@ -6,18 +6,16 @@ import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { BookmarkNode } from '../types/nodes'
 
 import Container from '../components/ui/Container'
-import Divider from '../components/ui/Divider'
 import Page from '../components/page/Page'
-import PostMeta from '../components/post/PostMeta'
-import PostMetaItem from '../components/post/PostMetaItem'
 import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import MarkdownContent from '../components/page/MarkdownContent'
 import TemplateWrapper from '../layouts'
 
-import { PageHeader } from '../chungking/components/page'
+import { PageHeader, PageMeta, PageMetaItem } from '../chungking/components/page'
 import { HCardPost } from '../chungking/components/indieweb'
 import { BookmarkLink } from '../chungking/components/bookmark'
+import { Divider } from '../chungking/components/ui'
 
 interface BookmarkTemplateProps {
   location: {
@@ -64,22 +62,22 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
         />
         <article className="h-entry">
           <PageHeader>
-            <PostMeta>
-              <PostMetaItem>
+            <PageMeta>
+              <PageMetaItem>
                 <time
                   className="dt-published"
                   dateTime={new Date(post.fields.date_ogp).toISOString()}
                 >
                   {post.fields.date}
                 </time>
-              </PostMetaItem>
+              </PageMetaItem>
               {post.fields.category ? (
-                <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
+                <PageMetaItem className="p-category">{post.fields.category}</PageMetaItem>
               ) : null}
-              <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-              <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
-              {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-            </PostMeta>
+            </PageMeta>
+            <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
+            <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
+            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
           </PageHeader>
           <PageContent>
             <Container>
@@ -95,8 +93,6 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
                 </p>
               </div>
             </Container>
-            <Divider spacing="large" />
-            <Container />
           </PageContent>
         </article>
       </Page>

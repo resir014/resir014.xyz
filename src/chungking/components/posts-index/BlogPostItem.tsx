@@ -29,7 +29,19 @@ const StyledPostItem = styled('article')`
 `
 
 const StyledPostMeta = styled('section')`
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 90%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+`
+
+const PostMetaHr = styled('hr')`
+  width: 100%;
+  max-width: 100px;
+  height: 6px;
+  margin: 0.5rem 0;
+  border: none;
+  border-bottom: 2px solid ${colors.orange30};
 `
 
 const PostTitleLink = styled(Link)`
@@ -70,18 +82,19 @@ export class BlogPostItem extends React.Component<BlogPostField, {}> {
 
   private renderPostItem(props: BlogPostField) {
     const { node } = props
-    const { date, category } = node.fields
+    const { date, category, slug } = node.fields
     return (
       <StyledPostItem className="h-entry">
         <StyledPostMeta>
           <PostMetaItem>
-            <Link to={node.fields.slug}>
+            <Link to={slug}>
               <time className="dt-published" dateTime={new Date(date).toISOString()}>
                 {date}
               </time>
             </Link>
           </PostMetaItem>
           <PostMetaItem className="p-category">{category}</PostMetaItem>
+          <PostMetaHr />
         </StyledPostMeta>
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}
         {node.fields.category === 'note' && this.renderNoteTemplate(node)}

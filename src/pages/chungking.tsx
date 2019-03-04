@@ -13,6 +13,7 @@ import PageContent from '../components/page/PageContent'
 import { Button, Container } from '../chungking/components/ui'
 import { PageHeader, PageTitle } from '../chungking/components/page'
 import { colors } from '../chungking/styles/variables'
+import { BookmarkLink } from '../chungking/components/bookmark'
 
 interface ChungkingTestPageProps {
   data: {
@@ -43,7 +44,7 @@ const ChungkingTestingPage: React.SFC<ChungkingTestPageProps> = ({ data }) => (
       <article>
         <PageHeader>
           <PostMeta>
-            <PageTitle>Chungking Testing</PageTitle>
+            <PageTitle>Chungking Design System</PageTitle>
           </PostMeta>
         </PageHeader>
         <PageContent>
@@ -64,6 +65,62 @@ const ChungkingTestingPage: React.SFC<ChungkingTestPageProps> = ({ data }) => (
                 <Button color="white" disabled>
                   I'm white
                 </Button>
+              </div>
+            </WrapperRoot>
+            <h2>Posts</h2>
+            <h3>Paragraph</h3>
+            <WrapperRoot>
+              <div style={{ padding: '0' }}>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Error autem voluptate
+                  libero delectus nesciunt vitae atque beatae placeat minus cumque sequi assumenda
+                  quidem voluptas dicta nostrum modi, exercitationem ad ex.
+                </p>
+                <p>
+                  Ut, a adipisci cum sequi cumque perspiciatis iure placeat reiciendis inventore aut
+                  tempore libero, nobis ullam sit modi, tempora nam consequatur laboriosam harum.
+                  Repellat quibusdam quia quos rerum cupiditate distinctio.
+                </p>
+              </div>
+            </WrapperRoot>
+            <h3>Lists</h3>
+            <WrapperRoot>
+              <div style={{ padding: '0' }}>
+                <ul>
+                  <li>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis, laudantium.
+                  </li>
+                  <li>Exercitationem voluptas, rerum quo magnam velit quia adipisci quos unde?</li>
+                  <li>
+                    Voluptate id pariatur sint provident aliquam aspernatur earum illum explicabo.
+                  </li>
+                </ul>
+                <ol>
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, illo.</li>
+                  <li>
+                    Explicabo necessitatibus repudiandae sed nulla expedita. Non, perspiciatis.
+                    Iusto, id?
+                  </li>
+                  <li>
+                    Labore inventore ratione perferendis, error voluptates suscipit impedit laborum
+                    magni.
+                  </li>
+                </ol>
+              </div>
+            </WrapperRoot>
+            <h3>Blockquote</h3>
+            <WrapperRoot>
+              <div style={{ padding: '16px 0 0' }}>
+                <blockquote>The quick brown fox jumps over the lazy dog.</blockquote>
+              </div>
+            </WrapperRoot>
+            <h3>Bookmark Link</h3>
+            <WrapperRoot>
+              <div style={{ padding: '0 0 16px' }}>
+                <BookmarkLink
+                  title="Accessibility is not a “React Problem”"
+                  link="https://www.netlify.com/blog/2019/02/25/accessibility-is-not-a-react-problem/"
+                />
               </div>
             </WrapperRoot>
           </Container>

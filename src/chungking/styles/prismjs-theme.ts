@@ -2,6 +2,7 @@
 
 import { css } from '@emotion/core'
 import { colors } from './variables'
+import { lighten } from 'polished'
 
 export const PrismTheme = css`
   /**
@@ -43,7 +44,7 @@ export const PrismTheme = css`
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
     color: ${colors.magenta30};
-    background: ${colors.grey90};
+    background: #1d1f21;
   }
 
   /* Inline code */
