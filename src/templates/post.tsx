@@ -41,6 +41,10 @@ interface PostTemplateProps {
   }
 }
 
+const PageHCard = styled('section')`
+  padding: 3rem 1.5rem 0;
+`
+
 const HeaderDivider = styled('hr')`
   width: 100%;
   max-width: 100px;
@@ -78,10 +82,12 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
           ]}
         />
         <article className="h-entry">
-          <Container>
-            <HeaderDivider />
-            <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-          </Container>
+          <PageHCard>
+            <Container>
+              <HeaderDivider />
+              <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
+            </Container>
+          </PageHCard>
           {post.frontmatter.header_image ? (
             <Container size="xl">
               <PostThumbnail>

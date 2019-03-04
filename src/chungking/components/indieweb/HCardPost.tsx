@@ -2,10 +2,9 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from '@emotion/styled'
 
-import { colors, emSizes, pxSizes } from '../../styles/variables'
+import { colors, emSizes } from '../../styles/variables'
 import { ChildImageSharp } from '../../../types/gatsby'
 import { SiteAuthor } from '../../types/default'
-import { getEmSize } from '../../styles/mixins'
 
 interface HCardPostProps {
   className?: string
@@ -31,12 +30,8 @@ const HCardAvatar = styled('div')`
   position: relative;
   text-align: center;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    margin-bottom: 0;
-  }
+  justify-content: flex-start;
+  margin-bottom: 0;
 `
 
 const HCardAvatarImg = styled('img')`
@@ -48,14 +43,26 @@ const HCardAvatarImg = styled('img')`
 
 const HCardDetails = styled('div')`
   flex: 1;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    margin-left: 1.5rem;
-  }
+  margin-left: 1.5rem;
 `
 
 const HCardEmail = styled('a')`
   display: none;
+`
+
+const Anchor = styled('a')`
+  display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'flex')};
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  margin: 2rem 0;
+  padding: 0;
+  color: ${colors.white};
+  text-decoration: none !important;
+
+  a {
+    color: ${colors.white};
+  }
 `
 
 export const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author }) => (
@@ -77,23 +84,3 @@ export const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, 
     </HCardDetails>
   </Anchor>
 )
-
-const Anchor = styled('a')`
-  display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'flex')};
-  flex-direction: column;
-  text-align: center;
-  margin: 2rem 0;
-  padding: 0;
-  color: ${colors.white};
-  text-decoration: none !important;
-
-  a {
-    color: ${colors.white};
-  }
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-  }
-`

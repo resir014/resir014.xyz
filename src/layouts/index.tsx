@@ -7,7 +7,6 @@ import { menuItems } from '../utils/menus'
 
 import 'typeface-barlow'
 import 'modern-normalize'
-import 'prismjs/themes/prism-tomorrow.css'
 
 import LayoutRoot from '../components/ui/LayoutRoot'
 import Masthead from '../components/ui/Masthead'
@@ -15,6 +14,7 @@ import Footer from '../components/ui/Footer'
 import { SiteMetadata } from '../types/gatsby'
 
 import { GlobalStyles } from '../chungking/styles/reset'
+import { PrismTheme } from '../chungking/styles/prismjs-theme'
 import {
   Masthead as ChungkingMasthead,
   Footer as ChungkingFooter
@@ -77,6 +77,7 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
         {(data: WrapperData) => (
           <LayoutRoot>
             <Global styles={GlobalStyles} />
+            <Global styles={PrismTheme} />
             <Helmet>
               <title>{data.site.siteMetadata.title}</title>
               <meta name="description" content={data.site.siteMetadata.description} />
