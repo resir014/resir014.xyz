@@ -15,7 +15,7 @@ import { PageHeader, PageTitle } from '../chungking/components/page'
 import { colors } from '../chungking/styles/variables'
 import { BookmarkLink } from '../chungking/components/bookmark'
 
-interface ChungkingTestPageProps {
+interface DesignSystemPageProps {
   data: {
     site: {
       siteMetadata: SiteMetadata
@@ -27,11 +27,11 @@ const buttonWrapperStyles: React.CSSProperties = {
   padding: '0.5rem 1rem 0.5rem 0px'
 }
 
-const ChungkingTestingPage: React.SFC<ChungkingTestPageProps> = ({ data }) => (
+const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => (
   <TemplateWrapper withChungking>
     <Page>
       <Helmet
-        title={`ChungkingTesting · ${data.site.siteMetadata.title}`}
+        title={`Chungking Design System · ${data.site.siteMetadata.title}`}
         meta={[
           { name: 'description', content: data.site.siteMetadata.description },
           { property: 'og:title', content: 'ChungkingTesting' },
@@ -130,10 +130,10 @@ const ChungkingTestingPage: React.SFC<ChungkingTestPageProps> = ({ data }) => (
   </TemplateWrapper>
 )
 
-export default ChungkingTestingPage
+export default DesignSystemPage
 
 export const pageQuery = graphql`
-  query ChungkingTestingPageQuery {
+  query DesignSystemPageQuery {
     site {
       siteMetadata {
         title
