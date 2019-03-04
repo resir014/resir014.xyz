@@ -1,14 +1,13 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import styled from '@emotion/styled-base'
 
 import { SiteAuthor } from '../types/default'
 import { HCardIcon } from '../types/gatsby'
 import { BlogPostNode } from '../types/nodes'
 
 import Container from '../components/ui/Container'
-import Divider from '../components/ui/Divider'
-import MarkdownContent from '../components/page/MarkdownContent'
 import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import Page from '../components/page/Page'
@@ -18,10 +17,11 @@ import PostMeta from '../components/post/PostMeta'
 import PostMetaItem from '../components/post/PostMetaItem'
 import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
-import HCardPostFooter from '../components/indieweb/HCardPostFooter'
 import MessageBox from '../components/ui/MessageBox'
 import TemplateWrapper from '../layouts'
-import PageHeader from '../components/page/PageHeader'
+import { MarkdownContent, PageHeader } from '../chungking/components/page'
+import { HCardPost } from '../chungking/components/indieweb'
+import { colors } from '../chungking/styles/variables'
 
 interface PostTemplateProps {
   location: {
@@ -41,12 +41,23 @@ interface PostTemplateProps {
   }
 }
 
+const HeaderDivider = styled('hr')`
+  width: 100%;
+  max-width: 100px;
+  height: 6px;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(to right, ${colors.blue30}, ${colors.magenta30});
+`
+
 const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
 
   return (
-    <TemplateWrapper>
+    <TemplateWrapper withChungking>
       <Page>
         <Helmet
           title={`${post.frontmatter.title} · ${siteMetadata.title}`}
@@ -67,6 +78,10 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
           ]}
         />
         <article className="h-entry">
+          <Container>
+            <HeaderDivider />
+            <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
+          </Container>
           {post.frontmatter.header_image ? (
             <Container size="xl">
               <PostThumbnail>
@@ -149,13 +164,6 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
                   </a>
                 </p>
               </div>
-            </Container>
-            <Divider spacing="large" />
-            <Container>
-              <HCardPostFooter
-                icon={data.icon.childImageSharp}
-                author={data.site.siteMetadata.author}
-              />
             </Container>
           </PageContent>
         </article>

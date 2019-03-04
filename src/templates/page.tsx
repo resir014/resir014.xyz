@@ -6,16 +6,15 @@ import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
 import Container from '../components/ui/Container'
-import MarkdownContent from '../components/page/MarkdownContent'
 import PageSubtitle from '../components/page/PageSubtitle'
 import PageContent from '../components/page/PageContent'
-import PageTitle from '../components/page/PageTitle'
 import Page from '../components/page/Page'
-import PageHeader from '../components/page/PageHeader'
 import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import PostMeta from '../components/post/PostMeta'
 import TemplateWrapper from '../layouts'
+
+import { PageHeader, PageTitle, MarkdownContent } from '../chungking/components/page'
 
 interface PageTemplateProps {
   data: {
@@ -32,7 +31,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <TemplateWrapper>
+    <TemplateWrapper withChungking>
       <Page>
         <Helmet
           title={`${post.frontmatter.title} · ${siteMetadata.title}`}

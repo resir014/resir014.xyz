@@ -9,9 +9,7 @@ import { BlogPostField } from '../types/fields'
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
 import PageContent from '../components/page/PageContent'
-import BlogPostItem from '../components/postsList/BlogPostItem'
 
-import PaginationLink from '../components/postsList/PaginationLink'
 import Divider from '../components/ui/Divider'
 import { getEmSize } from '../styles/mixins'
 import withPathPrefix from '../utils/withPathPrefix'
@@ -19,6 +17,7 @@ import { pxSizes } from '../styles/variables'
 import TemplateWrapper from '../layouts'
 
 import { PageHeader, PageTitle } from '../chungking/components/page'
+import { BlogPostItem, PaginationLink } from '../chungking/components/posts-index'
 
 interface BlogPageProps {
   data: {

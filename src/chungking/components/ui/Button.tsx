@@ -75,6 +75,7 @@ const SmallButtonStyles = css`
 const PrimaryButtonStyles = css`
   &:disabled,
   &.disabled {
+    color: ${colors.white};
     background-color: ${transparentize(0.5, colors.blue30)};
   }
 
@@ -87,6 +88,7 @@ const PrimaryButtonStyles = css`
 const DangerButtonStyles = css`
   &:disabled,
   &.disabled {
+    color: ${colors.white};
     background-color: ${transparentize(0.5, colors.red30)};
   }
 
@@ -99,6 +101,7 @@ const DangerButtonStyles = css`
 const WhiteButtonStyles = css`
   &:disabled,
   &.disabled {
+    color: ${colors.black};
     background-color: ${transparentize(0.5, colors.white)};
   }
 

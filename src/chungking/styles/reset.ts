@@ -170,7 +170,7 @@ export const GlobalStyles = css`
   }
 
   strong {
-    color: ${colors.grey90};
+    color: ${colors.white};
   }
 
   ul,
@@ -207,10 +207,10 @@ export const GlobalStyles = css`
   }
 
   blockquote {
-    padding: 0.5rem 1rem;
+    padding: 0 1rem;
     margin: 1rem 0;
-    color: ${colors.grey50};
-    border-left: 0.25rem solid ${colors.grey20};
+    color: ${colors.grey40};
+    border-left: 0.25rem solid ${colors.grey80};
 
     &:first-child {
       margin-top: 0;
