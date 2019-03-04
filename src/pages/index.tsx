@@ -84,7 +84,6 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               }
             ]}
           />
-          <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
           <HomepageThumbnail>
             <Container size="xl">
               <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
@@ -129,6 +128,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
                 Got an interesting project in mind? Want me to help you with it?{' '}
                 <Link to="/contact">Let's talk!</Link>
               </HomepageSectionDescription>
+              <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
             </HomepageSection>
           </HomepageContent>
         </Page>
