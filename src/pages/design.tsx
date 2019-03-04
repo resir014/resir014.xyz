@@ -10,7 +10,7 @@ import PostMeta from '../components/post/PostMeta'
 import TemplateWrapper from '../layouts'
 import PageContent from '../components/page/PageContent'
 
-import { Button, Container } from '../chungking/components/ui'
+import { Button, Container, Badge } from '../chungking/components/ui'
 import { PageHeader, PageTitle } from '../chungking/components/page'
 import { colors } from '../chungking/styles/variables'
 import { BookmarkLink } from '../chungking/components/bookmark'
@@ -49,7 +49,14 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => (
         </PageHeader>
         <PageContent>
           <Container>
-            <h2>Button</h2>
+            <h2>Components</h2>
+            <h3>Badge</h3>
+            <WrapperRoot>
+              <div style={buttonWrapperStyles}>
+                <Badge>henlo</Badge> <Badge>it's a badge</Badge>
+              </div>
+            </WrapperRoot>
+            <h3>Button</h3>
             <WrapperRoot>
               <div style={buttonWrapperStyles}>
                 <Button>Henlo</Button> <Button disabled>Henlo</Button>

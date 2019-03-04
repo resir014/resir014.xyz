@@ -32,9 +32,15 @@ interface WrapperState {
 
 interface TemplateWrapperProps {
   withChungking?: boolean
+  mastheadSize?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
 class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState> {
+  static defaultProps = {
+    withChungking: false,
+    mastheadSize: 'md'
+  }
+
   constructor(props: TemplateWrapperProps) {
     super(props)
     this.state = {
@@ -49,7 +55,7 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
   }
 
   public render() {
-    const { children, withChungking } = this.props
+    const { children, withChungking, mastheadSize } = this.props
 
     return (
       <StaticQuery
@@ -95,6 +101,7 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
                 title={data.site.siteMetadata.title}
                 items={menuItems}
                 transparent
+                size={mastheadSize}
                 onNavToggleClick={this.onNavToggleClick}
               />
             ) : (

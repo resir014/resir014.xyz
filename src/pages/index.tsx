@@ -68,7 +68,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
   public render() {
     const { data } = this.props
     return (
-      <TemplateWrapper withChungking>
+      <TemplateWrapper withChungking mastheadSize="lg">
         <Page>
           <Helmet
             title={data.site.siteMetadata.title}
@@ -85,7 +85,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             ]}
           />
           <HomepageThumbnail>
-            <Container size="xl">
+            <Container size="lg">
               <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
               <HomepageThumbnailText>
                 <HomepageThumbnailFlavour
@@ -98,7 +98,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             </Container>
           </HomepageThumbnail>
           <HomepageContent withHomepageFlavour>
-            <HomepageSection size="xl">
+            <HomepageSection size="lg">
               <FeaturedProject node={data.featuredProject} />
               <ProjectItemList
                 title="Web development stuff"
@@ -122,7 +122,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               </HomepageSectionFooter>
             </HomepageSection>
             <Divider spacing="large" />
-            <HomepageSection size="xl">
+            <HomepageSection size="lg">
               <HomepageSectionTitle>Contact</HomepageSectionTitle>
               <HomepageSectionDescription>
                 Got an interesting project in mind? Want me to help you with it?{' '}

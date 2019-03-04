@@ -14,7 +14,7 @@ interface MastheadProps extends MenuProps {
   title: string
   className?: string
   transparent?: boolean
-  size?: 'md' | 'lg' | 'xl'
+  size?: 'md' | 'lg' | 'xl' | 'fluid'
   onNavToggleClick: () => any
 }
 
