@@ -16,11 +16,17 @@ import { colors } from '../chungking/styles/variables'
 import { BookmarkLink } from '../chungking/components/bookmark'
 import { PostIndexItemMeta } from '../chungking/components/posts-index'
 import PostMetaItem from '../components/post/PostMetaItem'
+import { ProjectField } from '../types/fields'
+import { FeaturedProject } from '../chungking/components/projects'
+import getFeaturedProject from '../utils/getFeaturedProject'
 
 interface DesignSystemPageProps {
   data: {
     site: {
       siteMetadata: SiteMetadata
+    }
+    projects: {
+      edges: ProjectField[]
     }
   }
 }
@@ -150,6 +156,12 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => (
                 <hr />
               </PostIndexItemMeta>
             </WrapperRoot>
+            <h2>Projects</h2>
+            <h3>Featured Project</h3>
+            <FeaturedProject
+              key={getFeaturedProject(data.projects.edges, 'Broville v11').node.frontmatter.title}
+              node={getFeaturedProject(data.projects.edges, 'Broville v11').node}
+            />
           </Container>
         </PageContent>
       </article>
@@ -169,6 +181,37 @@ export const pageQuery = graphql`
         author {
           name
           description
+        }
+      }
+    }
+    projects: allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/projects/" } } }
+      sort: { fields: [fields___year], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            year
+            description
+            tags
+            slug
+            category
+            lead
+            project_url
+            jumpToProject
+          }
+          frontmatter {
+            title
+            header_image {
+              childImageSharp {
+                fluid(maxWidth: 1140) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
       }
     }

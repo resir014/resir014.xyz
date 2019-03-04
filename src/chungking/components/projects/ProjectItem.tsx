@@ -15,7 +15,6 @@ const StyledProjectItem = styled('div')`
   flex: 1 1 100%;
   height: 240px;
   margin-bottom: 2rem;
-  padding: 1rem;
   background-color: ${colors.grey90};
   border-radius: 4px;
   overflow: hidden;
@@ -43,7 +42,7 @@ const ProjectTitle = styled('h4')``
 const ProjectHeader = styled('div')`
   display: flex;
   flex-direction: row;
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
   background: ${(props: ProjectTitleProps) => colorByCategory(props.category)};
   border-radius: 4px;
 
@@ -55,12 +54,9 @@ const ProjectHeader = styled('div')`
 `
 
 const UnstyledLink = css`
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px 0px;
-
   &:hover,
   &:focus {
     text-decoration: none;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 16px 0px;
   }
 `
 
@@ -83,7 +79,7 @@ const ProjectTags = styled('div')`
 
 const ProjectDetailBox = styled('div')`
   flex: 1 0 auto;
-  padding: 1rem 0.5rem;
+  padding: 1rem;
 
   p {
     margin: 0;
@@ -96,7 +92,7 @@ const ProjectDetailBox = styled('div')`
 
 const ProjectFooter = styled('div')`
   margin-top: 0.5rem;
-  padding-top: 0.5rem;
+  padding: 1rem;
 `
 
 interface ProjectTitleProps {

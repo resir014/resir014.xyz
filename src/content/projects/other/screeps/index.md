@@ -3,7 +3,7 @@ category: other
 layout: project
 title: 'Screeps'
 year: 2016
-lead: Contributions and community projects for Screeps.
+description: Contributions and community projects for Screeps.
 tags:
   - javascript
   - typescript

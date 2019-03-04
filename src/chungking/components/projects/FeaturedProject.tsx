@@ -11,6 +11,7 @@ import { ProjectField } from '../../../types/fields'
 const FeaturedProjectWrapper = styled('section')`
   display: flex;
   flex-direction: column;
+  min-height: 300px;
   margin: 1.5rem 0;
   color: ${colors.white};
   border-radius: 6px;

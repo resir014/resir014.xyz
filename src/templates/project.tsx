@@ -35,6 +35,7 @@ interface ProjectTemplateProps {
         slug: string
         layout?: string
         headerImage?: string
+        description?: string
         lead?: string
         project_url: string
         jumpToProject: string
@@ -103,8 +104,10 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
                 {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
                 <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
               </PostMeta>
-              {post.fields.lead ? (
-                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+              {post.fields.lead || post.fields.description ? (
+                <PageSubtitle className="p-summary">
+                  {post.fields.lead || post.fields.description}
+                </PageSubtitle>
               ) : null}
             </PageHeader>
           )}

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 
 import { getEmSize } from '../../styles/mixins'
-import { pxSizes, colors } from '../../styles/variables'
+import { pxSizes } from '../../styles/variables'
 
 interface FeaturedProjectThumbnailProps {
   className?: string
@@ -23,6 +23,16 @@ export const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> 
   </Div>
 )
 
+const Image = styled(Img)`
+  margin: 0;
+  height: 100%;
+  min-height: 300px;
+
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+    max-height: 400px;
+  }
+`
+
 const Div = styled('div')`
   display: none;
 
@@ -31,29 +41,5 @@ const Div = styled('div')`
     position: relative;
     width: 100%;
     height: 100%;
-  }
-
-  img {
-    margin: 0;
-    vertical-align: middle;
-    object-fit: cover;
-  }
-`
-
-const Image = styled(Img)`
-  margin: 0;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    max-height: 400px;
-  }
-
-  img {
-    opacity: 0.7;
-
-    @supports (mix-blend-mode: multiply) {
-      background: ${colors.blue30};
-      mix-blend-mode: multiply;
-      opacity: 1;
-    }
   }
 `
