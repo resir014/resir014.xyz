@@ -11,7 +11,7 @@ export const PostIndexItemMeta = styled('section')`
     width: 100%;
     max-width: 100px;
     height: 6px;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 0;
     border: none;
     border-bottom: 2px solid ${colors.orange30};
   }
