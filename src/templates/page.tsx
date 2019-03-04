@@ -11,7 +11,6 @@ import PageContent from '../components/page/PageContent'
 import Page from '../components/page/Page'
 import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
-import PostMeta from '../components/post/PostMeta'
 import TemplateWrapper from '../layouts'
 
 import { PageHeader, PageTitle, MarkdownContent } from '../chungking/components/page'
@@ -31,7 +30,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <TemplateWrapper withChungking>
+    <TemplateWrapper>
       <Page>
         <Helmet
           title={`${post.frontmatter.title} · ${siteMetadata.title}`}
@@ -55,9 +54,7 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
             </PostThumbnail>
           )}
           <PageHeader>
-            <PostMeta>
-              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-            </PostMeta>
+            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
             {post.fields.lead ? (
               <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
             ) : null}

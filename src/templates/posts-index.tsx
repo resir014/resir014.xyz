@@ -60,7 +60,7 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
   const nextUrl = withPathPrefix((index + 1).toString(), pathPrefix)
 
   return (
-    <TemplateWrapper withChungking>
+    <TemplateWrapper>
       <Page>
         <Helmet
           title={`Posts${index && index > 1 ? ` (page ${index} of ${pageCount})` : ''} · ${

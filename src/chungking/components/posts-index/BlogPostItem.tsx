@@ -12,6 +12,7 @@ import { MarkdownContent } from '../page'
 
 import BlogPostExcerpt from '../../../components/postsList/BlogPostExcerpt'
 import PostMetaItem from '../../../components/post/PostMetaItem'
+import { PostIndexItemMeta } from './PostIndexItemMeta'
 
 const StyledPostItem = styled('article')`
   display: flex;
@@ -26,22 +27,6 @@ const StyledPostItem = styled('article')`
   &:last-of-type {
     margin-bottom: 0;
   }
-`
-
-const StyledPostMeta = styled('section')`
-  margin-bottom: 1.5rem;
-  font-size: 90%;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-`
-
-const PostMetaHr = styled('hr')`
-  width: 100%;
-  max-width: 100px;
-  height: 6px;
-  margin: 0.5rem 0;
-  border: none;
-  border-bottom: 2px solid ${colors.orange30};
 `
 
 const PostTitleLink = styled(Link)`
@@ -85,7 +70,7 @@ export class BlogPostItem extends React.Component<BlogPostField, {}> {
     const { date, category, slug } = node.fields
     return (
       <StyledPostItem className="h-entry">
-        <StyledPostMeta>
+        <PostIndexItemMeta>
           <PostMetaItem>
             <Link to={slug}>
               <time className="dt-published" dateTime={new Date(date).toISOString()}>
@@ -94,8 +79,8 @@ export class BlogPostItem extends React.Component<BlogPostField, {}> {
             </Link>
           </PostMetaItem>
           <PostMetaItem className="p-category">{category}</PostMetaItem>
-          <PostMetaHr />
-        </StyledPostMeta>
+          <hr />
+        </PostIndexItemMeta>
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}
         {node.fields.category === 'note' && this.renderNoteTemplate(node)}
         {node.fields.category === 'video' && this.renderNoteTemplate(node)}

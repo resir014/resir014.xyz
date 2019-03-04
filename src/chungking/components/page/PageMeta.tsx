@@ -10,7 +10,6 @@ export const PageMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
 )
 
 const Section = styled('section')`
-  margin-bottom: 1.5rem;
   font-size: 90%;
   font-weight: 300;
   letter-spacing: 0.01em;

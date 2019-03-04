@@ -15,7 +15,6 @@ import TemplateWrapper from '../layouts'
 import { PageHeader, PageMeta, PageMetaItem } from '../chungking/components/page'
 import { HCardPost } from '../chungking/components/indieweb'
 import { BookmarkLink } from '../chungking/components/bookmark'
-import { Divider } from '../chungking/components/ui'
 
 interface BookmarkTemplateProps {
   location: {
@@ -35,7 +34,7 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <TemplateWrapper withChungking>
+    <TemplateWrapper>
       <Page>
         <Helmet
           title={`${post.frontmatter.title || 'Bookmark posted by @resir014'} · ${

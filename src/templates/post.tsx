@@ -61,7 +61,7 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
   const { siteMetadata } = data.site
 
   return (
-    <TemplateWrapper withChungking>
+    <TemplateWrapper>
       <Page>
         <Helmet
           title={`${post.frontmatter.title} · ${siteMetadata.title}`}

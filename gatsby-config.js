@@ -70,7 +70,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-top: 1rem; margin-bottom: 1rem`
+              wrapperStyle: `margin-top: 0; margin-bottom: 1.5rem`
             }
           },
           {

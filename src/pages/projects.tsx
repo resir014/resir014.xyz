@@ -7,15 +7,14 @@ import { ProjectField } from '../types/fields'
 
 import Container from '../components/ui/Container'
 import Page from '../components/page/Page'
-import PageHeader from '../components/page/PageHeader'
-import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
-import FeaturedProject from '../components/projects/FeaturedProject'
-import ProjectItemList from '../components/projects/ProjectItemList'
 
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 import getFeaturedProject from '../utils/getFeaturedProject'
 import TemplateWrapper from '../layouts'
+import { PageHeader, PageTitle } from '../chungking/components/page'
+import { FeaturedProject } from '../chungking/components/projects'
+import ProjectItemList from '../chungking/components/projects/ProjectItemList'
 
 interface ProjectsPageProps {
   location: {
@@ -39,7 +38,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
   const featuredProject = getFeaturedProject(data.allMarkdownRemark.edges, 'aquellex.ws')
 
   return (
-    <TemplateWrapper>
+    <TemplateWrapper mastheadSize="lg">
       <Page>
         <Helmet
           title={`Projects · ${siteMetadata.title}`}
@@ -53,17 +52,19 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
           ]}
         />
         <article>
-          <PageHeader size="xl">
+          <PageHeader size="lg">
             <PageTitle>Projects</PageTitle>
           </PageHeader>
           <PageContent>
             {featuredProject ? (
-              <FeaturedProject
-                key={featuredProject.node.frontmatter.title}
-                node={featuredProject.node}
-              />
+              <Container size="lg">
+                <FeaturedProject
+                  key={featuredProject.node.frontmatter.title}
+                  node={featuredProject.node}
+                />
+              </Container>
             ) : null}
-            <Container size="xl">
+            <Container size="lg">
               <ProjectItemList
                 title="Web development stuff"
                 projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}

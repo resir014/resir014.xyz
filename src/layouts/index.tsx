@@ -9,16 +9,11 @@ import 'typeface-barlow'
 import 'modern-normalize'
 
 import LayoutRoot from '../components/ui/LayoutRoot'
-import Masthead from '../components/ui/Masthead'
-import Footer from '../components/ui/Footer'
 import { SiteMetadata } from '../types/gatsby'
 
 import { GlobalStyles } from '../chungking/styles/reset'
 import { PrismTheme } from '../chungking/styles/prismjs-theme'
-import {
-  Masthead as ChungkingMasthead,
-  Footer as ChungkingFooter
-} from '../chungking/components/layout'
+import { Masthead, Footer } from '../chungking/components/layout'
 
 interface WrapperData {
   site: {
@@ -31,13 +26,11 @@ interface WrapperState {
 }
 
 interface TemplateWrapperProps {
-  withChungking?: boolean
   mastheadSize?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
 class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState> {
   static defaultProps = {
-    withChungking: false,
     mastheadSize: 'md'
   }
 
@@ -55,7 +48,7 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
   }
 
   public render() {
-    const { children, withChungking, mastheadSize } = this.props
+    const { children, mastheadSize } = this.props
 
     return (
       <StaticQuery
@@ -96,24 +89,15 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
                 <link key={key} rel="me" href={data.site.siteMetadata.author.url[key]} />
               ))}
             </Helmet>
-            {withChungking ? (
-              <ChungkingMasthead
-                title={data.site.siteMetadata.title}
-                items={menuItems}
-                transparent
-                size={mastheadSize}
-                onNavToggleClick={this.onNavToggleClick}
-              />
-            ) : (
-              <Masthead
-                title={data.site.siteMetadata.title}
-                items={menuItems}
-                transparent
-                onNavToggleClick={this.onNavToggleClick}
-              />
-            )}
+            <Masthead
+              title={data.site.siteMetadata.title}
+              items={menuItems}
+              transparent
+              size={mastheadSize}
+              onNavToggleClick={this.onNavToggleClick}
+            />
             {children}
-            {withChungking ? <ChungkingFooter /> : <Footer title={data.site.siteMetadata.title} />}
+            <Footer />
           </LayoutRoot>
         )}
       </StaticQuery>

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import classnames from 'classnames'
-import { transparentize } from 'polished'
+import { darken } from 'polished'
 import Link from 'gatsby-link'
 
 import { fonts, colors, emSizes } from '../../styles/variables'
@@ -12,7 +12,7 @@ interface ButtonProps {
   className?: string
   style?: React.CSSProperties
   kind?: 'button' | 'link' | 'nav-link'
-  color?: 'primary' | 'danger' | 'white'
+  color?: 'primary' | 'secondary' | 'danger' | 'white'
   size?: 'sm' | 'md' | 'lg'
   href?: string
   to?: string
@@ -73,38 +73,42 @@ const SmallButtonStyles = css`
 `
 
 const PrimaryButtonStyles = css`
-  &:disabled,
-  &.disabled {
-    color: ${colors.white};
-    background-color: ${transparentize(0.5, colors.blue30)};
-  }
-
   &:not(:disabled):not(.disabled) {
     background-color: ${colors.blue30};
     color: ${colors.white};
+
+    &:hover,
+    &:focus {
+      background-color: ${darken(0.15, colors.blue30)};
+    }
+  }
+`
+
+const SecondaryButtonStyles = css`
+  &:not(:disabled):not(.disabled) {
+    background-color: ${colors.magenta30};
+    color: ${colors.white};
+
+    &:hover,
+    &:focus {
+      background-color: ${darken(0.15, colors.magenta30)};
+    }
   }
 `
 
 const DangerButtonStyles = css`
-  &:disabled,
-  &.disabled {
-    color: ${colors.white};
-    background-color: ${transparentize(0.5, colors.red30)};
-  }
-
   &:not(:disabled):not(.disabled) {
     background-color: ${colors.red30};
     color: ${colors.white};
+
+    &:hover,
+    &:focus {
+      background-color: ${darken(0.15, colors.red30)};
+    }
   }
 `
 
 const WhiteButtonStyles = css`
-  &:disabled,
-  &.disabled {
-    color: ${colors.black};
-    background-color: ${transparentize(0.5, colors.white)};
-  }
-
   &:not(:disabled):not(.disabled) {
     background: none;
     background-color: ${colors.white};
@@ -112,9 +116,7 @@ const WhiteButtonStyles = css`
 
     &:hover,
     &:focus {
-      color: ${colors.white};
-      background: none;
-      border-color: ${colors.white};
+      background-color: ${darken(0.15, colors.white)};
     }
   }
 `
@@ -123,7 +125,7 @@ const ButtonBase = (props: ButtonProps) => css`
   display: inline-block;
   padding: ${props.size === 'lg' ? '.75rem 1rem' : '.375rem .5rem'};
   border: none;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 8px;
   font-family: ${fonts.sansSerif};
   font-size: ${props.size === 'lg' ? '1.15rem' : '.9rem'};
@@ -134,12 +136,14 @@ const ButtonBase = (props: ButtonProps) => css`
 
   &:disabled,
   &.disabled {
+    background-color: ${colors.grey90};
+    border-color: ${colors.grey70};
+    color: ${colors.white};
     user-select: none;
     cursor: unset;
 
     &:hover,
     &:focus {
-      background-color: none;
       text-decoration: none;
     }
   }
@@ -153,6 +157,7 @@ const ButtonBase = (props: ButtonProps) => css`
   }
 
   ${props.color === 'primary' && PrimaryButtonStyles}
+  ${props.color === 'secondary' && SecondaryButtonStyles}
   ${props.color === 'danger' && DangerButtonStyles}
   ${props.color === 'white' && WhiteButtonStyles}
   ${props.size === 'sm' && SmallButtonStyles};

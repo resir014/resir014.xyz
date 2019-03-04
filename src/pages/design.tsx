@@ -14,6 +14,8 @@ import { Button, Container, Badge } from '../chungking/components/ui'
 import { PageHeader, PageTitle } from '../chungking/components/page'
 import { colors } from '../chungking/styles/variables'
 import { BookmarkLink } from '../chungking/components/bookmark'
+import { PostIndexItemMeta } from '../chungking/components/posts-index'
+import PostMetaItem from '../components/post/PostMetaItem'
 
 interface DesignSystemPageProps {
   data: {
@@ -28,7 +30,7 @@ const buttonWrapperStyles: React.CSSProperties = {
 }
 
 const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => (
-  <TemplateWrapper withChungking>
+  <TemplateWrapper>
     <Page>
       <Helmet
         title={`Chungking Design System · ${data.site.siteMetadata.title}`}
@@ -60,6 +62,12 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => (
             <WrapperRoot>
               <div style={buttonWrapperStyles}>
                 <Button>Henlo</Button> <Button disabled>Henlo</Button>
+              </div>
+              <div style={buttonWrapperStyles}>
+                <Button color="secondary">More</Button>{' '}
+                <Button color="secondary" disabled>
+                  Abort
+                </Button>
               </div>
               <div style={buttonWrapperStyles}>
                 <Button color="danger">Abort</Button>{' '}
@@ -129,6 +137,18 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => (
                   link="https://www.netlify.com/blog/2019/02/25/accessibility-is-not-a-react-problem/"
                 />
               </div>
+            </WrapperRoot>
+            <h3>Post Metadata</h3>
+            <WrapperRoot>
+              <PostIndexItemMeta>
+                <PostMetaItem>
+                  <time className="dt-published" dateTime="2019-03-03T12:00:00">
+                    03 March 2019
+                  </time>
+                </PostMetaItem>
+                <PostMetaItem className="p-category">Category</PostMetaItem>
+                <hr />
+              </PostIndexItemMeta>
             </WrapperRoot>
           </Container>
         </PageContent>

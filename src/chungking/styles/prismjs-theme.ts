@@ -2,7 +2,6 @@
 
 import { css } from '@emotion/core'
 import { colors } from './variables'
-import { lighten } from 'polished'
 
 export const PrismTheme = css`
   /**

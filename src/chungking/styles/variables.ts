@@ -12,6 +12,7 @@ export const colors = {
   orange30: '#f5a623',
   purple30: '#9b45ff',
   blue30: '#0076ff',
+  ultramarine30: '#2234ce',
   magenta30: '#ff1493',
   green30: '#00d28a',
   grey10: '#e8e8e8',
