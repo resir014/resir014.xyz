@@ -6,19 +6,14 @@ import Helmet from 'react-helmet'
 import { SiteAuthor } from '../types/default'
 import { BlogPostField } from '../types/fields'
 
-import Container from '../components/ui/Container'
-import Page from '../components/page/Page'
-import PageHeader from '../components/page/PageHeader'
-import PageTitle from '../components/page/PageTitle'
-import PageContent from '../components/page/PageContent'
-import BlogPostItem from '../components/postsList/BlogPostItem'
-
-import PaginationLink from '../components/postsList/PaginationLink'
-import Divider from '../components/ui/Divider'
 import { getEmSize } from '../styles/mixins'
 import withPathPrefix from '../utils/withPathPrefix'
 import { pxSizes } from '../styles/variables'
 import TemplateWrapper from '../layouts'
+
+import { Container, Divider } from '../chungking/components/ui'
+import { Page, PageHeader, PageTitle, PageContent } from '../chungking/components/page'
+import { BlogPostItem, PaginationLink } from '../chungking/components/posts-index'
 
 interface BlogPageProps {
   data: {
@@ -88,7 +83,7 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
               <BlogPostItem key={node.fields.slug} node={node} />
             ))}
           </Container>
-          <Divider spacing="large" />
+          <Divider spacing="large" center />
           <Container size="md">
             <Pagination>
               <PaginationLink test={first} url={previousUrl} text="Newer posts" />

@@ -3,22 +3,22 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { ProjectNode } from '../types/nodes'
 
-import Button from '../components/ui/Button'
-import Container from '../components/ui/Container'
-import PageSubtitle from '../components/page/PageSubtitle'
-import MarkdownContent from '../components/page/MarkdownContent'
-import Page from '../components/page/Page'
-import PageTitle from '../components/page/PageTitle'
-import PageContent from '../components/page/PageContent'
-import PostMetaItem from '../components/post/PostMetaItem'
-import PostThumbnail from '../components/post/PostThumbnail'
-import ProjectFooter from '../components/projects/ProjectFooter'
-import PostThumbnailImage from '../components/post/PostThumbnailImage'
-import PostHeader from '../components/post/PostHeader'
-import PostMeta from '../components/post/PostMeta'
 import TemplateWrapper from '../layouts'
-import PageHeader from '../components/page/PageHeader'
+
+import { Button, Container } from '../chungking/components/ui'
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  PageContent,
+  MarkdownContent,
+  PageMeta,
+  PageMetaItem,
+  PageSubtitle
+} from '../chungking/components/page'
+import { ProjectCard, ProjectFooter } from '../chungking/components/projects'
 
 interface ProjectTemplateProps {
   data: {
@@ -26,36 +26,14 @@ interface ProjectTemplateProps {
       siteMetadata: SiteMetadata
     }
     icon: HCardIcon
-    markdownRemark: {
-      html: string
-      excerpt: string
-      fields: {
-        category: string
-        year: string
-        slug: string
-        layout?: string
-        headerImage?: string
-        lead?: string
-        project_url: string
-        jumpToProject: string
-      }
-      frontmatter: {
-        title: string
-        path?: string
-        layout: string
-        header_image?: {
-          childImageSharp: {
-            fluid: { [key: string]: any }
-          }
-        }
-      }
-    }
+    markdownRemark: ProjectNode
   }
 }
 
 const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const tags = post.fields.tags ? (JSON.parse(post.fields.tags) as string[]) : undefined
 
   return (
     <TemplateWrapper>
@@ -75,44 +53,45 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
         <article className="h-entry">
           {post.frontmatter.header_image ? (
             <Container size="xl">
-              <PostThumbnail>
-                <PostThumbnailImage
-                  fluid={post.frontmatter.header_image.childImageSharp.fluid}
-                  alt={post.frontmatter.title}
+              <PageHeader
+                metaItem={
+                  <PageMeta>
+                    <PageMetaItem className="p-category">projects</PageMetaItem>
+                    <PageMetaItem>{post.fields.year}</PageMetaItem>
+                    {post.fields.category ? (
+                      <PageMetaItem>{post.fields.category}</PageMetaItem>
+                    ) : null}
+                  </PageMeta>
+                }
+              >
+                <ProjectCard
+                  title={post.frontmatter.title}
+                  description={post.fields.lead || post.fields.description}
+                  image={post.frontmatter.header_image}
+                  tags={tags}
                 />
-              </PostThumbnail>
-              <PostHeader>
-                <PostMeta>
-                  <PostMetaItem className="p-category">projects</PostMetaItem>
-                  <PostMetaItem>{post.fields.year}</PostMetaItem>
-                  {post.fields.category ? (
-                    <PostMetaItem>{post.fields.category}</PostMetaItem>
-                  ) : null}
-                  <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-                </PostMeta>
-                {post.fields.lead ? (
-                  <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-                ) : null}
-              </PostHeader>
+              </PageHeader>
             </Container>
           ) : (
             <PageHeader>
-              <PostMeta>
-                <PostMetaItem className="p-category">projects</PostMetaItem>
-                <PostMetaItem>{post.fields.year}</PostMetaItem>
-                {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
-                <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-              </PostMeta>
-              {post.fields.lead ? (
-                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+              <PageMeta>
+                <PageMetaItem className="p-category">projects</PageMetaItem>
+                <PageMetaItem>{post.fields.year}</PageMetaItem>
+                {post.fields.category ? <PageMetaItem>{post.fields.category}</PageMetaItem> : null}
+              </PageMeta>
+              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+              {post.fields.lead || post.fields.description ? (
+                <PageSubtitle className="p-summary">
+                  {post.fields.lead || post.fields.description}
+                </PageSubtitle>
               ) : null}
             </PageHeader>
           )}
-          <PageContent hasHeaderImage={!!post.frontmatter.header_image}>
+          <PageContent>
             <Container>
               <MarkdownContent className="e-content" html={post.html} />
               {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
-                <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
+                <ProjectFooter> {renderLink(post.fields.project_url, true)}</ProjectFooter>
               ) : null}
               <div className="hidden">
                 <p>
@@ -136,6 +115,7 @@ const renderLink = (url: string, jumpToProject: boolean) => (
   <Button
     kind="link"
     color="primary"
+    size="lg"
     href={url}
     target={jumpToProject ? '_blank' : undefined}
     rel={jumpToProject ? 'noopener noreferrer' : undefined}
@@ -183,7 +163,9 @@ export const pageQuery = graphql`
         category
         year
         slug
+        tags
         layout
+        description
         lead
         project_url
         jumpToProject

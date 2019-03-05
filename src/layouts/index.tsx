@@ -7,13 +7,13 @@ import { menuItems } from '../utils/menus'
 
 import 'typeface-barlow'
 import 'modern-normalize'
-import 'prismjs/themes/prism.css'
 
 import LayoutRoot from '../components/ui/LayoutRoot'
-import Masthead from '../components/ui/Masthead'
-import Footer from '../components/ui/Footer'
-import { GlobalStyles } from '../styles/reset'
 import { SiteMetadata } from '../types/gatsby'
+
+import { GlobalStyles } from '../chungking/styles/reset'
+import { PrismTheme } from '../chungking/styles/prismjs-theme'
+import { Masthead, Footer } from '../chungking/components/layout'
 
 interface WrapperData {
   site: {
@@ -25,8 +25,16 @@ interface WrapperState {
   navigationVisible: boolean
 }
 
-class TemplateWrapper extends React.Component<{}, WrapperState> {
-  constructor(props: any) {
+interface TemplateWrapperProps {
+  layoutSize?: 'md' | 'lg' | 'xl' | 'fluid'
+}
+
+class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState> {
+  static defaultProps = {
+    mastheadSize: 'md'
+  }
+
+  constructor(props: TemplateWrapperProps) {
     super(props)
     this.state = {
       navigationVisible: false
@@ -40,7 +48,7 @@ class TemplateWrapper extends React.Component<{}, WrapperState> {
   }
 
   public render() {
-    const { children } = this.props
+    const { children, layoutSize } = this.props
 
     return (
       <StaticQuery
@@ -68,6 +76,7 @@ class TemplateWrapper extends React.Component<{}, WrapperState> {
         {(data: WrapperData) => (
           <LayoutRoot>
             <Global styles={GlobalStyles} />
+            <Global styles={PrismTheme} />
             <Helmet>
               <title>{data.site.siteMetadata.title}</title>
               <meta name="description" content={data.site.siteMetadata.description} />
@@ -84,10 +93,11 @@ class TemplateWrapper extends React.Component<{}, WrapperState> {
               title={data.site.siteMetadata.title}
               items={menuItems}
               transparent
+              size={layoutSize}
               onNavToggleClick={this.onNavToggleClick}
             />
             {children}
-            <Footer title={data.site.siteMetadata.title} />
+            <Footer size={layoutSize} />
           </LayoutRoot>
         )}
       </StaticQuery>

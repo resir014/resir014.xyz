@@ -5,17 +5,19 @@ import { graphql } from 'gatsby'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
-import Container from '../components/ui/Container'
-import MarkdownContent from '../components/page/MarkdownContent'
-import PageSubtitle from '../components/page/PageSubtitle'
-import PageContent from '../components/page/PageContent'
-import PageTitle from '../components/page/PageTitle'
-import Page from '../components/page/Page'
-import PageHeader from '../components/page/PageHeader'
-import PostThumbnail from '../components/post/PostThumbnail'
-import PostThumbnailImage from '../components/post/PostThumbnailImage'
-import PostMeta from '../components/post/PostMeta'
 import TemplateWrapper from '../layouts'
+
+import { Container } from '../chungking/components/ui'
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  PageSubtitle,
+  PageContent,
+  PageThumbnail,
+  PageThumbnailImage,
+  MarkdownContent
+} from '../chungking/components/page'
 
 interface PageTemplateProps {
   data: {
@@ -48,17 +50,15 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
         />
         <article className="h-entry">
           {post.frontmatter.header_image && (
-            <PostThumbnail>
-              <PostThumbnailImage
+            <PageThumbnail>
+              <PageThumbnailImage
                 fluid={post.frontmatter.header_image.childImageSharp.fluid}
                 alt={post.frontmatter.title}
               />
-            </PostThumbnail>
+            </PageThumbnail>
           )}
           <PageHeader>
-            <PostMeta>
-              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-            </PostMeta>
+            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
             {post.fields.lead ? (
               <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
             ) : null}

@@ -70,7 +70,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-top: 1rem; margin-bottom: 1rem`
+              wrapperStyle: `margin-top: 0; margin-bottom: 1.5rem`
             }
           },
           {
@@ -110,8 +110,8 @@ module.exports = {
         name: '@resir014',
         short_name: '@resir014',
         start_url: '/',
-        background_color: '#0f1126',
-        theme_color: '#0f1126',
+        background_color: '#16161d',
+        theme_color: '#16161d',
         display: 'minimal-ui',
         icons: [
           {
