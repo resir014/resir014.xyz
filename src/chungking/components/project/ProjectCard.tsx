@@ -41,7 +41,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, descript
 const Root = styled('section')`
   margin: 1.5rem 0;
   padding: 0;
-  background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
+  background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
   border-radius: 8px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.5) 0 2px 4px 0;
