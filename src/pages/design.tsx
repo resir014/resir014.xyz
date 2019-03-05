@@ -35,6 +35,10 @@ const buttonWrapperStyles: React.CSSProperties = {
   padding: '0.5rem 1rem 0.5rem 0px'
 }
 
+const buttonMarginStyles: React.CSSProperties = {
+  marginRight: '1rem'
+}
+
 const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => (
   <TemplateWrapper>
     <Page>
@@ -67,24 +71,47 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => (
             <h3>Button</h3>
             <WrapperRoot>
               <div style={buttonWrapperStyles}>
-                <Button>Henlo</Button> <Button disabled>Henlo</Button>
+                <Button style={buttonMarginStyles}>Primary</Button>
+                <Button disabled>Disabled</Button>
               </div>
               <div style={buttonWrapperStyles}>
-                <Button color="secondary">More</Button>{' '}
+                <Button size="sm" style={buttonMarginStyles}>
+                  Small
+                </Button>
+                <Button size="sm" disabled>
+                  Disabled
+                </Button>
+              </div>
+              <div style={buttonWrapperStyles}>
+                <Button size="lg" style={buttonMarginStyles}>
+                  Large
+                </Button>
+                <Button size="lg" disabled>
+                  Disabled
+                </Button>
+              </div>
+              <div style={buttonWrapperStyles}>
+                <Button color="secondary" style={buttonMarginStyles}>
+                  Secondary
+                </Button>
                 <Button color="secondary" disabled>
-                  Abort
+                  Disabled
                 </Button>
               </div>
               <div style={buttonWrapperStyles}>
-                <Button color="danger">Abort</Button>{' '}
+                <Button color="danger" style={buttonMarginStyles}>
+                  Danger
+                </Button>
                 <Button color="danger" disabled>
-                  Abort
+                  Disabled
                 </Button>
               </div>
               <div style={buttonWrapperStyles}>
-                <Button color="white">I'm white</Button>{' '}
+                <Button color="white" style={buttonMarginStyles}>
+                  White
+                </Button>
                 <Button color="white" disabled>
-                  I'm white
+                  Disabled
                 </Button>
               </div>
             </WrapperRoot>

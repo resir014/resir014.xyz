@@ -69,7 +69,18 @@ Button.defaultProps = {
 }
 
 const SmallButtonStyles = css`
-  font-size: 85%;
+  padding: 0.25rem 1rem;
+  font-size: 80%;
+`
+
+const MediumButtonStyles = css`
+  padding: 0.5rem 1.5rem;
+  font-size: 90%;
+`
+
+const LargeButtonStyles = css`
+  padding: 1rem 2rem;
+  font-size: 1.15rem;
 `
 
 const PrimaryButtonStyles = css`
@@ -123,12 +134,12 @@ const WhiteButtonStyles = css`
 
 const ButtonBase = (props: ButtonProps) => css`
   display: inline-block;
-  padding: ${props.size === 'lg' ? '.75rem 1rem' : '.375rem .5rem'};
+  margin: 0;
+  padding: 0;
   border: none;
   border: 1px solid transparent;
   border-radius: 8px;
   font-family: ${fonts.sansSerif};
-  font-size: ${props.size === 'lg' ? '1.15rem' : '.9rem'};
   text-align: center;
   line-height: ${emSizes.lineHeight.regular};
   cursor: pointer;
@@ -161,6 +172,8 @@ const ButtonBase = (props: ButtonProps) => css`
   ${props.color === 'danger' && DangerButtonStyles}
   ${props.color === 'white' && WhiteButtonStyles}
   ${props.size === 'sm' && SmallButtonStyles};
+  ${props.size === 'md' && MediumButtonStyles};
+  ${props.size === 'lg' && LargeButtonStyles};
 `
 
 export default styled(Button)(ButtonBase)
