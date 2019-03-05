@@ -79,7 +79,7 @@ const MediumButtonStyles = css`
 `
 
 const LargeButtonStyles = css`
-  padding: 1rem 2rem;
+  padding: 0.75rem 2rem;
   font-size: 1.15rem;
 `
 
