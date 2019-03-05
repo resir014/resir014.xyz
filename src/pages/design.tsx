@@ -46,7 +46,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => (
         title={`Chungking Design System · ${data.site.siteMetadata.title}`}
         meta={[
           { name: 'description', content: data.site.siteMetadata.description },
-          { property: 'og:title', content: 'ChungkingTesting' },
+          { property: 'og:title', content: 'Chungking Design System' },
           {
             property: 'og:description',
             content: data.site.siteMetadata.description
