@@ -5,12 +5,9 @@ import Helmet from 'react-helmet'
 
 import { SiteMetadata } from '../types/gatsby'
 
-import Page from '../components/page/Page'
-import PageHeader from '../components/page/PageHeader'
-import PostMeta from '../components/post/PostMeta'
-import PageTitle from '../components/page/PageTitle'
 import TemplateWrapper from '../layouts'
-import PageSubtitle from '../components/page/PageSubtitle'
+
+import { Page, PageHeader, PageTitle, PageSubtitle } from '../chungking/components/page'
 
 interface NotFoundPageProps {
   data: {
@@ -36,12 +33,10 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
       />
       <article>
         <PageHeader>
-          <PostMeta>
-            <PageTitle>404.</PageTitle>
-            <PageSubtitle>
-              You've hit the void. <Link to="/">Go back home.</Link>
-            </PageSubtitle>
-          </PostMeta>
+          <PageTitle>404.</PageTitle>
+          <PageSubtitle>
+            You've hit the void. <Link to="/">Go back home.</Link>
+          </PageSubtitle>
         </PageHeader>
       </article>
     </Page>

@@ -17,10 +17,11 @@ import {
   PageContent,
   MarkdownContent,
   PageMeta,
-  PageMetaItem,
-  PageThumbnail,
-  PageThumbnailImage
+  PageMetaItem
 } from '../chungking/components/page'
+import { ProjectCard } from '../chungking/components/project'
+
+import { ProjectNode } from '../types/nodes'
 
 interface ProjectTemplateProps {
   data: {
@@ -28,37 +29,14 @@ interface ProjectTemplateProps {
       siteMetadata: SiteMetadata
     }
     icon: HCardIcon
-    markdownRemark: {
-      html: string
-      excerpt: string
-      fields: {
-        category: string
-        year: string
-        slug: string
-        layout?: string
-        headerImage?: string
-        description?: string
-        lead?: string
-        project_url: string
-        jumpToProject: string
-      }
-      frontmatter: {
-        title: string
-        path?: string
-        layout: string
-        header_image?: {
-          childImageSharp: {
-            fluid: { [key: string]: any }
-          }
-        }
-      }
-    }
+    markdownRemark: ProjectNode
   }
 }
 
 const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const tags = post.fields.tags ? (JSON.parse(post.fields.tags) as string[]) : undefined
 
   return (
     <TemplateWrapper>
@@ -78,14 +56,7 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
         <article className="h-entry">
           {post.frontmatter.header_image ? (
             <Container size="xl">
-              <PageThumbnail>
-                <PageThumbnailImage
-                  fluid={post.frontmatter.header_image.childImageSharp.fluid}
-                  alt={post.frontmatter.title}
-                />
-              </PageThumbnail>
               <PageHeader
-                hasImage
                 metaItem={
                   <PageMeta>
                     <PageMetaItem className="p-category">projects</PageMetaItem>
@@ -96,12 +67,12 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
                   </PageMeta>
                 }
               >
-                <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-                {post.fields.lead || post.fields.description ? (
-                  <PageSubtitle className="p-summary">
-                    {post.fields.lead || post.fields.description}
-                  </PageSubtitle>
-                ) : null}
+                <ProjectCard
+                  title={post.frontmatter.title}
+                  description={post.fields.lead || post.fields.description}
+                  image={post.frontmatter.header_image}
+                  tags={tags}
+                />
               </PageHeader>
             </Container>
           ) : (
@@ -195,6 +166,7 @@ export const pageQuery = graphql`
         category
         year
         slug
+        tags
         layout
         description
         lead

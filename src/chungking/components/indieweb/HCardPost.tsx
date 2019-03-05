@@ -23,6 +23,7 @@ const HCardName = styled('h4')`
 const HCardNote = styled('p')`
   margin-top: 0.5rem;
   margin-bottom: 0;
+  font-size: 90%;
 `
 
 const HCardAvatar = styled('div')`

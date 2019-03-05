@@ -151,7 +151,7 @@ const renderLink = (title: string, category: string, url: string, jumpToProject:
     return (
       <JumpToProjectLink href={url} target="_blank" rel="noopener noreferrer">
         <ProjectHeader category={category}>
-          <ProjectTitle>{title}</ProjectTitle>
+          <ProjectTitle>{title} &rarr;</ProjectTitle>
         </ProjectHeader>
       </JumpToProjectLink>
     )
@@ -160,7 +160,7 @@ const renderLink = (title: string, category: string, url: string, jumpToProject:
   return (
     <ProjectLink to={url}>
       <ProjectHeader category={category}>
-        <ProjectTitle>{title}</ProjectTitle>
+        <ProjectTitle>{title} &rarr;</ProjectTitle>
       </ProjectHeader>
     </ProjectLink>
   )
