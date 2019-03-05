@@ -5,15 +5,13 @@ import Helmet from 'react-helmet'
 import { SiteMetadata } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
 
-import Container from '../components/ui/Container'
-import Page from '../components/page/Page'
-import PageContent from '../components/page/PageContent'
-
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 import getFeaturedProject from '../utils/getFeaturedProject'
 import TemplateWrapper from '../layouts'
-import { PageHeader, PageTitle } from '../chungking/components/page'
+
+import { Page, PageHeader, PageTitle, PageContent } from '../chungking/components/page'
 import { FeaturedProject, ProjectItemList } from '../chungking/components/projects'
+import { Container } from '../chungking/components/ui'
 
 interface ProjectsPageProps {
   location: {

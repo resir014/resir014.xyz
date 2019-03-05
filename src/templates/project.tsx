@@ -5,7 +5,6 @@ import { graphql } from 'gatsby'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { ProjectNode } from '../types/nodes'
 
-import ProjectFooter from '../components/projects/ProjectFooter'
 import TemplateWrapper from '../layouts'
 
 import { Button, Container } from '../chungking/components/ui'
@@ -19,7 +18,7 @@ import {
   PageMetaItem,
   PageSubtitle
 } from '../chungking/components/page'
-import { ProjectCard } from '../chungking/components/projects'
+import { ProjectCard, ProjectFooter } from '../chungking/components/projects'
 
 interface ProjectTemplateProps {
   data: {
@@ -92,7 +91,7 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
             <Container>
               <MarkdownContent className="e-content" html={post.html} />
               {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
-                <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
+                <ProjectFooter> {renderLink(post.fields.project_url, true)}</ProjectFooter>
               ) : null}
               <div className="hidden">
                 <p>

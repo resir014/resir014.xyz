@@ -6,14 +6,19 @@ import Helmet from 'react-helmet'
 import { HCardIcon, SiteMetadata } from '../types/gatsby'
 import { VideoNode } from '../types/nodes'
 
-import Container from '../components/ui/Container'
-import Page from '../components/page/Page'
-import PageContent from '../components/page/PageContent'
-import MarkdownContent from '../components/page/MarkdownContent'
 import TemplateWrapper from '../layouts'
 
-import { PageHeader, PageMeta, PageMetaItem, PageTitle } from '../chungking/components/page'
+import {
+  Page,
+  PageHeader,
+  PageMeta,
+  PageMetaItem,
+  PageTitle,
+  PageContent,
+  MarkdownContent
+} from '../chungking/components/page'
 import { HCardPost } from '../chungking/components/indieweb'
+import { Container } from '../chungking/components/ui'
 
 interface VideoTemplateProps {
   location: {
