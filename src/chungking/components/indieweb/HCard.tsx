@@ -1,7 +1,6 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import styled from '@emotion/styled'
-import Link from 'gatsby-link'
 
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { SiteAuthor } from '../../types/default'
@@ -18,6 +17,7 @@ interface HCardProps {
 
 const HCardName = styled('h3')`
   margin-top: 0;
+  margin-bottom: 0.5rem;
   font-family: ${fonts.serif};
   color: ${colors.grey90};
 `
@@ -40,10 +40,10 @@ const HCardAvatar = styled('div')`
 `
 
 const HCardAvatarImg = styled('img')`
-  width: 180px;
-  height: 180px;
+  width: 128px;
+  height: 128px;
   margin: 0;
-  border-radius: 180px;
+  border-radius: 128px;
 `
 
 const HCardDetails = styled('div')`
@@ -87,9 +87,6 @@ export const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }
             </a>
           </HCardName>
           <HCardNote className="p-note">{author.description}</HCardNote>
-          <p>
-            <Link to="/about/">More about me</Link>
-          </p>
           <HCardEmail className="u-email">{author.email}</HCardEmail>
           <HCardFooter>
             {Object.keys(author.url).map(key => (
@@ -120,16 +117,18 @@ const Inner = styled('div')`
 
 const Div = styled('div')`
   display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'block')};
-  margin: 0;
+  margin: 1.5rem 0;
   padding: 1.5rem;
-  background-color: ${colors.white};
-  color: ${colors.grey70};
+  color: ${colors.grey10};
+  background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 2px 4px 0;
 
   p {
     margin: 0.5rem 0;
   }
 
   a {
-    color: ${colors.grey90};
+    color: ${colors.white};
   }
 `

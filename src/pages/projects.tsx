@@ -13,8 +13,7 @@ import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 import getFeaturedProject from '../utils/getFeaturedProject'
 import TemplateWrapper from '../layouts'
 import { PageHeader, PageTitle } from '../chungking/components/page'
-import { FeaturedProject } from '../chungking/components/projects'
-import ProjectItemList from '../chungking/components/projects/ProjectItemList'
+import { FeaturedProject, ProjectItemList } from '../chungking/components/projects'
 
 interface ProjectsPageProps {
   location: {

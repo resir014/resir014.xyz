@@ -8,24 +8,23 @@ import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
 import { ProjectNode } from '../types/nodes'
 
-import Button from '../chungking/components/ui/Button'
-import Divider from '../components/ui/Divider'
-import Page from '../components/page/Page'
-import HomepageContent from '../components/home/HomepageContent'
-import HomepageSection from '../components/home/HomepageSection'
-import HomepageSectionTitle from '../components/home/HomepageSectionTitle'
-import HomepageSectionDescription from '../components/home/HomepageSectionDescription'
-import HomepageSectionFooter from '../components/home/HomepageSectionFooter'
-import HomepageThumbnail from '../components/home/HomepageThumbnail'
-import HomepageThumbnailImage from '../components/home/HomepageThumbnailImage'
-import HomepageThumbnailText from '../components/home/HomepageThumbnailText'
-import HomepageThumbnailFlavour from '../components/home/HomepageThumbnailFlavour'
-import ProjectItemList from '../components/projects/ProjectItemList'
-import HCard from '../components/indieweb/HCard'
 import TemplateWrapper from '../layouts'
-import FeaturedProject from '../components/projects/FeaturedProject'
+
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
-import Container from '../components/ui/Container'
+
+import { Page } from '../chungking/components/page'
+import { Button, Divider } from '../chungking/components/ui'
+import { HCard } from '../chungking/components/indieweb/HCard'
+import { FeaturedProject, ProjectItemList } from '../chungking/components/projects'
+import {
+  HomepageHero,
+  HomepageHeroText,
+  HomepageContent,
+  HomepageSection,
+  HomepageSectionFooter,
+  HomepageSectionTitle,
+  HomepageSectionDescription
+} from '../chungking/components/home'
 
 interface IndexPageProps {
   location: {
@@ -84,20 +83,15 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               }
             ]}
           />
-          <HomepageThumbnail>
-            <Container size="lg">
-              <HomepageThumbnailImage fluid={data.headerImage.childImageSharp.fluid} alt="" />
-              <HomepageThumbnailText>
-                <HomepageThumbnailFlavour
-                  title="@resir014"
-                  flavour={
-                    process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText
-                  }
-                />
-              </HomepageThumbnailText>
-            </Container>
-          </HomepageThumbnail>
-          <HomepageContent withHomepageFlavour>
+          <HomepageHero>
+            <HomepageHeroText
+              title="@resir014"
+              flavour={
+                process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText
+              }
+            />
+          </HomepageHero>
+          <HomepageContent>
             <HomepageSection size="lg">
               <FeaturedProject node={data.featuredProject} />
               <ProjectItemList
@@ -121,7 +115,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
                 </Button>
               </HomepageSectionFooter>
             </HomepageSection>
-            <Divider spacing="large" />
+            <Divider spacing="large" center />
             <HomepageSection size="lg">
               <HomepageSectionTitle>Contact</HomepageSectionTitle>
               <HomepageSectionDescription>
@@ -162,7 +156,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    headerImage: file(absolutePath: { regex: "/assets/images/background.jpg/" }) {
+    headerImage: file(absolutePath: { regex: "/assets/images/architect.svg$/" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid
