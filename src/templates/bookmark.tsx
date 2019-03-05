@@ -5,14 +5,18 @@ import Helmet from 'react-helmet'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { BookmarkNode } from '../types/nodes'
 
-import Container from '../components/ui/Container'
-import Page from '../components/page/Page'
-import PageContent from '../components/page/PageContent'
-import PageSubtitle from '../components/page/PageSubtitle'
-import MarkdownContent from '../components/page/MarkdownContent'
 import TemplateWrapper from '../layouts'
 
-import { PageHeader, PageMeta, PageMetaItem } from '../chungking/components/page'
+import { Container } from '../chungking/components/ui'
+import {
+  Page,
+  PageHeader,
+  PageSubtitle,
+  PageContent,
+  PageMeta,
+  PageMetaItem,
+  MarkdownContent
+} from '../chungking/components/page'
 import { HCardPost } from '../chungking/components/indieweb'
 import { BookmarkLink } from '../chungking/components/bookmark'
 

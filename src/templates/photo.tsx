@@ -6,16 +6,16 @@ import Helmet from 'react-helmet'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PhotoNode } from '../types/nodes'
 
-import Container from '../components/ui/Container'
-import Page from '../components/page/Page'
-import PageContent from '../components/page/PageContent'
 import TemplateWrapper from '../layouts'
 
+import { Container } from '../chungking/components/ui'
 import {
+  Page,
   PageHeader,
   PageMeta,
   PageMetaItem,
   PageTitle,
+  PageContent,
   MarkdownContent
 } from '../chungking/components/page'
 import { HCardPost } from '../chungking/components/indieweb'

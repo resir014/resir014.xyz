@@ -6,8 +6,6 @@ import { SiteAuthor } from '../types/default'
 import { HCardIcon } from '../types/gatsby'
 import { BlogPostNode } from '../types/nodes'
 
-import PageContent from '../components/page/PageContent'
-import PageSubtitle from '../components/page/PageSubtitle'
 import TemplateWrapper from '../layouts'
 
 import {
@@ -18,7 +16,9 @@ import {
   PageThumbnailImage,
   PageMeta,
   PageMetaItem,
-  PageTitle
+  PageTitle,
+  PageSubtitle,
+  PageContent
 } from '../chungking/components/page'
 import { HCardPost } from '../chungking/components/indieweb'
 import { Container, MessageBox } from '../chungking/components/ui'

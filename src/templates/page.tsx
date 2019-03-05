@@ -5,14 +5,19 @@ import { graphql } from 'gatsby'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
-import Container from '../components/ui/Container'
-import PageSubtitle from '../components/page/PageSubtitle'
-import PageContent from '../components/page/PageContent'
-import PostThumbnail from '../components/post/PostThumbnail'
-import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import TemplateWrapper from '../layouts'
 
-import { Page, PageHeader, PageTitle, MarkdownContent } from '../chungking/components/page'
+import { Container } from '../chungking/components/ui'
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  PageSubtitle,
+  PageContent,
+  PageThumbnail,
+  PageThumbnailImage,
+  MarkdownContent
+} from '../chungking/components/page'
 
 interface PageTemplateProps {
   data: {
@@ -45,12 +50,12 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
         />
         <article className="h-entry">
           {post.frontmatter.header_image && (
-            <PostThumbnail>
-              <PostThumbnailImage
+            <PageThumbnail>
+              <PageThumbnailImage
                 fluid={post.frontmatter.header_image.childImageSharp.fluid}
                 alt={post.frontmatter.title}
               />
-            </PostThumbnail>
+            </PageThumbnail>
           )}
           <PageHeader>
             <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
