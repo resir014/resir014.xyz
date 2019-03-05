@@ -8,12 +8,11 @@ import { PageNode } from '../types/nodes'
 import Container from '../components/ui/Container'
 import PageSubtitle from '../components/page/PageSubtitle'
 import PageContent from '../components/page/PageContent'
-import Page from '../components/page/Page'
 import PostThumbnail from '../components/post/PostThumbnail'
 import PostThumbnailImage from '../components/post/PostThumbnailImage'
 import TemplateWrapper from '../layouts'
 
-import { PageHeader, PageTitle, MarkdownContent } from '../chungking/components/page'
+import { Page, PageHeader, PageTitle, MarkdownContent } from '../chungking/components/page'
 
 interface PageTemplateProps {
   data: {

@@ -11,4 +11,5 @@ export const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) =>
 
 const H1 = styled('h1')`
   margin: 0;
+  margin-top: 0.5rem;
 `

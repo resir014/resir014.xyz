@@ -4,21 +4,23 @@ import { graphql } from 'gatsby'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 
-import Button from '../components/ui/Button'
 import Container from '../components/ui/Container'
 import PageSubtitle from '../components/page/PageSubtitle'
-import MarkdownContent from '../components/page/MarkdownContent'
-import Page from '../components/page/Page'
-import PageTitle from '../components/page/PageTitle'
 import PageContent from '../components/page/PageContent'
-import PostMetaItem from '../components/post/PostMetaItem'
-import PostThumbnail from '../components/post/PostThumbnail'
 import ProjectFooter from '../components/projects/ProjectFooter'
-import PostThumbnailImage from '../components/post/PostThumbnailImage'
-import PostHeader from '../components/post/PostHeader'
-import PostMeta from '../components/post/PostMeta'
 import TemplateWrapper from '../layouts'
-import PageHeader from '../components/page/PageHeader'
+
+import { Button } from '../chungking/components/ui'
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  MarkdownContent,
+  PageMeta,
+  PageMetaItem,
+  PageThumbnail,
+  PageThumbnailImage
+} from '../chungking/components/page'
 
 interface ProjectTemplateProps {
   data: {
@@ -76,34 +78,36 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
         <article className="h-entry">
           {post.frontmatter.header_image ? (
             <Container size="xl">
-              <PostThumbnail>
-                <PostThumbnailImage
+              <PageThumbnail>
+                <PageThumbnailImage
                   fluid={post.frontmatter.header_image.childImageSharp.fluid}
                   alt={post.frontmatter.title}
                 />
-              </PostThumbnail>
-              <PostHeader>
-                <PostMeta>
-                  <PostMetaItem className="p-category">projects</PostMetaItem>
-                  <PostMetaItem>{post.fields.year}</PostMetaItem>
+              </PageThumbnail>
+              <PageHeader hasImage>
+                <PageMeta>
+                  <PageMetaItem className="p-category">projects</PageMetaItem>
+                  <PageMetaItem>{post.fields.year}</PageMetaItem>
                   {post.fields.category ? (
-                    <PostMetaItem>{post.fields.category}</PostMetaItem>
+                    <PageMetaItem>{post.fields.category}</PageMetaItem>
                   ) : null}
-                  <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-                </PostMeta>
-                {post.fields.lead ? (
-                  <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+                </PageMeta>
+                <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+                {post.fields.lead || post.fields.description ? (
+                  <PageSubtitle className="p-summary">
+                    {post.fields.lead || post.fields.description}
+                  </PageSubtitle>
                 ) : null}
-              </PostHeader>
+              </PageHeader>
             </Container>
           ) : (
             <PageHeader>
-              <PostMeta>
-                <PostMetaItem className="p-category">projects</PostMetaItem>
-                <PostMetaItem>{post.fields.year}</PostMetaItem>
-                {post.fields.category ? <PostMetaItem>{post.fields.category}</PostMetaItem> : null}
-                <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-              </PostMeta>
+              <PageMeta>
+                <PageMetaItem className="p-category">projects</PageMetaItem>
+                <PageMetaItem>{post.fields.year}</PageMetaItem>
+                {post.fields.category ? <PageMetaItem>{post.fields.category}</PageMetaItem> : null}
+              </PageMeta>
+              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
               {post.fields.lead || post.fields.description ? (
                 <PageSubtitle className="p-summary">
                   {post.fields.lead || post.fields.description}
@@ -139,6 +143,7 @@ const renderLink = (url: string, jumpToProject: boolean) => (
   <Button
     kind="link"
     color="primary"
+    size="lg"
     href={url}
     target={jumpToProject ? '_blank' : undefined}
     rel={jumpToProject ? 'noopener noreferrer' : undefined}
@@ -187,6 +192,7 @@ export const pageQuery = graphql`
         year
         slug
         layout
+        description
         lead
         project_url
         jumpToProject
