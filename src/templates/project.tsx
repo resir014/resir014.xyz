@@ -6,7 +6,6 @@ import { SiteMetadata, HCardIcon } from '../types/gatsby'
 
 import Container from '../components/ui/Container'
 import PageSubtitle from '../components/page/PageSubtitle'
-import PageContent from '../components/page/PageContent'
 import ProjectFooter from '../components/projects/ProjectFooter'
 import TemplateWrapper from '../layouts'
 
@@ -15,6 +14,7 @@ import {
   Page,
   PageHeader,
   PageTitle,
+  PageContent,
   MarkdownContent,
   PageMeta,
   PageMetaItem,
@@ -84,14 +84,18 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
                   alt={post.frontmatter.title}
                 />
               </PageThumbnail>
-              <PageHeader hasImage>
-                <PageMeta>
-                  <PageMetaItem className="p-category">projects</PageMetaItem>
-                  <PageMetaItem>{post.fields.year}</PageMetaItem>
-                  {post.fields.category ? (
-                    <PageMetaItem>{post.fields.category}</PageMetaItem>
-                  ) : null}
-                </PageMeta>
+              <PageHeader
+                hasImage
+                metaItem={
+                  <PageMeta>
+                    <PageMetaItem className="p-category">projects</PageMetaItem>
+                    <PageMetaItem>{post.fields.year}</PageMetaItem>
+                    {post.fields.category ? (
+                      <PageMetaItem>{post.fields.category}</PageMetaItem>
+                    ) : null}
+                  </PageMeta>
+                }
+              >
                 <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
                 {post.fields.lead || post.fields.description ? (
                   <PageSubtitle className="p-summary">
@@ -115,7 +119,7 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
               ) : null}
             </PageHeader>
           )}
-          <PageContent hasHeaderImage={!!post.frontmatter.header_image}>
+          <PageContent>
             <Container>
               <MarkdownContent className="e-content" html={post.html} />
               {post.fields.jumpToProject === 'true' || post.fields.project_url ? (

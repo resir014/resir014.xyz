@@ -13,12 +13,12 @@ const StyledFooter = styled('footer')`
 
 const FooterContent = styled('div')`
   a {
-    color: ${colors.blue30};
+    color: ${colors.green30};
     text-decoration: underline;
 
     &:hover,
     &:focus {
-      color: ${colors.blue30};
+      color: ${colors.green30};
     }
 
     @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {

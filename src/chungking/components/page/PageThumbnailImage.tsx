@@ -28,6 +28,5 @@ const Image = styled(Img)`
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     max-height: 560px;
-    margin-bottom: -5rem;
   }
 `

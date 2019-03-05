@@ -7,12 +7,17 @@ import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { NotesNode } from '../types/nodes'
 
 import Container from '../components/ui/Container'
-import Page from '../components/page/Page'
 import PageContent from '../components/page/PageContent'
-import MarkdownContent from '../components/page/MarkdownContent'
-import PostTitle from '../components/post/PostTitle'
 import TemplateWrapper from '../layouts'
-import { PageHeader, PageMeta, PageMetaItem } from '../chungking/components/page'
+
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  PageMeta,
+  PageMetaItem,
+  MarkdownContent
+} from '../chungking/components/page'
 import { HCardPost } from '../chungking/components/indieweb'
 
 interface NoteTemplateProps {
@@ -59,23 +64,26 @@ const NoteTemplate: React.SFC<NoteTemplateProps> = ({ data }) => {
           ]}
         />
         <article className="h-entry">
-          <PageHeader>
-            <PageMeta>
-              <PageMetaItem>
-                <time
-                  className="dt-published"
-                  dateTime={new Date(post.fields.date_ogp).toISOString()}
-                >
-                  {post.fields.date}
-                </time>
-              </PageMetaItem>
-              {post.fields.category ? (
-                <PageMetaItem className="p-category">{post.fields.category}</PageMetaItem>
-              ) : null}
-            </PageMeta>
+          <PageHeader
+            metaItem={
+              <PageMeta>
+                <PageMetaItem>
+                  <time
+                    className="dt-published"
+                    dateTime={new Date(post.fields.date_ogp).toISOString()}
+                  >
+                    {post.fields.date}
+                  </time>
+                </PageMetaItem>
+                {post.fields.category ? (
+                  <PageMetaItem className="p-category">{post.fields.category}</PageMetaItem>
+                ) : null}
+              </PageMeta>
+            }
+          >
             <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
             {post.frontmatter.title && (
-              <PostTitle className="p-name">{post.frontmatter.title}</PostTitle>
+              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
             )}
           </PageHeader>
           <PageContent>

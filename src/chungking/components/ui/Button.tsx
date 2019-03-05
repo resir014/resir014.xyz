@@ -2,7 +2,7 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import classnames from 'classnames'
-import { darken } from 'polished'
+import { darken, transparentize } from 'polished'
 import Link from 'gatsby-link'
 
 import { fonts, colors, emSizes } from '../../styles/variables'
@@ -149,7 +149,7 @@ const ButtonBase = (props: ButtonProps) => css`
 
   &:disabled,
   &.disabled {
-    background-color: ${colors.grey90};
+    background-color: ${transparentize(0.5, colors.grey90)};
     border-color: ${colors.grey70};
     color: ${colors.white};
     user-select: none;

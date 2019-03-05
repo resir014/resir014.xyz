@@ -9,13 +9,21 @@ import css from '@emotion/css'
 interface PageHeaderProps {
   className?: string
   hasImage?: boolean
+  metaItem?: React.ReactNode
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-export const PageHeader: React.SFC<PageHeaderProps> = ({ className, children, hasImage, size }) => (
+export const PageHeader: React.SFC<PageHeaderProps> = ({
+  className,
+  children,
+  hasImage,
+  metaItem,
+  size
+}) => (
   <Section className={className} hasImage={hasImage}>
     <Container size={size}>
       <HeaderDivider />
+      {metaItem}
       {children}
     </Container>
   </Section>
@@ -53,7 +61,7 @@ const HasImageStyles = css`
     padding: 1.5rem;
     background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
     border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 4px 8px 0;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 8px 16px 0;
   }
 `
 

@@ -34,7 +34,7 @@ const PostTitleLink = styled(Link)`
 `
 
 const FooterLink = styled(Link)`
-  color: ${colors.blue30};
+  color: ${colors.green30};
 `
 
 const PostThumbnailImage = styled('img')`
@@ -52,7 +52,7 @@ const PostTitle = styled('h2')`
   margin-top: 0;
 
   a {
-    color: ${colors.blue30};
+    color: ${colors.green30};
   }
 `
 

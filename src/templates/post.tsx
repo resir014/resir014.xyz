@@ -1,27 +1,27 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import styled from '@emotion/styled-base'
 
 import { SiteAuthor } from '../types/default'
 import { HCardIcon } from '../types/gatsby'
 import { BlogPostNode } from '../types/nodes'
 
-import Container from '../components/ui/Container'
 import PageContent from '../components/page/PageContent'
 import PageSubtitle from '../components/page/PageSubtitle'
-import Page from '../components/page/Page'
-import PostHeader from '../components/post/PostHeader'
-import PostTitle from '../components/post/PostTitle'
-import PostMeta from '../components/post/PostMeta'
-import PostMetaItem from '../components/post/PostMetaItem'
-import PostThumbnail from '../components/post/PostThumbnail'
-import PostThumbnailImage from '../components/post/PostThumbnailImage'
-import MessageBox from '../components/ui/MessageBox'
 import TemplateWrapper from '../layouts'
-import { MarkdownContent, PageHeader } from '../chungking/components/page'
+
+import {
+  MarkdownContent,
+  Page,
+  PageHeader,
+  PageThumbnail,
+  PageThumbnailImage,
+  PageMeta,
+  PageMetaItem,
+  PageTitle
+} from '../chungking/components/page'
 import { HCardPost } from '../chungking/components/indieweb'
-import { colors } from '../chungking/styles/variables'
+import { Container, MessageBox } from '../chungking/components/ui'
 
 interface PostTemplateProps {
   location: {
@@ -40,21 +40,6 @@ interface PostTemplateProps {
     markdownRemark: BlogPostNode
   }
 }
-
-const PageHCard = styled('section')`
-  padding: 3rem 1.5rem 0;
-`
-
-const HeaderDivider = styled('hr')`
-  width: 100%;
-  max-width: 100px;
-  height: 6px;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  border: none;
-  border-radius: 6px;
-  background: linear-gradient(to right, ${colors.blue30}, ${colors.magenta30});
-`
 
 const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
@@ -82,63 +67,40 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
           ]}
         />
         <article className="h-entry">
-          <PageHCard>
-            <Container>
-              <HeaderDivider />
-              <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-            </Container>
-          </PageHCard>
           {post.frontmatter.header_image ? (
             <Container size="xl">
-              <PostThumbnail>
-                <PostThumbnailImage
+              <PageThumbnail>
+                <PageThumbnailImage
                   fluid={post.frontmatter.header_image.childImageSharp.fluid}
                   alt={post.frontmatter.title}
                 />
-              </PostThumbnail>
-
-              <PostHeader>
-                <PostMeta>
-                  <PostMetaItem>
-                    <time
-                      className="dt-published"
-                      dateTime={new Date(post.fields.date_ogp).toISOString()}
-                    >
-                      {post.fields.date}
-                    </time>
-                  </PostMetaItem>
-                  {post.fields.category ? (
-                    <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
-                  ) : null}
-                  <PostTitle className="p-name">{post.frontmatter.title}</PostTitle>
-                </PostMeta>
-                {post.fields.lead ? (
-                  <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-                ) : null}
-              </PostHeader>
+              </PageThumbnail>
             </Container>
-          ) : (
-            <PageHeader>
-              <PostMeta>
-                <PostMetaItem>
+          ) : null}
+          <PageHeader
+            metaItem={
+              <PageMeta>
+                <PageMetaItem>
                   <time
                     className="dt-published"
                     dateTime={new Date(post.fields.date_ogp).toISOString()}
                   >
                     {post.fields.date}
                   </time>
-                </PostMetaItem>
+                </PageMetaItem>
                 {post.fields.category ? (
-                  <PostMetaItem className="p-category">{post.fields.category}</PostMetaItem>
+                  <PageMetaItem className="p-category">{post.fields.category}</PageMetaItem>
                 ) : null}
-                <PostTitle className="p-name">{post.frontmatter.title}</PostTitle>
-              </PostMeta>
-              {post.fields.lead ? (
-                <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-              ) : null}
-            </PageHeader>
-          )}
-          <PageContent hasHeaderImage={!!post.frontmatter.header_image}>
+              </PageMeta>
+            }
+          >
+            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+            {post.fields.lead ? (
+              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+            ) : null}
+            <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
+          </PageHeader>
+          <PageContent>
             <Container>
               {post.frontmatter.syndication && (
                 <MessageBox>

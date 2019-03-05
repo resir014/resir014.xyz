@@ -18,7 +18,7 @@ export const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, ht
 
 const Div = styled('div')`
   a {
-    color: ${lighten(0.1, colors.blue30)};
+    color: ${colors.green30};
   }
 
   figure {
