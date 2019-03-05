@@ -8,10 +8,9 @@ import { BlogPostField } from '../../../types/fields'
 import { BlogPostNode } from '../../../types/nodes'
 
 import { BookmarkLink } from '../bookmark'
-import { MarkdownContent } from '../page'
+import { MarkdownContent, PageMetaItem } from '../page'
 
 import BlogPostExcerpt from '../../../components/postsList/BlogPostExcerpt'
-import PostMetaItem from '../../../components/post/PostMetaItem'
 import { PostIndexItemMeta } from './PostIndexItemMeta'
 
 const StyledPostItem = styled('article')`
@@ -71,14 +70,14 @@ export class BlogPostItem extends React.Component<BlogPostField, {}> {
     return (
       <StyledPostItem className="h-entry">
         <PostIndexItemMeta>
-          <PostMetaItem>
+          <PageMetaItem>
             <Link to={slug}>
               <time className="dt-published" dateTime={new Date(date).toISOString()}>
                 {date}
               </time>
             </Link>
-          </PostMetaItem>
-          <PostMetaItem className="p-category">{category}</PostMetaItem>
+          </PageMetaItem>
+          <PageMetaItem className="p-category">{category}</PageMetaItem>
           <hr />
         </PostIndexItemMeta>
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}

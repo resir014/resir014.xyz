@@ -3,13 +3,12 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { ProjectNode } from '../types/nodes'
 
-import Container from '../components/ui/Container'
-import PageSubtitle from '../components/page/PageSubtitle'
 import ProjectFooter from '../components/projects/ProjectFooter'
 import TemplateWrapper from '../layouts'
 
-import { Button } from '../chungking/components/ui'
+import { Button, Container } from '../chungking/components/ui'
 import {
   Page,
   PageHeader,
@@ -17,11 +16,10 @@ import {
   PageContent,
   MarkdownContent,
   PageMeta,
-  PageMetaItem
+  PageMetaItem,
+  PageSubtitle
 } from '../chungking/components/page'
-import { ProjectCard } from '../chungking/components/project'
-
-import { ProjectNode } from '../types/nodes'
+import { ProjectCard } from '../chungking/components/projects'
 
 interface ProjectTemplateProps {
   data: {

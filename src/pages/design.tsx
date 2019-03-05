@@ -7,17 +7,21 @@ import { SiteMetadata } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
 
 import TemplateWrapper from '../layouts'
-import PageContent from '../components/page/PageContent'
 
 import { Button, Container, Badge } from '../chungking/components/ui'
-import { Page, PageHeader, PageTitle } from '../chungking/components/page'
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  PageMetaItem,
+  PageContent
+} from '../chungking/components/page'
 import { colors } from '../chungking/styles/variables'
 import { BookmarkLink } from '../chungking/components/bookmark'
 import { PostIndexItemMeta } from '../chungking/components/posts-index'
-import PostMetaItem from '../components/post/PostMetaItem'
-import { FeaturedProject } from '../chungking/components/projects'
+import { FeaturedProject, ProjectCard } from '../chungking/components/projects'
+
 import getFeaturedProject from '../utils/getFeaturedProject'
-import { ProjectCard } from '../chungking/components/project'
 
 interface DesignSystemPageProps {
   data: {
@@ -181,12 +185,12 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <h3>Post Metadata</h3>
               <WrapperRoot>
                 <PostIndexItemMeta>
-                  <PostMetaItem>
+                  <PageMetaItem>
                     <time className="dt-published" dateTime="2019-03-03T12:00:00">
                       03 March 2019
                     </time>
-                  </PostMetaItem>
-                  <PostMetaItem className="p-category">Category</PostMetaItem>
+                  </PageMetaItem>
+                  <PageMetaItem className="p-category">Category</PageMetaItem>
                   <hr />
                 </PostIndexItemMeta>
               </WrapperRoot>
