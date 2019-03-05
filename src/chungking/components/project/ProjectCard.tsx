@@ -28,7 +28,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, descript
       {tags ? (
         <ProjectTags>
           {tags.map(tag => (
-            <Badge key={tag}>{tag}</Badge>
+            <Badge key={tag} className="p-category">
+              {tag}
+            </Badge>
           ))}
         </ProjectTags>
       ) : null}

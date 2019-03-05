@@ -38,9 +38,13 @@ const FooterContent = styled('div')`
   }
 `
 
-const Footer: React.FC = () => (
+interface FooterProps {
+  size?: 'md' | 'lg' | 'xl' | 'fluid'
+}
+
+const Footer: React.FC<FooterProps> = ({ size }) => (
   <StyledFooter>
-    <Container>
+    <Container size={size}>
       <FooterContent>
         <p>
           <a
@@ -89,5 +93,9 @@ const Footer: React.FC = () => (
     </Container>
   </StyledFooter>
 )
+
+Footer.defaultProps = {
+  size: 'md'
+}
 
 export default Footer

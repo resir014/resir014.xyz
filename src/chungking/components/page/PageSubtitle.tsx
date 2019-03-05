@@ -9,10 +9,10 @@ interface PageSubtitleProps {
 }
 
 export const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => {
-  return <Section className={className}>{children}</Section>
+  return <Text className={className}>{children}</Text>
 }
 
-const Section = styled('section')`
+const Text = styled('p')`
   margin-top: 0.5rem;
   font-size: ${emSizes.headingSmall.h4}rem;
   font-weight: 300;

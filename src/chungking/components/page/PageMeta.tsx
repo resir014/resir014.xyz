@@ -6,10 +6,10 @@ interface PostMetaProps {
 }
 
 export const PageMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
-  <Section className={className}>{children}</Section>
+  <View className={className}>{children}</View>
 )
 
-const Section = styled('section')`
+const View = styled('div')`
   font-size: 90%;
   font-weight: 300;
   letter-spacing: 0.01em;

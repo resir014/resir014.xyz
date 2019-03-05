@@ -38,7 +38,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
   const featuredProject = getFeaturedProject(data.allMarkdownRemark.edges, 'Broville v11')
 
   return (
-    <TemplateWrapper mastheadSize="lg">
+    <TemplateWrapper layoutSize="lg">
       <Page>
         <Helmet
           title={`Projects · ${siteMetadata.title}`}

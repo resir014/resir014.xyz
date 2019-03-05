@@ -26,7 +26,7 @@ interface WrapperState {
 }
 
 interface TemplateWrapperProps {
-  mastheadSize?: 'md' | 'lg' | 'xl' | 'fluid'
+  layoutSize?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
 class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState> {
@@ -48,7 +48,7 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
   }
 
   public render() {
-    const { children, mastheadSize } = this.props
+    const { children, layoutSize } = this.props
 
     return (
       <StaticQuery
@@ -93,11 +93,11 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
               title={data.site.siteMetadata.title}
               items={menuItems}
               transparent
-              size={mastheadSize}
+              size={layoutSize}
               onNavToggleClick={this.onNavToggleClick}
             />
             {children}
-            <Footer />
+            <Footer size={layoutSize} />
           </LayoutRoot>
         )}
       </StaticQuery>

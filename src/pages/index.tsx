@@ -68,7 +68,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
   public render() {
     const { data } = this.props
     return (
-      <TemplateWrapper mastheadSize="lg">
+      <TemplateWrapper layoutSize="lg">
         <Page>
           <Helmet
             title={data.site.siteMetadata.title}
