@@ -71,16 +71,19 @@ Button.defaultProps = {
 const SmallButtonStyles = css`
   padding: 0.25rem 1rem;
   font-size: 80%;
+  border-radius: 4px;
 `
 
 const MediumButtonStyles = css`
   padding: 0.5rem 1.5rem;
   font-size: 90%;
+  border-radius: 6px;
 `
 
 const LargeButtonStyles = css`
   padding: 0.75rem 2rem;
   font-size: 1.15rem;
+  border-radius: 8px;
 `
 
 const PrimaryButtonStyles = css`
@@ -138,7 +141,6 @@ const ButtonBase = (props: ButtonProps) => css`
   padding: 0;
   border: none;
   border: 1px solid transparent;
-  border-radius: 8px;
   font-family: ${fonts.sansSerif};
   text-align: center;
   line-height: ${emSizes.lineHeight.regular};
