@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { pxSizes, emSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
 import menuItems from '../../../utils/menuItems'
-import { MenuProps } from '../../types/default'
+import { MenuProps } from '../../../types/default'
 
 import MastheadNav from './MastheadNav'
 import Container from '../ui/Container'

@@ -6,10 +6,11 @@ import Helmet from 'react-helmet'
 import { SiteAuthor } from '../types/default'
 import { BlogPostField } from '../types/fields'
 
-import { getEmSize } from '../styles/mixins'
 import withPathPrefix from '../utils/withPathPrefix'
-import { pxSizes } from '../styles/variables'
 import TemplateWrapper from '../layouts'
+
+import { getEmSize } from '../chungking/styles/mixins'
+import { pxSizes } from '../chungking/styles/variables'
 
 import { Container, Divider } from '../chungking/components/ui'
 import { Page, PageHeader, PageTitle, PageContent } from '../chungking/components/page'

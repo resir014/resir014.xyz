@@ -4,16 +4,16 @@ import styled from '@emotion/styled'
 import Link from 'gatsby-link'
 
 import { colors, pxSizes, emSizes } from '../../styles/variables'
+import { getEmSize } from '../../styles/mixins'
 import { BlogPostField } from '../../../types/fields'
 import { BlogPostNode } from '../../../types/nodes'
 
 import { BookmarkLink } from '../bookmark'
 import { MarkdownContent, PageMetaItem } from '../page'
-
-import BlogPostExcerpt from '../../../components/postsList/BlogPostExcerpt'
-import { PostIndexItemMeta } from './PostIndexItemMeta'
 import { ResponsiveVideo } from '../video'
-import { getEmSize } from '../../styles/mixins'
+
+import { BlogPostExcerpt } from './BlogPostExcerpt'
+import { PostIndexItemMeta } from './PostIndexItemMeta'
 import { PostIndexItemHeader } from './PostIndexItemHeader'
 
 const StyledPostItem = styled('article')`

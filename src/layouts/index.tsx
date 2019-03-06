@@ -7,9 +7,9 @@ import { menuItems } from '../utils/menus'
 
 import 'modern-normalize'
 
-import LayoutRoot from '../components/ui/LayoutRoot'
 import { SiteMetadata } from '../types/gatsby'
 
+import { LayoutRoot } from '../chungking/components/ui'
 import { GlobalStyles } from '../chungking/styles/reset'
 import { PrismTheme } from '../chungking/styles/prismjs-theme'
 import { Masthead, Footer } from '../chungking/components/layout'

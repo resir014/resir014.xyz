@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import styled from '@emotion/styled'
 
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
-import { SiteAuthor } from '../../types/default'
+import { SiteAuthor } from '../../../types/default'
 import { ChildImageSharp } from '../../../types/gatsby'
 import { getEmSize } from '../../styles/mixins'
 
