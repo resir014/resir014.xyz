@@ -166,12 +166,14 @@ export class BlogPostItem extends React.Component<BlogPostField, {}> {
   private renderVideoTemplate(node: BlogPostNode) {
     return (
       <PostDetailBox>
-        <ResponsiveVideoWrapper>
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${node.fields.youtube_embed_id}?rel=0`}
-            allowFullScreen
-          />
-        </ResponsiveVideoWrapper>
+        {node.fields.youtube_embed_id && (
+          <ResponsiveVideoWrapper>
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${node.fields.youtube_embed_id}?rel=0`}
+              allowFullScreen
+            />
+          </ResponsiveVideoWrapper>
+        )}
         <PostContent>
           {node.frontmatter.title && (
             <VideoTitle>

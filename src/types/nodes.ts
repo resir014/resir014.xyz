@@ -37,6 +37,7 @@ export interface JamNode {
     category?: string
     link?: string
     lead?: string
+    youtube_embed_id?: string
     date: string
     date_ogp: string
   }
@@ -169,6 +170,7 @@ export interface VideoNode {
     category?: string
     link?: string
     headerImage?: string
+    youtube_embed_id?: string
     lead?: string
     date: string
     date_ogp: string

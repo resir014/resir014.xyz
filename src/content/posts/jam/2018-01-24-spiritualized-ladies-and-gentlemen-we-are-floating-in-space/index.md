@@ -1,11 +1,9 @@
 ---
 category: jam
 layout: jam
+title: Spiritualized - Ladies and Gentlemen We Are Floating in Space
+youtube_embed_id: p47V3w4m1yg
 ---
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/p47V3w4m1yg" frameborder="0" allowfullscreen></iframe>
-
-#### Spiritualized - Ladies and Gentlemen We Are Floating in Space
 
 Do you ever have this song that you randomly encounter out of the blue one day, but you're SURE you've heard it somewhere before, a long time ago?
 
