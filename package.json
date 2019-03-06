@@ -65,7 +65,6 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
     "slug": "^1.0.0",
-    "typeface-barlow": "^0.0.71",
     "typescript": "^3.3.3333",
     "url-parse": "^1.4.4"
   },
