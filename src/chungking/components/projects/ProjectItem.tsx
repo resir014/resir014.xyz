@@ -21,10 +21,6 @@ const StyledProjectItem = styled('div')`
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
 
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     margin: 0 1rem 2rem;
     flex: 0 1 calc(50% - 2rem);
