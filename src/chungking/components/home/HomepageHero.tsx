@@ -18,12 +18,11 @@ export const HomepageHero: React.SFC<HomepageThumbnailProps> = ({ className, chi
 const Inner = styled(Container)`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-height: 320px;
+  height: 320px;
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     padding: 0 ${emSizes.containerPadding}rem;
-    min-height: 480px;
+    height: 480px;
   }
 `
 
@@ -31,11 +30,10 @@ const Root = styled('div')`
   position: relative;
   margin: 0;
   background: url(${require('../../../assets/images/architect.svg')}) repeat center center;
-  height: 100%;
-  min-height: 320px;
+  height: 320px;
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     padding: 0 ${emSizes.containerPadding}rem;
-    min-height: 480px;
+    height: 480px;
   }
 `
