@@ -18,6 +18,7 @@ export const VideoCard: React.FC<VideoPostWrapperProps> = ({ embed, title, child
 
 const Inner = styled('div')`
   padding: 1.5rem;
+  padding-top: 1rem;
 `
 
 const Root = styled('section')`
