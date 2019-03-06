@@ -19,6 +19,7 @@ module.exports = ({ node, getNode, actions }) => {
       subtitle,
       link,
       header_image,
+      youtube_embed_id,
       date
     } = node.frontmatter
     const relativePath = createFilePath({ node, getNode, basePath: 'pages' })
@@ -126,6 +127,13 @@ module.exports = ({ node, getNode, actions }) => {
       node,
       name: 'headerImage',
       value: header_image || ''
+    })
+
+    // Include YT embed id if available
+    createNodeField({
+      node,
+      name: 'youtube_embed_id',
+      value: youtube_embed_id || ''
     })
 
     // Used by createPages() to register redirects.

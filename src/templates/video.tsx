@@ -13,12 +13,12 @@ import {
   PageHeader,
   PageMeta,
   PageMetaItem,
-  PageTitle,
   PageContent,
   MarkdownContent
 } from '../chungking/components/page'
 import { HCardPost } from '../chungking/components/indieweb'
 import { Container } from '../chungking/components/ui'
+import { ResponsiveVideo, VideoCard } from '../chungking/components/video'
 
 interface VideoTemplateProps {
   location: {
@@ -77,26 +77,39 @@ const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data }) => {
               ) : null}
             </PageMeta>
             <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-            {post.frontmatter.title && (
-              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-            )}
           </PageHeader>
           <PageContent>
             <Container>
-              <MarkdownContent
-                className={classnames('e-content', !post.frontmatter.title && 'p-name')}
-                html={post.html}
-              />
-              <div className="hidden">
-                <p>
-                  <a
-                    className="u-url"
-                    href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-                  >
-                    Permalink
-                  </a>
-                </p>
-              </div>
+              <VideoCard
+                title={post.frontmatter.title}
+                embed={
+                  post.fields.youtube_embed_id ? (
+                    <ResponsiveVideo>
+                      <iframe
+                        src={`https://www.youtube-nocookie.com/embed/${
+                          post.fields.youtube_embed_id
+                        }?rel=0`}
+                        allowFullScreen
+                      />
+                    </ResponsiveVideo>
+                  ) : null
+                }
+              >
+                <MarkdownContent
+                  className={classnames('e-content', !post.frontmatter.title && 'p-name')}
+                  html={post.html}
+                />
+                <div className="hidden">
+                  <p>
+                    <a
+                      className="u-url"
+                      href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                    >
+                      Permalink
+                    </a>
+                  </p>
+                </div>
+              </VideoCard>
             </Container>
           </PageContent>
         </article>
@@ -146,6 +159,7 @@ export const pageQuery = graphql`
         category
         link
         lead
+        youtube_embed_id
         date(formatString: "DD MMMM YYYY")
         date_ogp: date
       }

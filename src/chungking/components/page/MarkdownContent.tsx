@@ -21,6 +21,18 @@ const Div = styled('div')`
     color: ${colors.green30};
   }
 
+  .gatsby-resp-image-wrapper {
+    margin: 1.5rem 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   figure {
     margin: 2rem 0;
     text-align: center;

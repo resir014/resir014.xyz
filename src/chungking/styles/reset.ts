@@ -250,4 +250,21 @@ export const GlobalStyles = css`
     color: inherit;
     background-color: transparent;
   }
+
+  .responsive-embed {
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 56.25%;
+    height: 0;
+
+    div,
+    embed,
+    object {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+  }
 `
