@@ -14,6 +14,7 @@ import BlogPostExcerpt from '../../../components/postsList/BlogPostExcerpt'
 import { PostIndexItemMeta } from './PostIndexItemMeta'
 import { ResponsiveVideo } from '../video'
 import { getEmSize } from '../../styles/mixins'
+import { PostIndexItemHeader } from './PostIndexItemHeader'
 
 const StyledPostItem = styled('article')`
   display: flex;
@@ -92,17 +93,19 @@ export class BlogPostItem extends React.Component<BlogPostField, {}> {
     const { date, category, slug } = node.fields
     return (
       <StyledPostItem className="h-entry">
-        <PostIndexItemMeta>
-          <PageMetaItem>
-            <Link to={slug}>
-              <time className="dt-published" dateTime={new Date(date).toISOString()}>
-                {date}
-              </time>
-            </Link>
-          </PageMetaItem>
-          <PageMetaItem className="p-category">{category}</PageMetaItem>
-          <hr />
-        </PostIndexItemMeta>
+        <PostIndexItemHeader>
+          <PostIndexItemMeta>
+            <PageMetaItem>
+              <Link to={slug}>
+                <time className="dt-published" dateTime={new Date(date).toISOString()}>
+                  {date}
+                </time>
+              </Link>
+            </PageMetaItem>
+            <PageMetaItem className="p-category">{category}</PageMetaItem>
+            <hr />
+          </PostIndexItemMeta>
+        </PostIndexItemHeader>
         {node.fields.category === 'article' && this.renderArticleTemplate(node)}
         {node.fields.category === 'note' && this.renderNoteTemplate(node)}
         {node.fields.category === 'video' && this.renderVideoTemplate(node)}

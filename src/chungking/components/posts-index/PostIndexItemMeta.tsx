@@ -1,8 +1,7 @@
 import styled from '@emotion/styled-base'
 import { colors } from '../../styles/variables'
 
-export const PostIndexItemMeta = styled('section')`
-  padding: 1.5rem 1.5rem 0;
+export const PostIndexItemMeta = styled('div')`
   font-size: 90%;
   letter-spacing: 0.01em;
   text-transform: uppercase;
