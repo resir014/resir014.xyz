@@ -60,15 +60,22 @@ const HCardEmail = styled('span')`
 
 const HCardFooter = styled('div')`
   margin-top: 1rem;
+  word-wrap: break-word;
 `
 
 const HCardSocialLinks = styled('span')`
-  &:not(:first-of-type) {
-    margin-left: 0.5rem;
+  display: block;
 
-    &:before {
-      content: '/';
-      margin-right: 0.5rem;
+  @media (min-width: ${getEmSize(pxSizes.breakpoints.sm)}) {
+    display: inline-block;
+
+    &:not(:first-of-type) {
+      margin-left: 0.5rem;
+
+      &:before {
+        content: '/';
+        margin-right: 0.5rem;
+      }
     }
   }
 `
