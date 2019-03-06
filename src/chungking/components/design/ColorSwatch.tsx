@@ -12,7 +12,9 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText
   const [copySuccess, setCopySuccess] = React.useState<string | undefined>(undefined)
 
   function copyToClipboard(str: string) {
-    return () => {
+    return (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault()
+
       const el = document.createElement('textarea')
       el.defaultValue = ''
       el.value = str
@@ -20,10 +22,11 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText
       el.style.position = 'absolute'
       el.style.left = '-9999px'
       document.body.appendChild(el)
+
       const selection = document.getSelection()
 
       if (selection) {
-        const selected = selection.rangeCount > 0 ? document.getSelection()!.getRangeAt(0) : false
+        const selected = selection.rangeCount > 0 ? selection.getRangeAt(0) : false
         el.select()
         document.execCommand('copy')
         document.body.removeChild(el)
@@ -40,7 +43,7 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText
   }
 
   return (
-    <Root color={color} onClick={copyToClipboard(color)}>
+    <Root type="button" onClick={copyToClipboard(color)}>
       <Inner color={color} darkText={darkText}>
         {copySuccess ? copySuccess : title || color}
       </Inner>
@@ -91,7 +94,7 @@ const Root = styled('button')`
   &:focus {
     outline: none;
 
-    ${Inner} {
+    > div {
       opacity: 0.7;
     }
   }
