@@ -20,6 +20,7 @@ import { colors } from '../chungking/styles/variables'
 import { BookmarkLink } from '../chungking/components/bookmark'
 import { PostIndexItemMeta } from '../chungking/components/posts-index'
 import { FeaturedProject, ProjectCard } from '../chungking/components/projects'
+import { ColorSwatch, TypographySpecimen } from '../chungking/components/design'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
 
@@ -41,6 +42,13 @@ const buttonWrapperStyles: React.CSSProperties = {
 const buttonMarginStyles: React.CSSProperties = {
   marginRight: '1rem'
 }
+
+const WrapperRoot = styled('div')`
+  margin-bottom: 3rem;
+  padding: 1rem 1.5rem;
+  background-color: ${colors.grey90};
+  border-radius: 6px;
+`
 
 const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
   const testProject = getFeaturedProject(data.projects.edges, 'Broville v11')
@@ -69,6 +77,51 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
           </PageHeader>
           <PageContent>
             <Container>
+              <h2>Foundations</h2>
+              <h3>Colors</h3>
+              <h4>Primary</h4>
+              <ColorSwatch color={colors.white} darkText />
+              <ColorSwatch color={colors.black} />
+              <h4>Secondary</h4>
+              <ColorSwatch color={colors.grey10} darkText />
+              <ColorSwatch color={colors.grey20} darkText />
+              <ColorSwatch color={colors.grey30} darkText />
+              <ColorSwatch color={colors.grey40} darkText />
+              <ColorSwatch color={colors.grey50} />
+              <ColorSwatch color={colors.grey60} />
+              <ColorSwatch color={colors.grey70} />
+              <ColorSwatch color={colors.grey80} />
+              <ColorSwatch color={colors.grey90} />
+              <h4>Accent Colors</h4>
+              <ColorSwatch color={colors.magenta30} />
+              <ColorSwatch color={colors.orange30} />
+              <ColorSwatch color={colors.green30} />
+              <ColorSwatch color={colors.purple30} />
+              <ColorSwatch color={colors.blue30} />
+              <ColorSwatch color={colors.ultramarine30} />
+              <h3>Typography</h3>
+              <h4>Sans Serif</h4>
+              <WrapperRoot>
+                <TypographySpecimen weight={100}>Sans Serif - 100</TypographySpecimen>
+                <TypographySpecimen weight={200}>Sans Serif - 200</TypographySpecimen>
+                <TypographySpecimen weight={300}>Sans Serif - 300</TypographySpecimen>
+                <TypographySpecimen weight={400}>Sans Serif - 400</TypographySpecimen>
+                <TypographySpecimen weight={500}>Sans Serif - 500</TypographySpecimen>
+                <TypographySpecimen weight={600}>Sans Serif - 600</TypographySpecimen>
+                <TypographySpecimen weight={700}>Sans Serif - 700</TypographySpecimen>
+                <TypographySpecimen weight={800}>Sans Serif - 800</TypographySpecimen>
+                <TypographySpecimen weight={900}>Sans Serif - 900</TypographySpecimen>
+              </WrapperRoot>
+              <h4>Monospace</h4>
+              <WrapperRoot>
+                <TypographySpecimen fontFamily="monospace" weight={400}>
+                  Monospace - 400
+                </TypographySpecimen>
+                <TypographySpecimen fontFamily="monospace" weight={700}>
+                  Monospace - 700
+                </TypographySpecimen>
+              </WrapperRoot>
+
               <h2>Components</h2>
               <h3>Badge</h3>
               <WrapperRoot>
@@ -123,6 +176,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   </Button>
                 </div>
               </WrapperRoot>
+
               <h2>Posts</h2>
               <h3>Paragraph</h3>
               <WrapperRoot>
@@ -194,6 +248,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <hr />
                 </PostIndexItemMeta>
               </WrapperRoot>
+
               <h2>Projects</h2>
               <h3>Featured Project</h3>
               <FeaturedProject key={testProject.node.frontmatter.title} node={testProject.node} />
@@ -266,12 +321,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
-
-const WrapperRoot = styled('div')`
-  margin-bottom: 3rem;
-  padding: 1rem 1.5rem;
-  background-color: ${colors.grey90};
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
 `
