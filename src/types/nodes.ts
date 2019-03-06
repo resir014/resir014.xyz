@@ -121,6 +121,7 @@ export interface BlogPostNode {
     category?: string
     layout?: string
     link?: string
+    youtube_embed_id?: string
     headerImage?: string
     headerRegex?: string
     lead?: string

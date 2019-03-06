@@ -62,6 +62,7 @@ module.exports = async ({ graphql, actions }) => {
                 date(formatString: "MMMM DD, YYYY")
                 slug
                 link
+                youtube_embed_id
                 category
                 lead
               }

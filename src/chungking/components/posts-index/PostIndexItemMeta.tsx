@@ -2,7 +2,7 @@ import styled from '@emotion/styled-base'
 import { colors } from '../../styles/variables'
 
 export const PostIndexItemMeta = styled('section')`
-  margin-bottom: 1.5rem;
+  padding: 1.5rem 1.5rem 0;
   font-size: 90%;
   letter-spacing: 0.01em;
   text-transform: uppercase;
