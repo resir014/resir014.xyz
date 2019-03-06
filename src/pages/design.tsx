@@ -126,7 +126,9 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <h3>Badge</h3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
-                  <Badge>henlo</Badge> <Badge>it's a badge</Badge>
+                  <Badge>default</Badge> <Badge color="grey">grey</Badge>{' '}
+                  <Badge color="green">green</Badge> <Badge color="blue">blue</Badge>{' '}
+                  <Badge color="red">red</Badge> <Badge color="magenta">magenta</Badge>
                 </div>
               </WrapperRoot>
               <h3>Button</h3>
