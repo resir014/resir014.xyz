@@ -35,7 +35,7 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
   const featuredProject = getFeaturedProject(data.allMarkdownRemark.edges, 'Broville v11')
 
   return (
-    <TemplateWrapper layoutSize="lg">
+    <TemplateWrapper>
       <Page>
         <Helmet
           title={`Projects · ${siteMetadata.title}`}
@@ -49,19 +49,19 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
           ]}
         />
         <article>
-          <PageHeader size="lg">
+          <PageHeader>
             <PageTitle>Projects</PageTitle>
           </PageHeader>
           <PageContent>
             {featuredProject ? (
-              <Container size="lg">
+              <Container>
                 <FeaturedProject
                   key={featuredProject.node.frontmatter.title}
                   node={featuredProject.node}
                 />
               </Container>
             ) : null}
-            <Container size="lg">
+            <Container>
               <ProjectItemList
                 title="Web development stuff"
                 projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}

@@ -67,7 +67,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
   public render() {
     const { data } = this.props
     return (
-      <TemplateWrapper layoutSize="lg">
+      <TemplateWrapper>
         <Page>
           <Helmet
             title={data.site.siteMetadata.title}
@@ -92,8 +92,10 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
             />
           </HomepageHero>
           <HomepageContent>
-            <HomepageSection size="lg">
+            <HomepageSection>
               <FeaturedProject node={data.featuredProject} />
+            </HomepageSection>
+            <HomepageSection>
               <ProjectItemList
                 title="Web development stuff"
                 projects={filterProjectsByCategory(data.allProjects.edges, 'web')}
@@ -116,7 +118,7 @@ class IndexPage extends React.Component<IndexPageProps, IndexPageState> {
               </HomepageSectionFooter>
             </HomepageSection>
             <Divider spacing="large" center />
-            <HomepageSection size="lg">
+            <HomepageSection>
               <HomepageSectionTitle>Contact</HomepageSectionTitle>
               <HomepageSectionDescription>
                 Got an interesting project in mind? Want me to help you with it?{' '}

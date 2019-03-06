@@ -10,8 +10,12 @@ interface HomepageSectionProps {
 
 export const HomepageSection: React.SFC<HomepageSectionProps> = ({ children, size, className }) => (
   <Section className={className}>
-    <Container size={size || 'lg'}>{children}</Container>
+    <Container size={size}>{children}</Container>
   </Section>
 )
+
+HomepageSection.defaultProps = {
+  size: 'md'
+}
 
 const Section = styled('section')``

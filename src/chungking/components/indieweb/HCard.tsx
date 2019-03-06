@@ -5,7 +5,6 @@ import styled from '@emotion/styled'
 import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../../types/gatsby'
-import Container from '../ui/Container'
 import { getEmSize } from '../../styles/mixins'
 
 interface HCardProps {
@@ -19,11 +18,12 @@ const HCardName = styled('h3')`
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: ${fonts.serif};
-  color: ${colors.grey90};
+  color: ${colors.white};
 `
 
 const HCardNote = styled('p')`
   font-size: ${emSizes.headingSmall.h4}rem;
+  color: ${colors.white};
 `
 
 const HCardAvatar = styled('div')`
@@ -82,31 +82,29 @@ const HCardSocialLinks = styled('span')`
 
 export const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
   <Div className={classnames(className, 'h-card')} hidden={hidden}>
-    <Container size="xl">
-      <Inner>
-        <HCardAvatar>
-          <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
-        </HCardAvatar>
-        <HCardDetails>
-          <HCardName>
-            <a className="p-name u-url" rel="me" href={author.website}>
-              {author.name}
-            </a>
-          </HCardName>
-          <HCardNote className="p-note">{author.description}</HCardNote>
-          <HCardEmail className="u-email">{author.email}</HCardEmail>
-          <HCardFooter>
-            {Object.keys(author.url).map(key => (
-              <HCardSocialLinks key={author.url[key]}>
-                <a target="_blank" rel="me noopener noreferrer" href={author.url[key]}>
-                  {key}
-                </a>
-              </HCardSocialLinks>
-            ))}
-          </HCardFooter>
-        </HCardDetails>
-      </Inner>
-    </Container>
+    <Inner>
+      <HCardAvatar>
+        <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
+      </HCardAvatar>
+      <HCardDetails>
+        <HCardName>
+          <a className="p-name u-url" rel="me" href={author.website}>
+            {author.name}
+          </a>
+        </HCardName>
+        <HCardNote className="p-note">{author.description}</HCardNote>
+        <HCardEmail className="u-email">{author.email}</HCardEmail>
+        <HCardFooter>
+          {Object.keys(author.url).map(key => (
+            <HCardSocialLinks key={author.url[key]}>
+              <a target="_blank" rel="me noopener noreferrer" href={author.url[key]}>
+                {key}
+              </a>
+            </HCardSocialLinks>
+          ))}
+        </HCardFooter>
+      </HCardDetails>
+    </Inner>
   </Div>
 )
 
