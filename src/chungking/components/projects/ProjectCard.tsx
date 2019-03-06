@@ -25,6 +25,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, descript
       </PageThumbnail>
     )}
     <Inner>
+      <ProjectTitle className="p-name">{title}</ProjectTitle>
+      {description ? <ProjectSubtitle className="p-summary">{description}</ProjectSubtitle> : null}
       {tags ? (
         <ProjectTags>
           {tags.map(tag => (
@@ -34,8 +36,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, descript
           ))}
         </ProjectTags>
       ) : null}
-      <ProjectTitle className="p-name">{title}</ProjectTitle>
-      {description ? <ProjectSubtitle className="p-summary">{description}</ProjectSubtitle> : null}
     </Inner>
   </Root>
 )
@@ -54,7 +54,7 @@ const Inner = styled('div')`
 `
 
 const ProjectTags = styled('div')`
-  margin-bottom: 0.75rem;
+  margin-top: 1rem;
 
   ${Badge} + ${Badge} {
     margin-left: 0.5rem;

@@ -36,7 +36,7 @@ const FeaturedProjectWrapper = styled('section')`
 `
 
 const ProjectTags = styled('div')`
-  margin: 0.5rem 0 1rem;
+  margin-top: 1rem;
 
   ${Badge} + ${Badge} {
     margin-left: 0.5rem;
@@ -110,15 +110,15 @@ export class FeaturedProject extends React.Component<FeaturedProjectProps, Featu
             <FeaturedProjectSpan>Featured project</FeaturedProjectSpan>
             <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
           </FeaturedProjectHeading>
-          {tags ? (
-            <ProjectTags>
-              {tags.map(tag => (
-                <Badge key={tag}>{tag}</Badge>
-              ))}
-            </ProjectTags>
-          ) : null}
           <FeaturedProjectDescription>
             <p>{node.fields.description}</p>
+            {tags ? (
+              <ProjectTags>
+                {tags.map(tag => (
+                  <Badge key={tag}>{tag}</Badge>
+                ))}
+              </ProjectTags>
+            ) : null}
           </FeaturedProjectDescription>
           <FeaturedProjectFooter>
             <Button kind="nav-link" color="white" to={node.fields.slug}>
