@@ -16,7 +16,7 @@ module.exports = {
     siteUrl: 'https://resir014.xyz',
     flavourText: flavours[Math.floor(Math.random() * flavours.length)],
     author: {
-      name: '@resir014',
+      name: 'Resi Respati',
       description: 'Web developer based in Jakarta, Indonesia.',
       website: 'https://resir014.xyz',
       url: {
