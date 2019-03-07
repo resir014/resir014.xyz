@@ -8,7 +8,7 @@ interface ColorSwatchProps {
   darkText?: boolean
 }
 
-export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText }) => {
+const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText }) => {
   const [copySuccess, setCopySuccess] = React.useState<string | undefined>(undefined)
 
   function copyToClipboard(str: string) {
@@ -45,11 +45,13 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText
   return (
     <Root type="button" onClick={copyToClipboard(color)}>
       <Inner color={color} darkText={darkText}>
-        {copySuccess ? copySuccess : title || color}
+        {copySuccess || title || color}
       </Inner>
     </Root>
   )
 }
+
+export default ColorSwatch
 
 ColorSwatch.defaultProps = {
   title: undefined,

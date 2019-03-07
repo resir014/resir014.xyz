@@ -18,6 +18,8 @@ interface HomepageContentProps {
   className?: string
 }
 
-export const HomepageContent: React.SFC<HomepageContentProps> = ({ children, className }) => (
+const HomepageContent: React.SFC<HomepageContentProps> = ({ children, className }) => (
   <StyledHomepageContent className={className}>{children}</StyledHomepageContent>
 )
+
+export default HomepageContent

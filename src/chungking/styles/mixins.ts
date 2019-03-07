@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import { em } from 'polished'
 import { pxSizes } from './variables'
 

@@ -5,9 +5,11 @@ interface PageProps {
   className?: string
 }
 
-export const ProjectFooter: React.SFC<PageProps> = ({ children, className }) => (
+const ProjectFooter: React.SFC<PageProps> = ({ children, className }) => (
   <Div className={className}>{children}</Div>
 )
+
+export default ProjectFooter
 
 const Div = styled('div')`
   margin-top: 2rem;

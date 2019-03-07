@@ -30,6 +30,19 @@ interface ProjectTemplateProps {
   }
 }
 
+const renderLink = (url: string, jumpToProject: boolean) => (
+  <Button
+    kind="link"
+    color="primary"
+    size="lg"
+    href={url}
+    target={jumpToProject ? '_blank' : undefined}
+    rel={jumpToProject ? 'noopener noreferrer' : undefined}
+  >
+    Visit project
+  </Button>
+)
+
 const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
@@ -91,7 +104,7 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
             <Container>
               <MarkdownContent className="e-content" html={post.html} />
               {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
-                <ProjectFooter> {renderLink(post.fields.project_url, true)}</ProjectFooter>
+                <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
               ) : null}
               <div className="hidden">
                 <p>
@@ -110,19 +123,6 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {
     </TemplateWrapper>
   )
 }
-
-const renderLink = (url: string, jumpToProject: boolean) => (
-  <Button
-    kind="link"
-    color="primary"
-    size="lg"
-    href={url}
-    target={jumpToProject ? '_blank' : undefined}
-    rel={jumpToProject ? 'noopener noreferrer' : undefined}
-  >
-    Visit project
-  </Button>
-)
 
 export default ProjectPageTemplate
 

@@ -3,7 +3,7 @@
 import { css } from '@emotion/core'
 import { colors } from './variables'
 
-export const PrismTheme = css`
+const PrismTheme = css`
   /**
    * atom-dark theme for \`prism.js\`
    * Based on Atom's \`atom-dark\` theme: https://github.com/atom/atom-dark-syntax
@@ -152,3 +152,5 @@ export const PrismTheme = css`
     cursor: help;
   }
 `
+
+export default PrismTheme

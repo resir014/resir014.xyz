@@ -1,20 +1,13 @@
+import * as React from 'react'
 import styled from '@emotion/styled'
-import { colors } from '../../styles/variables'
-import { VideoTitle } from './VideoTitle'
 
-interface VideoPostWrapperProps {
+import { colors } from '../../styles/variables'
+import VideoTitle from './VideoTitle'
+
+interface VideoCardProps {
   embed: React.ReactNode
   title?: string
 }
-
-export const VideoCard: React.FC<VideoPostWrapperProps> = ({ embed, title, children }) => (
-  <Root>
-    {embed}
-
-    {title && <VideoTitle className="p-name">{title}</VideoTitle>}
-    <Inner>{children}</Inner>
-  </Root>
-)
 
 const Inner = styled('div')`
   padding: 1.5rem;
@@ -32,3 +25,14 @@ const Root = styled('section')`
     margin-bottom: 0;
   }
 `
+
+const VideoCard: React.FC<VideoCardProps> = ({ embed, title, children }) => (
+  <Root>
+    {embed}
+
+    {title && <VideoTitle className="p-name">{title}</VideoTitle>}
+    <Inner>{children}</Inner>
+  </Root>
+)
+
+export default VideoCard

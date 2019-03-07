@@ -5,9 +5,11 @@ interface PostMetaItemProps {
   className?: string
 }
 
-export const PageMetaItem: React.SFC<PostMetaItemProps> = ({ className, children }) => (
+const PageMetaItem: React.SFC<PostMetaItemProps> = ({ className, children }) => (
   <Span className={className}>{children}</Span>
 )
+
+export default PageMetaItem
 
 const Span = styled('span')`
   &:not(:first-of-type) {

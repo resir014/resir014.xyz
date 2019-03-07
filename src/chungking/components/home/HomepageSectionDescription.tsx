@@ -8,10 +8,12 @@ interface HomepageSectionDescriptionProps {
   className?: string
 }
 
-export const HomepageSectionDescription: React.SFC<HomepageSectionDescriptionProps> = ({
+const HomepageSectionDescription: React.SFC<HomepageSectionDescriptionProps> = ({
   children,
   className
 }) => <Paragraph className={className}>{children}</Paragraph>
+
+export default HomepageSectionDescription
 
 const Paragraph = styled('p')`
   margin-bottom: 0.5rem;

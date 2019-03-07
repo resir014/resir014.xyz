@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import { colors, fonts, pxSizes, emSizes } from './variables'
 import { getEmSize } from './mixins'
 
-export const GlobalStyles = css`
+const GlobalStyles = css`
   html {
     box-sizing: border-box;
   }
@@ -268,3 +268,5 @@ export const GlobalStyles = css`
     }
   }
 `
+
+export default GlobalStyles

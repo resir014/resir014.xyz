@@ -13,6 +13,8 @@ interface PageContentProps {
   className?: string
 }
 
-export const PageContent: React.SFC<PageContentProps> = ({ children, className }) => (
+const PageContent: React.SFC<PageContentProps> = ({ children, className }) => (
   <StyledPageContent className={className}>{children}</StyledPageContent>
 )
+
+export default PageContent

@@ -1,3 +1,4 @@
+import * as React from 'react'
 import styled from '@emotion/styled'
 
 import { colors } from '../../styles/variables'
@@ -5,8 +6,8 @@ import { ChildImageSharp } from '../../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
 import { Badge } from '../ui'
-import { ProjectTitle } from './ProjectTitle'
-import { ProjectSubtitle } from './ProjectSubtitle'
+import ProjectTitle from './ProjectTitle'
+import ProjectSubtitle from './ProjectSubtitle'
 
 interface ProjectCardProps {
   title: string
@@ -17,7 +18,7 @@ interface ProjectCardProps {
   }
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, tags }) => (
+const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, tags }) => (
   <Root>
     {image && (
       <PageThumbnail>
@@ -39,6 +40,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, descript
     </Inner>
   </Root>
 )
+
+export default ProjectCard
 
 const Root = styled('section')`
   margin: 1.5rem 0;

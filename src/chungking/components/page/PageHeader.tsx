@@ -1,10 +1,10 @@
 import * as React from 'react'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import { getEmSize } from '../../styles/mixins'
 import { pxSizes, colors } from '../../styles/variables'
 import Container from '../ui/Container'
-import css from '@emotion/css'
 
 interface PageHeaderProps {
   className?: string
@@ -13,7 +13,7 @@ interface PageHeaderProps {
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-export const PageHeader: React.SFC<PageHeaderProps> = ({
+const PageHeader: React.SFC<PageHeaderProps> = ({
   className,
   children,
   hasImage,
@@ -28,6 +28,8 @@ export const PageHeader: React.SFC<PageHeaderProps> = ({
     </Container>
   </Section>
 )
+
+export default PageHeader
 
 PageHeader.defaultProps = {
   className: undefined,

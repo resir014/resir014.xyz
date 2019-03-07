@@ -5,9 +5,11 @@ interface PostThumbnailProps {
   className?: string
 }
 
-export const PageThumbnail: React.SFC<PostThumbnailProps> = ({ className, children }) => (
+const PageThumbnail: React.SFC<PostThumbnailProps> = ({ className, children }) => (
   <Section className={className}>{children}</Section>
 )
+
+export default PageThumbnail
 
 const Section = styled('section')`
   margin: 0;

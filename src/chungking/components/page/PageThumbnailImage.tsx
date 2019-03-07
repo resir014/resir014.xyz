@@ -12,11 +12,11 @@ interface PostThumbnailImageProps {
   alt: string
 }
 
-export const PageThumbnailImage: React.SFC<PostThumbnailImageProps> = ({
-  fluid,
-  alt,
-  className
-}) => <Image className={classnames(className, 'u-featured')} fluid={fluid} alt={alt} />
+const PageThumbnailImage: React.SFC<PostThumbnailImageProps> = ({ fluid, alt, className }) => (
+  <Image className={classnames(className, 'u-featured')} fluid={fluid} alt={alt} />
+)
+
+export default PageThumbnailImage
 
 const Image = styled(Img)`
   margin: 0;

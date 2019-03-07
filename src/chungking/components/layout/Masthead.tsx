@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
 import { pxSizes, emSizes } from '../../styles/variables'
