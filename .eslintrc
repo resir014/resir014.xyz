@@ -1,4 +1,5 @@
 {
+  "root": true,
   "extends": [
     "blvd/react",
     "prettier",
@@ -9,6 +10,7 @@
   "plugins": ["prettier"],
   "rules": {
     "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "prettier/prettier": "error"
   }
