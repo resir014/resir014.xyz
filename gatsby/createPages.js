@@ -1,6 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
-'use strict'
-
 const path = require('path')
 const createPaginatedPages = require('gatsby-paginate')
 

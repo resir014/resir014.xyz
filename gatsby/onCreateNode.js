@@ -1,5 +1,5 @@
-'use strict'
-
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/camelcase */
 const slugify = require('slug')
 const { createFilePath } = require('gatsby-source-filesystem')
 
@@ -39,7 +39,11 @@ module.exports = ({ node, getNode, actions }) => {
 
         const pubDate = date
           ? new Date(date)
-          : new Date(Number.parseInt(year), Number.parseInt(month) - 1, Number.parseInt(day))
+          : new Date(
+              Number.parseInt(year, 10),
+              Number.parseInt(month, 10) - 1,
+              Number.parseInt(day, 10)
+            )
 
         // Blog posts are sorted by date and display the date in their header.
         createNodeField({

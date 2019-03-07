@@ -14,10 +14,8 @@
     "clean": "rimraf public",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "dev": "gatsby develop",
-    "format": "npm run format:gatsby && npm run format:src",
-    "format:gatsby": "prettier --write \"gatsby/**/*.js\"",
-    "format:src": "prettier --write \"src/**/*.{ts,tsx,md}\"",
-    "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --write 'gatsby/**/*.js' 'src/**/*.{ts,tsx,md}'",
+    "lint": "eslint 'gatsby/**/*.js' 'src/**/*.{ts,tsx}'",
     "test": "npm run type-check && npm run lint",
     "type-check": "tsc"
   },

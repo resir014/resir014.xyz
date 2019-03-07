@@ -9,6 +9,7 @@
   "plugins": ["prettier"],
   "rules": {
     "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "prettier/prettier": "error"
   }
 }
