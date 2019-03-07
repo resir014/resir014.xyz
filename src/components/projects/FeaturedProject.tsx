@@ -6,7 +6,7 @@ import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { colors, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
-import { ProjectField } from '../../../types/fields'
+import { ProjectField } from '../../types/fields'
 
 const FeaturedProjectWrapper = styled('section')`
   display: flex;

@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 import { colors, pxSizes, emSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
-import { BlogPostNode } from '../../../types/nodes'
+import { BlogPostNode } from '../../types/nodes'
 
 import { BookmarkLink } from '../bookmark'
 import { ResponsiveVideo } from '../video'

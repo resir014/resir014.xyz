@@ -10,10 +10,10 @@ import TemplateWrapper from '../layouts'
 
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 
-import { Page } from '../chungking/components/page'
-import { Button, Divider } from '../chungking/components/ui'
-import { HCard } from '../chungking/components/indieweb'
-import { FeaturedProject, ProjectItemList } from '../chungking/components/projects'
+import { Page } from '../components/page'
+import { Button, Divider } from '../components/ui'
+import { HCard } from '../components/indieweb'
+import { FeaturedProject, ProjectItemList } from '../components/projects'
 import {
   HomepageHero,
   HomepageHeroText,
@@ -22,7 +22,7 @@ import {
   HomepageSectionFooter,
   HomepageSectionTitle,
   HomepageSectionDescription
-} from '../chungking/components/home'
+} from '../components/home'
 
 interface IndexPageProps {
   location: {

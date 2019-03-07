@@ -19,9 +19,9 @@ import {
   PageTitle,
   PageSubtitle,
   PageContent
-} from '../chungking/components/page'
-import { HCardPost } from '../chungking/components/indieweb'
-import { Container, MessageBox } from '../chungking/components/ui'
+} from '../components/page'
+import { HCardPost } from '../components/indieweb'
+import { Container, MessageBox } from '../components/ui'
 
 interface PostTemplateProps {
   location: {

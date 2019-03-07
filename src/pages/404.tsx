@@ -6,7 +6,7 @@ import { SiteMetadata } from '../types/gatsby'
 
 import TemplateWrapper from '../layouts'
 
-import { Page, PageHeader, PageTitle, PageSubtitle } from '../chungking/components/page'
+import { Page, PageHeader, PageTitle, PageSubtitle } from '../components/page'
 
 interface NotFoundPageProps {
   data: {

@@ -9,12 +9,12 @@ import { BlogPostField } from '../types/fields'
 import withPathPrefix from '../utils/withPathPrefix'
 import TemplateWrapper from '../layouts'
 
-import { getEmSize } from '../chungking/styles/mixins'
-import { pxSizes } from '../chungking/styles/variables'
+import { getEmSize } from '../styles/mixins'
+import { pxSizes } from '../styles/variables'
 
-import { Container, Divider } from '../chungking/components/ui'
-import { Page, PageHeader, PageTitle, PageContent } from '../chungking/components/page'
-import { BlogPostItem, PaginationLink } from '../chungking/components/posts-index'
+import { Container, Divider } from '../components/ui'
+import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
+import { BlogPostItem, PaginationLink } from '../components/posts-index'
 
 interface BlogPageProps {
   data: {

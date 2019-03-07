@@ -2,7 +2,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import * as React from 'react'
 import { withPrefix } from 'gatsby'
-import { colors } from './chungking/styles/variables'
+import { colors } from './styles/variables'
 
 interface HtmlProps {
   body: string

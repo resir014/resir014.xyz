@@ -7,7 +7,7 @@ import { PageNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import { Container } from '../chungking/components/ui'
+import { Container } from '../components/ui'
 import {
   Page,
   PageHeader,
@@ -17,7 +17,7 @@ import {
   PageThumbnail,
   PageThumbnailImage,
   MarkdownContent
-} from '../chungking/components/page'
+} from '../components/page'
 
 interface PageTemplateProps {
   data: {

@@ -8,7 +8,7 @@ import { NotesNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import { Container } from '../chungking/components/ui'
+import { Container } from '../components/ui'
 import {
   Page,
   PageHeader,
@@ -17,8 +17,8 @@ import {
   PageMetaItem,
   PageContent,
   MarkdownContent
-} from '../chungking/components/page'
-import { HCardPost } from '../chungking/components/indieweb'
+} from '../components/page'
+import { HCardPost } from '../components/indieweb'
 
 interface NoteTemplateProps {
   location: {

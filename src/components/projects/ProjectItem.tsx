@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 import { colors, fonts, pxSizes } from '../../styles/variables'
-import { ProjectField } from '../../../types/fields'
+import { ProjectField } from '../../types/fields'
 import { getEmSize } from '../../styles/mixins'
 import { Badge } from '../ui'
 

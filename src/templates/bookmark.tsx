@@ -7,7 +7,7 @@ import { BookmarkNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import { Container } from '../chungking/components/ui'
+import { Container } from '../components/ui'
 import {
   Page,
   PageHeader,
@@ -16,9 +16,9 @@ import {
   PageMeta,
   PageMetaItem,
   MarkdownContent
-} from '../chungking/components/page'
-import { HCardPost } from '../chungking/components/indieweb'
-import { BookmarkLink } from '../chungking/components/bookmark'
+} from '../components/page'
+import { HCardPost } from '../components/indieweb'
+import { BookmarkLink } from '../components/bookmark'
 
 interface BookmarkTemplateProps {
   location: {

@@ -15,10 +15,10 @@ import {
   PageMetaItem,
   PageContent,
   MarkdownContent
-} from '../chungking/components/page'
-import { HCardPost } from '../chungking/components/indieweb'
-import { Container } from '../chungking/components/ui'
-import { ResponsiveVideo, VideoCard } from '../chungking/components/video'
+} from '../components/page'
+import { HCardPost } from '../components/indieweb'
+import { Container } from '../components/ui'
+import { ResponsiveVideo, VideoCard } from '../components/video'
 
 interface VideoTemplateProps {
   location: {

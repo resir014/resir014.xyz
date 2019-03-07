@@ -7,7 +7,7 @@ import { ProjectNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import { Button, Container } from '../chungking/components/ui'
+import { Button, Container } from '../components/ui'
 import {
   Page,
   PageHeader,
@@ -17,8 +17,8 @@ import {
   PageMeta,
   PageMetaItem,
   PageSubtitle
-} from '../chungking/components/page'
-import { ProjectCard, ProjectFooter } from '../chungking/components/projects'
+} from '../components/page'
+import { ProjectCard, ProjectFooter } from '../components/projects'
 
 interface ProjectTemplateProps {
   data: {

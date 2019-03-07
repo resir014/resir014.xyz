@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { LinkGetProps } from '@reach/router'
 
-import { MenuItem } from '../../../types/default'
+import { MenuItem } from '../../types/default'
 import { getEmSize } from '../../styles/mixins'
 import { pxSizes } from '../../styles/variables'
 

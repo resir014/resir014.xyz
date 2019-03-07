@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 
 import { colors } from '../../styles/variables'
-import { ChildImageSharp } from '../../../types/gatsby'
+import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
 import { Badge } from '../ui'

@@ -9,11 +9,11 @@ import 'modern-normalize'
 
 import { SiteMetadata } from '../types/gatsby'
 
-import { LayoutRoot } from '../chungking/components/ui'
-import { Masthead, Footer } from '../chungking/components/layout'
+import { LayoutRoot } from '../components/ui'
+import { Masthead, Footer } from '../components/layout'
 
-import GlobalStyles from '../chungking/styles/reset'
-import PrismTheme from '../chungking/styles/prismjs-theme'
+import GlobalStyles from '../styles/reset'
+import PrismTheme from '../styles/prismjs-theme'
 
 interface WrapperData {
   site: {

@@ -5,7 +5,7 @@ import Container from '../ui/Container'
 import { getEmSize } from '../../styles/mixins'
 import { pxSizes, emSizes } from '../../styles/variables'
 
-import BackgroundPattern from '../../../assets/images/architect.svg'
+import BackgroundPattern from '../../assets/images/architect.svg'
 
 interface HomepageThumbnailProps {
   className?: string

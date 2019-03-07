@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 import { colors } from '../../styles/variables'
-import { BlogPostField } from '../../../types/fields'
+import { BlogPostField } from '../../types/fields'
 import { PageMetaItem } from '../page'
 
 import PostIndexItemMeta from './PostIndexItemMeta'

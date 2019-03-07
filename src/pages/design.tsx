@@ -8,19 +8,13 @@ import { ProjectField } from '../types/fields'
 
 import TemplateWrapper from '../layouts'
 
-import { Button, Container, Badge } from '../chungking/components/ui'
-import {
-  Page,
-  PageHeader,
-  PageTitle,
-  PageMetaItem,
-  PageContent
-} from '../chungking/components/page'
-import { colors } from '../chungking/styles/variables'
-import { BookmarkLink } from '../chungking/components/bookmark'
-import { PostIndexItemMeta } from '../chungking/components/posts-index'
-import { FeaturedProject, ProjectCard } from '../chungking/components/projects'
-import { ColorSwatch, TypographySpecimen } from '../chungking/components/design'
+import { Button, Container, Badge } from '../components/ui'
+import { Page, PageHeader, PageTitle, PageMetaItem, PageContent } from '../components/page'
+import { colors } from '../styles/variables'
+import { BookmarkLink } from '../components/bookmark'
+import { PostIndexItemMeta } from '../components/posts-index'
+import { FeaturedProject, ProjectCard } from '../components/projects'
+import { ColorSwatch, TypographySpecimen } from '../components/design'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
 

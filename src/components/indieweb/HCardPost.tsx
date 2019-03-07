@@ -3,8 +3,8 @@ import classnames from 'classnames'
 import styled from '@emotion/styled'
 
 import { colors, emSizes } from '../../styles/variables'
-import { ChildImageSharp } from '../../../types/gatsby'
-import { SiteAuthor } from '../../../types/default'
+import { ChildImageSharp } from '../../types/gatsby'
+import { SiteAuthor } from '../../types/default'
 
 interface HCardPostProps {
   className?: string
