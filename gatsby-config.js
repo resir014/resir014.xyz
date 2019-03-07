@@ -1,5 +1,4 @@
-'use strict'
-
+/* eslint-disable @typescript-eslint/no-var-requires */
 require('dotenv').config()
 
 // also load node-env for each environment

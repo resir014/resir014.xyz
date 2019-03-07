@@ -1,6 +1,5 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
-import Link from 'gatsby-link'
+import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { SiteMetadata } from '../types/gatsby'
@@ -35,7 +34,7 @@ const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
         <PageHeader>
           <PageTitle>404.</PageTitle>
           <PageSubtitle>
-            You've hit the void. <Link to="/">Go back home.</Link>
+            You&apos;ve hit the void. <Link to="/">Go back home.</Link>
           </PageSubtitle>
         </PageHeader>
       </article>

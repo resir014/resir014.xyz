@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 
 import { Button, Badge } from '../ui'
-import { FeaturedProjectThumbnail } from './FeaturedProjectThumbnail'
+import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { colors, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
@@ -84,49 +84,36 @@ interface FeaturedProjectProps extends ProjectField {
   className?: string
 }
 
-interface FeaturedProjectState {
-  gradientStartIndex: number
-  gradientEndIndex: number
+const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className }) => {
+  const { header_image } = node.frontmatter
+  const tags = node.fields.tags ? (JSON.parse(node.fields.tags) as string[]) : undefined
+
+  return (
+    <FeaturedProjectWrapper className={className}>
+      {header_image ? <FeaturedProjectThumbnail className="column" image={header_image} /> : null}
+      <FeaturedProjectDetails className="column">
+        <FeaturedProjectHeading>
+          <FeaturedProjectSpan>Featured project</FeaturedProjectSpan>
+          <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
+        </FeaturedProjectHeading>
+        <FeaturedProjectDescription>
+          <p>{node.fields.description}</p>
+          {tags ? (
+            <ProjectTags>
+              {tags.map(tag => (
+                <Badge key={tag}>{tag}</Badge>
+              ))}
+            </ProjectTags>
+          ) : null}
+        </FeaturedProjectDescription>
+        <FeaturedProjectFooter>
+          <Button kind="nav-link" color="white" to={node.fields.slug}>
+            Visit project
+          </Button>
+        </FeaturedProjectFooter>
+      </FeaturedProjectDetails>
+    </FeaturedProjectWrapper>
+  )
 }
 
-export class FeaturedProject extends React.Component<FeaturedProjectProps, FeaturedProjectState> {
-  constructor(props: FeaturedProjectProps) {
-    super(props)
-    this.state = {
-      gradientStartIndex: 0,
-      gradientEndIndex: 0
-    }
-  }
-
-  public render() {
-    const { node, className } = this.props
-    const { header_image } = node.frontmatter
-    const tags = node.fields.tags ? (JSON.parse(node.fields.tags) as string[]) : undefined
-    return (
-      <FeaturedProjectWrapper className={className}>
-        {header_image ? <FeaturedProjectThumbnail className="column" image={header_image} /> : null}
-        <FeaturedProjectDetails className="column">
-          <FeaturedProjectHeading>
-            <FeaturedProjectSpan>Featured project</FeaturedProjectSpan>
-            <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
-          </FeaturedProjectHeading>
-          <FeaturedProjectDescription>
-            <p>{node.fields.description}</p>
-            {tags ? (
-              <ProjectTags>
-                {tags.map(tag => (
-                  <Badge key={tag}>{tag}</Badge>
-                ))}
-              </ProjectTags>
-            ) : null}
-          </FeaturedProjectDescription>
-          <FeaturedProjectFooter>
-            <Button kind="nav-link" color="white" to={node.fields.slug}>
-              Visit project
-            </Button>
-          </FeaturedProjectFooter>
-        </FeaturedProjectDetails>
-      </FeaturedProjectWrapper>
-    )
-  }
-}
+export default FeaturedProject

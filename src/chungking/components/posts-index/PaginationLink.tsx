@@ -15,7 +15,7 @@ const StyledPaginationLink = styled(Button)`
   margin-right: 0.5rem;
 `
 
-export const PaginationLink: React.SFC<PaginationLinkProps> = ({ test, url, text }) => {
+const PaginationLink: React.SFC<PaginationLinkProps> = ({ test, url, text }) => {
   if (!test) {
     return (
       <StyledPaginationLink kind="nav-link" color="primary" size="lg" to={url}>
@@ -30,3 +30,5 @@ export const PaginationLink: React.SFC<PaginationLinkProps> = ({ test, url, text
     </StyledPaginationLink>
   )
 }
+
+export default PaginationLink

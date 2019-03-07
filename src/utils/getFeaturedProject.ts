@@ -1,7 +1,5 @@
 import { ProjectField } from '../types/fields'
 
-const getFeaturedProject = (edges: ProjectField[], name: string) => {
+export default function getFeaturedProject(edges: ProjectField[], name: string): ProjectField {
   return edges.filter(edge => edge.node.frontmatter.title === name)[0]
 }
-
-export default getFeaturedProject

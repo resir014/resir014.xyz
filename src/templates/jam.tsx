@@ -88,6 +88,7 @@ const JamTemplate: React.SFC<JamTemplateProps> = ({ data }) => {
                   post.fields.youtube_embed_id ? (
                     <ResponsiveVideo>
                       <iframe
+                        title={post.fields.youtube_embed_id}
                         src={`https://www.youtube-nocookie.com/embed/${
                           post.fields.youtube_embed_id
                         }?rel=0`}

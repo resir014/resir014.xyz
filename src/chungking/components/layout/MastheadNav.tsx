@@ -1,5 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { LinkGetProps } from '@reach/router'
 

@@ -43,11 +43,7 @@ const FlexInner = styled('div')`
   background-color: ${colors.black};
 `
 
-export const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({
-  className,
-  title,
-  flavour
-}) => (
+const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, title, flavour }) => (
   <Div className={className}>
     <FlexInner>
       <HomepageFlavourTitle>{title}</HomepageFlavourTitle>
@@ -55,6 +51,8 @@ export const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({
     </FlexInner>
   </Div>
 )
+
+export default HomepageHeroText
 
 const Div = styled('div')`
   display: flex;

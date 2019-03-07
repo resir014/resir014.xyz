@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const ResponsiveVideo = styled('section')`
+const ResponsiveVideo = styled('section')`
   display: block;
   position: relative;
   width: 100%;
@@ -22,3 +22,5 @@ export const ResponsiveVideo = styled('section')`
     border: 0;
   }
 `
+
+export default ResponsiveVideo

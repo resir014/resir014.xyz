@@ -1,5 +1,7 @@
+/* eslint-disable react/no-danger */
+/* eslint-disable react/prefer-stateless-function */
 import * as React from 'react'
-import { withPrefix } from 'gatsby-link'
+import { withPrefix } from 'gatsby'
 import { colors } from './chungking/styles/variables'
 
 interface HtmlProps {
@@ -12,9 +14,18 @@ interface HtmlProps {
 }
 
 export default class HTML extends React.Component<HtmlProps, void> {
-  public render() {
+  public render(): JSX.Element {
+    const {
+      body,
+      htmlAttributes,
+      headComponents,
+      bodyAttributes,
+      preBodyComponents,
+      postBodyComponents
+    } = this.props
+
     return (
-      <html lang="en" {...this.props.htmlAttributes}>
+      <html lang="en" {...htmlAttributes}>
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -31,12 +42,12 @@ export default class HTML extends React.Component<HtmlProps, void> {
               content={process.env.GATSBY_GOOGLE_SITE_VERIFICATION}
             />
           )}
-          {this.props.headComponents}
+          {headComponents}
         </head>
-        <body {...this.props.bodyAttributes}>
-          {this.props.preBodyComponents}
-          <div key={'body'} id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
-          {this.props.postBodyComponents}
+        <body {...bodyAttributes}>
+          {preBodyComponents}
+          <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
+          {postBodyComponents}
         </body>
       </html>
     )

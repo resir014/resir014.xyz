@@ -3,7 +3,7 @@ import { PageTitle } from '../page'
 import { emSizes, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
 
-export const VideoTitle = styled(PageTitle)`
+const VideoTitle = styled(PageTitle)`
   margin-top: 0;
   padding: 1rem 1.5rem 0;
   font-size: ${emSizes.headingMedium.h3} rem;
@@ -17,3 +17,5 @@ export const VideoTitle = styled(PageTitle)`
     font-size: ${emSizes.headingLarge.h3}rem;
   }
 `
+
+export default VideoTitle

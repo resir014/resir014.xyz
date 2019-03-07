@@ -3,16 +3,17 @@ import Helmet from 'react-helmet'
 import { Global } from '@emotion/core'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { menuItems } from '../utils/menus'
+import menuItems from '../utils/menuItems'
 
 import 'modern-normalize'
 
 import { SiteMetadata } from '../types/gatsby'
 
 import { LayoutRoot } from '../chungking/components/ui'
-import { GlobalStyles } from '../chungking/styles/reset'
-import { PrismTheme } from '../chungking/styles/prismjs-theme'
 import { Masthead, Footer } from '../chungking/components/layout'
+
+import GlobalStyles from '../chungking/styles/reset'
+import PrismTheme from '../chungking/styles/prismjs-theme'
 
 interface WrapperData {
   site: {
@@ -29,11 +30,11 @@ interface TemplateWrapperProps {
 }
 
 class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState> {
-  static defaultProps = {
+  public static defaultProps = {
     mastheadSize: 'md'
   }
 
-  constructor(props: TemplateWrapperProps) {
+  public constructor(props: TemplateWrapperProps) {
     super(props)
     this.state = {
       navigationVisible: false
@@ -46,7 +47,7 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
     }))
   }
 
-  public render() {
+  public render(): JSX.Element {
     const { children, layoutSize } = this.props
 
     return (

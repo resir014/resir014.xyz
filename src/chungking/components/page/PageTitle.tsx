@@ -5,9 +5,11 @@ interface PageTitleProps {
   className?: string
 }
 
-export const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) => (
+const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) => (
   <H1 className={className}>{children}</H1>
 )
+
+export default PageTitle
 
 const H1 = styled('h1')`
   margin: 0;

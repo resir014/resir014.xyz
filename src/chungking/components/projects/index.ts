@@ -1,5 +1,7 @@
-export * from './FeaturedProject'
-export * from './FeaturedProjectThumbnail'
-export * from './ProjectCard'
-export * from './ProjectItemList'
-export * from './ProjectFooter'
+import FeaturedProject from './FeaturedProject'
+import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
+import ProjectCard from './ProjectCard'
+import ProjectItemList from './ProjectItemList'
+import ProjectFooter from './ProjectFooter'
+
+export { FeaturedProject, FeaturedProjectThumbnail, ProjectCard, ProjectItemList, ProjectFooter }

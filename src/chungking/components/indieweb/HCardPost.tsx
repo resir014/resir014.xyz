@@ -66,7 +66,7 @@ const Anchor = styled('a')`
   }
 `
 
-export const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author }) => (
+const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author }) => (
   <Anchor
     rel="author"
     className={classnames(className, 'p-author h-card')}
@@ -85,3 +85,5 @@ export const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, 
     </HCardDetails>
   </Anchor>
 )
+
+export default HCardPost

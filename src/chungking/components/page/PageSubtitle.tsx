@@ -8,9 +8,11 @@ interface PageSubtitleProps {
   className?: string
 }
 
-export const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => {
+const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => {
   return <Text className={className}>{children}</Text>
 }
+
+export default PageSubtitle
 
 const Text = styled('p')`
   margin-top: 0.5rem;

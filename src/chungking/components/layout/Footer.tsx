@@ -5,7 +5,7 @@ import { colors, emSizes, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
 import { Container } from '../ui'
 
-const ccLogo = require('../../../assets/images/cc-by-nc-sa.svg')
+import ccLogo from '../../../assets/images/cc-by-nc-sa.svg'
 
 const StyledFooter = styled('footer')`
   padding: 1rem ${emSizes.containerPadding}rem;

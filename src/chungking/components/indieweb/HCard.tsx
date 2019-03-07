@@ -80,7 +80,7 @@ const HCardSocialLinks = styled('span')`
   }
 `
 
-export const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
+const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
   <Div className={classnames(className, 'h-card')} hidden={hidden}>
     <Inner>
       <HCardAvatar>
@@ -107,6 +107,8 @@ export const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }
     </Inner>
   </Div>
 )
+
+export default HCard
 
 const Inner = styled('div')`
   display: flex;

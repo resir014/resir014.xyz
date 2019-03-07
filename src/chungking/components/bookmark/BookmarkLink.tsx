@@ -1,8 +1,9 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import Url from 'url-parse'
-import { colors } from '../../styles/variables'
 import { transparentize } from 'polished'
+import Url from 'url-parse'
+
+import { colors } from '../../styles/variables'
 
 interface RootProps {
   inPostList?: boolean
@@ -13,10 +14,10 @@ interface BookmarkLinkProps extends RootProps {
   title: string
 }
 
-export const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, inPostList, title }) => {
-  const url = new Url(link!)
+const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, inPostList, title }) => {
+  const url = link ? new Url(link) : undefined
 
-  return (
+  return url ? (
     <Root
       inPostList={inPostList}
       className="u-bookmark-of h-cite p-name"
@@ -29,8 +30,10 @@ export const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, inPostList, t
       </LinkHeader>{' '}
       <LinkSource className="p-publication">{url.host}</LinkSource>
     </Root>
-  )
+  ) : null
 }
+
+export default BookmarkLink
 
 const BookmarkTitle = styled('h3')`
   margin: 0;

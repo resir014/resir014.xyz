@@ -1,7 +1,7 @@
-import styled from '@emotion/styled-base'
+import styled from '@emotion/styled'
 import { colors } from '../../styles/variables'
 
-export const PostIndexItemMeta = styled('div')`
+const PostIndexItemMeta = styled('div')`
   font-size: 90%;
   letter-spacing: 0.01em;
   text-transform: uppercase;
@@ -15,3 +15,5 @@ export const PostIndexItemMeta = styled('div')`
     border-bottom: 2px solid ${colors.orange30};
   }
 `
+
+export default PostIndexItemMeta

@@ -8,11 +8,13 @@ interface HomepageSectionProps {
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-export const HomepageSection: React.SFC<HomepageSectionProps> = ({ children, size, className }) => (
+const HomepageSection: React.SFC<HomepageSectionProps> = ({ children, size, className }) => (
   <Section className={className}>
     <Container size={size}>{children}</Container>
   </Section>
 )
+
+export default HomepageSection
 
 HomepageSection.defaultProps = {
   size: 'md'

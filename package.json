@@ -14,10 +14,8 @@
     "clean": "rimraf public",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "dev": "gatsby develop",
-    "format": "npm run format:gatsby && npm run format:src",
-    "format:gatsby": "prettier --write \"gatsby/**/*.js\"",
-    "format:src": "prettier --write \"src/**/*.{ts,tsx,md}\"",
-    "lint": "tslint 'src/**/*.{ts,tsx}' -p tsconfig.json",
+    "format": "prettier --write 'gatsby/**/*.js' 'src/**/*.{ts,tsx,md}'",
+    "lint": "eslint 'gatsby/**/*.js' 'src/**/*.{ts,tsx}'",
     "test": "npm run type-check && npm run lint",
     "type-check": "tsc"
   },
@@ -61,9 +59,6 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
-    "react-redux": "^6.0.0",
-    "redux": "^4.0.1",
-    "redux-devtools-extension": "^2.13.7",
     "slug": "^1.0.0",
     "typescript": "^3.3.3333",
     "url-parse": "^1.4.4"
@@ -74,15 +69,14 @@
     "@types/react": "^16.8.5",
     "@types/react-dom": "^16.8.2",
     "@types/react-helmet": "^5.0.8",
-    "@types/react-redux": "^6.0.12",
     "@types/react-router-dom": "^4.3.1",
     "@types/url-parse": "^1.4.1",
+    "eslint": "^5.15.1",
+    "eslint-config-blvd": "^0.1.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
     "gh-pages": "^2.0.1",
     "prettier": "^1.16.4",
-    "rimraf": "^2.6.3",
-    "tslint": "^5.13.0",
-    "tslint-config-blvd": "^1.2.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1"
+    "rimraf": "^2.6.3"
   }
 }

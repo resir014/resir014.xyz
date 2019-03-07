@@ -1,5 +1,7 @@
-export * from './BlogPostItem'
-export * from './PaginationLink'
-export * from './PostIndexItem'
-export * from './PostIndexItemHeader'
-export * from './PostIndexItemMeta'
+import BlogPostItem from './BlogPostItem'
+import PaginationLink from './PaginationLink'
+import PostIndexItem from './PostIndexItem'
+import PostIndexItemHeader from './PostIndexItemHeader'
+import PostIndexItemMeta from './PostIndexItemMeta'
+
+export { BlogPostItem, PaginationLink, PostIndexItem, PostIndexItemHeader, PostIndexItemMeta }

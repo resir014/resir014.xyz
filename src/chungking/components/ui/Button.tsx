@@ -1,9 +1,9 @@
 import * as React from 'react'
+import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import classnames from 'classnames'
 import { darken, transparentize } from 'polished'
-import Link from 'gatsby-link'
 
 import { fonts, colors, emSizes } from '../../styles/variables'
 
@@ -36,7 +36,14 @@ const Button: React.SFC<ButtonProps> = ({
 }) => {
   if (kind === 'button') {
     return (
-      <button id={id} className={className} style={style} onClick={onClick} disabled={disabled}>
+      <button
+        id={id}
+        type="button"
+        className={className}
+        style={style}
+        onClick={onClick}
+        disabled={disabled}
+      >
         {children}
       </button>
     )

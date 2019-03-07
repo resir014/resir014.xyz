@@ -1,2 +1,4 @@
-export * from './ColorSwatch'
-export * from './TypographySpecimen'
+import ColorSwatch from './ColorSwatch'
+import TypographySpecimen from './TypographySpecimen'
+
+export { ColorSwatch, TypographySpecimen }

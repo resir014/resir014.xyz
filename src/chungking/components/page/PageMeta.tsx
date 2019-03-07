@@ -5,9 +5,11 @@ interface PostMetaProps {
   className?: string
 }
 
-export const PageMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
+const PageMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
   <View className={className}>{children}</View>
 )
+
+export default PageMeta
 
 const View = styled('div')`
   font-size: 90%;

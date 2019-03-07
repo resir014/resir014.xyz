@@ -31,7 +31,7 @@ export interface ProjectItemListProps {
   homepage?: boolean
 }
 
-export const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, homepage, projects }) => {
+const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, homepage, projects }) => {
   if (projects && projects.length !== 0) {
     const slicedProjects = homepage ? projects.slice(0, 9) : projects
 
@@ -49,3 +49,5 @@ export const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, homepa
 
   return <ProjectEmpty>No projects.</ProjectEmpty>
 }
+
+export default ProjectItemList

@@ -14,7 +14,7 @@ interface FeaturedProjectThumbnailProps {
   }
 }
 
-export const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> = ({
+const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> = ({
   image,
   className
 }) => (
@@ -22,6 +22,8 @@ export const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> 
     <Image fluid={image.childImageSharp.fluid} alt="" />
   </Div>
 )
+
+export default FeaturedProjectThumbnail
 
 const Image = styled(Img)`
   margin: 0;

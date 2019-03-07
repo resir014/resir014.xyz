@@ -10,11 +10,13 @@ interface MarkdownContentProps {
   html: string
 }
 
-export const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html, children }) => (
+const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html, children }) => (
   <Div className={className} dangerouslySetInnerHTML={{ __html: html }}>
     {children}
   </Div>
 )
+
+export default MarkdownContent
 
 const Div = styled('div')`
   a {

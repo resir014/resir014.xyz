@@ -5,9 +5,11 @@ interface HomepageSectionProps {
   className?: string
 }
 
-export const HomepageSectionFooter: React.SFC<HomepageSectionProps> = ({ children, className }) => (
+const HomepageSectionFooter: React.SFC<HomepageSectionProps> = ({ children, className }) => (
   <Div className={className}>{children}</Div>
 )
+
+export default HomepageSectionFooter
 
 const Div = styled('div')`
   margin-top: 2rem;
