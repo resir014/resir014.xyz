@@ -119,12 +119,12 @@ const SecondaryButtonStyles = css`
 
 const DangerButtonStyles = css`
   &:not(:disabled):not(.disabled) {
-    background-color: ${colors.red30};
-    color: ${colors.white};
+    background-color: ${colors.orange30};
+    color: ${colors.black};
 
     &:hover,
     &:focus {
-      background-color: ${darken(0.15, colors.red30)};
+      background-color: ${darken(0.15, colors.orange30)};
     }
   }
 `

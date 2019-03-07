@@ -6,7 +6,7 @@ import { colors } from '../../styles/variables'
 interface BadgeProps {
   className?: string
   style?: React.CSSProperties
-  color?: 'green' | 'blue' | 'red' | 'magenta' | 'grey' | 'white'
+  color?: 'green' | 'blue' | 'orange' | 'purple' | 'magenta' | 'grey' | 'white'
 }
 
 const Badge: React.FC<BadgeProps> = ({ children, className, style }) => (
@@ -41,9 +41,14 @@ const BlueColorStyles = css`
   background-color: ${colors.blue30};
 `
 
-const RedColorStyles = css`
+const OrangeColorStyles = css`
+  color: ${colors.black};
+  background-color: ${colors.orange30};
+`
+
+const PurpleColorStyles = css`
   color: ${colors.white};
-  background-color: ${colors.red30};
+  background-color: ${colors.purple30};
 `
 
 const MagentaColorStyles = css`
@@ -62,6 +67,7 @@ export default styled<typeof Badge, BadgeProps>(Badge)`
   ${props => props.color === 'grey' && GreyColorStyles}
   ${props => props.color === 'green' && GreenColorStyles}
   ${props => props.color === 'blue' && BlueColorStyles}
-  ${props => props.color === 'red' && RedColorStyles}
+  ${props => props.color === 'orange' && OrangeColorStyles}
+  ${props => props.color === 'purple' && PurpleColorStyles}
   ${props => props.color === 'magenta' && MagentaColorStyles}
 `

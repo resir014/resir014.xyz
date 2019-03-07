@@ -8,7 +8,6 @@ export const systemFonts = {
 }
 
 export const colors = {
-  red30: '#ff5757',
   orange30: '#f5a623',
   purple30: '#9b45ff',
   blue30: '#0076ff',

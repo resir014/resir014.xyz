@@ -88,7 +88,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <ColorSwatch color={colors.grey90} />
               <h4>Accent Colors</h4>
               <ColorSwatch color={colors.magenta30} />
-              <ColorSwatch color={colors.orange30} />
+              <ColorSwatch color={colors.orange30} darkText />
               <ColorSwatch color={colors.green30} />
               <ColorSwatch color={colors.purple30} />
               <ColorSwatch color={colors.blue30} />
@@ -122,7 +122,8 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                 <div style={buttonWrapperStyles}>
                   <Badge>default</Badge> <Badge color="grey">grey</Badge>{' '}
                   <Badge color="green">green</Badge> <Badge color="blue">blue</Badge>{' '}
-                  <Badge color="red">red</Badge> <Badge color="magenta">magenta</Badge>
+                  <Badge color="orange">orange</Badge> <Badge color="purple">purple</Badge>{' '}
+                  <Badge color="magenta">magenta</Badge>
                 </div>
               </WrapperRoot>
               <h3>Button</h3>
