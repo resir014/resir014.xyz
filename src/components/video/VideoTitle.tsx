@@ -5,8 +5,8 @@ import { getEmSize } from '../../styles/mixins'
 
 const VideoTitle = styled(PageTitle)`
   margin-top: 0;
-  padding: 1rem 1.5rem 0;
-  font-size: ${emSizes.headingMedium.h3} rem;
+  padding: 1.5rem 1.5rem 0;
+  font-size: ${emSizes.headingMedium.h3}rem;
   line-height: ${emSizes.lineHeight.heading};
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {

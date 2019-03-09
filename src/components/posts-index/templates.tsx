@@ -41,7 +41,7 @@ const ResponsiveVideoWrapper = styled(ResponsiveVideo)`
 `
 
 const VideoTitle = styled(PostTitle)`
-  font-size: ${emSizes.headingMedium.h3} rem;
+  font-size: ${emSizes.headingMedium.h3}rem;
   line-height: ${emSizes.lineHeight.heading};
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
