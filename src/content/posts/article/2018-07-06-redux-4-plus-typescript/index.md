@@ -21,7 +21,8 @@ Note that the following guide is tested on:
 
 - `react@^16.4.0`
 - `redux@^4.0.0`
-- `typescript@^3.0.0`
+- `react-redux@^6.0.0`
+- `typescript@^3.3.0`
 
 ## What we're building
 
@@ -37,6 +38,7 @@ If you want to jump straight to the examples, I've also published a sample proje
 
 - **2018-12-08:** Updated `Dispatch` to be imported from `redux` instead of `react-redux`. The guide is also now tested to work on TypeScript `^3.0.0`. (Thanks [cancerberoSgx](https://github.com/resir014/react-redux-typescript-example/pull/2)!)
 - **2019-01-05:** Changed `const enum`s to `enum`s due to Babel not supporting it. (Thanks [Kyle Gillen](https://github.com/nextriot)!)
+- **2019-03-09:** The latest version of `react-redux` broke the typings for the"children-props-as-redux-container" approach I mentioned in the previous version of this post. I would suggest against using this pattern nowadays, but if you still want to use it, I've upgraded the corresponding section in this article to have the same pattern, making use of the newly-introduced `ReactReduxContext`.
 
 ---
 
@@ -126,6 +128,7 @@ Include an `index.ts` file at the root of the `store/` directory. We'll use this
 // ./src/store/index.ts
 
 import { combineReducers, Dispatch, Reducer, Action, AnyAction } from 'redux'
+import { connectRouter, RouterState } from 'connected-react-router'
 import { LayoutState, layoutReducer } from './layout'
 
 // The top-level state object.
@@ -134,14 +137,17 @@ import { LayoutState, layoutReducer } from './layout'
 // so we can ignore them here.
 export interface ApplicationState {
   layout: LayoutState
+  router: RouterState
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property
 // using the reducer with the matching name. It's important that the names match exactly, and that
 // the reducer acts on the corresponding ApplicationState property type.
-export const rootReducer = combineReducers<ApplicationState>({
-  layout: layoutReducer
-})
+export const createRootReducer = (history: History) =>
+  combineReducers({
+    layout: layoutReducer,
+    router: connectRouter(history)
+  })
 ```
 
 ## Store types
@@ -341,7 +347,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { History } from 'history'
 
 // Import the state interface and our combined reducers/sagas.
-import { ApplicationState, rootReducer, rootSaga } from './store'
+import { ApplicationState, createRootReducer, rootSaga } from './store'
 
 export default function configureStore(
   history: History,
@@ -355,7 +361,7 @@ export default function configureStore(
   // We'll create our store with the combined reducers/sagas, and the initial Redux state that
   // we'll be passing from our entry point.
   const store = createStore(
-    connectRouter(history)(rootReducer),
+    createRootReducer(history),
     initialState,
     composeEnhancers(applyMiddleware(routerMiddleware(history), sagaMiddleware))
   )
@@ -374,44 +380,65 @@ Now let's hook everything up with React.
 
 ### Container components
 
-Before React v16, I would've suggested against implementing container components that are separate from their connected view logic, since they intrude at the very definition of a view. But with newer patterns, like render props, it makes sense to use them once again.
-
-First, we separate props to their own interfaces for better readability.
+**Update:** The latest version of `react-redux` broke the typings for the"children-props-as-redux-container" approach I mentioned in the previous version of this post. I would suggest against using this pattern nowadays, but if you still want to use it, here's a way to upgrade, using the newly-introduced ReactReduxContext:
 
 ```tsx
-// Separate state props + dispatch props to their own interfaces.
+// ./src/containers/LayoutContainer
 
-// Props passed from mapStateToProps
-interface PropsFromState {
+import * as React from 'react'
+import { ReactReduxContext } from 'react-redux'
+
+import { ApplicationState } from '../store'
+import { ThemeColors } from '../store/layout'
+import * as layoutActions from '../store/layout/actions'
+
+// Redux-specific props.
+interface LayoutContainerProps {
   theme: ThemeColors
+  setTheme: (theme: ThemeColors) => void
 }
 
-// Props passed from mapDispatchToProps
-interface PropsFromDispatch {
-  setTheme: typeof layoutActions.setTheme
+// Wrapper props for render/children callback.
+interface LayoutContainerRenderProps {
+  render?: (props: LayoutContainerProps) => React.ReactNode
+  children?: (props: LayoutContainerProps) => React.ReactNode
 }
 
-// Component-specific props.
-interface OtherProps {
-  children: (props: LayoutContainerProps) => React.ReactNode
+// ...
+
+const LayoutContainer: React.FC<LayoutContainerRenderProps> = ({ render, children }) => {
+  // Here we do a bit of a hack. Since the latest react-redux typings broke the
+  // "children-props-as-redux-container" approach on the previous version of this guide,
+  // we use the newly-introduced `ReactReduxContext` consumer to get our state, and map the
+  // `theme` state and the `setTheme` action call inside it.
+  return (
+    <ReactReduxContext.Consumer>
+      {({ store }) => {
+        // Use the standard `store.getState()` redux function to get the root state, and cast
+        // it with our ApplicationState type.
+        const state: ApplicationState = store.getState()
+
+        // Obtain the `theme` state and the `setTheme` action.
+        // Note that per Redux conventions actions MUST be wrapped inside `store.dispatch()`
+        const theme = state.layout.theme
+        const setTheme = (theme: ThemeColors) => store.dispatch(layoutActions.setTheme(theme))
+
+        // Create a render/children props wrapper with the above variables set as a callback.
+        if (render) {
+          return render({ theme, setTheme })
+        }
+
+        if (children) {
+          return children({ theme, setTheme })
+        }
+
+        return null
+      }}
+    </ReactReduxContext.Consumer>
+  )
 }
 
-// Combine both state + dispatch props - as well as any props we want to pass - in a union type.
-type LayoutContainerProps = PropsFromState & PropsFromDispatch
-```
-
-Then we declare our component.
-
-```tsx
-// We separate OtherProps instead in combining them in the union type above for us to
-// use the children prop pattern without typing issues.
-class LayoutContainer extends React.Component<LayoutContainerProps & OtherProps> {
-  public render() {
-    const { children, ...rest } = this.props
-
-    return children({ ...rest })
-  }
-}
+export default LayoutContainer
 ```
 
 This way, we can use the Redux store linking from any component!
