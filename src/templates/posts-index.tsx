@@ -100,7 +100,7 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
 export default PostsIndexPage
 
 export const pageQuery = graphql`
-  query BlogPageQuery {
+  query BlogPostsIndexQuery {
     site {
       siteMetadata {
         title

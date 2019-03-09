@@ -59,12 +59,14 @@ module.exports = async ({ graphql, actions }) => {
               excerpt
               html
               fields {
-                date(formatString: "MMMM DD, YYYY")
                 slug
-                link
-                youtube_embed_id
+                layout
                 category
+                link
                 lead
+                youtube_embed_id
+                date(formatString: "DD MMMM YYYY")
+                date_ogp: date
               }
               frontmatter {
                 title

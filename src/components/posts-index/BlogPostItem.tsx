@@ -31,7 +31,7 @@ const StyledPostItem = styled('article')`
 `
 
 const BlogPostItem: React.FC<BlogPostField> = ({ node }) => {
-  const { date, category, slug } = node.fields
+  const { date, date_ogp, category, slug } = node.fields
 
   return (
     <StyledPostItem className="h-entry">
@@ -39,7 +39,7 @@ const BlogPostItem: React.FC<BlogPostField> = ({ node }) => {
         <PostIndexItemMeta>
           <PageMetaItem>
             <Link to={slug}>
-              <time className="dt-published" dateTime={new Date(date).toISOString()}>
+              <time className="dt-published" dateTime={new Date(date_ogp).toISOString()}>
                 {date}
               </time>
             </Link>
