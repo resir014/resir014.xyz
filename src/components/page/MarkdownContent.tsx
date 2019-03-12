@@ -65,6 +65,14 @@ const Div = styled('div')`
     }
   }
 
+  ul,
+  ol,
+  dl {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   li {
     p {
       &:last-of-type {
