@@ -92,7 +92,7 @@ This allows us to set our absolute imports relative to the `src` folder, e.g. `c
 
 ```json
 {
-  "//": "Allows you to import modules with the `~/components/Container` format.",
+  // Allows you to import modules with the `~/components/Container` format.
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
@@ -108,10 +108,10 @@ Then, we can extend the config above in our main `tsconfig.json` file.
 
 ```json
 {
-  "//": "Extend the config we just created",
+  // Extend the config we just created
   "extends": "./tsconfig.paths.json",
   "compilerOptions": {
-    "//": "the rest of the tsconfig"
+    // ...the rest of the tsconfig
   }
 }
 ```
