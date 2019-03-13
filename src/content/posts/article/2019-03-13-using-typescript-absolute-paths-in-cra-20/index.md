@@ -5,6 +5,9 @@ date: 2019-03-13T09:37:00+07:00
 title: "Using TypeScript's absolute paths in Create React App 2.0 without ejecting"
 lead: 'Down with the `../../../`!'
 header_image: Ejection_seat_test_at_China_Lake_with_F-4B_cockpit_1967.jpg
+syndication:
+  - name: dev.to
+    url: https://dev.to/resir014/using-typescripts-absolute-paths-in-create-react-app-20-without-ejecting-4kd9
 ---
 
 <em>Header image: [Ejection seat test at China Lake with F-4B cockpit (1967)](https://commons.wikimedia.org/wiki/File:Ejection_seat_test_at_China_Lake_with_F-4B_cockpit_1967.jpg), public domain (US).</em>
@@ -77,8 +80,8 @@ Name this file whatever you'd like. This file exists solely because CRA 2.1 over
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      // Define absolute imports path mappings.
-      // Don't forget to add these to `resolve.alias` on `craco.config.js`.
+      "//": "Define absolute imports path mappings.",
+      "//": "Don't forget to add these to `resolve.alias` on `craco.config.js`.",
       "*": ["src/*"]
     }
   }
@@ -88,8 +91,8 @@ Name this file whatever you'd like. This file exists solely because CRA 2.1 over
 This allows us to set our absolute imports relative to the `src` folder, e.g. `components/Container`. If you prefer to use wildcard characters like `~`, you can also use that:
 
 ```json
-// Allows you to import modules with the `~/components/Container` format.
 {
+  "//": "Allows you to import modules with the `~/components/Container` format.",
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
@@ -105,7 +108,7 @@ Then, we can extend the config above in our main `tsconfig.json` file.
 
 ```json
 {
-  // Extend the config we just created
+  "//": "Extend the config we just created",
   "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "//": "the rest of the tsconfig"
