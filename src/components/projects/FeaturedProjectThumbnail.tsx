@@ -28,10 +28,10 @@ export default FeaturedProjectThumbnail
 const Image = styled(Img)`
   margin: 0;
   height: 100%;
-  min-height: 300px;
+  min-height: 320px;
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    max-height: 400px;
+    max-height: 480px;
   }
 `
 

@@ -77,7 +77,7 @@ const FeaturedProjectDescription = styled('div')`
 `
 
 const FeaturedProjectFooter = styled('div')`
-  margin-top: 1rem;
+  margin-top: 2rem;
 `
 
 interface FeaturedProjectProps extends ProjectField {
