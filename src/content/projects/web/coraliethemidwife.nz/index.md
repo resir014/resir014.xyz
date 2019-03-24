@@ -2,7 +2,7 @@
 category: web
 layout: project
 title: 'Coralie Evans'
-description: 'Website design for Coralie Evans, a a New Zealand-based registered midwife.'
+description: 'Website design for Coralie Evans, a New Zealand-based registered midwife.'
 year: 2019
 header_image: coraliethemidwife.nz-preview.png
 project_url: 'http://coraliethemidwife.nz/'
