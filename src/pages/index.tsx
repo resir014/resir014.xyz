@@ -145,7 +145,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredProject: markdownRemark(fields: { slug: { eq: "/projects/web/aquellexws/" } }) {
+    featuredProject: markdownRemark(
+      fields: { slug: { eq: "/projects/web/coraliethemidwife.nz/" } }
+    ) {
       excerpt
       html
       fields {
