@@ -21,6 +21,10 @@ export default MarkdownContent
 const Div = styled('div')`
   a {
     color: ${colors.green30};
+
+    strong {
+      color: inherit;
+    }
   }
 
   .gatsby-resp-image-wrapper {
