@@ -6,20 +6,45 @@ import { colors } from '../../styles/variables'
 
 interface MessageBoxProps {
   className?: string
+  variant?: 'default' | 'warning' | 'info'
 }
 
-const MessageBox: React.SFC<MessageBoxProps> = ({ className, children }) => (
-  <div className={className}>{children}</div>
-)
+const DefaultStyles = css`
+  border-color: ${colors.green30};
 
-export const MessageBoxBase = css`
-  margin: 3rem 0;
+  a {
+    color: ${colors.green30};
+  }
+`
+
+const WarningStyles = css`
+  border-color: ${colors.orange30};
+
+  a {
+    color: ${colors.orange30};
+  }
+`
+
+const InfoStyles = css`
+  border-color: ${colors.blue30};
+
+  a {
+    color: ${colors.blue30};
+  }
+`
+
+const Root = styled<'div', MessageBoxProps>('div')`
+  margin: 1.5rem 0;
   padding: 1rem;
   border: 1px solid ${colors.green30};
   border-radius: 6px;
 
   &:first-child {
     margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 
   a {
@@ -33,6 +58,21 @@ export const MessageBoxBase = css`
       margin-bottom: 0;
     }
   }
+
+  ${props => props.variant === 'default' && DefaultStyles}
+  ${props => props.variant === 'warning' && WarningStyles}
+  ${props => props.variant === 'info' && InfoStyles}
 `
 
-export default styled(MessageBox)(MessageBoxBase)
+const MessageBox: React.SFC<MessageBoxProps> = ({ className, children, ...rest }) => (
+  <Root className={className} {...rest}>
+    {children}
+  </Root>
+)
+
+MessageBox.defaultProps = {
+  className: undefined,
+  variant: 'default'
+}
+
+export default MessageBox

@@ -8,7 +8,7 @@ import { ProjectField } from '../types/fields'
 
 import TemplateWrapper from '../layouts'
 
-import { Button, Container, Badge } from '../components/ui'
+import { Button, Container, Badge, MessageBox } from '../components/ui'
 import { Page, PageHeader, PageTitle, PageMetaItem, PageContent } from '../components/page'
 import { colors } from '../styles/variables'
 import { BookmarkLink } from '../components/bookmark'
@@ -244,6 +244,21 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <PageMetaItem className="p-category">Category</PageMetaItem>
                   <hr />
                 </PostIndexItemMeta>
+              </WrapperRoot>
+              <h3>Message Box</h3>
+              <WrapperRoot>
+                <MessageBox>
+                  <strong>Info:</strong> This post is also published on Medium.
+                </MessageBox>
+                <MessageBox variant="warning">
+                  <strong>Update:</strong> Phoenix 1.4 ships with{' '}
+                  <a href="https://webpack.js.org/">Webpack</a> by default, therefore this guide is
+                  now outdated.
+                </MessageBox>
+                <MessageBox variant="info">
+                  <strong>Protip:</strong> You can always use{' '}
+                  <a href="https://rollupjs.org/">Rollup</a> to bundle libraries with tree-shaking.
+                </MessageBox>
               </WrapperRoot>
 
               <h2>Projects</h2>
