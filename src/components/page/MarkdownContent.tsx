@@ -101,13 +101,25 @@ const Div = styled('div')`
   }
 
   .message {
-    margin-bottom: 1rem;
+    margin: 1.5rem 0;
     padding: 1rem;
-    color: ${lighten(0.25, colors.grey90)};
-    background-color: ${darken(0.05, colors.white)};
+    border: 1px solid ${colors.orange30};
+    border-radius: 6px;
 
-    p:last-child {
-      margin-bottom: 0;
+    &:first-child {
+      margin-top: 0;
+    }
+
+    a {
+      color: ${colors.orange30};
+    }
+
+    p,
+    ul,
+    ol {
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
