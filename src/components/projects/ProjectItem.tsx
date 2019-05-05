@@ -4,9 +4,8 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import { colors, fonts, pxSizes } from '../../styles/variables'
+import { colors, fonts } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
-import { getEmSize } from '../../styles/mixins'
 import { Badge } from '../ui'
 
 const colorByCategory = (category: string) => {
@@ -53,11 +52,6 @@ const StyledProjectItem = styled('div')`
   border-radius: 4px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    margin: 0 1rem 2rem;
-    flex: 0 1 calc(50% - 2rem);
-  }
 `
 
 const ProjectYear = styled('span')`
@@ -73,11 +67,11 @@ interface ProjectTitleProps {
   category: string
 }
 
-const ProjectHeader = styled('div')`
+const ProjectHeader = styled('div')<ProjectTitleProps>`
   display: flex;
   flex-direction: row;
   padding: 0.75rem 1rem;
-  background: ${(props: ProjectTitleProps) => colorByCategory(props.category)};
+  background: ${props => colorByCategory(props.category)};
 
   ${ProjectTitle} {
     flex: 1 1 auto;
