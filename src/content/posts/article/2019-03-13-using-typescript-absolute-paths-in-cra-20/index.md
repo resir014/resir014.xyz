@@ -12,6 +12,12 @@ syndication:
 
 <em>Header image: [Ejection seat test at China Lake with F-4B cockpit (1967)](https://commons.wikimedia.org/wiki/File:Ejection_seat_test_at_China_Lake_with_F-4B_cockpit_1967.jpg), public domain (US).</em>
 
+<div class="message">
+
+**Update 2019-05-15:** Starting from [version 3.0](https://github.com/facebook/create-react-app/releases/tag/v3.0.0), Create React App will respect the `baseurl` settings that you have in your `tsconfig.json`. If you already use CRA 3.0 and above, this guide is no longer necessary.
+
+</div>
+
 [Create React App (CRA) 2.0](https://facebook.github.io/create-react-app/) allows for drop-in support for TypeScript. This means we can finally use TypeScript from the core CRA package without having to rely on community-maintained forks like [create-react-app-typescript](https://github.com/wmonk/create-react-app-typescript). Thanks to Babel 7’s TypeScript support, the TypeScript integration to CRA 2.0 is seamless. Although this means that slight differences from `create-react-app-typescript` apply.
 
 One TypeScript feature that lacks from `create-react-app` and TypeScript is the ability to use absolute imports. This allows importing from an absolute path based on the project's root source directory. It means you can import modules without having to resort to relative paths. Nothing wrong with them, but when your folders are deeply nested, they can sometimes go ugly. (`../../../../../../../`, anyone?)
