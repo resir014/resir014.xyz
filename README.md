@@ -1,5 +1,6 @@
 # resir014.xyz
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/61368615-14f6-48ee-9e3f-0fb221cdc447/deploy-status)](https://app.netlify.com/sites/resir014/deploys)
 [![CircleCI (all branches)](https://img.shields.io/circleci/project/github/resir014/resir014.xyz.svg)](https://circleci.com/gh/resir014/resir014.xyz)
 
 > Source code for [resir014.xyz](https://resir014.xyz).
@@ -8,7 +9,7 @@
 
 A nodejs >= 8.0.0 setup with [yarn](https://yarnpkg.com/) is recommended.
 
-``` bash
+```bash
 # install dependencies
 yarn
 
