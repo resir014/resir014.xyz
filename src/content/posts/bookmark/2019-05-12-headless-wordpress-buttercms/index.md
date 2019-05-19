@@ -1,7 +1,7 @@
 ---
 category: bookmark
 layout: bookmark
-title: 'Headless WordPress : How To Use Their Blog Data In Your App'
+title: 'Headless WordPress: How To Use Their Blog Data In Your App'
 link: 'https://buttercms.com/blog/headless-wordpress-how-to-use-their-blog-data-in-your-app'
 date: 2019-05-14T22:55:00+07:00
 ---

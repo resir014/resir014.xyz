@@ -9,4 +9,4 @@ I love this song, but its reputation has been tarnished over time for me seeing 
 
 It's almost as if they're not even real fans of the song, and instead of dancing to the beat they just get riled up over some petty issue.
 
-Just look at this comment chain: https://www.youtube.com/watch?v=3bNITQR4Uso&lc=UgxVtS3AtfPbGTPaTtd4AaABAg
+Just look at this comment chain (CW: racist, anti-Semitic, hateful remarks): https://www.youtube.com/watch?v=3bNITQR4Uso&lc=UgxVtS3AtfPbGTPaTtd4AaABAg
