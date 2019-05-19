@@ -3,8 +3,7 @@ import styled from '@emotion/styled'
 
 import ProjectItem from './ProjectItem'
 
-import { colors, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import { colors } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
 
 const ProjectSectionHeading = styled('h2')`
@@ -15,10 +14,6 @@ const ProjectSectionHeading = styled('h2')`
 const ProjectsList = styled('div')`
   display: flex;
   flex-wrap: wrap;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    margin: 0 -1rem;
-  }
 `
 
 const ProjectEmpty = styled('p')`

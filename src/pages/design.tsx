@@ -17,6 +17,7 @@ import { FeaturedProject, ProjectCard } from '../components/projects'
 import { ColorSwatch, TypographySpecimen } from '../components/design'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
+import ProjectItem from '../components/projects/ProjectItem'
 
 interface DesignSystemPageProps {
   data: {
@@ -278,6 +279,9 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                 description={testProjectNode.fields.description || testProjectNode.fields.lead}
                 tags={testProjectTags}
               />
+              <h3>Project Item List</h3>
+              <h4>List Item</h4>
+              <ProjectItem node={testProjectNode} />
             </Container>
           </PageContent>
         </article>
