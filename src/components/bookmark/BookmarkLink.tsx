@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { transparentize } from 'polished'
 import Url from 'url-parse'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import { colors } from '../../styles/variables'
 
@@ -54,10 +55,10 @@ const LinkSource = styled('span')`
   user-select: none;
 `
 
-const Root = styled('a')`
+const Root = styled(OutboundLink)<RootProps>`
   display: block;
-  margin-top: ${(props: RootProps) => (props.inPostList ? 0 : '1rem')};
-  margin-bottom: ${(props: RootProps) => (props.inPostList ? '1.5rem' : 0)};
+  margin-top: ${props => (props.inPostList ? 0 : '1rem')};
+  margin-bottom: ${props => (props.inPostList ? '1.5rem' : 0)};
   background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
   color: ${colors.white};
   border-radius: 4px;

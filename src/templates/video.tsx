@@ -87,9 +87,7 @@ const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data }) => {
                     <ResponsiveVideo>
                       <iframe
                         title={post.fields.youtube_embed_id}
-                        src={`https://www.youtube-nocookie.com/embed/${
-                          post.fields.youtube_embed_id
-                        }?rel=0`}
+                        src={`https://www.youtube-nocookie.com/embed/${post.fields.youtube_embed_id}?rel=0`}
                         allowFullScreen
                       />
                     </ResponsiveVideo>
