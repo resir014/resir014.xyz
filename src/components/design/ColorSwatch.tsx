@@ -58,15 +58,15 @@ ColorSwatch.defaultProps = {
   darkText: false
 }
 
-const Inner = styled('div')`
+const Inner = styled('div')<ColorSwatchProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   height: 76px;
   width: 76px;
-  color: ${(props: ColorSwatchProps) => (props.darkText ? colors.black : colors.white)};
+  color: ${props => (props.darkText ? colors.black : colors.white)};
   font-size: 12px;
-  background: ${(props: ColorSwatchProps) => props.color};
+  background: ${props => props.color};
   border: 1px solid transparent;
   border-radius: 3px;
   transition: all 0.3s ease;

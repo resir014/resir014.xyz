@@ -55,10 +55,10 @@ const LinkSource = styled('span')`
   user-select: none;
 `
 
-const Root = styled(OutboundLink)`
+const Root = styled(OutboundLink)<RootProps>`
   display: block;
-  margin-top: ${(props: RootProps) => (props.inPostList ? 0 : '1rem')};
-  margin-bottom: ${(props: RootProps) => (props.inPostList ? '1.5rem' : 0)};
+  margin-top: ${props => (props.inPostList ? 0 : '1rem')};
+  margin-bottom: ${props => (props.inPostList ? '1.5rem' : 0)};
   background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
   color: ${colors.white};
   border-radius: 4px;

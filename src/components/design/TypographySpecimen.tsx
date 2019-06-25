@@ -32,7 +32,7 @@ const SansText = (props: ColorSwatchProps) => css`
   font-family: ${fonts.sansSerif};
 `
 
-const Text = styled('div')`
-  ${(props: ColorSwatchProps) => props.fontFamily === 'sans' && SansText(props)}
-  ${(props: ColorSwatchProps) => props.fontFamily === 'monospace' && MonospaceText(props)}
+const Text = styled('div')<ColorSwatchProps>`
+  ${props => props.fontFamily === 'sans' && SansText(props)}
+  ${props => props.fontFamily === 'monospace' && MonospaceText(props)}
 `
