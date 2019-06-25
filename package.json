@@ -60,7 +60,7 @@
     "react-dom": "16.8.6",
     "react-helmet": "^5.2.1",
     "slug": "^1.1.0",
-    "typescript": "3.5.2",
+    "typescript": "3.4.5",
     "url-parse": "^1.4.7"
   },
   "devDependencies": {
