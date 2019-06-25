@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:10.9
+      - image: circleci/node:lts
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -21,17 +21,23 @@ jobs:
 
       # Download and cache dependencies
       - restore_cache:
+          name: Restore Yarn cache
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
+          - yarn-packages-{{ checksum "yarn.lock" }}
           # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          - yarn-packages-
 
-      - run: yarn install
+      - run:
+          name: Install dependencies
+          command: yarn install --frozen-lockfile
 
       - save_cache:
+          name: Save Yarn cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ~/.cache/yarn
 
       # run tests!
-      - run: yarn test
+      - run:
+          name: Run tests
+          command: yarn test
