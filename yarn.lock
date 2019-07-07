@@ -5438,10 +5438,10 @@ gatsby-link@^2.0.12:
     "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
 
-gatsby-paginate@^1.0.16:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/gatsby-paginate/-/gatsby-paginate-1.0.16.tgz#b45b92898005aa798b3b51c7abab286753e4cbe5"
-  integrity sha512-X0eZu2JrDrS1leUdu7CrdJWARGD0EFJwyhoD93W7n+DcD3ugqPS84faBOJeNJkJxwcPPJCMTt1Bm9+FiTpMBrQ==
+gatsby-paginate@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-paginate/-/gatsby-paginate-1.1.0.tgz#8d53816b382d55754ac3536d503d8e903327693b"
+  integrity sha512-Bqpd1lROEhYwbhUpYJ70HcoO1xr1oCIcuGIL7EoYHKqYNSbvVq5/AikZH3SDR/44YWoXMISgSo6yWDD2IKenUw==
   dependencies:
     path "^0.12.7"
 
@@ -5479,10 +5479,10 @@ gatsby-plugin-feed@^2.0.11:
     pify "^3.0.0"
     rss "^1.2.2"
 
-gatsby-plugin-google-analytics@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.1.0.tgz#e9742134730aed17e3951e2d0089475ddd50cbd9"
-  integrity sha512-H/Wsy/5pwEk31iyhvF/sQKIQmbJNk3D7qTybBoxIGAMDZzvcinPAxNfrbzNoviqe2QdljkF9oLCecJV13+ztmA==
+gatsby-plugin-google-analytics@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.1.1.tgz#228e91dead90e58cea2dc9b76fa3700a084378fb"
+  integrity sha512-WA3Ag8FEoaraA+ygKmNM0NAka1xKEAKKZzl6VUSmJliAOQic3e8DDkxW2JOI0Ui6bUEA/TBAcMQvFO1ueCnyWg==
   dependencies:
     "@babel/runtime" "^7.0.0"
 
@@ -5649,10 +5649,10 @@ gatsby-remark-images@^3.0.1:
     unist-util-select "^1.5.0"
     unist-util-visit-parents "^2.0.1"
 
-gatsby-remark-prismjs@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.3.0.tgz#76be0fc2ffabf9a2007619899d933d82600bbeb0"
-  integrity sha512-87UMtykDD8+kkR77MaY6pnJtqntUw0r8vqcsKxtgMkup9TMpwKvb8JHj2eSpl1NGdQDDjovYVNfkOfroQrkaJw==
+gatsby-remark-prismjs@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.3.1.tgz#012ed64d577b9c9a1dce209ddc8cceb58ed09de9"
+  integrity sha512-V0rzHqmVgzJX6WSse4d29wfSv4Y8zm1Qfl3xwbMngiSENZ8gLvCiMDKZGrV8QcwJNyUyDsBDCNakGKyCvTu5EA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     parse-numeric-range "^0.0.2"
