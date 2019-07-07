@@ -92,7 +92,7 @@ Once everything is set up, run the DNS leak test again, and your DNS resolver sh
 
 The `dnscrypt-proxy` service is available for install via [Homebrew](https://brew.sh/) package manager. To install it, run:
 
-```sh-session
+```bash
 $ brew install dnscrypt-proxy
 ```
 
@@ -108,7 +108,7 @@ server_names = ['google', 'cloudflare', 'opennic-onic']
 
 Save the config, and start the `dnscrypt-proxy` service. This will allow `dnscrypt-proxy` to automatically start next time you boot up your Macbook.
 
-```sh-session
+```bash
 $ sudo brew services start dnscrypt-proxy
 ```
 

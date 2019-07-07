@@ -56,7 +56,7 @@ This guide will make use of TypeScript 3.2. It should work as well on any versio
 
 To get started with TypeScript, install the TypeScript compiler CLI by running:
 
-```sh-session
+```bash
 $ npm install -g typescript
 ```
 
