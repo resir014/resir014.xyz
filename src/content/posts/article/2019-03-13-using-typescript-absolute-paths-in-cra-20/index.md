@@ -40,7 +40,7 @@ But fortunately, with tools like `craco`, we can easily revert back to the defau
 
 [craco](https://github.com/sharegate/craco) is a wonderful tool which allows us to extend CRA 2.0 configs without ejecting. It's the spiritual successor for [react-app-rewired](https://github.com/timarney/react-app-rewired), which has ceased development.
 
-```sh
+```bash
 # yarn
 $ yarn add @craco/craco
 

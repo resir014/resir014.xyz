@@ -48,7 +48,7 @@ We're going to set up a new Phoenix project, complete with the build environment
 
 As of version 1.4, Phoenix ships with [Webpack](https://webpack.js.org/) by default. By running the following command we'll have a Phoenix setup with built-in support for JS bundling.
 
-```sh-session
+```bash
 $ mix phx.new phoenix_react_playground
 ```
 
@@ -56,7 +56,7 @@ When you're asked if you want to fetch and install dependencies as well, answer 
 
 By default, the `package.json` file, the Webpack config, and the `.babelrc` file are located in the `assets/` folder instead of the project root. This is not ideal, since it could fuck up with IDEs like [Visual Studio Code](https://code.visualstudio.com/). So let's move them to the project root instead.
 
-```sh-session
+```bash
 $ cd phoenix_react_playground
 $ mv assets/package.json .
 $ mv assets/webpack.config.js .
@@ -152,7 +152,7 @@ The above Webpack configuration works for the ideal Phoenix setup of placing unb
 
 To make sure everything works, run the following commands:
 
-```sh-session
+```bash
 $ mix deps.get
 $ npm install
 ```
@@ -161,7 +161,7 @@ Does everything work? Good! Next, we'll set up our TypeScript environment.
 
 First, we'll install the TypeScript + React preset for Babel, and put it into our `.babelrc`.
 
-```sh-session
+```bash
 $ yarn add --dev @babel/preset-react @babel/preset-typescript @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread typescript
 ```
 
@@ -266,7 +266,7 @@ phoenix_react_playground/
 
 Let's now hook up React with Phoenix the right way. First, of course, we'll need to install React.
 
-```sh-session
+```bash
 $ yarn add react react-dom react-router-dom
 $ yarn add --dev @types/react @types/react-dom @types/react-router-dom
 ```
@@ -518,7 +518,7 @@ Before you start, please please _please_ make sure that on `router.ex`, you have
 
 `router.ex`
 
-```ex
+```elixir
   # ...
 
   scope "/api", PhoenixReactPlaygroundWeb do

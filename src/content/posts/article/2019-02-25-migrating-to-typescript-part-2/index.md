@@ -364,7 +364,7 @@ Could not find a declaration file for module 'lodash-es'. '/Users/resir014/etc/r
 
 As the error message says, all we need to do to fix this error is to install the type declaration for `lodash`.
 
-```sh-session
+```bash
 $ npm install --save-dev @types/lodash
 ```
 
