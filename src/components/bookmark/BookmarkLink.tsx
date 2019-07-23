@@ -6,21 +6,16 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import { colors } from '../../styles/variables'
 
-interface RootProps {
-  inPostList?: boolean
-}
-
-interface BookmarkLinkProps extends RootProps {
+interface BookmarkLinkProps {
   link?: string
   title: string
 }
 
-const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, inPostList, title }) => {
+const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, title }) => {
   const url = link ? new Url(link) : undefined
 
   return url ? (
     <Root
-      inPostList={inPostList}
       className="u-bookmark-of h-cite p-name"
       href={link}
       target="_blank"
@@ -55,16 +50,22 @@ const LinkSource = styled('span')`
   user-select: none;
 `
 
-const Root = styled(OutboundLink)<RootProps>`
+const Root = styled(OutboundLink)`
   display: block;
-  margin-top: ${props => (props.inPostList ? 0 : '1rem')};
-  margin-bottom: ${props => (props.inPostList ? '1.5rem' : 0)};
   background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
   color: ${colors.white};
   border-radius: 4px;
   overflow: hidden;
   transition: all 0.3s ease;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px 0px;
+
+  &:first-of-type {
+    margin-bottom: 1.5rem;
+  }
+
+  &:last-of-type {
+    margin-top: 1rem;
+  }
 
   &:hover,
   &:focus {

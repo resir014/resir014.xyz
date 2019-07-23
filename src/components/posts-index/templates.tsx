@@ -177,7 +177,7 @@ export function renderBookmarkTemplate(node: BlogPostNode): JSX.Element {
   return (
     <PostDetailBox>
       <PostContent>
-        <BookmarkLink inPostList link={node.fields.link} title={node.frontmatter.title} />
+        <BookmarkLink link={node.fields.link} title={node.frontmatter.title} />
         <MarkdownContent className="e-content" html={node.html} />
       </PostContent>
     </PostDetailBox>
