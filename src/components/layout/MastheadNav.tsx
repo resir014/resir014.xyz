@@ -5,23 +5,19 @@ import styled from '@emotion/styled'
 import { LinkGetProps } from '@reach/router'
 
 import { MenuItem } from '../../types/default'
-import { getEmSize } from '../../styles/mixins'
 import { pxSizes } from '../../styles/variables'
 
 interface MastheadNavProps {
   items: MenuItem[]
-  className?: string
 }
 
-const MastheadNavItem = styled('span')`
-  margin-left: 1rem;
+const MastheadNavItem = styled('li')`
   text-transform: lowercase;
 
-  &:first-of-type {
-    margin-left: 0;
-  }
-
   a {
+    display: block;
+    padding: 0.5rem 1rem;
+
     &:hover,
     &:focus {
       text-decoration: none;
@@ -35,12 +31,9 @@ const MastheadNavItem = styled('span')`
         text-decoration: underline;
       }
     }
-  }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    &:before {
-      content: '/';
-      margin-right: 1rem;
+    @media (min-width: ${pxSizes.breakpoints.lg}px) {
+      padding: 1rem;
     }
   }
 `
@@ -50,8 +43,8 @@ const isActive = ({ isPartiallyCurrent }: LinkGetProps) => {
   return isPartiallyCurrent ? { className: 'is-active' } : {}
 }
 
-const MastheadNav: React.SFC<MastheadNavProps> = ({ className, items }) => (
-  <nav className={className}>
+const MastheadNav: React.SFC<MastheadNavProps> = ({ items }) => (
+  <>
     {items.map(item => {
       return (
         <MastheadNavItem key={item.path}>
@@ -61,7 +54,7 @@ const MastheadNav: React.SFC<MastheadNavProps> = ({ className, items }) => (
         </MastheadNavItem>
       )
     })}
-  </nav>
+  </>
 )
 
 export default MastheadNav

@@ -2,36 +2,67 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
-import { pxSizes, emSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import { pxSizes } from '../../styles/variables'
 import menuItems from '../../utils/menuItems'
 import { MenuProps } from '../../types/default'
 
 import MastheadNav from './MastheadNav'
-import Container from '../ui/Container'
 
 interface MastheadProps extends MenuProps {
   title: string
   className?: string
-  transparent?: boolean
-  size?: 'md' | 'lg' | 'xl' | 'fluid'
   onNavToggleClick: () => any
 }
 
-const MastheadInner = styled('div')`
-  display: flex;
-  flex-direction: column;
+const Root = styled('nav')`
+  display: grid;
+  grid-template-columns: 1fr 1fr minmax(auto, ${pxSizes.widths.xl}px) 1fr 1fr;
   height: 100%;
-  align-items: center;
+`
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    flex-direction: row;
+const MastheadInner = styled('ul')`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  grid-column: 3/4;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @media (min-width: ${pxSizes.breakpoints.lg}px) {
+    justify-content: flex-end;
   }
 `
 
-const MastheadTitle = styled('div')`
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    margin-right: 1rem;
+const MastheadTitle = styled('li')`
+  margin-right: auto;
+
+  a {
+    display: block;
+    padding: 0.5rem 1rem;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &.is-active {
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+
+    @media (min-width: ${pxSizes.breakpoints.lg}px) {
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: ${pxSizes.breakpoints.lg - 1}px) {
+    flex-basis: 100%;
+    text-align: center;
   }
 `
 
@@ -42,28 +73,15 @@ const MastheadTitleLink = styled(Link)`
   }
 `
 
-const Masthead: React.SFC<MastheadProps> = ({ className, title, size }) => (
-  <header className={className}>
-    <Container size={size}>
-      <MastheadInner>
-        <MastheadTitle>
-          <MastheadTitleLink to="/">{title}</MastheadTitleLink>
-        </MastheadTitle>
-        <MastheadNav items={menuItems} />
-      </MastheadInner>
-    </Container>
-  </header>
+const Masthead: React.SFC<MastheadProps> = ({ className, title }) => (
+  <Root className={className}>
+    <MastheadInner>
+      <MastheadTitle>
+        <MastheadTitleLink to="/">{title}</MastheadTitleLink>
+      </MastheadTitle>
+      <MastheadNav items={menuItems} />
+    </MastheadInner>
+  </Root>
 )
 
-Masthead.defaultProps = {
-  size: 'md'
-}
-
-export default styled(Masthead)`
-  padding: 1rem ${emSizes.containerPadding}rem;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    padding-top: ${emSizes.containerPadding / 2}rem;
-    padding-bottom: ${emSizes.containerPadding / 2}rem;
-  }
-`
+export default Masthead
