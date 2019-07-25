@@ -18,7 +18,9 @@ interface MastheadProps extends MenuProps {
 const Root = styled('nav')`
   display: grid;
   grid-template-columns: 1fr 1fr minmax(auto, ${pxSizes.widths.xl}px) 1fr 1fr;
-  height: 100%;
+  background-color: ${colors.black};
+  z-index: 50;
+  border-bottom: 1px solid ${colors.grey90};
 `
 
 const MastheadInner = styled('ul')`
@@ -40,7 +42,8 @@ const MastheadTitle = styled('li')`
 
   a {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
+    padding-bottom: calc(8px - 2px);
     font-weight: 700;
     border-bottom: 2px solid transparent;
     transition: background-color 0.2s ease;
@@ -61,7 +64,7 @@ const MastheadTitle = styled('li')`
     }
 
     @media (min-width: ${pxSizes.breakpoints.lg}px) {
-      padding: 1rem;
+      padding: 16px;
     }
   }
 

@@ -17,7 +17,8 @@ const MastheadNavItem = styled('li')`
 
   a {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
+    padding-bottom: calc(16px - 2px);
     border-bottom: 2px solid transparent;
     transition: background-color 0.2s ease;
 
@@ -38,7 +39,7 @@ const MastheadNavItem = styled('li')`
     }
 
     @media (min-width: ${pxSizes.breakpoints.lg}px) {
-      padding: 1rem;
+      padding: 16px;
     }
   }
 `
