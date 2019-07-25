@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import classnames from 'classnames'
 import { darken, transparentize } from 'polished'
 
-import { fonts, colors, emSizes } from '../../styles/variables'
+import { fonts, colors } from '../../styles/variables'
 
 interface ButtonProps {
   id?: string
@@ -76,20 +76,23 @@ Button.defaultProps = {
 }
 
 const SmallButtonStyles = css`
-  padding: 0.25rem 1rem;
+  padding: 0 16px;
+  height: 28px;
   font-size: 80%;
   border-radius: 6px;
 `
 
 const MediumButtonStyles = css`
-  padding: 0.5rem 1.5rem;
+  padding: 0 24px;
+  height: 38px;
   font-size: 90%;
   border-radius: 8px;
 `
 
 const LargeButtonStyles = css`
-  padding: 0.75rem 2rem;
-  font-size: 1.15rem;
+  padding: 0 32px;
+  height: 52px;
+  font-size: 18px;
   border-radius: 10px;
 `
 
@@ -143,14 +146,14 @@ const WhiteButtonStyles = css`
 `
 
 const ButtonBase = (props: ButtonProps) => css`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin: 0;
   padding: 0;
   border: none;
   border: 1px solid transparent;
   font-family: ${fonts.sansSerif};
   text-align: center;
-  line-height: ${emSizes.lineHeight.regular};
   cursor: pointer;
   transition: all 0.3s ease;
 

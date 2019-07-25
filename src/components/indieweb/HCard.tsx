@@ -6,6 +6,7 @@ import { colors, emSizes, fonts, pxSizes, layerShadows } from '../../styles/vari
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import { getEmSize } from '../../styles/mixins'
+import { Button } from '../ui'
 
 interface HCardProps {
   className?: string
@@ -95,13 +96,9 @@ const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
         <HCardNote className="p-note">{author.description}</HCardNote>
         <HCardEmail className="u-email">{author.email}</HCardEmail>
         <HCardFooter>
-          {Object.keys(author.url).map(key => (
-            <HCardSocialLinks key={author.url[key]}>
-              <a target="_blank" rel="me noopener noreferrer" href={author.url[key]}>
-                {key}
-              </a>
-            </HCardSocialLinks>
-          ))}
+          <Button kind="nav-link" to="/contact" color="white">
+            Contact me
+          </Button>
         </HCardFooter>
       </HCardDetails>
     </Inner>
