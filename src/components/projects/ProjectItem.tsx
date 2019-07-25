@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import { colors, fonts } from '../../styles/variables'
+import { colors, fonts, layerShadows } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
 import { Badge } from '../ui'
 
@@ -51,7 +51,7 @@ const StyledProjectItem = styled('div')`
   background-color: ${colors.grey90};
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
+  box-shadow: ${layerShadows.single};
 `
 
 const ProjectYear = styled('span')`
