@@ -64,23 +64,6 @@ const HCardFooter = styled('div')`
   word-wrap: break-word;
 `
 
-const HCardSocialLinks = styled('span')`
-  display: block;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.sm)}) {
-    display: inline-block;
-
-    &:not(:first-of-type) {
-      margin-left: 0.5rem;
-
-      &:before {
-        content: '/';
-        margin-right: 0.5rem;
-      }
-    }
-  }
-`
-
 const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
   <Div className={classnames(className, 'h-card')} hidden={hidden}>
     <Inner>
