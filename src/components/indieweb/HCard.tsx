@@ -2,7 +2,7 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from '@emotion/styled'
 
-import { colors, emSizes, fonts, pxSizes } from '../../styles/variables'
+import { colors, emSizes, fonts, pxSizes, layerShadows } from '../../styles/variables'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import { getEmSize } from '../../styles/mixins'
@@ -129,7 +129,7 @@ const Div = styled('div')`
   color: ${colors.grey10};
   background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
   border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0 2px 4px 0;
+  box-shadow: ${layerShadows.single};
 
   p {
     margin: 0.5rem 0;

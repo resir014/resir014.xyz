@@ -4,7 +4,7 @@ import { transparentize } from 'polished'
 import Url from 'url-parse'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-import { colors } from '../../styles/variables'
+import { colors, layerShadows } from '../../styles/variables'
 
 interface BookmarkLinkProps {
   link?: string
@@ -57,7 +57,7 @@ const Root = styled(OutboundLink)`
   border-radius: 4px;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px 0px;
+  box-shadow: ${layerShadows.single};
 
   &:first-of-type {
     margin-bottom: 1.5rem;
@@ -70,7 +70,7 @@ const Root = styled(OutboundLink)`
   &:hover,
   &:focus {
     text-decoration: none;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 16px 0px;
+    box-shadow: ${layerShadows.double};
 
     ${LinkTitle} {
       text-decoration: underline;

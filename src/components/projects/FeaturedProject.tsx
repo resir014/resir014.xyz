@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { Button, Badge } from '../ui'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
-import { colors, pxSizes } from '../../styles/variables'
+import { colors, pxSizes, layerShadows } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
 import { ProjectField } from '../../types/fields'
 
@@ -16,7 +16,7 @@ const FeaturedProjectWrapper = styled('section')`
   color: ${colors.white};
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
+  box-shadow: ${layerShadows.single};
 
   &:first-of-type {
     margin-top: 0;

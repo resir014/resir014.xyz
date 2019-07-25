@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { colors, pxSizes, emSizes } from '../../styles/variables'
+import { colors, pxSizes, emSizes, layerShadows } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
 
 interface HomepageThumbnailTextProps {
@@ -41,6 +41,17 @@ const FlexInner = styled('div')`
   padding: 1.5rem;
   color: ${colors.white};
   background-color: ${colors.black};
+  border-radius: 8px;
+  box-shadow: ${layerShadows.double};
+`
+
+const Div = styled('div')`
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 `
 
 const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, title, flavour }) => (
@@ -53,12 +64,3 @@ const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, ti
 )
 
 export default HomepageHeroText
-
-const Div = styled('div')`
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-`

@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import { getEmSize } from '../../styles/mixins'
-import { pxSizes, colors } from '../../styles/variables'
+import { pxSizes, colors, layerShadows } from '../../styles/variables'
 import Container from '../ui/Container'
 
 interface PageHeaderProps {
@@ -63,7 +63,7 @@ const HasImageStyles = css`
     padding: 1.5rem;
     background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
     border-radius: 8px;
-    box-shadow: rgba(0, 0, 0, 0.5) 0 8px 16px 0;
+    box-shadow: ${layerShadows.double};
   }
 `
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { colors } from '../../styles/variables'
+import { colors, layerShadows } from '../../styles/variables'
 import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
@@ -49,7 +49,7 @@ const Root = styled('section')`
   background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 2px 4px 0;
+  box-shadow: ${layerShadows.single};
 `
 
 const Inner = styled('div')`
