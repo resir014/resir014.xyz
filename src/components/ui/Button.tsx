@@ -148,6 +148,7 @@ const WhiteButtonStyles = css`
 const ButtonBase = (props: ButtonProps) => css`
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 0;
   border: none;
