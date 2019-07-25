@@ -113,7 +113,7 @@ const ProjectDetailBox = styled('div')`
   }
 
   a {
-    color: ${colors.blue30};
+    color: ${colors.green30};
   }
 `
 
