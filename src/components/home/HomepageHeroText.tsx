@@ -41,7 +41,7 @@ const FlexInner = styled('div')`
   padding: 1.5rem;
   color: ${colors.white};
   background-color: ${colors.black};
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: ${layerShadows.double};
 `
 

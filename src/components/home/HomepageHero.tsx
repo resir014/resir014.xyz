@@ -3,9 +3,9 @@ import styled from '@emotion/styled'
 
 import Container from '../ui/Container'
 import { getEmSize } from '../../styles/mixins'
-import { pxSizes, emSizes } from '../../styles/variables'
+import { pxSizes, emSizes, colors } from '../../styles/variables'
 
-import BackgroundPattern from '../../assets/images/architect.svg'
+import BackgroundPattern from '../../assets/images/topography.svg'
 
 interface HomepageThumbnailProps {
   className?: string
@@ -30,11 +30,12 @@ const Inner = styled(Container)`
   }
 `
 
-const Root = styled('div')`
+const Root = styled('header')`
   position: relative;
   margin: 0;
-  background: url(${BackgroundPattern}) repeat center center;
+  background: url(${BackgroundPattern});
   height: 320px;
+  border-bottom: 1px solid ${colors.grey90};
 
   @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
     padding: 0 ${emSizes.containerPadding}rem;

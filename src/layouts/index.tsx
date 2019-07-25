@@ -92,8 +92,6 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
             <Masthead
               title={data.site.siteMetadata.title}
               items={menuItems}
-              transparent
-              size={layoutSize}
               onNavToggleClick={this.onNavToggleClick}
             />
             {children}

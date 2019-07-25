@@ -1,46 +1,46 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react'
 import { Link } from 'gatsby'
+import { transparentize } from 'polished'
 import styled from '@emotion/styled'
 import { LinkGetProps } from '@reach/router'
 
 import { MenuItem } from '../../types/default'
-import { getEmSize } from '../../styles/mixins'
-import { pxSizes } from '../../styles/variables'
+import { pxSizes, colors } from '../../styles/variables'
 
 interface MastheadNavProps {
   items: MenuItem[]
-  className?: string
 }
 
-const MastheadNavItem = styled('span')`
-  margin-left: 1rem;
+const MastheadNavItem = styled('li')`
   text-transform: lowercase;
 
-  &:first-of-type {
-    margin-left: 0;
-  }
-
   a {
+    display: block;
+    padding: 8px 16px;
+    padding-bottom: calc(8px - 2px);
+    border-bottom: 2px solid transparent;
+    transition: background-color 0.2s ease;
+
     &:hover,
     &:focus {
       text-decoration: none;
+      background-color: ${transparentize(0.9, colors.white)};
     }
 
     &.is-active {
-      text-decoration: underline;
+      text-decoration: none;
+      border-bottom-color: ${colors.white};
 
       &:hover,
       &:focus {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
-  }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    &:before {
-      content: '/';
-      margin-right: 1rem;
+    @media (min-width: ${pxSizes.breakpoints.lg}px) {
+      padding: 16px;
+      padding-bottom: calc(16px - 2px);
     }
   }
 `
@@ -50,8 +50,8 @@ const isActive = ({ isPartiallyCurrent }: LinkGetProps) => {
   return isPartiallyCurrent ? { className: 'is-active' } : {}
 }
 
-const MastheadNav: React.SFC<MastheadNavProps> = ({ className, items }) => (
-  <nav className={className}>
+const MastheadNav: React.SFC<MastheadNavProps> = ({ items }) => (
+  <>
     {items.map(item => {
       return (
         <MastheadNavItem key={item.path}>
@@ -61,7 +61,7 @@ const MastheadNav: React.SFC<MastheadNavProps> = ({ className, items }) => (
         </MastheadNavItem>
       )
     })}
-  </nav>
+  </>
 )
 
 export default MastheadNav
