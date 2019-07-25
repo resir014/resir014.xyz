@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
+import { transparentize } from 'polished'
 import styled from '@emotion/styled'
 
-import { pxSizes } from '../../styles/variables'
+import { pxSizes, colors } from '../../styles/variables'
 import menuItems from '../../utils/menuItems'
 import { MenuProps } from '../../types/default'
 
@@ -40,18 +41,22 @@ const MastheadTitle = styled('li')`
   a {
     display: block;
     padding: 0.5rem 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid transparent;
+    transition: background-color 0.2s ease;
 
     &:hover,
     &:focus {
       text-decoration: none;
+      background-color: ${transparentize(0.9, colors.white)};
     }
 
     &.is-active {
-      text-decoration: underline;
+      text-decoration: none;
 
       &:hover,
       &:focus {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
 

@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react'
 import { Link } from 'gatsby'
+import { transparentize } from 'polished'
 import styled from '@emotion/styled'
 import { LinkGetProps } from '@reach/router'
 
 import { MenuItem } from '../../types/default'
-import { pxSizes } from '../../styles/variables'
+import { pxSizes, colors } from '../../styles/variables'
 
 interface MastheadNavProps {
   items: MenuItem[]
@@ -17,18 +18,22 @@ const MastheadNavItem = styled('li')`
   a {
     display: block;
     padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    transition: background-color 0.2s ease;
 
     &:hover,
     &:focus {
       text-decoration: none;
+      background-color: ${transparentize(0.9, colors.white)};
     }
 
     &.is-active {
-      text-decoration: underline;
+      text-decoration: none;
+      border-bottom-color: ${colors.white};
 
       &:hover,
       &:focus {
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
 
