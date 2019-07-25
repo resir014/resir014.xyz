@@ -65,6 +65,7 @@ const MastheadTitle = styled('li')`
 
     @media (min-width: ${pxSizes.breakpoints.lg}px) {
       padding: 16px;
+      padding-bottom: calc(16px - 2px);
     }
   }
 
