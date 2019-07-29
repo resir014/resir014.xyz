@@ -118,7 +118,7 @@ describe('ToggleButton', () => {
   afterEach(cleanup)
 
   test('correctly renders the state of button', () => {
-    const { getByText, queryByText } = render(<ToggleButton />)
+    const { getByText, queryByText } = render(<ToggleButton enabledText="on" disabledText="off" />)
     // Test the initial state of the button.
     expect(getByText('Off')).toBeDefined()
     expect(queryByText('On')).toBeNull()
