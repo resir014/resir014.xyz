@@ -4,8 +4,10 @@ layout: post
 title: 'No, TypeScript is not a waste of time.'
 lead: Another day, another heated "discussion" about how static typing in JavaScript is both the single greatest thing since sliced bread _and_ the worst thing to have happened to humanity as a whole.
 header_image: chris-leggat-AoEEtI6onH4-unsplash.jpg
-date: 2019-07-30T00:00:00+07:00
+date: 2019-07-30T00:27:00+07:00
 ---
+
+_Header image by [Chris Leggat](https://unsplash.com/photos/AoEEtI6onH4) on Unsplash._
 
 Another day, another heated "discussion" about how static typing in JavaScript is both the single greatest thing since sliced bread _and_ the worst thing to have happened to humanity as a whole.
 
