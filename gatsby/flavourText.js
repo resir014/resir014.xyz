@@ -10,6 +10,7 @@ module.exports = [
   'likes racing cars',
   'is online',
   'is offline',
+  'is tired',
   'is typing',
   "doesn't smoke",
   'plays video games',
