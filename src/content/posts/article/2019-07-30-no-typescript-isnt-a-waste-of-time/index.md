@@ -138,6 +138,8 @@ Two things are happening here.
 - Static typing provides soundness and improves the developer experience by detecting type errors and allowing developers to refactor confidently through great IDE tools.
 - Unit testing provides confidence that our code behaves the way that it's supposed to be used.
 
+[Try it out in CodeSandbox](https://codesandbox.io/s/react-ts-unit-test-example-2u85p)
+
 ## Let's clear our heads
 
 The original post contained a lot of subjective points, which was a shame because I'd love some objective reasoning as to why static types aren't worth the time.
