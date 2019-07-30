@@ -71,7 +71,7 @@ const Button: React.SFC<ButtonProps> = ({
 }
 
 Button.defaultProps = {
-  color: 'primary',
+  color: 'white',
   size: 'md'
 }
 
@@ -103,7 +103,7 @@ const PrimaryButtonStyles = css`
 
     &:hover,
     &:focus {
-      background-color: ${darken(0.15, colors.blue30)};
+      background-color: ${darken(0.1, colors.blue40)};
     }
   }
 `
