@@ -16,7 +16,7 @@ Another day, another heated "discussion" about how static typing in JavaScript i
 
 Let's look into a [recent dev.to post](https://dev.to/parkroolucas/typescript-is-a-waste-of-time-change-my-mind-pi8) that has been stirring this debate back up again. I'll try to clear out some misconceptions, and hopefully, take things in a level-headed manner.
 
-Before I start, I want to change up some terms I used, especially the one in the title. Instead of referring to TypeScript specifically, I'd like to use the term "typed JavaScript". Because there's also another tool in the typed JS land, [Flow](https://flow.org/), and I don't want to leave Flow users out. After all, we have the same goal of enforcing type soundness/safety in our apps.
+Before I start, I want to change up some terms I used, especially the one in the title. Instead of referring to [TypeScript](https://www.typescriptlang.org/) specifically, I'd like to use the term "typed JavaScript". Because there's also another tool in the typed JS land, [Flow](https://flow.org/), and I don't want to leave Flow users out. After all, we have the same goal of enforcing type soundness/safety in our apps.
 
 Another term that I would like to throw into the glossary is "dynamically-typed" JS, or "dynamic" for short. Despite what the original post wanted to make you believe, writing JS code without type annotations doesn't mean that your code doesn't have types. A string written in dynamic JS still has a type of `string`. So is a `number`, `boolean`, you get the point. You just don't have to explicitly express said types.
 
@@ -151,9 +151,9 @@ My rebuttal to the original post... also contains a lot of subjective points. Bu
 
 Instead of building inflammatory, subjective opinions disguised as "objective" "fact", let's approach things in a level-headed manner and understand that certain tools exists for certain reasons. Constructive criticism is a great power to improve all of us, regardless of which side you're in on this debate.
 
-Since I'm a front-end developer myself, a good example I'd like to pick would be the endless debates between the Big Three frameworks (Angular, React, and Vue), and why one is better than the other.
+Since I'm a front-end developer myself, a good example I'd like to pick would be the endless debates between the Big Three frameworks ([Angular](https://angular.io/), [React](https://reactjs.org/), and [Vue](https://vuejs.org/)), and why one is better than the other.
 
-For example, Vue and React developers often went up in arms, writing senseless Medium thinkpieces about how one is better than the other. I'm a React guy myself, but I still understand that Evan You had his own issues to tackle with Vue, hence the issues that he solved being his framework's key selling point. The most prominent ones being the learning curve and how easy it is to adopt.
+For example, Vue and React developers often went up in arms, writing senseless Medium thinkpieces about how one is better than the other. I'm a React guy myself, but I still understand that [Evan You had his own issues to tackle](https://www.youtube.com/watch?v=ANtSWq-zI0s) with Vue, hence the issues that he solved being his framework's key selling point. The most prominent ones being the learning curve and how easy it is to adopt.
 
 The people behind TypeScript and Flow are smart enough to tackle one of their pain points in writing JavaScript. They want to write JavaScript code that scales in large-scale projects. And the way they approach that is to provide a static typing superset that ensures type soundness and safety, as well as improving productivity through developer tools that are enabled thanks to the power of static types. And for some people, it worked well. TypeScript and Flow are both running many medium to large-scale projects out there (including where I work), and I could imagine all the ways they enabled engineers to write code with less bugs.
 
