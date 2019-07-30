@@ -18,7 +18,7 @@ Let's look into a [recent dev.to post](https://dev.to/parkroolucas/typescript-is
 
 Before I start, I want to change up some terms I used, especially the one in the title. Instead of referring to TypeScript specifically, I'd like to use the term "typed JavaScript". Because there's also another tool in the typed JS land, [Flow](https://flow.org/), and I don't want to leave Flow users out. After all, we have the same goal of enforcing type soundness/safety in our apps.
 
-Another term that I would like to throw into the glossary is "dynamically-typed" JS, or "dynamic" for short. Despite what the original post wanted to make you believe, writing JS code without type annotations doesn't mean that your code. A string written in dynamic JS still has a type of `string`. So is a `number`, `boolean`, you get the point.
+Another term that I would like to throw into the glossary is "dynamically-typed" JS, or "dynamic" for short. Despite what the original post wanted to make you believe, writing JS code without type annotations doesn't mean that your code doesn't have types. A string written in dynamic JS still has a type of `string`. So is a `number`, `boolean`, you get the point. You just don't have to explicitly express said types.
 
 ## Yes, it's longer to start writing statically-typed JS short-term...
 
