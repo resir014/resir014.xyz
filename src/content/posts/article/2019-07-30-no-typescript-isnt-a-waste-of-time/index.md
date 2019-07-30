@@ -104,7 +104,7 @@ function ToggleButton({ enabledText, disabledText }: ToggleButtonProps) {
 export default ToggleButton
 ```
 
-On the surface, it looks like static typing has done its job. However, if we take a look closer, we're able to set a custom state text for our toggle button. Sure, TypeScript can check if the string we passed to the `enabledText` and `disabledText` we pass into the component is a string. But that's just half of the battle.
+On the surface, it looks like static typing has done its job. However, if we take a look closer, we're able to set a custom state text for our toggle button. Sure, TypeScript can check if the string we passed to the `enabledText` and `disabledText` props is a string. But that's just half of the battle.
 
 After all, if we've set our button's enabled and disabled state is set to `'On'` and `'Off'` respectively, we want it to correctly show `'Off'` when it's disabled, and `'On'` when it's enabled. Not the other way around.
 
