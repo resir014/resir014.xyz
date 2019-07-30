@@ -50,7 +50,7 @@ Is this an investment that you would take in the future? It sure is for me, but 
 
 ## You can adopt TypeScript incrementally
 
-Maybe you're already maintaining a medium to large-scale app that's already written in plain ol' JavaScript. And you want to migrate to TypeScript, but are afraid that the red squiggly lines will haunt you in your sleep. How would you
+Maybe you're already maintaining a medium to large-scale app that's already written in plain ol' JavaScript. And you want to migrate to TypeScript, but are afraid that the red squiggly lines will haunt you in your sleep. How would you go about migrating your code?
 
 There are various guides in migrating to TypeScript. There's one in Basarat Ali Syed's awesome [TypeScript Deep Dive](https://basarat.gitbooks.io/typescript/content/docs/types/migrating.html) handbook. I have also written a comprehensive guide [here](https://dev.to/resir014/migrating-to-typescript-part-1-getting-started-n4l).
 
