@@ -107,8 +107,8 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className }) =>
           ) : null}
         </FeaturedProjectDescription>
         <FeaturedProjectFooter>
-          <Button kind="nav-link" color="white" to={node.fields.slug}>
-            Visit project
+          <Button kind="nav-link" ghosted size="lg" to={node.fields.slug}>
+            Visit project &rarr;
           </Button>
         </FeaturedProjectFooter>
       </FeaturedProjectDetails>

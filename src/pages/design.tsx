@@ -90,6 +90,10 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <h3>Accent Colors</h3>
               <h4>Magenta</h4>
               <ColorSwatch color={colors.magenta30} />
+              <h4>Red</h4>
+              <ColorSwatch color={colors.red20} />
+              <ColorSwatch color={colors.red30} />
+              <ColorSwatch color={colors.red40} />
               <h4>Orange</h4>
               <ColorSwatch color={colors.orange20} darkText />
               <ColorSwatch color={colors.orange30} darkText />
@@ -179,10 +183,10 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   </Button>
                 </div>
                 <div style={buttonWrapperStyles}>
-                  <Button color="white" style={buttonMarginStyles}>
-                    White
+                  <Button ghosted style={buttonMarginStyles}>
+                    Ghosted
                   </Button>
-                  <Button color="white" disabled>
+                  <Button ghosted disabled>
                     Disabled
                   </Button>
                 </div>

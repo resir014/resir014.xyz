@@ -8,6 +8,9 @@ export const systemFonts = {
 }
 
 export const colors = {
+  red20: '#ff3333',
+  red30: '#ff0000',
+  red40: '#e60000',
   orange20: '#f7b955',
   orange30: '#f5a623',
   orange40: '#f49b0b',

@@ -79,7 +79,7 @@ const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
         <HCardNote className="p-note">{author.description}</HCardNote>
         <HCardEmail className="u-email">{author.email}</HCardEmail>
         <HCardFooter>
-          <Button kind="nav-link" to="/contact" color="white">
+          <Button kind="nav-link" to="/contact" color="secondary">
             Contact me
           </Button>
         </HCardFooter>
