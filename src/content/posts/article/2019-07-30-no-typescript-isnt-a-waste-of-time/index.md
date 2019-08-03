@@ -50,7 +50,7 @@ Is this an investment that you would take in the future? It sure is for me, but 
 
 ## You can adopt TypeScript incrementally
 
-Maybe you're already maintaining a medium to large-scale app that's already written in plain ol' JavaScript. And you want to migrate to TypeScript, but are afraid that the red squiggly lines will haunt you in your sleep. How would you
+Maybe you're already maintaining a medium to large-scale app that's already written in plain ol' JavaScript. And you want to migrate to TypeScript, but are afraid that the red squiggly lines will haunt you in your sleep. How would you go about migrating your code?
 
 There are various guides in migrating to TypeScript. There's one in Basarat Ali Syed's awesome [TypeScript Deep Dive](https://basarat.gitbooks.io/typescript/content/docs/types/migrating.html) handbook. I have also written a comprehensive guide [here](https://dev.to/resir014/migrating-to-typescript-part-1-getting-started-n4l).
 
@@ -104,7 +104,7 @@ function ToggleButton({ enabledText, disabledText }: ToggleButtonProps) {
 export default ToggleButton
 ```
 
-On the surface, it looks like static typing has done its job. However, if we take a look closer, we're able to set a custom state text for our toggle button. Sure, TypeScript can check if the string we passed to the `enabledText` and `disabledText` we pass into the component is a string. But that's just half of the battle.
+On the surface, it looks like static typing has done its job. However, if we take a look closer, we're able to set a custom state text for our toggle button. Sure, TypeScript can check if the string we passed to the `enabledText` and `disabledText` props is a string. But that's just half of the battle.
 
 After all, if we've set our button's enabled and disabled state is set to `'On'` and `'Off'` respectively, we want it to correctly show `'Off'` when it's disabled, and `'On'` when it's enabled. Not the other way around.
 
