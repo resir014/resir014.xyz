@@ -28,9 +28,15 @@ Here's a list of all the four file names (verbatim) of the data provided by the 
 
 First things first, the file names themselves are inconsistent, which was mostly just a nitpick from my end. But most importantly, every single circular published since February 2019 has been published in the PDF format, as opposed to the computer-readable Excel format in the first edition of the directory.
 
+![Data provided in Excel format](chrome_ZLV8dCa3Pn.png)
+
 ## Data columns appearing and disappearing each circular
 
 The first Excel sheet published by the OJK had the base essential informations. Company name and address, platform name, the date of registration as well as the registration number. Their February 2019 circular for some reason omitted the company's address, which was an essential information! The May 2019 then added a less-essential information of which OS the platform runs on.
+
+![February 2019 edition](chrome_dC7RcimYAj.png)
+
+![May 2019 edition](chrome_I1pg4iWMcK.png)
 
 All of this inconsistency leads to a big void in the Pinjollist database, where a lot of companies share the same blank address.
 
@@ -45,6 +51,8 @@ As expected, we found an Excel sheel complete with a list of all registered and 
 ![A screenshot of the news section of the OJK website](chrome_hHGkBaqLh2.png)
 
 We ended up having to do some digging through a mountain of press releases and all other nonsense in order to obtain these data. And not only that, all of the updates that were published on the news section were the ones published in PDF format. Meaning there's no easy way to add the contents of this file automatically into our database.
+
+Note that after we download the 15 May 2019 data above, we later found out that a new data was published again in the same section for 31 May 2019, fixing some mistakes in the sharia/non-sharia labelling of some companies.
 
 ## So, what's the point?
 
