@@ -64,6 +64,10 @@ In OJK's case, the data was provided inconsistently in every level. They were pu
 
 Have a centralised repository where you provide your data, and make it available in raw, machine-consumable format by default, like CSV (viewable in Excel). When able, also provide additional data formats like JSON (consumable by web APIs) and/or PDF (consumable by humans). The Jakarta Government does this well with their [data.jakarta.go.id portal](http://data.jakarta.go.id/). They provide a single repository for all the public data they have, available in CSV and JSON format.
 
+![data.jakarta.go.id (1)](chrome_N96as0tApv.png)
+
+![data.jakarta.go.id (2)](chrome_TYr2dP84ZH.png)
+
 I don't know whether the OJK has a centralised database that keeps track. Maybe the data was kept in a single Excel sheet within the agency. Maybe each person within the division that oversees this has different ways of storing this data. But at least we can help them provide a clean, searchable public database of registered and approved P2P lending companies. Because we believe that financial literacy is important, with the first step being to educate people about which companies you should trust with your loans.
 
 That's why [@mathdroid](https://twitter.com/mathdroid) and I built [Pinjollist](https://pinjollist.now.sh). To serve as an open data repository for everyone, including computers. All of our data are consumable through a [public API](https://pinjollist.now.sh/docs), and for non-techies, we provide a [Google spreadsheet](https://docs.google.com/spreadsheets/d/1vbbQG3IPSxJl9dAcGA9xmP5kWGNPF75QGlPA5gpApI0/edit?usp=sharing) of all the data we obtained from the OJK. All of our platform's source code, including the tools we make to process our data, are available on [GitHub](https://github.com/pinjollist/pinjollist). If you have the time, do check it out!
