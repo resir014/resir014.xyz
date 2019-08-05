@@ -63,6 +63,16 @@ const BlogPostFooter = styled('div')`
 `
 
 export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
+  // workaround until this is fixed:
+  // https://github.com/gatsbyjs/gatsby/issues/15286
+  const renderExcerpt = (excerpt: string) => {
+    if (excerpt.length > 141) {
+      return `${excerpt.substring(0, 140).trim()}...`
+    }
+
+    return excerpt
+  }
+
   return (
     <PostDetailBox>
       {node.frontmatter.header_image && (
@@ -81,7 +91,7 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
         </PostTitle>
         {node.fields.lead || node.excerpt ? (
           <BlogPostExcerpt className="p-summary">
-            {node.fields.lead || node.excerpt}
+            {node.fields.lead || renderExcerpt(node.excerpt)}
           </BlogPostExcerpt>
         ) : null}
       </PostContent>

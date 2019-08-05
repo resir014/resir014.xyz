@@ -6,7 +6,7 @@ import { colors } from '../../styles/variables'
 interface BadgeProps {
   className?: string
   style?: React.CSSProperties
-  color?: 'green' | 'blue' | 'orange' | 'purple' | 'magenta' | 'grey' | 'white'
+  color?: 'grey' | 'white'
 }
 
 const Badge: React.FC<BadgeProps> = ({ children, className, style }) => (
@@ -31,43 +31,15 @@ const GreyColorStyles = css`
   background-color: ${colors.grey80};
 `
 
-const GreenColorStyles = css`
-  color: ${colors.black};
-  background-color: ${colors.green30};
-`
-
-const BlueColorStyles = css`
-  color: ${colors.white};
-  background-color: ${colors.blue40};
-`
-
-const OrangeColorStyles = css`
-  color: ${colors.black};
-  background-color: ${colors.orange30};
-`
-
-const PurpleColorStyles = css`
-  color: ${colors.white};
-  background-color: ${colors.purple30};
-`
-
-const MagentaColorStyles = css`
-  color: ${colors.white};
-  background-color: ${colors.magenta30};
-`
-
 export default styled<typeof Badge, BadgeProps>(Badge)`
-  display: inline-block;
-  padding: 0.125em 0.25em;
-  font-size: 85%;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 4px;
+  font-size: 14px;
+  line-height: 20px;
   border: 1px solid transparent;
   border-radius: 3px;
 
   ${props => props.color === 'white' && WhiteColorStyles}
   ${props => props.color === 'grey' && GreyColorStyles}
-  ${props => props.color === 'green' && GreenColorStyles}
-  ${props => props.color === 'blue' && BlueColorStyles}
-  ${props => props.color === 'orange' && OrangeColorStyles}
-  ${props => props.color === 'purple' && PurpleColorStyles}
-  ${props => props.color === 'magenta' && MagentaColorStyles}
 `

@@ -135,9 +135,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <h3>Badge</h3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
-                  <Badge>default</Badge> <Badge color="grey">grey</Badge>{' '}
-                  <Badge color="green">green</Badge> <Badge color="blue">blue</Badge>{' '}
-                  <Badge color="orange">orange</Badge>
+                  <Badge>default</Badge> <Badge color="grey">grey</Badge>
                 </div>
               </WrapperRoot>
               <h3>Button</h3>
@@ -309,16 +307,13 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <h3>Message Box</h3>
               <WrapperRoot>
                 <MessageBox>
-                  <strong>Info:</strong> This post is also published on Medium.
+                  <strong>Info:</strong> This post is also published on{' '}
+                  <a href="https://medium.com/">Medium</a>.
                 </MessageBox>
                 <MessageBox variant="warning">
                   <strong>Update:</strong> Phoenix 1.4 ships with{' '}
                   <a href="https://webpack.js.org/">Webpack</a> by default, therefore this guide is
                   now outdated.
-                </MessageBox>
-                <MessageBox variant="info">
-                  <strong>Protip:</strong> You can always use{' '}
-                  <a href="https://rollupjs.org/">Rollup</a> to bundle libraries with tree-shaking.
                 </MessageBox>
               </WrapperRoot>
 

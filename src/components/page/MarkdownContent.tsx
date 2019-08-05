@@ -100,10 +100,12 @@ const Div = styled('div')`
   }
 
   .message {
+    position: relative;
     margin: 1.5rem 0;
     padding: 1rem;
-    border: 1px solid ${colors.orange30};
-    border-radius: 6px;
+    border: 2px solid transparent;
+    border-image-source: linear-gradient(to right, ${colors.magenta30}, ${colors.orange30});
+    border-image-slice: 1;
 
     &:first-child {
       margin-top: 0;
