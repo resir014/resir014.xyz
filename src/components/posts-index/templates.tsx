@@ -10,9 +10,9 @@ import { BlogPostNode } from '../../types/nodes'
 import { BookmarkLink } from '../bookmark'
 import { ResponsiveVideo } from '../video'
 import { MarkdownContent } from '../page'
+import { NavLinkButton } from '../ui'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
-import { Button } from '../ui'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
@@ -86,9 +86,9 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
         ) : null}
       </PostContent>
       <BlogPostFooter>
-        <Button kind="nav-link" to={node.fields.slug} ghosted>
+        <NavLinkButton to={node.fields.slug} ghosted>
           Read more &rarr;
-        </Button>
+        </NavLinkButton>
       </BlogPostFooter>
     </PostDetailBox>
   )

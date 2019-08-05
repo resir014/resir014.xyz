@@ -8,7 +8,7 @@ import { ProjectField } from '../types/fields'
 
 import TemplateWrapper from '../layouts'
 
-import { Button, Container, Badge, MessageBox } from '../components/ui'
+import { Button, Container, Badge, MessageBox, NavLinkButton, AnchorButton } from '../components/ui'
 import { Page, PageHeader, PageTitle, PageMetaItem, PageContent } from '../components/page'
 import { colors } from '../styles/variables'
 import { BookmarkLink } from '../components/bookmark'
@@ -189,6 +189,49 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button ghosted disabled>
                     Disabled
                   </Button>
+                </div>
+              </WrapperRoot>
+              <h4>NavLinkButton</h4>
+              <WrapperRoot>
+                <div style={buttonWrapperStyles}>
+                  <NavLinkButton to="/" color="primary">
+                    Primary
+                  </NavLinkButton>{' '}
+                  <NavLinkButton to="/" color="secondary">
+                    Secondary
+                  </NavLinkButton>{' '}
+                  <NavLinkButton to="/" color="danger">
+                    Danger
+                  </NavLinkButton>{' '}
+                </div>
+              </WrapperRoot>
+              <h4>AnchorButton</h4>
+              <WrapperRoot>
+                <div style={buttonWrapperStyles}>
+                  <AnchorButton
+                    href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="primary"
+                  >
+                    Primary
+                  </AnchorButton>{' '}
+                  <AnchorButton
+                    href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="secondary"
+                  >
+                    Secondary
+                  </AnchorButton>{' '}
+                  <AnchorButton
+                    href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="danger"
+                  >
+                    Danger
+                  </AnchorButton>{' '}
                 </div>
               </WrapperRoot>
 

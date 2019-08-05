@@ -1,13 +1,11 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import classnames from 'classnames'
 import { transparentize } from 'polished'
 
 import { fonts, colors } from '../../styles/variables'
 
-interface ButtonProps {
+export interface ButtonBaseProps {
   id?: string
   className?: string
   style?: React.CSSProperties
@@ -15,59 +13,32 @@ interface ButtonProps {
   color?: 'primary' | 'secondary' | 'danger'
   size?: 'sm' | 'md' | 'lg'
   ghosted?: boolean
-  href?: string
-  to?: string
-  target?: string
-  rel?: string
   disabled?: boolean
-  onClick?: React.MouseEventHandler
 }
+
+type ButtonProps = ButtonBaseProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button: React.SFC<ButtonProps> = ({
   id,
   className,
   style,
-  kind,
-  href,
-  to,
   disabled,
   onClick,
-  target,
-  children
+  children,
+  ...rest
 }) => {
-  if (kind === 'button') {
-    return (
-      <button
-        id={id}
-        type="button"
-        className={className}
-        style={style}
-        onClick={onClick}
-        disabled={disabled}
-      >
-        {children}
-      </button>
-    )
-  }
-
-  if (kind === 'nav-link' && to) {
-    return (
-      <Link id={id} className={classnames(className, disabled && 'disabled')} style={style} to={to}>
-        {children}
-      </Link>
-    )
-  }
-
   return (
-    <a
+    <button
       id={id}
-      className={classnames(className, disabled && 'disabled')}
+      type="button"
+      className={className}
       style={style}
-      href={href || to}
-      target={target}
+      onClick={onClick}
+      disabled={disabled}
+      {...rest}
     >
       {children}
-    </a>
+    </button>
   )
 }
 
@@ -94,14 +65,16 @@ const DisabledButtonStyles = css`
 const SmallButtonStyles = css`
   padding: 0 16px;
   height: 28px;
-  font-size: 80%;
+  font-size: 14px;
+  line-height: 14px;
   border-radius: 6px;
 `
 
 const MediumButtonStyles = css`
   padding: 0 24px;
   height: 38px;
-  font-size: 90%;
+  font-size: 16px;
+  line-height: 16px;
   border-radius: 8px;
 `
 
@@ -109,6 +82,7 @@ const LargeButtonStyles = css`
   padding: 0 32px;
   height: 52px;
   font-size: 18px;
+  line-height: 18px;
   border-radius: 10px;
 `
 
@@ -176,7 +150,7 @@ const DangerButtonStyles = css`
   ${DisabledButtonStyles}
 `
 
-const ButtonBase = (props: ButtonProps) => css`
+export const ButtonBase = (props: ButtonProps) => css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -184,16 +158,23 @@ const ButtonBase = (props: ButtonProps) => css`
   padding: 0;
   border: none;
   border: 1px solid transparent;
+  background: none;
   font-family: ${fonts.sansSerif};
   text-align: center;
   transition: all 0.3s ease;
 
   &:not(:disabled):not(.disabled) {
     cursor: pointer;
+
+    &:focus, &:active {
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px 0px, rgba(255, 255, 255, 0.25) 0px 0px 0px 4px;
+    }
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
+    outline: none;
     text-decoration: none;
   }
 
