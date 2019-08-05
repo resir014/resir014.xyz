@@ -32,13 +32,13 @@ const GreyColorStyles = css`
 `
 
 const GreenColorStyles = css`
-  color: ${colors.white};
+  color: ${colors.black};
   background-color: ${colors.green30};
 `
 
 const BlueColorStyles = css`
   color: ${colors.white};
-  background-color: ${colors.blue30};
+  background-color: ${colors.blue40};
 `
 
 const OrangeColorStyles = css`

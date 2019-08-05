@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import classnames from 'classnames'
-import { darken, transparentize } from 'polished'
+import { transparentize } from 'polished'
 
 import { fonts, colors } from '../../styles/variables'
 
@@ -12,14 +12,15 @@ interface ButtonProps {
   className?: string
   style?: React.CSSProperties
   kind?: 'button' | 'link' | 'nav-link'
-  color?: 'primary' | 'secondary' | 'danger' | 'white'
+  color?: 'primary' | 'secondary' | 'danger'
   size?: 'sm' | 'md' | 'lg'
+  ghosted?: boolean
   href?: string
   to?: string
   target?: string
   rel?: string
   disabled?: boolean
-  onClick?: () => void
+  onClick?: React.MouseEventHandler
 }
 
 const Button: React.SFC<ButtonProps> = ({
@@ -71,9 +72,24 @@ const Button: React.SFC<ButtonProps> = ({
 }
 
 Button.defaultProps = {
-  color: 'primary',
+  color: 'secondary',
   size: 'md'
 }
+
+const DisabledButtonStyles = css`
+  &:disabled,
+  &.disabled {
+    background-color: ${transparentize(0.5, colors.grey90)};
+    border-color: ${colors.grey70};
+    color: ${colors.white};
+    user-select: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+`
 
 const SmallButtonStyles = css`
   padding: 0 16px;
@@ -96,6 +112,21 @@ const LargeButtonStyles = css`
   border-radius: 10px;
 `
 
+const GhostedButtonStyles = css`
+  margin: -6px -8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+
+  &:not(:disabled):not(.disabled) {
+    color: ${colors.white};
+
+    &:hover,
+    &:focus {
+      background-color: ${transparentize(0.9, colors.white)};
+    }
+  }
+`
+
 const PrimaryButtonStyles = css`
   &:not(:disabled):not(.disabled) {
     background-color: ${colors.blue30};
@@ -103,46 +134,46 @@ const PrimaryButtonStyles = css`
 
     &:hover,
     &:focus {
-      background-color: ${darken(0.15, colors.blue30)};
+      background-color: ${colors.blue40};
     }
   }
+
+  ${DisabledButtonStyles}
 `
 
 const SecondaryButtonStyles = css`
-  &:not(:disabled):not(.disabled) {
-    background-color: ${colors.magenta30};
-    color: ${colors.white};
-
-    &:hover,
-    &:focus {
-      background-color: ${darken(0.15, colors.magenta30)};
-    }
-  }
-`
-
-const DangerButtonStyles = css`
-  &:not(:disabled):not(.disabled) {
-    background-color: ${colors.orange30};
-    color: ${colors.black};
-
-    &:hover,
-    &:focus {
-      background-color: ${darken(0.15, colors.orange30)};
-    }
-  }
-`
-
-const WhiteButtonStyles = css`
   &:not(:disabled):not(.disabled) {
     background: none;
     background-color: ${colors.white};
     color: ${colors.black};
 
-    &:hover,
+    &:hover {
+      background-color: ${colors.grey10};
+    }
+
     &:focus {
-      background-color: ${darken(0.15, colors.white)};
+      background-color: ${colors.grey20};
     }
   }
+
+  ${DisabledButtonStyles}
+`
+
+const DangerButtonStyles = css`
+  &:not(:disabled):not(.disabled) {
+    background-color: ${colors.red30};
+    color: ${colors.white};
+
+    &:hover {
+      background-color: ${colors.red20};
+    }
+
+    &:focus {
+      background-color: ${colors.red40};
+    }
+  }
+
+  ${DisabledButtonStyles}
 `
 
 const ButtonBase = (props: ButtonProps) => css`
@@ -155,38 +186,24 @@ const ButtonBase = (props: ButtonProps) => css`
   border: 1px solid transparent;
   font-family: ${fonts.sansSerif};
   text-align: center;
-  cursor: pointer;
   transition: all 0.3s ease;
 
-  &:disabled,
-  &.disabled {
-    background-color: ${transparentize(0.5, colors.grey90)};
-    border-color: ${colors.grey70};
-    color: ${colors.white};
-    user-select: none;
-    cursor: unset;
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-    }
-  }
-
   &:not(:disabled):not(.disabled) {
-    &:hover,
-    &:focus {
-      text-decoration: none;
-      box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 1px 0px, rgba(255, 255, 255, 0.25) 0px 0px 0px 4px;
-    }
+    cursor: pointer;
   }
 
-  ${props.color === 'primary' && PrimaryButtonStyles}
-  ${props.color === 'secondary' && SecondaryButtonStyles}
-  ${props.color === 'danger' && DangerButtonStyles}
-  ${props.color === 'white' && WhiteButtonStyles}
-  ${props.size === 'sm' && SmallButtonStyles};
-  ${props.size === 'md' && MediumButtonStyles};
-  ${props.size === 'lg' && LargeButtonStyles};
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  ${props.color === 'primary' && !props.ghosted && PrimaryButtonStyles}
+  ${props.color === 'secondary' && !props.ghosted && SecondaryButtonStyles}
+  ${props.color === 'danger' && !props.ghosted && DangerButtonStyles}
+  ${props.size === 'sm' && !props.ghosted && SmallButtonStyles};
+  ${props.size === 'md' && !props.ghosted && MediumButtonStyles};
+  ${props.size === 'lg' && !props.ghosted && LargeButtonStyles};
+  ${props.ghosted && GhostedButtonStyles};
 `
 
 export default styled(Button)(ButtonBase)

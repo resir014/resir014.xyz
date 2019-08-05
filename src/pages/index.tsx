@@ -86,7 +86,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
               homepage
             />
             <HomepageSectionFooter>
-              <Button kind="nav-link" color="primary" size="lg" to="/projects">
+              <Button kind="nav-link" size="lg" to="/projects">
                 View more of my stuff
               </Button>
             </HomepageSectionFooter>

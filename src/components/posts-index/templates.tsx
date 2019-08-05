@@ -12,13 +12,10 @@ import { ResponsiveVideo } from '../video'
 import { MarkdownContent } from '../page'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
+import { Button } from '../ui'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
-`
-
-const FooterLink = styled(Link)`
-  color: ${colors.green30};
 `
 
 const PostThumbnailImage = styled('img')`
@@ -62,7 +59,6 @@ const PostContent = styled('div')`
 `
 
 const BlogPostFooter = styled('div')`
-  margin-top: 1rem;
   padding: 0 1.5rem 1.5rem;
 `
 
@@ -90,7 +86,9 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
         ) : null}
       </PostContent>
       <BlogPostFooter>
-        <FooterLink to={node.fields.slug}>Read more &rarr;</FooterLink>
+        <Button kind="nav-link" to={node.fields.slug} ghosted>
+          Read more &rarr;
+        </Button>
       </BlogPostFooter>
     </PostDetailBox>
   )

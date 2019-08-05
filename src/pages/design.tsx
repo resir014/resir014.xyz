@@ -87,12 +87,26 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <ColorSwatch color={colors.grey70} />
               <ColorSwatch color={colors.grey80} />
               <ColorSwatch color={colors.grey90} />
-              <h4>Accent Colors</h4>
+              <h3>Accent Colors</h3>
+              <h4>Magenta</h4>
               <ColorSwatch color={colors.magenta30} />
+              <h4>Red</h4>
+              <ColorSwatch color={colors.red20} />
+              <ColorSwatch color={colors.red30} />
+              <ColorSwatch color={colors.red40} />
+              <h4>Orange</h4>
+              <ColorSwatch color={colors.orange20} darkText />
               <ColorSwatch color={colors.orange30} darkText />
-              <ColorSwatch color={colors.green30} />
+              <ColorSwatch color={colors.orange40} darkText />
+              <h4>Green</h4>
+              <ColorSwatch color={colors.green30} darkText />
+              <h4>Purple</h4>
               <ColorSwatch color={colors.purple30} />
+              <h4>Blue</h4>
+              <ColorSwatch color={colors.blue20} />
               <ColorSwatch color={colors.blue30} />
+              <ColorSwatch color={colors.blue40} />
+              <h4>Ultramarine</h4>
               <ColorSwatch color={colors.ultramarine30} />
               <h3>Typography</h3>
               <h4>Sans Serif</h4>
@@ -123,29 +137,32 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                 <div style={buttonWrapperStyles}>
                   <Badge>default</Badge> <Badge color="grey">grey</Badge>{' '}
                   <Badge color="green">green</Badge> <Badge color="blue">blue</Badge>{' '}
-                  <Badge color="orange">orange</Badge> <Badge color="purple">purple</Badge>{' '}
-                  <Badge color="magenta">magenta</Badge>
+                  <Badge color="orange">orange</Badge>
                 </div>
               </WrapperRoot>
               <h3>Button</h3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
-                  <Button style={buttonMarginStyles}>Primary</Button>
-                  <Button disabled>Disabled</Button>
-                </div>
-                <div style={buttonWrapperStyles}>
-                  <Button size="sm" style={buttonMarginStyles}>
-                    Small
+                  <Button color="primary" style={buttonMarginStyles}>
+                    Primary
                   </Button>
-                  <Button size="sm" disabled>
+                  <Button color="primary" disabled>
                     Disabled
                   </Button>
                 </div>
                 <div style={buttonWrapperStyles}>
-                  <Button size="lg" style={buttonMarginStyles}>
+                  <Button color="primary" size="sm" style={buttonMarginStyles}>
+                    Small
+                  </Button>
+                  <Button color="primary" size="sm" disabled>
+                    Disabled
+                  </Button>
+                </div>
+                <div style={buttonWrapperStyles}>
+                  <Button color="primary" size="lg" style={buttonMarginStyles}>
                     Large
                   </Button>
-                  <Button size="lg" disabled>
+                  <Button color="primary" size="lg" disabled>
                     Disabled
                   </Button>
                 </div>
@@ -166,10 +183,10 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   </Button>
                 </div>
                 <div style={buttonWrapperStyles}>
-                  <Button color="white" style={buttonMarginStyles}>
-                    White
+                  <Button ghosted style={buttonMarginStyles}>
+                    Ghosted
                   </Button>
-                  <Button color="white" disabled>
+                  <Button ghosted disabled>
                     Disabled
                   </Button>
                 </div>
