@@ -70,7 +70,7 @@ interface ProjectTitleProps {
 const ProjectHeader = styled('div')<ProjectTitleProps>`
   display: flex;
   flex-direction: row;
-  padding: 0.75rem 1rem;
+  padding: 12px 16px;
   background: ${props => colorByCategory(props.category)};
 
   ${ProjectTitle} {
@@ -92,21 +92,14 @@ const ProjectLink = styled(Link)(UnstyledLink)
 const JumpToProjectLink = styled('a')(UnstyledLink)
 
 const ProjectTags = styled('div')`
-  ${Badge} {
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    font-size: 85%;
-    border-radius: 3px;
-  }
-
   ${Badge} + ${Badge} {
-    margin-left: 0.5rem;
+    margin-left: 8px;
   }
 `
 
 const ProjectDetailBox = styled('div')`
   flex: 1 0 auto;
-  padding: 1rem;
+  padding: 16px;
 
   p {
     margin: 0;
@@ -118,8 +111,8 @@ const ProjectDetailBox = styled('div')`
 `
 
 const ProjectFooter = styled('div')`
-  margin-top: 0.5rem;
-  padding: 0 1rem 1rem;
+  margin-top: 8px;
+  padding: 0 16px 16px;
 `
 
 const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
