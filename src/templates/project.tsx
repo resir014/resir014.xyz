@@ -7,7 +7,7 @@ import { ProjectNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import { Button, Container, AnchorButton } from '../components/ui'
+import { Container, AnchorButton } from '../components/ui'
 import {
   Page,
   PageHeader,
