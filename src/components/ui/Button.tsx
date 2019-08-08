@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import { transparentize } from 'polished'
+import { darken, transparentize } from 'polished'
 
 import { fonts, colors } from '../../styles/variables'
 
@@ -97,6 +97,17 @@ const GhostedButtonStyles = css`
     &:hover,
     &:focus {
       background-color: ${transparentize(0.9, colors.white)};
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    color: ${darken(0.5, colors.white)};
+    user-select: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
     }
   }
 `

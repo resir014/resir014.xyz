@@ -31,11 +31,11 @@ interface DesignSystemPageProps {
 }
 
 const buttonWrapperStyles: React.CSSProperties = {
-  padding: '0.5rem 1rem 0.5rem 0px'
+  paddingRight: '16px'
 }
 
 const buttonMarginStyles: React.CSSProperties = {
-  marginRight: '1rem'
+  margin: '8px'
 }
 
 const WrapperRoot = styled('div')`
@@ -148,7 +148,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="primary" style={buttonMarginStyles}>
                     Primary
                   </Button>
-                  <Button color="primary" disabled>
+                  <Button color="primary" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -156,7 +156,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="primary" size="sm" style={buttonMarginStyles}>
                     Small
                   </Button>
-                  <Button color="primary" size="sm" disabled>
+                  <Button color="primary" size="sm" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -164,7 +164,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="primary" size="lg" style={buttonMarginStyles}>
                     Large
                   </Button>
-                  <Button color="primary" size="lg" disabled>
+                  <Button color="primary" size="lg" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -172,7 +172,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="secondary" style={buttonMarginStyles}>
                     Secondary
                   </Button>
-                  <Button color="secondary" disabled>
+                  <Button color="secondary" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -180,7 +180,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="danger" style={buttonMarginStyles}>
                     Danger
                   </Button>
-                  <Button color="danger" disabled>
+                  <Button color="danger" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -188,7 +188,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button ghosted style={buttonMarginStyles}>
                     Ghosted
                   </Button>
-                  <Button ghosted disabled>
+                  <Button ghosted disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -196,15 +196,15 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <h4>NavLinkButton</h4>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
-                  <NavLinkButton to="/" color="primary">
+                  <NavLinkButton to="/" color="primary" style={buttonMarginStyles}>
                     Primary
-                  </NavLinkButton>{' '}
-                  <NavLinkButton to="/" color="secondary">
+                  </NavLinkButton>
+                  <NavLinkButton to="/" color="secondary" style={buttonMarginStyles}>
                     Secondary
-                  </NavLinkButton>{' '}
-                  <NavLinkButton to="/" color="danger">
+                  </NavLinkButton>
+                  <NavLinkButton to="/" color="danger" style={buttonMarginStyles}>
                     Danger
-                  </NavLinkButton>{' '}
+                  </NavLinkButton>
                 </div>
               </WrapperRoot>
               <h4>AnchorButton</h4>
@@ -215,25 +215,28 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     color="primary"
+                    style={buttonMarginStyles}
                   >
                     Primary
-                  </AnchorButton>{' '}
+                  </AnchorButton>
                   <AnchorButton
                     href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
                     target="_blank"
                     rel="noopener noreferrer"
                     color="secondary"
+                    style={buttonMarginStyles}
                   >
                     Secondary
-                  </AnchorButton>{' '}
+                  </AnchorButton>
                   <AnchorButton
                     href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
                     target="_blank"
                     rel="noopener noreferrer"
                     color="danger"
+                    style={buttonMarginStyles}
                   >
                     Danger
-                  </AnchorButton>{' '}
+                  </AnchorButton>
                 </div>
               </WrapperRoot>
 
@@ -289,12 +292,10 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               </WrapperRoot>
               <h3>Bookmark Link</h3>
               <WrapperRoot>
-                <div style={{ padding: '0 0 16px' }}>
-                  <BookmarkLink
-                    title="Accessibility is not a “React Problem”"
-                    link="https://www.netlify.com/blog/2019/02/25/accessibility-is-not-a-react-problem/"
-                  />
-                </div>
+                <BookmarkLink
+                  title="Accessibility is not a “React Problem”"
+                  link="https://www.netlify.com/blog/2019/02/25/accessibility-is-not-a-react-problem/"
+                />
               </WrapperRoot>
               <h3>Post Metadata</h3>
               <WrapperRoot>

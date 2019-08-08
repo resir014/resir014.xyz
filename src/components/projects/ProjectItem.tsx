@@ -56,7 +56,7 @@ interface ProjectTitleProps {
 const ProjectHeader = styled('div')<ProjectTitleProps>`
   display: flex;
   flex-direction: row;
-  padding: 8px 16px 0;
+  padding: 12px 16px 0;
   border-top: 4px solid transparent;
   border-image-source: ${props => colorByCategory(props.category)};
   border-image-slice: 1;
