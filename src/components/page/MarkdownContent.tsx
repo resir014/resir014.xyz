@@ -1,5 +1,9 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import convert from 'htmr'
+import { HtmrOptions } from 'htmr/src/types'
+import { Link } from 'gatsby'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import { colors, emSizes, pxSizes } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
@@ -9,11 +13,25 @@ interface MarkdownContentProps {
   html: string
 }
 
-const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html, children }) => (
-  <Div className={className} dangerouslySetInnerHTML={{ __html: html }}>
-    {children}
-  </Div>
-)
+const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) => {
+  const transform: HtmrOptions['transform'] = {
+    a: (node: Partial<React.ReactHTMLElement<HTMLAnchorElement>['props']>) => {
+      const { href } = node
+
+      if (href && href.substr(0, 4) === 'http') {
+        return <OutboundLink href={href}>{node.children}</OutboundLink>
+      }
+
+      if (href) {
+        return <Link to={href}>{node.children}</Link>
+      }
+
+      return <a href={href}>{node.children}</a>
+    }
+  }
+
+  return <Div className={className}>{convert(html, { transform })}</Div>
+}
 
 export default MarkdownContent
 
