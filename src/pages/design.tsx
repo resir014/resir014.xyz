@@ -105,13 +105,17 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <ColorSwatch color={colors.green30} darkText />
               <ColorSwatch color={colors.green40} darkText />
               <h4>Purple</h4>
+              <ColorSwatch color={colors.purple20} />
               <ColorSwatch color={colors.purple30} />
+              <ColorSwatch color={colors.purple40} />
               <h4>Blue</h4>
               <ColorSwatch color={colors.blue20} />
               <ColorSwatch color={colors.blue30} />
               <ColorSwatch color={colors.blue40} />
               <h4>Ultramarine</h4>
+              <ColorSwatch color={colors.ultramarine20} />
               <ColorSwatch color={colors.ultramarine30} />
+              <ColorSwatch color={colors.ultramarine40} />
               <h3>Typography</h3>
               <h4>Sans Serif</h4>
               <WrapperRoot>
