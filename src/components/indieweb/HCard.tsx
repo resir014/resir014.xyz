@@ -6,7 +6,7 @@ import { colors, emSizes, fonts, pxSizes, layerShadows } from '../../styles/vari
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import { getEmSize } from '../../styles/mixins'
-import { Button } from '../ui'
+import { NavLinkButton } from '../ui'
 
 interface HCardProps {
   className?: string
@@ -79,9 +79,9 @@ const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
         <HCardNote className="p-note">{author.description}</HCardNote>
         <HCardEmail className="u-email">{author.email}</HCardEmail>
         <HCardFooter>
-          <Button kind="nav-link" to="/contact" ghosted>
+          <NavLinkButton to="/contact" ghosted>
             Contact me &rarr;
-          </Button>
+          </NavLinkButton>
         </HCardFooter>
       </HCardDetails>
     </Inner>

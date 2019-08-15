@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { Button, Badge } from '../ui'
+import { Badge, NavLinkButton } from '../ui'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { colors, pxSizes, layerShadows } from '../../styles/variables'
@@ -107,9 +107,9 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className }) =>
           ) : null}
         </FeaturedProjectDescription>
         <FeaturedProjectFooter>
-          <Button kind="nav-link" ghosted size="lg" to={node.fields.slug}>
+          <NavLinkButton ghosted size="lg" to={node.fields.slug}>
             Visit project &rarr;
-          </Button>
+          </NavLinkButton>
         </FeaturedProjectFooter>
       </FeaturedProjectDetails>
     </FeaturedProjectWrapper>

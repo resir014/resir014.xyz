@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import Button from '../ui/Button'
+import { Button, NavLinkButton } from '../ui'
 
 interface PaginationLinkProps {
   test: boolean
@@ -15,17 +15,23 @@ const StyledPaginationLink = styled(Button)`
   margin-right: 0.5rem;
 `
 
+const StyledPaginationNavLink = styled(NavLinkButton)`
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+`
+
 const PaginationLink: React.SFC<PaginationLinkProps> = ({ test, url, text }) => {
   if (!test) {
     return (
-      <StyledPaginationLink kind="nav-link" color="primary" size="lg" to={url}>
+      <StyledPaginationNavLink color="primary" size="lg" to={url}>
         {text}
-      </StyledPaginationLink>
+      </StyledPaginationNavLink>
     )
   }
 
   return (
-    <StyledPaginationLink kind="button" size="lg" disabled>
+    <StyledPaginationLink size="lg" disabled>
       {text}
     </StyledPaginationLink>
   )

@@ -11,7 +11,7 @@ import TemplateWrapper from '../layouts'
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 
 import { Page } from '../components/page'
-import { Button, Divider } from '../components/ui'
+import { Divider, NavLinkButton } from '../components/ui'
 import { HCard } from '../components/indieweb'
 import { FeaturedProject, ProjectItemList } from '../components/projects'
 import {
@@ -86,9 +86,9 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
               homepage
             />
             <HomepageSectionFooter>
-              <Button kind="nav-link" size="lg" to="/projects">
+              <NavLinkButton size="lg" to="/projects">
                 View more of my stuff
-              </Button>
+              </NavLinkButton>
             </HomepageSectionFooter>
           </HomepageSection>
           <Divider spacing="large" center />

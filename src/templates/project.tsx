@@ -7,7 +7,7 @@ import { ProjectNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import { Button, Container } from '../components/ui'
+import { Container, AnchorButton } from '../components/ui'
 import {
   Page,
   PageHeader,
@@ -31,8 +31,7 @@ interface ProjectTemplateProps {
 }
 
 const renderLink = (url: string, jumpToProject: boolean) => (
-  <Button
-    kind="link"
+  <AnchorButton
     color="primary"
     size="lg"
     href={url}
@@ -40,7 +39,7 @@ const renderLink = (url: string, jumpToProject: boolean) => (
     rel={jumpToProject ? 'noopener noreferrer' : undefined}
   >
     Visit project
-  </Button>
+  </AnchorButton>
 )
 
 const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data }) => {

@@ -8,7 +8,7 @@ import { ProjectField } from '../types/fields'
 
 import TemplateWrapper from '../layouts'
 
-import { Button, Container, Badge, MessageBox } from '../components/ui'
+import { Button, Container, Badge, MessageBox, NavLinkButton, AnchorButton } from '../components/ui'
 import { Page, PageHeader, PageTitle, PageMetaItem, PageContent } from '../components/page'
 import { colors } from '../styles/variables'
 import { BookmarkLink } from '../components/bookmark'
@@ -31,11 +31,11 @@ interface DesignSystemPageProps {
 }
 
 const buttonWrapperStyles: React.CSSProperties = {
-  padding: '0.5rem 1rem 0.5rem 0px'
+  paddingRight: '16px'
 }
 
 const buttonMarginStyles: React.CSSProperties = {
-  marginRight: '1rem'
+  margin: '8px'
 }
 
 const WrapperRoot = styled('div')`
@@ -89,7 +89,9 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <ColorSwatch color={colors.grey90} />
               <h3>Accent Colors</h3>
               <h4>Magenta</h4>
+              <ColorSwatch color={colors.magenta20} />
               <ColorSwatch color={colors.magenta30} />
+              <ColorSwatch color={colors.magenta40} />
               <h4>Red</h4>
               <ColorSwatch color={colors.red20} />
               <ColorSwatch color={colors.red30} />
@@ -99,15 +101,21 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <ColorSwatch color={colors.orange30} darkText />
               <ColorSwatch color={colors.orange40} darkText />
               <h4>Green</h4>
+              <ColorSwatch color={colors.green20} darkText />
               <ColorSwatch color={colors.green30} darkText />
+              <ColorSwatch color={colors.green40} darkText />
               <h4>Purple</h4>
+              <ColorSwatch color={colors.purple20} />
               <ColorSwatch color={colors.purple30} />
+              <ColorSwatch color={colors.purple40} />
               <h4>Blue</h4>
               <ColorSwatch color={colors.blue20} />
               <ColorSwatch color={colors.blue30} />
               <ColorSwatch color={colors.blue40} />
               <h4>Ultramarine</h4>
+              <ColorSwatch color={colors.ultramarine20} />
               <ColorSwatch color={colors.ultramarine30} />
+              <ColorSwatch color={colors.ultramarine40} />
               <h3>Typography</h3>
               <h4>Sans Serif</h4>
               <WrapperRoot>
@@ -135,9 +143,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <h3>Badge</h3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
-                  <Badge>default</Badge> <Badge color="grey">grey</Badge>{' '}
-                  <Badge color="green">green</Badge> <Badge color="blue">blue</Badge>{' '}
-                  <Badge color="orange">orange</Badge>
+                  <Badge>default</Badge> <Badge color="grey">grey</Badge>
                 </div>
               </WrapperRoot>
               <h3>Button</h3>
@@ -146,7 +152,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="primary" style={buttonMarginStyles}>
                     Primary
                   </Button>
-                  <Button color="primary" disabled>
+                  <Button color="primary" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -154,7 +160,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="primary" size="sm" style={buttonMarginStyles}>
                     Small
                   </Button>
-                  <Button color="primary" size="sm" disabled>
+                  <Button color="primary" size="sm" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -162,7 +168,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="primary" size="lg" style={buttonMarginStyles}>
                     Large
                   </Button>
-                  <Button color="primary" size="lg" disabled>
+                  <Button color="primary" size="lg" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -170,7 +176,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="secondary" style={buttonMarginStyles}>
                     Secondary
                   </Button>
-                  <Button color="secondary" disabled>
+                  <Button color="secondary" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -178,7 +184,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button color="danger" style={buttonMarginStyles}>
                     Danger
                   </Button>
-                  <Button color="danger" disabled>
+                  <Button color="danger" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -186,9 +192,55 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <Button ghosted style={buttonMarginStyles}>
                     Ghosted
                   </Button>
-                  <Button ghosted disabled>
+                  <Button ghosted disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
+                </div>
+              </WrapperRoot>
+              <h4>NavLinkButton</h4>
+              <WrapperRoot>
+                <div style={buttonWrapperStyles}>
+                  <NavLinkButton to="/" color="primary" style={buttonMarginStyles}>
+                    Primary
+                  </NavLinkButton>
+                  <NavLinkButton to="/" color="secondary" style={buttonMarginStyles}>
+                    Secondary
+                  </NavLinkButton>
+                  <NavLinkButton to="/" color="danger" style={buttonMarginStyles}>
+                    Danger
+                  </NavLinkButton>
+                </div>
+              </WrapperRoot>
+              <h4>AnchorButton</h4>
+              <WrapperRoot>
+                <div style={buttonWrapperStyles}>
+                  <AnchorButton
+                    href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="primary"
+                    style={buttonMarginStyles}
+                  >
+                    Primary
+                  </AnchorButton>
+                  <AnchorButton
+                    href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="secondary"
+                    style={buttonMarginStyles}
+                  >
+                    Secondary
+                  </AnchorButton>
+                  <AnchorButton
+                    href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="danger"
+                    style={buttonMarginStyles}
+                  >
+                    Danger
+                  </AnchorButton>
                 </div>
               </WrapperRoot>
 
@@ -244,12 +296,10 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               </WrapperRoot>
               <h3>Bookmark Link</h3>
               <WrapperRoot>
-                <div style={{ padding: '0 0 16px' }}>
-                  <BookmarkLink
-                    title="Accessibility is not a “React Problem”"
-                    link="https://www.netlify.com/blog/2019/02/25/accessibility-is-not-a-react-problem/"
-                  />
-                </div>
+                <BookmarkLink
+                  title="Accessibility is not a “React Problem”"
+                  link="https://www.netlify.com/blog/2019/02/25/accessibility-is-not-a-react-problem/"
+                />
               </WrapperRoot>
               <h3>Post Metadata</h3>
               <WrapperRoot>
@@ -266,16 +316,13 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <h3>Message Box</h3>
               <WrapperRoot>
                 <MessageBox>
-                  <strong>Info:</strong> This post is also published on Medium.
+                  <strong>Info:</strong> This post is also published on{' '}
+                  <a href="https://medium.com/">Medium</a>.
                 </MessageBox>
                 <MessageBox variant="warning">
                   <strong>Update:</strong> Phoenix 1.4 ships with{' '}
                   <a href="https://webpack.js.org/">Webpack</a> by default, therefore this guide is
                   now outdated.
-                </MessageBox>
-                <MessageBox variant="info">
-                  <strong>Protip:</strong> You can always use{' '}
-                  <a href="https://rollupjs.org/">Rollup</a> to bundle libraries with tree-shaking.
                 </MessageBox>
               </WrapperRoot>
 

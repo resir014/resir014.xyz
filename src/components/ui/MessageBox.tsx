@@ -6,11 +6,12 @@ import { colors } from '../../styles/variables'
 
 interface MessageBoxProps {
   className?: string
-  variant?: 'default' | 'warning' | 'info'
+  variant?: 'default' | 'warning'
 }
 
 const DefaultStyles = css`
-  border-color: ${colors.green30};
+  border-image-source: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
+  border-image-slice: 1;
 
   a {
     color: ${colors.green30};
@@ -18,26 +19,18 @@ const DefaultStyles = css`
 `
 
 const WarningStyles = css`
-  border-color: ${colors.orange30};
+  border-image-source: linear-gradient(to right, ${colors.red30}, ${colors.orange30});
+  border-image-slice: 1;
 
   a {
     color: ${colors.orange30};
   }
 `
 
-const InfoStyles = css`
-  border-color: ${colors.blue30};
-
-  a {
-    color: ${colors.blue30};
-  }
-`
-
 const Root = styled<'div', MessageBoxProps>('div')`
   margin: 1.5rem 0;
   padding: 1rem;
-  border: 1px solid ${colors.green30};
-  border-radius: 6px;
+  border: 2px solid transparent;
 
   &:first-child {
     margin-top: 0;
@@ -61,7 +54,6 @@ const Root = styled<'div', MessageBoxProps>('div')`
 
   ${props => props.variant === 'default' && DefaultStyles}
   ${props => props.variant === 'warning' && WarningStyles}
-  ${props => props.variant === 'info' && InfoStyles}
 `
 
 const MessageBox: React.SFC<MessageBoxProps> = ({ className, children, ...rest }) => (

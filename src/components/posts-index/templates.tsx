@@ -10,9 +10,9 @@ import { BlogPostNode } from '../../types/nodes'
 import { BookmarkLink } from '../bookmark'
 import { ResponsiveVideo } from '../video'
 import { MarkdownContent } from '../page'
+import { NavLinkButton } from '../ui'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
-import { Button } from '../ui'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
@@ -63,6 +63,16 @@ const BlogPostFooter = styled('div')`
 `
 
 export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
+  // workaround until this is fixed:
+  // https://github.com/gatsbyjs/gatsby/issues/15286
+  const renderExcerpt = (excerpt: string) => {
+    if (excerpt.length > 141) {
+      return `${excerpt.substring(0, 140).trim()}...`
+    }
+
+    return excerpt
+  }
+
   return (
     <PostDetailBox>
       {node.frontmatter.header_image && (
@@ -81,14 +91,14 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
         </PostTitle>
         {node.fields.lead || node.excerpt ? (
           <BlogPostExcerpt className="p-summary">
-            {node.fields.lead || node.excerpt}
+            {node.fields.lead || renderExcerpt(node.excerpt)}
           </BlogPostExcerpt>
         ) : null}
       </PostContent>
       <BlogPostFooter>
-        <Button kind="nav-link" to={node.fields.slug} ghosted>
+        <NavLinkButton to={node.fields.slug} ghosted>
           Read more &rarr;
-        </Button>
+        </NavLinkButton>
       </BlogPostFooter>
     </PostDetailBox>
   )

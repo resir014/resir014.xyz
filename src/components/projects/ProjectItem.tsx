@@ -1,43 +1,37 @@
 /* eslint-disable react/no-danger */
 import * as React from 'react'
-import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import { Link } from 'gatsby'
 
-import { colors, fonts, layerShadows } from '../../styles/variables'
+import { colors, layerShadows } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
-import { Badge } from '../ui'
+import { Badge, AnchorButton, NavLinkButton } from '../ui'
 
 const colorByCategory = (category: string) => {
   switch (category) {
     case 'web':
-      return `linear-gradient(to right, ${colors.magenta30}, ${colors.purple30})`
+      return `linear-gradient(to right, ${colors.ultramarine30}, ${colors.purple30})`
     case 'oss':
-      return `linear-gradient(to right, ${colors.purple30}, ${colors.blue30})`
+      return `linear-gradient(to right, ${colors.purple30}, ${colors.green30})`
     case 'other':
-      return `linear-gradient(to right, ${colors.magenta30}, ${colors.orange30})`
+      return `linear-gradient(to right, ${colors.red30}, ${colors.orange30})`
     default:
       return `linear-gradient(to right, ${colors.grey70}, ${colors.grey50})`
   }
 }
 
-const renderLink = (title: string, category: string, url: string, jumpToProject: boolean) => {
+const renderLink = (url: string, jumpToProject: boolean = false) => {
   if (jumpToProject) {
     return (
-      <JumpToProjectLink href={url} target="_blank" rel="noopener noreferrer">
-        <ProjectHeader category={category}>
-          <ProjectTitle>{title} &rarr;</ProjectTitle>
-        </ProjectHeader>
-      </JumpToProjectLink>
+      <AnchorButton ghosted href={url} target="_blank" rel="noopener noreferrer">
+        Go to project &rarr;
+      </AnchorButton>
     )
   }
 
   return (
-    <ProjectLink to={url}>
-      <ProjectHeader category={category}>
-        <ProjectTitle>{title} &rarr;</ProjectTitle>
-      </ProjectHeader>
-    </ProjectLink>
+    <NavLinkButton ghosted to={url}>
+      Go to project &rarr;
+    </NavLinkButton>
   )
 }
 
@@ -46,7 +40,6 @@ const StyledProjectItem = styled('div')`
   flex-direction: column;
   position: relative;
   flex: 1 1 100%;
-  height: 240px;
   margin-bottom: 2rem;
   background-color: ${colors.grey90};
   border-radius: 4px;
@@ -54,14 +47,7 @@ const StyledProjectItem = styled('div')`
   box-shadow: ${layerShadows.single};
 `
 
-const ProjectYear = styled('span')`
-  display: inline-block;
-  font-size: 1.25rem;
-  font-family: ${fonts.sansSerif};
-  color: ${colors.grey30};
-`
-
-const ProjectTitle = styled('h4')``
+const ProjectTitle = styled('h3')``
 
 interface ProjectTitleProps {
   category: string
@@ -70,8 +56,10 @@ interface ProjectTitleProps {
 const ProjectHeader = styled('div')<ProjectTitleProps>`
   display: flex;
   flex-direction: row;
-  padding: 0.75rem 1rem;
-  background: ${props => colorByCategory(props.category)};
+  padding: 12px 16px 0;
+  border-top: 4px solid transparent;
+  border-image-source: ${props => colorByCategory(props.category)};
+  border-image-slice: 1;
 
   ${ProjectTitle} {
     flex: 1 1 auto;
@@ -80,33 +68,17 @@ const ProjectHeader = styled('div')<ProjectTitleProps>`
   }
 `
 
-const UnstyledLink = css`
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-`
-
-const ProjectLink = styled(Link)(UnstyledLink)
-
-const JumpToProjectLink = styled('a')(UnstyledLink)
-
 const ProjectTags = styled('div')`
-  ${Badge} {
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    font-size: 85%;
-    border-radius: 3px;
-  }
+  margin-top: 16px;
 
   ${Badge} + ${Badge} {
-    margin-left: 0.5rem;
+    margin-left: 8px;
   }
 `
 
 const ProjectDetailBox = styled('div')`
   flex: 1 0 auto;
-  padding: 1rem;
+  padding: 8px 16px 16px;
 
   p {
     margin: 0;
@@ -118,29 +90,25 @@ const ProjectDetailBox = styled('div')`
 `
 
 const ProjectFooter = styled('div')`
-  margin-top: 0.5rem;
-  padding: 0 1rem 1rem;
+  padding: 0 16px 16px;
 `
 
 const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
   const tags = node.fields.tags ? (JSON.parse(node.fields.tags) as string[]) : undefined
   const { title } = node.frontmatter
-  const { description, lead, category, year, project_url, slug, jumpToProject } = node.fields
+  const { description, lead, category, project_url, slug, jumpToProject } = node.fields
 
   return (
     <StyledProjectItem>
-      {jumpToProject === 'true' && project_url
-        ? renderLink(title, category, project_url, true)
-        : renderLink(title, category, slug, false)}
+      <ProjectHeader category={category}>
+        <ProjectTitle>{title}</ProjectTitle>
+      </ProjectHeader>
       <ProjectDetailBox>
-        <ProjectYear>{year}</ProjectYear>
         <p
           dangerouslySetInnerHTML={{
             __html: description || lead
           }}
         />
-      </ProjectDetailBox>
-      <ProjectFooter>
         {tags ? (
           <ProjectTags>
             {tags.map(tag => (
@@ -148,6 +116,9 @@ const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
             ))}
           </ProjectTags>
         ) : null}
+      </ProjectDetailBox>
+      <ProjectFooter>
+        {jumpToProject === 'true' && project_url ? renderLink(project_url, true) : renderLink(slug)}
       </ProjectFooter>
     </StyledProjectItem>
   )
