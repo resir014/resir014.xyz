@@ -21,6 +21,10 @@ Where programmers share ideas and help each other grow.
 
 Mostly just retweets now.
 
+### [Mixer](https://mixer.com/resir014)
+
+I'll eventually use this to stream games/webdev stuff.
+
 ### [Mastodon](/mastodon)
 
 A fancy distributed social network.
