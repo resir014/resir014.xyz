@@ -22,8 +22,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
+    "@styled-system/should-forward-prop": "^5.1.0",
     "classnames": "^2.2.6",
     "dotenv": "^8.0.0",
+    "emotion-theming": "^10.0.14",
     "gatsby": "^2.13.35",
     "gatsby-image": "^2.2.6",
     "gatsby-paginate": "^1.1.0",
@@ -61,6 +63,7 @@
     "react-dom": "16.8.6",
     "react-helmet": "^5.2.1",
     "slug": "^1.1.0",
+    "styled-system": "^5.1.0",
     "typescript": "3.5.3",
     "url-parse": "^1.4.7"
   },
@@ -70,6 +73,7 @@
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
+    "@types/styled-system": "^5.1.0",
     "@types/url-parse": "^1.4.3",
     "eslint": "^5.16.0",
     "eslint-config-blvd": "^0.2.0",
