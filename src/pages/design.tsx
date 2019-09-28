@@ -15,6 +15,7 @@ import { BookmarkLink } from '../components/bookmark'
 import { PostIndexItemMeta } from '../components/posts-index'
 import { FeaturedProject, ProjectCard } from '../components/projects'
 import { ColorSwatch, TypographySpecimen } from '../components/design'
+import { Text, Heading } from '../components/chungking-core'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
 import ProjectItem from '../components/projects/ProjectItem'
@@ -137,6 +138,83 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                 <TypographySpecimen fontFamily="monospace" weight={700}>
                   Monospace - 700
                 </TypographySpecimen>
+              </WrapperRoot>
+
+              <h3>Type Scale</h3>
+              <h4>Heading</h4>
+              <WrapperRoot>
+                <Heading scale="canon" my="md">
+                  Heading - Canon
+                </Heading>
+                <Heading scale="trafalgar" my="md">
+                  Heading - Trafalgar
+                </Heading>
+                <Heading scale="paragon" my="md">
+                  Heading - Paragon
+                </Heading>
+                <Heading scale="doublePica" my="md">
+                  Heading - Double Pica
+                </Heading>
+                <Heading scale="greatPrimer" my="md">
+                  Heading - Great Primer
+                </Heading>
+                <Heading scale="body" my="md">
+                  Heading - Body Copy
+                </Heading>
+                <Heading scale="pica" my="md">
+                  Heading - Pica
+                </Heading>
+                <Heading scale="longPrimer" my="md">
+                  Heading - Long Primer
+                </Heading>
+                <Heading scale="brevier" my="md">
+                  Heading - Brevier
+                </Heading>
+                <Heading scale="minion" my="md">
+                  Heading - Minion
+                </Heading>
+              </WrapperRoot>
+              <h4>Text</h4>
+              <WrapperRoot>
+                <Text scale="canon" display="block" my="sm">
+                  Text - Canon
+                </Text>
+                <Text scale="trafalgar" display="block" my="sm">
+                  Text - Trafalgar
+                </Text>
+                <Text scale="paragon" display="block" my="sm">
+                  Text - Paragon
+                </Text>
+                <Text scale="doublePica" display="block" my="sm">
+                  Text - Double Pica
+                </Text>
+                <Text scale="greatPrimer" display="block" my="sm">
+                  Text - Great Primer
+                </Text>
+                <Text scale="body" display="block" my="sm">
+                  Text - Body Copy
+                </Text>
+                <Text scale="pica" display="block" my="sm">
+                  Text - Pica
+                </Text>
+                <Text scale="longPrimer" display="block" my="sm">
+                  Text - Long Primer
+                </Text>
+                <Text scale="brevier" display="block" my="sm">
+                  Text - Brevier
+                </Text>
+                <Text scale="minion" display="block" my="sm">
+                  Text - Minion
+                </Text>
+              </WrapperRoot>
+              <h4>Monospace</h4>
+              <WrapperRoot>
+                <Text scale="pica" display="block" fontFamily="monospace" fontWeight={400}>
+                  Text - Pica - Monospace - 400
+                </Text>
+                <Text scale="pica" display="block" fontFamily="monospace" fontWeight={700}>
+                  Text - Pica - Monospace - 700
+                </Text>
               </WrapperRoot>
 
               <h2>Components</h2>

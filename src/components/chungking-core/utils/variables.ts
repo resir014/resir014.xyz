@@ -74,7 +74,7 @@ export const breakpoints = {
  * Typography scaling following BBC's GEL:
  * https://www.bbc.co.uk/gel/guidelines/typography
  */
-export const textSizes = {
+export const typeScale = {
   canon: {
     sm: {
       fontSize: 32,
