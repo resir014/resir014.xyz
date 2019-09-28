@@ -39,6 +39,7 @@ If you want to jump straight to the examples, I've also published a sample proje
 - **2018-12-08:** Updated `Dispatch` to be imported from `redux` instead of `react-redux`. The guide is also now tested to work on TypeScript `^3.0.0`. (Thanks [cancerberoSgx](https://github.com/resir014/react-redux-typescript-example/pull/2)!)
 - **2019-01-05:** Changed `const enum`s to `enum`s due to Babel not supporting it. (Thanks [Kyle Gillen](https://github.com/nextriot)!)
 - **2019-03-09:** The latest version of `react-redux` broke the typings for the"children-props-as-redux-container" approach I mentioned in the previous version of this post. I would suggest against using this pattern nowadays, but if you still want to use it, I've upgraded the corresponding section in this article to have the same pattern, making use of the newly-introduced `ReactReduxContext`.
+- **2019-09-22:** The above pattern breaks on a Create React App setup. The entire `LayoutContainer` is now rewritten using built-in `react-redux` hooks.
 
 ---
 
@@ -380,13 +381,13 @@ Now let's hook everything up with React.
 
 ### Container components
 
-**Update:** The latest version of `react-redux` broke the typings for the"children-props-as-redux-container" approach I mentioned in the previous version of this post. I would suggest against using this pattern nowadays, but if you still want to use it, here's a way to upgrade, using the newly-introduced ReactReduxContext:
+**Update:** The latest version of `react-redux` broke the typings for the"children-props-as-redux-container" approach I mentioned in the previous version of this post. I would suggest against using this pattern nowadays, but if you still want to use it, here's a way to upgrade, using the brand-new `useDispatch` and `useSelector` hooks:
 
 ```tsx
 // ./src/containers/LayoutContainer
 
 import * as React from 'react'
-import { ReactReduxContext } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { ApplicationState } from '../store'
 import { ThemeColors } from '../store/layout'
@@ -400,42 +401,30 @@ interface LayoutContainerProps {
 
 // Wrapper props for render/children callback.
 interface LayoutContainerRenderProps {
-  render?: (props: LayoutContainerProps) => React.ReactNode
-  children?: (props: LayoutContainerProps) => React.ReactNode
+  render?: (props: LayoutContainerProps) => React.ReactElement
+  children?: (props: LayoutContainerProps) => React.ReactElement
 }
 
 // ...
 
 const LayoutContainer: React.FC<LayoutContainerRenderProps> = ({ render, children }) => {
-  // Here we do a bit of a hack. Since the latest react-redux typings broke the
-  // "children-props-as-redux-container" approach on the previous version of this guide,
-  // we use the newly-introduced `ReactReduxContext` consumer to get our state, and map the
-  // `theme` state and the `setTheme` action call inside it.
-  return (
-    <ReactReduxContext.Consumer>
-      {({ store }) => {
-        // Use the standard `store.getState()` redux function to get the root state, and cast
-        // it with our ApplicationState type.
-        const state: ApplicationState = store.getState()
+  // We can use Hooks to call in our selector/dispatch functions.
+  const { theme } = useSelector((state: ApplicationState) => state.layout)
+  const dispatch = useDispatch()
 
-        // Obtain the `theme` state and the `setTheme` action.
-        // Note that per Redux conventions actions MUST be wrapped inside `store.dispatch()`
-        const theme = state.layout.theme
-        const setTheme = (theme: ThemeColors) => store.dispatch(layoutActions.setTheme(theme))
+  // Create the `setTheme` handler. We use the `dispatch` we got from `useDispatch()` to create said selector.
+  const setTheme = (color: ThemeColors) => dispatch(layoutActions.setTheme(color))
 
-        // Create a render/children props wrapper with the above variables set as a callback.
-        if (render) {
-          return render({ theme, setTheme })
-        }
+  // Create a render/children props wrapper with the above variables set as a callback.
+  if (render) {
+    return render({ theme, setTheme })
+  }
 
-        if (children) {
-          return children({ theme, setTheme })
-        }
+  if (children) {
+    return children({ theme, setTheme })
+  }
 
-        return null
-      }}
-    </ReactReduxContext.Consumer>
-  )
+  return null
 }
 
 export default LayoutContainer
