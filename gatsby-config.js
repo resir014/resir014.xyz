@@ -203,7 +203,7 @@ module.exports = {
               }
             `,
             output: '/posts/rss.xml',
-            feedTitle: 'All posts by @resir014'
+            title: 'All posts by @resir014'
           }
         ]
       }
