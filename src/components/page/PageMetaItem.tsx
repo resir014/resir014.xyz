@@ -1,17 +1,14 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { Text } from '../chungking-core'
 
 interface PostMetaItemProps {
   className?: string
 }
 
-const PageMetaItem: React.SFC<PostMetaItemProps> = ({ className, children }) => (
-  <Span className={className}>{children}</Span>
-)
+const Span = styled(Text)`
+  text-transform: uppercase;
 
-export default PageMetaItem
-
-const Span = styled('span')`
   &:not(:first-of-type) {
     margin-left: 0.5rem;
 
@@ -25,3 +22,11 @@ const Span = styled('span')`
     color: inherit;
   }
 `
+
+const PageMetaItem: React.SFC<PostMetaItemProps> = ({ className, children }) => (
+  <Span scale="pica" fontWeight={300} className={className}>
+    {children}
+  </Span>
+)
+
+export default PageMetaItem

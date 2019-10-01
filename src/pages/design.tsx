@@ -14,8 +14,22 @@ import { colors } from '../styles/variables'
 import { BookmarkLink } from '../components/bookmark'
 import { PostIndexItemMeta } from '../components/posts-index'
 import { FeaturedProject, ProjectCard } from '../components/projects'
-import { ColorSwatch, TypographySpecimen } from '../components/design'
-import { Text, Heading } from '../components/chungking-core'
+import { ColorSwatch } from '../components/design'
+import {
+  Text,
+  Heading,
+  P,
+  UL,
+  OL,
+  LI,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  InlineCode
+} from '../components/chungking-core'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
 import ProjectItem from '../components/projects/ProjectItem'
@@ -73,12 +87,12 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
           </PageHeader>
           <PageContent>
             <Container>
-              <h2>Foundations</h2>
-              <h3>Colors</h3>
-              <h4>Primary</h4>
+              <H2>Foundations</H2>
+              <H3>Colors</H3>
+              <H4>Primary</H4>
               <ColorSwatch color={colors.white} darkText />
               <ColorSwatch color={colors.black} />
-              <h4>Secondary</h4>
+              <H4>Secondary</H4>
               <ColorSwatch color={colors.grey10} darkText />
               <ColorSwatch color={colors.grey20} darkText />
               <ColorSwatch color={colors.grey30} darkText />
@@ -88,60 +102,37 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <ColorSwatch color={colors.grey70} />
               <ColorSwatch color={colors.grey80} />
               <ColorSwatch color={colors.grey90} />
-              <h3>Accent Colors</h3>
-              <h4>Magenta</h4>
+              <H3>Accent Colors</H3>
+              <H4>Magenta</H4>
               <ColorSwatch color={colors.magenta20} />
               <ColorSwatch color={colors.magenta30} />
               <ColorSwatch color={colors.magenta40} />
-              <h4>Red</h4>
+              <H4>Red</H4>
               <ColorSwatch color={colors.red20} />
               <ColorSwatch color={colors.red30} />
               <ColorSwatch color={colors.red40} />
-              <h4>Orange</h4>
+              <H4>Orange</H4>
               <ColorSwatch color={colors.orange20} darkText />
               <ColorSwatch color={colors.orange30} darkText />
               <ColorSwatch color={colors.orange40} darkText />
-              <h4>Green</h4>
+              <H4>Green</H4>
               <ColorSwatch color={colors.green20} darkText />
               <ColorSwatch color={colors.green30} darkText />
               <ColorSwatch color={colors.green40} darkText />
-              <h4>Purple</h4>
+              <H4>Purple</H4>
               <ColorSwatch color={colors.purple20} />
               <ColorSwatch color={colors.purple30} />
               <ColorSwatch color={colors.purple40} />
-              <h4>Blue</h4>
+              <H4>Blue</H4>
               <ColorSwatch color={colors.blue20} />
               <ColorSwatch color={colors.blue30} />
               <ColorSwatch color={colors.blue40} />
-              <h4>Ultramarine</h4>
+              <H4>Ultramarine</H4>
               <ColorSwatch color={colors.ultramarine20} />
               <ColorSwatch color={colors.ultramarine30} />
               <ColorSwatch color={colors.ultramarine40} />
-              <h3>Typography</h3>
-              <h4>Sans Serif</h4>
-              <WrapperRoot>
-                <TypographySpecimen weight={100}>Sans Serif - 100</TypographySpecimen>
-                <TypographySpecimen weight={200}>Sans Serif - 200</TypographySpecimen>
-                <TypographySpecimen weight={300}>Sans Serif - 300</TypographySpecimen>
-                <TypographySpecimen weight={400}>Sans Serif - 400</TypographySpecimen>
-                <TypographySpecimen weight={500}>Sans Serif - 500</TypographySpecimen>
-                <TypographySpecimen weight={600}>Sans Serif - 600</TypographySpecimen>
-                <TypographySpecimen weight={700}>Sans Serif - 700</TypographySpecimen>
-                <TypographySpecimen weight={800}>Sans Serif - 800</TypographySpecimen>
-                <TypographySpecimen weight={900}>Sans Serif - 900</TypographySpecimen>
-              </WrapperRoot>
-              <h4>Monospace</h4>
-              <WrapperRoot>
-                <TypographySpecimen fontFamily="monospace" weight={400}>
-                  Monospace - 400
-                </TypographySpecimen>
-                <TypographySpecimen fontFamily="monospace" weight={700}>
-                  Monospace - 700
-                </TypographySpecimen>
-              </WrapperRoot>
-
-              <h3>Type Scale</h3>
-              <h4>Heading</h4>
+              <H3>Typography</H3>
+              <H4>Heading</H4>
               <WrapperRoot>
                 <Heading scale="canon" my="md">
                   Heading - Canon
@@ -174,7 +165,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   Heading - Minion
                 </Heading>
               </WrapperRoot>
-              <h4>Text</h4>
+              <H4>Text</H4>
               <WrapperRoot>
                 <Text scale="canon" display="block" my="sm">
                   Text - Canon
@@ -207,7 +198,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   Text - Minion
                 </Text>
               </WrapperRoot>
-              <h4>Monospace</h4>
+              <H4>Monospace</H4>
               <WrapperRoot>
                 <Text scale="pica" display="block" fontFamily="monospace" fontWeight={400}>
                   Text - Pica - Monospace - 400
@@ -217,14 +208,14 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                 </Text>
               </WrapperRoot>
 
-              <h2>Components</h2>
-              <h3>Badge</h3>
+              <H2>Components</H2>
+              <H3>Badge</H3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
                   <Badge>default</Badge> <Badge color="grey">grey</Badge>
                 </div>
               </WrapperRoot>
-              <h3>Button</h3>
+              <H3>Button</H3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
                   <Button color="primary" style={buttonMarginStyles}>
@@ -275,7 +266,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   </Button>
                 </div>
               </WrapperRoot>
-              <h4>NavLinkButton</h4>
+              <H4>NavLinkButton</H4>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
                   <NavLinkButton to="/" color="primary" style={buttonMarginStyles}>
@@ -289,7 +280,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   </NavLinkButton>
                 </div>
               </WrapperRoot>
-              <h4>AnchorButton</h4>
+              <H4>AnchorButton</H4>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
                   <AnchorButton
@@ -322,64 +313,69 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                 </div>
               </WrapperRoot>
 
-              <h2>Posts</h2>
-              <h3>Paragraph</h3>
+              <H2>Posts</H2>
+              <H3>Headings</H3>
               <WrapperRoot>
-                <div style={{ padding: '0' }}>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error autem voluptate
-                    libero delectus nesciunt vitae atque beatae placeat minus cumque sequi assumenda
-                    quidem voluptas dicta nostrum modi, exercitationem ad ex.
-                  </p>
-                  <p>
-                    Ut, a adipisci cum sequi cumque perspiciatis iure placeat reiciendis inventore
-                    aut tempore libero, nobis ullam sit modi, tempora nam consequatur laboriosam
-                    harum. Repellat quibusdam quia quos rerum cupiditate distinctio.
-                  </p>
-                </div>
+                <H1>h1. Heading</H1>
+                <H2>h2. Heading</H2>
+                <H3>h3. Heading</H3>
+                <H4>h4. Heading</H4>
+                <H5>h5. Heading</H5>
+                <H6>h6. Heading</H6>
               </WrapperRoot>
-              <h3>Lists</h3>
+              <H3>Paragraph</H3>
               <WrapperRoot>
-                <div style={{ padding: '0' }}>
-                  <ul>
-                    <li>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis,
-                      laudantium.
-                    </li>
-                    <li>
-                      Exercitationem voluptas, rerum quo magnam velit quia adipisci quos unde?
-                    </li>
-                    <li>
-                      Voluptate id pariatur sint provident aliquam aspernatur earum illum explicabo.
-                    </li>
-                  </ul>
-                  <ol>
-                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, illo.</li>
-                    <li>
-                      Explicabo necessitatibus repudiandae sed nulla expedita. Non, perspiciatis.
-                      Iusto, id?
-                    </li>
-                    <li>
-                      Labore inventore ratione perferendis, error voluptates suscipit impedit
-                      laborum magni.
-                    </li>
-                  </ol>
-                </div>
+                <P>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores distinctio
+                  natus in incidunt quas totam enim laborum, facilis ipsam, sunt odio accusamus
+                  doloribus eaque dolorem nisi iusto reprehenderit possimus optio.
+                </P>
+                <P>
+                  Sequi iste quas optio natus odit nostrum nobis atque, quidem repudiandae sunt
+                  repellat. Corrupti magni ipsum quasi et ex. Rem, eum. Officia fugiat alias magnam
+                  voluptatum temporibus minus voluptatem eos?
+                </P>
               </WrapperRoot>
-              <h3>Blockquote</h3>
+              <H3>Unordered List</H3>
+              <WrapperRoot>
+                <UL>
+                  <LI>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!
+                  </LI>
+                  <LI>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</LI>
+                  <LI>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</LI>
+                </UL>
+              </WrapperRoot>
+              <H3>Ordered List</H3>
+              <WrapperRoot>
+                <OL>
+                  <LI>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!
+                  </LI>
+                  <LI>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</LI>
+                  <LI>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</LI>
+                </OL>
+              </WrapperRoot>
+              <H3>Inline Code</H3>
+              <WrapperRoot>
+                <P>
+                  Run <InlineCode>npm install</InlineCode> to begin the installation process.
+                </P>
+              </WrapperRoot>
+              <H3>Blockquote</H3>
               <WrapperRoot>
                 <div style={{ padding: '16px 0 0' }}>
                   <blockquote>The quick brown fox jumps over the lazy dog.</blockquote>
                 </div>
               </WrapperRoot>
-              <h3>Bookmark Link</h3>
+              <H3>Bookmark Link</H3>
               <WrapperRoot>
                 <BookmarkLink
                   title="Accessibility is not a “React Problem”"
                   link="https://www.netlify.com/blog/2019/02/25/accessibility-is-not-a-react-problem/"
                 />
               </WrapperRoot>
-              <h3>Post Metadata</h3>
+              <H3>Post Metadata</H3>
               <WrapperRoot>
                 <PostIndexItemMeta>
                   <PageMetaItem>
@@ -391,7 +387,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   <hr />
                 </PostIndexItemMeta>
               </WrapperRoot>
-              <h3>Message Box</h3>
+              <H3>Message Box</H3>
               <WrapperRoot>
                 <MessageBox>
                   <strong>Info:</strong> This post is also published on{' '}
@@ -404,25 +400,25 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                 </MessageBox>
               </WrapperRoot>
 
-              <h2>Projects</h2>
-              <h3>Featured Project</h3>
+              <H2>Projects</H2>
+              <H3>Featured Project</H3>
               <FeaturedProject key={testProject.node.frontmatter.title} node={testProject.node} />
-              <h3>Project Card</h3>
-              <h4>Without Image</h4>
+              <H3>Project Card</H3>
+              <H4>Without Image</H4>
               <ProjectCard
                 title={testProjectNode.frontmatter.title}
                 description={testProjectNode.fields.description || testProjectNode.fields.lead}
                 tags={testProjectTags}
               />
-              <h4>With Image</h4>
+              <H4>With Image</H4>
               <ProjectCard
                 image={testProjectNode.frontmatter.header_image}
                 title={testProjectNode.frontmatter.title}
                 description={testProjectNode.fields.description || testProjectNode.fields.lead}
                 tags={testProjectTags}
               />
-              <h3>Project Item List</h3>
-              <h4>List Item</h4>
+              <H3>Project Item List</H3>
+              <H4>List Item</H4>
               <ProjectItem node={testProjectNode} />
             </Container>
           </PageContent>

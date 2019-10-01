@@ -12,9 +12,8 @@ import { SiteMetadata } from '../types/gatsby'
 import { LayoutRoot } from '../components/ui'
 import { Masthead, Footer } from '../components/layout'
 
-import GlobalStyles from '../styles/reset'
 import PrismTheme from '../styles/prismjs-theme'
-import { Theme } from '../components/chungking-core'
+import { Theme, GlobalStyles } from '../components/chungking-core'
 
 interface WrapperData {
   site: {

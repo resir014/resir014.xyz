@@ -12,9 +12,10 @@ import TemplateWrapper from '../layouts'
 import { getEmSize } from '../styles/mixins'
 import { pxSizes } from '../styles/variables'
 
-import { Container, Divider } from '../components/ui'
+import { Container } from '../components/ui'
 import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
 import { BlogPostItem, PaginationLink } from '../components/posts-index'
+import { Box } from '../components/chungking-core'
 
 interface BlogPageProps {
   data: {
@@ -84,13 +85,14 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
               <BlogPostItem key={node.fields.slug} node={node} />
             ))}
           </Container>
-          <Divider spacing="large" center />
-          <Container size="md">
-            <Pagination>
-              <PaginationLink test={first} url={previousUrl} text="Newer posts" />
-              <PaginationLink test={last} url={nextUrl} text="Older posts" />
-            </Pagination>
-          </Container>
+          <Box mt="xxl">
+            <Container size="md">
+              <Pagination>
+                <PaginationLink test={first} url={previousUrl} text="Newer posts" />
+                <PaginationLink test={last} url={nextUrl} text="Older posts" />
+              </Pagination>
+            </Container>
+          </Box>
         </PageContent>
       </Page>
     </TemplateWrapper>

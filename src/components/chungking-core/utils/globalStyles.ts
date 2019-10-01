@@ -1,11 +1,9 @@
-// tslint:disable:no-unused-expression
-
 import { css } from '@emotion/core'
-import { colors, fonts, pxSizes, emSizes } from './variables'
-import { getEmSize } from './mixins'
+import { fonts, colors, breakpoints } from './variables'
 
 const GlobalStyles = css`
   html {
+    height: 100%;
     box-sizing: border-box;
   }
 
@@ -15,24 +13,24 @@ const GlobalStyles = css`
     box-sizing: inherit;
   }
 
-  html,
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
   body {
+    position: relative;
+    min-height: 100%;
     margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-
-  html {
     font-family: ${fonts.sansSerif};
-    font-size: ${pxSizes.fontSize.regular}px;
-    line-height: ${emSizes.lineHeight.regular};
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
+  html,
   body {
     color: ${colors.grey10};
     background-color: ${colors.black};
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
   }
 
   a {
@@ -91,93 +89,12 @@ const GlobalStyles = css`
     }
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: 1.414rem;
-    margin-bottom: 1rem;
-    font-family: ${fonts.serif};
-    font-weight: 600;
-    line-height: 1.2;
-    color: ${colors.white};
-    text-rendering: optimizeLegibility;
-  }
-
-  h1 {
-    margin-top: 0;
-    font-size: ${emSizes.headingSmall.h1}rem;
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-      font-size: ${emSizes.headingMedium.h1}rem;
-    }
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-      font-size: ${emSizes.headingLarge.h1}rem;
-    }
-  }
-
-  h2 {
-    font-size: ${emSizes.headingSmall.h2}rem;
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-      font-size: ${emSizes.headingMedium.h2}rem;
-    }
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-      font-size: ${emSizes.headingLarge.h2}rem;
-    }
-  }
-
-  h3 {
-    font-size: ${emSizes.headingSmall.h3}rem;
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-      font-size: ${emSizes.headingMedium.h3}rem;
-    }
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-      font-size: ${emSizes.headingLarge.h3}rem;
-    }
-  }
-
-  h4,
-  h5,
-  h6 {
-    font-size: ${emSizes.headingSmall.h4}rem;
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-      font-size: ${emSizes.headingMedium.h4}rem;
-    }
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-      font-size: ${emSizes.headingLarge.h4}rem;
-    }
-  }
-
-  p {
-    margin: 0 0 1rem;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
   small {
     font-size: 0.75rem;
   }
 
   strong {
     color: ${colors.white};
-  }
-
-  ul,
-  ol,
-  dl {
-    margin-top: 0;
-    margin-bottom: 1rem;
   }
 
   dt {
@@ -220,7 +137,7 @@ const GlobalStyles = css`
       margin-bottom: 0;
     }
 
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.sm)}) {
+    @media (min-width: ${breakpoints.sm}px) {
       padding-right: 5rem;
       padding-left: 1.25rem;
     }
@@ -231,10 +148,10 @@ const GlobalStyles = css`
   }
 
   code {
-    padding: 0 0.25em;
+    padding: 0.125rem 0.25rem;
     font-size: 90%;
     color: ${colors.magenta30};
-    background-color: ${colors.grey10};
+    background-color: #1d1f21;
     border-radius: 3px;
   }
 

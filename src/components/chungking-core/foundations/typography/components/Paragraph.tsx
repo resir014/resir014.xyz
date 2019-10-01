@@ -2,11 +2,12 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 
 import { TypeScale, Color } from '../../../Theme'
+import { space } from '../../../utils'
 
 import { determineFontDimensions } from '../utils'
 import { Typography, TypographyProps } from './Typography'
 
-export interface HeadingProps extends TypographyProps {
+export interface ParagraphProps extends TypographyProps {
   /** Additional CSS classes to add to the component. */
   className?: string
   /** Additional CSS properties to add to the component. */
@@ -22,17 +23,25 @@ export interface HeadingProps extends TypographyProps {
 /**
  * This is a base `Text` element to handle typography elements.
  */
-const StyledText = styled<typeof Typography, HeadingProps>(Typography)`
-  font-weight: 600;
+const StyledText = styled<typeof Typography, ParagraphProps>(Typography)`
+  margin: ${space.md}px 0 ${space.md}px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
 /**
  * Heading component provided as a styled component primitive.
  */
-export const Heading: React.SFC<HeadingProps> = ({
+export const Paragraph: React.SFC<ParagraphProps> = ({
   children,
   as,
-  scale = 'paragon',
+  scale = 'body',
   color,
   ...rest
 }) => (
@@ -41,8 +50,8 @@ export const Heading: React.SFC<HeadingProps> = ({
   </StyledText>
 )
 
-Heading.defaultProps = {
-  as: 'h2'
+Paragraph.defaultProps = {
+  as: 'p'
 }
 
-Heading.displayName = 'Heading'
+Paragraph.displayName = 'Heading'

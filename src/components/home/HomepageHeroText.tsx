@@ -1,41 +1,14 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { colors, pxSizes, emSizes, layerShadows } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import { colors, layerShadows } from '../../styles/variables'
+import { Heading, Text } from '../chungking-core'
 
 interface HomepageThumbnailTextProps {
   className?: string
   title: string
   flavour?: string
 }
-
-const HomepageFlavourTitle = styled('h1')`
-  font-size: ${emSizes.headingSmall.h2}rem;
-  color: ${colors.white};
-  margin-bottom: 0.5rem;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    font-size: ${emSizes.headingMedium.h1}rem;
-  }
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    font-size: ${emSizes.headingLarge.h1}rem;
-  }
-`
-
-const HomepageFlavourSub = styled('span')`
-  font-size: ${emSizes.headingSmall.h4}rem;
-  font-weight: 300;
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    font-size: ${emSizes.headingMedium.h3}rem;
-  }
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    font-size: ${emSizes.headingLarge.h3}rem;
-  }
-`
 
 const FlexInner = styled('div')`
   padding: 1.5rem;
@@ -57,8 +30,14 @@ const Div = styled('div')`
 const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, title, flavour }) => (
   <Div className={className}>
     <FlexInner>
-      <HomepageFlavourTitle>{title}</HomepageFlavourTitle>
-      {flavour && <HomepageFlavourSub>{flavour}</HomepageFlavourSub>}
+      <Heading as="h1" scale="canon" mt={0} mb="sm">
+        {title}
+      </Heading>
+      {flavour && (
+        <Text scale="paragon" m={0} fontWeight={300}>
+          {flavour}
+        </Text>
+      )}
     </FlexInner>
   </Div>
 )

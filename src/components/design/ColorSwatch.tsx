@@ -76,7 +76,6 @@ const Root = styled('button')`
   display: inline-block;
   width: 92px;
   margin: 0;
-  margin-top: 1rem;
   margin-right: 1.5rem;
   margin-bottom: 1.5rem;
   padding: 8px;

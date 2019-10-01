@@ -5,6 +5,7 @@ import Url from 'url-parse'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import { colors, layerShadows } from '../../styles/variables'
+import { Text, Heading, space } from '../chungking-core'
 
 interface BookmarkLinkProps {
   link?: string
@@ -21,37 +22,29 @@ const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, title }) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <LinkHeader>
-        <LinkTitle className="p-name">{title}</LinkTitle> &raquo;
-      </LinkHeader>{' '}
-      <LinkSource className="p-publication">{url.host}</LinkSource>
+      <Heading as="h3" scale="paragon" m={0} p="md">
+        <span className="p-name">{title}</span> &raquo;
+      </Heading>{' '}
+      <Text
+        display="block"
+        m={0}
+        px="md"
+        py="xs"
+        backgroundColor={transparentize(0.3, colors.black)}
+        className="p-publication"
+      >
+        {url.host}
+      </Text>
     </Root>
   ) : null
 }
 
 export default BookmarkLink
 
-const BookmarkTitle = styled('h3')`
-  margin: 0;
-`
-
-const LinkHeader = styled(BookmarkTitle)`
-  padding: 1rem;
-  margin: 0;
-  color: ${colors.white};
-`
-
-const LinkTitle = styled('span')``
-
-const LinkSource = styled('span')`
-  display: block;
-  padding: 0.5rem 1rem;
-  background-color: ${transparentize(0.3, colors.black)};
-  user-select: none;
-`
-
 const Root = styled(OutboundLink)`
   display: block;
+  margin-top: ${space.sm}px;
+  margin-bottom: ${space.md}px;
   background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
   color: ${colors.white};
   border-radius: 4px;
@@ -59,12 +52,12 @@ const Root = styled(OutboundLink)`
   transition: all 0.3s ease;
   box-shadow: ${layerShadows.single};
 
-  &:first-of-type {
-    margin-bottom: 1.5rem;
+  &:first-child {
+    margin-top: 0;
   }
 
-  &:last-of-type {
-    margin-top: 1rem;
+  &:last-child {
+    margin-bottom: 0;
   }
 
   &:hover,
@@ -72,7 +65,7 @@ const Root = styled(OutboundLink)`
     text-decoration: none;
     box-shadow: ${layerShadows.double};
 
-    ${LinkTitle} {
+    > h3 span {
       text-decoration: underline;
     }
   }

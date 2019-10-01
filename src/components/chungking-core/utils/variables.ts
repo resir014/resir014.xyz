@@ -128,11 +128,11 @@ export const typeScale = {
   body: {
     sm: {
       fontSize: 16,
-      lineHeight: 22
+      lineHeight: 24
     },
     lg: {
       fontSize: 16,
-      lineHeight: 22
+      lineHeight: 24
     }
   },
   pica: {

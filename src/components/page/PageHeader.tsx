@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import { getEmSize } from '../../styles/mixins'
 import { pxSizes, colors, layerShadows } from '../../styles/variables'
 import Container from '../ui/Container'
+import { space } from '../chungking-core'
 
 interface PageHeaderProps {
   className?: string
@@ -40,11 +41,11 @@ PageHeader.defaultProps = {
 const HeaderDivider = styled('hr')`
   width: 100%;
   max-width: 100px;
-  height: 6px;
+  height: 8px;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: ${space.sm}px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   background: linear-gradient(to right, ${colors.blue30}, ${colors.magenta30});
 `
 

@@ -15,9 +15,6 @@ export const themeProps = {
   ]
 }
 
-/**
- * Aksara theme provider
- */
 export const Theme: React.FC = ({ children }) => {
   return <ThemeProvider theme={themeProps}>{children}</ThemeProvider>
 }

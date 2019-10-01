@@ -11,7 +11,6 @@ interface VideoCardProps {
 
 const Inner = styled('div')`
   padding: 1.5rem;
-  padding-top: 1rem;
 `
 
 const Root = styled('section')`
@@ -30,8 +29,10 @@ const VideoCard: React.FC<VideoCardProps> = ({ embed, title, children }) => (
   <Root>
     {embed}
 
-    {title && <VideoTitle className="p-name">{title}</VideoTitle>}
-    <Inner>{children}</Inner>
+    <Inner>
+      {title && <VideoTitle>{title}</VideoTitle>}
+      {children}
+    </Inner>
   </Root>
 )
 

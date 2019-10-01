@@ -3,8 +3,6 @@ import classnames from 'classnames'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import { colors, pxSizes, emSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
 import { BlogPostNode } from '../../types/nodes'
 
 import { BookmarkLink } from '../bookmark'
@@ -13,6 +11,7 @@ import { MarkdownContent } from '../page'
 import { NavLinkButton } from '../ui'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
+import { Heading } from '../chungking-core'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
@@ -25,29 +24,14 @@ const PostThumbnailImage = styled('img')`
 
 const PostDetailBox = styled('section')``
 
-const PostTitle = styled('h2')`
-  margin-top: 0;
-
-  a {
-    color: ${colors.green30};
-  }
-`
+const PostTitle: React.FC = ({ children }) => (
+  <Heading scale="trafalgar" mt={0} mb="sm">
+    {children}
+  </Heading>
+)
 
 const ResponsiveVideoWrapper = styled(ResponsiveVideo)`
   margin-top: 1.5rem;
-`
-
-const VideoTitle = styled(PostTitle)`
-  font-size: ${emSizes.headingMedium.h3}rem;
-  line-height: ${emSizes.lineHeight.heading};
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    font-size: ${emSizes.headingMedium.h3}rem;
-  }
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    font-size: ${emSizes.headingLarge.h3}rem;
-  }
 `
 
 const PostContent = styled('div')`
@@ -138,11 +122,11 @@ export function renderVideoTemplate(node: BlogPostNode) {
       )}
       <PostContent>
         {node.frontmatter.title && (
-          <VideoTitle>
+          <PostTitle>
             <PostTitleLink className="p-name" to={node.fields.slug}>
               {node.frontmatter.title}
             </PostTitleLink>
-          </VideoTitle>
+          </PostTitle>
         )}
         <MarkdownContent
           className={classnames('e-content', !node.frontmatter.title && 'p-name')}

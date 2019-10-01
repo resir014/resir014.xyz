@@ -22,6 +22,7 @@ import {
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
 import { Container, MessageBox } from '../components/ui'
+import { P, UL, LI } from '../components/chungking-core'
 
 interface PostTemplateProps {
   location: {
@@ -104,10 +105,10 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
             <Container>
               {post.frontmatter.syndication && (
                 <MessageBox>
-                  <p>This post is also published on:</p>
-                  <ul>
+                  <P>This post is also published on:</P>
+                  <UL>
                     {post.frontmatter.syndication.map(s => (
-                      <li key={s.name}>
+                      <LI key={s.name}>
                         <a
                           href={s.url}
                           target="_blank"
@@ -116,9 +117,9 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
                         >
                           {s.name}
                         </a>
-                      </li>
+                      </LI>
                     ))}
-                  </ul>
+                  </UL>
                 </MessageBox>
               )}
               <MarkdownContent className="e-content" html={post.html} />

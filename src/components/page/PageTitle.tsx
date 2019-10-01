@@ -1,17 +1,14 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
+import { Heading } from '../chungking-core'
 
 interface PageTitleProps {
   className?: string
 }
 
 const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) => (
-  <H1 className={className}>{children}</H1>
+  <Heading as="h1" scale="canon" className={className} m={0}>
+    {children}
+  </Heading>
 )
 
 export default PageTitle
-
-const H1 = styled('h1')`
-  margin: 0;
-  margin-top: 0.5rem;
-`

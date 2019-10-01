@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import { colors, layerShadows } from '../../styles/variables'
@@ -6,8 +7,7 @@ import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
 import { Badge } from '../ui'
-import ProjectTitle from './ProjectTitle'
-import ProjectSubtitle from './ProjectSubtitle'
+import { Heading, Text } from '../chungking-core'
 
 interface ProjectCardProps {
   title: string
@@ -26,8 +26,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ta
       </PageThumbnail>
     )}
     <Inner>
-      <ProjectTitle className="p-name">{title}</ProjectTitle>
-      {description ? <ProjectSubtitle className="p-summary">{description}</ProjectSubtitle> : null}
+      <Heading
+        as="h1"
+        scale="trafalgar"
+        mt={0}
+        mb="xs"
+        css={css`
+          color: #00f281;
+        `}
+        className="p-name"
+      >
+        {title}
+      </Heading>
+      {description ? (
+        <Text as="p" scale="greatPrimer" fontWeight={300} m={0} className="p-summary">
+          {description}
+        </Text>
+      ) : null}
       {tags ? (
         <ProjectTags>
           {tags.map(tag => (

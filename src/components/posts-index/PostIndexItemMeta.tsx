@@ -2,8 +2,6 @@ import styled from '@emotion/styled'
 import { colors } from '../../styles/variables'
 
 const PostIndexItemMeta = styled('div')`
-  font-size: 90%;
-  letter-spacing: 0.01em;
   text-transform: uppercase;
 
   hr {

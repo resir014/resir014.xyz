@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 
 import { Badge, NavLinkButton } from '../ui'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
@@ -7,6 +8,7 @@ import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 import { colors, pxSizes, layerShadows } from '../../styles/variables'
 import { getEmSize } from '../../styles/mixins'
 import { ProjectField } from '../../types/fields'
+import { Text, Heading, P } from '../chungking-core'
 
 const FeaturedProjectWrapper = styled('section')`
   display: flex;
@@ -55,19 +57,6 @@ const FeaturedProjectHeading = styled('div')`
   margin: 0;
 `
 
-const FeaturedProjectSpan = styled('span')`
-  font-size: 90%;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-`
-
-const FeaturedProjectName = styled('h3')`
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: #00f281;
-`
-
 const FeaturedProjectDescription = styled('div')`
   flex: 1;
 
@@ -93,11 +82,30 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className }) =>
       {header_image ? <FeaturedProjectThumbnail className="column" image={header_image} /> : null}
       <FeaturedProjectDetails className="column">
         <FeaturedProjectHeading>
-          <FeaturedProjectSpan>Featured project</FeaturedProjectSpan>
-          <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
+          <Text
+            scale="longPrimer"
+            letterSpacing="0.01em"
+            fontWeight={300}
+            css={css`
+              text-transform: uppercase;
+            `}
+          >
+            Featured project
+          </Text>
+          <Heading
+            as="h3"
+            scale="paragon"
+            mt="xxs"
+            mb="sm"
+            css={css`
+              color: #00f281;
+            `}
+          >
+            {node.frontmatter.title}
+          </Heading>
         </FeaturedProjectHeading>
         <FeaturedProjectDescription>
-          <p>{node.fields.description}</p>
+          <P>{node.fields.description}</P>
           {tags ? (
             <ProjectTags>
               {tags.map(tag => (

@@ -1,19 +1,15 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
+
+import { Box } from '../chungking-core'
 
 interface PostMetaProps {
   className?: string
 }
 
 const PageMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
-  <View className={className}>{children}</View>
+  <Box mb="xxs" className={className}>
+    {children}
+  </Box>
 )
 
 export default PageMeta
-
-const View = styled('div')`
-  font-size: 90%;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-`
