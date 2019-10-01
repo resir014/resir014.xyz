@@ -21,7 +21,7 @@ Where programmers share ideas and help each other grow.
 
 Mostly just retweets now.
 
-### [Mixer](https://mixer.com/resir014)
+### [Twitch](https://www.twitch.tv/resir014)
 
 I'll eventually use this to stream games/webdev stuff.
 
