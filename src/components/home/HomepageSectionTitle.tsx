@@ -6,7 +6,7 @@ interface HomepageSectionTitleProps {
 }
 
 const HomepageSectionTitle: React.SFC<HomepageSectionTitleProps> = ({ children, className }) => (
-  <Heading as="h1" scale="canon" mt="lg" mb="xs" className={className}>
+  <Heading as="h1" scale="canon" mt="lg" mb="sm" className={className}>
     {children}
   </Heading>
 )

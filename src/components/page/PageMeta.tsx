@@ -7,7 +7,7 @@ interface PostMetaProps {
 }
 
 const PageMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
-  <Box mb="xxs" className={className}>
+  <Box mb="md" className={className}>
     {children}
   </Box>
 )

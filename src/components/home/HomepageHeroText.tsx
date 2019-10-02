@@ -30,7 +30,7 @@ const Div = styled('div')`
 const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, title, flavour }) => (
   <Div className={className}>
     <FlexInner>
-      <Heading as="h1" scale="canon" mt={0} mb="sm">
+      <Heading as="h1" scale="canon" mt={0} mb="md">
         {title}
       </Heading>
       {flavour && (

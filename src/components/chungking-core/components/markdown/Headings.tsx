@@ -2,19 +2,19 @@ import * as React from 'react'
 import { Heading } from '../../foundations'
 
 export const H1: React.FC = ({ children }) => (
-  <Heading as="h1" scale="canon" mt={0} mb="sm">
+  <Heading as="h1" scale="canon" mt={0} mb="md">
     {children}
   </Heading>
 )
 
 export const H2: React.FC = ({ children }) => (
-  <Heading as="h2" scale="paragon" mt="xl" mb="sm">
+  <Heading as="h2" scale="paragon" mt="xl" mb="md">
     {children}
   </Heading>
 )
 
 export const H3: React.FC = ({ children }) => (
-  <Heading as="h3" scale="greatPrimer" mt="lg" mb="sm">
+  <Heading as="h3" scale="greatPrimer" mt="lg" mb="md">
     {children}
   </Heading>
 )

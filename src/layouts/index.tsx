@@ -6,6 +6,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import menuItems from '../utils/menuItems'
 
 import 'modern-normalize'
+import 'typeface-inter'
 
 import { SiteMetadata } from '../types/gatsby'
 

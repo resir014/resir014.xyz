@@ -7,7 +7,7 @@ interface PageSubtitleProps {
 
 const PageSubtitle: React.SFC<PageSubtitleProps> = ({ className, children }) => {
   return (
-    <Text as="p" mt="xs" mb={0} scale="doublePica" fontWeight={300} className={className}>
+    <Text as="p" mt="sm" mb={0} scale="doublePica" fontWeight={300} className={className}>
       {children}
     </Text>
   )
