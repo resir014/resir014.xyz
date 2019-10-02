@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 
 import { ChildImageSharp } from '../../types/gatsby'
 import { SiteAuthor } from '../../types/default'
-import { Heading, Text, colors } from '../chungking-core'
+import { Heading, Text, colors, space } from '../chungking-core'
 
 interface HCardPostProps {
   className?: string
@@ -44,7 +44,7 @@ const Anchor = styled('a')`
   flex-direction: row;
   align-items: center;
   text-align: left;
-  margin: 2rem 0;
+  margin: ${space.xl}px 0;
   padding: 0;
   color: ${colors.white};
   text-decoration: none !important;

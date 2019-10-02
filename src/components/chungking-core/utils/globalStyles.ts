@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { fonts, colors } from './variables'
+import { fonts, colors, space } from './variables'
 
 const GlobalStyles = css`
   html {
@@ -46,11 +46,11 @@ const GlobalStyles = css`
   img {
     display: block;
     max-width: 100%;
-    margin: 0 0 1rem;
+    margin: 0 0 ${space.md}px;
   }
 
   figure {
-    margin: 2rem 0;
+    margin: ${space.xl}px 0;
   }
 
   figcaption {
@@ -67,7 +67,7 @@ const GlobalStyles = css`
   }
 
   table {
-    margin-bottom: 1rem;
+    margin-bottom: ${space.sm}px;
     width: 100%;
     font-size: 85%;
     border: 1px solid ${colors.grey20};
@@ -75,7 +75,7 @@ const GlobalStyles = css`
 
     td,
     th {
-      padding: 0.25rem 0.5rem;
+      padding: ${space.xxs}px ${space.xs}px;
       border: 1px solid ${colors.grey20};
     }
 
@@ -103,12 +103,12 @@ const GlobalStyles = css`
 
   dd {
     margin-left: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: ${space.xs}px;
   }
 
   hr {
     position: relative;
-    margin: 1.5rem 0;
+    margin: ${space.lg}px 0;
     border: 0;
     border-bottom: 1px solid ${colors.grey30};
   }

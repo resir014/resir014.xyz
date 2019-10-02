@@ -5,9 +5,8 @@ import { HtmrOptions } from 'htmr/src/types'
 import { Link } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-import { colors, emSizes, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
-import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI } from '../chungking-core'
+import { colors } from '../../styles/variables'
+import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI, space, breakpoints } from '../chungking-core'
 
 interface MarkdownContentProps {
   className?: string
@@ -68,16 +67,16 @@ const Div = styled('div')`
   }
 
   figure {
-    margin: 2rem 0;
+    margin: ${space.xl}px 0;
     text-align: center;
 
     &:first-child {
       margin-top: 0;
     }
 
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-      margin-left: -${emSizes.containerPadding * 2}rem;
-      margin-right: -${emSizes.containerPadding * 2}rem;
+    @media (min-width: ${breakpoints.lg}px) {
+      margin-left: -${space.lg * 2}px;
+      margin-right: -${space.lg * 2}px;
     }
 
     .gatsby-resp-image-wrapper {
@@ -182,7 +181,7 @@ const Div = styled('div')`
     font-size: 1.25rem;
     font-weight: 300;
 
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+    @media (min-width: ${breakpoints.md}px) {
       font-size: 1.5rem;
     }
   }

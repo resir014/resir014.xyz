@@ -1,11 +1,11 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { emSizes } from '../../styles/variables'
+import { space } from '../chungking-core'
 
 const StyledPageContent = styled('section')`
   display: block;
-  padding: ${emSizes.containerPadding}rem;
+  padding: ${space.lg}px;
   padding-bottom: 3rem;
 `
 

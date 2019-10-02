@@ -1,9 +1,8 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
+import { space, breakpoints, colors } from '../chungking-core'
 import Container from '../ui/Container'
-import { getEmSize } from '../../styles/mixins'
-import { pxSizes, emSizes, colors } from '../../styles/variables'
 
 import BackgroundPattern from '../../assets/images/architect.svg'
 
@@ -24,8 +23,8 @@ const Inner = styled(Container)`
   flex-direction: column;
   height: 320px;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    padding: 0 ${emSizes.containerPadding}rem;
+  @media (min-width: ${breakpoints.lg}) {
+    padding: 0 ${space.lg}px;
     height: 480px;
   }
 `
@@ -37,8 +36,8 @@ const Root = styled('header')`
   height: 320px;
   border-bottom: 1px solid ${colors.grey90};
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    padding: 0 ${emSizes.containerPadding}rem;
+  @media (min-width: ${breakpoints.lg}) {
+    padding: 0 ${space.lg}px;
     height: 480px;
   }
 `

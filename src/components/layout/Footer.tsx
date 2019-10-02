@@ -1,15 +1,13 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { colors, emSizes, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
 import { Container } from '../ui'
 
 import ccLogo from '../../assets/images/cc-by-nc-sa.svg'
-import { P, Small } from '../chungking-core'
+import { P, Small, space, colors, breakpoints } from '../chungking-core'
 
 const StyledFooter = styled('footer')`
-  padding: 1rem ${emSizes.containerPadding}rem;
+  padding: ${space.md}px ${space.lg}px;
 `
 
 const FooterContent = styled('div')`
@@ -22,7 +20,7 @@ const FooterContent = styled('div')`
       color: ${colors.green30};
     }
 
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+    @media (min-width: ${breakpoints.md}px) {
       text-decoration: none;
 
       &:hover,
