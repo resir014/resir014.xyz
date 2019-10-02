@@ -9,7 +9,7 @@ title: 'Get in touch'
 - [**tilde.town**](https://tilde.town/~resir014/) – A catalogue of interests.
 - [**dev.to**](https://dev.to/resir014) – Where programmers share ideas and help each other grow.
 - [**Twitter**](https://twitter.com/resir014) – Mostly just retweets now.
-- [**Mixer**](https://mixer.com/resir014) – I'll eventually use this to stream games/webdev stuff.
+- [**Twitch**](https://www.twitch.tv/resir014) – I'll eventually use this to stream games/webdev stuff.
 - [**Mastodon**](/mastodon) – A fancy distributed social network.
 
 ## Email
