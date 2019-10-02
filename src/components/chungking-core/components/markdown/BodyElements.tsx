@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
 import { Paragraph, Text } from '../../foundations'
-import { colors } from '../../utils'
+import { colors, space } from '../../utils'
 
 interface WithStylesProps {
   className?: string
@@ -14,9 +14,19 @@ export const P: React.FC<WithStylesProps> = ({ children, ...rest }) => (
   <Paragraph {...rest}>{children}</Paragraph>
 )
 
+export const Small: React.FC<WithStylesProps> = ({ children, ...rest }) => (
+  <Text scale="minion" {...rest}>
+    {children}
+  </Text>
+)
+
 const UnorderedListStyles = css`
   display: block;
   list-style-type: none;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -34,6 +44,10 @@ const UnorderedListStyles = css`
 const OrderedListStyles = css`
   display: block;
   list-style-type: decimal;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -70,4 +84,21 @@ export const InlineCode = styled('code')`
   color: ${colors.magenta30};
   background-color: #1d1f21;
   border-radius: 3px;
+`
+
+export const Blockquote = styled('blockquote')`
+  padding: 0;
+  padding-right: ${space.md}px;
+  padding-left: ${space.sm}px;
+  margin: ${space.md}px 0;
+  color: ${colors.grey30};
+  border-left: 1px solid ${colors.white};
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 `

@@ -95,7 +95,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           <HomepageSection>
             <HomepageSectionTitle>Contact</HomepageSectionTitle>
             <HomepageSectionDescription>
-              Got an interesting project in mind? Want me to help you with it?{' '}
+              Got any questions for me? Or just want to say hi?{' '}
               <Link to="/contact">Let&apos;s talk!</Link>
             </HomepageSectionDescription>
             <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />

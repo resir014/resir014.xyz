@@ -6,6 +6,7 @@ import { getEmSize } from '../../styles/mixins'
 import { Container } from '../ui'
 
 import ccLogo from '../../assets/images/cc-by-nc-sa.svg'
+import { P, Small } from '../chungking-core'
 
 const StyledFooter = styled('footer')`
   padding: 1rem ${emSizes.containerPadding}rem;
@@ -46,7 +47,7 @@ const Footer: React.FC<FooterProps> = ({ size }) => (
   <StyledFooter>
     <Container size={size}>
       <FooterContent>
-        <p>
+        <P>
           <a
             rel="license noopener noreferrer"
             href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -54,9 +55,9 @@ const Footer: React.FC<FooterProps> = ({ size }) => (
           >
             <img alt="Creative Commons License" src={ccLogo} style={{ height: '31px' }} />
           </a>
-        </p>
-        <p>
-          <small>
+        </P>
+        <P>
+          <Small>
             Except where otherwise noted, contents are licensed under{' '}
             <a
               rel="license noopener noreferrer"
@@ -66,10 +67,10 @@ const Footer: React.FC<FooterProps> = ({ size }) => (
               CC-BY-NC-SA 4.0
             </a>
             .
-          </small>
-        </p>
-        <p>
-          <small>
+          </Small>
+        </P>
+        <P>
+          <Small>
             Powered by{' '}
             <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">
               Gatsby
@@ -87,8 +88,8 @@ const Footer: React.FC<FooterProps> = ({ size }) => (
               MIT License
             </a>
             .
-          </small>
-        </p>
+          </Small>
+        </P>
       </FooterContent>
     </Container>
   </StyledFooter>

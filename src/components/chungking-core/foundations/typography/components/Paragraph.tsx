@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 
 import { TypeScale, Color } from '../../../Theme'
-import { space } from '../../../utils'
+import { space, colors } from '../../../utils'
 
 import { determineFontDimensions } from '../utils'
 import { Typography, TypographyProps } from './Typography'
@@ -24,7 +24,7 @@ export interface ParagraphProps extends TypographyProps {
  * This is a base `Text` element to handle typography elements.
  */
 const StyledText = styled<typeof Typography, ParagraphProps>(Typography)`
-  margin: ${space.md}px 0 ${space.md}px;
+  margin: 0 0 ${space.md}px;
 
   &:first-child {
     margin-top: 0;
@@ -32,6 +32,10 @@ const StyledText = styled<typeof Typography, ParagraphProps>(Typography)`
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  a {
+    color: ${colors.green30};
   }
 `
 

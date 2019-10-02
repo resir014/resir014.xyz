@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { fonts, colors, breakpoints } from './variables'
+import { fonts, colors } from './variables'
 
 const GlobalStyles = css`
   html {
@@ -123,49 +123,8 @@ const GlobalStyles = css`
     }
   }
 
-  blockquote {
-    padding: 0 1rem;
-    margin: 1rem 0;
-    color: ${colors.grey40};
-    border-left: 0.25rem solid ${colors.grey80};
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    p:last-child {
-      margin-bottom: 0;
-    }
-
-    @media (min-width: ${breakpoints.sm}px) {
-      padding-right: 5rem;
-      padding-left: 1.25rem;
-    }
-  }
-
   .hidden {
     display: none;
-  }
-
-  code {
-    padding: 0.125rem 0.25rem;
-    font-size: 90%;
-    color: ${colors.magenta30};
-    background-color: #1d1f21;
-    border-radius: 3px;
-  }
-
-  pre {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    overflow-x: auto;
-  }
-
-  pre code {
-    padding: 0;
-    font-size: 100%;
-    color: inherit;
-    background-color: transparent;
   }
 
   .responsive-embed {

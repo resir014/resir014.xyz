@@ -2,11 +2,12 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from '@emotion/styled'
 
-import { colors, emSizes, fonts, pxSizes, layerShadows } from '../../styles/variables'
+import { colors, pxSizes, layerShadows } from '../../styles/variables'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import { getEmSize } from '../../styles/mixins'
 import { NavLinkButton } from '../ui'
+import { Heading, Paragraph } from '../chungking-core'
 
 interface HCardProps {
   className?: string
@@ -14,18 +15,6 @@ interface HCardProps {
   icon: ChildImageSharp
   author: SiteAuthor
 }
-
-const HCardName = styled('h3')`
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-family: ${fonts.serif};
-  color: ${colors.white};
-`
-
-const HCardNote = styled('p')`
-  font-size: ${emSizes.headingSmall.h4}rem;
-  color: ${colors.white};
-`
 
 const HCardAvatar = styled('div')`
   display: flex;
@@ -60,7 +49,7 @@ const HCardEmail = styled('span')`
 `
 
 const HCardFooter = styled('div')`
-  margin-top: 1rem;
+  margin: 16px 0 8px;
   word-wrap: break-word;
 `
 
@@ -71,12 +60,14 @@ const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
         <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
       </HCardAvatar>
       <HCardDetails>
-        <HCardName>
+        <Heading as="h3" scale="paragon" mt={0} mb="xs">
           <a className="p-name u-url" rel="me" href={author.website}>
             {author.name}
           </a>
-        </HCardName>
-        <HCardNote className="p-note">{author.description}</HCardNote>
+        </Heading>
+        <Paragraph className="p-note" scale="greatPrimer" m={0} fontWeight={300}>
+          {author.description}
+        </Paragraph>
         <HCardEmail className="u-email">{author.email}</HCardEmail>
         <HCardFooter>
           <NavLinkButton to="/contact" ghosted>

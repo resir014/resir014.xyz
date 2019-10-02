@@ -28,7 +28,9 @@ import {
   H4,
   H5,
   H6,
-  InlineCode
+  InlineCode,
+  Blockquote,
+  Small
 } from '../components/chungking-core'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
@@ -87,12 +89,11 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
           </PageHeader>
           <PageContent>
             <Container>
-              <H2>Foundations</H2>
-              <H3>Colors</H3>
-              <H4>Primary</H4>
+              <H2>Colors</H2>
+              <H3>Primary</H3>
               <ColorSwatch color={colors.white} darkText />
               <ColorSwatch color={colors.black} />
-              <H4>Secondary</H4>
+              <H3>Secondary</H3>
               <ColorSwatch color={colors.grey10} darkText />
               <ColorSwatch color={colors.grey20} darkText />
               <ColorSwatch color={colors.grey30} darkText />
@@ -102,37 +103,37 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <ColorSwatch color={colors.grey70} />
               <ColorSwatch color={colors.grey80} />
               <ColorSwatch color={colors.grey90} />
-              <H3>Accent Colors</H3>
-              <H4>Magenta</H4>
+              <H2>Accent Colors</H2>
+              <H3>Magenta</H3>
               <ColorSwatch color={colors.magenta20} />
               <ColorSwatch color={colors.magenta30} />
               <ColorSwatch color={colors.magenta40} />
-              <H4>Red</H4>
+              <H3>Red</H3>
               <ColorSwatch color={colors.red20} />
               <ColorSwatch color={colors.red30} />
               <ColorSwatch color={colors.red40} />
-              <H4>Orange</H4>
+              <H3>Orange</H3>
               <ColorSwatch color={colors.orange20} darkText />
               <ColorSwatch color={colors.orange30} darkText />
               <ColorSwatch color={colors.orange40} darkText />
-              <H4>Green</H4>
+              <H3>Green</H3>
               <ColorSwatch color={colors.green20} darkText />
               <ColorSwatch color={colors.green30} darkText />
               <ColorSwatch color={colors.green40} darkText />
-              <H4>Purple</H4>
+              <H3>Purple</H3>
               <ColorSwatch color={colors.purple20} />
               <ColorSwatch color={colors.purple30} />
               <ColorSwatch color={colors.purple40} />
-              <H4>Blue</H4>
+              <H3>Blue</H3>
               <ColorSwatch color={colors.blue20} />
               <ColorSwatch color={colors.blue30} />
               <ColorSwatch color={colors.blue40} />
-              <H4>Ultramarine</H4>
+              <H3>Ultramarine</H3>
               <ColorSwatch color={colors.ultramarine20} />
               <ColorSwatch color={colors.ultramarine30} />
               <ColorSwatch color={colors.ultramarine40} />
-              <H3>Typography</H3>
-              <H4>Heading</H4>
+              <H2>Typography</H2>
+              <H3>Heading</H3>
               <WrapperRoot>
                 <Heading scale="canon" my="md">
                   Heading - Canon
@@ -165,7 +166,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   Heading - Minion
                 </Heading>
               </WrapperRoot>
-              <H4>Text</H4>
+              <H3>Text</H3>
               <WrapperRoot>
                 <Text scale="canon" display="block" my="sm">
                   Text - Canon
@@ -198,7 +199,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   Text - Minion
                 </Text>
               </WrapperRoot>
-              <H4>Monospace</H4>
+              <H3>Monospace</H3>
               <WrapperRoot>
                 <Text scale="pica" display="block" fontFamily="monospace" fontWeight={400}>
                   Text - Pica - Monospace - 400
@@ -266,7 +267,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   </Button>
                 </div>
               </WrapperRoot>
-              <H4>NavLinkButton</H4>
+              <H3>NavLinkButton</H3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
                   <NavLinkButton to="/" color="primary" style={buttonMarginStyles}>
@@ -280,7 +281,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   </NavLinkButton>
                 </div>
               </WrapperRoot>
-              <H4>AnchorButton</H4>
+              <H3>AnchorButton</H3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
                   <AnchorButton
@@ -331,9 +332,11 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                   doloribus eaque dolorem nisi iusto reprehenderit possimus optio.
                 </P>
                 <P>
-                  Sequi iste quas optio natus odit nostrum nobis atque, quidem repudiandae sunt
-                  repellat. Corrupti magni ipsum quasi et ex. Rem, eum. Officia fugiat alias magnam
-                  voluptatum temporibus minus voluptatem eos?
+                  <Small>
+                    Sequi iste quas optio natus odit nostrum nobis atque, quidem repudiandae sunt
+                    repellat. Corrupti magni ipsum quasi et ex. Rem, eum. Officia fugiat alias
+                    magnam voluptatum temporibus minus voluptatem eos?
+                  </Small>
                 </P>
               </WrapperRoot>
               <H3>Unordered List</H3>
@@ -365,7 +368,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <H3>Blockquote</H3>
               <WrapperRoot>
                 <div style={{ padding: '16px 0 0' }}>
-                  <blockquote>The quick brown fox jumps over the lazy dog.</blockquote>
+                  <Blockquote>The quick brown fox jumps over the lazy dog.</Blockquote>
                 </div>
               </WrapperRoot>
               <H3>Bookmark Link</H3>
@@ -404,13 +407,11 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <H3>Featured Project</H3>
               <FeaturedProject key={testProject.node.frontmatter.title} node={testProject.node} />
               <H3>Project Card</H3>
-              <H4>Without Image</H4>
               <ProjectCard
                 title={testProjectNode.frontmatter.title}
                 description={testProjectNode.fields.description || testProjectNode.fields.lead}
                 tags={testProjectTags}
               />
-              <H4>With Image</H4>
               <ProjectCard
                 image={testProjectNode.frontmatter.header_image}
                 title={testProjectNode.frontmatter.title}
@@ -418,7 +419,6 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                 tags={testProjectTags}
               />
               <H3>Project Item List</H3>
-              <H4>List Item</H4>
               <ProjectItem node={testProjectNode} />
             </Container>
           </PageContent>
