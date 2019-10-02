@@ -2,10 +2,9 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import { getEmSize } from '../../styles/mixins'
-import { pxSizes, colors, layerShadows } from '../../styles/variables'
+import { layerShadows } from '../../styles/variables'
 import Container from '../ui/Container'
-import { space } from '../chungking-core'
+import { space, colors, breakpoints } from '../chungking-core'
 
 interface PageHeaderProps {
   className?: string
@@ -52,11 +51,11 @@ const HeaderDivider = styled('hr')`
 const HasImageStyles = css`
   padding: 1.5rem 1.5rem 0;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${breakpoints.md}px) {
     padding: 1.5rem 1rem 0;
   }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+  @media (min-width: ${breakpoints.lg}px) {
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
@@ -72,7 +71,7 @@ const Section = styled<'section', PageHeaderProps>('section')`
   padding: 3rem 1.5rem 0;
   z-index: 5;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+  @media (min-width: ${breakpoints.lg}px) {
     font-size: 18px;
   }
 

@@ -2,12 +2,11 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from '@emotion/styled'
 
-import { colors, pxSizes, layerShadows } from '../../styles/variables'
+import { layerShadows } from '../../styles/variables'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
-import { getEmSize } from '../../styles/mixins'
 import { NavLinkButton } from '../ui'
-import { Heading, Paragraph } from '../chungking-core'
+import { Heading, Paragraph, colors, breakpoints } from '../chungking-core'
 
 interface HCardProps {
   className?: string
@@ -24,7 +23,7 @@ const HCardAvatar = styled('div')`
   justify-content: center;
   margin-bottom: 1.5rem;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+  @media (min-width: ${breakpoints.lg}px) {
     margin-bottom: 0;
   }
 `
@@ -39,7 +38,7 @@ const HCardAvatarImg = styled('img')`
 const HCardDetails = styled('div')`
   flex: 1;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+  @media (min-width: ${breakpoints.lg}px) {
     margin-left: 1.5rem;
   }
 `
@@ -86,7 +85,7 @@ const Inner = styled('div')`
   flex-direction: column;
   text-align: center;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+  @media (min-width: ${breakpoints.lg}px) {
     flex-direction: row;
     align-items: center;
     text-align: left;

@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 import { LinkGetProps } from '@reach/router'
 
 import { MenuItem } from '../../types/default'
-import { pxSizes, colors } from '../../styles/variables'
+import { breakpoints, colors } from '../chungking-core'
 
 interface MastheadNavProps {
   items: MenuItem[]
@@ -38,7 +38,7 @@ const MastheadNavItem = styled('li')`
       }
     }
 
-    @media (min-width: ${pxSizes.breakpoints.lg}px) {
+    @media (min-width: ${breakpoints.lg}px) {
       padding: 16px;
       padding-bottom: calc(16px - 2px);
     }

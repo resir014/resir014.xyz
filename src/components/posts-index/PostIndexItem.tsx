@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { colors, layerShadows } from '../../styles/variables'
+import { layerShadows } from '../../styles/variables'
+import { colors } from '../chungking-core'
 
 const PostIndexItem = styled('div')`
   margin-bottom: 3rem;

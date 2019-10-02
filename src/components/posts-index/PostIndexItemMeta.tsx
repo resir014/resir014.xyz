@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { colors } from '../../styles/variables'
+import { colors } from '../chungking-core'
 
 const PostIndexItemMeta = styled('div')`
   text-transform: uppercase;

@@ -5,8 +5,21 @@ import { HtmrOptions } from 'htmr/src/types'
 import { Link } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-import { colors } from '../../styles/variables'
-import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI, space, breakpoints } from '../chungking-core'
+import {
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  P,
+  UL,
+  OL,
+  LI,
+  space,
+  breakpoints,
+  colors
+} from '../chungking-core'
 
 interface MarkdownContentProps {
   className?: string

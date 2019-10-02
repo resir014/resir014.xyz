@@ -9,13 +9,10 @@ import { BlogPostField } from '../types/fields'
 import withPathPrefix from '../utils/withPathPrefix'
 import TemplateWrapper from '../layouts'
 
-import { getEmSize } from '../styles/mixins'
-import { pxSizes } from '../styles/variables'
-
+import { Box, breakpoints } from '../components/chungking-core'
 import { Container } from '../components/ui'
 import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
 import { BlogPostItem, PaginationLink } from '../components/posts-index'
-import { Box } from '../components/chungking-core'
 
 interface BlogPageProps {
   data: {
@@ -45,7 +42,7 @@ const Pagination = styled('div')`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${breakpoints.md}px) {
     flex-direction: row;
     justify-content: space-between;
   }

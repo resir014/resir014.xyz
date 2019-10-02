@@ -2,9 +2,10 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import { colors, layerShadows } from '../../styles/variables'
+import { layerShadows } from '../../styles/variables'
 import { BlogPostField } from '../../types/fields'
 import { PageMetaItem } from '../page'
+import { colors } from '../chungking-core'
 
 import PostIndexItemMeta from './PostIndexItemMeta'
 import PostIndexItemHeader from './PostIndexItemHeader'

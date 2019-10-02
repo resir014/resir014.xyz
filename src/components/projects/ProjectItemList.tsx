@@ -3,9 +3,8 @@ import styled from '@emotion/styled'
 
 import ProjectItem from './ProjectItem'
 
-import { colors } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
-import { Heading } from '../chungking-core'
+import { Heading, colors } from '../chungking-core'
 
 const ProjectsList = styled('div')`
   display: flex;

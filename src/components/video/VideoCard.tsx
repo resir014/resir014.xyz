@@ -1,7 +1,8 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { colors, layerShadows } from '../../styles/variables'
+import { layerShadows } from '../../styles/variables'
+import { colors } from '../chungking-core'
 import VideoTitle from './VideoTitle'
 
 interface VideoCardProps {

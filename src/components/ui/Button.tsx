@@ -2,8 +2,7 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { darken, transparentize } from 'polished'
-
-import { fonts, colors } from '../../styles/variables'
+import { colors, fonts } from '../chungking-core'
 
 export interface ButtonBaseProps {
   id?: string

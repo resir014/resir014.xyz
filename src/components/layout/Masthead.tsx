@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { transparentize } from 'polished'
 import styled from '@emotion/styled'
 
-import { pxSizes, colors } from '../../styles/variables'
+import { breakpoints, colors, widths } from '../chungking-core'
 import menuItems from '../../utils/menuItems'
 import { MenuProps } from '../../types/default'
 
@@ -17,7 +17,7 @@ interface MastheadProps extends MenuProps {
 
 const Root = styled('nav')`
   display: grid;
-  grid-template-columns: 1fr 1fr minmax(auto, ${pxSizes.widths.xl}px) 1fr 1fr;
+  grid-template-columns: 1fr 1fr minmax(auto, ${widths.xl}px) 1fr 1fr;
   background-color: ${colors.black};
   z-index: 50;
   border-bottom: 1px solid ${colors.grey90};
@@ -32,7 +32,7 @@ const MastheadInner = styled('ul')`
   padding: 0;
   list-style-type: none;
 
-  @media (min-width: ${pxSizes.breakpoints.lg}px) {
+  @media (min-width: ${breakpoints.lg}px) {
     justify-content: flex-end;
   }
 `
@@ -63,13 +63,13 @@ const MastheadTitle = styled('li')`
       }
     }
 
-    @media (min-width: ${pxSizes.breakpoints.lg}px) {
+    @media (min-width: ${breakpoints.lg}px) {
       padding: 16px;
       padding-bottom: calc(16px - 2px);
     }
   }
 
-  @media (max-width: ${pxSizes.breakpoints.lg - 1}px) {
+  @media (max-width: ${breakpoints.lg - 1}px) {
     flex-basis: 100%;
     text-align: center;
   }

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { colors, layerShadows } from '../../styles/variables'
-import { Heading, Text } from '../chungking-core'
+import { layerShadows } from '../../styles/variables'
+import { Heading, Text, colors } from '../chungking-core'
 
 interface HomepageThumbnailTextProps {
   className?: string

@@ -10,7 +10,6 @@ import TemplateWrapper from '../layouts'
 
 import { Button, Container, Badge, MessageBox, NavLinkButton, AnchorButton } from '../components/ui'
 import { Page, PageHeader, PageTitle, PageMetaItem, PageContent } from '../components/page'
-import { colors } from '../styles/variables'
 import { BookmarkLink } from '../components/bookmark'
 import { PostIndexItemMeta } from '../components/posts-index'
 import { FeaturedProject, ProjectCard } from '../components/projects'
@@ -30,7 +29,8 @@ import {
   H6,
   InlineCode,
   Blockquote,
-  Small
+  Small,
+  colors
 } from '../components/chungking-core'
 
 import getFeaturedProject from '../utils/getFeaturedProject'

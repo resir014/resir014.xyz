@@ -2,12 +2,12 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import { colors, layerShadows } from '../../styles/variables'
+import { layerShadows } from '../../styles/variables'
 import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
 import { Badge } from '../ui'
-import { Heading, Text } from '../chungking-core'
+import { Heading, Text, colors } from '../chungking-core'
 
 interface ProjectCardProps {
   title: string

@@ -5,10 +5,9 @@ import { css } from '@emotion/core'
 import { Badge, NavLinkButton } from '../ui'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
-import { colors, pxSizes, layerShadows } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import { layerShadows } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
-import { Text, Heading, P } from '../chungking-core'
+import { Text, Heading, P, breakpoints, colors } from '../chungking-core'
 
 const FeaturedProjectWrapper = styled('section')`
   display: flex;
@@ -24,11 +23,11 @@ const FeaturedProjectWrapper = styled('section')`
     margin-top: 0;
   }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${breakpoints.md}px) {
     flex-direction: row;
   }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+  @media (min-width: ${breakpoints.lg}px) {
     margin: 3rem 0;
   }
 

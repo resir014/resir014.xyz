@@ -70,6 +70,12 @@ export const breakpoints = {
   xl: 1200
 }
 
+export const widths = {
+  md: 750,
+  lg: 970,
+  xl: 1140
+}
+
 /**
  * Typography scaling following BBC's GEL:
  * https://www.bbc.co.uk/gel/guidelines/typography

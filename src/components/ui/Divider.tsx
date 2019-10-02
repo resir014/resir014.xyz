@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-
-import { colors } from '../../styles/variables'
+import { colors } from '../chungking-core'
 
 interface DividerProps {
   className?: string

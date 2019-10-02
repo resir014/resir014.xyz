@@ -1,9 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
-
-import { getEmSize } from '../../styles/mixins'
-import { pxSizes } from '../../styles/variables'
+import { breakpoints } from '../chungking-core'
 
 interface FeaturedProjectThumbnailProps {
   className?: string
@@ -30,7 +28,7 @@ const Image = styled(Img)`
   height: 100%;
   min-height: 320px;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+  @media (min-width: ${breakpoints.lg}px) {
     max-height: 480px;
   }
 `
@@ -38,7 +36,7 @@ const Image = styled(Img)`
 const Div = styled('div')`
   display: none;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${breakpoints.md}px) {
     display: block;
     position: relative;
     width: 100%;
