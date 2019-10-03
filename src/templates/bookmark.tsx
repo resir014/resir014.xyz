@@ -15,10 +15,10 @@ import {
   PageContent,
   PageMeta,
   PageMetaItem,
-  MarkdownContent
+  MarkdownContent,
+  BookmarkLink
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
-import { BookmarkLink } from '../components/bookmark'
 
 interface BookmarkTemplateProps {
   location: {

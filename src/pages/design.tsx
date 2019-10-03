@@ -9,8 +9,14 @@ import { ProjectField } from '../types/fields'
 import TemplateWrapper from '../layouts'
 
 import { Button, Container, Badge, MessageBox, NavLinkButton, AnchorButton } from '../components/ui'
-import { Page, PageHeader, PageTitle, PageMetaItem, PageContent } from '../components/page'
-import { BookmarkLink } from '../components/bookmark'
+import {
+  Page,
+  PageHeader,
+  PageTitle,
+  PageMetaItem,
+  PageContent,
+  BookmarkLink
+} from '../components/page'
 import { PostIndexItemMeta } from '../components/posts-index'
 import { FeaturedProject, ProjectCard } from '../components/projects'
 import { ColorSwatch } from '../components/design'

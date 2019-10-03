@@ -1,4 +1,2 @@
-import HCard from './HCard'
-import HCardPost from './HCardPost'
-
-export { HCard, HCardPost }
+export { default as HCard } from './HCard'
+export { default as HCardPost } from './HCardPost'

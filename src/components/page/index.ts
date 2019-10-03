@@ -1,23 +1,11 @@
-import MarkdownContent from './MarkdownContent'
-import Page from './Page'
-import PageContent from './PageContent'
-import PageHeader from './PageHeader'
-import PageMeta from './PageMeta'
-import PageMetaItem from './PageMetaItem'
-import PageSubtitle from './PageSubtitle'
-import PageThumbnail from './PageThumbnail'
-import PageThumbnailImage from './PageThumbnailImage'
-import PageTitle from './PageTitle'
-
-export {
-  MarkdownContent,
-  Page,
-  PageContent,
-  PageHeader,
-  PageMeta,
-  PageMetaItem,
-  PageSubtitle,
-  PageThumbnail,
-  PageThumbnailImage,
-  PageTitle
-}
+export { default as BookmarkLink } from './BookmarkLink'
+export { default as MarkdownContent } from './MarkdownContent'
+export { default as Page } from './Page'
+export { default as PageContent } from './PageContent'
+export { default as PageHeader } from './PageHeader'
+export { default as PageMeta } from './PageMeta'
+export { default as PageMetaItem } from './PageMetaItem'
+export { default as PageSubtitle } from './PageSubtitle'
+export { default as PageThumbnail } from './PageThumbnail'
+export { default as PageThumbnailImage } from './PageThumbnailImage'
+export { default as PageTitle } from './PageTitle'

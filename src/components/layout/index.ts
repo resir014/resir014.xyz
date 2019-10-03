@@ -1,5 +1,3 @@
-import Footer from './Footer'
-import Masthead from './Masthead'
-import MastheadNav from './MastheadNav'
-
-export { Footer, Masthead, MastheadNav }
+export { default as Footer } from './Footer'
+export { default as Masthead } from './Masthead'
+export { default as MastheadNav } from './MastheadNav'

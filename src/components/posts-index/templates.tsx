@@ -5,9 +5,8 @@ import { Link } from 'gatsby'
 
 import { BlogPostNode } from '../../types/nodes'
 
-import { BookmarkLink } from '../bookmark'
 import { ResponsiveVideo } from '../video'
-import { MarkdownContent } from '../page'
+import { MarkdownContent, BookmarkLink } from '../page'
 import { NavLinkButton } from '../ui'
 
 import BlogPostExcerpt from './BlogPostExcerpt'

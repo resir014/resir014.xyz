@@ -1,7 +1,5 @@
-import BlogPostItem from './BlogPostItem'
-import PaginationLink from './PaginationLink'
-import PostIndexItem from './PostIndexItem'
-import PostIndexItemHeader from './PostIndexItemHeader'
-import PostIndexItemMeta from './PostIndexItemMeta'
-
-export { BlogPostItem, PaginationLink, PostIndexItem, PostIndexItemHeader, PostIndexItemMeta }
+export { default as BlogPostItem } from './BlogPostItem'
+export { default as PaginationLink } from './PaginationLink'
+export { default as PostIndexItem } from './PostIndexItem'
+export { default as PostIndexItemHeader } from './PostIndexItemHeader'
+export { default as PostIndexItemMeta } from './PostIndexItemMeta'

@@ -1,21 +1,9 @@
-import Badge from './Badge'
-import Button from './Button'
-import AnchorButton from './AnchorButton'
-import NavLinkButton from './NavLinkButton'
-import Container from './Container'
-import Divider from './Divider'
-import HeaderDivider from './HeaderDivider'
-import LayoutRoot from './LayoutRoot'
-import MessageBox from './MessageBox'
-
-export {
-  Badge,
-  Button,
-  AnchorButton,
-  NavLinkButton,
-  Container,
-  Divider,
-  HeaderDivider,
-  LayoutRoot,
-  MessageBox
-}
+export { default as Badge } from './Badge'
+export { default as Button } from './Button'
+export { default as AnchorButton } from './AnchorButton'
+export { default as NavLinkButton } from './NavLinkButton'
+export { default as Container } from './Container'
+export { default as Divider } from './Divider'
+export { default as HeaderDivider } from './HeaderDivider'
+export { default as LayoutRoot } from './LayoutRoot'
+export { default as MessageBox } from './MessageBox'
