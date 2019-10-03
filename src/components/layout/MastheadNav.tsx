@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 import { LinkGetProps } from '@reach/router'
 
 import { MenuItem } from '../../types/default'
-import { breakpoints, colors } from '../chungking-core'
+import { breakpoints, colors, typeScale } from '../chungking-core'
 
 interface MastheadNavProps {
   items: MenuItem[]
@@ -19,6 +19,8 @@ const MastheadNavItem = styled('li')`
     display: block;
     padding: 8px 16px;
     padding-bottom: calc(8px - 2px);
+    font-size: ${typeScale.pica.sm.fontSize}px;
+    line-height: ${typeScale.pica.sm.lineHeight}px;
     border-bottom: 2px solid transparent;
     transition: background-color 0.2s ease;
 
@@ -41,6 +43,8 @@ const MastheadNavItem = styled('li')`
     @media (min-width: ${breakpoints.lg}px) {
       padding: 16px;
       padding-bottom: calc(16px - 2px);
+      font-size: ${typeScale.pica.lg.fontSize}px;
+      line-height: ${typeScale.pica.lg.lineHeight}px;
     }
   }
 `

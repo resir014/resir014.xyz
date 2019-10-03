@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { transparentize } from 'polished'
 import styled from '@emotion/styled'
 
-import { breakpoints, colors, widths } from '../chungking-core'
+import { breakpoints, colors, widths, typeScale } from '../chungking-core'
 import menuItems from '../../utils/menuItems'
 import { MenuProps } from '../../types/default'
 
@@ -20,7 +20,7 @@ const Root = styled('nav')`
   grid-template-columns: 1fr 1fr minmax(auto, ${widths.xl}px) 1fr 1fr;
   background-color: ${colors.black};
   z-index: 50;
-  box-shadow: inset 0 -1px ${colors.grey90};
+  border-bottom: 1px solid ${colors.grey90};
 `
 
 const MastheadInner = styled('ul')`
@@ -44,6 +44,8 @@ const MastheadTitle = styled('li')`
     display: block;
     padding: 8px 16px;
     padding-bottom: calc(8px - 2px);
+    font-size: ${typeScale.pica.sm.fontSize}px;
+    line-height: ${typeScale.pica.sm.lineHeight}px;
     font-weight: 700;
     border-bottom: 2px solid transparent;
     transition: background-color 0.2s ease;
@@ -66,6 +68,8 @@ const MastheadTitle = styled('li')`
     @media (min-width: ${breakpoints.lg}px) {
       padding: 16px;
       padding-bottom: calc(16px - 2px);
+      font-size: ${typeScale.pica.lg.fontSize}px;
+      line-height: ${typeScale.pica.lg.lineHeight}px;
     }
   }
 
