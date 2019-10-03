@@ -80,8 +80,8 @@ const MediumButtonStyles = css`
 const LargeButtonStyles = css`
   padding: 0 32px;
   height: 52px;
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 20px;
+  line-height: 20px;
   border-radius: 10px;
 `
 

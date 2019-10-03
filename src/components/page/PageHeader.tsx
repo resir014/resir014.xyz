@@ -70,9 +70,5 @@ const Section = styled<'section', PageHeaderProps>('section')`
   padding: 3rem 1.5rem 0;
   z-index: 5;
 
-  @media (min-width: ${breakpoints.lg}px) {
-    font-size: 18px;
-  }
-
   ${props => props.hasImage && HasImageStyles}
 `
