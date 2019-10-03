@@ -2,11 +2,10 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from '@emotion/styled'
 
-import { layerShadows } from '../../styles/variables'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import { NavLinkButton } from '../ui'
-import { Heading, Paragraph, colors, breakpoints } from '../chungking-core'
+import { Heading, Paragraph, colors, breakpoints, layerShadows } from '../chungking-core'
 
 interface HCardProps {
   className?: string

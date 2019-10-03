@@ -4,8 +4,7 @@ import { transparentize } from 'polished'
 import Url from 'url-parse'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-import { layerShadows } from '../../styles/variables'
-import { Text, Heading, colors, space } from '../chungking-core'
+import { Text, Heading, colors, space, layerShadows } from '../chungking-core'
 
 interface BookmarkLinkProps {
   link?: string

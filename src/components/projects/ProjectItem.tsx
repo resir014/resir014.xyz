@@ -3,10 +3,9 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import convert from 'htmr'
 
-import { layerShadows } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
 import { Badge, AnchorButton, NavLinkButton } from '../ui'
-import { Heading, Paragraph, space, colors } from '../chungking-core'
+import { Heading, Paragraph, space, colors, layerShadows } from '../chungking-core'
 
 const colorByCategory = (category: string) => {
   switch (category) {

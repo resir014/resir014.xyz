@@ -5,9 +5,8 @@ import { css } from '@emotion/core'
 import { Badge, NavLinkButton } from '../ui'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
-import { layerShadows } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
-import { Text, Heading, P, breakpoints, colors } from '../chungking-core'
+import { Text, Heading, P, breakpoints, colors, layerShadows } from '../chungking-core'
 
 const FeaturedProjectWrapper = styled('section')`
   display: flex;

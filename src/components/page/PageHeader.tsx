@@ -2,9 +2,8 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import { layerShadows } from '../../styles/variables'
 import Container from '../ui/Container'
-import { space, colors, breakpoints } from '../chungking-core'
+import { space, colors, breakpoints, layerShadows } from '../chungking-core'
 
 interface PageHeaderProps {
   className?: string
