@@ -36,7 +36,9 @@ import {
   InlineCode,
   Blockquote,
   Small,
-  colors
+  colors,
+  space,
+  layerShadows
 } from '../components/chungking-core'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
@@ -63,9 +65,10 @@ const buttonMarginStyles: React.CSSProperties = {
 
 const WrapperRoot = styled('div')`
   margin-bottom: 3rem;
-  padding: 1rem 1.5rem;
+  padding: ${space.md}px ${space.lg}px;
   background-color: ${colors.grey90};
   border-radius: 6px;
+  box-shadow: ${layerShadows.single};
 `
 
 const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
