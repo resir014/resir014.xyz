@@ -26,13 +26,13 @@ export const H4: React.FC = ({ children }) => (
 )
 
 export const H5: React.FC = ({ children }) => (
-  <Heading as="h5" scale="pica" mt="sm" mb="sm">
+  <Heading as="h5" scale="brevier" mt="sm" mb="sm">
     {children}
   </Heading>
 )
 
 export const H6: React.FC = ({ children }) => (
-  <Heading as="h6" scale="pica" mt="sm" mb="sm">
+  <Heading as="h6" scale="brevier" mt="sm" mb="sm">
     {children}
   </Heading>
 )

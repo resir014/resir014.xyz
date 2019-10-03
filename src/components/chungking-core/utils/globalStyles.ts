@@ -108,9 +108,9 @@ const GlobalStyles = css`
 
   hr {
     position: relative;
-    margin: ${space.lg}px 0;
+    margin: ${space.xl}px 0;
     border: 0;
-    border-bottom: 1px solid ${colors.grey30};
+    border-bottom: 1px solid ${colors.grey80};
   }
 
   abbr {

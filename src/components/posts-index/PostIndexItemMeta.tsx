@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { colors } from '../chungking-core'
+import { colors, space } from '../chungking-core'
 
 const PostIndexItemMeta = styled('div')`
   text-transform: uppercase;
@@ -7,8 +7,7 @@ const PostIndexItemMeta = styled('div')`
   hr {
     width: 100%;
     max-width: 100px;
-    height: 6px;
-    margin: 0.5rem 0 0;
+    margin: ${space.xs}px 0 0;
     border: none;
     border-bottom: 2px solid ${colors.orange30};
   }

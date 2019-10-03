@@ -169,13 +169,10 @@ const Div = styled('div')`
   }
 
   hr {
-    width: 100%;
-    max-width: 100px;
-    height: 6px;
-    margin: 2.5rem auto;
-    border: none;
-    border-radius: 6px;
-    background: linear-gradient(to right, ${colors.green30}, ${colors.orange30});
+    position: relative;
+    margin: ${space.xl}px 0;
+    border: 0;
+    border-bottom: 1px solid ${colors.grey80};
   }
 
   .footnotes {

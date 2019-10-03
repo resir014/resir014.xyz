@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
+import { space } from '../chungking-core'
 
 const PostIndexItemHeader = styled('section')`
-  padding: 1rem 1.5rem 0;
+  padding: ${space.md}px ${space.lg}px 0;
 `
 
 export default PostIndexItemHeader

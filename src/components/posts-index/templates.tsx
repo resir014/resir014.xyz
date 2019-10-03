@@ -10,14 +10,14 @@ import { MarkdownContent, BookmarkLink } from '../page'
 import { NavLinkButton } from '../ui'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
-import { Heading } from '../chungking-core'
+import { Heading, space } from '../chungking-core'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
 `
 
 const PostThumbnailImage = styled('img')`
-  margin-top: 1.5rem;
+  margin-top: ${space.md}px;
   margin-bottom: 0;
 `
 
@@ -30,7 +30,7 @@ const PostTitle: React.FC = ({ children }) => (
 )
 
 const ResponsiveVideoWrapper = styled(ResponsiveVideo)`
-  margin-top: 1.5rem;
+  margin-top: ${space.md}px;
 `
 
 const PostContent = styled('div')`
