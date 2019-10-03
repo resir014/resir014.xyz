@@ -20,7 +20,7 @@ const Root = styled('nav')`
   grid-template-columns: 1fr 1fr minmax(auto, ${widths.xl}px) 1fr 1fr;
   background-color: ${colors.black};
   z-index: 50;
-  border-bottom: 1px solid ${colors.grey90};
+  box-shadow: inset 0 -1px ${colors.grey90};
 `
 
 const MastheadInner = styled('ul')`
