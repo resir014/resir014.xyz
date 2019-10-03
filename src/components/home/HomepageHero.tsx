@@ -23,7 +23,7 @@ const Inner = styled(Container)`
   flex-direction: column;
   height: 320px;
 
-  @media (min-width: ${breakpoints.lg}) {
+  @media (min-width: ${breakpoints.lg}px) {
     padding: 0 ${space.lg}px;
     height: 480px;
   }
@@ -36,7 +36,7 @@ const Root = styled('header')`
   height: 320px;
   border-bottom: 1px solid ${colors.grey90};
 
-  @media (min-width: ${breakpoints.lg}) {
+  @media (min-width: ${breakpoints.lg}px) {
     padding: 0 ${space.lg}px;
     height: 480px;
   }
