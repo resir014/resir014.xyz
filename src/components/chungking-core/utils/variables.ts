@@ -14,7 +14,7 @@ export const layerShadows = {
 
 export const colors = {
   red20: '#ff3333',
-  red30: '#ff0000',
+  red30: '#ee0000',
   red40: '#e60000',
   orange20: '#f7b955',
   orange30: '#f5a623',
