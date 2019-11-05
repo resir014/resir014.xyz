@@ -402,13 +402,17 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
               <H3>Message Box</H3>
               <WrapperRoot>
                 <MessageBox>
-                  <strong>Info:</strong> This post is also published on{' '}
-                  <a href="https://medium.com/">Medium</a>.
+                  <P>
+                    <strong>Info:</strong> This post is also published on{' '}
+                    <a href="https://medium.com/">Medium</a>.
+                  </P>
                 </MessageBox>
                 <MessageBox variant="warning">
-                  <strong>Update:</strong> Phoenix 1.4 ships with{' '}
-                  <a href="https://webpack.js.org/">Webpack</a> by default, therefore this guide is
-                  now outdated.
+                  <P>
+                    <strong>Update:</strong> Phoenix 1.4 ships with{' '}
+                    <a href="https://webpack.js.org/">Webpack</a> by default, therefore this guide
+                    is now outdated.
+                  </P>
                 </MessageBox>
               </WrapperRoot>
 
