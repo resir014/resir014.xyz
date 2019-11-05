@@ -10,7 +10,7 @@ interface HomepageThumbnailTextProps {
 }
 
 const FlexInner = styled('div')`
-  padding: 1.5rem;
+  padding: 24px;
   color: ${colors.white};
   background-color: ${colors.black};
   border-radius: 10px;

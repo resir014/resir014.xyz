@@ -32,7 +32,7 @@ const HCardAvatarImg = styled('img')`
 
 const HCardDetails = styled('div')`
   flex: 1;
-  margin-left: 1.5rem;
+  margin-left: 24px;
 `
 
 const HCardEmail = styled('a')`

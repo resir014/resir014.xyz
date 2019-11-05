@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 
 import { Button, NavLinkButton } from '../ui'
+import { space } from '../chungking-core'
 
 interface PaginationLinkProps {
   test: boolean
@@ -10,15 +11,15 @@ interface PaginationLinkProps {
 }
 
 const StyledPaginationLink = styled(Button)`
-  margin-bottom: 1rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-bottom: ${space.md}px;
+  margin-left: ${space.xs}px;
+  margin-right: ${space.xs}px;
 `
 
 const StyledPaginationNavLink = styled(NavLinkButton)`
-  margin-bottom: 1rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-bottom: ${space.md}px;
+  margin-left: ${space.xs}px;
+  margin-right: ${space.xs}px;
 `
 
 const PaginationLink: React.SFC<PaginationLinkProps> = ({ test, url, text }) => {

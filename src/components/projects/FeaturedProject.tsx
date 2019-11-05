@@ -6,13 +6,13 @@ import { Badge, NavLinkButton } from '../ui'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { ProjectField } from '../../types/fields'
-import { Text, Heading, P, breakpoints, colors, layerShadows } from '../chungking-core'
+import { Text, Heading, P, breakpoints, colors, layerShadows, space } from '../chungking-core'
 
 const FeaturedProjectWrapper = styled('section')`
   display: flex;
   flex-direction: column;
   min-height: 300px;
-  margin: 1.5rem 0;
+  margin: 24px 0;
   color: ${colors.white};
   border-radius: 6px;
   overflow: hidden;
@@ -27,7 +27,7 @@ const FeaturedProjectWrapper = styled('section')`
   }
 
   @media (min-width: ${breakpoints.lg}px) {
-    margin: 3rem 0;
+    margin: ${space.xxl}px 0;
   }
 
   .column {
@@ -36,17 +36,17 @@ const FeaturedProjectWrapper = styled('section')`
 `
 
 const ProjectTags = styled('div')`
-  margin-top: 1rem;
+  margin-top: ${space.md}px;
 
   ${Badge} + ${Badge} {
-    margin-left: 0.5rem;
+    margin-left: ${space.xs}px;
   }
 `
 
 const FeaturedProjectDetails = styled('div')`
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 24px;
   background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
 `
 
@@ -64,7 +64,7 @@ const FeaturedProjectDescription = styled('div')`
 `
 
 const FeaturedProjectFooter = styled('div')`
-  margin-top: 2rem;
+  margin-top: ${space.xl}px;
 `
 
 interface FeaturedProjectProps extends ProjectField {

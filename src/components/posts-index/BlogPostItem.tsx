@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 import { BlogPostField } from '../../types/fields'
 import { PageMetaItem } from '../page'
-import { colors, layerShadows } from '../chungking-core'
+import { colors, layerShadows, space } from '../chungking-core'
 
 import PostIndexItemMeta from './PostIndexItemMeta'
 import PostIndexItemHeader from './PostIndexItemHeader'
@@ -19,7 +19,7 @@ import {
 const StyledPostItem = styled('article')`
   display: flex;
   flex-direction: column;
-  margin-bottom: 3rem;
+  margin-bottom: ${space.xxl}px;
   background-color: ${colors.grey90};
   border-radius: 6px;
   overflow: hidden;
@@ -45,7 +45,6 @@ const BlogPostItem: React.FC<BlogPostField> = ({ node }) => {
             </Link>
           </PageMetaItem>
           <PageMetaItem className="p-category">{category}</PageMetaItem>
-          <hr />
         </PostIndexItemMeta>
       </PostIndexItemHeader>
       {node.fields.category === 'article' && renderArticleTemplate(node)}

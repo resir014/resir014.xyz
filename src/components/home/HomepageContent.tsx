@@ -6,10 +6,10 @@ import { space, breakpoints } from '../chungking-core'
 const StyledHomepageContent = styled('div')`
   display: block;
   padding: ${space.lg}px;
-  padding-bottom: 3rem;
+  padding-bottom: ${space.xxl}px;
 
   @media (min-width: ${breakpoints.lg}px) {
-    margin-top: 3rem;
+    margin-top: ${space.xxl}px;
   }
 `
 

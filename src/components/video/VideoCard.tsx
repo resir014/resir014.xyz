@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { colors, layerShadows } from '../chungking-core'
+import { colors, layerShadows, space } from '../chungking-core'
 import VideoTitle from './VideoTitle'
 
 interface VideoCardProps {
@@ -10,11 +10,11 @@ interface VideoCardProps {
 }
 
 const Inner = styled('div')`
-  padding: 1.5rem;
+  padding: 24px;
 `
 
 const Root = styled('section')`
-  margin-bottom: 3rem;
+  margin-bottom: ${space.xxl}px;
   background-color: ${colors.grey90};
   border-radius: 6px;
   overflow: hidden;

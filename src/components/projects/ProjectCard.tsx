@@ -6,7 +6,7 @@ import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
 import { Badge } from '../ui'
-import { Heading, Text, colors, layerShadows } from '../chungking-core'
+import { Heading, Text, colors, layerShadows, space } from '../chungking-core'
 
 interface ProjectCardProps {
   title: string
@@ -58,7 +58,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ta
 export default ProjectCard
 
 const Root = styled('section')`
-  margin: 1.5rem 0;
+  margin: 24px 0;
   padding: 0;
   background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
   border-radius: 8px;
@@ -67,13 +67,13 @@ const Root = styled('section')`
 `
 
 const Inner = styled('div')`
-  padding: 1rem 1.5rem 1.5rem;
+  padding: ${space.md}px ${space.lg}px ${space.lg}px;
 `
 
 const ProjectTags = styled('div')`
-  margin-top: 1rem;
+  margin-top: ${space.md}px;
 
   ${Badge} + ${Badge} {
-    margin-left: 0.5rem;
+    margin-left: ${space.xs}px;
   }
 `

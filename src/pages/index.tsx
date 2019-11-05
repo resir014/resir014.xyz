@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
@@ -19,9 +19,7 @@ import {
   HomepageHeroText,
   HomepageContent,
   HomepageSection,
-  HomepageSectionFooter,
-  HomepageSectionTitle,
-  HomepageSectionDescription
+  HomepageSectionFooter
 } from '../components/home'
 
 interface IndexPageProps {
@@ -93,11 +91,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           </HomepageSection>
           <Divider spacing="large" center />
           <HomepageSection>
-            <HomepageSectionTitle>Contact</HomepageSectionTitle>
-            <HomepageSectionDescription>
-              Got any questions for me? Or just want to say hi?{' '}
-              <Link to="/contact">Let&apos;s talk!</Link>
-            </HomepageSectionDescription>
             <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
           </HomepageSection>
         </HomepageContent>

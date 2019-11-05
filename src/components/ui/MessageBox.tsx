@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import { colors } from '../chungking-core'
+import { colors, space } from '../chungking-core'
 
 interface MessageBoxProps {
   className?: string
@@ -27,8 +27,8 @@ const WarningStyles = css`
 `
 
 const Root = styled<'div', MessageBoxProps>('div')`
-  margin: 1.5rem 0;
-  padding: 1rem;
+  margin: 24px 0;
+  padding: ${space.md}px;
   border: 2px solid transparent;
 
   &:first-child {

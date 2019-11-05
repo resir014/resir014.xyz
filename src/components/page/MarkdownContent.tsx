@@ -68,7 +68,7 @@ const Div = styled('div')`
   }
 
   .gatsby-resp-image-wrapper {
-    margin: 1.5rem 0;
+    margin: 24px 0;
 
     &:first-child {
       margin-top: 0;
@@ -120,13 +120,13 @@ const Div = styled('div')`
   li {
     p {
       &:last-of-type {
-        margin-bottom: 0.5rem;
+        margin-bottom: ${space.xs}px;
       }
     }
   }
 
   .gatsby-highlight {
-    margin: 1rem 0;
+    margin: ${space.md}px 0;
     font-size: 90%;
   }
 
@@ -138,8 +138,8 @@ const Div = styled('div')`
 
   .message {
     position: relative;
-    margin: 1.5rem 0;
-    padding: 1rem;
+    margin: 24px 0;
+    padding: ${space.md}px;
     border: 2px solid transparent;
     border-image-source: linear-gradient(to right, ${colors.magenta30}, ${colors.orange30});
     border-image-slice: 1;
@@ -176,23 +176,14 @@ const Div = styled('div')`
   }
 
   .footnotes {
-    margin-top: 2rem;
+    margin-top: ${space.xl}px;
     font-size: 85%;
 
     li[id^='fn-'] {
       p {
-        // Remark for some reason puts the footnote reflink *after* the 'p' tag.
+        /* Remark for some reason puts the footnote reflink *after* the 'p' tag. */
         display: inline;
       }
-    }
-  }
-
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-
-    @media (min-width: ${breakpoints.md}px) {
-      font-size: 1.5rem;
     }
   }
 `

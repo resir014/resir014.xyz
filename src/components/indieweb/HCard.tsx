@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import { NavLinkButton } from '../ui'
-import { Heading, Paragraph, colors, breakpoints, layerShadows } from '../chungking-core'
+import { Heading, Paragraph, colors, breakpoints, space } from '../chungking-core'
 
 interface HCardProps {
   className?: string
@@ -20,7 +20,7 @@ const HCardAvatar = styled('div')`
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
 
   @media (min-width: ${breakpoints.lg}px) {
     margin-bottom: 0;
@@ -32,13 +32,14 @@ const HCardAvatarImg = styled('img')`
   height: 128px;
   margin: 0;
   border-radius: 128px;
+  border: 2px solid ${colors.white};
 `
 
 const HCardDetails = styled('div')`
   flex: 1;
 
   @media (min-width: ${breakpoints.lg}px) {
-    margin-left: 1.5rem;
+    margin-left: 24px;
   }
 `
 
@@ -93,15 +94,11 @@ const Inner = styled('div')`
 
 const Div = styled('div')`
   display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'block')};
-  margin: 1.5rem 0;
-  padding: 1.5rem;
+  margin: ${space.xl}px 0;
   color: ${colors.grey10};
-  background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
-  border-radius: 8px;
-  box-shadow: ${layerShadows.single};
 
   p {
-    margin: 0.5rem 0;
+    margin: ${space.xs}px 0;
   }
 
   a {

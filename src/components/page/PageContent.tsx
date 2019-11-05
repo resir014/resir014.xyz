@@ -6,7 +6,7 @@ import { space } from '../chungking-core'
 const StyledPageContent = styled('section')`
   display: block;
   padding: ${space.lg}px;
-  padding-bottom: 3rem;
+  padding-bottom: ${space.xxl}px;
 `
 
 interface PageContentProps {

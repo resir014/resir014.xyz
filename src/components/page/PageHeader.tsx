@@ -48,18 +48,18 @@ const HeaderDivider = styled('hr')`
 `
 
 const HasImageStyles = css`
-  padding: 1.5rem 1.5rem 0;
+  padding: 24px 24px 0;
 
   @media (min-width: ${breakpoints.md}px) {
-    padding: 1.5rem 1rem 0;
+    padding: 24px ${space.md}px 0;
   }
 
   @media (min-width: ${breakpoints.lg}px) {
     position: absolute;
-    bottom: 1.5rem;
-    left: 1.5rem;
+    bottom: 24px;
+    left: 24px;
     max-width: 85%;
-    padding: 1.5rem;
+    padding: 24px;
     background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
     border-radius: 8px;
     box-shadow: ${layerShadows.double};
@@ -67,7 +67,7 @@ const HasImageStyles = css`
 `
 
 const Section = styled<'section', PageHeaderProps>('section')`
-  padding: 3rem 1.5rem 0;
+  padding: ${space.xxl}px 24px 0;
   z-index: 5;
 
   ${props => props.hasImage && HasImageStyles}

@@ -10,15 +10,14 @@ import { MarkdownContent, BookmarkLink } from '../page'
 import { NavLinkButton } from '../ui'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
-import { Heading, space } from '../chungking-core'
+import { Heading } from '../chungking-core'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
 `
 
 const PostThumbnailImage = styled('img')`
-  margin-top: ${space.md}px;
-  margin-bottom: 0;
+  margin: 0;
 `
 
 const PostDetailBox = styled('section')``
@@ -29,20 +28,20 @@ const PostTitle: React.FC = ({ children }) => (
   </Heading>
 )
 
-const ResponsiveVideoWrapper = styled(ResponsiveVideo)`
-  margin-top: ${space.md}px;
-`
-
 const PostContent = styled('div')`
-  padding: 1.5rem;
+  padding: 24px;
+
+  &:first-child {
+    padding-top: 0;
+  }
 
   &:last-child {
-    padding-bottom: 1.5rem;
+    padding-bottom: 24px;
   }
 `
 
 const BlogPostFooter = styled('div')`
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 24px 24px;
 `
 
 export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
@@ -111,13 +110,13 @@ export function renderVideoTemplate(node: BlogPostNode) {
   return (
     <PostDetailBox>
       {node.fields.youtube_embed_id && (
-        <ResponsiveVideoWrapper>
+        <ResponsiveVideo>
           <iframe
             title={node.fields.youtube_embed_id}
             src={`https://www.youtube-nocookie.com/embed/${node.fields.youtube_embed_id}?rel=0`}
             allowFullScreen
           />
-        </ResponsiveVideoWrapper>
+        </ResponsiveVideo>
       )}
       <PostContent>
         {node.frontmatter.title && (

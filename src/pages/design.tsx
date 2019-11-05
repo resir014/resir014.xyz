@@ -64,7 +64,7 @@ const buttonMarginStyles: React.CSSProperties = {
 }
 
 const WrapperRoot = styled('div')`
-  margin-bottom: 3rem;
+  margin-bottom: ${space.xxl}px;
   padding: ${space.md}px ${space.lg}px;
   background-color: ${colors.grey90};
   border-radius: 6px;
