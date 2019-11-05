@@ -2,9 +2,9 @@ import * as React from 'react'
 import classnames from 'classnames'
 import styled from '@emotion/styled'
 
-import { colors, emSizes } from '../../styles/variables'
 import { ChildImageSharp } from '../../types/gatsby'
 import { SiteAuthor } from '../../types/default'
+import { Heading, Text, colors, space } from '../chungking-core'
 
 interface HCardPostProps {
   className?: string
@@ -12,19 +12,6 @@ interface HCardPostProps {
   icon: ChildImageSharp
   author: SiteAuthor
 }
-
-const HCardName = styled('h4')`
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: ${emSizes.headingSmall.h4}rem;
-  line-height: ${emSizes.lineHeight.heading}rem;
-`
-
-const HCardNote = styled('p')`
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  font-size: 90%;
-`
 
 const HCardAvatar = styled('div')`
   display: flex;
@@ -39,12 +26,13 @@ const HCardAvatarImg = styled('img')`
   width: 64px;
   height: 64px;
   margin: 0;
+  border: 2px solid ${colors.white};
   border-radius: 64px;
 `
 
 const HCardDetails = styled('div')`
   flex: 1;
-  margin-left: 1.5rem;
+  margin-left: 24px;
 `
 
 const HCardEmail = styled('a')`
@@ -56,7 +44,7 @@ const Anchor = styled('a')`
   flex-direction: row;
   align-items: center;
   text-align: left;
-  margin: 2rem 0;
+  margin: ${space.xl}px 0;
   padding: 0;
   color: ${colors.white};
   text-decoration: none !important;
@@ -77,8 +65,12 @@ const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author 
       <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
     </HCardAvatar>
     <HCardDetails>
-      <HCardName className="p-name">{author.name}</HCardName>
-      <HCardNote className="p-note">{author.description}</HCardNote>
+      <Heading as="h4" scale="greatPrimer" m={0} className="p-name">
+        {author.name}
+      </Heading>
+      <Text as="p" mt="xxs" mb={0} className="p-note">
+        {author.description}
+      </Text>
       <HCardEmail className="u-email" href={`mailto:${author.email}`}>
         {author.email}
       </HCardEmail>

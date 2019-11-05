@@ -1,7 +1,5 @@
-import FeaturedProject from './FeaturedProject'
-import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
-import ProjectCard from './ProjectCard'
-import ProjectItemList from './ProjectItemList'
-import ProjectFooter from './ProjectFooter'
-
-export { FeaturedProject, FeaturedProjectThumbnail, ProjectCard, ProjectItemList, ProjectFooter }
+export { default as FeaturedProject } from './FeaturedProject'
+export { default as FeaturedProjectThumbnail } from './FeaturedProjectThumbnail'
+export { default as ProjectCard } from './ProjectCard'
+export { default as ProjectItemList } from './ProjectItemList'
+export { default as ProjectFooter } from './ProjectFooter'

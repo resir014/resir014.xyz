@@ -3,8 +3,7 @@ import classnames from 'classnames'
 import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 
-import { pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import { breakpoints } from '../chungking-core'
 
 interface PostThumbnailImageProps {
   className?: string
@@ -26,7 +25,7 @@ const Image = styled(Img)`
     margin: 0;
   }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
+  @media (min-width: ${breakpoints.lg}px) {
     max-height: 560px;
   }
 `

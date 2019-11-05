@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { colors, layerShadows } from '../../styles/variables'
+import { colors, layerShadows } from '../chungking-core'
 
 interface ColorSwatchProps {
   color: string
@@ -76,9 +76,8 @@ const Root = styled('button')`
   display: inline-block;
   width: 92px;
   margin: 0;
-  margin-top: 1rem;
-  margin-right: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-right: 24px;
+  margin-bottom: 24px;
   padding: 8px;
   border: none;
   border-radius: 5px;

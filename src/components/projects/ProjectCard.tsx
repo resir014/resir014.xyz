@@ -1,13 +1,12 @@
 import * as React from 'react'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import { colors, layerShadows } from '../../styles/variables'
 import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
 import { Badge } from '../ui'
-import ProjectTitle from './ProjectTitle'
-import ProjectSubtitle from './ProjectSubtitle'
+import { Heading, Text, colors, layerShadows, space } from '../chungking-core'
 
 interface ProjectCardProps {
   title: string
@@ -26,8 +25,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ta
       </PageThumbnail>
     )}
     <Inner>
-      <ProjectTitle className="p-name">{title}</ProjectTitle>
-      {description ? <ProjectSubtitle className="p-summary">{description}</ProjectSubtitle> : null}
+      <Heading
+        as="h1"
+        scale="trafalgar"
+        mt={0}
+        mb="xs"
+        css={css`
+          color: #00f281;
+        `}
+        className="p-name"
+      >
+        {title}
+      </Heading>
+      {description ? (
+        <Text as="p" scale="greatPrimer" fontWeight={300} m={0} className="p-summary">
+          {description}
+        </Text>
+      ) : null}
       {tags ? (
         <ProjectTags>
           {tags.map(tag => (
@@ -44,7 +58,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ta
 export default ProjectCard
 
 const Root = styled('section')`
-  margin: 1.5rem 0;
+  margin: 24px 0;
   padding: 0;
   background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
   border-radius: 8px;
@@ -53,13 +67,13 @@ const Root = styled('section')`
 `
 
 const Inner = styled('div')`
-  padding: 1rem 1.5rem 1.5rem;
+  padding: ${space.md}px ${space.lg}px ${space.lg}px;
 `
 
 const ProjectTags = styled('div')`
-  margin-top: 1rem;
+  margin-top: ${space.md}px;
 
   ${Badge} + ${Badge} {
-    margin-left: 0.5rem;
+    margin-left: ${space.xs}px;
   }
 `

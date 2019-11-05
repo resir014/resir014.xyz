@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-
-import { colors } from '../../styles/variables'
+import { colors, space } from '../chungking-core'
 
 interface DividerProps {
   className?: string
@@ -14,7 +13,7 @@ interface DividerProps {
 const Divider: React.SFC<DividerProps> = ({ className }) => <hr className={className} />
 
 const DividerFullWidth = (props: DividerProps) => css`
-  width: 6rem;
+  width: ${space.xxl * 2}px;
   margin-left: ${props.center ? 'auto' : 0};
   margin-right: auto;
 `
@@ -23,20 +22,20 @@ const DividerMatcher = (props: DividerProps) => {
   switch (props.spacing) {
     case 'large': {
       return css`
-        margin-top: 3rem;
-        margin-bottom: 3rem;
+        margin-top: ${space.xxl}px;
+        margin-bottom: ${space.xxl}px;
       `
     }
     case 'small': {
       return css`
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-top: ${space.md}px;
+        margin-bottom: ${space.md}px;
       `
     }
     default: {
       return css`
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
+        margin-top: ${space.lg}px;
+        margin-bottom: ${space.lg}px;
       `
     }
   }

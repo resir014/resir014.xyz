@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { colors } from '../../styles/variables'
+import { colors } from '../chungking-core'
 
 interface BadgeProps {
   className?: string

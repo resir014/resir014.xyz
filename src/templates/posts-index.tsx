@@ -9,10 +9,8 @@ import { BlogPostField } from '../types/fields'
 import withPathPrefix from '../utils/withPathPrefix'
 import TemplateWrapper from '../layouts'
 
-import { getEmSize } from '../styles/mixins'
-import { pxSizes } from '../styles/variables'
-
-import { Container, Divider } from '../components/ui'
+import { Box, breakpoints } from '../components/chungking-core'
+import { Container } from '../components/ui'
 import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
 import { BlogPostItem, PaginationLink } from '../components/posts-index'
 
@@ -44,7 +42,7 @@ const Pagination = styled('div')`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${breakpoints.md}px) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -84,13 +82,14 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
               <BlogPostItem key={node.fields.slug} node={node} />
             ))}
           </Container>
-          <Divider spacing="large" center />
-          <Container size="md">
-            <Pagination>
-              <PaginationLink test={first} url={previousUrl} text="Newer posts" />
-              <PaginationLink test={last} url={nextUrl} text="Older posts" />
-            </Pagination>
-          </Container>
+          <Box mt="xxl">
+            <Container size="md">
+              <Pagination>
+                <PaginationLink test={first} url={previousUrl} text="Newer posts" />
+                <PaginationLink test={last} url={nextUrl} text="Older posts" />
+              </Pagination>
+            </Container>
+          </Box>
         </PageContent>
       </Page>
     </TemplateWrapper>

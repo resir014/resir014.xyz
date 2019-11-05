@@ -5,8 +5,21 @@ import { HtmrOptions } from 'htmr/src/types'
 import { Link } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-import { colors, emSizes, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import {
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  P,
+  UL,
+  OL,
+  LI,
+  space,
+  breakpoints,
+  colors
+} from '../chungking-core'
 
 interface MarkdownContentProps {
   className?: string
@@ -15,6 +28,16 @@ interface MarkdownContentProps {
 
 const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) => {
   const transform: HtmrOptions['transform'] = {
+    h1: H1,
+    h2: H2,
+    h3: H3,
+    h4: H4,
+    h5: H5,
+    h6: H6,
+    p: P,
+    ul: UL,
+    ol: OL,
+    li: LI,
     a: (node: Partial<React.ReactHTMLElement<HTMLAnchorElement>['props']>) => {
       const { href } = node
 
@@ -45,7 +68,7 @@ const Div = styled('div')`
   }
 
   .gatsby-resp-image-wrapper {
-    margin: 1.5rem 0;
+    margin: 24px 0;
 
     &:first-child {
       margin-top: 0;
@@ -57,16 +80,16 @@ const Div = styled('div')`
   }
 
   figure {
-    margin: 2rem 0;
+    margin: ${space.xl}px 0;
     text-align: center;
 
     &:first-child {
       margin-top: 0;
     }
 
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-      margin-left: -${emSizes.containerPadding * 2}rem;
-      margin-right: -${emSizes.containerPadding * 2}rem;
+    @media (min-width: ${breakpoints.lg}px) {
+      margin-left: -${space.lg * 2}px;
+      margin-right: -${space.lg * 2}px;
     }
 
     .gatsby-resp-image-wrapper {
@@ -97,17 +120,13 @@ const Div = styled('div')`
   li {
     p {
       &:last-of-type {
-        margin-bottom: 0.5rem;
+        margin-bottom: ${space.xs}px;
       }
     }
   }
 
-  li + li {
-    margin-top: 0.25rem;
-  }
-
   .gatsby-highlight {
-    margin: 1rem 0;
+    margin: ${space.md}px 0;
     font-size: 90%;
   }
 
@@ -119,8 +138,8 @@ const Div = styled('div')`
 
   .message {
     position: relative;
-    margin: 1.5rem 0;
-    padding: 1rem;
+    margin: 24px 0;
+    padding: ${space.md}px;
     border: 2px solid transparent;
     border-image-source: linear-gradient(to right, ${colors.magenta30}, ${colors.orange30});
     border-image-slice: 1;
@@ -150,33 +169,21 @@ const Div = styled('div')`
   }
 
   hr {
-    width: 100%;
-    max-width: 100px;
-    height: 6px;
-    margin: 2.5rem auto;
-    border: none;
-    border-radius: 6px;
-    background: linear-gradient(to right, ${colors.green30}, ${colors.orange30});
+    position: relative;
+    margin: ${space.xl}px 0;
+    border: 0;
+    border-bottom: 1px solid ${colors.grey80};
   }
 
   .footnotes {
-    margin-top: 2rem;
+    margin-top: ${space.xl}px;
     font-size: 85%;
 
     li[id^='fn-'] {
       p {
-        // Remark for some reason puts the footnote reflink *after* the 'p' tag.
+        /* Remark for some reason puts the footnote reflink *after* the 'p' tag. */
         display: inline;
       }
-    }
-  }
-
-  .lead {
-    font-size: 1.25rem;
-    font-weight: 300;
-
-    @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-      font-size: 1.5rem;
     }
   }
 `

@@ -3,13 +3,8 @@ import styled from '@emotion/styled'
 
 import ProjectItem from './ProjectItem'
 
-import { colors } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
-
-const ProjectSectionHeading = styled('h2')`
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-`
+import { Heading, colors } from '../chungking-core'
 
 const ProjectsList = styled('div')`
   display: flex;
@@ -31,14 +26,18 @@ const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, homepage, pro
     const slicedProjects = homepage ? projects.slice(0, 9) : projects
 
     return (
-      <React.Fragment>
-        {title && <ProjectSectionHeading>{title}</ProjectSectionHeading>}
+      <>
+        {title && (
+          <Heading as="h2" scale="trafalgar" mt="lg" mb="lg">
+            {title}
+          </Heading>
+        )}
         <ProjectsList>
           {slicedProjects.map(({ node }) => (
             <ProjectItem key={node.frontmatter.title} node={node} />
           ))}
         </ProjectsList>
-      </React.Fragment>
+      </>
     )
   }
 

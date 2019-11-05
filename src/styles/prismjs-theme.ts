@@ -1,7 +1,7 @@
 // tslint:disable:no-unused-expression
 
 import { css } from '@emotion/core'
-import { colors } from './variables'
+import { colors } from '../components/chungking-core'
 
 const PrismTheme = css`
   /**

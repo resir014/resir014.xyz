@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-
-import { getEmSize } from '../../styles/mixins'
-import { pxSizes } from '../../styles/variables'
+import { breakpoints, widths } from '../chungking-core'
 
 interface ContainerProps {
   className?: string
@@ -20,18 +18,18 @@ Container.defaultProps = {
 }
 
 const FluidStyle = css`
-  max-width: ${pxSizes.widths.md}px;
+  max-width: ${widths.md}px;
 `
 
 const LargeStyles = css`
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    max-width: ${pxSizes.widths.lg}px;
+  @media (min-width: ${breakpoints.lg}px) {
+    max-width: ${widths.lg}px;
   }
 `
 
 const XLargeStyles = css`
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.xl)}) {
-    max-width: ${pxSizes.widths.xl}px;
+  @media (min-width: ${breakpoints.xl}px) {
+    max-width: ${widths.xl}px;
   }
 `
 

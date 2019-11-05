@@ -3,63 +3,45 @@ import classnames from 'classnames'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-import { colors, pxSizes, emSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
 import { BlogPostNode } from '../../types/nodes'
 
-import { BookmarkLink } from '../bookmark'
 import { ResponsiveVideo } from '../video'
-import { MarkdownContent } from '../page'
+import { MarkdownContent, BookmarkLink } from '../page'
 import { NavLinkButton } from '../ui'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
+import { Heading } from '../chungking-core'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
 `
 
 const PostThumbnailImage = styled('img')`
-  margin-top: 1.5rem;
-  margin-bottom: 0;
+  margin: 0;
 `
 
 const PostDetailBox = styled('section')``
 
-const PostTitle = styled('h2')`
-  margin-top: 0;
-
-  a {
-    color: ${colors.green30};
-  }
-`
-
-const ResponsiveVideoWrapper = styled(ResponsiveVideo)`
-  margin-top: 1.5rem;
-`
-
-const VideoTitle = styled(PostTitle)`
-  font-size: ${emSizes.headingMedium.h3}rem;
-  line-height: ${emSizes.lineHeight.heading};
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    font-size: ${emSizes.headingMedium.h3}rem;
-  }
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    font-size: ${emSizes.headingLarge.h3}rem;
-  }
-`
+const PostTitle: React.FC = ({ children }) => (
+  <Heading scale="trafalgar" mt={0} mb="sm">
+    {children}
+  </Heading>
+)
 
 const PostContent = styled('div')`
-  padding: 1.5rem;
+  padding: 24px;
+
+  &:first-child {
+    padding-top: 0;
+  }
 
   &:last-child {
-    padding-bottom: 1.5rem;
+    padding-bottom: 24px;
   }
 `
 
 const BlogPostFooter = styled('div')`
-  padding: 0 1.5rem 1.5rem;
+  padding: 0 24px 24px;
 `
 
 export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
@@ -128,21 +110,21 @@ export function renderVideoTemplate(node: BlogPostNode) {
   return (
     <PostDetailBox>
       {node.fields.youtube_embed_id && (
-        <ResponsiveVideoWrapper>
+        <ResponsiveVideo>
           <iframe
             title={node.fields.youtube_embed_id}
             src={`https://www.youtube-nocookie.com/embed/${node.fields.youtube_embed_id}?rel=0`}
             allowFullScreen
           />
-        </ResponsiveVideoWrapper>
+        </ResponsiveVideo>
       )}
       <PostContent>
         {node.frontmatter.title && (
-          <VideoTitle>
+          <PostTitle>
             <PostTitleLink className="p-name" to={node.fields.slug}>
               {node.frontmatter.title}
             </PostTitleLink>
-          </VideoTitle>
+          </PostTitle>
         )}
         <MarkdownContent
           className={classnames('e-content', !node.frontmatter.title && 'p-name')}

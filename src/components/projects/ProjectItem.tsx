@@ -1,10 +1,11 @@
 /* eslint-disable react/no-danger */
 import * as React from 'react'
 import styled from '@emotion/styled'
+import convert from 'htmr'
 
-import { colors, layerShadows } from '../../styles/variables'
 import { ProjectField } from '../../types/fields'
 import { Badge, AnchorButton, NavLinkButton } from '../ui'
+import { Heading, Paragraph, space, colors, layerShadows } from '../chungking-core'
 
 const colorByCategory = (category: string) => {
   switch (category) {
@@ -40,14 +41,12 @@ const StyledProjectItem = styled('div')`
   flex-direction: column;
   position: relative;
   flex: 1 1 100%;
-  margin-bottom: 2rem;
+  margin-bottom: ${space.lg}px;
   background-color: ${colors.grey90};
   border-radius: 4px;
   overflow: hidden;
   box-shadow: ${layerShadows.single};
 `
-
-const ProjectTitle = styled('h3')``
 
 interface ProjectTitleProps {
   category: string
@@ -60,12 +59,6 @@ const ProjectHeader = styled('div')<ProjectTitleProps>`
   border-top: 4px solid transparent;
   border-image-source: ${props => colorByCategory(props.category)};
   border-image-slice: 1;
-
-  ${ProjectTitle} {
-    flex: 1 1 auto;
-    margin: 0;
-    color: ${colors.white};
-  }
 `
 
 const ProjectTags = styled('div')`
@@ -78,11 +71,7 @@ const ProjectTags = styled('div')`
 
 const ProjectDetailBox = styled('div')`
   flex: 1 0 auto;
-  padding: 8px 16px 16px;
-
-  p {
-    margin: 0;
-  }
+  padding: 8px 16px 24px;
 
   a {
     color: ${colors.green30};
@@ -101,14 +90,12 @@ const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
   return (
     <StyledProjectItem>
       <ProjectHeader category={category}>
-        <ProjectTitle>{title}</ProjectTitle>
+        <Heading as="h3" scale="paragon" m={0}>
+          {title}
+        </Heading>
       </ProjectHeader>
       <ProjectDetailBox>
-        <p
-          dangerouslySetInnerHTML={{
-            __html: description || lead
-          }}
-        />
+        <Paragraph m={0}>{convert(description || lead)}</Paragraph>
         {tags ? (
           <ProjectTags>
             {tags.map(tag => (

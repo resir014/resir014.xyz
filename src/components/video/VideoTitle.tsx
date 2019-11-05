@@ -1,21 +1,10 @@
-import styled from '@emotion/styled'
-import { PageTitle } from '../page'
-import { emSizes, pxSizes } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
+import * as React from 'react'
+import { Heading } from '../chungking-core'
 
-const VideoTitle = styled(PageTitle)`
-  margin-top: 0;
-  padding: 1.5rem 1.5rem 0;
-  font-size: ${emSizes.headingMedium.h3}rem;
-  line-height: ${emSizes.lineHeight.heading};
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
-    font-size: ${emSizes.headingMedium.h3}rem;
-  }
-
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    font-size: ${emSizes.headingLarge.h3}rem;
-  }
-`
+const VideoTitle: React.FC = ({ children }) => (
+  <Heading as="h1" scale="trafalgar" mt={0} mb="sm" className="p-name">
+    {children}
+  </Heading>
+)
 
 export default VideoTitle

@@ -1,18 +1,18 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 
 import { Badge, NavLinkButton } from '../ui'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
-import { colors, pxSizes, layerShadows } from '../../styles/variables'
-import { getEmSize } from '../../styles/mixins'
 import { ProjectField } from '../../types/fields'
+import { Text, Heading, P, breakpoints, colors, layerShadows, space } from '../chungking-core'
 
 const FeaturedProjectWrapper = styled('section')`
   display: flex;
   flex-direction: column;
   min-height: 300px;
-  margin: 1.5rem 0;
+  margin: 24px 0;
   color: ${colors.white};
   border-radius: 6px;
   overflow: hidden;
@@ -22,12 +22,12 @@ const FeaturedProjectWrapper = styled('section')`
     margin-top: 0;
   }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.md)}) {
+  @media (min-width: ${breakpoints.md}px) {
     flex-direction: row;
   }
 
-  @media (min-width: ${getEmSize(pxSizes.breakpoints.lg)}) {
-    margin: 3rem 0;
+  @media (min-width: ${breakpoints.lg}px) {
+    margin: ${space.xxl}px 0;
   }
 
   .column {
@@ -36,36 +36,23 @@ const FeaturedProjectWrapper = styled('section')`
 `
 
 const ProjectTags = styled('div')`
-  margin-top: 1rem;
+  margin-top: ${space.md}px;
 
   ${Badge} + ${Badge} {
-    margin-left: 0.5rem;
+    margin-left: ${space.xs}px;
   }
 `
 
 const FeaturedProjectDetails = styled('div')`
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 24px;
   background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
 `
 
 const FeaturedProjectHeading = styled('div')`
   color: ${colors.white};
   margin: 0;
-`
-
-const FeaturedProjectSpan = styled('span')`
-  font-size: 90%;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-`
-
-const FeaturedProjectName = styled('h3')`
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  color: #00f281;
 `
 
 const FeaturedProjectDescription = styled('div')`
@@ -77,7 +64,7 @@ const FeaturedProjectDescription = styled('div')`
 `
 
 const FeaturedProjectFooter = styled('div')`
-  margin-top: 2rem;
+  margin-top: ${space.xl}px;
 `
 
 interface FeaturedProjectProps extends ProjectField {
@@ -93,11 +80,30 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className }) =>
       {header_image ? <FeaturedProjectThumbnail className="column" image={header_image} /> : null}
       <FeaturedProjectDetails className="column">
         <FeaturedProjectHeading>
-          <FeaturedProjectSpan>Featured project</FeaturedProjectSpan>
-          <FeaturedProjectName>{node.frontmatter.title}</FeaturedProjectName>
+          <Text
+            scale="longPrimer"
+            letterSpacing="0.01em"
+            fontWeight={300}
+            css={css`
+              text-transform: uppercase;
+            `}
+          >
+            Featured project
+          </Text>
+          <Heading
+            as="h3"
+            scale="paragon"
+            mt="xxs"
+            mb="sm"
+            css={css`
+              color: #00f281;
+            `}
+          >
+            {node.frontmatter.title}
+          </Heading>
         </FeaturedProjectHeading>
         <FeaturedProjectDescription>
-          <p>{node.fields.description}</p>
+          <P>{node.fields.description}</P>
           {tags ? (
             <ProjectTags>
               {tags.map(tag => (

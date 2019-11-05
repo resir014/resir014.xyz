@@ -1,4 +1,2 @@
-import ColorSwatch from './ColorSwatch'
-import TypographySpecimen from './TypographySpecimen'
-
-export { ColorSwatch, TypographySpecimen }
+export { default as ColorSwatch } from './ColorSwatch'
+export { default as TypographySpecimen } from './TypographySpecimen'
