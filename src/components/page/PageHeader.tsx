@@ -21,7 +21,6 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
 }) => (
   <Section className={className} hasImage={hasImage}>
     <Container size={size}>
-      <HeaderDivider />
       {metaItem}
       {children}
     </Container>
@@ -35,17 +34,6 @@ PageHeader.defaultProps = {
   hasImage: false,
   size: 'md'
 }
-
-const HeaderDivider = styled('hr')`
-  width: 100%;
-  max-width: 100px;
-  height: 8px;
-  margin-top: 0;
-  margin-bottom: ${space.sm}px;
-  border: none;
-  border-radius: 8px;
-  background: linear-gradient(to right, ${colors.blue30}, ${colors.magenta30});
-`
 
 const HasImageStyles = css`
   padding: 24px 24px 0;
