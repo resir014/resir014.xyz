@@ -2,8 +2,7 @@
 category: web
 layout: project
 title: 'Pinjollist'
-description: 'Pinjollist provides open data access to P2P lending financial institutions approved by
-the Otoritas Jasa Keuangan.'
+description: 'Open data access to P2P lending services approved by the Indonesian Financial Services Authority (OJK).'
 year: 2019
 header_image: pinjollist-preview.png
 project_url: 'http://pinjollist.now.sh/'

@@ -27,7 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ta
     <Inner>
       <Heading
         as="h1"
-        scale="trafalgar"
+        scale="canon"
         mt={0}
         mb="xs"
         css={css`
