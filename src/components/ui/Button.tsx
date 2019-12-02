@@ -86,8 +86,8 @@ const LargeButtonStyles = css`
 `
 
 const GhostedButtonStyles = css`
-  margin: -6px -8px;
-  padding: 6px 8px;
+  margin: -8px -12px;
+  padding: 8px 12px;
   border-radius: 8px;
 
   &:not(:disabled):not(.disabled) {
