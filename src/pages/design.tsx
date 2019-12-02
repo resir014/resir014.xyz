@@ -396,7 +396,6 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
                     </time>
                   </PageMetaItem>
                   <PageMetaItem className="p-category">Category</PageMetaItem>
-                  <hr />
                 </PostIndexItemMeta>
               </WrapperRoot>
               <H3>Message Box</H3>
