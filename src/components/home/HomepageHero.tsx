@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import { darken } from 'polished'
 
 import { space, breakpoints, colors } from '../chungking-core'
 import Container from '../ui/Container'
@@ -32,7 +33,8 @@ const Inner = styled(Container)`
 const Root = styled('header')`
   position: relative;
   margin: 0;
-  background: url(${BackgroundPattern});
+  background-color: ${darken(0.05, colors.black)};
+  background-image: url(${BackgroundPattern});
   height: 320px;
   border-bottom: 1px solid ${colors.grey90};
 
