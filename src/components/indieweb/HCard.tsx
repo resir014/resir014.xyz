@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
 import { NavLinkButton } from '../ui'
-import { Heading, Paragraph, colors, breakpoints, space } from '../chungking-core'
+import { Heading, Paragraph, colors, breakpoints, UnstyledAnchor, Box } from '../chungking-core'
 
 interface HCardProps {
   className?: string
@@ -53,16 +53,21 @@ const HCardFooter = styled('div')`
 `
 
 const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
-  <Div className={classnames(className, 'h-card')} hidden={hidden}>
+  <Box
+    className={classnames(className, 'h-card')}
+    display={hidden ? 'none' : 'block'}
+    my="xl"
+    color="inherit"
+  >
     <Inner>
       <HCardAvatar>
         <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
       </HCardAvatar>
       <HCardDetails>
         <Heading as="h3" scale="paragon" mt={0} mb="xs">
-          <a className="p-name u-url" rel="me" href={author.website}>
+          <UnstyledAnchor className="p-name u-url" rel="me" href={author.website}>
             {author.name}
-          </a>
+          </UnstyledAnchor>
         </Heading>
         <Paragraph className="p-note" scale="greatPrimer" m={0} fontWeight={300}>
           {author.description}
@@ -75,7 +80,7 @@ const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
         </HCardFooter>
       </HCardDetails>
     </Inner>
-  </Div>
+  </Box>
 )
 
 export default HCard
@@ -89,19 +94,5 @@ const Inner = styled('div')`
     flex-direction: row;
     align-items: center;
     text-align: left;
-  }
-`
-
-const Div = styled('div')`
-  display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'block')};
-  margin: ${space.xl}px 0;
-  color: ${colors.grey10};
-
-  p {
-    margin: ${space.xs}px 0;
-  }
-
-  a {
-    color: ${colors.white};
   }
 `
