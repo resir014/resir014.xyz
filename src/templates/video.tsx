@@ -18,7 +18,7 @@ import {
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
 import { Container } from '../components/ui'
-import { ResponsiveVideo, VideoCard, LiteYouTube } from '../components/video'
+import { VideoCard, LiteYouTube } from '../components/video'
 
 interface VideoTemplateProps {
   location: {

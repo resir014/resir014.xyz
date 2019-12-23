@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 import { BlogPostNode } from '../../types/nodes'
 
-import { ResponsiveVideo, LiteYouTube } from '../video'
+import { LiteYouTube } from '../video'
 import { MarkdownContent, BookmarkLink } from '../page'
 import { NavLinkButton } from '../ui'
 
