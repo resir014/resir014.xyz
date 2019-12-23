@@ -1,11 +1,11 @@
 import * as React from 'react'
-import classnames from 'classnames'
+import classnames from 'clsx'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 import { BlogPostNode } from '../../types/nodes'
 
-import { ResponsiveVideo } from '../video'
+import { ResponsiveVideo, LiteYouTube } from '../video'
 import { MarkdownContent, BookmarkLink } from '../page'
 import { NavLinkButton } from '../ui'
 
@@ -109,15 +109,7 @@ export function renderNoteTemplate(node: BlogPostNode): JSX.Element {
 export function renderVideoTemplate(node: BlogPostNode) {
   return (
     <PostDetailBox>
-      {node.fields.youtube_embed_id && (
-        <ResponsiveVideo>
-          <iframe
-            title={node.fields.youtube_embed_id}
-            src={`https://www.youtube-nocookie.com/embed/${node.fields.youtube_embed_id}?rel=0`}
-            allowFullScreen
-          />
-        </ResponsiveVideo>
-      )}
+      {node.fields.youtube_embed_id && <LiteYouTube videoId={node.fields.youtube_embed_id} />}
       <PostContent>
         {node.frontmatter.title && (
           <PostTitle>

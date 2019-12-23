@@ -1,5 +1,5 @@
 import * as React from 'react'
-import classnames from 'classnames'
+import classnames from 'clsx'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
@@ -18,7 +18,7 @@ import {
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
 import { Container } from '../components/ui'
-import { ResponsiveVideo, VideoCard } from '../components/video'
+import { ResponsiveVideo, VideoCard, LiteYouTube } from '../components/video'
 
 interface VideoTemplateProps {
   location: {
@@ -84,13 +84,7 @@ const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data }) => {
                 title={post.frontmatter.title}
                 embed={
                   post.fields.youtube_embed_id ? (
-                    <ResponsiveVideo>
-                      <iframe
-                        title={post.fields.youtube_embed_id}
-                        src={`https://www.youtube-nocookie.com/embed/${post.fields.youtube_embed_id}?rel=0`}
-                        allowFullScreen
-                      />
-                    </ResponsiveVideo>
+                    <LiteYouTube videoId={post.fields.youtube_embed_id} />
                   ) : null
                 }
               >

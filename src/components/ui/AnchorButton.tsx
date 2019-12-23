@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import classnames from 'classnames'
+import classnames from 'clsx'
 
 import { ButtonBase, ButtonBaseProps } from './Button'
 
