@@ -8,11 +8,15 @@ import {
   color,
   ColorProps,
   typography,
-  TypographyProps
+  TypographyProps as StyledTypographyProps
 } from 'styled-system'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
-export interface TypographyProps extends LayoutProps, SpaceProps, ColorProps, TypographyProps {
+export interface TypographyProps
+  extends LayoutProps,
+    SpaceProps,
+    ColorProps,
+    StyledTypographyProps {
   /** Additional CSS classes to add to the component. */
   className?: string
   /** Additional CSS properties to add to the component. */
