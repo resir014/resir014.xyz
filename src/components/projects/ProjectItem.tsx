@@ -20,7 +20,7 @@ const colorByCategory = (category: string) => {
   }
 }
 
-const renderLink = (url: string, jumpToProject: boolean = false) => {
+const renderLink = (url: string, jumpToProject = false) => {
   if (jumpToProject) {
     return (
       <AnchorButton ghosted href={url} target="_blank" rel="noopener noreferrer">
