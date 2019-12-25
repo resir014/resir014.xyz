@@ -99,11 +99,7 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
             {post.fields.lead ? (
               <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
             ) : null}
-            <HCardPost
-              icon={data.icon.childImageSharp}
-              author={siteMetadata.author}
-              siteUrl={siteMetadata.siteUrl}
-            />
+            <HCardPost icon={data.icon.childImageSharp} author={siteMetadata.author} />
           </PageHeader>
           <PageContent>
             <Container>

@@ -9,7 +9,6 @@ import { Heading, Text, colors, Box } from '../chungking-core'
 interface HCardPostProps {
   className?: string
   hidden?: boolean
-  siteUrl?: string
   icon: ChildImageSharp
   author: SiteAuthor
 }
@@ -42,7 +41,7 @@ const HCardEmail = styled('a')`
 
 const HeadingAnchor = styled(Heading)<{ rel?: string; target?: string; href?: string }>``
 
-const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author, siteUrl }) => (
+const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author }) => (
   <Box
     className={classnames(className, 'p-author h-card')}
     display={hidden ? 'none' : 'inline-block'}
@@ -61,7 +60,7 @@ const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author,
           className="p-name u-url"
           rel="author noopener noreferrer"
           target="_blank"
-          href={siteUrl || '/'}
+          href={author.website || '/'}
         >
           {author.name}
         </HeadingAnchor>
