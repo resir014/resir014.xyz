@@ -99,7 +99,11 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
             {post.fields.lead ? (
               <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
             ) : null}
-            <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
+            <HCardPost
+              icon={data.icon.childImageSharp}
+              author={siteMetadata.author}
+              siteUrl={siteMetadata.siteUrl}
+            />
           </PageHeader>
           <PageContent>
             <Container>
@@ -125,10 +129,7 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
               <MarkdownContent className="e-content" html={post.html} />
               <div className="hidden">
                 <p>
-                  <a
-                    className="u-url"
-                    href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-                  >
+                  <a className="u-url" href={siteMetadata.siteUrl + post.fields.slug}>
                     Permalink
                   </a>
                 </p>

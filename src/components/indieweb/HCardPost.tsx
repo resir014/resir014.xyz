@@ -4,11 +4,12 @@ import styled from '@emotion/styled'
 
 import { ChildImageSharp } from '../../types/gatsby'
 import { SiteAuthor } from '../../types/default'
-import { Heading, Text, colors, UnstyledAnchor, Box, space } from '../chungking-core'
+import { Heading, Text, colors, Box } from '../chungking-core'
 
 interface HCardPostProps {
   className?: string
   hidden?: boolean
+  siteUrl?: string
   icon: ChildImageSharp
   author: SiteAuthor
 }
@@ -39,27 +40,31 @@ const HCardEmail = styled('a')`
   display: none;
 `
 
-const Anchor = styled(UnstyledAnchor)`
-  display: ${(props: { hidden?: boolean }) => (props.hidden ? 'none' : 'inline-block')};
-  margin: ${space.xl}px 0;
-  padding: 0;
-`
+const HeadingAnchor = styled(Heading)<{ rel?: string; target?: string; href?: string }>``
 
-const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author }) => (
-  <Anchor
-    rel="author"
+const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author, siteUrl }) => (
+  <Box
     className={classnames(className, 'p-author h-card')}
-    href="/"
-    hidden={hidden}
+    display={hidden ? 'none' : 'inline-block'}
+    my="xl"
   >
     <Box display="flex" flexDirection="row" alignItems="center" textAlign="left" color="inherit">
       <HCardAvatar>
         <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
       </HCardAvatar>
       <HCardDetails>
-        <Heading as="h4" scale="greatPrimer" m={0} className="p-name">
+        <HeadingAnchor
+          as="a"
+          scale="greatPrimer"
+          display="block"
+          m={0}
+          className="p-name u-url"
+          rel="author noopener noreferrer"
+          target="_blank"
+          href={siteUrl || '/'}
+        >
           {author.name}
-        </Heading>
+        </HeadingAnchor>
         <Text as="p" mt="xxs" mb={0} className="p-note">
           {author.description}
         </Text>
@@ -68,7 +73,7 @@ const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author 
         </HCardEmail>
       </HCardDetails>
     </Box>
-  </Anchor>
+  </Box>
 )
 
 export default HCardPost
