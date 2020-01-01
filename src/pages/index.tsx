@@ -3,24 +3,24 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
-import { ProjectField } from '../types/fields'
+import { ProjectField, BlogPostField } from '../types/fields'
 import { ProjectNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import filterProjectsByCategory from '../utils/filterProjectsByCategory'
-
 import { Page } from '../components/page'
 import { Divider, NavLinkButton } from '../components/ui'
 import { HCard } from '../components/indieweb'
-import { FeaturedProject, ProjectItemList } from '../components/projects'
+import { FeaturedProject } from '../components/projects'
 import {
   HomepageHero,
   HomepageHeroText,
   HomepageContent,
   HomepageSection,
-  HomepageSectionFooter
+  HomepageSectionFooter,
+  HomepageSectionTitle
 } from '../components/home'
+import { BlogPostItem } from '../components/posts-index'
 
 interface IndexPageProps {
   location: {
@@ -32,6 +32,9 @@ interface IndexPageProps {
     }
     headerImage: HeaderImage
     icon: HCardIcon
+    featuredPosts: {
+      edges: BlogPostField[]
+    }
     featuredProject: ProjectNode
     allProjects: {
       edges: ProjectField[]
@@ -40,6 +43,7 @@ interface IndexPageProps {
 }
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
+  const { edges: recentPosts } = data.featuredPosts
   return (
     <TemplateWrapper>
       <Page>
@@ -65,24 +69,20 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         </HomepageHero>
         <HomepageContent>
           <HomepageSection>
-            <FeaturedProject node={data.featuredProject} />
+            <HomepageSectionTitle>Recent posts</HomepageSectionTitle>
+            {recentPosts.map(({ node }) => (
+              <BlogPostItem key={node.fields.slug} node={node} />
+            ))}
+            <HomepageSectionFooter>
+              <NavLinkButton size="lg" to="/posts">
+                View more posts
+              </NavLinkButton>
+            </HomepageSectionFooter>
           </HomepageSection>
+          <Divider spacing="large" center />
           <HomepageSection>
-            <ProjectItemList
-              title="Web development stuff"
-              projects={filterProjectsByCategory(data.allProjects.edges, 'web')}
-              homepage
-            />
-            <ProjectItemList
-              title="Open source stuff"
-              projects={filterProjectsByCategory(data.allProjects.edges, 'oss')}
-              homepage
-            />
-            <ProjectItemList
-              title="Other stuff"
-              projects={filterProjectsByCategory(data.allProjects.edges, 'other')}
-              homepage
-            />
+            <HomepageSectionTitle>Projects</HomepageSectionTitle>
+            <FeaturedProject node={data.featuredProject} />
             <HomepageSectionFooter>
               <NavLinkButton size="lg" to="/projects">
                 View more of my stuff
@@ -135,6 +135,47 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid(maxWidth: 400, maxHeight: 400) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    featuredPosts: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/posts/" } }
+      sort: { fields: [fields___date], order: DESC }
+      limit: 3
+    ) {
+      edges {
+        node {
+          excerpt
+          html
+          fields {
+            slug
+            layout
+            category
+            link
+            lead
+            youtube_embed_id
+            date(formatString: "DD MMMM YYYY")
+            date_ogp: date
+          }
+          frontmatter {
+            title
+            header_image {
+              childImageSharp {
+                fluid(maxWidth: 1140) {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                }
+              }
+            }
+          }
         }
       }
     }
