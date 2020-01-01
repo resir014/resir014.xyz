@@ -13,7 +13,9 @@ _This is a two-part post. In Part 2, I'll do a [retrospective on the whole decad
 
 ---
 
-## Album of the Decade: M83 - Hurry Up, We're Dreaming (2011)
+## Album of the Decade
+
+**M83 - Hurry Up, We're Dreaming (2011)**
 
 Listening to M83 for the first time gives off that feeling you get when you wake up and you suddenly see everything through an Instagram filter. "Hurry Up, We're Dreaming" was the first album to really made me dig into the entire rabbit hole. There's a reason why it's the band I listen to the most.
 
