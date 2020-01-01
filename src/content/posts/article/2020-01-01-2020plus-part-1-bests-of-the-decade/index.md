@@ -65,7 +65,7 @@ Sadly, I haven't done so for quite some time now, and my camera has been lying i
 
 They don't call me "professional starter kit creator" for nothing.
 
-I think it has to be my Phoenix + React starter, as it was the very first time I tried something different. Elixir was an enjoyable, and easy-to-learn functional programming language, and you should definitely check it out when you have the time!
+I think it has to be my [Phoenix + React starter](https://github.com/resir014/phoenix_react_playground), as it was the very first time I tried something different. [Elixir](https://elixir-lang.org/) was an enjoyable, and easy-to-learn functional programming language, and you should definitely check it out when you have the time!
 
 ---
 
