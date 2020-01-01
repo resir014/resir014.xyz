@@ -37,7 +37,7 @@ Despite that, [I successfully pulled it off](https://www.youtube.com/watch?v=2-U
 
 Looking back, I know there were many things I could improve, like reducing the use of filler noises, regulating my breath better (though I guess that was a side effect of my stage fright!), but overall... it wasn't a very bad first attempt, was it?
 
-Another high moment of my decade was attending my first ever overseas conference, JSConf Asia 2019 in Singapore. I get to meet community leaders, and other developers, some of which I have met and interacted with online, and I never thought I
+Another high moment of my decade was attending my first ever overseas conference, JSConf Asia 2019 in Singapore. I get to meet community leaders, and other developers, some of which I have met and interacted with online, and I never thought I would meet them in person. Now that's an experience I can't afford trading away for anything else, and I hope I'll be able to attend JSConf again for 2020!
 
 ## Being an independent content creator
 
@@ -61,6 +61,6 @@ All of these might look like a bunch of rambly thoughts quickly cobbled together
 
 To all my friends, mutuals, everyone who I'd met/talked to over the past decade, thank you for the opportunity to share my experiences with you.
 
-I'm finally ready to make peace with the 2010s, and I'm ready to face the 2020s.
+I'm finally ready to make peace with the 2010s, and to take on the 2020s.
 
 Here's to the next decade.
