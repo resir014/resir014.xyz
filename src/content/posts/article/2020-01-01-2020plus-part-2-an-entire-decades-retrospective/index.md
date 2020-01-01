@@ -5,7 +5,7 @@ title: '2020+ Part 2 - A retrospective on the whole decade'
 date: 2020-01-01T12:00:00+07:00
 ---
 
-_This is a two-part post. In Part 1, I gave a [the things I enjoyed the most throughout the decade](/posts/2020/01/01/2020plus-part-1-bests-of-the-decade/). Feel free to skip it if you like, though._
+_This is a two-part post. In Part 1, I gave a [list of things I enjoyed the most throughout the decade](/posts/2020/01/01/2020plus-part-1-bests-of-the-decade/). Feel free to skip it if you like, though._
 
 ---
 
