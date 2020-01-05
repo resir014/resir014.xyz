@@ -23,19 +23,6 @@ I host two primary series at the moment:
 
 [twitch.tv/resir014](https://www.twitch.tv/resir014)
 
-## My Rig
-
-- **CPU:** AMD Ryzen 5 Pinnacle Ridge 2600 (3.4 GHz)
-- **Motherboard:** MSI B450 Gaming Plus
-- **RAM:** Team Dark Pro 16GB (2x8GB) DDR4
-- **Storage[0]:** Samsung SSD 860 EVO 250GB
-- **Storage[1]:** WDC 1TB SATA3 Black Ver.2
-- **GPU:** GALAX GeForce GTX 1650 4GB DDR5
-- **Power Supply:** Seasonic Focus Plus Gold FX-550 550W
-- **CPU Cooler:** Cooler Master HYPER 212 LED Turbo
-- **Case:** Phanteks Eclipse P400S Tempered Glass, Black
-- **OS:** Windows 10 Pro 64-bit
-
 ---
 
 I also opened a tip jar! Head over to [resir014.xyz/support](/support) for ways you can donate to me.
