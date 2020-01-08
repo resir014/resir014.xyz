@@ -58,7 +58,7 @@ Sebagai bukti pertanggungjawaban, mereka akan meminta kalian untuk mengirimkan d
 
 Ga kedengeran terlalu muluk-muluk kan? Permintaannya simpel. Belum lagi duit yang dikasih lumayan. Saking lumayannya, mungkin kalian curiga, “Ini kayaknya terlalu baik deh fintech-nya ngasih sponsor”.
 
-Dan kalian nyadar ga? Iya, _it’s too good to be true!_ Fintech lending, bahkan yang sudah mengantongi izin usaha saja bisa bermasalah. Mulai dari kebocoran data hingga penutupan layanan sementara. Dan itu yang sudah mendapatkan izin usaha! Selain itu sudah banyak cerita juga mengenai fintech lending yang [meneror dan menyalahgunakan data pengguna mereka](https://www.cnnindonesia.com/nasional/20190729195831-12-416565/polisi-usut-kasus-utang-wanita-berujung-teror-fintech).
+Dan kalian nyadar ga? Iya, _it’s too good to be true!_ Fintech lending, bahkan yang sudah mengantongi izin usaha saja bisa bermasalah. Mulai dari kebocoran data hingga penutupan layanan sementara.
 
 Dan itu yang sudah mendapatkan izin usaha! Selain itu sudah banyak cerita juga mengenai fintech lending yang [meneror dan menyalahgunakan data pengguna mereka](https://www.cnnindonesia.com/nasional/20190729195831-12-416565/polisi-usut-kasus-utang-wanita-berujung-teror-fintech).
 
