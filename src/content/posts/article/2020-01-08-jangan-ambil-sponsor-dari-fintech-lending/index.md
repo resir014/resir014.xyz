@@ -2,7 +2,7 @@
 category: article
 layout: post
 title: 'Jangan ambil sponsor dari Fintech Lending'
-lead: A cautionary tale about peer-to-peer lending companies sponsoring university events.
+lead: A cautionary tale about peer-to-peer lending companies sponsoring university events, and what they can do with your personal data.
 syndication:
   - name: Medium
     url: https://medium.com/@resir014/jangan-ambil-sponsor-dari-fintech-lending-ef8611858bab
