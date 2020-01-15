@@ -129,8 +129,8 @@ const LiteYouTube = ({ videoId, style }: LiteYouTubeProps) => {
       {activated && (
         <iframe
           title="YouTube Video"
-          width="560"
-          height="315"
+          width="700"
+          height="394"
           frameBorder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
