@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
 import Container from '../ui/Container'
-import { space, colors, breakpoints, layerShadows } from '../chungking-core'
+import { space, colors, breakpoints, shadows } from '../chungking-core'
 
 interface PageHeaderProps {
   className?: string
@@ -50,7 +50,7 @@ const HasImageStyles = css`
     padding: 24px;
     background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
     border-radius: 8px;
-    box-shadow: ${layerShadows.double};
+    box-shadow: ${shadows.double};
   }
 `
 

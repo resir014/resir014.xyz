@@ -6,7 +6,7 @@ import { Badge, NavLinkButton } from '../ui'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { ProjectField } from '../../types/fields'
-import { Text, Heading, P, breakpoints, colors, layerShadows, space } from '../chungking-core'
+import { Text, Heading, P, breakpoints, colors, shadows, space } from '../chungking-core'
 
 const FeaturedProjectWrapper = styled('section')`
   display: flex;
@@ -16,7 +16,7 @@ const FeaturedProjectWrapper = styled('section')`
   color: ${colors.white};
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: ${layerShadows.single};
+  box-shadow: ${shadows.single};
 
   &:first-of-type {
     margin-top: 0;

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { colors, layerShadows } from '../chungking-core'
+import { colors, shadows } from '../chungking-core'
 
 interface ColorSwatchProps {
   color: string
@@ -85,11 +85,11 @@ const Root = styled('button')`
   background-color: ${colors.grey90};
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: ${layerShadows.single};
+  box-shadow: ${shadows.single};
 
   &:hover,
   &:focus {
-    box-shadow: ${layerShadows.double};
+    box-shadow: ${shadows.double};
   }
 
   &:focus {

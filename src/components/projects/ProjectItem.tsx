@@ -5,7 +5,7 @@ import convert from 'htmr'
 
 import { ProjectField } from '../../types/fields'
 import { Badge, AnchorButton, NavLinkButton } from '../ui'
-import { Heading, Paragraph, space, colors, layerShadows } from '../chungking-core'
+import { Heading, Paragraph, space, colors, shadows } from '../chungking-core'
 
 const colorByCategory = (category: string) => {
   switch (category) {
@@ -45,7 +45,7 @@ const StyledProjectItem = styled('div')`
   background-color: ${colors.grey90};
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: ${layerShadows.single};
+  box-shadow: ${shadows.single};
 `
 
 interface ProjectTitleProps {
