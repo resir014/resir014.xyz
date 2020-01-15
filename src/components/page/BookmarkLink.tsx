@@ -4,7 +4,7 @@ import { transparentize } from 'polished'
 import Url from 'url-parse'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-import { Text, Heading, colors, space, layerShadows } from '../chungking-core'
+import { Text, Heading, colors, space, shadows } from '../chungking-core'
 
 interface BookmarkLinkProps {
   link?: string
@@ -49,7 +49,7 @@ const Root = styled(OutboundLink)`
   border-radius: 4px;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: ${layerShadows.single};
+  box-shadow: ${shadows.single};
 
   &:first-child {
     margin-top: 0;
@@ -62,7 +62,7 @@ const Root = styled(OutboundLink)`
   &:hover,
   &:focus {
     text-decoration: none;
-    box-shadow: ${layerShadows.double};
+    box-shadow: ${shadows.double};
 
     > h3 span {
       text-decoration: underline;

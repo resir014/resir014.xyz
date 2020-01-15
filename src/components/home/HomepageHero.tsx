@@ -33,13 +33,13 @@ const Inner = styled(Container)`
 const Root = styled('header')`
   position: relative;
   margin: 0;
+  padding: 0 ${space.lg}px;
   background-color: ${darken(0.05, colors.black)};
   background-image: url(${BackgroundPattern});
   height: 320px;
   border-bottom: 1px solid ${colors.grey90};
 
   @media (min-width: ${breakpoints.lg}px) {
-    padding: 0 ${space.lg}px;
     height: 480px;
   }
 `

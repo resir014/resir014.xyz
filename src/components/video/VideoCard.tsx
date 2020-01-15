@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { colors, layerShadows, space } from '../chungking-core'
+import { colors, shadows, space } from '../chungking-core'
 import VideoTitle from './VideoTitle'
 
 interface VideoCardProps {
@@ -18,7 +18,7 @@ const Root = styled('section')`
   background-color: ${colors.grey90};
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: ${layerShadows.single};
+  box-shadow: ${shadows.single};
 
   &:last-of-type {
     margin-bottom: 0;

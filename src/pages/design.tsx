@@ -38,7 +38,7 @@ import {
   Small,
   colors,
   space,
-  layerShadows
+  shadows
 } from '../components/chungking-core'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
@@ -68,7 +68,7 @@ const WrapperRoot = styled('div')`
   padding: ${space.md}px ${space.lg}px;
   background-color: ${colors.grey90};
   border-radius: 6px;
-  box-shadow: ${layerShadows.single};
+  box-shadow: ${shadows.single};
 `
 
 const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {

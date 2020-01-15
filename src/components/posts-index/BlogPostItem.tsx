@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 import { BlogPostField } from '../../types/fields'
 import { PageMetaItem } from '../page'
-import { colors, layerShadows, space } from '../chungking-core'
+import { colors, shadows, space } from '../chungking-core'
 
 import PostIndexItemMeta from './PostIndexItemMeta'
 import PostIndexItemHeader from './PostIndexItemHeader'
@@ -23,7 +23,7 @@ const StyledPostItem = styled('article')`
   background-color: ${colors.grey90};
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: ${layerShadows.single};
+  box-shadow: ${shadows.single};
 
   &:last-of-type {
     margin-bottom: 0;

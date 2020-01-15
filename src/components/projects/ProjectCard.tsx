@@ -6,7 +6,7 @@ import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
 import { Badge } from '../ui'
-import { Heading, Text, colors, layerShadows, space } from '../chungking-core'
+import { Heading, Text, colors, shadows, space } from '../chungking-core'
 
 interface ProjectCardProps {
   title: string
@@ -63,7 +63,7 @@ const Root = styled('section')`
   background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: ${layerShadows.single};
+  box-shadow: ${shadows.single};
 `
 
 const Inner = styled('div')`
