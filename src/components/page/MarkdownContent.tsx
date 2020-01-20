@@ -16,6 +16,8 @@ import {
   UL,
   OL,
   LI,
+  Blockquote,
+  InlineCode,
   space,
   breakpoints,
   colors
@@ -38,6 +40,8 @@ const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) =
     ul: UL,
     ol: OL,
     li: LI,
+    blockquote: Blockquote,
+    code: InlineCode,
     a: (node: Partial<React.ReactHTMLElement<HTMLAnchorElement>['props']>) => {
       const { href } = node
 
