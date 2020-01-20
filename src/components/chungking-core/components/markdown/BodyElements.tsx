@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import { Paragraph, Text } from '../../foundations'
+import { Paragraph, ParagraphProps, Text, TextProps } from '../../foundations'
 import { colors, space } from '../../utils'
 
 interface WithStylesProps {
@@ -10,11 +10,11 @@ interface WithStylesProps {
   style?: React.CSSProperties
 }
 
-export const P: React.FC<WithStylesProps> = ({ children, ...rest }) => (
+export const P: React.FC<WithStylesProps & ParagraphProps> = ({ children, ...rest }) => (
   <Paragraph {...rest}>{children}</Paragraph>
 )
 
-export const Small: React.FC<WithStylesProps> = ({ children, ...rest }) => (
+export const Small: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
   <Text scale="brevier" {...rest}>
     {children}
   </Text>
@@ -60,19 +60,19 @@ const ListItemStyles = css`
   }
 `
 
-export const UL: React.FC<WithStylesProps> = ({ children, ...rest }) => (
+export const UL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
   <Text as="ul" css={UnorderedListStyles} m="sm" ml="md" p={0} {...rest}>
     {children}
   </Text>
 )
 
-export const OL: React.FC<WithStylesProps> = ({ children, ...rest }) => (
+export const OL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
   <Text as="ol" css={OrderedListStyles} m="sm" ml="md" p={0} {...rest}>
     {children}
   </Text>
 )
 
-export const LI: React.FC<WithStylesProps> = ({ children, ...rest }) => (
+export const LI: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
   <Text as="li" css={ListItemStyles} mt={0} mb="sm" {...rest}>
     {children}
   </Text>
