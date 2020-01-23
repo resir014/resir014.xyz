@@ -35,7 +35,7 @@ There’s a number of complaints I’ve had during my initial ordeal with No Man
 
 ![20200111135122_1](./20200111135122_1.jpg)
 
-The video by Internet Historian goes on the same story, but also takes a look on Hello Games' side of the story. The No Man's Sky journey to launch is not easy. Floods that [ravaged through their offices](https://www.polygon.com/2014/3/11/5487564/hello-games-flood-recovery-interview), destroying most of their equipment. The [lawsuit by BSkyB](https://www.eurogamer.net/articles/2016-06-20-no-mans-sky-studio-settles-secret-stupid-three-year-sky-lawsuit), who claimed to own the world "sky". Not to mention signing a publishing deal with Sony and getting a wave of marketing material made for them, lifting expectations further up.
+The video by Internet Historian goes on the same story, but also takes a look on Hello Games' side of the story. The No Man's Sky journey to launch is not easy. Floods that [ravaged through their offices](https://www.polygon.com/2014/3/11/5487564/hello-games-flood-recovery-interview), destroying most of their equipment. The [lawsuit by BSkyB](https://www.eurogamer.net/articles/2016-06-20-no-mans-sky-studio-settles-secret-stupid-three-year-sky-lawsuit), who claimed to own the word "sky". Not to mention signing a publishing deal with Sony and getting a wave of marketing material made for them, lifting expectations further up.
 
 When the game was released, and it wasn't up to the already-high expectations, a lot of people were disappointed. Some were outraged. Hello Games experienced the worst of backlashes, from constant dogpiling towards Sean and the staff, even to the point of stalking the Hello Games offices at random hours.
 
