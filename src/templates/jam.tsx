@@ -1,6 +1,7 @@
 import * as React from 'react'
 import classnames from 'clsx'
 import { graphql } from 'gatsby'
+import { RouterProps } from '@reach/router'
 import Helmet from 'react-helmet'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
@@ -20,10 +21,7 @@ import { HCardPost } from '../components/indieweb'
 import { Container } from '../components/ui'
 import { VideoCard, LiteYouTube } from '../components/video'
 
-interface JamTemplateProps {
-  location: {
-    pathname: string
-  }
+interface JamTemplateProps extends RouterProps {
   data: {
     site: {
       siteMetadata: SiteMetadata
@@ -33,36 +31,31 @@ interface JamTemplateProps {
   }
 }
 
-const JamTemplate: React.SFC<JamTemplateProps> = ({ data }) => {
+const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
 
   return (
     <TemplateWrapper>
       <Page>
-        <Helmet
-          title={`${post.frontmatter.title || post.fields.lead || post.excerpt} · ${
-            siteMetadata.title
-          }`}
-          meta={[
-            { name: 'description', content: post.fields.lead || post.excerpt },
-            { name: 'author', content: siteMetadata.author.name },
-            {
-              property: 'og:title',
-              content: post.frontmatter.title || 'Jam posted by @resir014'
-            },
-            {
-              property: 'og:description',
-              content: post.fields.lead || post.excerpt
-            },
-            { property: 'og:type', content: 'article' },
-            { property: 'og:article:author', content: siteMetadata.author.name },
-            {
-              property: 'og:article:published_time',
-              content: post.fields.date_ogp
-            }
-          ]}
-        />
+        <Helmet>
+          <title>
+            {post.frontmatter.title || post.fields.lead || post.excerpt} &middot;{' '}
+            {siteMetadata.title}
+          </title>
+          <meta name="description" content={post.fields.lead || post.excerpt} />
+          <meta name="author" content={siteMetadata.author.name} />
+          <meta property="og:title" content={post.frontmatter.title || 'Jam posted by @resir014'} />
+          <meta property="og:description" content={post.fields.lead || post.excerpt} />
+          <meta property="og:type" content="article" />
+          <meta
+            property="og:url"
+            content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+          />
+          <meta property="article:author" content={siteMetadata.author.name} />
+          <meta property="article:published_time" content={post.fields.date_ogp} />
+          <meta property="article:section" content={post.fields.category} />
+        </Helmet>
         <article className="h-entry">
           <PageHeader>
             <PageMeta>

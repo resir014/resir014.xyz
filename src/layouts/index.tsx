@@ -59,6 +59,7 @@ class TemplateWrapper extends React.Component<TemplateWrapperProps, WrapperState
               siteMetadata {
                 title
                 description
+                siteUrl
                 author {
                   name
                   url {

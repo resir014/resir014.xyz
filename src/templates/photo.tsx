@@ -2,6 +2,7 @@ import React from 'react'
 import classnames from 'clsx'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { RouterProps } from '@reach/router'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PhotoNode } from '../types/nodes'
@@ -20,10 +21,7 @@ import {
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
 
-interface PhotoTemplateProps {
-  location: {
-    pathname: string
-  }
+interface PhotoTemplateProps extends RouterProps {
   data: {
     site: {
       siteMetadata: SiteMetadata
@@ -33,34 +31,39 @@ interface PhotoTemplateProps {
   }
 }
 
-const PhotoTemplate: React.SFC<PhotoTemplateProps> = ({ data }) => {
+const PhotoTemplate: React.SFC<PhotoTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
 
   return (
     <TemplateWrapper>
       <Page>
-        <Helmet
-          title={`${post.frontmatter.title || 'Photo posted by @resir014'} · ${siteMetadata.title}`}
-          meta={[
-            { name: 'description', content: post.fields.lead || post.excerpt },
-            { name: 'author', content: siteMetadata.author.name },
-            {
-              property: 'og:title',
-              content: post.frontmatter.title || 'Photo posted by @resir014'
-            },
-            {
-              property: 'og:description',
-              content: post.fields.lead || post.excerpt
-            },
-            { property: 'og:type', content: 'article' },
-            { property: 'og:article:author', content: siteMetadata.author.name },
-            {
-              property: 'og:article:published_time',
-              content: post.fields.date_ogp
-            }
-          ]}
-        />
+        <Helmet>
+          <title>
+            {post.frontmatter.title || 'Photo posted by @resir014'} &middot; {siteMetadata.title}
+          </title>
+          <meta name="description" content={post.fields.lead || post.excerpt} />
+          <meta name="author" content={siteMetadata.author.name} />
+          <meta
+            property="og:title"
+            content={post.frontmatter.title || 'Photo posted by @resir014'}
+          />
+          <meta property="og:description" content={post.fields.lead || post.excerpt} />
+          <meta property="og:type" content="article" />
+          <meta
+            property="og:url"
+            content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+          />
+          {post.frontmatter.header_image && (
+            <meta
+              property="og:image"
+              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fluid.src}`}
+            />
+          )}
+          <meta property="article:author" content={siteMetadata.author.name} />
+          <meta property="article:published_time" content={post.fields.date_ogp} />
+          <meta property="article:section" content={post.fields.category} />
+        </Helmet>
         <article className="h-entry">
           <PageHeader>
             <PageMeta>
