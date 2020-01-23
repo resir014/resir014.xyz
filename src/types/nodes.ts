@@ -1,5 +1,5 @@
 import { SyndicationFormat } from './default'
-import { ChildImageSharp } from './gatsby'
+import { Fluid, Fixed } from './gatsby'
 
 export interface SocialLinkNode {
   title: string
@@ -22,7 +22,7 @@ export interface PageNode {
     layout: string
     header_image?: {
       childImageSharp: {
-        fluid: { [key: string]: any }
+        fluid: Fluid
       }
     }
   }
@@ -105,10 +105,8 @@ export interface PhotoNode {
     layout: string
     header_image: {
       childImageSharp: {
-        fluid: {
-          src: string
-          srcSet: string
-        }
+        fixed: Fixed
+        fluid: Fluid
       }
     }
   }
@@ -135,7 +133,10 @@ export interface BlogPostNode {
     layout: string
     syndication?: SyndicationFormat[]
     header_image?: {
-      childImageSharp: ChildImageSharp
+      childImageSharp: {
+        fixed: Fixed
+        fluid: Fluid
+      }
     }
   }
 }
@@ -156,7 +157,10 @@ export interface ProjectNode {
   frontmatter: {
     title: string
     header_image?: {
-      childImageSharp: ChildImageSharp
+      childImageSharp: {
+        fixed: Fixed
+        fluid: Fluid
+      }
     }
   }
 }

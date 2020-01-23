@@ -63,7 +63,19 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
           {post.frontmatter.header_image && (
             <meta
               property="og:image"
-              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fluid.src}`}
+              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed}`}
+            />
+          )}
+          {post.frontmatter.header_image && (
+            <meta
+              property="og:image:width"
+              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.width}`}
+            />
+          )}
+          {post.frontmatter.header_image && (
+            <meta
+              property="og:image:height"
+              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.height}`}
             />
           )}
           <meta property="article:author" content={siteMetadata.author.name} />
@@ -193,6 +205,9 @@ export const pageQuery = graphql`
         }
         header_image {
           childImageSharp {
+            fixed(width: 1200, height: 630) {
+              ...GatsbyImageSharpFixed
+            }
             fluid(maxWidth: 1140) {
               ...GatsbyImageSharpFluid
             }
