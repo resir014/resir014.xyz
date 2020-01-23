@@ -63,7 +63,7 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
           {post.frontmatter.header_image && (
             <meta
               property="og:image"
-              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed}`}
+              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.src}`}
             />
           )}
           {post.frontmatter.header_image && (
