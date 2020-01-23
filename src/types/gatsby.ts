@@ -1,5 +1,8 @@
+import { FluidObject, FixedObject } from 'gatsby-image'
 import { SiteAuthor } from './default'
 
+export type Fluid = FluidObject
+export type Fixed = FixedObject
 export interface SiteMetadata {
   title: string
   tagline: string
@@ -19,17 +22,4 @@ export interface HeaderImage {
 
 export interface ChildImageSharp {
   fluid: Fluid
-}
-
-export interface Fluid {
-  base64: string
-  tracedSVG: string
-  aspectRatio: number
-  src: string
-  srcSet: string
-  srcWebp: string
-  srcSetWebp: string
-  sizes: string
-  originalImg: string
-  originalName: string
 }
