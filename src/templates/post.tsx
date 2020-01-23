@@ -69,13 +69,13 @@ const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
           {post.frontmatter.header_image && (
             <meta
               property="og:image:width"
-              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.width}`}
+              content={`${post.frontmatter.header_image.childImageSharp.fixed.width}`}
             />
           )}
           {post.frontmatter.header_image && (
             <meta
               property="og:image:height"
-              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.height}`}
+              content={`${post.frontmatter.header_image.childImageSharp.fixed.height}`}
             />
           )}
           <meta property="article:author" content={siteMetadata.author.name} />
