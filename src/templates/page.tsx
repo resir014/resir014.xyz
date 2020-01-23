@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
+import { RouterProps } from '@reach/router'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
@@ -19,7 +20,7 @@ import {
   MarkdownContent
 } from '../components/page'
 
-interface PageTemplateProps {
+interface PageTemplateProps extends RouterProps {
   data: {
     site: {
       siteMetadata: SiteMetadata
@@ -29,25 +30,32 @@ interface PageTemplateProps {
   }
 }
 
-const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => {
+const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
 
   return (
     <TemplateWrapper>
       <Page>
-        <Helmet
-          title={`${post.frontmatter.title} · ${siteMetadata.title}`}
-          meta={[
-            { name: 'description', content: post.excerpt },
-            { name: 'author', content: siteMetadata.author.name },
-            { property: 'og:title', content: post.frontmatter.title },
-            {
-              property: 'og:description',
-              content: post.fields.lead || post.excerpt
-            }
-          ]}
-        />
+        <Helmet>
+          <title>
+            {post.frontmatter.title} &middot; {siteMetadata.title}
+          </title>
+          <meta name="description" content={post.fields.lead || post.excerpt} />
+          <meta name="author" content={siteMetadata.author.name} />
+          <meta property="og:title" content={post.frontmatter.title} />
+          <meta property="og:description" content={post.fields.lead || post.excerpt} />
+          <meta
+            property="og:url"
+            content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+          />
+          {post.frontmatter.header_image && (
+            <meta
+              property="og:image"
+              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fluid.src}`}
+            />
+          )}
+        </Helmet>
         <article className="h-entry">
           {post.frontmatter.header_image && (
             <PageThumbnail>

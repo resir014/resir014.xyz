@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { RouterProps } from '@reach/router'
 
 import { SiteAuthor } from '../types/default'
 import { HCardIcon } from '../types/gatsby'
@@ -24,10 +25,7 @@ import { HCardPost } from '../components/indieweb'
 import { Container, MessageBox } from '../components/ui'
 import { P, UL, LI } from '../components/chungking-core'
 
-interface PostTemplateProps {
-  location: {
-    pathname: string
-  }
+interface PostTemplateProps extends RouterProps {
   data: {
     site: {
       siteMetadata: {
@@ -42,31 +40,48 @@ interface PostTemplateProps {
   }
 }
 
-const PostTemplate: React.SFC<PostTemplateProps> = ({ data }) => {
+const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
 
   return (
     <TemplateWrapper>
       <Page>
-        <Helmet
-          title={`${post.frontmatter.title} · ${siteMetadata.title}`}
-          meta={[
-            { name: 'description', content: post.fields.lead || post.excerpt },
-            { name: 'author', content: siteMetadata.author.name },
-            { property: 'og:title', content: post.frontmatter.title },
-            {
-              property: 'og:description',
-              content: post.fields.lead || post.excerpt
-            },
-            { property: 'og:type', content: 'article' },
-            { property: 'og:article:author', content: siteMetadata.author.name },
-            {
-              property: 'og:article:published_time',
-              content: post.fields.date_ogp
-            }
-          ]}
-        />
+        <Helmet>
+          <title>
+            {post.frontmatter.title} &middot; {siteMetadata.title}
+          </title>
+          <meta name="description" content={post.fields.lead || post.excerpt} />
+          <meta name="author" content={siteMetadata.author.name} />
+          <meta property="og:title" content={post.frontmatter.title} />
+          <meta property="og:description" content={post.fields.lead || post.excerpt} />
+          <meta property="og:type" content="article" />
+          <meta
+            property="og:url"
+            content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+          />
+          {post.frontmatter.header_image && (
+            <meta
+              property="og:image"
+              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.src}`}
+            />
+          )}
+          {post.frontmatter.header_image && (
+            <meta
+              property="og:image:width"
+              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.width}`}
+            />
+          )}
+          {post.frontmatter.header_image && (
+            <meta
+              property="og:image:height"
+              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.height}`}
+            />
+          )}
+          <meta property="article:author" content={siteMetadata.author.name} />
+          <meta property="article:published_time" content={post.fields.date_ogp} />
+          <meta property="article:section" content={post.fields.category} />
+        </Helmet>
         <article className="h-entry">
           {post.frontmatter.header_image ? (
             <Container size="xl">
@@ -190,6 +205,9 @@ export const pageQuery = graphql`
         }
         header_image {
           childImageSharp {
+            fixed(width: 1200, height: 630) {
+              ...GatsbyImageSharpFixed
+            }
             fluid(maxWidth: 1140) {
               ...GatsbyImageSharpFluid
             }

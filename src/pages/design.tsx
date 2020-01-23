@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled from '@emotion/styled'
+import { RouterProps } from '@reach/router'
 
 import { SiteMetadata } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
@@ -44,7 +45,7 @@ import {
 import getFeaturedProject from '../utils/getFeaturedProject'
 import ProjectItem from '../components/projects/ProjectItem'
 
-interface DesignSystemPageProps {
+interface DesignSystemPageProps extends RouterProps {
   data: {
     site: {
       siteMetadata: SiteMetadata
@@ -71,7 +72,7 @@ const WrapperRoot = styled('div')`
   box-shadow: ${shadows.single};
 `
 
-const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
+const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) => {
   const testProject = getFeaturedProject(data.projects.edges, 'Broville v11')
   const testProjectNode = testProject.node
   const testProjectTags = testProjectNode.fields.tags
@@ -92,6 +93,13 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data }) => {
             }
           ]}
         />
+        <Helmet>
+          <title>Chungking Design System &middot; {data.site.siteMetadata.title}</title>
+          <meta
+            property="og:url"
+            content={`${data.site.siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+          />
+        </Helmet>
         <article>
           <PageHeader>
             <PageTitle>Chungking Design System</PageTitle>
