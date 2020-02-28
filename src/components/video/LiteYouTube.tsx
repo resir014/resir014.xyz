@@ -78,21 +78,22 @@ const LiteYouTubeWrapper = styled('div')`
   }
 `
 
-function addPrefetch(kind: 'preload' | 'preconnect', url: string, as?: string) {
-  const queryString = `link[rel="${kind}"][href="${url}"]${as ? `[as="${as}"]` : ''}`
-  const previousElement = document.querySelector(queryString)
-
-  if (!previousElement) {
+function usePrefetch(kind: 'preload' | 'preconnect', url: string, as?: string) {
+  React.useEffect(() => {
     const linkElem = document.createElement('link')
     linkElem.rel = kind
     linkElem.href = url
     if (as) {
       linkElem.as = as
     }
-    // crossorigin should really only be set on script URLs
+    // crossorigin should really only be set on script
     linkElem.crossOrigin = as === 'script' ? 'true' : null
-    document.head.append(linkElem)
-  }
+    document.head.appendChild(linkElem)
+
+    return () => {
+      document.head.removeChild(linkElem)
+    }
+  }, [kind, url, as])
 }
 
 interface LiteYouTubeProps {
@@ -104,19 +105,17 @@ const LiteYouTube = ({ videoId, style }: LiteYouTubeProps) => {
   const encodedVideoId = encodeURIComponent(videoId)
   const posterUrl = `https://i.ytimg.com/vi/${encodedVideoId}/hqdefault.jpg`
 
-  React.useEffect(() => {
-    addPrefetch('preload', posterUrl, 'image')
+  usePrefetch('preload', posterUrl, 'image')
 
-    // The iframe document and most of its subresources come right off youtube.com
-    addPrefetch('preconnect', 'https://www.youtube-nocookie.com')
+  // The iframe document and most of its subresources come right off youtube.com
+  usePrefetch('preconnect', 'https://www.youtube-nocookie.com')
 
-    // The botguard script is fetched off from google.com
-    addPrefetch('preconnect', 'https://www.google.com')
+  // The botguard script is fetched off from google.com
+  usePrefetch('preconnect', 'https://www.google.com')
 
-    // Not certain if these ad related domains are in the critical path. Could verify with domain-specific throttling.
-    addPrefetch('preconnect', 'https://googleads.g.doubleclick.net')
-    addPrefetch('preconnect', 'https://static.doubleclick.net')
-  }, [])
+  // Not certain if these ad related domains are in the critical path. Could verify with domain-specific throttling.
+  usePrefetch('preconnect', 'https://googleads.g.doubleclick.net')
+  usePrefetch('preconnect', 'https://static.doubleclick.net')
 
   const [activated, setActivated] = React.useState(false)
 
