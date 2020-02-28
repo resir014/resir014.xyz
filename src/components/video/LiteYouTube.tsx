@@ -79,14 +79,20 @@ const LiteYouTubeWrapper = styled('div')`
 `
 
 function addPrefetch(kind: 'preload' | 'preconnect', url: string, as?: string) {
-  const linkElem = document.createElement('link')
-  linkElem.rel = kind
-  linkElem.href = url
-  if (as) {
-    linkElem.as = as
+  const queryString = `link[rel="${kind}"][href="${url}"]${as ? `[as="${as}"]` : ''}`
+  const previousElement = document.querySelector(queryString)
+
+  if (!previousElement) {
+    const linkElem = document.createElement('link')
+    linkElem.rel = kind
+    linkElem.href = url
+    if (as) {
+      linkElem.as = as
+    }
+    // crossorigin should really only be set on script URLs
+    linkElem.crossOrigin = as === 'script' ? 'true' : null
+    document.head.append(linkElem)
   }
-  linkElem.crossOrigin = 'true'
-  document.head.append(linkElem)
 }
 
 interface LiteYouTubeProps {
