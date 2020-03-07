@@ -197,7 +197,7 @@ This also helps us reduces dependency on our WordPress API to zero, therefore re
 
 ## Give it a try!
 
-As mentioned earlier, you can try these features before they are included by installing the Next.js canary build. You can install the canary build of Next.js here:
+As mentioned earlier, you can try these features before they are included in the next public release by installing the Next.js canary build. You can install the canary build of Next.js here:
 
 ```bash
 # npm
