@@ -171,7 +171,7 @@ yarn add next@canary
 
 Over the past week, I've been helping the team at Kawal COVID-19 to build [their website](https://kawalcovid19.id/). We're a group of volunteers from many backgrounds (including, but not limited to, medical practicioners, technologists, and data scientists), helping to provide accurate and factual information regarding the recent outbreak of the coronavirus COVID-19, which has hit several countries, including Indonesia. Our channels so far include [Facebook](https://www.facebook.com/KawalCOVID19), [Twitter](https://twitter.com/KawalCOVID19), and as of recently, our website.
 
-We initiated the project the day before [the first cases of COVID-19 hit Indonesia](https://twitter.com/KemenkesRI/status/1234494277457076227), so we had to move fast. Everything from the architectural decision, to development and deployment of our website took 3-4 days.
+We initiated the project the day before [the first confirmed case of COVID-19 hit Indonesia](https://twitter.com/KemenkesRI/status/1234494277457076227), so we had to move fast. Everything from the architectural decision, to development and deployment of our website took 3-4 days.
 
 The architecture we decided to go with is a statically-generated Next.js site which pulls content from a WordPress backend. If that sounded familiar to you, [I tried a similar architecture where I work](https://medium.com/kata-engineering/headless-wordpress-next-js-what-we-learned-c10abdf80f6a). The difference is we're running a new version of Next.js, therefore we can utilise new features like dynamic routes.
 
