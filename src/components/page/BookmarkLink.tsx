@@ -11,6 +11,27 @@ interface BookmarkLinkProps {
   title: string
 }
 
+const Root = styled(OutboundLink)`
+  display: block;
+  margin-bottom: ${space.md}px;
+  background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
+  color: ${colors.white};
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: ${shadows.single};
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    box-shadow: ${shadows.double};
+
+    > h3 span {
+      text-decoration: underline;
+    }
+  }
+`
+
 const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, title }) => {
   const url = link ? new Url(link) : undefined
 
@@ -39,33 +60,3 @@ const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, title }) => {
 }
 
 export default BookmarkLink
-
-const Root = styled(OutboundLink)`
-  display: block;
-  margin-top: ${space.sm}px;
-  margin-bottom: ${space.md}px;
-  background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
-  color: ${colors.white};
-  border-radius: 4px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: ${shadows.single};
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    box-shadow: ${shadows.double};
-
-    > h3 span {
-      text-decoration: underline;
-    }
-  }
-`

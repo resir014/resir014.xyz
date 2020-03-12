@@ -12,29 +12,6 @@ interface PageHeaderProps {
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-const PageHeader: React.SFC<PageHeaderProps> = ({
-  className,
-  children,
-  hasImage,
-  metaItem,
-  size
-}) => (
-  <Section className={className} hasImage={hasImage}>
-    <Container size={size}>
-      {metaItem}
-      {children}
-    </Container>
-  </Section>
-)
-
-export default PageHeader
-
-PageHeader.defaultProps = {
-  className: undefined,
-  hasImage: false,
-  size: 'md'
-}
-
 const HasImageStyles = css`
   padding: 24px 24px 0;
 
@@ -60,3 +37,26 @@ const Section = styled<'section', PageHeaderProps>('section')`
 
   ${props => props.hasImage && HasImageStyles}
 `
+
+const PageHeader: React.SFC<PageHeaderProps> = ({
+  className,
+  children,
+  hasImage,
+  metaItem,
+  size
+}) => (
+  <Section className={className} hasImage={hasImage}>
+    <Container size={size}>
+      {metaItem}
+      {children}
+    </Container>
+  </Section>
+)
+
+PageHeader.defaultProps = {
+  className: undefined,
+  hasImage: false,
+  size: 'md'
+}
+
+export default PageHeader
