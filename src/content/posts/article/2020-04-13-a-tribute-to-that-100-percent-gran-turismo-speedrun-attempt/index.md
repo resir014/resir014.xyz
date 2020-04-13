@@ -43,27 +43,29 @@ There's a reason why there are four people attempting this, because they're doin
 
 This became more handy during the endurance races. Normally, races in Gran Turismo don't take that long, so that one person could take a number of races in one single stint. But with the endurance races going for up to 24 real, in-game hours, there could be multiple driver swaps throughout these races.
 
-So, the stage is set for one the biggest speedrunning moments in 2020.
+So, we got the players, and we got a battle plan. The stage is set for one the biggest speedrunning moments of 2020.
 
 > [_"It's f\*\*kin' galaxy brain time, boys."_](https://clips.twitch.tv/PhilanthropicColdbloodedWalletDancingBanana)
 
 ---
 
-Now, unfortunately I missed the first few days of the stream because I fell ill, so I couldn't review what happened during those times. But I did manage to start watching during the endurance race attempts, and status updates from other friends who also watched the stream kept me informed during my downtime.
+Now, unfortunately I missed the first few days of the stream because I fell ill, so I couldn't review in-depth what happened during those times. But I did manage to start watching during the endurance race attempts, and status updates from other friends who also watched the stream kept me informed during my downtime.
 
 To 100% Gran Turismo 4, you will need to complete all licence tests, complete all driving missions, and win all races, including the one-make and endurance races. You can only do it on an original PS2 with the disc, which means emulators aren't allowed.
 
 Licence tests will allow you to compete in events where you will need a certain licence, so it's a sensible move to start the run here. Completing licence tests will give you either a Gold, Silver, or Bronze medal, depending on the time you completed them. Note that you didn't need to win Gold medal on all the licence tests - it's imaginable if that an All Golds run were necessary, the run may have taken 10 days.
 
-Next on the list, the Driving Missions. These are 34 challenges that tests the players skills in several racing techniques, such as overtaking, clean racing, and slipstreaming.
+Next on the list, the Driving Missions. These are 34 challenges that tests the players skills in several racing techniques, such as overtaking, clean racing, and slipstreaming. You will also get money and prize cars after completing certain missions.
 
 ![pcsx2_Px2Fvv39Eq](pcsx2_Px2Fvv39Eq.png)
 
-This ends with [Mission 34](https://www.youtube.com/watch?v=Gl84Rle6Yuw), where they have to chase down a series of historical Mercedes-Benz cars around the Nurburgring Nordschleife, with a 2-minute start delay. This is the ultimate test of driving skill, and many people would take a lot of time to complete this even on a non-speedrun setting.
+This ends with the infamous [Mission 34](https://www.youtube.com/watch?v=Gl84Rle6Yuw), where they have to chase down a series of historical Mercedes-Benz cars around the Nurburgring Nordschleife, with a 2-minute start delay. This is the ultimate test of driving skill, and many people would take a lot of time to complete this even on a non-speedrun setting.
 
 Worse still, they're playing on the NTSC-U version of the game, which is notoriously more difficult with Mission 34 than its PAL and NTSC-J counterparts. The pressure was too much for them, so they had to abandon Mission 34 and set it aside for the finale. We'll get back to this later.
 
 [still need to figure out how to do this part]
+
+---
 
 They've had so many struggles, from the Beetle Cup, to their song requests queue getting filled up with meme songs, to various close calls, to a PS2 crash that took 20 minutes off their time. As they pressed on, they got everything out of the way, including the endurance races and one-make championships.
 
