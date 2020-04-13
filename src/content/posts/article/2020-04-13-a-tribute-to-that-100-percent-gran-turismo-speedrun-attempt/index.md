@@ -7,11 +7,11 @@ header_image: EU6bdNZVAAE_SfN.jpg
 date: 2020-04-13T13:53:00+07:00
 ---
 
-We truly live in a horrifying era. With the [COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) still not showing any signs of slowing down, and many countries went on lockdown to prevent the spread of this infectious disease, a lot of us are now confined to our homes, unable to leave due to the viral nature of this outbreak.
+We truly live in a horrifying era. With the [COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) still not showing any signs of slowing down, and many countries going on lockdown to prevent the spread of this infectious disease, a lot of us are now confined to our homes, unable to leave due to the viral nature of this outbreak.
 
 We can't hang out safely outside with our friends, meaning that many of us have to resort to alternative methods of communication, like voice and video calls. Many big events, including sporting events, are now also either postponed or cancelled, meaning a lot of our sources for entertainment during these times, are also gone. To put it mildly, everything sucks now.
 
-There are many ways people cope with the lockdown, including trying out things that they have never done before. And for a guy and three of his roommates, that's something they set out to do.
+There are many ways people cope with the lockdown, including trying out things that they have never done before. And for four roommates being confined to their room in a lockdown, that's something they set out to do.
 
 ---
 
@@ -76,7 +76,7 @@ So for example, if it's a 4-hour endurance race, they will have to try to take t
 
 The Nurburgring 24-hour endurance race was the first endurance race they completed, because this unlocks the Formula GT, a Formula 1-like car which is one of the fastest cars in the game. This is where they can complete the rest of the endurance races, as well as some Professional and Extreme racing events, including the Formula GT championship.
 
-Their route involved doing the races that would be the most profitable for them, while getting to the 25% threshold to unlock the 24 Hours of Nurburgring - intending to earn 1 and a half million credits from the game's events in order to unlock the Nissan Motul Z - the car they would use to take on the behemoth of the Nordschleife for a whole day.
+Their route involved doing the races that would be the most profitable for them, while getting to the 25% threshold to unlock the 24 Hours of Nurburgring, intending to earn 1 and a half million credits from the game's events in order to unlock the Nissan Motul Z - the car they would use to take on the behemoth of the Nordschleife for a whole day.
 
 At hour 67, they unlocked the Formula GT. From there, they would spend over 100 hours in that machine, racking up nearly 10000 miles on its odometer.
 
