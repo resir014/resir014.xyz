@@ -21,7 +21,7 @@ Let's meet our team. First we have Tyler (aka [thebook92](https://www.twitch.tv/
 
 <iframe src="https://clips.twitch.tv/embed?clip=TsundereAmorphousIguanaPipeHype&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
-This doesn't come without preparation. As mentioned earlier, they had a practice session the week before, and they created a [checklist of things to do](https://docs.google.com/document/d/1214WhJ99hHWE0IBNugRnbh38bZA-hsLRc6k1vOQjMlM/edit?usp=sharing), so they didn't miss anything during their run. And many cans of Mountain Dew were probably involved as well
+This doesn't come without preparation. As mentioned earlier, they had a practice session the week before, and they created a [checklist of things to do](https://docs.google.com/document/d/1214WhJ99hHWE0IBNugRnbh38bZA-hsLRc6k1vOQjMlM/edit?usp=sharing), so they didn't miss anything during their run. And many cans of Mountain Dew were probably involved as well.
 
 So, the stage is set for one the biggest speedrunning moments in 2020.
 
