@@ -7,11 +7,11 @@ header_image: EU6bdNZVAAE_SfN.jpg
 date: 2020-04-13T13:53:00+07:00
 ---
 
-We truly live in a horrifying era. The [COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) swept the world, and many countries have decided to go on quarantine to prevent the spread of this infectious disease. That means a lot of us are now confined to our homes, unable to leave due to the viral nature of this outbreak.
+We truly live in a horrifying era. With the [COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) still not showing any signs of slowing down, and many countries went on lockdown to prevent the spread of this infectious disease, a lot of us are now confined to our homes, unable to leave due to the viral nature of this outbreak.
 
 We can't hang out safely outside with our friends, meaning that many of us have to resort to alternative methods of communication, like voice and video calls. Many big events, including sporting events, are now also either postponed or cancelled, meaning a lot of our sources for entertainment during these times, are also gone. To put it mildly, everything sucks now.
 
-But despite all this, there are still desperate measures for an alternative source of entertainment.
+There are many ways people cope with the lockdown, including trying out things that they have never done before. And for a guy and three of his roommates, that's something they set out to do.
 
 ---
 
@@ -19,7 +19,7 @@ On the 27th of March 2020, four roommates set out to do something that one might
 
 [Gran Turismo 4](https://en.wikipedia.org/wiki/Gran_Turismo_4) was a racing simulation game released back in 2004. It featured over 700 cars from 80 different manufacturers all across the globe and 51 tracks, including the infamous [Nurburgring Nordschleife](https://en.wikipedia.org/wiki/N%C3%BCrburgring). It's also the first Gran Turismo title to contain a 24-hour endurance race. Actually, not just one, there's [three](<https://gran-turismo.fandom.com/wiki/N%C3%BCrburgring_24h_Endurance_(GT4)>) [of](https://gran-turismo.fandom.com/wiki/Circuit_de_la_Sarthe_24h_I) [them](https://gran-turismo.fandom.com/wiki/Circuit_de_la_Sarthe_24h_II).
 
-![18320](18320.jpg)
+![gt4sc](gt4sc.jpg)
 
 Not to mention the many races in its collection, from beginner to extreme events, special conditions events, regional events, to one-make race events from most of the licenced brands that were included. So you might already think it will take a really, really long time to 100% the game. I'll let you take a guess on how long it will take.
 
@@ -36,11 +36,13 @@ That's right. Nine and a half days.
 <!-- prettier-ignore -->
 Let's meet our team. First we have Tyler (aka [thebook92](https://www.twitch.tv/thebook92)), the only guy in our team that has played GT4 in the past. The rest, Paul (aka [another\_car\_guy](https://www.twitch.tv/another_car_guy)), Jonah (aka [feathers51564](https://www.twitch.tv/feathers51564)), and Shawn (aka [sheeniethegee](https://www.twitch.tv/sheeniethegee)), have never played GT4 until they had their practice the week before. So you can tell this is going to end well.
 
+The COVID-19 lockdown might be part of the reason this run attempt came to be, but Tyler did mention in a post-stream Q&A session that this run is what he has always wanted to do - the lockdown provided them with an opportunity to complete this run once and for all.
+
 <iframe src="https://clips.twitch.tv/embed?clip=TsundereAmorphousIguanaPipeHype&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
-In Gran Turismo 4, you can do races in two modes, A-Spec, where you physically drive the car, and B-Spec, where you enter the "director's mode" and let the AI take over from you, whilst also giving instructions on whether to push harder, reduce the pace a bit, or enter the pits. The category that they're running is No B-Spec mode, which means you can never use the B-Spec mode in your run, ever.
+In Gran Turismo 4, you can do races in two modes; A-Spec, where you physically drive the car, and B-Spec, where you enter the "director's mode" and let the AI take over from you, whilst also giving instructions on whether to push harder, reduce the pace a bit, or enter the pits. In this mode you can also run the game at up to 3x speed, which can drastically reduce the time to complete a race. However, the category that they're running is No B-Spec mode, which means you can never use the B-Spec mode in your run, ever.
 
-There's a reason why there are four people attempting this, because they're doing it in shifts. Of course, gaming for 230 hours solo, in one sitting, is not particularly good for your health. So to balance the load between them, they swap with each other after a certain number of hours. This is normally done in real-life racing as well, and is normally called a "stint".
+There's a reason why there are four people attempting this, because they're doing it in shifts. Of course, gaming for 230 hours solo, in one sitting, is not particularly good for your health. So to balance the load between them, they swap with each other after a certain number of hours, or if someone needs a break. This is normally done in real-life racing as well, and is normally called a "stint".
 
 This became more handy during the endurance races. Normally, races in Gran Turismo don't take that long, so that one person could take a number of races in one single stint. But with the endurance races going for up to 24 real, in-game hours, there could be multiple driver swaps throughout these races.
 
@@ -74,7 +76,7 @@ So for example, if it's a 4-hour endurance race, they will have to try to take t
 
 The Nurburgring 24-hour endurance race was the first endurance race they completed, because this unlocks the Formula GT, a Formula 1-like car which is one of the fastest cars in the game. This is where they can complete the rest of the endurance races, as well as some Professional and Extreme racing events, including the Formula GT championship.
 
-Their route involved doing the races that would be the most profitable for them - intending to earn 1 and a half million credits from the game's events in order to unlock the Nissan Motul Z - the car they would use to take on the behemoth of the Nordschleife for a whole day.
+Their route involved doing the races that would be the most profitable for them, while getting to the 25% threshold to unlock the 24 Hours of Nurburgring - intending to earn 1 and a half million credits from the game's events in order to unlock the Nissan Motul Z - the car they would use to take on the behemoth of the Nordschleife for a whole day.
 
 At hour 67, they unlocked the Formula GT. From there, they would spend over 100 hours in that machine, racking up nearly 10000 miles on its odometer.
 
