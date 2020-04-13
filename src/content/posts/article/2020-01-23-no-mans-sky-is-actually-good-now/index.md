@@ -5,9 +5,6 @@ title: "No Man's Sky is actually good now"
 lead: "The gaming industry's greatest redemption arc of the decade."
 header_image: Screenshot-1full.png
 date: 2020-01-23T12:13:00+07:00
-syndication:
-  - name: Medium
-    url: https://medium.com/southeast-asian-social-critique/12-netflix-series-that-you-can-watch-right-now-guaranteed-to-be-free-of-negative-content-ecb3b1c5c799
 ---
 
 A few years ago, I wrote [a scathing review for No Man's Sky](https://resir014.xyz/posts/2016/10/15/open-world-space-exploration-games/).
