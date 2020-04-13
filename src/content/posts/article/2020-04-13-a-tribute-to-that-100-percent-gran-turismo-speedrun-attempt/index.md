@@ -33,7 +33,8 @@ That's right. Nine and a half days.
 
 ---
 
-Let's meet our team. First we have Tyler (aka [thebook92](https://www.twitch.tv/thebook92)), the only guy in our team that has played GT4 in the past. The rest, Paul (aka [another_car_guy](https://www.twitch.tv/another_car_guy)), Jonah (aka [feathers51564](https://www.twitch.tv/feathers51564)), and Shawn (aka [sheeniethegee](https://www.twitch.tv/sheeniethegee)), have never played GT4 until they had their practice the week before. So you can tell this is going to end well.
+<!-- prettier-ignore -->
+Let's meet our team. First we have Tyler (aka [thebook92](https://www.twitch.tv/thebook92)), the only guy in our team that has played GT4 in the past. The rest, Paul (aka [another\_car\_guy](https://www.twitch.tv/another_car_guy)), Jonah (aka [feathers51564](https://www.twitch.tv/feathers51564)), and Shawn (aka [sheeniethegee](https://www.twitch.tv/sheeniethegee)), have never played GT4 until they had their practice the week before. So you can tell this is going to end well.
 
 <iframe src="https://clips.twitch.tv/embed?clip=TsundereAmorphousIguanaPipeHype&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
@@ -65,9 +66,9 @@ This ends with the infamous [Mission 34](https://www.youtube.com/watch?v=Gl84Rle
 
 Worse still, they're playing on the NTSC-U version of the game, which is notoriously more difficult with Mission 34 than its PAL and NTSC-J counterparts. The pressure was too much for them, so they had to abandon Mission 34 and set it aside for the finale. We'll get back to this later.
 
-[beginner, professional (incl. GTWC, the end of Any%), and extreme events]
+After the licence tests and missions, it's time to do the race events. Beginner events are the starting point of your Gran Turismo career, with some of these events not requiring a licence to enter. Professional events are where the events start to grow progressively harder. This ends with the Gran Turismo World Championship, where the Any% category of this game would normally end. There are also the Special Conditions events, which was just a fancy way of saying "rally events".
 
-Endurance races come in two types. There are distance-based endurance races, which has a fixed number of laps, and time-based endurance races, where the driver with the most laps after a certain amount of time has elapsed wins. As previously mentioned, there are three 24-hour races, not to mention other time-based races of varying distances. To optimise their run, they will have to finish the race as close to their alloted time as possible.
+The endurance races were unlocked when you reach 25% completion of the game. Endurance races come in two types. There are distance-based endurance races, which has a fixed number of laps, and time-based endurance races, where the driver with the most laps after a certain amount of time has elapsed wins. As previously mentioned, there are three 24-hour races, not to mention other time-based races of varying distances. To optimise their run, they will have to finish the race as close to their alloted time as possible.
 
 So for example, if it's a 4-hour endurance race, they will have to try to take the chequered flag close to the 4-hour time. If they undershot, they will have to do another lap, potentially losing valuable time.
 
@@ -76,6 +77,8 @@ The Nurburgring 24-hour endurance race was the first endurance race they complet
 Their route involved doing the races that would be the most profitable for them - intending to earn 1 and a half million credits from the game's events in order to unlock the Nissan Motul Z - the car they would use to take on the behemoth of the Nordschleife for a whole day.
 
 At hour 67, they unlocked the Formula GT. From there, they would spend over 100 hours in that machine, racking up nearly 10000 miles on its odometer.
+
+<iframe src="https://clips.twitch.tv/embed?clip=BillowingAwkwardAlfalfaBatChest&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
 From there, they cleared off the high-speed events in the Bentley Speed 8, that wouldn't require the same amount of control as the Formula GT car, and just needed raw power. After that, it was onto the one-make races.
 
@@ -111,9 +114,11 @@ The run has now been immortalised on the [speedrun.com leaderboards](https://www
 
 ---
 
-This post might not be the most coherent one I've written this year, but I just wanted to write a quick tribute to what might possibly the best, most entertaining week I've had in 2020. In these darkest hours, we can still do great things and entertain people across the globe.
+We are all coping with the COVID-19 outbreak one way or another. Be it through [clapping for the heroes](https://www.bbc.com/news/av/uk-52234176/coronavirus-uk-claps-for-nhs-carers-and-key-workers) working in the frontline, [esports replacements](https://www.youtube.com/watch?v=NAKbRmLfmjI) to various sports events, or even a nonstop speedrun marathon. This too shall pass.
 
-We are all coping with the COVID-19 outbreak one way or another. Be it through [clapping for the heroes](https://www.bbc.com/news/av/uk-52234176/coronavirus-uk-claps-for-nhs-carers-and-key-workers) working in the frontline, [esports replacements](https://www.youtube.com/watch?v=NAKbRmLfmjI) to various sports events, or even a nonstop speedrun marathon. This too shall pass. But we're not dealing with this without a fight, don't forget to wash your hands, follow the WHO's guidelines on slowing down this outbreak, and listen to your local authority's instructions on any social distancing measures given to your community.
+But we're not dealing with this without a fight, don't forget to wash your hands, follow the WHO's guidelines on slowing down this outbreak, and listen to your local authority's instructions on any social distancing measures given to your community.
+
+In these darkest hours, we can still do great things and entertain people across the globe.
 
 So to Tyler, Paul, Jonah, and Shawn, thank you for your service.
 
