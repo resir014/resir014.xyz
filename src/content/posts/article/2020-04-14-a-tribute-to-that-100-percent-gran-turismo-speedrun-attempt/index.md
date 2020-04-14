@@ -1,10 +1,10 @@
 ---
 category: article
 layout: post
-title: 'A tribute to that 100% Gran Turismo 4 speedrun attempt'
+title: 'A tribute to a 100% Gran Turismo 4 speedrun attempt'
 lead: "What's the best way to deal with quarantine? Run an ultra-long speedrun that has never been done before."
 header_image: EU6bdNZVAAE_SfN.jpg
-date: 2020-04-13T13:53:00+07:00
+date: 2020-04-14T07:56:00+07:00
 ---
 
 We truly live in a horrifying era. With the [COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) still not showing any signs of slowing down, and many countries going on lockdown to prevent the spread of this infectious disease, a lot of us are now confined to our homes, unable to leave due to the viral nature of this outbreak.
