@@ -79,7 +79,7 @@ So for example, if it's a 4-hour endurance race, they will have to try to take t
 
 The Nurburgring 24-hour endurance race was the first endurance race they completed, because this unlocks the Formula GT, a Formula 1-like car which is one of the fastest cars in the game. This is where they can complete the rest of the endurance races, as well as some Professional and Extreme racing events, including the Formula GT championship.
 
-Their route involved doing the races that would be the most profitable for them, while getting to the 25% threshold to unlock the 24 Hours of Nurburgring, intending to earn 1 and a half million credits from the game's events in order to unlock the Nissan Motul Z - the car they would use to take on the behemoth of the Nordschleife for a whole day.
+Their route involved doing the races that would be the most profitable for them, while getting to the 25% threshold to unlock the 24 Hours of Nurburgring, intending to earn 1 and a half million credits from the game's events in order to unlock the Nissan 350Z Concept LM Race Car - the car they would use to take on the behemoth of the Nordschleife for a whole day.
 
 At hour 67, they unlocked the Formula GT. From there, they would spend over 100 hours in that machine, racking up nearly 10000 miles on its odometer.
 
@@ -97,7 +97,7 @@ The Green Hell.
 
 6th of April, 2020. Day 10. 228 hours on the clock. The final showdown. It's time to take on Mission 34. The final boss, if you may. If they win this Mission, their run is complete.
 
-Tyler, being the most experienced of the four, was repeatedly called upon to attempt to save races, frequently on little sleep. This included a Hong Kong race in the Formula GT vs. Group C cars, going a lap down at Motegi Road Course and needing to bring the deficit back, among several others. Sleep-deprived as he already is at this point of the run, he took the wheel one last time.
+Tyler, being the most experienced of the four, was repeatedly called upon to attempt to save races, frequently on little sleep. This included a Hong Kong race in the Formula GT vs. Group C cars, going a lap down at Côte d’Azur (Monaco to you and me) and needing to bring the deficit back, among several others. Sleep-deprived as he already is at this point of the run, he took the wheel one last time.
 
 <iframe src="https://clips.twitch.tv/embed?clip=GrotesqueInspiringLegMikeHogu&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
