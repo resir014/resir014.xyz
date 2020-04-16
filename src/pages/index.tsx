@@ -179,7 +179,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredProject: markdownRemark(fields: { slug: { eq: "/projects/web/pinjollist/" } }) {
+    featuredProject: markdownRemark(fields: { slug: { eq: "/projects/web/kawalcovid19.id/" } }) {
       excerpt
       html
       fields {
