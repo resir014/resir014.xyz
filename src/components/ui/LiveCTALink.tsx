@@ -12,10 +12,8 @@ const LiveCTALink: React.FC<LiveCTAProps> = ({ backgroundColor, to, isExternal, 
   if (isExternal) {
     return (
       <UnstyledAnchor href={to} target="_blank" rel="noopener noreferrer">
-        <Box p={16} bg={backgroundColor} borderRadius={6}>
-          <Text scale="greatPrimer" fontWeight={500}>
-            {children}
-          </Text>
+        <Box p={16} bg={backgroundColor} borderRadius={6} boxShadow="single">
+          <Text scale="greatPrimer">{children}</Text>
         </Box>
       </UnstyledAnchor>
     )
@@ -23,10 +21,8 @@ const LiveCTALink: React.FC<LiveCTAProps> = ({ backgroundColor, to, isExternal, 
 
   return (
     <UnstyledLink to={to}>
-      <Box p={16} bg={backgroundColor} borderRadius={6}>
-        <Text scale="greatPrimer" fontWeight={500}>
-          {children}
-        </Text>
+      <Box p={16} bg={backgroundColor} borderRadius={6} boxShadow="single">
+        <Text scale="greatPrimer">{children}</Text>
       </Box>
     </UnstyledLink>
   )

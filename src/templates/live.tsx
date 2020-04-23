@@ -73,7 +73,7 @@ const LivePageTemplate: React.SFC<LivePageTemplateProps> = ({ data, location }) 
               <LiveCTALink isExternal backgroundColor="#9146FF" to="https://www.twitch.tv/resir014">
                 Follow Me!
               </LiveCTALink>
-              <LiveCTALink backgroundColor="magenta30" to="/support">
+              <LiveCTALink backgroundColor="grey90" to="/support">
                 Tip Jar
               </LiveCTALink>
             </Box>
