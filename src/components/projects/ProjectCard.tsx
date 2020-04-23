@@ -5,8 +5,7 @@ import styled from '@emotion/styled'
 import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
-import { Badge } from '../ui'
-import { Heading, Text, colors, shadows, space } from '../chungking-core'
+import { Heading, Text, colors, shadows, space, Badge } from '../chungking-core'
 
 interface ProjectCardProps {
   title: string

@@ -7,10 +7,9 @@ import { BlogPostNode } from '../../types/nodes'
 
 import { LiteYouTube } from '../video'
 import { MarkdownContent, BookmarkLink } from '../page'
-import { NavLinkButton } from '../ui'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
-import { Heading } from '../chungking-core'
+import { NavLinkButton, Heading } from '../chungking-core'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: live
 title: 'resir014 streams stuff'
 lead: Watch me live code or play games!
 ---
@@ -18,11 +18,3 @@ I host two primary series at the moment:
 - **Twitch-Driven Development:** A chill live coding session where I work on my projects live on stream. Mostly web-development (HTML/CSS/JS), but might try other stuff too.
 
 **Note:** Currently I don't have a fixed schedule, but I'll try my best to stream every Tuesday night (9pm GMT +7) at the very least. If you want to keep updated on upcoming streams, go follow me on [Twitter](https://twitter.com/resir014)! I often post stream announcements there.
-
-## Follow me on Twitch!
-
-[twitch.tv/resir014](https://www.twitch.tv/resir014)
-
----
-
-I also opened a tip jar! Head over to [resir014.xyz/support](/support) for ways you can donate to me.

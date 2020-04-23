@@ -9,8 +9,9 @@ import { ProjectNode } from '../types/nodes'
 import TemplateWrapper from '../layouts'
 
 import { Page } from '../components/page'
-import { Divider, NavLinkButton } from '../components/ui'
+import { Divider } from '../components/ui'
 import { HCard } from '../components/indieweb'
+import { NavLinkButton } from '../components/chungking-core'
 import { FeaturedProject } from '../components/projects'
 import {
   HomepageHero,
@@ -18,7 +19,8 @@ import {
   HomepageContent,
   HomepageSection,
   HomepageSectionFooter,
-  HomepageSectionTitle
+  HomepageSectionTitle,
+  LiveBanner
 } from '../components/home'
 import { BlogPostItem } from '../components/posts-index'
 
@@ -78,6 +80,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                 View more posts
               </NavLinkButton>
             </HomepageSectionFooter>
+          </HomepageSection>
+          <Divider spacing="large" center />
+          <HomepageSection>
+            <LiveBanner />
           </HomepageSection>
           <Divider spacing="large" center />
           <HomepageSection>

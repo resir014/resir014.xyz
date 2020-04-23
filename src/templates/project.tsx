@@ -8,7 +8,7 @@ import { ProjectNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import { Container, AnchorButton } from '../components/ui'
+import { Container } from '../components/ui'
 import {
   Page,
   PageHeader,
@@ -20,6 +20,7 @@ import {
   PageSubtitle
 } from '../components/page'
 import { ProjectCard, ProjectFooter } from '../components/projects'
+import { AnchorButton } from '../components/chungking-core'
 
 interface ProjectTemplateProps extends RouterProps {
   data: {

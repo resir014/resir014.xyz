@@ -4,8 +4,15 @@ import styled from '@emotion/styled'
 
 import { SiteAuthor } from '../../types/default'
 import { ChildImageSharp } from '../../types/gatsby'
-import { NavLinkButton } from '../ui'
-import { Heading, Paragraph, colors, breakpoints, UnstyledAnchor, Box } from '../chungking-core'
+import {
+  Heading,
+  Paragraph,
+  colors,
+  breakpoints,
+  UnstyledAnchor,
+  Box,
+  NavLinkButton
+} from '../chungking-core'
 
 interface HCardProps {
   className?: string

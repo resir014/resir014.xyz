@@ -9,7 +9,7 @@ import { ProjectField } from '../types/fields'
 
 import TemplateWrapper from '../layouts'
 
-import { Button, Container, Badge, MessageBox, NavLinkButton, AnchorButton } from '../components/ui'
+import { Container } from '../components/ui'
 import {
   Page,
   PageHeader,
@@ -24,6 +24,11 @@ import { ColorSwatch } from '../components/design'
 import {
   Text,
   Heading,
+  Badge,
+  MessageBox,
+  Button,
+  NavLinkButton,
+  AnchorButton,
   P,
   UL,
   OL,
