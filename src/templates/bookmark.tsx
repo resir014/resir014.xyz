@@ -6,11 +6,8 @@ import Helmet from 'react-helmet'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { BookmarkNode } from '../types/nodes'
 
-import TemplateWrapper from '../layouts'
-
-import { Container } from '../components/layout'
+import { Container, PageWrapper } from '../components/layout'
 import {
-  Page,
   PageHeader,
   PageSubtitle,
   PageContent,
@@ -34,67 +31,63 @@ interface BookmarkTemplateProps extends RouterProps {
 const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const pageTitle = post.frontmatter.title || post.fields.lead || post.excerpt
 
   return (
-    <TemplateWrapper>
-      <Page>
-        <Helmet>
-          <title>
-            {post.frontmatter.title || 'Bookmark posted by @resir014'} &middot; {siteMetadata.title}
-          </title>
-          <meta name="description" content={post.fields.lead || post.excerpt} />
-          <meta name="author" content={siteMetadata.author.name} />
-          <meta
-            property="og:title"
-            content={post.frontmatter.title || 'Bookmark posted by @resir014'}
-          />
-          <meta property="og:description" content={post.fields.lead || post.excerpt} />
-          <meta property="og:type" content="article" />
-          <meta
-            property="og:url"
-            content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
-          />
-          <meta property="article:author" content={siteMetadata.author.name} />
-          <meta property="article:published_time" content={post.fields.date_ogp} />
-          <meta property="article:section" content={post.fields.category} />
-        </Helmet>
-        <article className="h-entry">
-          <PageHeader>
-            <PageMeta>
-              <PageMetaItem>
-                <time
-                  className="dt-published"
-                  dateTime={new Date(post.fields.date_ogp).toISOString()}
+    <PageWrapper pageTitle={`${pageTitle} · ${siteMetadata.title}`}>
+      <Helmet>
+        <meta name="description" content={post.fields.lead || post.excerpt} />
+        <meta name="author" content={siteMetadata.author.name} />
+        <meta
+          property="og:title"
+          content={post.frontmatter.title || 'Bookmark posted by @resir014'}
+        />
+        <meta property="og:description" content={post.fields.lead || post.excerpt} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+        />
+        <meta property="article:author" content={siteMetadata.author.name} />
+        <meta property="article:published_time" content={post.fields.date_ogp} />
+        <meta property="article:section" content={post.fields.category} />
+      </Helmet>
+      <article className="h-entry">
+        <PageHeader>
+          <PageMeta>
+            <PageMetaItem>
+              <time
+                className="dt-published"
+                dateTime={new Date(post.fields.date_ogp).toISOString()}
+              >
+                {post.fields.date}
+              </time>
+            </PageMetaItem>
+            {post.fields.category ? (
+              <PageMetaItem className="p-category">{post.fields.category}</PageMetaItem>
+            ) : null}
+          </PageMeta>
+          <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
+          <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
+          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+        </PageHeader>
+        <PageContent>
+          <Container>
+            <MarkdownContent className="e-content" html={post.html} />
+            <div className="hidden">
+              <p>
+                <a
+                  className="u-url"
+                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
                 >
-                  {post.fields.date}
-                </time>
-              </PageMetaItem>
-              {post.fields.category ? (
-                <PageMetaItem className="p-category">{post.fields.category}</PageMetaItem>
-              ) : null}
-            </PageMeta>
-            <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-            <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
-            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
-          </PageHeader>
-          <PageContent>
-            <Container>
-              <MarkdownContent className="e-content" html={post.html} />
-              <div className="hidden">
-                <p>
-                  <a
-                    className="u-url"
-                    href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-                  >
-                    Permalink
-                  </a>
-                </p>
-              </div>
-            </Container>
-          </PageContent>
-        </article>
-      </Page>
-    </TemplateWrapper>
+                  Permalink
+                </a>
+              </p>
+            </div>
+          </Container>
+        </PageContent>
+      </article>
+    </PageWrapper>
   )
 }
 

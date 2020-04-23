@@ -6,11 +6,8 @@ import { RouterProps } from '@reach/router'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
-import TemplateWrapper from '../layouts'
-
-import { Container } from '../components/layout'
+import { Container, PageWrapper } from '../components/layout'
 import {
-  Page,
   PageHeader,
   PageTitle,
   PageSubtitle,
@@ -35,60 +32,55 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
   const { siteMetadata } = data.site
 
   return (
-    <TemplateWrapper>
-      <Page>
-        <Helmet>
-          <title>
-            {post.frontmatter.title} &middot; {siteMetadata.title}
-          </title>
-          <meta name="description" content={post.fields.lead || post.excerpt} />
-          <meta name="author" content={siteMetadata.author.name} />
-          <meta property="og:title" content={post.frontmatter.title} />
-          <meta property="og:description" content={post.fields.lead || post.excerpt} />
+    <PageWrapper pageTitle={`${post.frontmatter.title} · ${siteMetadata.title}`}>
+      <Helmet>
+        <meta name="description" content={post.fields.lead || post.excerpt} />
+        <meta name="author" content={siteMetadata.author.name} />
+        <meta property="og:title" content={post.frontmatter.title} />
+        <meta property="og:description" content={post.fields.lead || post.excerpt} />
+        <meta
+          property="og:url"
+          content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+        />
+        {post.frontmatter.header_image && (
           <meta
-            property="og:url"
-            content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+            property="og:image"
+            content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fluid.src}`}
           />
-          {post.frontmatter.header_image && (
-            <meta
-              property="og:image"
-              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fluid.src}`}
+        )}
+      </Helmet>
+      <article className="h-entry">
+        {post.frontmatter.header_image && (
+          <PageThumbnail>
+            <PageThumbnailImage
+              fluid={post.frontmatter.header_image.childImageSharp.fluid}
+              alt={post.frontmatter.title}
             />
-          )}
-        </Helmet>
-        <article className="h-entry">
-          {post.frontmatter.header_image && (
-            <PageThumbnail>
-              <PageThumbnailImage
-                fluid={post.frontmatter.header_image.childImageSharp.fluid}
-                alt={post.frontmatter.title}
-              />
-            </PageThumbnail>
-          )}
-          <PageHeader>
-            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-            {post.fields.lead ? (
-              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-            ) : null}
-          </PageHeader>
-          <PageContent>
-            <Container>
-              <MarkdownContent className="e-content" html={post.html} />
-              <div className="hidden">
-                <p>
-                  <a
-                    className="u-url"
-                    href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-                  >
-                    Permalink
-                  </a>
-                </p>
-              </div>
-            </Container>
-          </PageContent>
-        </article>
-      </Page>
-    </TemplateWrapper>
+          </PageThumbnail>
+        )}
+        <PageHeader>
+          <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+          {post.fields.lead ? (
+            <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+          ) : null}
+        </PageHeader>
+        <PageContent>
+          <Container>
+            <MarkdownContent className="e-content" html={post.html} />
+            <div className="hidden">
+              <p>
+                <a
+                  className="u-url"
+                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                >
+                  Permalink
+                </a>
+              </p>
+            </div>
+          </Container>
+        </PageContent>
+      </article>
+    </PageWrapper>
   )
 }
 

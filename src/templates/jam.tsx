@@ -7,10 +7,7 @@ import Helmet from 'react-helmet'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { JamNode } from '../types/nodes'
 
-import TemplateWrapper from '../layouts'
-
 import {
-  Page,
   PageHeader,
   PageMeta,
   PageMetaItem,
@@ -18,7 +15,7 @@ import {
   MarkdownContent
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
-import { Container } from '../components/layout'
+import { Container, PageWrapper } from '../components/layout'
 import { VideoCard, LiteYouTube } from '../components/video'
 
 interface JamTemplateProps extends RouterProps {
@@ -34,75 +31,70 @@ interface JamTemplateProps extends RouterProps {
 const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const pageTitle = post.frontmatter.title || post.fields.lead || post.excerpt
 
   return (
-    <TemplateWrapper>
-      <Page>
-        <Helmet>
-          <title>
-            {post.frontmatter.title || post.fields.lead || post.excerpt} &middot;{' '}
-            {siteMetadata.title}
-          </title>
-          <meta name="description" content={post.fields.lead || post.excerpt} />
-          <meta name="author" content={siteMetadata.author.name} />
-          <meta property="og:title" content={post.frontmatter.title || 'Jam posted by @resir014'} />
-          <meta property="og:description" content={post.fields.lead || post.excerpt} />
-          <meta property="og:type" content="article" />
-          <meta
-            property="og:url"
-            content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
-          />
-          <meta property="article:author" content={siteMetadata.author.name} />
-          <meta property="article:published_time" content={post.fields.date_ogp} />
-          <meta property="article:section" content={post.fields.category} />
-        </Helmet>
-        <article className="h-entry">
-          <PageHeader>
-            <PageMeta>
-              <PageMetaItem>
-                <time
-                  className="dt-published"
-                  dateTime={new Date(post.fields.date_ogp).toISOString()}
-                >
-                  {post.fields.date}
-                </time>
-              </PageMetaItem>
-              {post.fields.category ? (
-                <PageMetaItem className="p-category">{post.fields.category}</PageMetaItem>
-              ) : null}
-            </PageMeta>
-            <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-          </PageHeader>
-          <PageContent>
-            <Container>
-              <VideoCard
-                title={post.frontmatter.title}
-                embed={
-                  post.fields.youtube_embed_id ? (
-                    <LiteYouTube videoId={post.fields.youtube_embed_id} />
-                  ) : null
-                }
+    <PageWrapper pageTitle={`${pageTitle} · ${siteMetadata.title}`}>
+      <Helmet>
+        <meta name="description" content={post.fields.lead || post.excerpt} />
+        <meta name="author" content={siteMetadata.author.name} />
+        <meta property="og:title" content={post.frontmatter.title || 'Jam posted by @resir014'} />
+        <meta property="og:description" content={post.fields.lead || post.excerpt} />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+        />
+        <meta property="article:author" content={siteMetadata.author.name} />
+        <meta property="article:published_time" content={post.fields.date_ogp} />
+        <meta property="article:section" content={post.fields.category} />
+      </Helmet>
+      <article className="h-entry">
+        <PageHeader>
+          <PageMeta>
+            <PageMetaItem>
+              <time
+                className="dt-published"
+                dateTime={new Date(post.fields.date_ogp).toISOString()}
               >
-                <MarkdownContent
-                  className={classnames('e-content', !post.frontmatter.title && 'p-name')}
-                  html={post.html}
-                />
-                <div className="hidden">
-                  <p>
-                    <a
-                      className="u-url"
-                      href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-                    >
-                      Permalink
-                    </a>
-                  </p>
-                </div>
-              </VideoCard>
-            </Container>
-          </PageContent>
-        </article>
-      </Page>
-    </TemplateWrapper>
+                {post.fields.date}
+              </time>
+            </PageMetaItem>
+            {post.fields.category ? (
+              <PageMetaItem className="p-category">{post.fields.category}</PageMetaItem>
+            ) : null}
+          </PageMeta>
+          <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
+        </PageHeader>
+        <PageContent>
+          <Container>
+            <VideoCard
+              title={post.frontmatter.title}
+              embed={
+                post.fields.youtube_embed_id ? (
+                  <LiteYouTube videoId={post.fields.youtube_embed_id} />
+                ) : null
+              }
+            >
+              <MarkdownContent
+                className={classnames('e-content', !post.frontmatter.title && 'p-name')}
+                html={post.html}
+              />
+              <div className="hidden">
+                <p>
+                  <a
+                    className="u-url"
+                    href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                  >
+                    Permalink
+                  </a>
+                </p>
+              </div>
+            </VideoCard>
+          </Container>
+        </PageContent>
+      </article>
+    </PageWrapper>
   )
 }
 

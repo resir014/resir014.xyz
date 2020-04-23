@@ -7,11 +7,10 @@ import { SiteAuthor } from '../types/default'
 import { BlogPostField } from '../types/fields'
 
 import withPathPrefix from '../utils/withPathPrefix'
-import TemplateWrapper from '../layouts'
 
 import { Box, breakpoints } from '../components/chungking-core'
-import { Container } from '../components/layout'
-import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
+import { Container, PageWrapper } from '../components/layout'
+import { PageHeader, PageTitle, PageContent } from '../components/page'
 import { BlogPostItem, PaginationLink } from '../components/posts-index'
 
 interface BlogPageProps {
@@ -53,46 +52,37 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
   const { group, index, first, last, pageCount, pathPrefix } = pathContext
   const previousUrl = withPathPrefix(index - 1 === 1 ? '' : (index - 1).toString(), pathPrefix)
   const nextUrl = withPathPrefix((index + 1).toString(), pathPrefix)
+  const pageTitle = `Posts${index && index > 1 ? ` (page ${index} of ${pageCount})` : ''}`
 
   return (
-    <TemplateWrapper>
-      <Page>
-        <Helmet
-          title={`Posts${index && index > 1 ? ` (page ${index} of ${pageCount})` : ''} · ${
-            siteMetadata.title
-          }`}
-          meta={[
-            { name: 'description', content: data.site.siteMetadata.description },
-            { property: 'og:title', content: 'Posts' },
-            {
-              property: 'og:description',
-              content: data.site.siteMetadata.description
-            }
-          ]}
-        />
-        <PageHeader>
-          <PageTitle>
-            Posts
-            {index && index > 1 && ` (page ${index} of ${pageCount})`}
-          </PageTitle>
-        </PageHeader>
-        <PageContent className="h-feed">
+    <PageWrapper pageTitle={`${pageTitle} · ${siteMetadata.title}`}>
+      <Helmet>
+        <meta name="description" content={data.site.siteMetadata.description} />
+        <meta property="og:title" content="Posts" />
+        <meta property="og:description" content={data.site.siteMetadata.description} />
+      </Helmet>
+      <PageHeader>
+        <PageTitle>
+          Posts
+          {index && index > 1 && ` (page ${index} of ${pageCount})`}
+        </PageTitle>
+      </PageHeader>
+      <PageContent className="h-feed">
+        <Container size="md">
+          {group.map(({ node }) => (
+            <BlogPostItem key={node.fields.slug} node={node} />
+          ))}
+        </Container>
+        <Box mt="xxl">
           <Container size="md">
-            {group.map(({ node }) => (
-              <BlogPostItem key={node.fields.slug} node={node} />
-            ))}
+            <Pagination>
+              <PaginationLink test={first} url={previousUrl} text="Newer posts" />
+              <PaginationLink test={last} url={nextUrl} text="Older posts" />
+            </Pagination>
           </Container>
-          <Box mt="xxl">
-            <Container size="md">
-              <Pagination>
-                <PaginationLink test={first} url={previousUrl} text="Newer posts" />
-                <PaginationLink test={last} url={nextUrl} text="Older posts" />
-              </Pagination>
-            </Container>
-          </Box>
-        </PageContent>
-      </Page>
-    </TemplateWrapper>
+        </Box>
+      </PageContent>
+    </PageWrapper>
   )
 }
 

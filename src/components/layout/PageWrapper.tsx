@@ -4,7 +4,7 @@ import TemplateWrapper from '../../layouts'
 import { Page } from '../page'
 
 interface PageWrapperProps {
-  pageTitle: string
+  pageTitle: React.ReactNode
 }
 
 const PageWrapper: React.FC<PageWrapperProps> = ({ children, pageTitle }) => {

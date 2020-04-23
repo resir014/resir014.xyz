@@ -6,10 +6,7 @@ import { RouterProps } from '@reach/router'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
-import TemplateWrapper from '../layouts'
-
 import {
-  Page,
   PageHeader,
   PageTitle,
   PageSubtitle,
