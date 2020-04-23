@@ -19,7 +19,7 @@ import {
   MarkdownContent
 } from '../components/page'
 import { Box } from '../components/chungking-core'
-import { Container } from '../components/layout'
+import { Container, PageWrapper } from '../components/layout'
 import { LiveCTALink } from '../components/ui'
 
 interface LivePageTemplateProps extends RouterProps {
@@ -37,72 +37,63 @@ const LivePageTemplate: React.SFC<LivePageTemplateProps> = ({ data, location }) 
   const { siteMetadata } = data.site
 
   return (
-    <TemplateWrapper>
-      <Page>
-        <Helmet>
-          <title>
-            {post.frontmatter.title} &middot; {siteMetadata.title}
-          </title>
-          <meta name="description" content={post.fields.lead || post.excerpt} />
-          <meta name="author" content={siteMetadata.author.name} />
-          <meta property="og:title" content={post.frontmatter.title} />
-          <meta property="og:description" content={post.fields.lead || post.excerpt} />
+    <PageWrapper pageTitle={`${post.frontmatter.title} · ${siteMetadata.title}`}>
+      <Helmet>
+        <meta name="description" content={post.fields.lead || post.excerpt} />
+        <meta name="author" content={siteMetadata.author.name} />
+        <meta property="og:title" content={post.frontmatter.title} />
+        <meta property="og:description" content={post.fields.lead || post.excerpt} />
+        <meta
+          property="og:url"
+          content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+        />
+        {post.frontmatter.header_image && (
           <meta
-            property="og:url"
-            content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+            property="og:image"
+            content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fluid.src}`}
           />
-          {post.frontmatter.header_image && (
-            <meta
-              property="og:image"
-              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fluid.src}`}
+        )}
+      </Helmet>
+      <article className="h-entry">
+        {post.frontmatter.header_image && (
+          <PageThumbnail>
+            <PageThumbnailImage
+              fluid={post.frontmatter.header_image.childImageSharp.fluid}
+              alt={post.frontmatter.title}
             />
-          )}
-        </Helmet>
-        <article className="h-entry">
-          {post.frontmatter.header_image && (
-            <PageThumbnail>
-              <PageThumbnailImage
-                fluid={post.frontmatter.header_image.childImageSharp.fluid}
-                alt={post.frontmatter.title}
-              />
-            </PageThumbnail>
-          )}
-          <PageHeader>
-            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-            {post.fields.lead ? (
-              <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
-            ) : null}
-          </PageHeader>
-          <PageContent>
-            <Container>
-              <MarkdownContent className="e-content" html={post.html} />
-              <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
-                <LiveCTALink
-                  isExternal
-                  backgroundColor="#9146FF"
-                  to="https://www.twitch.tv/resir014"
+          </PageThumbnail>
+        )}
+        <PageHeader>
+          <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+          {post.fields.lead ? (
+            <PageSubtitle className="p-summary">{post.fields.lead}</PageSubtitle>
+          ) : null}
+        </PageHeader>
+        <PageContent>
+          <Container>
+            <MarkdownContent className="e-content" html={post.html} />
+            <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
+              <LiveCTALink isExternal backgroundColor="#9146FF" to="https://www.twitch.tv/resir014">
+                Follow Me!
+              </LiveCTALink>
+              <LiveCTALink backgroundColor="magenta30" to="/support">
+                Tip Jar
+              </LiveCTALink>
+            </Box>
+            <div className="hidden">
+              <p>
+                <a
+                  className="u-url"
+                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
                 >
-                  Follow Me!
-                </LiveCTALink>
-                <LiveCTALink backgroundColor="magenta30" to="/support">
-                  Tip Jar
-                </LiveCTALink>
-              </Box>
-              <div className="hidden">
-                <p>
-                  <a
-                    className="u-url"
-                    href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-                  >
-                    Permalink
-                  </a>
-                </p>
-              </div>
-            </Container>
-          </PageContent>
-        </article>
-      </Page>
-    </TemplateWrapper>
+                  Permalink
+                </a>
+              </p>
+            </div>
+          </Container>
+        </PageContent>
+      </article>
+    </PageWrapper>
   )
 }
 
