@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-
-import Container from '../ui/Container'
+import { Container } from '../layout'
 
 interface HomepageSectionProps {
   className?: string

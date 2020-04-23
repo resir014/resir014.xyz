@@ -8,7 +8,6 @@ import { PageNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import { Container } from '../components/ui'
 import {
   Page,
   PageHeader,
@@ -20,7 +19,8 @@ import {
   MarkdownContent
 } from '../components/page'
 import { Box } from '../components/chungking-core'
-import LiveCTALink from '../components/ui/LiveCTALink'
+import { Container } from '../components/layout'
+import { LiveCTALink } from '../components/ui'
 
 interface LivePageTemplateProps extends RouterProps {
   data: {

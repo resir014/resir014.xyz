@@ -18,7 +18,7 @@ import {
   MarkdownContent
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
-import { Container } from '../components/ui'
+import { Container } from '../components/layout'
 import { VideoCard, LiteYouTube } from '../components/video'
 
 interface VideoTemplateProps extends RouterProps {

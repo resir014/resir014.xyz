@@ -10,7 +10,7 @@ import withPathPrefix from '../utils/withPathPrefix'
 import TemplateWrapper from '../layouts'
 
 import { Box, breakpoints } from '../components/chungking-core'
-import { Container } from '../components/ui'
+import { Container } from '../components/layout'
 import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
 import { BlogPostItem, PaginationLink } from '../components/posts-index'
 

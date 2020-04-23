@@ -8,7 +8,7 @@ import { BookmarkNode } from '../types/nodes'
 
 import TemplateWrapper from '../layouts'
 
-import { Container } from '../components/ui'
+import { Container } from '../components/layout'
 import {
   Page,
   PageHeader,

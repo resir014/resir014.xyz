@@ -22,7 +22,7 @@ import {
   PageContent
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
-import { Container } from '../components/ui'
+import { Container } from '../components/layout'
 import { P, UL, LI, MessageBox } from '../components/chungking-core'
 
 interface PostTemplateProps extends RouterProps {
