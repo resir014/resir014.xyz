@@ -1,14 +1,10 @@
 ---
 layout: live
 title: 'resir014 streams stuff'
-lead: Watch me live code or play games!
+lead: Follow me on Twitch and watch my live coding and gaming streams!
 ---
 
-Aside from blog posts, I started to do live coding on [Twitch](https://www.twitch.tv/resir014).
-
-I got the inspiration to do so when I started watching art streams around early 2019. And over the course of watching them, I slowly learned the process behind drawing artworks. From the intial sketch, to lineart, to colouring and finishing touches. Watching streams from artists like [cottonwings](https://www.twitch.tv/cottonwings), [Mr_Randomnese](https://www.twitch.tv/Mr_Randomnese), or [Natsumen (aka. Capssimistic)](https://www.twitch.tv/Capssimistic) sparked that inspiration to start doing live coding streams, because I wanted to bring those experiences to web development.
-
-I do stream video games occasionally, but I'd love to keep it on a 60/40 coding/gaming ratio.
+I got the inspiration to start streaming when I started watching art streams around early 2019. And over the course of watching them, I slowly learned the process behind drawing artworks. From the intial sketch, to lineart, to colouring and finishing touches. Watching streams from artists like [cottonwings](https://www.twitch.tv/cottonwings), [Mr_Randomnese](https://www.twitch.tv/Mr_Randomnese), or [Natsumen (aka. Capssimistic)](https://www.twitch.tv/Capssimistic) sparked that inspiration to start doing live coding streams, because I wanted to bring those experiences to web development.
 
 ## Schedule
 
