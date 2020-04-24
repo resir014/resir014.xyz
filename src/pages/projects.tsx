@@ -11,7 +11,7 @@ import TemplateWrapper from '../layouts'
 
 import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
 import { FeaturedProject, ProjectItemList } from '../components/projects'
-import { Container } from '../components/ui'
+import { Container } from '../components/layout'
 
 interface ProjectsPageProps {
   location: {

@@ -4,8 +4,16 @@ import styled from '@emotion/styled'
 import convert from 'htmr'
 
 import { ProjectField } from '../../types/fields'
-import { Badge, AnchorButton, NavLinkButton } from '../ui'
-import { Heading, Paragraph, space, colors, shadows } from '../chungking-core'
+import {
+  Heading,
+  Paragraph,
+  space,
+  colors,
+  shadows,
+  Badge,
+  AnchorButton,
+  NavLinkButton
+} from '../chungking-core'
 
 const colorByCategory = (category: string) => {
   switch (category) {

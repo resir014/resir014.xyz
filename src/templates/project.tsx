@@ -6,11 +6,8 @@ import { graphql } from 'gatsby'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { ProjectNode } from '../types/nodes'
 
-import TemplateWrapper from '../layouts'
-
-import { Container, AnchorButton } from '../components/ui'
+import { Container, PageWrapper } from '../components/layout'
 import {
-  Page,
   PageHeader,
   PageTitle,
   PageContent,
@@ -20,6 +17,7 @@ import {
   PageSubtitle
 } from '../components/page'
 import { ProjectCard, ProjectFooter } from '../components/projects'
+import { AnchorButton } from '../components/chungking-core'
 
 interface ProjectTemplateProps extends RouterProps {
   data: {
@@ -49,97 +47,92 @@ const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }
   const tags = post.fields.tags ? (JSON.parse(post.fields.tags) as string[]) : undefined
 
   return (
-    <TemplateWrapper>
-      <Page>
-        <Helmet>
-          <title>
-            {post.frontmatter.title} &middot; {siteMetadata.title}
-          </title>
-          <meta name="description" content={post.fields.lead || post.excerpt} />
-          <meta name="author" content={siteMetadata.author.name} />
-          <meta property="og:title" content={post.frontmatter.title} />
-          <meta property="og:description" content={post.fields.lead || post.excerpt} />
+    <PageWrapper pageTitle={`${post.frontmatter.title} · ${siteMetadata.title}`}>
+      <Helmet>
+        <meta name="description" content={post.fields.lead || post.excerpt} />
+        <meta name="author" content={siteMetadata.author.name} />
+        <meta property="og:title" content={post.frontmatter.title} />
+        <meta property="og:description" content={post.fields.lead || post.excerpt} />
+        <meta
+          property="og:url"
+          content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+        />
+        {post.frontmatter.header_image && (
           <meta
-            property="og:url"
-            content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
+            property="og:image"
+            content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.src}`}
           />
-          {post.frontmatter.header_image && (
-            <meta
-              property="og:image"
-              content={`${siteMetadata.siteUrl}${post.frontmatter.header_image.childImageSharp.fixed.src}`}
-            />
-          )}
-          {post.frontmatter.header_image && (
-            <meta
-              property="og:image:width"
-              content={`${post.frontmatter.header_image.childImageSharp.fixed.width}`}
-            />
-          )}
-          {post.frontmatter.header_image && (
-            <meta
-              property="og:image:height"
-              content={`${post.frontmatter.header_image.childImageSharp.fixed.height}`}
-            />
-          )}
-        </Helmet>
-        <article className="h-entry">
-          {post.frontmatter.header_image ? (
-            <Container size="xl">
-              <PageHeader
-                metaItem={
-                  <PageMeta>
-                    <PageMetaItem className="p-category">projects</PageMetaItem>
-                    <PageMetaItem>{post.fields.year}</PageMetaItem>
-                    {post.fields.category ? (
-                      <PageMetaItem>{post.fields.category}</PageMetaItem>
-                    ) : null}
-                  </PageMeta>
-                }
-              >
-                <ProjectCard
-                  title={post.frontmatter.title}
-                  description={post.fields.lead || post.fields.description}
-                  image={post.frontmatter.header_image}
-                  tags={tags}
-                />
-              </PageHeader>
-            </Container>
-          ) : (
-            <PageHeader>
-              <PageMeta>
-                <PageMetaItem className="p-category">projects</PageMetaItem>
-                <PageMetaItem>{post.fields.year}</PageMetaItem>
-                {post.fields.category ? <PageMetaItem>{post.fields.category}</PageMetaItem> : null}
-              </PageMeta>
-              <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
-              {post.fields.lead || post.fields.description ? (
-                <PageSubtitle className="p-summary">
-                  {post.fields.lead || post.fields.description}
-                </PageSubtitle>
-              ) : null}
+        )}
+        {post.frontmatter.header_image && (
+          <meta
+            property="og:image:width"
+            content={`${post.frontmatter.header_image.childImageSharp.fixed.width}`}
+          />
+        )}
+        {post.frontmatter.header_image && (
+          <meta
+            property="og:image:height"
+            content={`${post.frontmatter.header_image.childImageSharp.fixed.height}`}
+          />
+        )}
+      </Helmet>
+      <article className="h-entry">
+        {post.frontmatter.header_image ? (
+          <Container size="xl">
+            <PageHeader
+              metaItem={
+                <PageMeta>
+                  <PageMetaItem className="p-category">projects</PageMetaItem>
+                  <PageMetaItem>{post.fields.year}</PageMetaItem>
+                  {post.fields.category ? (
+                    <PageMetaItem>{post.fields.category}</PageMetaItem>
+                  ) : null}
+                </PageMeta>
+              }
+            >
+              <ProjectCard
+                title={post.frontmatter.title}
+                description={post.fields.lead || post.fields.description}
+                image={post.frontmatter.header_image}
+                tags={tags}
+              />
             </PageHeader>
-          )}
-          <PageContent>
-            <Container>
-              <MarkdownContent className="e-content" html={post.html} />
-              {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
-                <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
-              ) : null}
-              <div className="hidden">
-                <p>
-                  <a
-                    className="u-url"
-                    href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
-                  >
-                    Permalink
-                  </a>
-                </p>
-              </div>
-            </Container>
-          </PageContent>
-        </article>
-      </Page>
-    </TemplateWrapper>
+          </Container>
+        ) : (
+          <PageHeader>
+            <PageMeta>
+              <PageMetaItem className="p-category">projects</PageMetaItem>
+              <PageMetaItem>{post.fields.year}</PageMetaItem>
+              {post.fields.category ? <PageMetaItem>{post.fields.category}</PageMetaItem> : null}
+            </PageMeta>
+            <PageTitle className="p-name">{post.frontmatter.title}</PageTitle>
+            {post.fields.lead || post.fields.description ? (
+              <PageSubtitle className="p-summary">
+                {post.fields.lead || post.fields.description}
+              </PageSubtitle>
+            ) : null}
+          </PageHeader>
+        )}
+        <PageContent>
+          <Container>
+            <MarkdownContent className="e-content" html={post.html} />
+            {post.fields.jumpToProject === 'true' || post.fields.project_url ? (
+              <ProjectFooter>{renderLink(post.fields.project_url, true)}</ProjectFooter>
+            ) : null}
+            <div className="hidden">
+              <p>
+                <a
+                  className="u-url"
+                  href={data.site.siteMetadata.siteUrl + data.markdownRemark.fields.slug}
+                >
+                  Permalink
+                </a>
+              </p>
+            </div>
+          </Container>
+        </PageContent>
+      </article>
+    </PageWrapper>
   )
 }
 

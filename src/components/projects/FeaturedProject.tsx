@@ -2,11 +2,20 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import { Badge, NavLinkButton } from '../ui'
+import {
+  Text,
+  Heading,
+  P,
+  breakpoints,
+  colors,
+  shadows,
+  space,
+  Badge,
+  NavLinkButton
+} from '../chungking-core'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { ProjectField } from '../../types/fields'
-import { Text, Heading, P, breakpoints, colors, shadows, space } from '../chungking-core'
 
 const FeaturedProjectWrapper = styled('section')`
   display: flex;

@@ -3,9 +3,9 @@ import styled from '@emotion/styled'
 import { darken } from 'polished'
 
 import { space, breakpoints, colors } from '../chungking-core'
-import Container from '../ui/Container'
 
 import BackgroundPattern from '../../assets/images/architect.svg'
+import { Container } from '../layout'
 
 interface HomepageThumbnailProps {
   className?: string

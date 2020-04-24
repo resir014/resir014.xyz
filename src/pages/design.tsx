@@ -9,7 +9,6 @@ import { ProjectField } from '../types/fields'
 
 import TemplateWrapper from '../layouts'
 
-import { Button, Container, Badge, MessageBox, NavLinkButton, AnchorButton } from '../components/ui'
 import {
   Page,
   PageHeader,
@@ -19,11 +18,16 @@ import {
   BookmarkLink
 } from '../components/page'
 import { PostIndexItemMeta } from '../components/posts-index'
-import { FeaturedProject, ProjectCard } from '../components/projects'
+import { FeaturedProject, ProjectCard, ProjectItem } from '../components/projects'
 import { ColorSwatch } from '../components/design'
 import {
   Text,
   Heading,
+  Badge,
+  MessageBox,
+  Button,
+  NavLinkButton,
+  AnchorButton,
   P,
   UL,
   OL,
@@ -41,9 +45,9 @@ import {
   space,
   shadows
 } from '../components/chungking-core'
+import { Container } from '../components/layout'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
-import ProjectItem from '../components/projects/ProjectItem'
 
 interface DesignSystemPageProps extends RouterProps {
   data: {

@@ -6,7 +6,6 @@ import { RouterProps } from '@reach/router'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
-import { Container, PageWrapper } from '../components/layout'
 import {
   PageHeader,
   PageTitle,
@@ -16,8 +15,11 @@ import {
   PageThumbnailImage,
   MarkdownContent
 } from '../components/page'
+import { Box } from '../components/chungking-core'
+import { Container, PageWrapper } from '../components/layout'
+import { LiveCTALink } from '../components/ui'
 
-interface PageTemplateProps extends RouterProps {
+interface LivePageTemplateProps extends RouterProps {
   data: {
     site: {
       siteMetadata: SiteMetadata
@@ -27,7 +29,7 @@ interface PageTemplateProps extends RouterProps {
   }
 }
 
-const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
+const LivePageTemplate: React.SFC<LivePageTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
 
@@ -67,6 +69,14 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         <PageContent>
           <Container>
             <MarkdownContent className="e-content" html={post.html} />
+            <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
+              <LiveCTALink isExternal backgroundColor="#9146FF" to="https://www.twitch.tv/resir014">
+                Follow Me!
+              </LiveCTALink>
+              <LiveCTALink backgroundColor="grey90" to="/support">
+                Tip Jar
+              </LiveCTALink>
+            </Box>
             <div className="hidden">
               <p>
                 <a
@@ -84,10 +94,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
   )
 }
 
-export default PageTemplate
+export default LivePageTemplate
 
 export const pageQuery = graphql`
-  query PageQuery($slug: String!) {
+  query LivePageQuery($slug: String!) {
     site {
       siteMetadata {
         title
