@@ -7,7 +7,7 @@ import { ProjectField } from '../types/fields'
 
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 import getFeaturedProject from '../utils/getFeaturedProject'
-import TemplateWrapper from '../layouts'
+import { TemplateWrapper } from '../layouts'
 
 import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
 import { FeaturedProject, ProjectItemList } from '../components/projects'

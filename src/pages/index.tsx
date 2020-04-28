@@ -6,7 +6,7 @@ import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { ProjectField, BlogPostField } from '../types/fields'
 import { ProjectNode } from '../types/nodes'
 
-import TemplateWrapper from '../layouts'
+import { TemplateWrapper } from '../layouts'
 
 import { Page } from '../components/page'
 import { HCard } from '../components/indieweb'

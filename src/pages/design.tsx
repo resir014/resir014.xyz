@@ -7,7 +7,7 @@ import { RouterProps } from '@reach/router'
 import { SiteMetadata } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
 
-import TemplateWrapper from '../layouts'
+import { TemplateWrapper } from '../layouts'
 
 import {
   Page,

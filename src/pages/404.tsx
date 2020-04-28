@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 
 import { SiteMetadata } from '../types/gatsby'
 
-import TemplateWrapper from '../layouts'
+import { TemplateWrapper } from '../layouts'
 
 import { Page, PageHeader, PageTitle, PageSubtitle } from '../components/page'
 
