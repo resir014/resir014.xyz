@@ -1,8 +1,7 @@
 ---
 category: note
 layout: post
-title: 'Catch me live on Twitch!'
-date: 2020-04-28T16:52:00+07:00
+date: 2020-04-28T20:29:00+07:00
 ---
 
 In case you missed it, I've started streaming live coding and a variety of video games on [Twitch](https://www.twitch.tv/resir014)!
