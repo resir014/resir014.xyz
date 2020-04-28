@@ -23,3 +23,7 @@ I host two primary series at the moment:
 - **Twitch-Driven Development:** A chill live coding session where I work on my projects live on stream. Mostly web-development (HTML/CSS/JS), but might try other stuff too.
 
 **Note:** Currently I don't have a fixed schedule, but I'll try my best to stream every Tuesday night (9pm GMT +7) at the very least. If you want to keep updated on upcoming streams, go follow me on [Twitter](https://twitter.com/resir014) or join my [Discord](https://discord.gg/ws3P4wf)! I often post stream announcements there.
+
+## New Live landing page
+
+I've also set up [resir014.xyz/live](https://resir014.xyz/live) as a quick introduction to my streams. It also has a link to my Twitch page as well as my tip jar, where you can support my work.
