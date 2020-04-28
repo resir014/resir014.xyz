@@ -2,17 +2,11 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import {
-  layout,
-  space as styledSpace,
-  color,
-  typography,
-  variant,
-  TypographyProps
-} from 'styled-system'
+import { layout, space as styledSpace, color, typography, variant } from 'styled-system'
 
 import { Color, ParagraphScale } from '../../../Theme'
 import { space, colors, paragraphScale } from '../../../utils'
+import { TypographyProps } from './Typography'
 
 export interface ParagraphProps extends TypographyProps {
   /** Additional CSS classes to add to the component. */

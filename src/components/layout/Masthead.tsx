@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { transparentize } from 'polished'
 import styled from '@emotion/styled'
 
-import { mediaQueries, colors, widths, typeScale, breakpoints, Text } from '../chungking-core'
+import { mediaQueries, colors, widths, breakpoints, Text } from '../chungking-core'
 import menuItems from '../../utils/menuItems'
 import { MenuProps } from '../../types/default'
 
