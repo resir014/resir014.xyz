@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { NotesNode } from '../types/nodes'
 
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import {
   PageHeader,
   PageTitle,
@@ -17,6 +17,7 @@ import {
   MarkdownContent
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
+import { PageWrapper } from '../layouts'
 
 interface NoteTemplateProps extends RouterProps {
   data: {

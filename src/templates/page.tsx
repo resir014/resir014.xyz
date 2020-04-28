@@ -6,7 +6,7 @@ import { RouterProps } from '@reach/router'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import {
   PageHeader,
   PageTitle,
@@ -16,6 +16,7 @@ import {
   PageThumbnailImage,
   MarkdownContent
 } from '../components/page'
+import { PageWrapper } from '../layouts'
 
 interface PageTemplateProps extends RouterProps {
   data: {

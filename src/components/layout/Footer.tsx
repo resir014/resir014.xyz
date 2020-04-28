@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { Container } from '.'
+import Container from './Container'
 
 import ccLogo from '../../assets/images/cc-by-nc-sa.svg'
 import { P, Small, space, colors, mediaQueries } from '../chungking-core'

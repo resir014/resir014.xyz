@@ -160,6 +160,7 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
+                // eslint-disable-next-line
                 return Object.assign(
                   {},
                   {

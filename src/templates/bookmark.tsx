@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { BookmarkNode } from '../types/nodes'
 
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import {
   PageHeader,
   PageSubtitle,
@@ -17,6 +17,7 @@ import {
   BookmarkLink
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
+import { PageWrapper } from '../layouts'
 
 interface BookmarkTemplateProps extends RouterProps {
   data: {

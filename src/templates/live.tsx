@@ -17,8 +17,9 @@ import {
   MarkdownContent
 } from '../components/page'
 import { Box } from '../components/chungking-core'
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import { LiveCTALink } from '../components/ui'
+import { PageWrapper } from '../layouts'
 
 interface LivePageTemplateProps extends RouterProps {
   data: {

@@ -15,8 +15,9 @@ import {
   MarkdownContent
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import { VideoCard, LiteYouTube } from '../components/video'
+import { PageWrapper } from '../layouts'
 
 interface JamTemplateProps extends RouterProps {
   data: {

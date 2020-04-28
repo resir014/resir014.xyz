@@ -7,7 +7,7 @@ import { RouterProps } from '@reach/router'
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PhotoNode } from '../types/nodes'
 
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import {
   PageHeader,
   PageMeta,
@@ -17,6 +17,7 @@ import {
   MarkdownContent
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
+import { PageWrapper } from '../layouts'
 
 interface PhotoTemplateProps extends RouterProps {
   data: {

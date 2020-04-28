@@ -9,9 +9,10 @@ import { BlogPostField } from '../types/fields'
 import withPathPrefix from '../utils/withPathPrefix'
 
 import { Box, mediaQueries, Stack } from '../components/chungking-core'
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import { PageHeader, PageTitle, PageContent } from '../components/page'
 import { BlogPostItem, PaginationLink } from '../components/posts-index'
+import { PageWrapper } from '../layouts'
 
 interface BlogPageProps {
   data: {

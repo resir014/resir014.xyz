@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
-import TemplateWrapper from '../../layouts'
-import { Page } from '../page'
+import { Page } from '../components/page'
+import TemplateWrapper from './TemplateWrapper'
 
 interface PageWrapperProps {
   pageTitle: React.ReactNode
