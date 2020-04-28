@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Global } from '@emotion/core'
 import { StaticQuery, graphql } from 'gatsby'
 

@@ -2,7 +2,7 @@ import * as React from 'react'
 import classnames from 'clsx'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { NotesNode } from '../types/nodes'

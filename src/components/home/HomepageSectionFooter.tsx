@@ -1,18 +1,20 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
-import { space } from '../chungking-core'
+import { Box } from '../chungking-core'
 
 interface HomepageSectionProps {
   className?: string
+  style?: React.CSSProperties
 }
 
-const HomepageSectionFooter: React.SFC<HomepageSectionProps> = ({ children, className }) => (
-  <Div className={className}>{children}</Div>
+const HomepageSectionFooter: React.SFC<HomepageSectionProps> = ({
+  children,
+  className,
+  style,
+  ...rest
+}) => (
+  <Box className={className} style={style} textAlign="center" {...rest}>
+    {children}
+  </Box>
 )
 
 export default HomepageSectionFooter
-
-const Div = styled('div')`
-  margin-top: ${space.xl}px;
-  text-align: center;
-`

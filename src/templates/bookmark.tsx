@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { BookmarkNode } from '../types/nodes'

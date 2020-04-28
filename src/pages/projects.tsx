@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import { SiteMetadata } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
@@ -12,6 +12,7 @@ import TemplateWrapper from '../layouts'
 import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
 import { FeaturedProject, ProjectItemList } from '../components/projects'
 import { Container } from '../components/layout'
+import { Stack } from '../components/chungking-core'
 
 interface ProjectsPageProps {
   location: {
@@ -53,27 +54,23 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
             <PageTitle>Projects</PageTitle>
           </PageHeader>
           <PageContent>
-            {featuredProject ? (
-              <Container>
-                <FeaturedProject
-                  key={featuredProject.node.frontmatter.title}
-                  node={featuredProject.node}
-                />
-              </Container>
-            ) : null}
             <Container>
-              <ProjectItemList
-                title="Web development stuff"
-                projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}
-              />
-              <ProjectItemList
-                title="Open source stuff"
-                projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')}
-              />
-              <ProjectItemList
-                title="Other stuff"
-                projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')}
-              />
+              <Stack spacing="xxl">
+                {featuredProject ? (
+                  <FeaturedProject
+                    key={featuredProject.node.frontmatter.title}
+                    node={featuredProject.node}
+                  />
+                ) : null}
+                <ProjectItemList
+                  title="Web stuff"
+                  projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}
+                />
+                <ProjectItemList
+                  title="Other stuff"
+                  projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')}
+                />
+              </Stack>
             </Container>
           </PageContent>
         </article>

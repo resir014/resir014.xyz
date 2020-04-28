@@ -1,12 +1,13 @@
 import * as React from 'react'
-import { ExternalLink, DollarSign } from 'react-feather'
 
-import { Box, Text, UnstyledAnchor, UnstyledLink } from '../chungking-core'
+import { Box, Text, UnstyledAnchor, UnstyledLink, Color } from '../chungking-core'
 
 interface LiveCTAProps {
-  backgroundColor: string
+  backgroundColor?: Color | string
+  color?: Color | string
   to: string
   isExternal?: boolean
+  icon?: React.ReactNode
 }
 
 const BoxBase: React.FC<Pick<LiveCTAProps, 'backgroundColor'>> = ({
@@ -20,7 +21,7 @@ const BoxBase: React.FC<Pick<LiveCTAProps, 'backgroundColor'>> = ({
       alignItems="center"
       justifyContent="space-between"
       p={16}
-      bg={backgroundColor}
+      bg={backgroundColor || 'grey90'}
       borderRadius={6}
       boxShadow="single"
     >
@@ -29,13 +30,22 @@ const BoxBase: React.FC<Pick<LiveCTAProps, 'backgroundColor'>> = ({
   )
 }
 
-const LiveCTALink: React.FC<LiveCTAProps> = ({ backgroundColor, to, isExternal, children }) => {
+const LiveCTALink: React.FC<LiveCTAProps> = ({
+  backgroundColor,
+  color,
+  to,
+  isExternal,
+  children,
+  icon
+}) => {
   if (isExternal) {
     return (
       <UnstyledAnchor href={to} target="_blank" rel="noopener noreferrer">
         <BoxBase backgroundColor={backgroundColor}>
-          <Text scale="greatPrimer">{children}</Text>
-          <ExternalLink size={24} />
+          <Text scale="greatPrimer" color={color || 'white'}>
+            {children}
+          </Text>
+          {icon}
         </BoxBase>
       </UnstyledAnchor>
     )
@@ -45,7 +55,7 @@ const LiveCTALink: React.FC<LiveCTAProps> = ({ backgroundColor, to, isExternal, 
     <UnstyledLink to={to}>
       <BoxBase backgroundColor={backgroundColor}>
         <Text scale="greatPrimer">{children}</Text>
-        <DollarSign size={24} />
+        {icon}
       </BoxBase>
     </UnstyledLink>
   )

@@ -5,9 +5,10 @@ import styled from '@emotion/styled'
 import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
-import { Heading, Text, colors, shadows, space, Badge } from '../chungking-core'
+import { Heading, Text, colors, shadows, space, Badge, Box, BoxProps } from '../chungking-core'
+import ProjectTags from './ProjectTags'
 
-interface ProjectCardProps {
+interface ProjectCardProps extends BoxProps {
   title: string
   description?: string
   tags?: string[]
@@ -16,8 +17,20 @@ interface ProjectCardProps {
   }
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, tags }) => (
-  <Root>
+const Root = styled(Box)`
+  padding: 0;
+  background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: ${shadows.single};
+`
+
+const Inner = styled('div')`
+  padding: ${space.md}px ${space.lg}px ${space.lg}px;
+`
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, tags, ...rest }) => (
+  <Root as="section" {...rest}>
     {image && (
       <PageThumbnail>
         <PageThumbnailImage fluid={image.childImageSharp.fluid} alt={title} />
@@ -55,24 +68,3 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ta
 )
 
 export default ProjectCard
-
-const Root = styled('section')`
-  margin: 24px 0;
-  padding: 0;
-  background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: ${shadows.single};
-`
-
-const Inner = styled('div')`
-  padding: ${space.md}px ${space.lg}px ${space.lg}px;
-`
-
-const ProjectTags = styled('div')`
-  margin-top: ${space.md}px;
-
-  ${Badge} + ${Badge} {
-    margin-left: ${space.xs}px;
-  }
-`

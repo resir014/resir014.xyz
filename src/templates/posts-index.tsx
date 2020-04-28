@@ -1,14 +1,14 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import { SiteAuthor } from '../types/default'
 import { BlogPostField } from '../types/fields'
 
 import withPathPrefix from '../utils/withPathPrefix'
 
-import { Box, breakpoints } from '../components/chungking-core'
+import { Box, breakpoints, Stack } from '../components/chungking-core'
 import { Container, PageWrapper } from '../components/layout'
 import { PageHeader, PageTitle, PageContent } from '../components/page'
 import { BlogPostItem, PaginationLink } from '../components/posts-index'
@@ -69,9 +69,11 @@ const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
       </PageHeader>
       <PageContent className="h-feed">
         <Container size="md">
-          {group.map(({ node }) => (
-            <BlogPostItem key={node.fields.slug} node={node} />
-          ))}
+          <Stack spacing="lg">
+            {group.map(({ node }) => (
+              <BlogPostItem key={node.fields.slug} node={node} />
+            ))}
+          </Stack>
         </Container>
         <Box mt="xxl">
           <Container size="md">

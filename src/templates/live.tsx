@@ -1,7 +1,8 @@
 import * as React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
+import { ExternalLink, DollarSign } from 'react-feather'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
@@ -70,10 +71,15 @@ const LivePageTemplate: React.SFC<LivePageTemplateProps> = ({ data, location }) 
           <Container>
             <MarkdownContent className="e-content" html={post.html} />
             <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
-              <LiveCTALink isExternal backgroundColor="#9146FF" to="https://www.twitch.tv/resir014">
+              <LiveCTALink
+                isExternal
+                backgroundColor="#9146FF"
+                to="https://www.twitch.tv/resir014"
+                icon={<ExternalLink size={24} />}
+              >
                 Follow Me!
               </LiveCTALink>
-              <LiveCTALink backgroundColor="grey90" to="/support">
+              <LiveCTALink backgroundColor="grey90" to="/support" icon={<DollarSign size={24} />}>
                 Tip Jar
               </LiveCTALink>
             </Box>

@@ -16,7 +16,7 @@ export interface TextProps extends TypographyProps {
   /** Size value of the text. */
   scale?: TypeScale
   /** Color value of the text. */
-  color?: Color
+  color?: Color | string
 }
 
 /**

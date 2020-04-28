@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { RouterProps } from '@reach/router'
 
 import { SiteAuthor } from '../types/default'

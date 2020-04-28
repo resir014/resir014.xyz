@@ -4,40 +4,40 @@ import styled from '@emotion/styled'
 import ProjectItem from './ProjectItem'
 
 import { ProjectField } from '../../types/fields'
-import { Heading, colors } from '../chungking-core'
-
-const ProjectsList = styled('div')`
-  display: flex;
-  flex-wrap: wrap;
-`
+import { Heading, colors, Stack, Box, BoxProps } from '../chungking-core'
 
 const ProjectEmpty = styled('p')`
   color: ${colors.grey50};
 `
 
-export interface ProjectItemListProps {
+export interface ProjectItemListProps extends BoxProps {
   title?: string
   projects: ProjectField[]
   homepage?: boolean
 }
 
-const ProjectItemList: React.SFC<ProjectItemListProps> = ({ title, homepage, projects }) => {
+const ProjectItemList: React.SFC<ProjectItemListProps> = ({
+  title,
+  homepage,
+  projects,
+  ...rest
+}) => {
   if (projects && projects.length !== 0) {
     const slicedProjects = homepage ? projects.slice(0, 9) : projects
 
     return (
-      <>
+      <Box {...rest}>
         {title && (
-          <Heading as="h2" scale="trafalgar" mt="lg" mb="lg">
+          <Heading as="h2" scale="trafalgar" mb="lg">
             {title}
           </Heading>
         )}
-        <ProjectsList>
+        <Stack spacing="lg">
           {slicedProjects.map(({ node }) => (
             <ProjectItem key={node.frontmatter.title} node={node} />
           ))}
-        </ProjectsList>
-      </>
+        </Stack>
+      </Box>
     )
   }
 

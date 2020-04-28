@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { RouterProps } from '@reach/router'
 import { graphql } from 'gatsby'
 

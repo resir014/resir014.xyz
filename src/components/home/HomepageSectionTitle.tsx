@@ -1,12 +1,16 @@
 import * as React from 'react'
-import { Heading } from '../chungking-core'
+import { Heading, HeadingProps } from '../chungking-core'
 
-interface HomepageSectionTitleProps {
+interface HomepageSectionTitleProps extends HeadingProps {
   className?: string
 }
 
-const HomepageSectionTitle: React.SFC<HomepageSectionTitleProps> = ({ children, className }) => (
-  <Heading as="h1" scale="canon" mt="lg" mb="xxl" className={className}>
+const HomepageSectionTitle: React.SFC<HomepageSectionTitleProps> = ({
+  children,
+  className,
+  ...rest
+}) => (
+  <Heading as="h1" scale="canon" className={className} {...rest}>
     {children}
   </Heading>
 )
