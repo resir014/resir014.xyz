@@ -10,7 +10,7 @@ const HomepageSectionTitle: React.SFC<HomepageSectionTitleProps> = ({
   className,
   ...rest
 }) => (
-  <Heading as="h1" scale="canon" className={className} {...rest}>
+  <Heading as="h1" scale={900} className={className} {...rest}>
     {children}
   </Heading>
 )

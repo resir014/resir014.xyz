@@ -6,15 +6,14 @@ import {
   Text,
   Heading,
   P,
-  breakpoints,
+  mediaQueries,
   colors,
   shadows,
   space,
   Badge,
   NavLinkButton,
   Box,
-  BoxProps,
-  Inline
+  BoxProps
 } from '../chungking-core'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
@@ -30,7 +29,7 @@ const FeaturedProjectWrapper = styled(Box)`
   overflow: hidden;
   box-shadow: ${shadows.single};
 
-  @media (min-width: ${breakpoints.md}px) {
+  ${mediaQueries.md} {
     flex-direction: row;
   }
 
@@ -78,7 +77,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className, styl
       <FeaturedProjectDetails className="column">
         <FeaturedProjectHeading>
           <Text
-            scale="longPrimer"
+            scale={300}
             letterSpacing="0.01em"
             fontWeight={300}
             css={css`
@@ -89,7 +88,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className, styl
           </Text>
           <Heading
             as="h3"
-            scale="paragon"
+            scale={700}
             mt="xxs"
             mb="sm"
             css={css`

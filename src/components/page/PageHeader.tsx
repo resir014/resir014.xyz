@@ -2,7 +2,7 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import { space, colors, breakpoints, shadows } from '../chungking-core'
+import { space, colors, mediaQueries, shadows } from '../chungking-core'
 import { Container } from '../layout'
 
 interface PageHeaderProps {
@@ -15,11 +15,11 @@ interface PageHeaderProps {
 const HasImageStyles = css`
   padding: 24px 24px 0;
 
-  @media (min-width: ${breakpoints.md}px) {
+  ${mediaQueries.md} {
     padding: 24px ${space.md}px 0;
   }
 
-  @media (min-width: ${breakpoints.lg}px) {
+  ${mediaQueries.lg} {
     position: absolute;
     bottom: 24px;
     left: 24px;

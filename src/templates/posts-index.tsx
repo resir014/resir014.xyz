@@ -8,7 +8,7 @@ import { BlogPostField } from '../types/fields'
 
 import withPathPrefix from '../utils/withPathPrefix'
 
-import { Box, breakpoints, Stack } from '../components/chungking-core'
+import { Box, mediaQueries, Stack } from '../components/chungking-core'
 import { Container, PageWrapper } from '../components/layout'
 import { PageHeader, PageTitle, PageContent } from '../components/page'
 import { BlogPostItem, PaginationLink } from '../components/posts-index'
@@ -41,7 +41,7 @@ const Pagination = styled('div')`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: ${breakpoints.md}px) {
+  ${mediaQueries.md} {
     flex-direction: row;
     justify-content: space-between;
   }

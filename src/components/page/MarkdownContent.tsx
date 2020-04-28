@@ -19,7 +19,7 @@ import {
   Blockquote,
   InlineCode,
   space,
-  breakpoints,
+  mediaQueries,
   colors
 } from '../chungking-core'
 
@@ -91,7 +91,7 @@ const Div = styled('div')`
       margin-top: 0;
     }
 
-    @media (min-width: ${breakpoints.lg}px) {
+    ${mediaQueries.lg} {
       margin-left: -${space.lg * 2}px;
       margin-right: -${space.lg * 2}px;
     }

@@ -28,7 +28,7 @@ const ProjectItemList: React.SFC<ProjectItemListProps> = ({
     return (
       <Box {...rest}>
         {title && (
-          <Heading as="h2" scale="trafalgar" mb="lg">
+          <Heading as="h2" scale={800} mb="lg">
             {title}
           </Heading>
         )}

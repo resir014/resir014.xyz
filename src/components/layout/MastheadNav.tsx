@@ -6,21 +6,19 @@ import styled from '@emotion/styled'
 import { LinkGetProps } from '@reach/router'
 
 import { MenuItem } from '../../types/default'
-import { breakpoints, colors, typeScale } from '../chungking-core'
+import { mediaQueries, colors, Text } from '../chungking-core'
 
 interface MastheadNavProps {
   items: MenuItem[]
 }
 
-const MastheadNavItem = styled('li')`
+const MastheadNavItem = styled(Text)`
   text-transform: lowercase;
 
   a {
     display: block;
     padding: 8px 16px;
     padding-bottom: calc(8px - 2px);
-    font-size: ${typeScale.pica.sm.fontSize}px;
-    line-height: ${typeScale.pica.sm.lineHeight}px;
     border-bottom: 2px solid transparent;
     transition: background-color 0.2s ease;
 
@@ -40,11 +38,9 @@ const MastheadNavItem = styled('li')`
       }
     }
 
-    @media (min-width: ${breakpoints.lg}px) {
+    ${mediaQueries.lg} {
       padding: 16px;
       padding-bottom: calc(16px - 2px);
-      font-size: ${typeScale.pica.lg.fontSize}px;
-      line-height: ${typeScale.pica.lg.lineHeight}px;
     }
   }
 `
@@ -58,7 +54,7 @@ const MastheadNav: React.SFC<MastheadNavProps> = ({ items }) => (
   <>
     {items.map(item => {
       return (
-        <MastheadNavItem key={item.path}>
+        <MastheadNavItem as="li" key={item.path}>
           <Link getProps={isActive} to={item.path}>
             {item.name}
           </Link>

@@ -1,6 +1,15 @@
 import * as React from 'react'
 import { ThemeProvider } from 'emotion-theming'
-import { colors, space, fonts, shadows, breakpoints, typeScale } from './utils/variables'
+import {
+  colors,
+  space,
+  fonts,
+  shadows,
+  breakpoints,
+  mediaQueries,
+  typeScale,
+  paragraphScale
+} from './utils/variables'
 
 export const themeProps = {
   colors,
@@ -8,12 +17,9 @@ export const themeProps = {
   fonts,
   shadows,
   typeScale,
-  breakpoints: [
-    `${breakpoints.sm}px`,
-    `${breakpoints.md}px`,
-    `${breakpoints.lg}px`,
-    `${breakpoints.xl}px`
-  ]
+  paragraphScale,
+  breakpoints,
+  mediaQueries
 }
 
 export const Theme: React.FC = ({ children }) => {
@@ -23,3 +29,4 @@ export const Theme: React.FC = ({ children }) => {
 export type Color = keyof typeof themeProps['colors']
 export type Space = keyof typeof themeProps['space']
 export type TypeScale = keyof typeof themeProps['typeScale']
+export type ParagraphScale = keyof typeof themeProps['paragraphScale']

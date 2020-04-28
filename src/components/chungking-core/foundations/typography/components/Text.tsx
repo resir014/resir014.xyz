@@ -1,10 +1,12 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
+import { layout, space, color, typography, variant } from 'styled-system'
 import { TypeScale, Color } from '../../../Theme'
 
-import { determineFontDimensions } from '../utils'
-import { Typography, TypographyProps } from './Typography'
+import { TypographyProps } from './Typography'
+import { typeScale } from '../../../utils'
 
 export interface TextProps extends TypographyProps {
   /** Additional CSS classes to add to the component. */
@@ -20,21 +22,23 @@ export interface TextProps extends TypographyProps {
 }
 
 /**
- * This is a base `Text` element to handle typography elements.
- */
-const StyledText = styled<typeof Typography, TextProps>(Typography)``
-
-/**
  * Text component provided as a styled component primitive.
  */
-export const Text: React.SFC<TextProps> = ({ children, as, scale = 'body', color, ...rest }) => (
-  <StyledText as={as} css={determineFontDimensions(scale)} color={color} {...rest}>
-    {children}
-  </StyledText>
-)
+export const Text = styled<'span', TextProps>('span', { shouldForwardProp })`
+${variant({
+  prop: 'scale',
+  variants: typeScale
+})}
+
+${layout}
+${space}
+${color}
+${typography}
+`
 
 Text.defaultProps = {
-  as: 'span'
+  as: 'span',
+  scale: 400
 }
 
 Text.displayName = 'Text'

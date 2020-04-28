@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
-import { breakpoints } from '../chungking-core'
+import { mediaQueries } from '../chungking-core'
 
 interface FeaturedProjectThumbnailProps {
   className?: string
@@ -28,7 +28,7 @@ const Image = styled(Img)`
   height: 100%;
   min-height: 320px;
 
-  @media (min-width: ${breakpoints.lg}px) {
+  ${mediaQueries.lg} {
     max-height: 480px;
   }
 `
@@ -36,7 +36,7 @@ const Image = styled(Img)`
 const Div = styled('div')`
   display: none;
 
-  @media (min-width: ${breakpoints.md}px) {
+  ${mediaQueries.md} {
     display: block;
     position: relative;
     width: 100%;

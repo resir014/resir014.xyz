@@ -7,7 +7,6 @@ import { ProjectField } from '../../types/fields'
 import {
   Heading,
   Paragraph,
-  space,
   colors,
   shadows,
   Badge,
@@ -94,7 +93,7 @@ const ProjectItem: React.SFC<ProjectFieldProps> = ({ node, ...rest }) => {
   return (
     <StyledProjectItem {...rest}>
       <ProjectHeader category={category}>
-        <Heading as="h3" scale="paragon" m={0}>
+        <Heading as="h3" scale={700} m={0}>
           {title}
         </Heading>
       </ProjectHeader>

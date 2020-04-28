@@ -10,7 +10,7 @@ const HomepageSectionDescription: React.SFC<HomepageSectionDescriptionProps> = (
   children,
   className
 }) => (
-  <Paragraph scale="doublePica" m={0} fontWeight={300} className={className}>
+  <Paragraph scale={600} m={0} fontWeight={300} className={className}>
     {children}
   </Paragraph>
 )

@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { transparentize } from 'polished'
 import styled from '@emotion/styled'
 
-import { breakpoints, colors, widths, typeScale } from '../chungking-core'
+import { mediaQueries, colors, widths, typeScale, breakpoints, Text } from '../chungking-core'
 import menuItems from '../../utils/menuItems'
 import { MenuProps } from '../../types/default'
 
@@ -32,20 +32,18 @@ const MastheadInner = styled('ul')`
   padding: 0;
   list-style-type: none;
 
-  @media (min-width: ${breakpoints.lg}px) {
+  ${mediaQueries.lg} {
     justify-content: flex-end;
   }
 `
 
-const MastheadTitle = styled('li')`
+const MastheadTitle = styled(Text)`
   margin-right: auto;
 
   a {
     display: block;
     padding: 8px 16px;
     padding-bottom: calc(8px - 2px);
-    font-size: ${typeScale.pica.sm.fontSize}px;
-    line-height: ${typeScale.pica.sm.lineHeight}px;
     font-weight: 700;
     border-bottom: 2px solid transparent;
     transition: background-color 0.2s ease;
@@ -65,15 +63,13 @@ const MastheadTitle = styled('li')`
       }
     }
 
-    @media (min-width: ${breakpoints.lg}px) {
+    ${mediaQueries.lg} {
       padding: 16px;
       padding-bottom: calc(16px - 2px);
-      font-size: ${typeScale.pica.lg.fontSize}px;
-      line-height: ${typeScale.pica.lg.lineHeight}px;
     }
   }
 
-  @media (max-width: ${breakpoints.lg - 1}px) {
+  @media (max-width: ${breakpoints[3] - 1}px) {
     flex-basis: 100%;
     text-align: center;
   }
@@ -89,7 +85,7 @@ const MastheadTitleLink = styled(Link)`
 const Masthead: React.SFC<MastheadProps> = ({ className, title }) => (
   <Root className={className}>
     <MastheadInner>
-      <MastheadTitle>
+      <MastheadTitle as="li">
         <MastheadTitleLink to="/">{title}</MastheadTitleLink>
       </MastheadTitle>
       <MastheadNav items={menuItems} />

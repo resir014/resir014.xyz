@@ -2,7 +2,6 @@ import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
-import { ExternalLink, DollarSign } from 'react-feather'
 
 import { SiteMetadata, HCardIcon } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
@@ -72,7 +71,7 @@ const SupportPageTemplate: React.SFC<SupportPageTemplateProps> = ({ data, locati
             <MarkdownContent className="e-content" html={post.html} />
             <Stack spacing="xl" mt="xxl">
               <Stack spacing="lg">
-                <Heading scale="trafalgar">Support my stream!</Heading>
+                <Heading scale={800}>Support my stream!</Heading>
                 <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
                   <LiveCTALink
                     isExternal
@@ -94,7 +93,7 @@ const SupportPageTemplate: React.SFC<SupportPageTemplateProps> = ({ data, locati
             </Stack>
             <Stack spacing="xl" mt="xxl">
               <Stack spacing="lg">
-                <Heading scale="trafalgar">Support my work!</Heading>
+                <Heading scale={800}>Support my work!</Heading>
                 <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
                   <LiveCTALink
                     isExternal

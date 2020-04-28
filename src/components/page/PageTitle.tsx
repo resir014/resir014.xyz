@@ -6,7 +6,7 @@ interface PageTitleProps {
 }
 
 const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) => (
-  <Heading as="h1" scale="canon" className={className} m={0}>
+  <Heading as="h1" scale={900} className={className} m={0}>
     {children}
   </Heading>
 )

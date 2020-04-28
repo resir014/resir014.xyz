@@ -1,11 +1,18 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import { TypeScale, Color } from '../../../Theme'
-import { space, colors } from '../../../utils'
+import {
+  layout,
+  space as styledSpace,
+  color,
+  typography,
+  variant,
+  TypographyProps
+} from 'styled-system'
 
-import { determineFontDimensions } from '../utils'
-import { Typography, TypographyProps } from './Typography'
+import { Color, ParagraphScale } from '../../../Theme'
+import { space, colors, paragraphScale } from '../../../utils'
 
 export interface ParagraphProps extends TypographyProps {
   /** Additional CSS classes to add to the component. */
@@ -15,15 +22,17 @@ export interface ParagraphProps extends TypographyProps {
   /** What HTML element to render the text as. */
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
   /** Size value of the text. */
-  scale?: TypeScale
+  scale?: ParagraphScale
   /** Color value of the text. */
-  color?: Color
+  color?: Color | string
 }
 
 /**
- * This is a base `Text` element to handle typography elements.
+ * Heading component provided as a styled component primitive.
  */
-const StyledText = styled<typeof Typography, ParagraphProps>(Typography)`
+export const Paragraph = styled<'p', ParagraphProps>('p', {
+  shouldForwardProp
+})`
   margin: 0 0 ${space.md}px;
 
   &:first-child {
@@ -37,25 +46,21 @@ const StyledText = styled<typeof Typography, ParagraphProps>(Typography)`
   a {
     color: ${colors.green30};
   }
+
+  ${variant({
+    prop: 'scale',
+    variants: paragraphScale
+  })}
+
+  ${layout}
+  ${styledSpace}
+  ${color}
+  ${typography}
 `
 
-/**
- * Heading component provided as a styled component primitive.
- */
-export const Paragraph: React.SFC<ParagraphProps> = ({
-  children,
-  as,
-  scale = 'body',
-  color,
-  ...rest
-}) => (
-  <StyledText as={as} css={determineFontDimensions(scale)} color={color} {...rest}>
-    {children}
-  </StyledText>
-)
-
 Paragraph.defaultProps = {
-  as: 'p'
+  as: 'p',
+  scale: 400
 }
 
 Paragraph.displayName = 'Heading'

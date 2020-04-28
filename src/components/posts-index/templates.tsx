@@ -22,7 +22,7 @@ const PostThumbnailImage = styled('img')`
 const PostDetailBox = styled('section')``
 
 const PostTitle: React.FC = ({ children }) => (
-  <Heading scale="trafalgar" mt={0} mb="sm">
+  <Heading scale={800} mt={0} mb="sm">
     {children}
   </Heading>
 )
