@@ -3,7 +3,7 @@ import shouldForwardProp from '@styled-system/should-forward-prop'
 
 import { layout, space as styledSpace, color, typography, variant } from 'styled-system'
 
-import { space, colors, paragraphScale } from '../../../utils'
+import { colors, paragraphScale } from '../../../utils'
 import { TypographyProps } from './Typography'
 
 export type ParagraphProps = TypographyProps
@@ -14,16 +14,6 @@ export type ParagraphProps = TypographyProps
 export const Paragraph = styled<'p', ParagraphProps>('p', {
   shouldForwardProp
 })`
-  margin: 0 0 ${space.md}px;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   a {
     color: ${colors.green30};
   }

@@ -4,16 +4,17 @@ import { transparentize } from 'polished'
 import Url from 'url-parse'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
-import { Text, Heading, colors, space, shadows } from '../chungking-core'
+import { Text, Heading, colors, shadows, UnstyledAnchor } from '../chungking-core'
 
 interface BookmarkLinkProps {
   link?: string
   title: string
 }
 
-const Root = styled(OutboundLink)`
+const StyledOutboundLink = styled(UnstyledAnchor)``.withComponent(OutboundLink)
+
+const Root = styled(StyledOutboundLink)`
   display: block;
-  margin-bottom: ${space.md}px;
   background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
   color: ${colors.white};
   border-radius: 4px;
@@ -32,7 +33,7 @@ const Root = styled(OutboundLink)`
   }
 `
 
-const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, title }) => {
+const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, title, ...rest }) => {
   const url = link ? new Url(link) : undefined
 
   return url ? (
@@ -41,6 +42,7 @@ const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, title }) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
+      {...rest}
     >
       <Heading as="h3" scale={700} m={0} p="md">
         <span className="p-name">{title}</span> &raquo;

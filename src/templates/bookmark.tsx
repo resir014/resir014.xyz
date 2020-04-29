@@ -18,6 +18,7 @@ import {
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
 import { PageWrapper } from '../layouts'
+import { Stack } from '../components/chungking-core'
 
 interface BookmarkTemplateProps extends RouterProps {
   data: PostData<BookmarkNode>
@@ -63,8 +64,10 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
             ) : null}
           </PageMeta>
           <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-          <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
-          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+          <Stack spacing="md">
+            <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
+            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+          </Stack>
         </PageHeader>
         <PageContent>
           <Container>

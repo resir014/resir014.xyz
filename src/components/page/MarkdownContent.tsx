@@ -20,7 +20,8 @@ import {
   InlineCode,
   space,
   mediaQueries,
-  colors
+  colors,
+  Stack
 } from '../chungking-core'
 
 interface MarkdownContentProps {
@@ -57,12 +58,16 @@ const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) =
     }
   }
 
-  return <Div className={className}>{convert(html, { transform })}</Div>
+  return (
+    <Div spacing="md" className={className}>
+      {convert(html, { transform })}
+    </Div>
+  )
 }
 
 export default MarkdownContent
 
-const Div = styled('div')`
+const Div = styled(Stack)`
   a {
     color: ${colors.green30};
 
@@ -142,7 +147,6 @@ const Div = styled('div')`
 
   .message {
     position: relative;
-    margin: 24px 0;
     padding: ${space.md}px;
     border: 2px solid transparent;
     border-image-source: linear-gradient(to right, ${colors.magenta30}, ${colors.orange30});
