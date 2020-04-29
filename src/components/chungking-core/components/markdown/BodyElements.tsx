@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 
-import { Paragraph, ParagraphProps, Text, TextProps, Box, BoxProps } from '../../foundations'
+import { Paragraph, ParagraphProps, Text, TextProps, Box, BoxProps, Stack } from '../../foundations'
 import { colors, space } from '../../utils'
 
 interface WithStylesProps {
@@ -84,19 +84,19 @@ const InlineCodeStyles = css`
 `
 
 export const UL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text as="ul" css={UnorderedListStyles} m="sm" ml="md" p={0} {...rest}>
+  <Stack as="ul" css={UnorderedListStyles} spacing="sm" ml="md" mr="sm" p={0} {...rest}>
     {children}
-  </Text>
+  </Stack>
 )
 
 export const OL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text as="ol" css={OrderedListStyles} m="sm" ml="md" p={0} {...rest}>
+  <Stack as="ol" css={OrderedListStyles} spacing="sm" ml="md" mr="sm" p={0} {...rest}>
     {children}
-  </Text>
+  </Stack>
 )
 
 export const LI: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Paragraph as="li" css={ListItemStyles} mt={0} mb="sm" {...rest}>
+  <Paragraph as="li" css={ListItemStyles} mt={0} {...rest}>
     {children}
   </Paragraph>
 )
