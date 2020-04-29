@@ -184,40 +184,40 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
               </WrapperRoot>
               <H3>Text</H3>
               <WrapperRoot>
-                <Text scale={900} display="block" my="sm">
+                <Text variant={900} display="block" my="sm">
                   Text - Canon
                 </Text>
-                <Text scale={800} display="block" my="sm">
+                <Text variant={800} display="block" my="sm">
                   Text - Trafalgar
                 </Text>
-                <Text scale={700} display="block" my="sm">
+                <Text variant={700} display="block" my="sm">
                   Text - Paragon
                 </Text>
-                <Text scale={600} display="block" my="sm">
+                <Text variant={600} display="block" my="sm">
                   Text - Double Pica
                 </Text>
-                <Text scale={500} display="block" my="sm">
+                <Text variant={500} display="block" my="sm">
                   Text - Great Primer
                 </Text>
-                <Text scale={400} display="block" my="sm">
+                <Text variant={400} display="block" my="sm">
                   Text - Pica
                 </Text>
-                <Text scale={300} display="block" my="sm">
+                <Text variant={300} display="block" my="sm">
                   Text - Long Primer
                 </Text>
-                <Text scale={200} display="block" my="sm">
+                <Text variant={200} display="block" my="sm">
                   Text - Brevier
                 </Text>
-                <Text scale={100} display="block" my="sm">
+                <Text variant={100} display="block" my="sm">
                   Text - Minion
                 </Text>
               </WrapperRoot>
               <H3>Monospace</H3>
               <WrapperRoot>
-                <Text scale={400} display="block" fontFamily="monospace" fontWeight={400}>
+                <Text variant={400} display="block" fontFamily="monospace" fontWeight={400}>
                   Text - 400 - Monospace - Regular
                 </Text>
-                <Text scale={400} display="block" fontFamily="monospace" fontWeight={700}>
+                <Text variant={400} display="block" fontFamily="monospace" fontWeight={700}>
                   Text - 400 - Monospace - Bold
                 </Text>
               </WrapperRoot>

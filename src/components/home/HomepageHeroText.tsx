@@ -23,7 +23,7 @@ const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, ti
         {title}
       </Heading>
       {flavour && (
-        <Text scale={600} m={0} fontWeight={300} color="white">
+        <Text variant={600} m={0} fontWeight={300} color="white">
           {flavour}
         </Text>
       )}

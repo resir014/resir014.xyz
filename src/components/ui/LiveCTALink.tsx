@@ -42,7 +42,7 @@ const LiveCTALink: React.FC<LiveCTAProps> = ({
     return (
       <UnstyledAnchor href={to} target="_blank" rel="noopener noreferrer">
         <BoxBase backgroundColor={backgroundColor}>
-          <Text scale={500} color={color || 'white'}>
+          <Text variant={500} color={color || 'white'}>
             {children}
           </Text>
           {icon}
@@ -54,7 +54,7 @@ const LiveCTALink: React.FC<LiveCTAProps> = ({
   return (
     <UnstyledLink to={to}>
       <BoxBase backgroundColor={backgroundColor}>
-        <Text scale={500}>{children}</Text>
+        <Text variant={500}>{children}</Text>
         {icon}
       </BoxBase>
     </UnstyledLink>

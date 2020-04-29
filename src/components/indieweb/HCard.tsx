@@ -76,7 +76,7 @@ const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
             {author.name}
           </UnstyledAnchor>
         </Heading>
-        <Paragraph className="p-note" scale={500} m={0} fontWeight={300}>
+        <Paragraph className="p-note" variant={500} m={0} fontWeight={300}>
           {author.description}
         </Paragraph>
         <HCardEmail className="u-email">{author.email}</HCardEmail>

@@ -77,7 +77,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className, styl
       <FeaturedProjectDetails className="column">
         <FeaturedProjectHeading>
           <Text
-            scale={300}
+            variant={300}
             letterSpacing="0.01em"
             fontWeight={300}
             css={css`

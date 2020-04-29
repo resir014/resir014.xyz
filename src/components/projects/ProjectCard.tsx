@@ -50,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ta
         {title}
       </Heading>
       {description ? (
-        <Text as="p" scale={500} fontWeight={300} m={0} className="p-summary">
+        <Text as="p" variant={500} fontWeight={300} m={0} className="p-summary">
           {description}
         </Text>
       ) : null}

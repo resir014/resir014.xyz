@@ -14,7 +14,7 @@ export const P: React.FC<WithStylesProps & ParagraphProps> = ({ children, ...res
 )
 
 export const Small: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text scale={200} {...rest}>
+  <Text variant={200} {...rest}>
     {children}
   </Text>
 )
