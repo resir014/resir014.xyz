@@ -12,7 +12,7 @@ syndication:
 
 <em>Header image: [Ejection seat test at China Lake with F-4B cockpit (1967)](https://commons.wikimedia.org/wiki/File:Ejection_seat_test_at_China_Lake_with_F-4B_cockpit_1967.jpg), public domain (US).</em>
 
-<div class="message">
+<div class="message message--warning">
 
 **Update 2019-05-15:** Starting from [version 3.0](https://github.com/facebook/create-react-app/releases/tag/v3.0.0), Create React App will respect the `baseurl` settings that you have in your `tsconfig.json`. If you already use CRA 3.0 and above, this guide is no longer necessary.
 

@@ -21,7 +21,8 @@ import {
   space,
   mediaQueries,
   colors,
-  Stack
+  Stack,
+  MessageBox
 } from '../chungking-core'
 
 interface MarkdownContentProps {
@@ -43,6 +44,27 @@ const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) =
     li: LI,
     blockquote: Blockquote,
     code: InlineCode,
+    div: (node: Partial<React.ReactHTMLElement<HTMLDivElement>['props']>) => {
+      const { className: cn, children, ...rest } = node
+
+      if (cn?.includes('message')) {
+        if (cn?.includes('message--warning')) {
+          return (
+            <MessageBox variant="warning" {...rest}>
+              {children}
+            </MessageBox>
+          )
+        }
+
+        return (
+          <MessageBox variant="default" {...rest}>
+            {children}
+          </MessageBox>
+        )
+      }
+
+      return <div {...rest}>{children}</div>
+    },
     a: (node: Partial<React.ReactHTMLElement<HTMLAnchorElement>['props']>) => {
       const { href } = node
 
@@ -148,6 +170,7 @@ const Div = styled(Stack)`
   .message {
     position: relative;
     padding: ${space.md}px;
+    margin-bottom: ${space.md}px;
     border: 2px solid transparent;
     border-image-source: linear-gradient(to right, ${colors.magenta30}, ${colors.orange30});
     border-image-slice: 1;

@@ -9,7 +9,7 @@ syndication:
     url: https://medium.com/southeast-asian-social-critique/an-idiots-guide-to-the-2017-jakarta-local-elections-566980ba3605
 ---
 
-<div class="message">
+<div class="message message--warning">
   <strong>Disclaimer:</strong> This post is intended to be a joke. Please don't take it seriously. I also might have been under the influence of caffeine while writing this. You have been warned.
 </div>
 

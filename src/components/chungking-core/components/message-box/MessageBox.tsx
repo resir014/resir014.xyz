@@ -2,8 +2,9 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { colors, space } from '../../utils'
+import { Box, BoxProps } from '../../foundations'
 
-export interface MessageBoxProps {
+export interface MessageBoxProps extends BoxProps {
   className?: string
   variant?: 'default' | 'warning'
 }
@@ -26,7 +27,7 @@ const WarningStyles = css`
   }
 `
 
-const Root = styled<'div', MessageBoxProps>('div')`
+const Root = styled(Box)<MessageBoxProps>`
   margin: 24px 0;
   padding: ${space.md}px;
   border: 2px solid transparent;
