@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
 
-import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { HCardIcon, SiteData } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
 import {
@@ -22,9 +22,7 @@ import { PageWrapper } from '../layouts'
 
 interface SupportPageTemplateProps extends RouterProps {
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     icon: HCardIcon
     markdownRemark: PageNode
   }
@@ -33,14 +31,15 @@ interface SupportPageTemplateProps extends RouterProps {
 const SupportPageTemplate: React.SFC<SupportPageTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const postDescription = post.fields.lead || post.excerpt
 
   return (
     <PageWrapper pageTitle={`${post.frontmatter.title} · ${siteMetadata.title}`}>
       <Helmet>
-        <meta name="description" content={post.fields.lead || post.excerpt} />
+        <meta name="description" content={postDescription} />
         <meta name="author" content={siteMetadata.author.name} />
         <meta property="og:title" content={post.frontmatter.title} />
-        <meta property="og:description" content={post.fields.lead || post.excerpt} />
+        <meta property="og:description" content={postDescription} />
         <meta
           property="og:url"
           content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}

@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { RouterProps } from '@reach/router'
 
-import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { HCardIcon, SiteData } from '../types/gatsby'
 import { PhotoNode } from '../types/nodes'
 
 import { Container } from '../components/layout'
@@ -21,9 +21,7 @@ import { PageWrapper } from '../layouts'
 
 interface PhotoTemplateProps extends RouterProps {
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     icon: HCardIcon
     markdownRemark: PhotoNode
   }

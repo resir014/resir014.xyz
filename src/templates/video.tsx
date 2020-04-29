@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 
-import { HCardIcon, SiteMetadata } from '../types/gatsby'
+import { HCardIcon, SiteData } from '../types/gatsby'
 import { VideoNode } from '../types/nodes'
 
 import {
@@ -21,9 +21,7 @@ import { PageWrapper } from '../layouts'
 
 interface VideoTemplateProps extends RouterProps {
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     icon: HCardIcon
     markdownRemark: VideoNode
   }

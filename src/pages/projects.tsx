@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { SiteMetadata } from '../types/gatsby'
+import { SiteData } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
 
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
@@ -19,9 +19,7 @@ interface ProjectsPageProps {
     pathname: string
   }
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     allMarkdownRemark: {
       edges: ProjectField[]
     }

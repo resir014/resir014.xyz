@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { RouterProps } from '@reach/router'
 import { graphql } from 'gatsby'
 
-import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { HCardIcon, SiteData } from '../types/gatsby'
 import { ProjectNode } from '../types/nodes'
 
 import { Container } from '../components/layout'
@@ -22,9 +22,7 @@ import { PageWrapper } from '../layouts'
 
 interface ProjectTemplateProps extends RouterProps {
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     icon: HCardIcon
     markdownRemark: ProjectNode
   }

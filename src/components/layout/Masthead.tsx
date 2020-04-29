@@ -12,7 +12,6 @@ import MastheadNav from './MastheadNav'
 interface MastheadProps extends MenuProps {
   title: string
   className?: string
-  onNavToggleClick: () => any
 }
 
 const Root = styled('nav')`

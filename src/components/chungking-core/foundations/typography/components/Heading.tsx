@@ -10,10 +10,6 @@ import { typeScale } from '../../../utils'
 import { TypographyProps } from './Typography'
 
 export interface HeadingProps extends TypographyProps {
-  /** Additional CSS classes to add to the component. */
-  className?: string
-  /** Additional CSS properties to add to the component. */
-  style?: React.CSSProperties
   /** What HTML element to render the text as. */
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
   /** Size value of the text. */
@@ -26,17 +22,15 @@ export interface HeadingProps extends TypographyProps {
  * This is a base `Text` element to handle typography elements.
  */
 const StyledText = styled<'span', HeadingProps>('span', { shouldForwardProp })`
-${variant({
-  prop: 'scale',
-  variants: typeScale
-})}
+  ${variant({
+    prop: 'scale',
+    variants: typeScale
+  })}
 
-font-weight: 600;
-
-${layout}
-${space}
-${color}
-${typography}
+  ${layout}
+  ${space}
+  ${color}
+  ${typography}
 `
 
 /**
@@ -50,6 +44,7 @@ export const Heading: React.SFC<HeadingProps> = ({ children, as, ...rest }) => (
 
 Heading.defaultProps = {
   as: 'h2',
+  fontWeight: 600,
   scale: 700
 }
 

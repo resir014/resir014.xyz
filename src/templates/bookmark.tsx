@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 
-import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { HCardIcon, SiteData } from '../types/gatsby'
 import { BookmarkNode } from '../types/nodes'
 
 import { Container } from '../components/layout'
@@ -21,9 +21,7 @@ import { PageWrapper } from '../layouts'
 
 interface BookmarkTemplateProps extends RouterProps {
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     icon: HCardIcon
     markdownRemark: BookmarkNode
   }

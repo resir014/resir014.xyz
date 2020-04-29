@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import styled from '@emotion/styled'
 import { RouterProps } from '@reach/router'
 
-import { SiteMetadata } from '../types/gatsby'
+import { SiteData } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
 
 import { TemplateWrapper } from '../layouts'
@@ -51,9 +51,7 @@ import getFeaturedProject from '../utils/getFeaturedProject'
 
 interface DesignSystemPageProps extends RouterProps {
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     projects: {
       edges: ProjectField[]
     }

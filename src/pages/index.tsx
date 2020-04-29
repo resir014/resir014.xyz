@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { HCardIcon, SiteData } from '../types/gatsby'
 import { ProjectField, BlogPostField } from '../types/fields'
 import { ProjectNode } from '../types/nodes'
 
@@ -28,9 +28,7 @@ interface IndexPageProps {
     pathname: string
   }
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     icon: HCardIcon
     featuredPosts: {
       edges: BlogPostField[]

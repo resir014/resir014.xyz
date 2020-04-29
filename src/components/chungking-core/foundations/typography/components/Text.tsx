@@ -9,10 +9,6 @@ import { TypographyProps } from './Typography'
 import { typeScale } from '../../../utils'
 
 export interface TextProps extends TypographyProps {
-  /** Additional CSS classes to add to the component. */
-  className?: string
-  /** Additional CSS properties to add to the component. */
-  style?: React.CSSProperties
   /** What HTML element to render the text as. */
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
   /** Size value of the text. */
@@ -25,15 +21,15 @@ export interface TextProps extends TypographyProps {
  * Text component provided as a styled component primitive.
  */
 export const Text = styled<'span', TextProps>('span', { shouldForwardProp })`
-${variant({
-  prop: 'scale',
-  variants: typeScale
-})}
+  ${variant({
+    prop: 'scale',
+    variants: typeScale
+  })}
 
-${layout}
-${space}
-${color}
-${typography}
+  ${layout}
+  ${space}
+  ${color}
+  ${typography}
 `
 
 Text.defaultProps = {

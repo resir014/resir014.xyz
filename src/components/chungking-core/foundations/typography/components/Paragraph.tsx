@@ -9,10 +9,6 @@ import { space, colors, paragraphScale } from '../../../utils'
 import { TypographyProps } from './Typography'
 
 export interface ParagraphProps extends TypographyProps {
-  /** Additional CSS classes to add to the component. */
-  className?: string
-  /** Additional CSS properties to add to the component. */
-  style?: React.CSSProperties
   /** What HTML element to render the text as. */
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
   /** Size value of the text. */
