@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import { RouterProps } from '@reach/router'
 
-import { HCardIcon, SiteData } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { PhotoNode } from '../types/nodes'
 
 import { Container } from '../components/layout'
@@ -20,11 +20,7 @@ import { HCardPost } from '../components/indieweb'
 import { PageWrapper } from '../layouts'
 
 interface PhotoTemplateProps extends RouterProps {
-  data: {
-    site: SiteData
-    icon: HCardIcon
-    markdownRemark: PhotoNode
-  }
+  data: PostData<PhotoNode>
 }
 
 const PhotoTemplate: React.SFC<PhotoTemplateProps> = ({ data, location }) => {

@@ -12,6 +12,8 @@ import {
 } from 'styled-system'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
+import { TypeScale, Color } from '../../../Theme'
+
 export interface TypographyProps
   extends LayoutProps,
     SpaceProps,
@@ -21,6 +23,12 @@ export interface TypographyProps
   className?: string
   /** Additional CSS properties to add to the component. */
   style?: React.CSSProperties
+  /** What HTML element to render the text as. */
+  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
+  /** Size value of the text. */
+  scale?: TypeScale
+  /** Color value of the text. */
+  color?: Color | string
 }
 
 /**

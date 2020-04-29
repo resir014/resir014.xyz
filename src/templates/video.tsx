@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 
-import { HCardIcon, SiteData } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { VideoNode } from '../types/nodes'
 
 import {
@@ -20,11 +20,7 @@ import { VideoCard, LiteYouTube } from '../components/video'
 import { PageWrapper } from '../layouts'
 
 interface VideoTemplateProps extends RouterProps {
-  data: {
-    site: SiteData
-    icon: HCardIcon
-    markdownRemark: VideoNode
-  }
+  data: PostData<VideoNode>
 }
 
 const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data, location }) => {

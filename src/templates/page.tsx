@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
 
-import { HCardIcon, SiteData } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
 import { Container } from '../components/layout'
@@ -19,11 +19,7 @@ import {
 import { PageWrapper } from '../layouts'
 
 interface PageTemplateProps extends RouterProps {
-  data: {
-    site: SiteData
-    icon: HCardIcon
-    markdownRemark: PageNode
-  }
+  data: PostData<PageNode>
 }
 
 const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {

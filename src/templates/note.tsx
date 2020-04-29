@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 
-import { HCardIcon, SiteData } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { NotesNode } from '../types/nodes'
 
 import { Container } from '../components/layout'
@@ -20,11 +20,7 @@ import { HCardPost } from '../components/indieweb'
 import { PageWrapper } from '../layouts'
 
 interface NoteTemplateProps extends RouterProps {
-  data: {
-    site: SiteData
-    icon: HCardIcon
-    markdownRemark: NotesNode
-  }
+  data: PostData<NotesNode>
 }
 
 const NoteTemplate: React.SFC<NoteTemplateProps> = ({ data, location }) => {

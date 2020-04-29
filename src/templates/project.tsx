@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { RouterProps } from '@reach/router'
 import { graphql } from 'gatsby'
 
-import { HCardIcon, SiteData } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { ProjectNode } from '../types/nodes'
 
 import { Container } from '../components/layout'
@@ -21,11 +21,7 @@ import { AnchorButton } from '../components/chungking-core'
 import { PageWrapper } from '../layouts'
 
 interface ProjectTemplateProps extends RouterProps {
-  data: {
-    site: SiteData
-    icon: HCardIcon
-    markdownRemark: ProjectNode
-  }
+  data: PostData<ProjectNode>
 }
 
 const renderLink = (url: string, jumpToProject: boolean) => (

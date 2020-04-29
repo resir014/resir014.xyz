@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 
-import { HCardIcon, SiteData } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { BookmarkNode } from '../types/nodes'
 
 import { Container } from '../components/layout'
@@ -20,11 +20,7 @@ import { HCardPost } from '../components/indieweb'
 import { PageWrapper } from '../layouts'
 
 interface BookmarkTemplateProps extends RouterProps {
-  data: {
-    site: SiteData
-    icon: HCardIcon
-    markdownRemark: BookmarkNode
-  }
+  data: PostData<BookmarkNode>
 }
 
 const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) => {

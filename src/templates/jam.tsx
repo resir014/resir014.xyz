@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
 import { Helmet } from 'react-helmet'
 
-import { HCardIcon, SiteData } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { JamNode } from '../types/nodes'
 
 import {
@@ -20,11 +20,7 @@ import { VideoCard, LiteYouTube } from '../components/video'
 import { PageWrapper } from '../layouts'
 
 interface JamTemplateProps extends RouterProps {
-  data: {
-    site: SiteData
-    icon: HCardIcon
-    markdownRemark: JamNode
-  }
+  data: PostData<JamNode>
 }
 
 const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {

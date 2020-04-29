@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
 import { ExternalLink, DollarSign } from 'react-feather'
 
-import { HCardIcon, SiteData } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
 import {
@@ -22,11 +22,7 @@ import { LiveCTALink } from '../components/ui'
 import { PageWrapper } from '../layouts'
 
 interface LivePageTemplateProps extends RouterProps {
-  data: {
-    site: SiteData
-    icon: HCardIcon
-    markdownRemark: PageNode
-  }
+  data: PostData<PageNode>
 }
 
 const LivePageTemplate: React.SFC<LivePageTemplateProps> = ({ data, location }) => {

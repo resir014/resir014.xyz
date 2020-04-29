@@ -4,19 +4,11 @@ import shouldForwardProp from '@styled-system/should-forward-prop'
 
 import { layout, space, color, typography, variant } from 'styled-system'
 
-import { TypeScale, Color } from '../../../Theme'
 import { typeScale } from '../../../utils'
 
 import { TypographyProps } from './Typography'
 
-export interface HeadingProps extends TypographyProps {
-  /** What HTML element to render the text as. */
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
-  /** Size value of the text. */
-  scale?: TypeScale
-  /** Color value of the text. */
-  color?: Color | string
-}
+export type HeadingProps = TypographyProps
 
 /**
  * This is a base `Text` element to handle typography elements.

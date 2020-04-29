@@ -28,3 +28,9 @@ export interface HeaderImage {
 export interface ChildImageSharp {
   fluid: Fluid
 }
+
+export interface PostData<TNode = any> {
+  site: SiteData
+  icon: HCardIcon
+  markdownRemark: TNode
+}

@@ -1,21 +1,12 @@
-import * as React from 'react'
 import styled from '@emotion/styled'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
 import { layout, space as styledSpace, color, typography, variant } from 'styled-system'
 
-import { Color, ParagraphScale } from '../../../Theme'
 import { space, colors, paragraphScale } from '../../../utils'
 import { TypographyProps } from './Typography'
 
-export interface ParagraphProps extends TypographyProps {
-  /** What HTML element to render the text as. */
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
-  /** Size value of the text. */
-  scale?: ParagraphScale
-  /** Color value of the text. */
-  color?: Color | string
-}
+export type ParagraphProps = TypographyProps
 
 /**
  * Heading component provided as a styled component primitive.
