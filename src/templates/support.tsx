@@ -73,14 +73,14 @@ const SupportPageTemplate: React.SFC<SupportPageTemplateProps> = ({ data, locati
                     isExternal
                     backgroundColor="#faae2b"
                     color="grey90"
-                    to="https://www.twitch.tv/resir014"
+                    to="https://saweria.co/resir014"
                   >
                     Saweria*
                   </LiveCTALink>
                   <LiveCTALink
                     isExternal
                     backgroundColor="#128079"
-                    to="https://streamlabs.com/support"
+                    to="https://streamlabs.com/resir014"
                   >
                     Streamlabs
                   </LiveCTALink>
