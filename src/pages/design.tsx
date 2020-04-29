@@ -154,31 +154,31 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
               <H2>Typography</H2>
               <H3>Heading</H3>
               <WrapperRoot>
-                <Heading scale={900} my="md">
+                <Heading variant={900} my="md">
                   Heading - 900
                 </Heading>
-                <Heading scale={800} my="md">
+                <Heading variant={800} my="md">
                   Heading - 800
                 </Heading>
-                <Heading scale={700} my="md">
+                <Heading variant={700} my="md">
                   Heading - 700
                 </Heading>
-                <Heading scale={600} my="md">
+                <Heading variant={600} my="md">
                   Heading - 600
                 </Heading>
-                <Heading scale={500} my="md">
+                <Heading variant={500} my="md">
                   Heading - 500
                 </Heading>
-                <Heading scale={400} my="md">
+                <Heading variant={400} my="md">
                   Heading - 400
                 </Heading>
-                <Heading scale={300} my="md">
+                <Heading variant={300} my="md">
                   Heading - 300
                 </Heading>
-                <Heading scale={200} my="md">
+                <Heading variant={200} my="md">
                   Heading - 200
                 </Heading>
-                <Heading scale={100} my="md">
+                <Heading variant={100} my="md">
                   Heading - 100
                 </Heading>
               </WrapperRoot>

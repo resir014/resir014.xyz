@@ -13,7 +13,7 @@ export type TextProps = TypographyProps
  */
 export const Text = styled<'span', TextProps>('span', { shouldForwardProp })`
   ${variant({
-    prop: 'scale',
+    prop: 'variant',
     variants: typeScale
   })}
 
@@ -25,7 +25,7 @@ export const Text = styled<'span', TextProps>('span', { shouldForwardProp })`
 
 Text.defaultProps = {
   as: 'span',
-  scale: 400
+  variant: 400
 }
 
 Text.displayName = 'Text'

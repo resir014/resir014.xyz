@@ -26,7 +26,7 @@ export interface TypographyProps
   /** What HTML element to render the text as. */
   as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
   /** Size value of the text. */
-  scale?: TypeScale
+  variant?: TypeScale
   /** Color value of the text. */
   color?: Color | string
 }

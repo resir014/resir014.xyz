@@ -19,7 +19,7 @@ const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, ti
     textAlign="center"
   >
     <Box padding="lg" backgroundColor="black" borderRadius={10} boxShadow="double">
-      <Heading as="h1" scale={900} mt={0} mb="md" color="white">
+      <Heading as="h1" variant={900} mt={0} mb="md" color="white">
         {title}
       </Heading>
       {flavour && (

@@ -67,7 +67,7 @@ const SupportPageTemplate: React.SFC<SupportPageTemplateProps> = ({ data, locati
             <MarkdownContent className="e-content" html={post.html} />
             <Stack spacing="xl" mt="xxl">
               <Stack spacing="lg">
-                <Heading scale={800}>Support my stream!</Heading>
+                <Heading variant={800}>Support my stream!</Heading>
                 <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
                   <LiveCTALink
                     isExternal
@@ -89,7 +89,7 @@ const SupportPageTemplate: React.SFC<SupportPageTemplateProps> = ({ data, locati
             </Stack>
             <Stack spacing="xl" mt="xxl">
               <Stack spacing="lg">
-                <Heading scale={800}>Support my work!</Heading>
+                <Heading variant={800}>Support my work!</Heading>
                 <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
                   <LiveCTALink
                     isExternal

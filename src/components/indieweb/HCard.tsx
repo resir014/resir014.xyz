@@ -71,7 +71,7 @@ const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
         <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
       </HCardAvatar>
       <HCardDetails>
-        <Heading as="h3" scale={700} mt={0} mb="xs">
+        <Heading as="h3" variant={700} mt={0} mb="xs">
           <UnstyledAnchor className="p-name u-url" rel="me" href={author.website}>
             {author.name}
           </UnstyledAnchor>

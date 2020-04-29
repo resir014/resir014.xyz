@@ -88,7 +88,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className, styl
           </Text>
           <Heading
             as="h3"
-            scale={700}
+            variant={700}
             mt="xxs"
             mb="sm"
             css={css`

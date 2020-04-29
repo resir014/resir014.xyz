@@ -19,7 +19,7 @@ export const Paragraph = styled<'p', ParagraphProps>('p', {
   }
 
   ${variant({
-    prop: 'scale',
+    prop: 'variant',
     variants: paragraphScale
   })}
 
@@ -31,7 +31,7 @@ export const Paragraph = styled<'p', ParagraphProps>('p', {
 
 Paragraph.defaultProps = {
   as: 'p',
-  scale: 400
+  variant: 400
 }
 
 Paragraph.displayName = 'Heading'

@@ -93,7 +93,7 @@ const ProjectItem: React.SFC<ProjectFieldProps> = ({ node, ...rest }) => {
   return (
     <StyledProjectItem {...rest}>
       <ProjectHeader category={category}>
-        <Heading as="h3" scale={700} m={0}>
+        <Heading as="h3" variant={700} m={0}>
           {title}
         </Heading>
       </ProjectHeader>

@@ -44,7 +44,7 @@ const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, title, ...rest }) =>
       rel="noopener noreferrer"
       {...rest}
     >
-      <Heading as="h3" scale={700} m={0} p="md">
+      <Heading as="h3" variant={700} m={0} p="md">
         <span className="p-name">{title}</span> &raquo;
       </Heading>{' '}
       <Text

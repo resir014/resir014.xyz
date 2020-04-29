@@ -15,7 +15,7 @@ export type HeadingProps = TypographyProps
  */
 const StyledText = styled<'span', HeadingProps>('span', { shouldForwardProp })`
   ${variant({
-    prop: 'scale',
+    prop: 'variant',
     variants: typeScale
   })}
 
@@ -37,7 +37,7 @@ export const Heading: React.SFC<HeadingProps> = ({ children, as, ...rest }) => (
 Heading.defaultProps = {
   as: 'h2',
   fontWeight: 600,
-  scale: 700
+  variant: 700
 }
 
 Heading.displayName = 'Heading'
