@@ -19,8 +19,10 @@ import {
   Blockquote,
   InlineCode,
   space,
-  breakpoints,
-  colors
+  mediaQueries,
+  colors,
+  Stack,
+  MessageBox
 } from '../chungking-core'
 
 interface MarkdownContentProps {
@@ -42,6 +44,27 @@ const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) =
     li: LI,
     blockquote: Blockquote,
     code: InlineCode,
+    div: (node: Partial<React.ReactHTMLElement<HTMLDivElement>['props']>) => {
+      const { className: cn, children, ...rest } = node
+
+      if (cn?.includes('message')) {
+        if (cn?.includes('message--warning')) {
+          return (
+            <MessageBox variant="warning" {...rest}>
+              {children}
+            </MessageBox>
+          )
+        }
+
+        return (
+          <MessageBox variant="default" {...rest}>
+            {children}
+          </MessageBox>
+        )
+      }
+
+      return <div {...rest}>{children}</div>
+    },
     a: (node: Partial<React.ReactHTMLElement<HTMLAnchorElement>['props']>) => {
       const { href } = node
 
@@ -57,12 +80,16 @@ const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) =
     }
   }
 
-  return <Div className={className}>{convert(html, { transform })}</Div>
+  return (
+    <Div spacing="md" className={className}>
+      {convert(html, { transform })}
+    </Div>
+  )
 }
 
 export default MarkdownContent
 
-const Div = styled('div')`
+const Div = styled(Stack)`
   a {
     color: ${colors.green30};
 
@@ -91,7 +118,7 @@ const Div = styled('div')`
       margin-top: 0;
     }
 
-    @media (min-width: ${breakpoints.lg}px) {
+    ${mediaQueries.lg} {
       margin-left: -${space.lg * 2}px;
       margin-right: -${space.lg * 2}px;
     }
@@ -142,8 +169,8 @@ const Div = styled('div')`
 
   .message {
     position: relative;
-    margin: 24px 0;
     padding: ${space.md}px;
+    margin-bottom: ${space.md}px;
     border: 2px solid transparent;
     border-image-source: linear-gradient(to right, ${colors.magenta30}, ${colors.orange30});
     border-image-slice: 1;

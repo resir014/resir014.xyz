@@ -2,8 +2,9 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { colors, space } from '../../utils'
+import { Stack, StackProps } from '../../foundations'
 
-export interface MessageBoxProps {
+export interface MessageBoxProps extends StackProps {
   className?: string
   variant?: 'default' | 'warning'
 }
@@ -26,29 +27,13 @@ const WarningStyles = css`
   }
 `
 
-const Root = styled<'div', MessageBoxProps>('div')`
+const Root = styled(Stack)<MessageBoxProps>`
   margin: 24px 0;
   padding: ${space.md}px;
   border: 2px solid transparent;
 
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   a {
     color: ${colors.green30};
-  }
-
-  p,
-  ul,
-  ol {
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   ${props => props.variant === 'default' && DefaultStyles}
@@ -56,7 +41,7 @@ const Root = styled<'div', MessageBoxProps>('div')`
 `
 
 const MessageBox: React.SFC<MessageBoxProps> = ({ className, children, ...rest }) => (
-  <Root className={className} {...rest}>
+  <Root className={className} spacing="md" {...rest}>
     {children}
   </Root>
 )

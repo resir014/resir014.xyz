@@ -2,9 +2,9 @@ import * as React from 'react'
 import classnames from 'clsx'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
-import { HCardIcon, SiteMetadata } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { VideoNode } from '../types/nodes'
 
 import {
@@ -15,17 +15,12 @@ import {
   MarkdownContent
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import { VideoCard, LiteYouTube } from '../components/video'
+import { PageWrapper } from '../layouts'
 
 interface VideoTemplateProps extends RouterProps {
-  data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
-    icon: HCardIcon
-    markdownRemark: VideoNode
-  }
+  data: PostData<VideoNode>
 }
 
 const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data, location }) => {

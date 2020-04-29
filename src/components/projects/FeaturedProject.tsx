@@ -6,49 +6,35 @@ import {
   Text,
   Heading,
   P,
-  breakpoints,
+  mediaQueries,
   colors,
   shadows,
   space,
   Badge,
-  NavLinkButton
+  NavLinkButton,
+  Box,
+  BoxProps
 } from '../chungking-core'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { ProjectField } from '../../types/fields'
+import ProjectTags from './ProjectTags'
 
-const FeaturedProjectWrapper = styled('section')`
+const FeaturedProjectWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   min-height: 300px;
-  margin: 24px 0;
   color: ${colors.white};
   border-radius: 6px;
   overflow: hidden;
   box-shadow: ${shadows.single};
 
-  &:first-of-type {
-    margin-top: 0;
-  }
-
-  @media (min-width: ${breakpoints.md}px) {
+  ${mediaQueries.md} {
     flex-direction: row;
-  }
-
-  @media (min-width: ${breakpoints.lg}px) {
-    margin: ${space.xxl}px 0;
   }
 
   .column {
     flex: 1;
-  }
-`
-
-const ProjectTags = styled('div')`
-  margin-top: ${space.md}px;
-
-  ${Badge} + ${Badge} {
-    margin-left: ${space.xs}px;
   }
 `
 
@@ -76,21 +62,22 @@ const FeaturedProjectFooter = styled('div')`
   margin-top: ${space.xl}px;
 `
 
-interface FeaturedProjectProps extends ProjectField {
+interface FeaturedProjectProps extends ProjectField, BoxProps {
   className?: string
+  style?: React.CSSProperties
 }
 
-const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className }) => {
+const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className, style, ...rest }) => {
   const { header_image } = node.frontmatter
   const tags = node.fields.tags ? (JSON.parse(node.fields.tags) as string[]) : undefined
 
   return (
-    <FeaturedProjectWrapper className={className}>
+    <FeaturedProjectWrapper as="section" className={className} style={style} {...rest}>
       {header_image ? <FeaturedProjectThumbnail className="column" image={header_image} /> : null}
       <FeaturedProjectDetails className="column">
         <FeaturedProjectHeading>
           <Text
-            scale="longPrimer"
+            variant={300}
             letterSpacing="0.01em"
             fontWeight={300}
             css={css`
@@ -101,7 +88,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className }) =>
           </Text>
           <Heading
             as="h3"
-            scale="paragon"
+            variant={700}
             mt="xxs"
             mb="sm"
             css={css`

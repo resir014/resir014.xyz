@@ -67,12 +67,14 @@ export const space = {
   xxl: 48
 }
 
-export const breakpoints = {
-  xs: 0,
-  sm: 576,
-  md: 768,
-  lg: 992,
-  xl: 1200
+export const breakpoints = [0, 576, 768, 992, 1200]
+
+export const mediaQueries = {
+  xs: `@media screen and (min-width: ${breakpoints[0]}px)`,
+  sm: `@media screen and (min-width: ${breakpoints[1]}px)`,
+  md: `@media screen and (min-width: ${breakpoints[2]}px)`,
+  lg: `@media screen and (min-width: ${breakpoints[3]}px)`,
+  xl: `@media screen and (min-width: ${breakpoints[4]}px)`
 }
 
 export const widths = {
@@ -86,104 +88,111 @@ export const widths = {
  * https://www.bbc.co.uk/gel/guidelines/typography
  */
 export const typeScale = {
-  canon: {
-    sm: {
-      fontSize: 32,
-      lineHeight: 36
-    },
-    lg: {
-      fontSize: 44,
-      lineHeight: 48
+  900: {
+    fontSize: '32px',
+    lineHeight: '36px',
+    [mediaQueries.lg]: {
+      fontSize: '44px',
+      lineHeight: '48px'
     }
   },
-  trafalgar: {
-    sm: {
-      fontSize: 24,
-      lineHeight: 28
-    },
-    lg: {
-      fontSize: 32,
-      lineHeight: 36
+  800: {
+    fontSize: '24px',
+    lineHeight: '28px',
+    [mediaQueries.lg]: {
+      fontSize: '32px',
+      lineHeight: '36px'
     }
   },
-  paragon: {
-    sm: {
-      fontSize: 22,
-      lineHeight: 26
-    },
-    lg: {
-      fontSize: 28,
-      lineHeight: 32
+  700: {
+    fontSize: '22px',
+    lineHeight: '26px',
+    [mediaQueries.lg]: {
+      fontSize: '28px',
+      lineHeight: '32px'
     }
   },
-  doublePica: {
-    sm: {
-      fontSize: 20,
-      lineHeight: 24
-    },
-    lg: {
-      fontSize: 24,
-      lineHeight: 28
+  600: {
+    fontSize: '20px',
+    lineHeight: '24px',
+    [mediaQueries.lg]: {
+      fontSize: '24px',
+      lineHeight: '28px'
     }
   },
-  greatPrimer: {
-    sm: {
-      fontSize: 18,
-      lineHeight: 22
-    },
-    lg: {
-      fontSize: 20,
-      lineHeight: 24
+  500: {
+    fontSize: '18px',
+    lineHeight: '22px',
+    [mediaQueries.lg]: {
+      fontSize: '20px',
+      lineHeight: '24px'
     }
   },
   body: {
-    sm: {
-      fontSize: 16,
-      lineHeight: 24
-    },
-    lg: {
-      fontSize: 16,
-      lineHeight: 24
+    fontSize: '16px',
+    lineHeight: '24px',
+    [mediaQueries.lg]: {
+      fontSize: '16px',
+      lineHeight: '24px'
     }
   },
-  pica: {
-    sm: {
-      fontSize: 16,
-      lineHeight: 20
-    },
-    lg: {
-      fontSize: 16,
-      lineHeight: 20
+  400: {
+    fontSize: '16px',
+    lineHeight: '20px',
+    [mediaQueries.lg]: {
+      fontSize: '16px',
+      lineHeight: '20px'
     }
   },
-  longPrimer: {
-    sm: {
-      fontSize: 15,
-      lineHeight: 18
-    },
-    lg: {
-      fontSize: 14,
-      lineHeight: 18
+  300: {
+    fontSize: '15px',
+    lineHeight: '18px',
+    [mediaQueries.lg]: {
+      fontSize: '14px',
+      lineHeight: '18px'
     }
   },
-  brevier: {
-    sm: {
-      fontSize: 14,
-      lineHeight: 18
-    },
-    lg: {
-      fontSize: 13,
-      lineHeight: 16
+  200: {
+    fontSize: '14px',
+    lineHeight: '18px',
+    [mediaQueries.lg]: {
+      fontSize: '13px',
+      lineHeight: '16px'
     }
   },
-  minion: {
-    sm: {
-      fontSize: 12,
-      lineHeight: 16
-    },
-    lg: {
-      fontSize: 12,
-      lineHeight: 16
+  100: {
+    fontSize: '12px',
+    lineHeight: '16px',
+    [mediaQueries.lg]: {
+      fontSize: '12px',
+      lineHeight: '16px'
+    }
+  }
+}
+
+export const paragraphScale = {
+  500: {
+    fontSize: '18px',
+    lineHeight: '24px',
+    [mediaQueries.lg]: {
+      fontSize: '20px',
+      lineHeight: '24px'
+    }
+  },
+  400: {
+    fontSize: '16px',
+    lineHeight: '24px',
+    [mediaQueries.lg]: {
+      fontSize: '16px',
+      lineHeight: '24px'
+    }
+  },
+  300: {
+    fontSize: '15px',
+    lineHeight: '24px',
+    [mediaQueries.lg]: {
+      fontSize: '14px',
+      lineHeight: '24px'
     }
   }
 }

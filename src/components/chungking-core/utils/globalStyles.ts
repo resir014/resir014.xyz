@@ -33,6 +33,20 @@ const GlobalStyles = css`
     background-color: ${colors.black};
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  li,
+  blockquote {
+    margin: 0;
+  }
+
   a {
     color: inherit;
     text-decoration: none;

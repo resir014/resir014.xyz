@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import { breakpoints, widths } from '../chungking-core'
+import { mediaQueries, widths } from '../chungking-core'
 
 interface ContainerProps {
   className?: string
@@ -22,13 +22,13 @@ const FluidStyle = css`
 `
 
 const LargeStyles = css`
-  @media (min-width: ${breakpoints.lg}px) {
+  ${mediaQueries.lg} {
     max-width: ${widths.lg}px;
   }
 `
 
 const XLargeStyles = css`
-  @media (min-width: ${breakpoints.xl}px) {
+  ${mediaQueries.xl} {
     max-width: ${widths.xl}px;
   }
 `

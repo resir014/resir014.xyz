@@ -1,26 +1,25 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
-import { SiteMetadata } from '../types/gatsby'
+import { SiteData } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
 
 import filterProjectsByCategory from '../utils/filterProjectsByCategory'
 import getFeaturedProject from '../utils/getFeaturedProject'
-import TemplateWrapper from '../layouts'
+import { TemplateWrapper } from '../layouts'
 
 import { Page, PageHeader, PageTitle, PageContent } from '../components/page'
 import { FeaturedProject, ProjectItemList } from '../components/projects'
 import { Container } from '../components/layout'
+import { Stack } from '../components/chungking-core'
 
 interface ProjectsPageProps {
   location: {
     pathname: string
   }
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     allMarkdownRemark: {
       edges: ProjectField[]
     }
@@ -53,27 +52,23 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
             <PageTitle>Projects</PageTitle>
           </PageHeader>
           <PageContent>
-            {featuredProject ? (
-              <Container>
-                <FeaturedProject
-                  key={featuredProject.node.frontmatter.title}
-                  node={featuredProject.node}
-                />
-              </Container>
-            ) : null}
             <Container>
-              <ProjectItemList
-                title="Web development stuff"
-                projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}
-              />
-              <ProjectItemList
-                title="Open source stuff"
-                projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')}
-              />
-              <ProjectItemList
-                title="Other stuff"
-                projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')}
-              />
+              <Stack spacing="xxl">
+                {featuredProject ? (
+                  <FeaturedProject
+                    key={featuredProject.node.frontmatter.title}
+                    node={featuredProject.node}
+                  />
+                ) : null}
+                <ProjectItemList
+                  title="Web stuff"
+                  projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}
+                />
+                <ProjectItemList
+                  title="Other stuff"
+                  projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'other')}
+                />
+              </Stack>
             </Container>
           </PageContent>
         </article>

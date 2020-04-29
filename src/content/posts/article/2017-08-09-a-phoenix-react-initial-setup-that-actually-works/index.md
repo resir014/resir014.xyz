@@ -8,7 +8,7 @@ syndication:
     url: https://medium.com/@resir014/a-phoenix-react-initial-setup-that-actually-works-c943e48f1e9e
 ---
 
-<div class="message">
+<div class="message message--warning">
 
 **Update 2019-01-14:** Phoenix 1.4 ships with [Webpack](https://webpack.js.org/) by default, therefore making the setup much more straightforward than before. The long-overdue rewrite has been finished, and has also been made up-to-date following recent updates to Phoenix. The [sample repo](https://github.com/resir014/phoenix_react_playground) has also been updated.
 

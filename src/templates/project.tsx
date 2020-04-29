@@ -1,12 +1,12 @@
 import * as React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { RouterProps } from '@reach/router'
 import { graphql } from 'gatsby'
 
-import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { ProjectNode } from '../types/nodes'
 
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import {
   PageHeader,
   PageTitle,
@@ -18,15 +18,10 @@ import {
 } from '../components/page'
 import { ProjectCard, ProjectFooter } from '../components/projects'
 import { AnchorButton } from '../components/chungking-core'
+import { PageWrapper } from '../layouts'
 
 interface ProjectTemplateProps extends RouterProps {
-  data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
-    icon: HCardIcon
-    markdownRemark: ProjectNode
-  }
+  data: PostData<ProjectNode>
 }
 
 const renderLink = (url: string, jumpToProject: boolean) => (

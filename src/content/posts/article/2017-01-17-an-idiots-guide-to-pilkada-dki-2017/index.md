@@ -9,8 +9,10 @@ syndication:
     url: https://medium.com/southeast-asian-social-critique/an-idiots-guide-to-the-2017-jakarta-local-elections-566980ba3605
 ---
 
-<div class="message">
-  <strong>Disclaimer:</strong> This post is intended to be a joke. Please don't take it seriously. I also might have been under the influence of caffeine while writing this. You have been warned.
+<div class="message message--warning">
+
+**Disclaimer:** This post is intended to be a joke. Please don't take it seriously. I also might have been under the influence of caffeine while writing this. You have been warned.
+
 </div>
 
 Before I start, let me just get this out of the way. I'm an idiot. I have been abstaining from national news and media for nearly a couple months now, thanks to [the sorry state that the Indonesian media has thrown themselves into](https://twitter.com/remotivi/status/796607405077495808) over the past few years. So I pretty much know jack shit about the current goings-on in this country. And I like it so far. Being away from the noise actually helped my mental state a bit.

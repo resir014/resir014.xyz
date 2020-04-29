@@ -1,17 +1,16 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
-import { SiteMetadata, HeaderImage, HCardIcon } from '../types/gatsby'
+import { HCardIcon, SiteData } from '../types/gatsby'
 import { ProjectField, BlogPostField } from '../types/fields'
 import { ProjectNode } from '../types/nodes'
 
-import TemplateWrapper from '../layouts'
+import { TemplateWrapper } from '../layouts'
 
 import { Page } from '../components/page'
-import { Divider } from '../components/ui'
 import { HCard } from '../components/indieweb'
-import { NavLinkButton } from '../components/chungking-core'
+import { NavLinkButton, Stack } from '../components/chungking-core'
 import { FeaturedProject } from '../components/projects'
 import {
   HomepageHero,
@@ -29,10 +28,7 @@ interface IndexPageProps {
     pathname: string
   }
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
-    headerImage: HeaderImage
+    site: SiteData
     icon: HCardIcon
     featuredPosts: {
       edges: BlogPostField[]
@@ -70,35 +66,38 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           />
         </HomepageHero>
         <HomepageContent>
-          <HomepageSection>
-            <HomepageSectionTitle>Recent posts</HomepageSectionTitle>
-            {recentPosts.map(({ node }) => (
-              <BlogPostItem key={node.fields.slug} node={node} />
-            ))}
-            <HomepageSectionFooter>
-              <NavLinkButton size="lg" to="/posts">
-                View more posts
-              </NavLinkButton>
-            </HomepageSectionFooter>
-          </HomepageSection>
-          <Divider spacing="large" center />
-          <HomepageSection>
-            <LiveBanner />
-          </HomepageSection>
-          <Divider spacing="large" center />
-          <HomepageSection>
-            <HomepageSectionTitle>Projects</HomepageSectionTitle>
-            <FeaturedProject node={data.featuredProject} />
-            <HomepageSectionFooter>
-              <NavLinkButton size="lg" to="/projects">
-                View more of my stuff
-              </NavLinkButton>
-            </HomepageSectionFooter>
-          </HomepageSection>
-          <Divider spacing="large" center />
-          <HomepageSection>
-            <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-          </HomepageSection>
+          <Stack spacing={64}>
+            <HomepageSection>
+              <Stack spacing="lg">
+                <HomepageSectionTitle>Recent posts</HomepageSectionTitle>
+                {recentPosts.map(({ node }) => (
+                  <BlogPostItem key={node.fields.slug} node={node} />
+                ))}
+                <HomepageSectionFooter>
+                  <NavLinkButton size="lg" to="/posts">
+                    View more posts
+                  </NavLinkButton>
+                </HomepageSectionFooter>
+              </Stack>
+            </HomepageSection>
+            <HomepageSection>
+              <LiveBanner />
+            </HomepageSection>
+            <HomepageSection>
+              <Stack spacing="lg">
+                <HomepageSectionTitle>Projects</HomepageSectionTitle>
+                <FeaturedProject node={data.featuredProject} />
+                <HomepageSectionFooter>
+                  <NavLinkButton size="lg" to="/projects">
+                    View more of my stuff
+                  </NavLinkButton>
+                </HomepageSectionFooter>
+              </Stack>
+            </HomepageSection>
+            <HomepageSection>
+              <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
+            </HomepageSection>
+          </Stack>
         </HomepageContent>
       </Page>
     </TemplateWrapper>
@@ -127,13 +126,6 @@ export const pageQuery = graphql`
             tumblr
             github
           }
-        }
-      }
-    }
-    headerImage: file(absolutePath: { regex: "/assets/images/architect.svg$/" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
         }
       }
     }

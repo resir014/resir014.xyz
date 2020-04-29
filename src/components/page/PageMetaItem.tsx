@@ -24,7 +24,7 @@ const Span = styled(Text)`
 `
 
 const PageMetaItem: React.SFC<PostMetaItemProps> = ({ className, children }) => (
-  <Span scale="pica" fontWeight={300} className={className}>
+  <Span variant={400} fontWeight={300} className={className}>
     {children}
   </Span>
 )
