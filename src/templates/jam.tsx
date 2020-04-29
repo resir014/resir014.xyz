@@ -2,9 +2,9 @@ import * as React from 'react'
 import classnames from 'clsx'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
-import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { JamNode } from '../types/nodes'
 
 import {
@@ -15,17 +15,12 @@ import {
   MarkdownContent
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import { VideoCard, LiteYouTube } from '../components/video'
+import { PageWrapper } from '../layouts'
 
 interface JamTemplateProps extends RouterProps {
-  data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
-    icon: HCardIcon
-    markdownRemark: JamNode
-  }
+  data: PostData<JamNode>
 }
 
 const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {

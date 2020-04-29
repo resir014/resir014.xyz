@@ -1,16 +1,23 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
 import { Container } from '../layout'
+import { Box, BoxProps } from '../chungking-core'
 
-interface HomepageSectionProps {
+interface HomepageSectionProps extends BoxProps {
   className?: string
+  style?: React.CSSProperties
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-const HomepageSection: React.SFC<HomepageSectionProps> = ({ children, size, className }) => (
-  <Section className={className}>
+const HomepageSection: React.SFC<HomepageSectionProps> = ({
+  children,
+  size,
+  className,
+  style,
+  ...rest
+}) => (
+  <Box as="section" className={className} style={style} {...rest}>
     <Container size={size}>{children}</Container>
-  </Section>
+  </Box>
 )
 
 export default HomepageSection
@@ -18,5 +25,3 @@ export default HomepageSection
 HomepageSection.defaultProps = {
   size: 'md'
 }
-
-const Section = styled('section')``

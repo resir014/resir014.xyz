@@ -7,13 +7,15 @@ import { ProjectField } from '../../types/fields'
 import {
   Heading,
   Paragraph,
-  space,
   colors,
   shadows,
   Badge,
   AnchorButton,
-  NavLinkButton
+  NavLinkButton,
+  Box,
+  BoxProps
 } from '../chungking-core'
+import ProjectTags from './ProjectTags'
 
 const colorByCategory = (category: string) => {
   switch (category) {
@@ -44,12 +46,11 @@ const renderLink = (url: string, jumpToProject = false) => {
   )
 }
 
-const StyledProjectItem = styled('div')`
+const StyledProjectItem = styled(Box)`
   display: flex;
   flex-direction: column;
   position: relative;
   flex: 1 1 100%;
-  margin-bottom: ${space.lg}px;
   background-color: ${colors.grey90};
   border-radius: 4px;
   overflow: hidden;
@@ -69,14 +70,6 @@ const ProjectHeader = styled('div')<ProjectTitleProps>`
   border-image-slice: 1;
 `
 
-const ProjectTags = styled('div')`
-  margin-top: 16px;
-
-  ${Badge} + ${Badge} {
-    margin-left: 8px;
-  }
-`
-
 const ProjectDetailBox = styled('div')`
   flex: 1 0 auto;
   padding: 8px 16px 24px;
@@ -90,15 +83,17 @@ const ProjectFooter = styled('div')`
   padding: 0 16px 16px;
 `
 
-const ProjectItem: React.SFC<ProjectField> = ({ node }) => {
+type ProjectFieldProps = ProjectField & BoxProps
+
+const ProjectItem: React.SFC<ProjectFieldProps> = ({ node, ...rest }) => {
   const tags = node.fields.tags ? (JSON.parse(node.fields.tags) as string[]) : undefined
   const { title } = node.frontmatter
   const { description, lead, category, project_url, slug, jumpToProject } = node.fields
 
   return (
-    <StyledProjectItem>
+    <StyledProjectItem {...rest}>
       <ProjectHeader category={category}>
-        <Heading as="h3" scale="paragon" m={0}>
+        <Heading as="h3" variant={700} m={0}>
           {title}
         </Heading>
       </ProjectHeader>

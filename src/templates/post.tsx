@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { RouterProps } from '@reach/router'
 
-import { SiteAuthor } from '../types/default'
-import { HCardIcon } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { BlogPostNode } from '../types/nodes'
 
 import {
@@ -19,22 +18,12 @@ import {
   PageContent
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import { P, UL, LI, MessageBox } from '../components/chungking-core'
+import { PageWrapper } from '../layouts'
 
 interface PostTemplateProps extends RouterProps {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-        author: SiteAuthor
-      }
-    }
-    icon: HCardIcon
-    markdownRemark: BlogPostNode
-  }
+  data: PostData<BlogPostNode>
 }
 
 const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {

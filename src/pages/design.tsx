@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import styled from '@emotion/styled'
 import { RouterProps } from '@reach/router'
 
-import { SiteMetadata } from '../types/gatsby'
+import { SiteData } from '../types/gatsby'
 import { ProjectField } from '../types/fields'
 
-import TemplateWrapper from '../layouts'
+import { TemplateWrapper } from '../layouts'
 
 import {
   Page,
@@ -51,9 +51,7 @@ import getFeaturedProject from '../utils/getFeaturedProject'
 
 interface DesignSystemPageProps extends RouterProps {
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
     projects: {
       edges: ProjectField[]
     }
@@ -156,77 +154,71 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
               <H2>Typography</H2>
               <H3>Heading</H3>
               <WrapperRoot>
-                <Heading scale="canon" my="md">
-                  Heading - Canon
+                <Heading variant={900} my="md">
+                  Heading - 900
                 </Heading>
-                <Heading scale="trafalgar" my="md">
-                  Heading - Trafalgar
+                <Heading variant={800} my="md">
+                  Heading - 800
                 </Heading>
-                <Heading scale="paragon" my="md">
-                  Heading - Paragon
+                <Heading variant={700} my="md">
+                  Heading - 700
                 </Heading>
-                <Heading scale="doublePica" my="md">
-                  Heading - Double Pica
+                <Heading variant={600} my="md">
+                  Heading - 600
                 </Heading>
-                <Heading scale="greatPrimer" my="md">
-                  Heading - Great Primer
+                <Heading variant={500} my="md">
+                  Heading - 500
                 </Heading>
-                <Heading scale="body" my="md">
-                  Heading - Body Copy
+                <Heading variant={400} my="md">
+                  Heading - 400
                 </Heading>
-                <Heading scale="pica" my="md">
-                  Heading - Pica
+                <Heading variant={300} my="md">
+                  Heading - 300
                 </Heading>
-                <Heading scale="longPrimer" my="md">
-                  Heading - Long Primer
+                <Heading variant={200} my="md">
+                  Heading - 200
                 </Heading>
-                <Heading scale="brevier" my="md">
-                  Heading - Brevier
-                </Heading>
-                <Heading scale="minion" my="md">
-                  Heading - Minion
+                <Heading variant={100} my="md">
+                  Heading - 100
                 </Heading>
               </WrapperRoot>
               <H3>Text</H3>
               <WrapperRoot>
-                <Text scale="canon" display="block" my="sm">
+                <Text variant={900} display="block" my="sm">
                   Text - Canon
                 </Text>
-                <Text scale="trafalgar" display="block" my="sm">
+                <Text variant={800} display="block" my="sm">
                   Text - Trafalgar
                 </Text>
-                <Text scale="paragon" display="block" my="sm">
+                <Text variant={700} display="block" my="sm">
                   Text - Paragon
                 </Text>
-                <Text scale="doublePica" display="block" my="sm">
+                <Text variant={600} display="block" my="sm">
                   Text - Double Pica
                 </Text>
-                <Text scale="greatPrimer" display="block" my="sm">
+                <Text variant={500} display="block" my="sm">
                   Text - Great Primer
                 </Text>
-                <Text scale="body" display="block" my="sm">
-                  Text - Body Copy
-                </Text>
-                <Text scale="pica" display="block" my="sm">
+                <Text variant={400} display="block" my="sm">
                   Text - Pica
                 </Text>
-                <Text scale="longPrimer" display="block" my="sm">
+                <Text variant={300} display="block" my="sm">
                   Text - Long Primer
                 </Text>
-                <Text scale="brevier" display="block" my="sm">
+                <Text variant={200} display="block" my="sm">
                   Text - Brevier
                 </Text>
-                <Text scale="minion" display="block" my="sm">
+                <Text variant={100} display="block" my="sm">
                   Text - Minion
                 </Text>
               </WrapperRoot>
               <H3>Monospace</H3>
               <WrapperRoot>
-                <Text scale="pica" display="block" fontFamily="monospace" fontWeight={400}>
-                  Text - Pica - Monospace - 400
+                <Text variant={400} display="block" fontFamily="monospace" fontWeight={400}>
+                  Text - 400 - Monospace - Regular
                 </Text>
-                <Text scale="pica" display="block" fontFamily="monospace" fontWeight={700}>
-                  Text - Pica - Monospace - 700
+                <Text variant={400} display="block" fontFamily="monospace" fontWeight={700}>
+                  Text - 400 - Monospace - Bold
                 </Text>
               </WrapperRoot>
 

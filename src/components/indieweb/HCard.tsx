@@ -8,7 +8,7 @@ import {
   Heading,
   Paragraph,
   colors,
-  breakpoints,
+  mediaQueries,
   UnstyledAnchor,
   Box,
   NavLinkButton
@@ -29,7 +29,7 @@ const HCardAvatar = styled('div')`
   justify-content: center;
   margin-bottom: 24px;
 
-  @media (min-width: ${breakpoints.lg}px) {
+  ${mediaQueries.lg} {
     margin-bottom: 0;
   }
 `
@@ -45,7 +45,7 @@ const HCardAvatarImg = styled('img')`
 const HCardDetails = styled('div')`
   flex: 1;
 
-  @media (min-width: ${breakpoints.lg}px) {
+  ${mediaQueries.lg} {
     margin-left: 24px;
   }
 `
@@ -71,12 +71,12 @@ const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
         <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
       </HCardAvatar>
       <HCardDetails>
-        <Heading as="h3" scale="paragon" mt={0} mb="xs">
+        <Heading as="h3" variant={700} mt={0} mb="xs">
           <UnstyledAnchor className="p-name u-url" rel="me" href={author.website}>
             {author.name}
           </UnstyledAnchor>
         </Heading>
-        <Paragraph className="p-note" scale="greatPrimer" m={0} fontWeight={300}>
+        <Paragraph className="p-note" variant={500} m={0} fontWeight={300}>
           {author.description}
         </Paragraph>
         <HCardEmail className="u-email">{author.email}</HCardEmail>
@@ -97,7 +97,7 @@ const Inner = styled('div')`
   flex-direction: column;
   text-align: center;
 
-  @media (min-width: ${breakpoints.lg}px) {
+  ${mediaQueries.lg} {
     flex-direction: row;
     align-items: center;
     text-align: left;

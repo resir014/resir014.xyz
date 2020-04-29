@@ -1,5 +1,5 @@
 ---
-category: oss
+category: web
 layout: project
 title: 'Clear Sans Webfont'
 description: 'Webfont conversion of the <a href="https://01.org/clear-sans" target="_blank" rel="noopener noreferrer">Clear Sans</a> typeface designed by Intel.'

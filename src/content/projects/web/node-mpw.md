@@ -1,5 +1,5 @@
 ---
-category: oss
+category: web
 layout: project
 title: 'node-mpw'
 description: 'Implementation of the Master Password algorithm for nodejs and browser.'

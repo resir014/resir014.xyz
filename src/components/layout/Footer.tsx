@@ -1,10 +1,10 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { Container } from '.'
+import Container from './Container'
 
 import ccLogo from '../../assets/images/cc-by-nc-sa.svg'
-import { P, Small, space, colors, breakpoints } from '../chungking-core'
+import { P, Small, space, colors, mediaQueries } from '../chungking-core'
 
 const StyledFooter = styled('footer')`
   padding: ${space.md}px ${space.lg}px;
@@ -20,7 +20,7 @@ const FooterContent = styled('div')`
       color: ${colors.green30};
     }
 
-    @media (min-width: ${breakpoints.md}px) {
+    ${mediaQueries.md} {
       text-decoration: none;
 
       &:hover,

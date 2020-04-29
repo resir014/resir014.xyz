@@ -1,9 +1,10 @@
 import * as React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
+import { ExternalLink, DollarSign } from 'react-feather'
 
-import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
 import {
@@ -16,30 +17,26 @@ import {
   MarkdownContent
 } from '../components/page'
 import { Box } from '../components/chungking-core'
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import { LiveCTALink } from '../components/ui'
+import { PageWrapper } from '../layouts'
 
 interface LivePageTemplateProps extends RouterProps {
-  data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
-    icon: HCardIcon
-    markdownRemark: PageNode
-  }
+  data: PostData<PageNode>
 }
 
 const LivePageTemplate: React.SFC<LivePageTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
+  const postDescription = post.fields.lead || post.excerpt
 
   return (
     <PageWrapper pageTitle={`${post.frontmatter.title} · ${siteMetadata.title}`}>
       <Helmet>
-        <meta name="description" content={post.fields.lead || post.excerpt} />
+        <meta name="description" content={postDescription} />
         <meta name="author" content={siteMetadata.author.name} />
         <meta property="og:title" content={post.frontmatter.title} />
-        <meta property="og:description" content={post.fields.lead || post.excerpt} />
+        <meta property="og:description" content={postDescription} />
         <meta
           property="og:url"
           content={`${siteMetadata.siteUrl}${location ? location.pathname : ''}`}
@@ -70,10 +67,15 @@ const LivePageTemplate: React.SFC<LivePageTemplateProps> = ({ data, location }) 
           <Container>
             <MarkdownContent className="e-content" html={post.html} />
             <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
-              <LiveCTALink isExternal backgroundColor="#9146FF" to="https://www.twitch.tv/resir014">
+              <LiveCTALink
+                isExternal
+                backgroundColor="#9146FF"
+                to="https://www.twitch.tv/resir014"
+                icon={<ExternalLink size={24} />}
+              >
                 Follow Me!
               </LiveCTALink>
-              <LiveCTALink backgroundColor="grey90" to="/support">
+              <LiveCTALink backgroundColor="grey90" to="/support" icon={<DollarSign size={24} />}>
                 Tip Jar
               </LiveCTALink>
             </Box>

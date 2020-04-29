@@ -1,48 +1,43 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import { TypeScale, Color } from '../../../Theme'
+import { layout, space, color, typography, variant } from 'styled-system'
 
-import { determineFontDimensions } from '../utils'
-import { Typography, TypographyProps } from './Typography'
+import { typeScale } from '../../../utils'
 
-export interface HeadingProps extends TypographyProps {
-  /** Additional CSS classes to add to the component. */
-  className?: string
-  /** Additional CSS properties to add to the component. */
-  style?: React.CSSProperties
-  /** What HTML element to render the text as. */
-  as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
-  /** Size value of the text. */
-  scale?: TypeScale
-  /** Color value of the text. */
-  color?: Color
-}
+import { TypographyProps } from './Typography'
+
+export type HeadingProps = TypographyProps
 
 /**
  * This is a base `Text` element to handle typography elements.
  */
-const StyledText = styled<typeof Typography, HeadingProps>(Typography)`
-  font-weight: 600;
+const StyledText = styled<'span', HeadingProps>('span', { shouldForwardProp })`
+  ${variant({
+    prop: 'variant',
+    variants: typeScale
+  })}
+
+  ${layout}
+  ${space}
+  ${color}
+  ${typography}
 `
 
 /**
  * Heading component provided as a styled component primitive.
  */
-export const Heading: React.SFC<HeadingProps> = ({
-  children,
-  as,
-  scale = 'paragon',
-  color,
-  ...rest
-}) => (
-  <StyledText as={as} css={determineFontDimensions(scale)} color={color} {...rest}>
+export const Heading: React.SFC<HeadingProps> = ({ children, as, ...rest }) => (
+  <StyledText as={as} {...rest}>
     {children}
   </StyledText>
 )
 
 Heading.defaultProps = {
-  as: 'h2'
+  as: 'h2',
+  fontWeight: 600,
+  variant: 700
 }
 
 Heading.displayName = 'Heading'

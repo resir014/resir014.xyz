@@ -1,8 +1,7 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import { Paragraph, ParagraphProps, Text, TextProps } from '../../foundations'
+import { Paragraph, ParagraphProps, Text, TextProps, Box, BoxProps, Stack } from '../../foundations'
 import { colors, space } from '../../utils'
 
 interface WithStylesProps {
@@ -15,7 +14,7 @@ export const P: React.FC<WithStylesProps & ParagraphProps> = ({ children, ...res
 )
 
 export const Small: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text scale="brevier" {...rest}>
+  <Text variant={200} {...rest}>
     {children}
   </Text>
 )
@@ -23,14 +22,6 @@ export const Small: React.FC<WithStylesProps & TextProps> = ({ children, ...rest
 const UnorderedListStyles = css`
   display: block;
   list-style-type: none;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   > li::before {
     content: '–';
@@ -44,53 +35,12 @@ const UnorderedListStyles = css`
 const OrderedListStyles = css`
   display: block;
   list-style-type: decimal;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 `
 
-const ListItemStyles = css`
-  &:last-child {
-    margin-bottom: 0;
-  }
-`
-
-export const UL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text as="ul" css={UnorderedListStyles} m="sm" ml="md" p={0} {...rest}>
-    {children}
-  </Text>
-)
-
-export const OL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text as="ol" css={OrderedListStyles} m="sm" ml="md" p={0} {...rest}>
-    {children}
-  </Text>
-)
-
-export const LI: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text as="li" css={ListItemStyles} mt={0} mb="sm" {...rest}>
-    {children}
-  </Text>
-)
-
-export const InlineCode = styled('code')`
-  padding: 0.125rem 0.25rem;
-  font-size: 90%;
-  color: ${colors.magenta30};
-  background-color: #1d1f21;
-  border-radius: 3px;
-`
-
-export const Blockquote = styled('blockquote')`
+const BlockquoteStyles = css`
   padding: 0;
   padding-right: ${space.md}px;
   padding-left: ${space.sm}px;
-  margin: ${space.md}px 0;
   color: ${colors.grey30};
   border-left: 1px solid ${colors.white};
 
@@ -102,3 +52,41 @@ export const Blockquote = styled('blockquote')`
     margin-bottom: 0;
   }
 `
+
+const InlineCodeStyles = css`
+  padding: 0.125rem 0.25rem;
+  font-size: 90%;
+  color: ${colors.magenta30};
+  background-color: #1d1f21;
+  border-radius: 3px;
+`
+
+export const UL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
+  <Stack as="ul" css={UnorderedListStyles} spacing="sm" ml="md" mr="sm" p={0} {...rest}>
+    {children}
+  </Stack>
+)
+
+export const OL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
+  <Stack as="ol" css={OrderedListStyles} spacing="sm" ml="md" mr="sm" p={0} {...rest}>
+    {children}
+  </Stack>
+)
+
+export const LI: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
+  <Paragraph as="li" mt={0} {...rest}>
+    {children}
+  </Paragraph>
+)
+
+export const Blockquote: React.FC<WithStylesProps & BoxProps> = ({ children, ...rest }) => (
+  <Box as="blockquote" css={BlockquoteStyles} {...rest}>
+    {children}
+  </Box>
+)
+
+export const InlineCode: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
+  <Text as="code" css={InlineCodeStyles} {...rest}>
+    {children}
+  </Text>
+)

@@ -3,6 +3,7 @@ import { SiteAuthor } from './default'
 
 export type Fluid = FluidObject
 export type Fixed = FixedObject
+
 export interface SiteMetadata {
   title: string
   tagline: string
@@ -10,6 +11,10 @@ export interface SiteMetadata {
   siteUrl: string
   flavourText?: string
   author: SiteAuthor
+}
+
+export interface SiteData {
+  siteMetadata: SiteMetadata
 }
 
 export interface HCardIcon {
@@ -22,4 +27,10 @@ export interface HeaderImage {
 
 export interface ChildImageSharp {
   fluid: Fluid
+}
+
+export interface PostData<TNode = any> {
+  site: SiteData
+  icon: HCardIcon
+  markdownRemark: TNode
 }

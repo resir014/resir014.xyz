@@ -54,7 +54,7 @@ const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author 
       <HCardDetails>
         <HeadingAnchor
           as="a"
-          scale="greatPrimer"
+          variant={500}
           display="block"
           m={0}
           className="p-name u-url"

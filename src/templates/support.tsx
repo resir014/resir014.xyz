@@ -6,7 +6,6 @@ import { RouterProps } from '@reach/router'
 import { PostData } from '../types/gatsby'
 import { PageNode } from '../types/nodes'
 
-import { Container } from '../components/layout'
 import {
   PageHeader,
   PageTitle,
@@ -16,13 +15,16 @@ import {
   PageThumbnailImage,
   MarkdownContent
 } from '../components/page'
+import { Box, Stack, Heading, Text } from '../components/chungking-core'
+import { Container } from '../components/layout'
+import { LiveCTALink } from '../components/ui'
 import { PageWrapper } from '../layouts'
 
-interface PageTemplateProps extends RouterProps {
+interface SupportPageTemplateProps extends RouterProps {
   data: PostData<PageNode>
 }
 
-const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
+const SupportPageTemplate: React.SFC<SupportPageTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const postDescription = post.fields.lead || post.excerpt
@@ -63,6 +65,55 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
         <PageContent>
           <Container>
             <MarkdownContent className="e-content" html={post.html} />
+            <Stack spacing="xl" mt="xxl">
+              <Stack spacing="lg">
+                <Heading variant={800}>Support my stream!</Heading>
+                <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
+                  <LiveCTALink
+                    isExternal
+                    backgroundColor="#faae2b"
+                    color="grey90"
+                    to="https://saweria.co/resir014"
+                  >
+                    Saweria*
+                  </LiveCTALink>
+                  <LiveCTALink
+                    isExternal
+                    backgroundColor="#128079"
+                    to="https://streamlabs.com/resir014"
+                  >
+                    Streamlabs
+                  </LiveCTALink>
+                </Box>
+              </Stack>
+            </Stack>
+            <Stack spacing="xl" mt="xxl">
+              <Stack spacing="lg">
+                <Heading variant={800}>Support my work!</Heading>
+                <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap="md" mt="xl">
+                  <LiveCTALink
+                    isExternal
+                    backgroundColor="grey90"
+                    to="https://karyakarsa.com/resir014"
+                  >
+                    Karyakarsa*
+                  </LiveCTALink>
+                  <LiveCTALink
+                    isExternal
+                    backgroundColor="#be1e2d"
+                    to="https://trakteer.id/resir014"
+                  >
+                    Trakteer*
+                  </LiveCTALink>
+                  <LiveCTALink isExternal backgroundColor="#29abe0" to="https://ko-fi.com/resir014">
+                    Ko-fi
+                  </LiveCTALink>
+                </Box>
+              </Stack>
+              <Box>
+                <Text>(*Indonesia only.)</Text>
+              </Box>
+            </Stack>
             <div className="hidden">
               <p>
                 <a
@@ -80,10 +131,10 @@ const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
   )
 }
 
-export default PageTemplate
+export default SupportPageTemplate
 
 export const pageQuery = graphql`
-  query PageQuery($slug: String!) {
+  query SupportPageQuery($slug: String!) {
     site {
       siteMetadata {
         title

@@ -9,35 +9,25 @@ import { LiteYouTube } from '../video'
 import { MarkdownContent, BookmarkLink } from '../page'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
-import { NavLinkButton, Heading } from '../chungking-core'
+import { NavLinkButton, Heading, Stack, Box } from '../chungking-core'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
 `
 
-const PostThumbnailImage = styled('img')`
+const PostThumbnailImage = styled(Box)`
   margin: 0;
 `
 
 const PostDetailBox = styled('section')``
 
 const PostTitle: React.FC = ({ children }) => (
-  <Heading scale="trafalgar" mt={0} mb="sm">
+  <Heading variant={800} mt={0} mb="sm">
     {children}
   </Heading>
 )
 
-const PostContent = styled('div')`
-  padding: 24px;
-
-  &:first-child {
-    padding-top: 0;
-  }
-
-  &:last-child {
-    padding-bottom: 24px;
-  }
-`
+const PostContent = styled(Box)``
 
 const BlogPostFooter = styled('div')`
   padding: 0 24px 24px;
@@ -58,13 +48,15 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
     <PostDetailBox>
       {node.frontmatter.header_image && (
         <PostThumbnailImage
+          as="img"
+          pb={24}
           className="u-featured"
           src={node.frontmatter.header_image.childImageSharp.fluid.src}
           alt={node.frontmatter.title || 'Photo posted by @resir014'}
           srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
         />
       )}
-      <PostContent>
+      <PostContent p={24} pt={0}>
         <PostTitle>
           <PostTitleLink className="p-name" to={node.fields.slug}>
             {node.frontmatter.title}
@@ -88,7 +80,7 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
 export function renderNoteTemplate(node: BlogPostNode): JSX.Element {
   return (
     <PostDetailBox>
-      <PostContent>
+      <PostContent p={24} pt={0}>
         {node.frontmatter.title && (
           <PostTitle>
             <PostTitleLink className="p-name" to={node.fields.slug}>
@@ -109,7 +101,7 @@ export function renderVideoTemplate(node: BlogPostNode) {
   return (
     <PostDetailBox>
       {node.fields.youtube_embed_id && <LiteYouTube videoId={node.fields.youtube_embed_id} />}
-      <PostContent>
+      <PostContent p={24}>
         {node.frontmatter.title && (
           <PostTitle>
             <PostTitleLink className="p-name" to={node.fields.slug}>
@@ -137,7 +129,7 @@ export function renderPhotoTemplate(node: BlogPostNode): JSX.Element {
           srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
         />
       )}
-      <PostContent>
+      <PostContent p={24}>
         {node.frontmatter.title && (
           <PostTitle>
             <PostTitleLink className="p-name" to={node.fields.slug}>
@@ -157,9 +149,11 @@ export function renderPhotoTemplate(node: BlogPostNode): JSX.Element {
 export function renderBookmarkTemplate(node: BlogPostNode): JSX.Element {
   return (
     <PostDetailBox>
-      <PostContent>
-        <BookmarkLink link={node.fields.link} title={node.frontmatter.title} />
-        <MarkdownContent className="e-content" html={node.html} />
+      <PostContent p={24} pt={0}>
+        <Stack spacing="md">
+          <BookmarkLink link={node.fields.link} title={node.frontmatter.title} />
+          <MarkdownContent className="e-content" html={node.html} />
+        </Stack>
       </PostContent>
     </PostDetailBox>
   )

@@ -1,10 +1,9 @@
 import * as React from 'react'
-import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 import { BlogPostField } from '../../types/fields'
+import { Box, BoxProps } from '../chungking-core'
 import { PageMetaItem } from '../page'
-import { colors, shadows, space } from '../chungking-core'
 
 import PostIndexItemMeta from './PostIndexItemMeta'
 import PostIndexItemHeader from './PostIndexItemHeader'
@@ -16,25 +15,23 @@ import {
   renderBookmarkTemplate
 } from './templates'
 
-const StyledPostItem = styled('article')`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: ${space.xxl}px;
-  background-color: ${colors.grey90};
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: ${shadows.single};
+type BlogPostItemProps = BlogPostField & BoxProps
 
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-`
-
-const BlogPostItem: React.FC<BlogPostField> = ({ node }) => {
+const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, ...rest }) => {
   const { date, date_ogp, category, slug } = node.fields
 
   return (
-    <StyledPostItem className="h-entry">
+    <Box
+      as="article"
+      display="flex"
+      flexDirection="column"
+      overflow="hidden"
+      backgroundColor="grey90"
+      boxShadow="single"
+      borderRadius={6}
+      className="h-entry"
+      {...rest}
+    >
       <PostIndexItemHeader>
         <PostIndexItemMeta>
           <PageMetaItem>
@@ -53,7 +50,7 @@ const BlogPostItem: React.FC<BlogPostField> = ({ node }) => {
       {node.fields.category === 'photo' && renderPhotoTemplate(node)}
       {node.fields.category === 'jam' && renderVideoTemplate(node)}
       {node.fields.category === 'bookmark' && renderBookmarkTemplate(node)}
-    </StyledPostItem>
+    </Box>
   )
 }
 

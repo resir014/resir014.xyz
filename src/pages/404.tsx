@@ -1,18 +1,16 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
-import { SiteMetadata } from '../types/gatsby'
+import { SiteData } from '../types/gatsby'
 
-import TemplateWrapper from '../layouts'
+import { TemplateWrapper } from '../layouts'
 
 import { Page, PageHeader, PageTitle, PageSubtitle } from '../components/page'
 
 interface NotFoundPageProps {
   data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
+    site: SiteData
   }
 }
 

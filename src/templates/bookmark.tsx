@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { RouterProps } from '@reach/router'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
-import { SiteMetadata, HCardIcon } from '../types/gatsby'
+import { PostData } from '../types/gatsby'
 import { BookmarkNode } from '../types/nodes'
 
-import { Container, PageWrapper } from '../components/layout'
+import { Container } from '../components/layout'
 import {
   PageHeader,
   PageSubtitle,
@@ -17,15 +17,11 @@ import {
   BookmarkLink
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
+import { PageWrapper } from '../layouts'
+import { Stack } from '../components/chungking-core'
 
 interface BookmarkTemplateProps extends RouterProps {
-  data: {
-    site: {
-      siteMetadata: SiteMetadata
-    }
-    icon: HCardIcon
-    markdownRemark: BookmarkNode
-  }
+  data: PostData<BookmarkNode>
 }
 
 const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) => {
@@ -68,8 +64,10 @@ const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) 
             ) : null}
           </PageMeta>
           <HCardPost icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-          <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
-          {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+          <Stack spacing="md">
+            <BookmarkLink link={post.fields.link} title={post.frontmatter.title} />
+            {post.fields.lead ? <PageSubtitle>{post.fields.lead}</PageSubtitle> : null}
+          </Stack>
         </PageHeader>
         <PageContent>
           <Container>

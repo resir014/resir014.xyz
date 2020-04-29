@@ -1,5 +1,5 @@
 ---
-category: oss
+category: web
 layout: project
 title: 'phoenix_react_playground'
 project_url: 'https://github.com/resir014/phoenix_react_playground'
