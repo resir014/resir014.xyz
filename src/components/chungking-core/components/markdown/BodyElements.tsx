@@ -23,14 +23,6 @@ const UnorderedListStyles = css`
   display: block;
   list-style-type: none;
 
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   > li::before {
     content: '–';
     display: inline-block;
@@ -43,20 +35,6 @@ const UnorderedListStyles = css`
 const OrderedListStyles = css`
   display: block;
   list-style-type: decimal;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-`
-
-const ListItemStyles = css`
-  &:last-child {
-    margin-bottom: 0;
-  }
 `
 
 const BlockquoteStyles = css`
@@ -96,7 +74,7 @@ export const OL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest })
 )
 
 export const LI: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Paragraph as="li" css={ListItemStyles} mt={0} {...rest}>
+  <Paragraph as="li" mt={0} {...rest}>
     {children}
   </Paragraph>
 )

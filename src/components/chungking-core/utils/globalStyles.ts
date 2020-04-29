@@ -39,7 +39,11 @@ const GlobalStyles = css`
   h4,
   h5,
   h6,
-  p {
+  p,
+  ul,
+  ol,
+  li,
+  blockquote {
     margin: 0;
   }
 
@@ -65,10 +69,6 @@ const GlobalStyles = css`
 
   figcaption {
     font-size: 80%;
-  }
-
-  blockquote {
-    margin: 0;
   }
 
   code,
