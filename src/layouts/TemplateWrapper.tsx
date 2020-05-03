@@ -13,7 +13,7 @@ import { SiteMetadata } from '../types/gatsby'
 import { LayoutRoot } from '../components/ui'
 import { Masthead, Footer } from '../components/layout'
 
-import PrismTheme from '../styles/prismjs-theme'
+import PrismTheme from '../styles/PrismTheme'
 import { Theme, GlobalStyles } from '../components/chungking-core'
 
 interface WrapperData {
