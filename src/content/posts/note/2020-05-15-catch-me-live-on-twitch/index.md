@@ -4,7 +4,7 @@ layout: post
 date: 2020-05-15T14:55:00+07:00
 ---
 
-In case you missed it, I've started streaming live coding and a variety of video games on [Twitch](https://www.twitch.tv/resir014)!
+In case you missed it, I've started streaming on [Twitch](https://www.twitch.tv/resir014)!
 
 ## Why I started streaming
 
