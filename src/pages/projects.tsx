@@ -31,7 +31,7 @@ interface ProjectsPageProps {
 
 const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
   const { siteMetadata } = data.site
-  const featuredProject = getFeaturedProject(data.allMarkdownRemark.edges, 'Pinjollist')
+  const featuredProject = getFeaturedProject(data.allMarkdownRemark.edges, 'KawalCOVID19.id')
 
   return (
     <TemplateWrapper>
