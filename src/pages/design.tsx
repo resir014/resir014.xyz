@@ -425,6 +425,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
                 title={testProjectNode.frontmatter.title}
                 description={testProjectNode.fields.description || testProjectNode.fields.lead}
                 tags={testProjectTags}
+                mb="lg"
               />
               <ProjectCard
                 image={testProjectNode.frontmatter.header_image}

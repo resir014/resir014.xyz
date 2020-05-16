@@ -15,7 +15,8 @@ const StyledOutboundLink = styled(UnstyledAnchor)``.withComponent(OutboundLink)
 
 const Root = styled(StyledOutboundLink)`
   display: block;
-  background: linear-gradient(to right, ${colors.blue30}, ${colors.green30});
+  background-color: ${colors.ultramarine30};
+  background-image: linear-gradient(to right, ${colors.ultramarine30}, ${colors.blue30});
   color: ${colors.white};
   border-radius: 4px;
   overflow: hidden;
