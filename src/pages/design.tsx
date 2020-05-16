@@ -380,9 +380,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
               </WrapperRoot>
               <H3>Blockquote</H3>
               <WrapperRoot>
-                <div style={{ padding: '16px 0 0' }}>
-                  <Blockquote>The quick brown fox jumps over the lazy dog.</Blockquote>
-                </div>
+                <Blockquote>The quick brown fox jumps over the lazy dog.</Blockquote>
               </WrapperRoot>
               <H3>Bookmark Link</H3>
               <WrapperRoot>
