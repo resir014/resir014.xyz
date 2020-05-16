@@ -1,11 +1,9 @@
 import * as React from 'react'
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
 
 import { ChildImageSharp } from '../../types/gatsby'
 
 import { PageThumbnail, PageThumbnailImage } from '../page'
-import { Heading, Text, colors, shadows, space, Badge, Box, BoxProps } from '../chungking-core'
+import { Heading, Text, Badge, Box, BoxProps } from '../chungking-core'
 import ProjectTags from './ProjectTags'
 
 interface ProjectCardProps extends BoxProps {
@@ -17,36 +15,23 @@ interface ProjectCardProps extends BoxProps {
   }
 }
 
-const Root = styled(Box)`
-  padding: 0;
-  background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: ${shadows.single};
-`
-
-const Inner = styled('div')`
-  padding: ${space.md}px ${space.lg}px ${space.lg}px;
-`
-
 const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, tags, ...rest }) => (
-  <Root as="section" {...rest}>
+  <Box
+    as="section"
+    p={0}
+    backgroundColor="ultramarine30"
+    borderRadius={8}
+    overflow="hidden"
+    boxShadow="single"
+    {...rest}
+  >
     {image && (
       <PageThumbnail>
         <PageThumbnailImage fluid={image.childImageSharp.fluid} alt={title} />
       </PageThumbnail>
     )}
-    <Inner>
-      <Heading
-        as="h1"
-        variant={900}
-        mt={0}
-        mb="xs"
-        css={css`
-          color: #00f281;
-        `}
-        className="p-name"
-      >
+    <Box p="lg" pt="md">
+      <Heading as="h1" variant={900} mt={0} mb="xs" color="green30" className="p-name">
         {title}
       </Heading>
       {description ? (
@@ -63,8 +48,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, ta
           ))}
         </ProjectTags>
       ) : null}
-    </Inner>
-  </Root>
+    </Box>
+  </Box>
 )
 
 export default ProjectCard
