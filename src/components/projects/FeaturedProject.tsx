@@ -9,7 +9,6 @@ import {
   mediaQueries,
   colors,
   shadows,
-  space,
   Badge,
   NavLinkButton,
   Box,
@@ -42,24 +41,7 @@ const FeaturedProjectDetails = styled('div')`
   display: flex;
   flex-direction: column;
   padding: 24px;
-  background: linear-gradient(to right, ${colors.ultramarine30}, ${colors.green30});
-`
-
-const FeaturedProjectHeading = styled('div')`
-  color: ${colors.white};
-  margin: 0;
-`
-
-const FeaturedProjectDescription = styled('div')`
-  flex: 1;
-
-  p {
-    margin: 0;
-  }
-`
-
-const FeaturedProjectFooter = styled('div')`
-  margin-top: ${space.xl}px;
+  background-color: ${colors.ultramarine30};
 `
 
 interface FeaturedProjectProps extends ProjectField, BoxProps {
@@ -75,31 +57,24 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className, styl
     <FeaturedProjectWrapper as="section" className={className} style={style} {...rest}>
       {header_image ? <FeaturedProjectThumbnail className="column" image={header_image} /> : null}
       <FeaturedProjectDetails className="column">
-        <FeaturedProjectHeading>
+        <Box>
           <Text
             variant={300}
             letterSpacing="0.01em"
             fontWeight={300}
+            color="white"
             css={css`
               text-transform: uppercase;
             `}
           >
             Featured project
           </Text>
-          <Heading
-            as="h3"
-            variant={700}
-            mt="xxs"
-            mb="sm"
-            css={css`
-              color: #00f281;
-            `}
-          >
+          <Heading as="h3" variant={700} mt="xxs" mb="sm" color="green30">
             {node.frontmatter.title}
           </Heading>
-        </FeaturedProjectHeading>
-        <FeaturedProjectDescription>
-          <P>{node.fields.description}</P>
+        </Box>
+        <Box flex="1">
+          <P m={0}>{node.fields.description}</P>
           {tags ? (
             <ProjectTags>
               {tags.map(tag => (
@@ -107,12 +82,12 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className, styl
               ))}
             </ProjectTags>
           ) : null}
-        </FeaturedProjectDescription>
-        <FeaturedProjectFooter>
+        </Box>
+        <Box mt="xl">
           <NavLinkButton ghosted size="lg" to={node.fields.slug}>
             Visit project &rarr;
           </NavLinkButton>
-        </FeaturedProjectFooter>
+        </Box>
       </FeaturedProjectDetails>
     </FeaturedProjectWrapper>
   )
