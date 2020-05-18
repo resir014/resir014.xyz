@@ -185,31 +185,31 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
               <H3>Text</H3>
               <WrapperRoot>
                 <Text variant={900} display="block" my="sm">
-                  Text - Canon
+                  Text - 900
                 </Text>
                 <Text variant={800} display="block" my="sm">
-                  Text - Trafalgar
+                  Text - 800
                 </Text>
                 <Text variant={700} display="block" my="sm">
-                  Text - Paragon
+                  Text - 700
                 </Text>
                 <Text variant={600} display="block" my="sm">
-                  Text - Double Pica
+                  Text - 600
                 </Text>
                 <Text variant={500} display="block" my="sm">
-                  Text - Great Primer
+                  Text - 500
                 </Text>
                 <Text variant={400} display="block" my="sm">
-                  Text - Pica
+                  Text - 400
                 </Text>
                 <Text variant={300} display="block" my="sm">
-                  Text - Long Primer
+                  Text - 300
                 </Text>
                 <Text variant={200} display="block" my="sm">
-                  Text - Brevier
+                  Text - 200
                 </Text>
                 <Text variant={100} display="block" my="sm">
-                  Text - Minion
+                  Text - 100
                 </Text>
               </WrapperRoot>
               <H3>Monospace</H3>
