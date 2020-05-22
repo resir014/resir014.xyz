@@ -27,7 +27,7 @@ interface TemplateWrapperProps {
 }
 
 const query = graphql`
-  query IndexQuery {
+  query TemplateWrapperQuery {
     site {
       siteMetadata {
         title
@@ -48,18 +48,6 @@ const query = graphql`
   }
 `
 
-const OpenGraphTags: React.FC<WrapperData> = ({ site }) => {
-  return (
-    <>
-      <meta name="description" content={site.siteMetadata.description} />
-      <meta property="og:site_name" content={site.siteMetadata.title} />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={site.siteMetadata.title} />
-      <meta property="og:description" content={site.siteMetadata.description} />
-    </>
-  )
-}
-
 const TemplateWrapper: React.FC<TemplateWrapperProps> = ({ children, layoutSize }) => {
   return (
     <StaticQuery query={query}>
@@ -70,7 +58,11 @@ const TemplateWrapper: React.FC<TemplateWrapperProps> = ({ children, layoutSize 
             <Global styles={PrismTheme} />
             <Helmet>
               <title>{data.site.siteMetadata.title}</title>
-              <OpenGraphTags site={data.site} />
+              <meta name="description" content={data.site.siteMetadata.description} />,
+              <meta property="og:site_name" content={data.site.siteMetadata.title} />,
+              <meta property="og:type" content="website" />,
+              <meta property="og:title" content={data.site.siteMetadata.title} />,
+              <meta property="og:description" content={data.site.siteMetadata.description} />
               <meta name="twitter:dnt" content="on" />
               {Object.keys(data.site.siteMetadata.author.url).map(key => (
                 <link key={key} rel="me" href={data.site.siteMetadata.author.url[key]} />
