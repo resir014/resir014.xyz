@@ -7,7 +7,8 @@ import ccLogo from '../../assets/images/cc-by-nc-sa.svg'
 import { P, Small, space, colors, mediaQueries } from '../chungking-core'
 
 const StyledFooter = styled('footer')`
-  padding: ${space.md}px ${space.lg}px;
+  border-top: 1px solid ${colors.grey90};
+  padding: ${space.lg}px;
 `
 
 const FooterContent = styled('div')`

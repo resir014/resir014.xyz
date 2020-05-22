@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { transparentize } from 'polished'
 import classnames from 'clsx'
 import styled from '@emotion/styled'
 
@@ -11,7 +12,8 @@ import {
   mediaQueries,
   UnstyledAnchor,
   Box,
-  NavLinkButton
+  Text,
+  UnstyledLink
 } from '../chungking-core'
 
 interface HCardProps {
@@ -30,24 +32,21 @@ const HCardAvatar = styled('div')`
   margin-bottom: 24px;
 
   ${mediaQueries.lg} {
-    margin-bottom: 0;
+    text-align: left;
+    justify-content: flex-start;
   }
 `
 
 const HCardAvatarImg = styled('img')`
-  width: 128px;
-  height: 128px;
+  width: 72px;
+  height: 72px;
   margin: 0;
-  border-radius: 128px;
+  border-radius: 72px;
   border: 2px solid ${colors.white};
 `
 
 const HCardDetails = styled('div')`
   flex: 1;
-
-  ${mediaQueries.lg} {
-    margin-left: 24px;
-  }
 `
 
 const HCardEmail = styled('span')`
@@ -59,47 +58,50 @@ const HCardFooter = styled('div')`
   word-wrap: break-word;
 `
 
-const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
-  <Box
-    className={classnames(className, 'h-card')}
-    display={hidden ? 'none' : 'block'}
-    my="xl"
-    color="inherit"
-  >
-    <Inner>
-      <HCardAvatar>
-        <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
-      </HCardAvatar>
-      <HCardDetails>
-        <Heading as="h3" variant={700} mt={0} mb="xs">
-          <UnstyledAnchor className="p-name u-url" rel="me" href={author.website}>
-            {author.name}
-          </UnstyledAnchor>
-        </Heading>
-        <Paragraph className="p-note" variant={500} m={0} fontWeight={300}>
-          {author.description}
-        </Paragraph>
-        <HCardEmail className="u-email">{author.email}</HCardEmail>
-        <HCardFooter>
-          <NavLinkButton to="/contact" ghosted>
-            Contact me &rarr;
-          </NavLinkButton>
-        </HCardFooter>
-      </HCardDetails>
-    </Inner>
-  </Box>
-)
-
-export default HCard
-
 const Inner = styled('div')`
   display: flex;
   flex-direction: column;
   text-align: center;
 
   ${mediaQueries.lg} {
-    flex-direction: row;
-    align-items: center;
     text-align: left;
   }
 `
+
+const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
+  <UnstyledLink to="/contact">
+    <Box
+      className={classnames(className, 'h-card')}
+      display={hidden ? 'none' : 'block'}
+      p="md"
+      backgroundColor={transparentize(0.75, colors.ultramarine30)}
+      border="2px solid"
+      borderColor="ultramarine30"
+      borderRadius={6}
+      color="inherit"
+      boxShadow="single"
+    >
+      <Inner>
+        <HCardAvatar>
+          <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
+        </HCardAvatar>
+        <HCardDetails>
+          <Heading as="h3" variant={700} mt={0} mb="xs">
+            <UnstyledAnchor className="p-name u-url" rel="me" href={author.website}>
+              {author.name}
+            </UnstyledAnchor>
+          </Heading>
+          <Paragraph className="p-note" variant={500} m={0} fontWeight={300}>
+            {author.description}
+          </Paragraph>
+          <HCardEmail className="u-email">{author.email}</HCardEmail>
+          <HCardFooter>
+            <Text>Contact me &rarr;</Text>
+          </HCardFooter>
+        </HCardDetails>
+      </Inner>
+    </Box>
+  </UnstyledLink>
+)
+
+export default HCard

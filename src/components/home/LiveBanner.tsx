@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
+import { transparentize } from 'polished'
 
 import { Box, Heading, Text, UnstyledLink } from '../chungking-core'
 import TwitchLogo from '../../assets/images/logo-twitch.png'
@@ -18,7 +19,9 @@ const LiveBanner: React.FC = () => {
         gridTemplateColumns="auto 48px"
         gridGap="md"
         p="md"
-        bg="#9146FF"
+        border="2px solid"
+        borderColor="#9146FF"
+        bg={transparentize(0.75, '#9146FF')}
         borderRadius={6}
         boxShadow="single"
       >
