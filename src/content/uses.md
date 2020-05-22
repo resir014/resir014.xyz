@@ -23,12 +23,19 @@ lead: 'Tools of the trade.'
 - [GIMP](https://www.gimp.org/)
 - [Figma](https://www.figma.com/)
 
-## Livestreaming
+## Content Creation
+
+### Livestreaming
 
 - [OBS Studio](https://obsproject.com/)
-- [Streamlabs](https://streamlabs.com/) - Stream alerts, notifications, and such.
-- [Customised web-based overlays designed by me](https://github.com/resir014/stream-overlays) - Runs on a hosted Next.js instance, however some modules still needed to be run locally
-- [Nightbot](https://nightbot.tv/) - Chatbot for my Twitch chat.
+- **Alerts/notifications:** [Streamlabs](https://streamlabs.com/)
+- **Overlays:** [Customised web-based overlays designed by me](https://github.com/resir014/stream-overlays) - Runs on a hosted Next.js instance, however some modules still needed to be run locally
+- **Chatbot:** [Nightbot](https://nightbot.tv/)
+
+### Video Processing/Editing
+
+- [HandBrake](https://handbrake.fr/)
+- [DaVinci Resolve 16](https://www.blackmagicdesign.com/products/davinciresolve/)
 
 ## Miscellaneous
 
