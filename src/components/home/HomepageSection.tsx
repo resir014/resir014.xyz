@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Container } from '../layout'
 import { Box, BoxProps } from '../chungking-core'
 
 interface HomepageSectionProps extends BoxProps {
