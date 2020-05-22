@@ -67,14 +67,14 @@ export const space = {
   xxl: 48
 }
 
-export const breakpoints = [0, 576, 768, 992, 1200]
+export const breakpoints = [0, '576px', '768px', '992px', '1200px']
 
 export const mediaQueries = {
-  xs: `@media screen and (min-width: ${breakpoints[0]}px)`,
-  sm: `@media screen and (min-width: ${breakpoints[1]}px)`,
-  md: `@media screen and (min-width: ${breakpoints[2]}px)`,
-  lg: `@media screen and (min-width: ${breakpoints[3]}px)`,
-  xl: `@media screen and (min-width: ${breakpoints[4]}px)`
+  xs: `@media screen and (min-width: ${breakpoints[0]})`,
+  sm: `@media screen and (min-width: ${breakpoints[1]})`,
+  md: `@media screen and (min-width: ${breakpoints[2]})`,
+  lg: `@media screen and (min-width: ${breakpoints[3]})`,
+  xl: `@media screen and (min-width: ${breakpoints[4]})`
 }
 
 export const widths = {

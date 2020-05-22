@@ -10,13 +10,12 @@ interface HomepageSectionProps extends BoxProps {
 
 const HomepageSection: React.SFC<HomepageSectionProps> = ({
   children,
-  size,
   className,
   style,
   ...rest
 }) => (
   <Box as="section" className={className} style={style} {...rest}>
-    <Container size={size}>{children}</Container>
+    {children}
   </Box>
 )
 

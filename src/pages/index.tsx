@@ -10,7 +10,7 @@ import { TemplateWrapper } from '../layouts'
 
 import { Page } from '../components/page'
 import { HCard } from '../components/indieweb'
-import { NavLinkButton, Stack } from '../components/chungking-core'
+import { NavLinkButton, Stack, Box } from '../components/chungking-core'
 import { FeaturedProject } from '../components/projects'
 import {
   HomepageHero,
@@ -22,6 +22,7 @@ import {
   LiveBanner
 } from '../components/home'
 import { BlogPostItem } from '../components/posts-index'
+import { Container } from '../components/layout'
 
 interface IndexPageProps {
   location: {
@@ -43,7 +44,7 @@ interface IndexPageProps {
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const { edges: recentPosts } = data.featuredPosts
   return (
-    <TemplateWrapper>
+    <TemplateWrapper layoutSize="xl">
       <Page>
         <Helmet
           title={data.site.siteMetadata.title}
@@ -66,38 +67,53 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           />
         </HomepageHero>
         <HomepageContent>
-          <Stack spacing={64}>
-            <HomepageSection>
-              <Stack spacing="lg">
-                <HomepageSectionTitle>Recent posts</HomepageSectionTitle>
-                {recentPosts.map(({ node }) => (
-                  <BlogPostItem key={node.fields.slug} node={node} />
-                ))}
-                <HomepageSectionFooter>
-                  <NavLinkButton size="lg" to="/posts">
-                    View more posts
-                  </NavLinkButton>
-                </HomepageSectionFooter>
+          <Container size="xl">
+            <Box
+              display="grid"
+              gridTemplateColumns={['1fr', null, null, null, null, 'auto 320px']}
+              gridGap="lg"
+            >
+              <Stack spacing={64}>
+                <HomepageSection>
+                  <Stack spacing="lg">
+                    <HomepageSectionTitle>Recent posts</HomepageSectionTitle>
+                    {recentPosts.map(({ node }) => (
+                      <BlogPostItem key={node.fields.slug} node={node} />
+                    ))}
+                    <HomepageSectionFooter>
+                      <NavLinkButton size="lg" to="/posts">
+                        View more posts
+                      </NavLinkButton>
+                    </HomepageSectionFooter>
+                  </Stack>
+                </HomepageSection>
+                <HomepageSection>
+                  <Stack spacing="lg">
+                    <HomepageSectionTitle>Projects</HomepageSectionTitle>
+                    <FeaturedProject node={data.featuredProject} />
+                    <HomepageSectionFooter>
+                      <NavLinkButton size="lg" to="/projects">
+                        View more of my stuff
+                      </NavLinkButton>
+                    </HomepageSectionFooter>
+                  </Stack>
+                </HomepageSection>
               </Stack>
-            </HomepageSection>
-            <HomepageSection>
-              <LiveBanner />
-            </HomepageSection>
-            <HomepageSection>
-              <Stack spacing="lg">
-                <HomepageSectionTitle>Projects</HomepageSectionTitle>
-                <FeaturedProject node={data.featuredProject} />
-                <HomepageSectionFooter>
-                  <NavLinkButton size="lg" to="/projects">
-                    View more of my stuff
-                  </NavLinkButton>
-                </HomepageSectionFooter>
-              </Stack>
-            </HomepageSection>
-            <HomepageSection>
-              <HCard icon={data.icon.childImageSharp} author={data.site.siteMetadata.author} />
-            </HomepageSection>
-          </Stack>
+              <Box>
+                <Stack spacing="lg" mt={[0, null, null, null, null, 72]}>
+                  <HomepageSection>
+                    <LiveBanner />
+                  </HomepageSection>
+                  <HomepageSection>
+                    <HCard
+                      icon={data.icon.childImageSharp}
+                      author={data.site.siteMetadata.author}
+                    />
+                  </HomepageSection>
+                </Stack>
+              </Box>
+            </Box>
+          </Container>
         </HomepageContent>
       </Page>
     </TemplateWrapper>
