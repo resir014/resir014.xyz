@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
+import { transparentize } from 'polished'
 
 import { BlogPostField } from '../../types/fields'
-import { Box, BoxProps } from '../chungking-core'
+import { Box, BoxProps, colors } from '../chungking-core'
 import { PageMetaItem } from '../page'
 
 import PostIndexItemMeta from './PostIndexItemMeta'
@@ -26,7 +27,9 @@ const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, ...rest }) => {
       display="flex"
       flexDirection="column"
       overflow="hidden"
-      backgroundColor="grey90"
+      border="2px solid"
+      borderColor="grey90"
+      backgroundColor={transparentize(0.75, colors.grey90)}
       boxShadow="single"
       borderRadius={6}
       className="h-entry"

@@ -1,6 +1,7 @@
 import * as React from 'react'
+import { transparentize } from 'polished'
 
-import { Heading, Text, Box } from '../chungking-core'
+import { Heading, Text, Box, colors } from '../chungking-core'
 
 interface HomepageThumbnailTextProps {
   className?: string
@@ -10,7 +11,6 @@ interface HomepageThumbnailTextProps {
 
 const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, title, flavour }) => (
   <Box
-    className={className}
     display="flex"
     flex="1 1 auto"
     flexDirection="row"
@@ -18,7 +18,15 @@ const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, ti
     justifyContent="center"
     textAlign="center"
   >
-    <Box padding="lg" backgroundColor="black" borderRadius={10} boxShadow="double">
+    <Box
+      className={className}
+      padding="lg"
+      border="2px solid"
+      borderColor="black"
+      backgroundColor={transparentize(0.75, colors.black)}
+      borderRadius={10}
+      boxShadow="double"
+    >
       <Heading as="h1" variant={900} mt={0} mb="md" color="white">
         {title}
       </Heading>
