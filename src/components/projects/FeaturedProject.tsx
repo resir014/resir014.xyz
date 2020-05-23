@@ -62,6 +62,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({ node, className, styl
             variant={300}
             letterSpacing="0.01em"
             fontWeight={300}
+            fontFamily="monospace"
             color="white"
             css={css`
               text-transform: uppercase;
