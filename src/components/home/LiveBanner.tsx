@@ -26,9 +26,9 @@ const LiveBanner: React.FC = () => {
         boxShadow="single"
       >
         <Box flex="1 1 auto" mr="md">
-          <Heading m={0}>resir014 is now on Twitch</Heading>
+          <Heading m={0}>Live on Twitch!</Heading>
           <Text display="inline-block" mt="xxs">
-            Follow me and watch my live coding and gaming streams!
+            Follow me and watch my live coding and gaming streams.
           </Text>
         </Box>
         <Box display="flex" alignItems="center" justifyContent="center">
