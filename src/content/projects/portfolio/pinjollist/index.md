@@ -1,5 +1,5 @@
 ---
-category: web
+category: portfolio
 layout: project
 title: 'Pinjollist'
 description: 'Open data access to P2P lending services approved by the Indonesian Financial Services Authority (OJK).'

@@ -1,5 +1,5 @@
 ---
-category: web
+category: oss
 layout: project
 title: 'Tumblr Boilerplate'
 description: 'A base starter kit for developing Tumblr themes.'

@@ -1,5 +1,5 @@
 ---
-category: web
+category: portfolio
 layout: project
 title: 'Kawal COVID-19'
 description: 'Information resource regarding the recent outbreak of the coronavirus COVID-19 in Indonesia.'

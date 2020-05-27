@@ -1,5 +1,5 @@
 ---
-category: web
+category: oss
 layout: project
 title: 'stars-not-hearts'
 description: 'Custom CSS to replace the heart icons on <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Twitter</a> and <a href="https://tweetdeck.twitter.com/" target="_blank" rel="noopener noreferrer">TweetDeck</a> to stars.'

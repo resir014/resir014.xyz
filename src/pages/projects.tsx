@@ -61,8 +61,12 @@ const ProjectsPage: React.SFC<ProjectsPageProps> = ({ data }) => {
                   />
                 ) : null}
                 <ProjectItemList
-                  title="Web stuff"
-                  projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'web')}
+                  title="Portfolio"
+                  projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'portfolio')}
+                />
+                <ProjectItemList
+                  title="Open source stuff"
+                  projects={filterProjectsByCategory(data.allMarkdownRemark.edges, 'oss')}
                 />
                 <ProjectItemList
                   title="Other stuff"

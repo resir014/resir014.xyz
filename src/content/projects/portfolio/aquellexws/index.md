@@ -1,5 +1,5 @@
 ---
-category: web
+category: portfolio
 layout: project
 title: 'aquellex.ws'
 description: 'Website design for Aquellex, a chiptune musician based in Australia.'

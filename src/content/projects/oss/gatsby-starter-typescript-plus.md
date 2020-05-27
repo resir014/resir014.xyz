@@ -1,5 +1,5 @@
 ---
-category: web
+category: oss
 layout: project
 title: 'gatsby-starter-typescript-plus'
 project_url: 'https://github.com/resir014/gatsby-starter-typescript-plus'

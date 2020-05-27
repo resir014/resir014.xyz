@@ -1,5 +1,5 @@
 ---
-category: web
+category: portfolio
 layout: project
 title: 'Coralie Evans'
 description: 'Website design for Coralie Evans, a New Zealand-based registered midwife.'

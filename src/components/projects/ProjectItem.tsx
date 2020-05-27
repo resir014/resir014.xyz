@@ -19,7 +19,7 @@ import ProjectTags from './ProjectTags'
 
 const colorByCategory = (category: string) => {
   switch (category) {
-    case 'web':
+    case 'portfolio':
       return `linear-gradient(to right, ${colors.ultramarine30}, ${colors.purple30})`
     case 'oss':
       return `linear-gradient(to right, ${colors.purple30}, ${colors.green30})`

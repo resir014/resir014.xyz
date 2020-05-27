@@ -1,5 +1,5 @@
 ---
-category: web
+category: oss
 layout: project
 title: 'gnu-social-status'
 project_url: 'https://resir014.github.io/gnu-social-status/'

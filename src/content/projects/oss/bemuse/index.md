@@ -1,5 +1,5 @@
 ---
-category: web
+category: oss
 layout: project
 title: 'Bemuse'
 header_image: preview.jpg

@@ -193,7 +193,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredProject: markdownRemark(fields: { slug: { eq: "/projects/web/kawalcovid19.id/" } }) {
+    featuredProject: markdownRemark(
+      fields: { slug: { eq: "/projects/portfolio/kawalcovid19.id/" } }
+    ) {
       excerpt
       html
       fields {
