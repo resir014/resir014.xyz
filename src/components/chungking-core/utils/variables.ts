@@ -4,7 +4,8 @@ export const systemFonts =
 export const fonts = {
   sansSerif: `"Inter", ${systemFonts}`,
   serif: 'Georgia, "Times New Roman", Times, serif',
-  monospace: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, monospace'
+  monospace:
+    '"JetBrains Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, monospace'
 }
 
 export const shadows = {

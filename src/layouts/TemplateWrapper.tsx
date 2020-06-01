@@ -7,6 +7,7 @@ import menuItems from '../utils/menuItems'
 
 import 'modern-normalize'
 import 'typeface-inter'
+import '../fonts/jetbrains-mono.css'
 
 import { SiteMetadata } from '../types/gatsby'
 
