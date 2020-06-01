@@ -2,8 +2,6 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import convert from 'htmr'
 import { HtmrOptions } from 'htmr/src/types'
-import { Link } from 'gatsby'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import {
   H1,
