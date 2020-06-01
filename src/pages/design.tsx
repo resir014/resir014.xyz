@@ -43,7 +43,8 @@ import {
   Small,
   colors,
   space,
-  shadows
+  shadows,
+  Anchor
 } from '../components/chungking-core'
 import { Container } from '../components/layout'
 
@@ -232,42 +233,42 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
               <H3>Button</H3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
-                  <Button color="primary" style={buttonMarginStyles}>
+                  <Button variant="primary" style={buttonMarginStyles}>
                     Primary
                   </Button>
-                  <Button color="primary" disabled style={buttonMarginStyles}>
+                  <Button variant="primary" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
                 <div style={buttonWrapperStyles}>
-                  <Button color="primary" size="sm" style={buttonMarginStyles}>
+                  <Button variant="primary" size="sm" style={buttonMarginStyles}>
                     Small
                   </Button>
-                  <Button color="primary" size="sm" disabled style={buttonMarginStyles}>
+                  <Button variant="primary" size="sm" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
                 <div style={buttonWrapperStyles}>
-                  <Button color="primary" size="lg" style={buttonMarginStyles}>
+                  <Button variant="primary" size="lg" style={buttonMarginStyles}>
                     Large
                   </Button>
-                  <Button color="primary" size="lg" disabled style={buttonMarginStyles}>
+                  <Button variant="primary" size="lg" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
                 <div style={buttonWrapperStyles}>
-                  <Button color="secondary" style={buttonMarginStyles}>
+                  <Button variant="secondary" style={buttonMarginStyles}>
                     Secondary
                   </Button>
-                  <Button color="secondary" disabled style={buttonMarginStyles}>
+                  <Button variant="secondary" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
                 <div style={buttonWrapperStyles}>
-                  <Button color="danger" style={buttonMarginStyles}>
+                  <Button variant="danger" style={buttonMarginStyles}>
                     Danger
                   </Button>
-                  <Button color="danger" disabled style={buttonMarginStyles}>
+                  <Button variant="danger" disabled style={buttonMarginStyles}>
                     Disabled
                   </Button>
                 </div>
@@ -283,13 +284,13 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
               <H3>NavLinkButton</H3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
-                  <NavLinkButton to="/" color="primary" style={buttonMarginStyles}>
+                  <NavLinkButton to="/" variant="primary" style={buttonMarginStyles}>
                     Primary
                   </NavLinkButton>
-                  <NavLinkButton to="/" color="secondary" style={buttonMarginStyles}>
+                  <NavLinkButton to="/" variant="secondary" style={buttonMarginStyles}>
                     Secondary
                   </NavLinkButton>
-                  <NavLinkButton to="/" color="danger" style={buttonMarginStyles}>
+                  <NavLinkButton to="/" variant="danger" style={buttonMarginStyles}>
                     Danger
                   </NavLinkButton>
                 </div>
@@ -301,7 +302,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
                     href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
                     target="_blank"
                     rel="noopener noreferrer"
-                    color="primary"
+                    variant="primary"
                     style={buttonMarginStyles}
                   >
                     Primary
@@ -310,7 +311,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
                     href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
                     target="_blank"
                     rel="noopener noreferrer"
-                    color="secondary"
+                    variant="secondary"
                     style={buttonMarginStyles}
                   >
                     Secondary
@@ -319,7 +320,7 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
                     href="https://www.youtube.com/watch?v=CWxDq_W85ZQ"
                     target="_blank"
                     rel="noopener noreferrer"
-                    color="danger"
+                    variant="danger"
                     style={buttonMarginStyles}
                   >
                     Danger
@@ -336,6 +337,16 @@ const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) 
                 <H4>h4. Heading</H4>
                 <H5>h5. Heading</H5>
                 <H6>h6. Heading</H6>
+              </WrapperRoot>
+              <H3>Anchor</H3>
+              <WrapperRoot>
+                <Anchor
+                  href="https://www.youtube.com/watch?v=lZ8bfsL-awY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </Anchor>
               </WrapperRoot>
               <H3>Paragraph</H3>
               <WrapperRoot>

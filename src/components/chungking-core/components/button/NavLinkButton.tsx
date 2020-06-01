@@ -3,7 +3,8 @@ import styled from '@emotion/styled'
 import classnames from 'clsx'
 import { Link, GatsbyLinkProps } from 'gatsby'
 
-import { ButtonBase, ButtonBaseProps } from './Button'
+import { ButtonBaseProps } from './types'
+import { ButtonBase } from './styled'
 
 type NavLinkButtonProps = ButtonBaseProps & Omit<GatsbyLinkProps<{}>, 'ref'>
 
@@ -16,6 +17,8 @@ const NavLinkButton: React.SFC<NavLinkButtonProps> = ({
   to,
   disabled,
   children,
+  variant: color = 'secondary',
+  size = 'md',
   ...rest
 }) => {
   return (
@@ -24,16 +27,13 @@ const NavLinkButton: React.SFC<NavLinkButtonProps> = ({
       className={classnames(className, disabled && 'disabled')}
       style={style}
       to={to}
+      variant={color}
+      size={size}
       {...rest}
     >
       {children}
     </Root>
   )
-}
-
-NavLinkButton.defaultProps = {
-  color: 'secondary',
-  size: 'md'
 }
 
 export default NavLinkButton

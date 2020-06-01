@@ -26,7 +26,7 @@ interface ProjectTemplateProps extends RouterProps {
 
 const renderLink = (url: string, jumpToProject: boolean) => (
   <AnchorButton
-    color="primary"
+    variant="primary"
     size="lg"
     href={url}
     target={jumpToProject ? '_blank' : undefined}

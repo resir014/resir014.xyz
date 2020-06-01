@@ -81,8 +81,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                       <BlogPostItem key={node.fields.slug} node={node} />
                     ))}
                     <HomepageSectionFooter>
-                      <NavLinkButton size="lg" to="/posts">
-                        View more posts
+                      <NavLinkButton size="lg" to="/posts" ghosted>
+                        View more posts &rarr;
                       </NavLinkButton>
                     </HomepageSectionFooter>
                   </Stack>
@@ -92,8 +92,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                     <HomepageSectionTitle>Projects</HomepageSectionTitle>
                     <FeaturedProject node={data.featuredProject} />
                     <HomepageSectionFooter>
-                      <NavLinkButton size="lg" to="/projects">
-                        View more of my stuff
+                      <NavLinkButton size="lg" to="/projects" ghosted>
+                        View more of my stuff &rarr;
                       </NavLinkButton>
                     </HomepageSectionFooter>
                   </Stack>
