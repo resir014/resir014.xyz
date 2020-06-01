@@ -12,7 +12,7 @@ const HomepageSectionFooter: React.SFC<HomepageSectionProps> = ({
   style,
   ...rest
 }) => (
-  <Box className={className} style={style} textAlign="center" {...rest}>
+  <Box className={className} style={style} textAlign="right" {...rest}>
     {children}
   </Box>
 )

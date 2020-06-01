@@ -2,8 +2,6 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import convert from 'htmr'
 import { HtmrOptions } from 'htmr/src/types'
-import { Link } from 'gatsby'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import {
   H1,
@@ -22,7 +20,8 @@ import {
   mediaQueries,
   colors,
   Stack,
-  MessageBox
+  MessageBox,
+  Anchor
 } from '../chungking-core'
 
 interface MarkdownContentProps {
@@ -69,14 +68,14 @@ const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) =
       const { href } = node
 
       if (href && href.substr(0, 4) === 'http') {
-        return <OutboundLink href={href}>{node.children}</OutboundLink>
+        return (
+          <Anchor href={href} target="_blank" rel="noopener noreferrer">
+            {node.children}
+          </Anchor>
+        )
       }
 
-      if (href) {
-        return <Link to={href}>{node.children}</Link>
-      }
-
-      return <a href={href}>{node.children}</a>
+      return <Anchor href={href}>{node.children}</Anchor>
     }
   }
 

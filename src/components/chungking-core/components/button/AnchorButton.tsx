@@ -2,30 +2,28 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import classnames from 'clsx'
 
-import { ButtonBase, ButtonBaseProps } from './Button'
-
-type AnchorButtonProps = ButtonBaseProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
+import { ButtonBaseProps, AnchorButtonProps } from './types'
+import { ButtonBase } from './styled'
 
 const Root = styled('a')<ButtonBaseProps>(ButtonBase)
 
-const AnchorButton: React.SFC<AnchorButtonProps> = ({
-  id,
-  className,
-  style,
-  disabled,
-  children,
-  ...rest
-}) => {
+const AnchorButton: React.ForwardRefRenderFunction<HTMLAnchorElement, AnchorButtonProps> = (
+  { id, className, style, disabled, children, variant: color = 'secondary', size = 'md', ...rest },
+  ref
+) => {
   return (
-    <Root id={id} className={classnames(className, disabled && 'disabled')} style={style} {...rest}>
+    <Root
+      id={id}
+      className={classnames(className, disabled && 'disabled')}
+      style={style}
+      ref={ref}
+      variant={color}
+      size={size}
+      {...rest}
+    >
       {children}
     </Root>
   )
 }
 
-AnchorButton.defaultProps = {
-  color: 'secondary',
-  size: 'md'
-}
-
-export default AnchorButton
+export default React.forwardRef(AnchorButton)

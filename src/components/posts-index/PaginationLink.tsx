@@ -24,7 +24,7 @@ const StyledPaginationNavLink = styled(NavLinkButton)`
 const PaginationLink: React.SFC<PaginationLinkProps> = ({ test, url, text }) => {
   if (!test) {
     return (
-      <StyledPaginationNavLink color="primary" size="lg" to={url}>
+      <StyledPaginationNavLink variant="primary" size="lg" to={url}>
         {text}
       </StyledPaginationNavLink>
     )
