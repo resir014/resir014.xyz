@@ -62,7 +62,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         />
         <HomepageHero>
           <HomepageHeroText
-            title="@resir014"
+            title="resir014"
             flavour={process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText}
           />
         </HomepageHero>
