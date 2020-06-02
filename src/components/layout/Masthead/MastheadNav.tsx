@@ -2,11 +2,13 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import { transparentize } from 'polished'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { LinkGetProps } from '@reach/router'
 
-import { MenuItem } from '../../types/default'
-import { mediaQueries, colors, Text } from '../chungking-core'
+import { MenuItem } from '../../../types/default'
+import { mediaQueries, colors, Text, space } from '../../chungking-core'
+import { MastheadLinkStyles } from './styled'
 
 interface MastheadNavProps {
   items: MenuItem[]
@@ -17,14 +19,18 @@ const MastheadNavItem = styled(Text)`
 
   a {
     display: block;
-    padding: 8px 16px;
+    padding: ${space.xs}px 0;
     padding-bottom: calc(8px - 2px);
     border-bottom: 2px solid transparent;
-    transition: background-color 0.2s ease;
 
     &:hover,
     &:focus {
       text-decoration: none;
+      border-bottom-color: ${colors.white};
+    }
+
+    &:focus,
+    &:active {
       background-color: ${transparentize(0.9, colors.white)};
     }
 
@@ -39,7 +45,7 @@ const MastheadNavItem = styled(Text)`
     }
 
     ${mediaQueries.lg} {
-      padding: 16px;
+      padding: ${space.md}px 0;
       padding-bottom: calc(16px - 2px);
     }
   }
@@ -50,14 +56,25 @@ const isActive = ({ isPartiallyCurrent }: LinkGetProps) => {
   return isPartiallyCurrent ? { className: 'is-active' } : {}
 }
 
+const MastheadNavLink = styled(Link)(MastheadLinkStyles)
+
 const MastheadNav: React.SFC<MastheadNavProps> = ({ items }) => (
   <>
     {items.map(item => {
       return (
-        <MastheadNavItem as="li" key={item.path}>
-          <Link getProps={isActive} to={item.path}>
+        <MastheadNavItem
+          as="li"
+          key={item.path}
+          mr="lg"
+          css={css`
+            &:last-child {
+              margin-right: 0;
+            }
+          `}
+        >
+          <MastheadNavLink getProps={isActive} to={item.path}>
             {item.name}
-          </Link>
+          </MastheadNavLink>
         </MastheadNavItem>
       )
     })}
