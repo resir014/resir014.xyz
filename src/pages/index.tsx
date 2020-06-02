@@ -76,7 +76,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
               <Stack spacing={64}>
                 <HomepageSection>
                   <Stack spacing="lg">
-                    <HomepageSectionTitle>Recent posts</HomepageSectionTitle>
                     {recentPosts.map(({ node }) => (
                       <BlogPostItem key={node.fields.slug} node={node} />
                     ))}
@@ -100,7 +99,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                 </HomepageSection>
               </Stack>
               <Box>
-                <Stack spacing="lg" mt={[0, null, null, null, null, 72]}>
+                <Stack spacing="lg">
                   <HomepageSection>
                     <LiveBanner />
                   </HomepageSection>
