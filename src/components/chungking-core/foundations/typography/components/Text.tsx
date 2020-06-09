@@ -24,8 +24,7 @@ export const Text = styled<'span', TextProps>('span', { shouldForwardProp })`
 `
 
 Text.defaultProps = {
-  as: 'span',
-  variant: 400
+  as: 'span'
 }
 
 Text.displayName = 'Text'
