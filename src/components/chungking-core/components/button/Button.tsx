@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { ButtonBase } from './styled'
 import { ButtonProps } from './types'
 
-const Button: React.SFC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   id,
   className,
   style,

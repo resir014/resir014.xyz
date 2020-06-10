@@ -5,7 +5,7 @@ interface PostThumbnailProps {
   className?: string
 }
 
-const PageThumbnail: React.SFC<PostThumbnailProps> = ({ className, children }) => (
+const PageThumbnail: React.FC<PostThumbnailProps> = ({ className, children }) => (
   <Section className={className}>{children}</Section>
 )
 

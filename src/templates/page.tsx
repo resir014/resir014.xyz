@@ -22,7 +22,7 @@ interface PageTemplateProps extends RouterProps {
   data: PostData<PageNode>
 }
 
-const PageTemplate: React.SFC<PageTemplateProps> = ({ data, location }) => {
+const PageTemplate: React.FC<PageTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const postDescription = post.fields.lead || post.excerpt

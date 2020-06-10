@@ -17,7 +17,7 @@ interface HomepageContentProps {
   className?: string
 }
 
-const HomepageContent: React.SFC<HomepageContentProps> = ({ children, className }) => (
+const HomepageContent: React.FC<HomepageContentProps> = ({ children, className }) => (
   <StyledHomepageContent className={className}>{children}</StyledHomepageContent>
 )
 

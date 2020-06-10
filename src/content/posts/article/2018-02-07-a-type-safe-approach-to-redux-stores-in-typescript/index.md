@@ -346,7 +346,7 @@ interface ChatWindowProps {
 type AllProps = ChatWindowProps & ChatState
 
 // You can now safely use the mapped state as our component props!
-const ChatWindow: React.SFC<AllProps> = ({ username, messages }) => (
+const ChatWindow: React.FC<AllProps> = ({ username, messages }) => (
   <Container>
     <div className={styles.root}>
       <ChatHeader username={username} />

@@ -38,7 +38,7 @@ const Section = styled<'section', PageHeaderProps>('section')`
   ${props => props.hasImage && HasImageStyles}
 `
 
-const PageHeader: React.SFC<PageHeaderProps> = ({
+const PageHeader: React.FC<PageHeaderProps> = ({
   className,
   children,
   hasImage,

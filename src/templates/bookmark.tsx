@@ -24,7 +24,7 @@ interface BookmarkTemplateProps extends RouterProps {
   data: PostData<BookmarkNode>
 }
 
-const BookmarkTemplate: React.SFC<BookmarkTemplateProps> = ({ data, location }) => {
+const BookmarkTemplate: React.FC<BookmarkTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const pageTitle = post.frontmatter.title || post.fields.lead || post.excerpt

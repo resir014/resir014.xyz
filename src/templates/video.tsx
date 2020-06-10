@@ -23,7 +23,7 @@ interface VideoTemplateProps extends RouterProps {
   data: PostData<VideoNode>
 }
 
-const VideoTemplate: React.SFC<VideoTemplateProps> = ({ data, location }) => {
+const VideoTemplate: React.FC<VideoTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
 

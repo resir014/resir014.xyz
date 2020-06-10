@@ -12,7 +12,7 @@ interface FeaturedProjectThumbnailProps {
   }
 }
 
-const FeaturedProjectThumbnail: React.SFC<FeaturedProjectThumbnailProps> = ({
+const FeaturedProjectThumbnail: React.FC<FeaturedProjectThumbnailProps> = ({
   image,
   className
 }) => (

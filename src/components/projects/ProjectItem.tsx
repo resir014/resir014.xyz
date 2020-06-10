@@ -85,7 +85,7 @@ const ProjectFooter = styled('div')`
 
 type ProjectFieldProps = ProjectField & BoxProps
 
-const ProjectItem: React.SFC<ProjectFieldProps> = ({ node, ...rest }) => {
+const ProjectItem: React.FC<ProjectFieldProps> = ({ node, ...rest }) => {
   const tags = node.fields.tags ? (JSON.parse(node.fields.tags) as string[]) : undefined
   const { title } = node.frontmatter
   const { description, lead, category, project_url, slug, jumpToProject } = node.fields

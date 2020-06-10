@@ -10,7 +10,7 @@ type NavLinkButtonProps = ButtonBaseProps & Omit<GatsbyLinkProps<{}>, 'ref'>
 
 const Root = styled(Link)<ButtonBaseProps>(ButtonBase)
 
-const NavLinkButton: React.SFC<NavLinkButtonProps> = ({
+const NavLinkButton: React.FC<NavLinkButtonProps> = ({
   id,
   className,
   style,

@@ -10,7 +10,7 @@ interface HomepageThumbnailProps {
   className?: string
 }
 
-const HomepageHero: React.SFC<HomepageThumbnailProps> = ({ className, children }) => (
+const HomepageHero: React.FC<HomepageThumbnailProps> = ({ className, children }) => (
   <Root className={className}>
     <Inner>{children}</Inner>
   </Root>

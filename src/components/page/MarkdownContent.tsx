@@ -29,7 +29,7 @@ interface MarkdownContentProps {
   html: string
 }
 
-const MarkdownContent: React.SFC<MarkdownContentProps> = ({ className, html }) => {
+const MarkdownContent: React.FC<MarkdownContentProps> = ({ className, html }) => {
   const transform: HtmrOptions['transform'] = {
     h1: H1,
     h2: H2,

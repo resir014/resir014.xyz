@@ -40,7 +40,7 @@ const Root = styled(Stack)<MessageBoxProps>`
   ${props => props.variant === 'warning' && WarningStyles}
 `
 
-const MessageBox: React.SFC<MessageBoxProps> = ({ className, children, ...rest }) => (
+const MessageBox: React.FC<MessageBoxProps> = ({ className, children, ...rest }) => (
   <Root className={className} spacing="md" {...rest}>
     {children}
   </Root>

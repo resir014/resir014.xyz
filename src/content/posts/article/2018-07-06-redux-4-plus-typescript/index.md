@@ -438,7 +438,7 @@ This way, we can use the Redux store linking from any component!
 import * as React from 'react'
 import LayoutContainer from '../../containers/LayoutContainer'
 
-const Header: React.SFC = ({ children }) => (
+const Header: React.FC = ({ children }) => (
   <LayoutContainer>
     {({ theme, setTheme }) => (
       <React.Fragment>

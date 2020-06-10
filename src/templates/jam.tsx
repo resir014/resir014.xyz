@@ -23,7 +23,7 @@ interface JamTemplateProps extends RouterProps {
   data: PostData<JamNode>
 }
 
-const JamTemplate: React.SFC<JamTemplateProps> = ({ data, location }) => {
+const JamTemplate: React.FC<JamTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const pageTitle = post.frontmatter.title || post.fields.lead || post.excerpt

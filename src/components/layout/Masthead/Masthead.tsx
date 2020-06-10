@@ -47,7 +47,7 @@ const MastheadTitle = styled(Text)`
 
 const MastheadTitleLink = styled(Link)(MastheadLinkStyles, MastheadTitleLinkStyles)
 
-const Masthead: React.SFC<MastheadProps> = ({ className, title }) => (
+const Masthead: React.FC<MastheadProps> = ({ className, title }) => (
   <Root className={className}>
     <MastheadInner>
       <MastheadTitle as="li">

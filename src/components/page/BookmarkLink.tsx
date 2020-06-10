@@ -34,7 +34,7 @@ const Root = styled(StyledOutboundLink)`
   }
 `
 
-const BookmarkLink: React.SFC<BookmarkLinkProps> = ({ link, title, ...rest }) => {
+const BookmarkLink: React.FC<BookmarkLinkProps> = ({ link, title, ...rest }) => {
   const url = link ? new Url(link) : undefined
 
   return url ? (

@@ -6,7 +6,7 @@ interface HomepageSectionProps {
   style?: React.CSSProperties
 }
 
-const HomepageSectionFooter: React.SFC<HomepageSectionProps> = ({
+const HomepageSectionFooter: React.FC<HomepageSectionProps> = ({
   children,
   className,
   style,

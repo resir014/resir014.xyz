@@ -13,7 +13,7 @@ interface PageContentProps {
   className?: string
 }
 
-const PageContent: React.SFC<PageContentProps> = ({ children, className }) => (
+const PageContent: React.FC<PageContentProps> = ({ children, className }) => (
   <StyledPageContent className={className}>{children}</StyledPageContent>
 )
 
