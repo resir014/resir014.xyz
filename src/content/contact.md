@@ -16,7 +16,7 @@ title: 'Get in touch'
 Due to the increasing amount of spam that I get nowadays, you will have to solve this simple puzzle to get my email address:
 
 ```
-echo 'C6D:C_`co8>2:=]4@>' | tr '!-~' 'P-~!-O'
+`${474661888603..toString(29)}@${6600471.519808.toString(25)}`
 ```
 
 ([You can also verify my Keybase PGP key here.](https://keybase.io/resir014))
