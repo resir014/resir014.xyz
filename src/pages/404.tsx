@@ -14,7 +14,7 @@ interface NotFoundPageProps {
   }
 }
 
-const NotFoundPage: React.SFC<NotFoundPageProps> = ({ data }) => (
+const NotFoundPage: React.FC<NotFoundPageProps> = ({ data }) => (
   <TemplateWrapper>
     <Page>
       <Helmet

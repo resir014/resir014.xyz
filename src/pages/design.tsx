@@ -75,7 +75,7 @@ const WrapperRoot = styled('div')`
   box-shadow: ${shadows.single};
 `
 
-const DesignSystemPage: React.SFC<DesignSystemPageProps> = ({ data, location }) => {
+const DesignSystemPage: React.FC<DesignSystemPageProps> = ({ data, location }) => {
   const testProject = getFeaturedProject(data.projects.edges, 'Broville v11')
   const testProjectNode = testProject.node
   const testProjectTags = testProjectNode.fields.tags

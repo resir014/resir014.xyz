@@ -23,7 +23,7 @@ const Span = styled(Text)`
   }
 `
 
-const PageMetaItem: React.SFC<PostMetaItemProps> = ({ className, children }) => (
+const PageMetaItem: React.FC<PostMetaItemProps> = ({ className, children }) => (
   <Span variant={400} fontWeight={300} fontFamily="monospace" className={className}>
     {children}
   </Span>

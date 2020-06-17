@@ -6,7 +6,7 @@ interface PostMetaProps {
   className?: string
 }
 
-const PageMeta: React.SFC<PostMetaProps> = ({ className, children }) => (
+const PageMeta: React.FC<PostMetaProps> = ({ className, children }) => (
   <Box mb="md" className={className}>
     {children}
   </Box>

@@ -8,7 +8,7 @@ interface HomepageThumbnailTextProps {
   flavour?: string
 }
 
-const HomepageHeroText: React.SFC<HomepageThumbnailTextProps> = ({ className, title, flavour }) => (
+const HomepageHeroText: React.FC<HomepageThumbnailTextProps> = ({ className, title, flavour }) => (
   <Box
     display="flex"
     flex="1 1 auto"

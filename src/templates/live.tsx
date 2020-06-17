@@ -25,7 +25,7 @@ interface LivePageTemplateProps extends RouterProps {
   data: PostData<PageNode>
 }
 
-const LivePageTemplate: React.SFC<LivePageTemplateProps> = ({ data, location }) => {
+const LivePageTemplate: React.FC<LivePageTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const postDescription = post.fields.lead || post.excerpt

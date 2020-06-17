@@ -8,7 +8,7 @@ interface ContainerProps {
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-const Container: React.SFC<ContainerProps> = ({ className, children }) => (
+const Container: React.FC<ContainerProps> = ({ className, children }) => (
   <div className={className}>{children}</div>
 )
 

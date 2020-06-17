@@ -48,7 +48,7 @@ const Pagination = styled('div')`
   }
 `
 
-const PostsIndexPage: React.SFC<BlogPageProps> = ({ data, pathContext }) => {
+const PostsIndexPage: React.FC<BlogPageProps> = ({ data, pathContext }) => {
   const { siteMetadata } = data.site
   const { group, index, first, last, pageCount, pathPrefix } = pathContext
   const previousUrl = withPathPrefix(index - 1 === 1 ? '' : (index - 1).toString(), pathPrefix)

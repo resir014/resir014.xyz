@@ -16,7 +16,7 @@ export interface ProjectItemListProps extends BoxProps {
   homepage?: boolean
 }
 
-const ProjectItemList: React.SFC<ProjectItemListProps> = ({
+const ProjectItemList: React.FC<ProjectItemListProps> = ({
   title,
   homepage,
   projects,

@@ -5,7 +5,7 @@ interface PageTitleProps {
   className?: string
 }
 
-const PageTitle: React.SFC<PageTitleProps> = ({ className, children }) => (
+const PageTitle: React.FC<PageTitleProps> = ({ className, children }) => (
   <Heading as="h1" variant={900} className={className} m={0}>
     {children}
   </Heading>

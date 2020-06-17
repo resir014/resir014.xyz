@@ -23,7 +23,7 @@ interface NoteTemplateProps extends RouterProps {
   data: PostData<NotesNode>
 }
 
-const NoteTemplate: React.SFC<NoteTemplateProps> = ({ data, location }) => {
+const NoteTemplate: React.FC<NoteTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const pageTitle = post.frontmatter.title || post.fields.lead || post.excerpt

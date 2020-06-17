@@ -6,7 +6,7 @@ interface HomepageSectionDescriptionProps {
   className?: string
 }
 
-const HomepageSectionDescription: React.SFC<HomepageSectionDescriptionProps> = ({
+const HomepageSectionDescription: React.FC<HomepageSectionDescriptionProps> = ({
   children,
   className
 }) => (

@@ -41,7 +41,7 @@ const HCardEmail = styled('a')`
 
 const HeadingAnchor = styled(Heading)<{ rel?: string; target?: string; href?: string }>``
 
-const HCardPost: React.SFC<HCardPostProps> = ({ className, icon, hidden, author }) => (
+const HCardPost: React.FC<HCardPostProps> = ({ className, icon, hidden, author }) => (
   <Box
     className={classnames(className, 'p-author h-card')}
     display={hidden ? 'none' : 'inline-block'}

@@ -10,7 +10,7 @@ interface DividerProps {
   center?: boolean
 }
 
-const Divider: React.SFC<DividerProps> = ({ className }) => <hr className={className} />
+const Divider: React.FC<DividerProps> = ({ className }) => <hr className={className} />
 
 const DividerFullWidth = (props: DividerProps) => css`
   width: ${space.xxl * 2}px;

@@ -26,7 +26,7 @@ interface PostTemplateProps extends RouterProps {
   data: PostData<BlogPostNode>
 }
 
-const PostTemplate: React.SFC<PostTemplateProps> = ({ data, location }) => {
+const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
 

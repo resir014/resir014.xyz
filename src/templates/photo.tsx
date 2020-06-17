@@ -23,7 +23,7 @@ interface PhotoTemplateProps extends RouterProps {
   data: PostData<PhotoNode>
 }
 
-const PhotoTemplate: React.SFC<PhotoTemplateProps> = ({ data, location }) => {
+const PhotoTemplate: React.FC<PhotoTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const pageTitle = post.frontmatter.title || 'Photo posted by @resir014'

@@ -36,7 +36,7 @@ const renderLink = (url: string, jumpToProject: boolean) => (
   </AnchorButton>
 )
 
-const ProjectPageTemplate: React.SFC<ProjectTemplateProps> = ({ data, location }) => {
+const ProjectPageTemplate: React.FC<ProjectTemplateProps> = ({ data, location }) => {
   const post = data.markdownRemark
   const { siteMetadata } = data.site
   const tags = post.fields.tags ? (JSON.parse(post.fields.tags) as string[]) : undefined

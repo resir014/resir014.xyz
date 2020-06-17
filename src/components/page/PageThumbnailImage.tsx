@@ -11,7 +11,7 @@ interface PostThumbnailImageProps {
   alt: string
 }
 
-const PageThumbnailImage: React.SFC<PostThumbnailImageProps> = ({ fluid, alt, className }) => (
+const PageThumbnailImage: React.FC<PostThumbnailImageProps> = ({ fluid, alt, className }) => (
   <Image className={classnames(className, 'u-featured')} fluid={fluid} alt={alt} />
 )
 

@@ -58,7 +58,7 @@ const isActive = ({ isPartiallyCurrent }: LinkGetProps) => {
 
 const MastheadNavLink = styled(Link)(MastheadLinkStyles)
 
-const MastheadNav: React.SFC<MastheadNavProps> = ({ items }) => (
+const MastheadNav: React.FC<MastheadNavProps> = ({ items }) => (
   <>
     {items.map(item => {
       return (

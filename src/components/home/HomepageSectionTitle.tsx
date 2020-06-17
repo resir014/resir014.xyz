@@ -5,7 +5,7 @@ interface HomepageSectionTitleProps extends HeadingProps {
   className?: string
 }
 
-const HomepageSectionTitle: React.SFC<HomepageSectionTitleProps> = ({
+const HomepageSectionTitle: React.FC<HomepageSectionTitleProps> = ({
   children,
   className,
   ...rest

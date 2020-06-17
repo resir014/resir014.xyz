@@ -68,7 +68,7 @@ const Inner = styled('div')`
   }
 `
 
-const HCard: React.SFC<HCardProps> = ({ className, hidden, icon, author }) => (
+const HCard: React.FC<HCardProps> = ({ className, hidden, icon, author }) => (
   <UnstyledLink to="/contact">
     <Box
       className={classnames(className, 'h-card')}

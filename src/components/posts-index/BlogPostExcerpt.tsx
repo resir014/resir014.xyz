@@ -6,7 +6,7 @@ interface BlogPostExcerptProps {
   className?: string
 }
 
-const BlogPostExcerpt: React.SFC<BlogPostExcerptProps> = ({ className, children }) => (
+const BlogPostExcerpt: React.FC<BlogPostExcerptProps> = ({ className, children }) => (
   <P className={className}>{children}</P>
 )
 

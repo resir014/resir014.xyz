@@ -7,7 +7,7 @@ interface HomepageSectionProps extends BoxProps {
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-const HomepageSection: React.SFC<HomepageSectionProps> = ({
+const HomepageSection: React.FC<HomepageSectionProps> = ({
   children,
   className,
   style,

@@ -6,7 +6,7 @@ interface PageProps {
   className?: string
 }
 
-const ProjectFooter: React.SFC<PageProps> = ({ children, className }) => (
+const ProjectFooter: React.FC<PageProps> = ({ children, className }) => (
   <Div className={className}>{children}</Div>
 )
 

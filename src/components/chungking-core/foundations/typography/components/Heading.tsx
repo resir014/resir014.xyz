@@ -28,7 +28,7 @@ const StyledText = styled<'span', HeadingProps>('span', { shouldForwardProp })`
 /**
  * Heading component provided as a styled component primitive.
  */
-export const Heading: React.SFC<HeadingProps> = ({ children, as, ...rest }) => (
+export const Heading: React.FC<HeadingProps> = ({ children, as, ...rest }) => (
   <StyledText as={as} {...rest}>
     {children}
   </StyledText>
