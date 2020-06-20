@@ -5,6 +5,9 @@ title: "Why can't we just get along?"
 lead: "Why your frontend stack doesn't matter as much anymore."
 header_image: olav-ahrens-rotne-MAEbdaFe4ps-unsplash.jpg
 date: 2020-06-20T12:55:00+07:00
+syndication:
+  - name: dev.to
+    url: https://dev.to/resir014/why-can-t-we-just-get-along-4lc3
 ---
 
 _Header image by [Olav Ahrens Røtne](https://unsplash.com/photos/MAEbdaFe4ps) on Unsplash._
