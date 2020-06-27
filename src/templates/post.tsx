@@ -19,7 +19,8 @@ import {
 } from '../components/page'
 import { HCardPost } from '../components/indieweb'
 import { Container } from '../components/layout'
-import { P, UL, LI, MessageBox } from '../components/chungking-core'
+import { P, UL, LI } from '../components/markdown'
+import { MessageBox } from '../components/chungking-core'
 import { PageWrapper } from '../layouts'
 
 interface PostTemplateProps extends RouterProps {

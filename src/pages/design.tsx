@@ -28,24 +28,13 @@ import {
   Button,
   NavLinkButton,
   AnchorButton,
-  P,
-  UL,
-  OL,
-  LI,
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
-  InlineCode,
-  Blockquote,
-  Small,
   colors,
   space,
   shadows,
   Anchor
 } from '../components/chungking-core'
+import { P, UL, OL, LI, H2, H3, InlineCode, Blockquote, Small } from '../components/markdown'
+import { Card } from '../components/chungking-core/components/card'
 import { Container } from '../components/layout'
 
 import getFeaturedProject from '../utils/getFeaturedProject'
@@ -123,6 +112,7 @@ const DesignSystemPage: React.FC<DesignSystemPageProps> = ({ data, location }) =
               <ColorSwatch color={colors.grey70} />
               <ColorSwatch color={colors.grey80} />
               <ColorSwatch color={colors.grey90} />
+
               <H2>Accent Colors</H2>
               <H3>Magenta</H3>
               <ColorSwatch color={colors.magenta20} />
@@ -152,6 +142,7 @@ const DesignSystemPage: React.FC<DesignSystemPageProps> = ({ data, location }) =
               <ColorSwatch color={colors.ultramarine20} />
               <ColorSwatch color={colors.ultramarine30} />
               <ColorSwatch color={colors.ultramarine40} />
+
               <H2>Typography</H2>
               <H3>Heading</H3>
               <WrapperRoot>
@@ -222,6 +213,61 @@ const DesignSystemPage: React.FC<DesignSystemPageProps> = ({ data, location }) =
                   Text - 400 - Monospace - Bold
                 </Text>
               </WrapperRoot>
+              <H3>Anchor</H3>
+              <WrapperRoot>
+                <Anchor
+                  href="https://www.youtube.com/watch?v=lZ8bfsL-awY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </Anchor>
+              </WrapperRoot>
+              <H3>Paragraph</H3>
+              <WrapperRoot>
+                <P>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores distinctio
+                  natus in incidunt quas totam enim laborum, facilis ipsam, sunt odio accusamus
+                  doloribus eaque dolorem nisi iusto reprehenderit possimus optio.
+                </P>
+                <P>
+                  <Small>
+                    Sequi iste quas optio natus odit nostrum nobis atque, quidem repudiandae sunt
+                    repellat. Corrupti magni ipsum quasi et ex. Rem, eum. Officia fugiat alias
+                    magnam voluptatum temporibus minus voluptatem eos?
+                  </Small>
+                </P>
+              </WrapperRoot>
+              <H3>Unordered List</H3>
+              <WrapperRoot>
+                <UL>
+                  <LI>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!
+                  </LI>
+                  <LI>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</LI>
+                  <LI>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</LI>
+                </UL>
+              </WrapperRoot>
+              <H3>Ordered List</H3>
+              <WrapperRoot>
+                <OL>
+                  <LI>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!
+                  </LI>
+                  <LI>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</LI>
+                  <LI>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</LI>
+                </OL>
+              </WrapperRoot>
+              <H3>Inline Code</H3>
+              <WrapperRoot>
+                <P>
+                  Run <InlineCode>npm install</InlineCode> to begin the installation process.
+                </P>
+              </WrapperRoot>
+              <H3>Blockquote</H3>
+              <WrapperRoot>
+                <Blockquote>The quick brown fox jumps over the lazy dog.</Blockquote>
+              </WrapperRoot>
 
               <H2>Components</H2>
               <H3>Badge</H3>
@@ -281,6 +327,12 @@ const DesignSystemPage: React.FC<DesignSystemPageProps> = ({ data, location }) =
                   </Button>
                 </div>
               </WrapperRoot>
+              <H3>Card</H3>
+              <Card elevation="double" backgroundColor="grey90" p="md">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati tenetur fuga
+                facilis ipsam culpa. Perferendis eaque reprehenderit hic, dolore voluptas
+                necessitatibus aliquid recusandae, at sunt a eum non, perspiciatis suscipit?
+              </Card>
               <H3>NavLinkButton</H3>
               <WrapperRoot>
                 <div style={buttonWrapperStyles}>
@@ -326,72 +378,6 @@ const DesignSystemPage: React.FC<DesignSystemPageProps> = ({ data, location }) =
                     Danger
                   </AnchorButton>
                 </div>
-              </WrapperRoot>
-
-              <H2>Posts</H2>
-              <H3>Headings</H3>
-              <WrapperRoot>
-                <H1>h1. Heading</H1>
-                <H2>h2. Heading</H2>
-                <H3>h3. Heading</H3>
-                <H4>h4. Heading</H4>
-                <H5>h5. Heading</H5>
-                <H6>h6. Heading</H6>
-              </WrapperRoot>
-              <H3>Anchor</H3>
-              <WrapperRoot>
-                <Anchor
-                  href="https://www.youtube.com/watch?v=lZ8bfsL-awY"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </Anchor>
-              </WrapperRoot>
-              <H3>Paragraph</H3>
-              <WrapperRoot>
-                <P>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores distinctio
-                  natus in incidunt quas totam enim laborum, facilis ipsam, sunt odio accusamus
-                  doloribus eaque dolorem nisi iusto reprehenderit possimus optio.
-                </P>
-                <P>
-                  <Small>
-                    Sequi iste quas optio natus odit nostrum nobis atque, quidem repudiandae sunt
-                    repellat. Corrupti magni ipsum quasi et ex. Rem, eum. Officia fugiat alias
-                    magnam voluptatum temporibus minus voluptatem eos?
-                  </Small>
-                </P>
-              </WrapperRoot>
-              <H3>Unordered List</H3>
-              <WrapperRoot>
-                <UL>
-                  <LI>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!
-                  </LI>
-                  <LI>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</LI>
-                  <LI>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</LI>
-                </UL>
-              </WrapperRoot>
-              <H3>Ordered List</H3>
-              <WrapperRoot>
-                <OL>
-                  <LI>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!
-                  </LI>
-                  <LI>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</LI>
-                  <LI>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</LI>
-                </OL>
-              </WrapperRoot>
-              <H3>Inline Code</H3>
-              <WrapperRoot>
-                <P>
-                  Run <InlineCode>npm install</InlineCode> to begin the installation process.
-                </P>
-              </WrapperRoot>
-              <H3>Blockquote</H3>
-              <WrapperRoot>
-                <Blockquote>The quick brown fox jumps over the lazy dog.</Blockquote>
               </WrapperRoot>
               <H3>Bookmark Link</H3>
               <WrapperRoot>

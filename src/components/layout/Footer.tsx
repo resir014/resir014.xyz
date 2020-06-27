@@ -4,7 +4,8 @@ import styled from '@emotion/styled'
 import Container from './Container'
 
 import ccLogo from '../../assets/images/cc-by-nc-sa.svg'
-import { P, Small, space, colors, mediaQueries } from '../chungking-core'
+import { space, colors, mediaQueries } from '../chungking-core'
+import { P, Small } from '../markdown'
 
 const StyledFooter = styled('footer')`
   border-top: 1px solid ${colors.grey90};

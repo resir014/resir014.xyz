@@ -5,7 +5,6 @@ import { css } from '@emotion/core'
 import {
   Text,
   Heading,
-  P,
   mediaQueries,
   colors,
   shadows,
@@ -14,6 +13,8 @@ import {
   Box,
   BoxProps
 } from '../chungking-core'
+import { P } from '../markdown'
+
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { ProjectField } from '../../types/fields'

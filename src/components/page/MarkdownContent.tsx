@@ -3,26 +3,8 @@ import styled from '@emotion/styled'
 import convert from 'htmr'
 import { HtmrOptions } from 'htmr/src/types'
 
-import {
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
-  P,
-  UL,
-  OL,
-  LI,
-  Blockquote,
-  InlineCode,
-  space,
-  mediaQueries,
-  colors,
-  Stack,
-  MessageBox,
-  Anchor
-} from '../chungking-core'
+import { space, mediaQueries, colors, Stack, MessageBox, Anchor } from '../chungking-core'
+import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI, Blockquote, InlineCode } from '../markdown'
 
 interface MarkdownContentProps {
   className?: string

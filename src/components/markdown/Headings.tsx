@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Heading } from '../../foundations'
+import { Heading } from '../chungking-core'
 
 export const H1: React.FC = ({ children }) => (
   <Heading as="h1" variant={900} mt={0} mb="md">
