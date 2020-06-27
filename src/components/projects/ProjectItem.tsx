@@ -2,6 +2,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import convert from 'htmr'
+import { transparentize } from 'polished'
 
 import { ProjectField } from '../../types/fields'
 import {
@@ -12,21 +13,21 @@ import {
   Badge,
   AnchorButton,
   NavLinkButton,
-  Box,
-  BoxProps
+  BoxProps,
+  Card
 } from '../chungking-core'
 import ProjectTags from './ProjectTags'
 
 const colorByCategory = (category: string) => {
   switch (category) {
     case 'portfolio':
-      return `linear-gradient(to right, ${colors.ultramarine30}, ${colors.purple30})`
+      return `${colors.ultramarine30}`
     case 'oss':
-      return `linear-gradient(to right, ${colors.purple30}, ${colors.green30})`
+      return `${colors.purple30}`
     case 'other':
-      return `linear-gradient(to right, ${colors.red30}, ${colors.orange30})`
+      return `${colors.red30}`
     default:
-      return `linear-gradient(to right, ${colors.grey70}, ${colors.grey50})`
+      return `${colors.grey90}`
   }
 }
 
@@ -46,28 +47,14 @@ const renderLink = (url: string, jumpToProject = false) => {
   )
 }
 
-const StyledProjectItem = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  flex: 1 1 100%;
-  background-color: ${colors.grey90};
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: ${shadows.single};
-`
-
-interface ProjectTitleProps {
+interface ProjectItemProps {
   category: string
 }
 
-const ProjectHeader = styled('div')<ProjectTitleProps>`
+const ProjectHeader = styled('div')`
   display: flex;
   flex-direction: row;
   padding: 12px 16px 0;
-  border-top: 4px solid transparent;
-  border-image-source: ${props => colorByCategory(props.category)};
-  border-image-slice: 1;
 `
 
 const ProjectDetailBox = styled('div')`
@@ -91,8 +78,20 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ node, ...rest }) => {
   const { description, lead, category, project_url, slug, jumpToProject } = node.fields
 
   return (
-    <StyledProjectItem {...rest}>
-      <ProjectHeader category={category}>
+    <Card
+      elevation="single"
+      display="flex"
+      flexDirection="column"
+      position="relative"
+      flex="1 1 100%"
+      backgroundColor={transparentize(0.75, colorByCategory(category))}
+      border="2px solid"
+      borderColor={colorByCategory(category)}
+      borderRadius={6}
+      overflow="hidden"
+      {...rest}
+    >
+      <ProjectHeader>
         <Heading as="h3" variant={700} m={0}>
           {title}
         </Heading>
@@ -110,7 +109,7 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ node, ...rest }) => {
       <ProjectFooter>
         {jumpToProject === 'true' && project_url ? renderLink(project_url, true) : renderLink(slug)}
       </ProjectFooter>
-    </StyledProjectItem>
+    </Card>
   )
 }
 
