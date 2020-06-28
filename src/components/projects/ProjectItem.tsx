@@ -9,7 +9,6 @@ import {
   Heading,
   Paragraph,
   colors,
-  shadows,
   Badge,
   AnchorButton,
   NavLinkButton,
@@ -45,10 +44,6 @@ const renderLink = (url: string, jumpToProject = false) => {
       Go to project &rarr;
     </NavLinkButton>
   )
-}
-
-interface ProjectItemProps {
-  category: string
 }
 
 const ProjectHeader = styled('div')`
