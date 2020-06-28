@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { P } from '../chungking-core'
+import { P } from '../markdown'
 
 interface BlogPostExcerptProps {
   className?: string

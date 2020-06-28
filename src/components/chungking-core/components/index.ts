@@ -1,4 +1,4 @@
 export * from './badge'
 export * from './button'
-export * from './markdown'
+export * from './card'
 export * from './message-box'
