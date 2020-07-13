@@ -44,7 +44,7 @@ When a website has Web Monetization enabled, your extension will start making mi
 
 But what about Twitch streams then? How are you receiving that bits donation from Coil's bot?
 
-Coil [works natively on Twitch](https://help.coil.com/for-creators/twitch-stream), too! If you are an affiliated or partnered Twitch streamers, you don't need to set anything up, since payouts from Coil members are provided through [Twitch Bits](https://www.twitch.tv/bits). If you have Coil members watching your stream and they have the extension installed, it'll collect micropayments the same way over time, and pays it out via bits periodically.
+Coil [works natively on Twitch](https://help.coil.com/for-creators/twitch-stream), too! If you are an affiliated or partnered Twitch streamer, you don't need to set anything up, since payouts from Coil members are provided through [Twitch Bits](https://www.twitch.tv/bits). If you have Coil members watching your stream and they have the extension installed, it'll collect micropayments the same way over time, and pays it out via bits periodically.
 
 ---
 
