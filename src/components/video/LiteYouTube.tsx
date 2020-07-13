@@ -98,10 +98,11 @@ function usePrefetch(kind: 'preload' | 'preconnect', url: string, as?: string) {
 
 interface LiteYouTubeProps {
   videoId: string
+  className?: string
   style?: React.CSSProperties
 }
 
-const LiteYouTube = ({ videoId, style }: LiteYouTubeProps) => {
+const LiteYouTube = ({ videoId, className, style }: LiteYouTubeProps) => {
   const encodedVideoId = encodeURIComponent(videoId)
   const posterUrl = `https://i.ytimg.com/vi/${encodedVideoId}/hqdefault.jpg`
 
@@ -126,9 +127,9 @@ const LiteYouTube = ({ videoId, style }: LiteYouTubeProps) => {
 
   return (
     <LiteYouTubeWrapper
+      className={clsx('youtube-lite', activated && 'lyt-activated', className)}
       style={{ ...style, backgroundImage: `url(${posterUrl})` }}
       onClick={addIframe}
-      className={clsx('youtube-lite', activated && 'lyt-activated')}
     >
       <div className="lty-playbtn" />
       {activated && (

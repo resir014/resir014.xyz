@@ -1,5 +1,6 @@
 import * as React from 'react'
 import classnames from 'clsx'
+import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
@@ -15,9 +16,7 @@ const PostTitleLink = styled(Link)`
   color: inherit !important;
 `
 
-const PostThumbnailImage = styled(Box)`
-  margin: 0;
-`
+const PostThumbnailImage = styled(Box)``
 
 const PostDetailBox = styled('section')``
 
@@ -29,9 +28,7 @@ const PostTitle: React.FC = ({ children }) => (
 
 const PostContent = styled(Box)``
 
-const BlogPostFooter = styled('div')`
-  padding: 0 24px 24px;
-`
+const BlogPostFooter = styled('div')``
 
 export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
   // workaround until this is fixed:
@@ -49,14 +46,16 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
       {node.frontmatter.header_image && (
         <PostThumbnailImage
           as="img"
-          pb={24}
+          m={0}
+          mb="lg"
+          borderRadius={6}
           className="u-featured"
           src={node.frontmatter.header_image.childImageSharp.fluid.src}
           alt={node.frontmatter.title || 'Photo posted by @resir014'}
           srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
         />
       )}
-      <PostContent p={24} pt={0}>
+      <PostContent pb={24} pt={0}>
         <PostTitle>
           <PostTitleLink className="p-name" to={node.fields.slug}>
             {node.frontmatter.title}
@@ -80,7 +79,7 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
 export function renderNoteTemplate(node: BlogPostNode): JSX.Element {
   return (
     <PostDetailBox>
-      <PostContent p={24} pt={0}>
+      <PostContent p={0}>
         {node.frontmatter.title && (
           <PostTitle>
             <PostTitleLink className="p-name" to={node.fields.slug}>
@@ -100,8 +99,15 @@ export function renderNoteTemplate(node: BlogPostNode): JSX.Element {
 export function renderVideoTemplate(node: BlogPostNode) {
   return (
     <PostDetailBox>
-      {node.fields.youtube_embed_id && <LiteYouTube videoId={node.fields.youtube_embed_id} />}
-      <PostContent p={24}>
+      {node.fields.youtube_embed_id && (
+        <LiteYouTube
+          videoId={node.fields.youtube_embed_id}
+          css={css`
+            border-radius: 6px;
+          `}
+        />
+      )}
+      <PostContent pt={24}>
         {node.frontmatter.title && (
           <PostTitle>
             <PostTitleLink className="p-name" to={node.fields.slug}>
@@ -129,7 +135,7 @@ export function renderPhotoTemplate(node: BlogPostNode): JSX.Element {
           srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
         />
       )}
-      <PostContent p={24}>
+      <PostContent pt={24}>
         {node.frontmatter.title && (
           <PostTitle>
             <PostTitleLink className="p-name" to={node.fields.slug}>
@@ -149,7 +155,7 @@ export function renderPhotoTemplate(node: BlogPostNode): JSX.Element {
 export function renderBookmarkTemplate(node: BlogPostNode): JSX.Element {
   return (
     <PostDetailBox>
-      <PostContent p={24} pt={0}>
+      <PostContent>
         <Stack spacing="md">
           <BookmarkLink link={node.fields.link} title={node.frontmatter.title} />
           <MarkdownContent className="e-content" html={node.html} />
