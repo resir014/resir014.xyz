@@ -2,7 +2,7 @@
 category: article
 layout: post
 title: 'Web Monetization API and Coil, explained for Twitch streamers'
-lead: "Ever looked on your Twitch activity log and se a some bits from Coil_Twitch_Bot on your Twitch stream's activity log lately? Here's why."
+lead: "Ever looked on your Twitch activity log and see some bit donations from Coil_Twitch_Bot on your Twitch stream's activity log lately? Here's why."
 header_image: header.png
 ---
 
