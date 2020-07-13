@@ -32,6 +32,7 @@ const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, ...rest }) => {
       borderBottomColor="grey90"
       css={css`
         &:last-of-type {
+          padding-bottom: 0;
           border-bottom: none;
         }
       `}
