@@ -70,7 +70,7 @@ const PostsIndexPage: React.FC<BlogPageProps> = ({ data, pathContext }) => {
       </PageHeader>
       <PageContent className="h-feed">
         <Container size="md">
-          <Stack spacing="lg">
+          <Stack spacing="xxl">
             {group.map(({ node }) => (
               <BlogPostItem key={node.fields.slug} node={node} />
             ))}

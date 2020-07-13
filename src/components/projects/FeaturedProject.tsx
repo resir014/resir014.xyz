@@ -43,6 +43,7 @@ const FeaturedProjectDetails = styled('div')`
   flex-direction: column;
   padding: 24px;
   background-color: ${colors.ultramarine30};
+  background-image: linear-gradient(to right, ${colors.ultramarine30}, ${colors.blue30});
 `
 
 interface FeaturedProjectProps extends ProjectField, BoxProps {

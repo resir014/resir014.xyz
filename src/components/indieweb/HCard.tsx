@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { transparentize } from 'polished'
+import { darken } from 'polished'
 import classnames from 'clsx'
 import styled from '@emotion/styled'
 
@@ -74,10 +74,10 @@ const HCard: React.FC<HCardProps> = ({ className, hidden, icon, author }) => (
       className={classnames(className, 'h-card')}
       display={hidden ? 'none' : 'block'}
       p="md"
-      backgroundColor={transparentize(0.75, colors.ultramarine30)}
+      backgroundColor={darken(0.25, colors.ultramarine30)}
       border="2px solid"
       borderColor="ultramarine30"
-      borderRadius={6}
+      borderRadius={8}
       color="inherit"
       boxShadow="single"
     >

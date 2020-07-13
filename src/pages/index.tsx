@@ -75,7 +75,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
             >
               <Stack spacing={64}>
                 <HomepageSection>
-                  <Stack spacing="lg">
+                  <Stack spacing="xxl">
                     {recentPosts.map(({ node }) => (
                       <BlogPostItem key={node.fields.slug} node={node} />
                     ))}
