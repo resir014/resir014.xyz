@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
+import { css } from '@emotion/core'
 
 import { BlogPostField } from '../../types/fields'
 import { Box, BoxProps } from '../chungking-core'
@@ -21,7 +22,21 @@ const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, ...rest }) => {
   const { date, date_ogp, category, slug } = node.fields
 
   return (
-    <Box as="article" display="flex" flexDirection="column" className="h-entry" {...rest}>
+    <Box
+      as="article"
+      display="flex"
+      flexDirection="column"
+      className="h-entry"
+      pb="xxl"
+      borderBottom="1px solid"
+      borderBottomColor="grey90"
+      css={css`
+        &:last-of-type {
+          border-bottom: none;
+        }
+      `}
+      {...rest}
+    >
       <PostIndexItemHeader>
         <PostIndexItemMeta>
           <PageMetaItem>
