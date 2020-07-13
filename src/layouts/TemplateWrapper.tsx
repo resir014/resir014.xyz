@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import { Global } from '@emotion/core'
 import { StaticQuery, graphql } from 'gatsby'
+import { monetize } from 'monetizer'
 
 import menuItems from '../utils/menuItems'
 
@@ -50,6 +51,10 @@ const query = graphql`
 `
 
 const TemplateWrapper: React.FC<TemplateWrapperProps> = ({ children, layoutSize }) => {
+  React.useEffect(() => {
+    monetize('$ilp.uphold.com/EhyxaNfxFZ4b')
+  }, [])
+
   return (
     <StaticQuery query={query}>
       {(data: WrapperData) => (
