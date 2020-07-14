@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import { css } from '@emotion/core'
 
 import { HCardIcon, SiteData } from '../types/gatsby'
 import { ProjectField, BlogPostField } from '../types/fields'
@@ -14,7 +15,6 @@ import { NavLinkButton, Stack, Box } from '../components/chungking-core'
 import { FeaturedProject } from '../components/projects'
 import {
   HomepageHero,
-  HomepageHeroText,
   HomepageContent,
   HomepageSection,
   HomepageSectionFooter,
@@ -61,57 +61,50 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           ]}
         />
         <HomepageHero>
-          <HomepageHeroText
-            title="resir014"
-            flavour={process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || data.site.siteMetadata.flavourText}
+          <HCard
+            css={css`
+              width: 100%;
+              max-width: 640px;
+            `}
           />
         </HomepageHero>
         <HomepageContent>
           <Container size="xl">
-            <Box
-              display="grid"
-              gridTemplateColumns={['1fr', null, null, null, null, 'auto 320px']}
-              gridGap="lg"
-            >
-              <Stack spacing={64}>
-                <HomepageSection>
-                  <Stack spacing="xxl">
+            <Stack spacing={64}>
+              <HomepageSection>
+                <LiveBanner />
+              </HomepageSection>
+              <HomepageSection>
+                <Stack spacing="xxl">
+                  <HomepageSectionTitle>Recent articles</HomepageSectionTitle>
+                  <Box
+                    display="grid"
+                    gridTemplateColumns={['1fr', null, null, null, null, '1fr 1fr 1fr']}
+                    gridGap="lg"
+                  >
                     {recentPosts.map(({ node }) => (
-                      <BlogPostItem key={node.fields.slug} node={node} />
+                      <BlogPostItem isHomepage key={node.fields.slug} node={node} />
                     ))}
-                    <HomepageSectionFooter>
-                      <NavLinkButton size="lg" to="/posts" ghosted>
-                        View more posts &rarr;
-                      </NavLinkButton>
-                    </HomepageSectionFooter>
-                  </Stack>
-                </HomepageSection>
-                <HomepageSection>
-                  <Stack spacing="lg">
-                    <HomepageSectionTitle>Projects</HomepageSectionTitle>
-                    <FeaturedProject node={data.featuredProject} />
-                    <HomepageSectionFooter>
-                      <NavLinkButton size="lg" to="/projects" ghosted>
-                        View more of my stuff &rarr;
-                      </NavLinkButton>
-                    </HomepageSectionFooter>
-                  </Stack>
-                </HomepageSection>
-              </Stack>
-              <Box>
-                <Stack spacing="lg">
-                  <HomepageSection>
-                    <LiveBanner />
-                  </HomepageSection>
-                  <HomepageSection>
-                    <HCard
-                      icon={data.icon.childImageSharp}
-                      author={data.site.siteMetadata.author}
-                    />
-                  </HomepageSection>
+                  </Box>
+                  <HomepageSectionFooter>
+                    <NavLinkButton size="lg" to="/posts" ghosted>
+                      View more posts &rarr;
+                    </NavLinkButton>
+                  </HomepageSectionFooter>
                 </Stack>
-              </Box>
-            </Box>
+              </HomepageSection>
+              <HomepageSection>
+                <Stack spacing="xxl">
+                  <HomepageSectionTitle>Projects</HomepageSectionTitle>
+                  <FeaturedProject node={data.featuredProject} />
+                  <HomepageSectionFooter>
+                    <NavLinkButton size="lg" to="/projects" ghosted>
+                      View more of my stuff &rarr;
+                    </NavLinkButton>
+                  </HomepageSectionFooter>
+                </Stack>
+              </HomepageSection>
+            </Stack>
           </Container>
         </HomepageContent>
       </Page>
@@ -152,7 +145,7 @@ export const pageQuery = graphql`
       }
     }
     featuredPosts: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/posts/" } }
+      filter: { fileAbsolutePath: { regex: "/posts/" }, fields: { category: { eq: "article" } } }
       sort: { fields: [fields___date], order: DESC }
       limit: 3
     ) {

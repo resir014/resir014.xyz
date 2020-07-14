@@ -10,7 +10,7 @@ import { LiteYouTube } from '../video'
 import { MarkdownContent, BookmarkLink } from '../page'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
-import { NavLinkButton, Heading, Stack, Box } from '../chungking-core'
+import { Heading, Stack, Box, Text } from '../chungking-core'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
@@ -18,7 +18,11 @@ const PostTitleLink = styled(Link)`
 
 const PostThumbnailImage = styled(Box)``
 
-const PostDetailBox = styled('section')``
+const PostDetailBox = styled('section')`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+`
 
 const PostTitle: React.FC = ({ children }) => (
   <Heading variant={800} mt={0} mb="sm">
@@ -26,11 +30,13 @@ const PostTitle: React.FC = ({ children }) => (
   </Heading>
 )
 
-const PostContent = styled(Box)``
+const PostContent = styled(Box)`
+  flex: 1 1 auto;
+`
 
-const BlogPostFooter = styled('div')``
+const BlogPostFooter = styled(Box)``
 
-export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
+export function renderArticleTemplate(node: BlogPostNode, isHomepage = false): JSX.Element {
   // workaround until this is fixed:
   // https://github.com/gatsbyjs/gatsby/issues/15286
   const renderExcerpt = (excerpt: string) => {
@@ -41,23 +47,36 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
     return excerpt
   }
 
+  const readmoreLabel = `read-more-${node.fields.post_permalink}`
+
   return (
     <PostDetailBox>
       {node.frontmatter.header_image && (
         <PostThumbnailImage
-          as="img"
+          position="relative"
           m={0}
-          mb="lg"
           borderRadius={6}
-          className="u-featured"
-          src={node.frontmatter.header_image.childImageSharp.fluid.src}
-          alt={node.frontmatter.title || 'Photo posted by @resir014'}
-          srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
-        />
+          height="100%"
+          maxHeight={isHomepage ? 200 : undefined}
+          overflow="hidden"
+        >
+          <img
+            className="u-featured"
+            src={node.frontmatter.header_image.childImageSharp.fluid.src}
+            alt={node.frontmatter.title || 'Photo posted by @resir014'}
+            srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
+            css={css`
+              height: 100%;
+              width: 100%;
+              margin: 0;
+              object-fit: cover;
+            `}
+          />
+        </PostThumbnailImage>
       )}
-      <PostContent pb={24} pt={0}>
+      <PostContent pb={0} pt="lg">
         <PostTitle>
-          <PostTitleLink className="p-name" to={node.fields.slug}>
+          <PostTitleLink className="p-name" to={node.fields.slug} aria-describedby={readmoreLabel}>
             {node.frontmatter.title}
           </PostTitleLink>
         </PostTitle>
@@ -67,10 +86,10 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
           </BlogPostExcerpt>
         ) : null}
       </PostContent>
-      <BlogPostFooter>
-        <NavLinkButton to={node.fields.slug} ghosted>
+      <BlogPostFooter py="lg">
+        <Text id={readmoreLabel} display="inline-block" lineHeight="40px">
           Read more &rarr;
-        </NavLinkButton>
+        </Text>
       </BlogPostFooter>
     </PostDetailBox>
   )
@@ -124,16 +143,31 @@ export function renderVideoTemplate(node: BlogPostNode) {
   )
 }
 
-export function renderPhotoTemplate(node: BlogPostNode): JSX.Element {
+export function renderPhotoTemplate(node: BlogPostNode, isHomepage = false): JSX.Element {
   return (
     <PostDetailBox>
       {node.frontmatter.header_image && (
         <PostThumbnailImage
-          className="u-photo"
-          src={node.frontmatter.header_image.childImageSharp.fluid.src}
-          alt={node.frontmatter.title || 'Photo posted by @resir014'}
-          srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
-        />
+          position="relative"
+          m={0}
+          borderRadius={6}
+          height="100%"
+          maxHeight={isHomepage ? 200 : undefined}
+          overflow="hidden"
+        >
+          <img
+            className="u-photo"
+            src={node.frontmatter.header_image.childImageSharp.fluid.src}
+            alt={node.frontmatter.title || 'Photo posted by @resir014'}
+            srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
+            css={css`
+              height: 100%;
+              width: 100%;
+              margin: 0;
+              object-fit: cover;
+            `}
+          />
+        </PostThumbnailImage>
       )}
       <PostContent pt={24}>
         {node.frontmatter.title && (

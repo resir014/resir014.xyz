@@ -16,9 +16,12 @@ import {
   renderBookmarkTemplate
 } from './templates'
 
-type BlogPostItemProps = BlogPostField & BoxProps
+type BlogPostItemProps = BlogPostField &
+  BoxProps & {
+    isHomepage?: boolean
+  }
 
-const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, ...rest }) => {
+const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, isHomepage, ...rest }) => {
   const { date, date_ogp, category, slug } = node.fields
 
   return (
@@ -26,16 +29,21 @@ const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, ...rest }) => {
       as="article"
       display="flex"
       flexDirection="column"
+      position="relative"
       className="h-entry"
-      pb="xxl"
-      borderBottom="1px solid"
-      borderBottomColor="grey90"
-      css={css`
-        &:last-of-type {
-          padding-bottom: 0;
-          border-bottom: none;
-        }
-      `}
+      pb={isHomepage ? 0 : 'xxl'}
+      borderBottom={isHomepage ? undefined : '1px solid'}
+      borderBottomColor={isHomepage ? undefined : 'grey90'}
+      css={
+        isHomepage
+          ? undefined
+          : css`
+              &:last-of-type {
+                padding-bottom: 0;
+                border-bottom: none;
+              }
+            `
+      }
       {...rest}
     >
       <PostIndexItemHeader>
@@ -50,10 +58,10 @@ const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, ...rest }) => {
           <PageMetaItem className="p-category">{category}</PageMetaItem>
         </PostIndexItemMeta>
       </PostIndexItemHeader>
-      {node.fields.category === 'article' && renderArticleTemplate(node)}
+      {node.fields.category === 'article' && renderArticleTemplate(node, isHomepage)}
       {node.fields.category === 'note' && renderNoteTemplate(node)}
       {node.fields.category === 'video' && renderVideoTemplate(node)}
-      {node.fields.category === 'photo' && renderPhotoTemplate(node)}
+      {node.fields.category === 'photo' && renderPhotoTemplate(node, isHomepage)}
       {node.fields.category === 'jam' && renderVideoTemplate(node)}
       {node.fields.category === 'bookmark' && renderBookmarkTemplate(node)}
     </Box>

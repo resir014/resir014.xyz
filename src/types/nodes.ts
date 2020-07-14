@@ -116,6 +116,7 @@ export interface BlogPostNode {
   html: string
   excerpt: string
   fields: {
+    post_permalink: string
     slug: string
     category?: string
     layout?: string

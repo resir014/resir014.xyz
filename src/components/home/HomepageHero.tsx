@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { darken } from 'polished'
 
-import { space, colors, widths, mediaQueries } from '../chungking-core'
+import { space, colors, widths } from '../chungking-core'
 
 import BackgroundPattern from '../../assets/images/architect.svg'
 
@@ -34,8 +34,4 @@ const Root = styled('header')`
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     url(${BackgroundPattern});
   border-bottom: 1px solid ${colors.grey90};
-
-  ${mediaQueries.lg} {
-    height: 320px;
-  }
 `
