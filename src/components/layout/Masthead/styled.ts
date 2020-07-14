@@ -36,4 +36,9 @@ export const MastheadLinkStyles = css`
 
 export const MastheadTitleLinkStyles = css`
   font-weight: 700;
+
+  span {
+    font-weight: 400;
+    white-space: nowrap;
+  }
 `

@@ -52,6 +52,13 @@ module.exports = ({ node, getNode, actions }) => {
           name: 'date',
           value: pubDate.toJSON()
         })
+
+        // Used to generate URL to view this content.
+        createNodeField({
+          node,
+          name: `post_permalink`,
+          value: slugify(filename)
+        })
       }
     }
 

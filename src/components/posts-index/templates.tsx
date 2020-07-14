@@ -3,22 +3,26 @@ import classnames from 'clsx'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import slugify from 'slug'
 
 import { BlogPostNode } from '../../types/nodes'
 
 import { LiteYouTube } from '../video'
 import { MarkdownContent, BookmarkLink } from '../page'
+import { Heading, Stack, Box, Text } from '../chungking-core'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
-import { NavLinkButton, Heading, Stack, Box } from '../chungking-core'
+import PostThumbnailImage from './PostThumbnailImage'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
 `
 
-const PostThumbnailImage = styled(Box)``
-
-const PostDetailBox = styled('section')``
+const PostDetailBox = styled('section')`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+`
 
 const PostTitle: React.FC = ({ children }) => (
   <Heading variant={800} mt={0} mb="sm">
@@ -26,11 +30,13 @@ const PostTitle: React.FC = ({ children }) => (
   </Heading>
 )
 
-const PostContent = styled(Box)``
+const PostContent = styled(Box)`
+  flex: 1 1 auto;
+`
 
-const BlogPostFooter = styled('div')``
+const BlogPostFooter = styled(Box)``
 
-export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
+export function renderArticleTemplate(node: BlogPostNode, isHomepage = false): JSX.Element {
   // workaround until this is fixed:
   // https://github.com/gatsbyjs/gatsby/issues/15286
   const renderExcerpt = (excerpt: string) => {
@@ -41,23 +47,43 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
     return excerpt
   }
 
+  const readmoreLabel = `read-more-${slugify(node.fields.slug)}`
+
   return (
     <PostDetailBox>
       {node.frontmatter.header_image && (
         <PostThumbnailImage
-          as="img"
-          m={0}
-          mb="lg"
-          borderRadius={6}
+          isHomepage={isHomepage}
           className="u-featured"
           src={node.frontmatter.header_image.childImageSharp.fluid.src}
-          alt={node.frontmatter.title || 'Photo posted by @resir014'}
+          alt={node.frontmatter.title || 'Post by @resir014'}
           srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
         />
       )}
-      <PostContent pb={24} pt={0}>
+      <PostContent pb={0} pt="lg">
         <PostTitle>
-          <PostTitleLink className="p-name" to={node.fields.slug}>
+          <PostTitleLink
+            className="p-name"
+            to={node.fields.slug}
+            aria-describedby={readmoreLabel}
+            css={css`
+              cursor: pointer;
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+              }
+
+              &:hover,
+              &:focus {
+                text-decoration: underline;
+              }
+            `}
+          >
             {node.frontmatter.title}
           </PostTitleLink>
         </PostTitle>
@@ -67,10 +93,10 @@ export function renderArticleTemplate(node: BlogPostNode): JSX.Element {
           </BlogPostExcerpt>
         ) : null}
       </PostContent>
-      <BlogPostFooter>
-        <NavLinkButton to={node.fields.slug} ghosted>
+      <BlogPostFooter pt="lg" pb={isHomepage ? 'lg' : 0}>
+        <Text id={readmoreLabel} display="inline-block" lineHeight="32px">
           Read more &rarr;
-        </NavLinkButton>
+        </Text>
       </BlogPostFooter>
     </PostDetailBox>
   )
@@ -124,11 +150,12 @@ export function renderVideoTemplate(node: BlogPostNode) {
   )
 }
 
-export function renderPhotoTemplate(node: BlogPostNode): JSX.Element {
+export function renderPhotoTemplate(node: BlogPostNode, isHomepage = false): JSX.Element {
   return (
     <PostDetailBox>
       {node.frontmatter.header_image && (
         <PostThumbnailImage
+          isHomepage={isHomepage}
           className="u-photo"
           src={node.frontmatter.header_image.childImageSharp.fluid.src}
           alt={node.frontmatter.title || 'Photo posted by @resir014'}
