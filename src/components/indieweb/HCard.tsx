@@ -145,7 +145,6 @@ const HCard: React.FC<HCardProps> = ({ className, hidden }) => {
           <HCardEmail className="u-email">{author.email}</HCardEmail>
           <Box
             mt="md"
-            mb="sm"
             css={css`
               word-wrap: break-word;
             `}

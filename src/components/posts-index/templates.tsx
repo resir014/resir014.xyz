@@ -9,15 +9,14 @@ import { BlogPostNode } from '../../types/nodes'
 
 import { LiteYouTube } from '../video'
 import { MarkdownContent, BookmarkLink } from '../page'
+import { Heading, Stack, Box, Text } from '../chungking-core'
 
 import BlogPostExcerpt from './BlogPostExcerpt'
-import { Heading, Stack, Box, Text } from '../chungking-core'
+import PostThumbnailImage from './PostThumbnailImage'
 
 const PostTitleLink = styled(Link)`
   color: inherit !important;
 `
-
-const PostThumbnailImage = styled(Box)``
 
 const PostDetailBox = styled('section')`
   display: flex;
@@ -54,26 +53,12 @@ export function renderArticleTemplate(node: BlogPostNode, isHomepage = false): J
     <PostDetailBox>
       {node.frontmatter.header_image && (
         <PostThumbnailImage
-          position="relative"
-          m={0}
-          borderRadius={6}
-          height="100%"
-          maxHeight={isHomepage ? 200 : undefined}
-          overflow="hidden"
-        >
-          <img
-            className="u-featured"
-            src={node.frontmatter.header_image.childImageSharp.fluid.src}
-            alt={node.frontmatter.title || 'Photo posted by @resir014'}
-            srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
-            css={css`
-              height: 100%;
-              width: 100%;
-              margin: 0;
-              object-fit: cover;
-            `}
-          />
-        </PostThumbnailImage>
+          isHomepage={isHomepage}
+          className="u-featured"
+          src={node.frontmatter.header_image.childImageSharp.fluid.src}
+          alt={node.frontmatter.title || 'Post by @resir014'}
+          srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
+        />
       )}
       <PostContent pb={0} pt="lg">
         <PostTitle>
@@ -170,26 +155,12 @@ export function renderPhotoTemplate(node: BlogPostNode, isHomepage = false): JSX
     <PostDetailBox>
       {node.frontmatter.header_image && (
         <PostThumbnailImage
-          position="relative"
-          m={0}
-          borderRadius={6}
-          height="100%"
-          maxHeight={isHomepage ? 200 : undefined}
-          overflow="hidden"
-        >
-          <img
-            className="u-photo"
-            src={node.frontmatter.header_image.childImageSharp.fluid.src}
-            alt={node.frontmatter.title || 'Photo posted by @resir014'}
-            srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
-            css={css`
-              height: 100%;
-              width: 100%;
-              margin: 0;
-              object-fit: cover;
-            `}
-          />
-        </PostThumbnailImage>
+          isHomepage={isHomepage}
+          className="u-photo"
+          src={node.frontmatter.header_image.childImageSharp.fluid.src}
+          alt={node.frontmatter.title || 'Photo posted by @resir014'}
+          srcSet={node.frontmatter.header_image.childImageSharp.fluid.srcSet}
+        />
       )}
       <PostContent pt={24}>
         {node.frontmatter.title && (
