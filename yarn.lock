@@ -10534,11 +10534,6 @@ moment@^2.25.3:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.26.0.tgz#5e1f82c6bafca6e83e808b30c8705eed0dcbd39a"
   integrity sha512-oIixUO+OamkUkwjhAVE18rAMfRJNsNe/Stid/gwHSOfHrOtw9EhAY2AHvdKZ/k/MggcYELFCJz/Sn2pL8b8JMw==
 
-monetizer@^48.4.0:
-  version "48.4.0"
-  resolved "https://registry.yarnpkg.com/monetizer/-/monetizer-48.4.0.tgz#b7c378075e2acdd4686e988b24be87f782dcd7ce"
-  integrity sha512-IRXLWO7uwI9o8QWbSzuD2WwPS41MzJrGh1PVAnHCJXE+nopIpkD/s+tmf8brpU2iQRU3FoTWVcnmrJD696ZkBw==
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
