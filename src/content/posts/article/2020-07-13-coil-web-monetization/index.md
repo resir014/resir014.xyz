@@ -48,7 +48,7 @@ Coil [works natively on Twitch](https://help.coil.com/for-creators/twitch-stream
 
 ---
 
-Let's face it, monetising content on the web is broken, and the current solution available leaves the entire user experience on the web worse off. The only way you support content creators and journalists for their work nowadays is broken. They make you go into one of the web's many walled gardens, and force you to make separate payments over many different walled gardens you go into.
+Let's face it, monetising content on the web is broken, and the current solution available leaves the entire user experience on the web worse off. They make you go into one of the web's many walled gardens, and force you to make separate payments over many different walled gardens you go into.
 
 But that shouldn't be how monetisation works on the internet. It should work the same, every time, everywhere.
 
