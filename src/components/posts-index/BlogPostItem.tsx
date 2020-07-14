@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 
 import { BlogPostField } from '../../types/fields'
@@ -22,7 +21,7 @@ type BlogPostItemProps = BlogPostField &
   }
 
 const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, isHomepage, ...rest }) => {
-  const { date, date_ogp, category, slug } = node.fields
+  const { date, date_ogp, category } = node.fields
 
   return (
     <Box
@@ -49,11 +48,9 @@ const BlogPostItem: React.FC<BlogPostItemProps> = ({ node, isHomepage, ...rest }
       <PostIndexItemHeader>
         <PostIndexItemMeta>
           <PageMetaItem>
-            <Link to={slug}>
-              <time className="dt-published" dateTime={new Date(date_ogp).toISOString()}>
-                {date}
-              </time>
-            </Link>
+            <time className="dt-published" dateTime={new Date(date_ogp).toISOString()}>
+              {date}
+            </time>
           </PageMetaItem>
           <PageMetaItem className="p-category">{category}</PageMetaItem>
         </PostIndexItemMeta>
