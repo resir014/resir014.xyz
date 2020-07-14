@@ -93,7 +93,7 @@ export function renderArticleTemplate(node: BlogPostNode, isHomepage = false): J
           </BlogPostExcerpt>
         ) : null}
       </PostContent>
-      <BlogPostFooter py="lg">
+      <BlogPostFooter pt="lg" pb={isHomepage ? 'lg' : 0}>
         <Text id={readmoreLabel} display="inline-block" lineHeight="32px">
           Read more &rarr;
         </Text>
