@@ -3,6 +3,7 @@ import classnames from 'clsx'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import slugify from 'slug'
 
 import { BlogPostNode } from '../../types/nodes'
 
@@ -47,7 +48,7 @@ export function renderArticleTemplate(node: BlogPostNode, isHomepage = false): J
     return excerpt
   }
 
-  const readmoreLabel = `read-more-${node.fields.post_permalink}`
+  const readmoreLabel = `read-more-${slugify(node.fields.slug)}`
 
   return (
     <PostDetailBox>
@@ -76,7 +77,28 @@ export function renderArticleTemplate(node: BlogPostNode, isHomepage = false): J
       )}
       <PostContent pb={0} pt="lg">
         <PostTitle>
-          <PostTitleLink className="p-name" to={node.fields.slug} aria-describedby={readmoreLabel}>
+          <PostTitleLink
+            className="p-name"
+            to={node.fields.slug}
+            aria-describedby={readmoreLabel}
+            css={css`
+              cursor: pointer;
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+              }
+
+              &:hover,
+              &:focus {
+                text-decoration: underline;
+              }
+            `}
+          >
             {node.frontmatter.title}
           </PostTitleLink>
         </PostTitle>
@@ -87,7 +109,7 @@ export function renderArticleTemplate(node: BlogPostNode, isHomepage = false): J
         ) : null}
       </PostContent>
       <BlogPostFooter py="lg">
-        <Text id={readmoreLabel} display="inline-block" lineHeight="40px">
+        <Text id={readmoreLabel} display="inline-block" lineHeight="32px">
           Read more &rarr;
         </Text>
       </BlogPostFooter>

@@ -87,7 +87,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                     ))}
                   </Box>
                   <HomepageSectionFooter>
-                    <NavLinkButton size="lg" to="/posts" ghosted>
+                    <NavLinkButton size="lg" to="/posts" variant="primary">
                       View more posts &rarr;
                     </NavLinkButton>
                   </HomepageSectionFooter>
@@ -98,7 +98,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                   <HomepageSectionTitle>Projects</HomepageSectionTitle>
                   <FeaturedProject node={data.featuredProject} />
                   <HomepageSectionFooter>
-                    <NavLinkButton size="lg" to="/projects" ghosted>
+                    <NavLinkButton size="lg" to="/projects" variant="primary">
                       View more of my stuff &rarr;
                     </NavLinkButton>
                   </HomepageSectionFooter>
