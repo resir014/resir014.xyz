@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
-import { mediaQueries, colors, widths, Text, breakpoints } from '../../chungking-core'
+import { mediaQueries, colors, widths, Text, breakpoints, space } from '../../chungking-core'
 import menuItems from '../../../utils/menuItems'
 import { MenuProps } from '../../../types/default'
 
@@ -17,6 +17,7 @@ interface MastheadProps extends MenuProps {
 const Root = styled('nav')`
   display: grid;
   grid-template-columns: 1fr 1fr minmax(auto, ${widths.xl}px) 1fr 1fr;
+  padding: 0 ${space.lg}px;
   background-color: ${colors.black};
   z-index: 50;
   box-shadow: inset 0 -1px ${colors.grey90};

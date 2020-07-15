@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { transparentize } from 'polished'
 import classnames from 'clsx'
 import { useStaticQuery, graphql } from 'gatsby'
 import { css } from '@emotion/core'
@@ -35,10 +34,10 @@ const HCardAvatar = styled('div')`
 `
 
 const HCardAvatarImg = styled('img')`
-  width: 72px;
-  height: 72px;
+  width: 108px;
+  height: 108px;
   margin: 0;
-  border-radius: 72px;
+  border-radius: 108px;
   border: 2px solid ${colors.white};
 `
 
@@ -100,19 +99,46 @@ const HCard: React.FC<HCardProps> = ({ className, hidden }) => {
       display={hidden ? 'none' : 'block'}
       position="relative"
       p="md"
-      backgroundColor={transparentize(0.5, colors.ultramarine30)}
-      border="2px solid"
+      border="16px solid"
       borderColor="ultramarine30"
-      borderRadius={8}
       color="inherit"
       boxShadow="single"
+      css={css`
+        border-image-slice: 1;
+        border-image-source: linear-gradient(
+          ${colors.green30},
+          50%,
+          ${colors.blue30},
+          ${colors.ultramarine30}
+        );
+        border-image-source: radial-gradient(
+          ${colors.green30},
+          75%,
+          ${colors.blue30},
+          ${colors.ultramarine30}
+        );
+        border-image-source: conic-gradient(
+          ${colors.green30},
+          60deg,
+          ${colors.blue30},
+          ${colors.ultramarine30},
+          ${colors.blue30},
+          300deg,
+          ${colors.green30}
+        );
+
+        ${mediaQueries.lg} {
+          width: 100%;
+          max-width: 640px;
+        }
+      `}
     >
       <Inner>
         <HCardAvatar>
           <HCardAvatarImg className="u-photo" src={icon.fluid.src} alt={author.name} />
         </HCardAvatar>
         <HCardDetails>
-          <Heading as="h3" variant={700} mt={0} mb="xs">
+          <Heading as="h3" variant={900} mt={0} mb="xs">
             <UnstyledLink
               className="p-name"
               rel="me"
@@ -149,7 +175,9 @@ const HCard: React.FC<HCardProps> = ({ className, hidden }) => {
               word-wrap: break-word;
             `}
           >
-            <Text id="contact-me-text">Contact me &rarr;</Text>
+            <Text id="contact-me-text" aria-hidden>
+              Contact me &rarr;
+            </Text>
           </Box>
         </HCardDetails>
       </Inner>

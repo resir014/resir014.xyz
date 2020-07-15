@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { css } from '@emotion/core'
 
 import { HCardIcon, SiteData } from '../types/gatsby'
 import { ProjectField, BlogPostField } from '../types/fields'
@@ -61,12 +60,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           ]}
         />
         <HomepageHero>
-          <HCard
-            css={css`
-              width: 100%;
-              max-width: 640px;
-            `}
-          />
+          <HCard />
         </HomepageHero>
         <HomepageContent>
           <Container size="xl">
