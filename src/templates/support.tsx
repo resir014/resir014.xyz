@@ -98,13 +98,6 @@ const SupportPageTemplate: React.FC<SupportPageTemplateProps> = ({ data, locatio
                   >
                     Karyakarsa*
                   </LiveCTALink>
-                  <LiveCTALink
-                    isExternal
-                    backgroundColor="#be1e2d"
-                    to="https://trakteer.id/resir014"
-                  >
-                    Trakteer*
-                  </LiveCTALink>
                   <LiveCTALink isExternal backgroundColor="#29abe0" to="https://ko-fi.com/resir014">
                     Ko-fi
                   </LiveCTALink>
