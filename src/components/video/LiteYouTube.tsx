@@ -102,7 +102,7 @@ interface LiteYouTubeProps {
   style?: React.CSSProperties
 }
 
-const LiteYouTube = ({ videoId, className, style }: LiteYouTubeProps) => {
+const LiteYouTube: React.FC<LiteYouTubeProps> = ({ videoId, className, style }) => {
   const encodedVideoId = encodeURIComponent(videoId)
   const posterUrl = `https://i.ytimg.com/vi/${encodedVideoId}/hqdefault.jpg`
 
@@ -145,6 +145,11 @@ const LiteYouTube = ({ videoId, className, style }: LiteYouTubeProps) => {
       )}
     </LiteYouTubeWrapper>
   )
+}
+
+LiteYouTube.defaultProps = {
+  className: undefined,
+  style: undefined
 }
 
 export default LiteYouTube
