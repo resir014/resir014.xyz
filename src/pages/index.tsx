@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import { css } from '@emotion/core'
 
 import { HCardIcon, SiteData } from '../types/gatsby'
 import { ProjectField, BlogPostField } from '../types/fields'
@@ -81,7 +82,13 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                     ))}
                   </Box>
                   <HomepageSectionFooter>
-                    <NavLinkButton size="lg" to="/posts" variant="primary">
+                    <NavLinkButton
+                      size="lg"
+                      to="/posts"
+                      css={css`
+                        display: flex;
+                      `}
+                    >
                       View more posts &rarr;
                     </NavLinkButton>
                   </HomepageSectionFooter>
@@ -92,7 +99,13 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                   <HomepageSectionTitle>Projects</HomepageSectionTitle>
                   <FeaturedProject node={data.featuredProject} />
                   <HomepageSectionFooter>
-                    <NavLinkButton size="lg" to="/projects" variant="primary">
+                    <NavLinkButton
+                      size="lg"
+                      to="/projects"
+                      css={css`
+                        display: flex;
+                      `}
+                    >
                       View more of my stuff &rarr;
                     </NavLinkButton>
                   </HomepageSectionFooter>

@@ -148,31 +148,6 @@ const Div = styled(Stack)`
     border-radius: 3px;
   }
 
-  .message {
-    position: relative;
-    padding: ${space.md}px;
-    margin-bottom: ${space.md}px;
-    border: 2px solid transparent;
-    border-image-source: linear-gradient(to right, ${colors.magenta30}, ${colors.orange30});
-    border-image-slice: 1;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    a {
-      color: ${colors.orange30};
-    }
-
-    p,
-    ul,
-    ol {
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
   a[href^='#fn-'],
   a[href^='#fnref-'] {
     display: inline-block;
