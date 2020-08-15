@@ -1,8 +1,7 @@
 /* eslint-disable react/no-danger */
 import * as React from 'react'
-import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 import convert from 'htmr'
-import { transparentize } from 'polished'
 
 import { ProjectField } from '../../types/fields'
 import {
@@ -13,18 +12,20 @@ import {
   AnchorButton,
   NavLinkButton,
   BoxProps,
-  Card
+  Card,
+  Text,
+  Box
 } from '../chungking-core'
 import ProjectTags from './ProjectTags'
 
 const colorByCategory = (category: string) => {
   switch (category) {
     case 'portfolio':
-      return `${colors.ultramarine30}`
+      return `${colors.green30}`
     case 'oss':
-      return `${colors.purple30}`
+      return `${colors.orange30}`
     case 'other':
-      return `${colors.red30}`
+      return `${colors.magenta30}`
     default:
       return `${colors.grey90}`
   }
@@ -46,25 +47,6 @@ const renderLink = (url: string, jumpToProject = false) => {
   )
 }
 
-const ProjectHeader = styled('div')`
-  display: flex;
-  flex-direction: row;
-  padding: 12px 16px 0;
-`
-
-const ProjectDetailBox = styled('div')`
-  flex: 1 0 auto;
-  padding: 8px 16px 24px;
-
-  a {
-    color: ${colors.green30};
-  }
-`
-
-const ProjectFooter = styled('div')`
-  padding: 0 16px 16px;
-`
-
 type ProjectFieldProps = ProjectField & BoxProps
 
 const ProjectItem: React.FC<ProjectFieldProps> = ({ node, ...rest }) => {
@@ -79,19 +61,29 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ node, ...rest }) => {
       flexDirection="column"
       position="relative"
       flex="1 1 100%"
-      backgroundColor={transparentize(0.75, colorByCategory(category))}
-      border="2px solid"
-      borderColor={colorByCategory(category)}
+      backgroundColor="grey90"
       borderRadius={6}
       overflow="hidden"
       {...rest}
     >
-      <ProjectHeader>
-        <Heading as="h3" variant={700} m={0}>
+      <Box display="flex" flexDirection="column" px="lg" pt="lg" pb={0}>
+        <Text
+          variant={200}
+          display="block"
+          fontFamily="monospace"
+          fontWeight={300}
+          mb="xxs"
+          css={css`
+            text-transform: uppercase;
+          `}
+        >
+          {category}
+        </Text>
+        <Heading as="h3" variant={700} m={0} color={colorByCategory(category)}>
           {title}
         </Heading>
-      </ProjectHeader>
-      <ProjectDetailBox>
+      </Box>
+      <Box flex="1 0 auto" pb="lg" px="lg" pt="sm">
         <Paragraph m={0}>{convert(description || lead)}</Paragraph>
         {tags ? (
           <ProjectTags>
@@ -100,10 +92,10 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ node, ...rest }) => {
             ))}
           </ProjectTags>
         ) : null}
-      </ProjectDetailBox>
-      <ProjectFooter>
+      </Box>
+      <Box pt={0} px="lg" pb="lg">
         {jumpToProject === 'true' && project_url ? renderLink(project_url, true) : renderLink(slug)}
-      </ProjectFooter>
+      </Box>
     </Card>
   )
 }
