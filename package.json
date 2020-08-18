@@ -16,7 +16,9 @@
     "format": "prettier --write \"gatsby/**/*.js\" \"src/**/*.{ts,tsx,md}\"",
     "lint": "eslint \"gatsby/**/*.js\" \"src/**/*.{ts,tsx}\"",
     "test": "npm run type-check && npm run lint",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@emotion/core": "^10.0.35",
@@ -68,6 +70,11 @@
     "url-parse": "^1.4.7"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@storybook/addon-actions": "^6.0.12",
+    "@storybook/addon-essentials": "^6.0.12",
+    "@storybook/addon-links": "^6.0.12",
+    "@storybook/react": "^6.0.12",
     "@types/node": "^12.12.42",
     "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.8",
@@ -75,11 +82,13 @@
     "@types/slug": "^0.9.1",
     "@types/styled-system": "^5.1.10",
     "@types/url-parse": "^1.4.3",
+    "babel-loader": "^8.1.0",
     "eslint": "^6.8.0",
     "eslint-config-blvd": "^1.0.2",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5",
+    "react-is": "^16.13.1",
     "rimraf": "^3.0.2"
   }
 }

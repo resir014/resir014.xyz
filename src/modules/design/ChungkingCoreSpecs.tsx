@@ -199,7 +199,7 @@ const ChungkingCoreSpecs: React.FC = () => {
       <H4>Badge</H4>
       <WrapperRoot>
         <div style={buttonWrapperStyles}>
-          <Badge>default</Badge> <Badge color="grey">grey</Badge>
+          <Badge>default</Badge> <Badge variant="grey">grey</Badge>
         </div>
       </WrapperRoot>
       <H4>Button</H4>
@@ -307,13 +307,13 @@ const ChungkingCoreSpecs: React.FC = () => {
       </WrapperRoot>
       <H4>Message Box</H4>
       <MessageBox>
-        <P>
+        <P m={0}>
           <strong>Info:</strong> This post is also published on{' '}
           <a href="https://medium.com/">Medium</a>.
         </P>
       </MessageBox>
       <MessageBox variant="warning">
-        <P>
+        <P m={0}>
           <strong>Update:</strong> Phoenix 1.4 ships with{' '}
           <a href="https://webpack.js.org/">Webpack</a> by default, therefore this guide is now
           outdated.

@@ -31,14 +31,14 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ className, html }) =>
       if (cn?.includes('message')) {
         if (cn?.includes('message--warning')) {
           return (
-            <MessageBox variant="warning" {...rest}>
+            <MessageBox variant="warning" mx="lg" {...rest}>
               {children}
             </MessageBox>
           )
         }
 
         return (
-          <MessageBox variant="default" {...rest}>
+          <MessageBox variant="default" mx="lg" {...rest}>
             {children}
           </MessageBox>
         )

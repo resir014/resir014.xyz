@@ -3,11 +3,12 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { transparentize } from 'polished'
 import { colors, space } from '../../utils'
-import { Stack, StackProps } from '../../foundations'
+import { Box, BoxProps } from '../../foundations/box'
 
-export interface MessageBoxProps extends StackProps {
+export interface MessageBoxProps extends BoxProps {
   className?: string
   variant?: 'default' | 'warning'
+  children?: React.ReactNode
 }
 
 const DefaultStyles = css`
@@ -28,8 +29,7 @@ const WarningStyles = css`
   }
 `
 
-const Root = styled(Stack)<MessageBoxProps>`
-  margin: 24px 0;
+const Root = styled(Box)<MessageBoxProps>`
   padding: ${space.md}px;
   border: 2px solid transparent;
   border-radius: 4px;
@@ -43,7 +43,7 @@ const Root = styled(Stack)<MessageBoxProps>`
 `
 
 const MessageBox: React.FC<MessageBoxProps> = ({ className, children, ...rest }) => (
-  <Root className={className} spacing="md" boxShadow="single" {...rest}>
+  <Root className={className} boxShadow="single" {...rest}>
     {children}
   </Root>
 )
