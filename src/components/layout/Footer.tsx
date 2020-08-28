@@ -116,7 +116,7 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
                   >
                     MIT License
                   </a>
-                  .
+                  .{' '}
                   <a
                     href="https://blacklivesmatters.carrd.co/"
                     target="_blank"
