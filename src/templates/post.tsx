@@ -102,8 +102,10 @@ const PostTemplate: React.FC<PostTemplateProps> = ({ data, location }) => {
         <PageContent>
           <Container>
             {post.frontmatter.syndication && (
-              <MessageBox>
-                <P m={0}>This post is also published on:</P>
+              <MessageBox mb="lg">
+                <P mt={0} mb="md">
+                  This post is also published on:
+                </P>
                 <UL>
                   {post.frontmatter.syndication.map(s => (
                     <LI key={s.name}>

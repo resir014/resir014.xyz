@@ -3,12 +3,13 @@ import styled from '@emotion/styled'
 import { variant } from 'styled-system'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import { Box, BoxProps } from '../../foundations'
+import { Box, BoxProps } from '../../foundations/box'
 
 export type CardElevation = 'single' | 'double'
 
 export interface CardProps extends BoxProps {
   elevation?: CardElevation
+  children?: React.ReactNode
 }
 
 const shouldReallyForwardProp = (propName: string) => {

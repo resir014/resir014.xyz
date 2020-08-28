@@ -2,13 +2,14 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import { Box, BoxProps } from '../../foundations'
+import { Box, BoxProps } from '../../foundations/box'
 import { colors } from '../../utils'
 
 export interface BadgeProps extends BoxProps {
   className?: string
   style?: React.CSSProperties
-  color?: 'grey' | 'white'
+  variant?: 'grey' | 'white'
+  children?: React.ReactNode
 }
 
 const WhiteColorStyles = css`
@@ -28,8 +29,8 @@ const Root = styled(Box)`
   border: 1px solid transparent;
   border-radius: 3px;
 
-  ${props => props.color === 'white' && WhiteColorStyles}
-  ${props => props.color === 'grey' && GreyColorStyles}
+  ${props => props.variant === 'white' && WhiteColorStyles}
+  ${props => props.variant === 'grey' && GreyColorStyles}
 `
 
 const Badge: React.FC<BadgeProps> = ({ children, className, style, ...rest }) => {
@@ -50,7 +51,7 @@ const Badge: React.FC<BadgeProps> = ({ children, className, style, ...rest }) =>
 Badge.defaultProps = {
   className: undefined,
   style: undefined,
-  color: 'white'
+  variant: 'white'
 }
 
 export default Badge
