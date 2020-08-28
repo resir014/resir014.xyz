@@ -34,13 +34,14 @@ const XLargeStyles = css`
 `
 
 const ContainerBase = (props: ContainerProps) => css`
-position: relative;
-margin-left: auto;
-margin-right: auto;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 
-${props.size !== 'fluid' && FluidStyle}
-${(props.size === 'lg' || props.size === 'xl') && LargeStyles}
-${props.size === 'xl' && XLargeStyles}
+  ${props.size !== 'fluid' && FluidStyle}
+  ${(props.size === 'lg' || props.size === 'xl') && LargeStyles}
+${props.size === 'xl' &&
+  XLargeStyles}
 `
 
 export default styled(Container)(ContainerBase)

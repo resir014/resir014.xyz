@@ -160,7 +160,10 @@ export const ButtonBase = (props: ButtonProps) => css`
 
   ${props.variant === 'primary' && !props.ghosted && PrimaryButtonStyles}
   ${props.variant === 'secondary' && !props.ghosted && SecondaryButtonStyles}
-  ${props.variant === 'danger' && !props.ghosted && DangerButtonStyles}
+  ${props.variant ===
+    'danger' &&
+  !props.ghosted &&
+  DangerButtonStyles}
   ${props.size === 'sm' && !props.ghosted && SmallButtonStyles};
   ${props.size === 'md' && !props.ghosted && MediumButtonStyles};
   ${props.size === 'lg' && !props.ghosted && LargeButtonStyles};
