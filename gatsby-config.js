@@ -13,7 +13,9 @@ module.exports = {
     title: '@resir014',
     description: 'Web developer based in Jakarta, Indonesia.',
     siteUrl: 'https://resir014.xyz',
-    flavourText: flavours[Math.floor(Math.random() * flavours.length)],
+    flavourText:
+      process.env.GATSBY_HOMEPAGE_SPLASH_TEXT ||
+      flavours[Math.floor(Math.random() * flavours.length)],
     author: {
       name: 'Resi Respati',
       description: 'Web developer based in Jakarta, Indonesia.',
