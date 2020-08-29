@@ -1,9 +1,12 @@
 import { TwitchData } from '../types/default'
 
 export default async function fetchTwitchData(user?: string): Promise<TwitchData | undefined> {
+  const netlifyFunctionsURL =
+    process.env.NODE_ENV === 'production' ? 'https://resir014.xyz' : 'http://localhost:8888'
+
   try {
     const data = await fetch(
-      `http://localhost:8888/.netlify/functions/twitch-api?user=${user || 'resir014'}`
+      `${netlifyFunctionsURL}/.netlify/functions/twitch-api?user=${user || 'resir014'}`
     )
     const response = await data.json()
     const streamInfo = Boolean(response.data && response.data[0])
