@@ -2,11 +2,11 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { Box, BoxProps } from '../../foundations/box'
 
-export interface IframeWrapperProps extends BoxProps {
+export interface ResponsiveWrapperProps extends BoxProps {
   ratio?: number
 }
 
-const StyledWrapper = styled(Box)<IframeWrapperProps>`
+const StyledWrapper = styled(Box)<ResponsiveWrapperProps>`
   position: relative;
 
   &:before {
@@ -16,7 +16,7 @@ const StyledWrapper = styled(Box)<IframeWrapperProps>`
   }
 `
 
-const IframeWrapper: React.FC<IframeWrapperProps> = ({ ratio, children, ...rest }) => {
+const ResponsiveWrapper: React.FC<ResponsiveWrapperProps> = ({ ratio, children, ...rest }) => {
   return (
     <StyledWrapper ratio={ratio} {...rest}>
       {children}
@@ -24,8 +24,8 @@ const IframeWrapper: React.FC<IframeWrapperProps> = ({ ratio, children, ...rest 
   )
 }
 
-IframeWrapper.defaultProps = {
+ResponsiveWrapper.defaultProps = {
   ratio: 16 / 9
 }
 
-export default IframeWrapper
+export default ResponsiveWrapper
