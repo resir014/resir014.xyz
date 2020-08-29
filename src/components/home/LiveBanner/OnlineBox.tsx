@@ -17,7 +17,7 @@ const OnlineBox: React.FC<OnlineBoxProps> = ({ stream }) => {
           scrolling="no"
         />
       </ResponsiveWrapper>
-      <Box mt="md">
+      <Box mt="md" textAlign="center">
         <Heading variant={500}>{stream.user_name} is online!</Heading>
         <Paragraph>
           Streaming to {stream.viewer_count} users. Join the conversation on{' '}

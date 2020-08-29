@@ -47,7 +47,7 @@ const OfflineBox: React.FC = () => {
           </Text>
         </Box>
       </ResponsiveWrapper>
-      <Box mt="md">
+      <Box mt="md" textAlign="center">
         <Heading variant={500}>resir014 is offline.</Heading>
         <Paragraph>
           Follow me on{' '}
