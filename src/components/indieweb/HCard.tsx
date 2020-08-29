@@ -28,6 +28,8 @@ const HCardAvatar = styled('div')`
   margin-bottom: 24px;
 
   ${mediaQueries.lg} {
+    margin-bottom: 0;
+    margin-right: 24px;
     text-align: left;
     justify-content: flex-start;
   }
@@ -55,6 +57,8 @@ const Inner = styled('div')`
   text-align: center;
 
   ${mediaQueries.lg} {
+    flex-direction: row;
+    align-items: center;
     text-align: left;
   }
 `
@@ -98,40 +102,8 @@ const HCard: React.FC<HCardProps> = ({ className, hidden }) => {
       className={classnames(className, 'h-card')}
       display={hidden ? 'none' : 'block'}
       position="relative"
-      p="md"
-      border="16px solid"
-      borderColor="ultramarine30"
       color="inherit"
-      boxShadow="single"
-      css={css`
-        border-image-slice: 1;
-        border-image-source: linear-gradient(
-          ${colors.green30},
-          50%,
-          ${colors.blue30},
-          ${colors.ultramarine30}
-        );
-        border-image-source: radial-gradient(
-          ${colors.green30},
-          75%,
-          ${colors.blue30},
-          ${colors.ultramarine30}
-        );
-        border-image-source: conic-gradient(
-          ${colors.green30},
-          60deg,
-          ${colors.blue30},
-          ${colors.ultramarine30},
-          ${colors.blue30},
-          300deg,
-          ${colors.green30}
-        );
-
-        ${mediaQueries.lg} {
-          width: 100%;
-          max-width: 640px;
-        }
-      `}
+      my="xxl"
     >
       <Inner>
         <HCardAvatar>

@@ -2,10 +2,10 @@
 const fetch = require('node-fetch')
 require('dotenv').config()
 
-function getTwitchData(token) {
+function getTwitchData(user, token) {
   console.log('Fetching broadcast info...')
 
-  const apiUrl = 'https://api.twitch.tv/helix/streams?user_login=resir014'
+  const apiUrl = `https://api.twitch.tv/helix/streams?user_login=${user || 'resir014'}`
 
   return fetch(apiUrl, {
     method: 'GET',
@@ -25,9 +25,10 @@ function getTwitchData(token) {
 }
 
 // eslint-disable-next-line no-unused-vars
-exports.handler = async function handler(_event, _context) {
+exports.handler = async function handler(event, _context) {
   console.log('Requesting token from Twitch API...')
 
+  const { user } = event.queryStringParameters
   const TWITCH_API = 'https://id.twitch.tv/oauth2/token'
   const tokenUrl = `${TWITCH_API}?client_id=${process.env.GATSBY_TWITCH_CLIENT_ID}&client_secret=${process.env.GATSBY_TWITCH_CLIENT_SECRET}&grant_type=client_credentials`
 
@@ -49,7 +50,7 @@ exports.handler = async function handler(_event, _context) {
       const token = json.access_token
       return {
         statusCode: 200,
-        body: JSON.stringify(await getTwitchData(token)),
+        body: JSON.stringify(await getTwitchData(user, token)),
         headers: {
           'Access-Control-Allow-Origin': '*'
         }

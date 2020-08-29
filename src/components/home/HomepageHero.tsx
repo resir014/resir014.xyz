@@ -26,7 +26,7 @@ const Inner = styled('div')`
 
 const Root = styled('header')`
   display: grid;
-  grid-template-columns: 1fr 1fr minmax(auto, ${widths.xl}px) 1fr 1fr;
+  grid-template-columns: 1fr 1fr minmax(auto, ${widths.md}px) 1fr 1fr;
   position: relative;
   margin: 0;
   padding: ${space.xxl}px ${space.lg}px;

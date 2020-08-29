@@ -61,14 +61,11 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
           ]}
         />
         <HomepageHero>
-          <HCard />
+          <LiveBanner />
         </HomepageHero>
         <HomepageContent>
           <Container size="xl">
             <Stack spacing={64}>
-              <HomepageSection>
-                <LiveBanner />
-              </HomepageSection>
               <HomepageSection>
                 <Stack spacing="xxl">
                   <HomepageSectionTitle>Recent articles</HomepageSectionTitle>
@@ -111,6 +108,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
                   </HomepageSectionFooter>
                 </Stack>
               </HomepageSection>
+              <HCard hidden />
             </Stack>
           </Container>
         </HomepageContent>
