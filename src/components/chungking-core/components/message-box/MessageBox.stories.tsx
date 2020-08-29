@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import MessageBox, { MessageBoxProps } from './MessageBox'
 
 export default {
-  title: 'chungking-core/Components/MessageBox',
+  title: 'Chungking Core/MessageBox',
   component: MessageBox,
   argTypes: {
     variant: {
