@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { Box, BoxProps } from '../../foundations/box'
+import { Box, BoxProps } from '../../foundations'
 
 export interface ResponsiveWrapperProps extends BoxProps {
   ratio?: number

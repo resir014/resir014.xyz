@@ -11,7 +11,7 @@ import { TemplateWrapper } from '../layouts'
 
 import { Page } from '../components/page'
 import { HCard } from '../components/indieweb'
-import { NavLinkButton, Stack, Box } from '../components/chungking-core'
+import { Stack, Box } from '../components/chungking-core'
 import { FeaturedProject } from '../components/projects'
 import {
   HomepageHero,
@@ -23,6 +23,7 @@ import {
 } from '../components/home'
 import { BlogPostItem } from '../components/posts-index'
 import { Container } from '../components/layout'
+import { NavLinkButton } from '../components/ui'
 
 interface IndexPageProps {
   location: {

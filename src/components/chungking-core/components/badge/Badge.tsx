@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
-import { Box, BoxProps } from '../../foundations/box'
+import { Box, BoxProps } from '../../foundations'
 import { colors } from '../../utils'
 
 export interface BadgeProps extends BoxProps {

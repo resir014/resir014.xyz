@@ -4,15 +4,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import {
-  Heading,
-  Paragraph,
-  colors,
-  mediaQueries,
-  Box,
-  Text,
-  UnstyledLink
-} from '../chungking-core'
+import { Heading, Paragraph, colors, mediaQueries, Box, Text } from '../chungking-core'
+import UnstyledLink from '../ui/UnstyledLink'
 
 interface HCardProps {
   className?: string

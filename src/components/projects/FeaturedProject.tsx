@@ -9,7 +9,6 @@ import {
   colors,
   shadows,
   Badge,
-  NavLinkButton,
   Box,
   BoxProps
 } from '../chungking-core'
@@ -18,6 +17,7 @@ import { P } from '../markdown'
 import FeaturedProjectThumbnail from './FeaturedProjectThumbnail'
 
 import { ProjectField } from '../../types/fields'
+import { NavLinkButton } from '../ui'
 import ProjectTags from './ProjectTags'
 
 const FeaturedProjectWrapper = styled(Box)`

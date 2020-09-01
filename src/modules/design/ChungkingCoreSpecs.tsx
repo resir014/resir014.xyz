@@ -7,7 +7,6 @@ import {
   Badge,
   MessageBox,
   Button,
-  NavLinkButton,
   AnchorButton,
   colors,
   Card,
@@ -15,6 +14,7 @@ import {
 } from '../../components/chungking-core'
 import { P, UL, OL, LI, H2, H3, H4, InlineCode, Blockquote, Small } from '../../components/markdown'
 import WrapperRoot from './WrapperRoot'
+import { NavLinkButton } from '../../components/ui'
 
 const buttonWrapperStyles: React.CSSProperties = {
   paddingRight: '16px'

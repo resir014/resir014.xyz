@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { transparentize } from 'polished'
 import { colors, space } from '../../utils'
-import { Box, BoxProps } from '../../foundations/box'
+import { Box, BoxProps } from '../../foundations'
 
 export interface MessageBoxProps extends BoxProps {
   className?: string

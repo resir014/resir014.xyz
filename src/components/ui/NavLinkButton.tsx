@@ -3,8 +3,7 @@ import styled from '@emotion/styled'
 import classnames from 'clsx'
 import { Link, GatsbyLinkProps } from 'gatsby'
 
-import { ButtonBaseProps } from './types'
-import { ButtonBase } from './styled'
+import { ButtonBase, ButtonBaseProps } from '../chungking-core'
 
 type NavLinkButtonProps = ButtonBaseProps & Omit<GatsbyLinkProps<{}>, 'ref'>
 
