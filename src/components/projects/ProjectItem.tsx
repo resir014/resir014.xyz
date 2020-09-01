@@ -10,12 +10,12 @@ import {
   colors,
   Badge,
   AnchorButton,
-  NavLinkButton,
   BoxProps,
   Card,
   Text,
   Box
 } from '../chungking-core'
+import { NavLinkButton } from '../ui'
 import ProjectTags from './ProjectTags'
 
 const colorByCategory = (category: string) => {
