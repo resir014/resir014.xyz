@@ -14,14 +14,7 @@ module.exports = async ({ graphql, actions }) => {
   createRedirect({
     fromPath: '/blog/*',
     redirectInBrowser: true,
-    toPath: '/article/:splat'
-  })
-
-  // Redirect old `posts/` directory
-  createRedirect({
-    fromPath: '/posts/*',
-    redirectInBrowser: true,
-    toPath: '/article/:splat'
+    toPath: '/posts/:splat'
   })
 
   const allMarkdown = await graphql(
