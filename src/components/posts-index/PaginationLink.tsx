@@ -1,7 +1,8 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { space, Button, NavLinkButton } from '../chungking-core'
+import { space, Button } from '../chungking-core'
+import { NavLinkButton } from '../ui'
 
 interface PaginationLinkProps {
   test: boolean
