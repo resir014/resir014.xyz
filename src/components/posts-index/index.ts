@@ -1,5 +1,0 @@
-export { default as BlogPostItem } from './BlogPostItem'
-export { default as PaginationLink } from './PaginationLink'
-export { default as PostIndexItem } from './PostIndexItem'
-export { default as PostIndexItemHeader } from './PostIndexItemHeader'
-export { default as PostIndexItemMeta } from './PostIndexItemMeta'
