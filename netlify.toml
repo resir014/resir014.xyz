@@ -10,3 +10,6 @@
   # detects NextJS and redirects do not work.
   # Read more: https://github.com/netlify/cli/blob/master/docs/netlify-dev.md#project-detection
   framework = "#static"
+
+[[plugins]]
+  package = "netlify-plugin-cache-nextjs"
