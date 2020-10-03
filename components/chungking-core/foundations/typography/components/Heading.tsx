@@ -1,4 +1,3 @@
-import * as React from 'react'
 import styled from '@emotion/styled'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
@@ -11,9 +10,9 @@ import { TypographyProps } from './Typography'
 export type HeadingProps = TypographyProps
 
 /**
- * This is a base `Text` element to handle typography elements.
+ * Heading component provided as a styled component primitive.
  */
-const StyledText = styled<'span', HeadingProps>('span', { shouldForwardProp })`
+const Heading = styled<'span', HeadingProps>('span', { shouldForwardProp })`
   ${styledSystemVariant({
     prop: 'variant',
     variants: typeScale
@@ -25,18 +24,12 @@ const StyledText = styled<'span', HeadingProps>('span', { shouldForwardProp })`
   ${typography}
 `
 
-/**
- * Heading component provided as a styled component primitive.
- */
-const Heading: React.ForwardRefRenderFunction<HTMLElement, HeadingProps> = (
-  { children, as = 'h2', fontWeight = 600, variant = 700, ...rest },
-  ref
-) => (
-  <StyledText as={as} ref={ref} fontWeight={fontWeight} variant={variant} {...rest}>
-    {children}
-  </StyledText>
-)
+Heading.defaultProps = {
+  as: 'h2',
+  fontWeight: 600,
+  variant: 700
+}
 
 Heading.displayName = 'Heading'
 
-export default React.forwardRef(Heading)
+export default Heading
