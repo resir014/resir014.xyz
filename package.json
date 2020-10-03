@@ -16,6 +16,7 @@
     "lint": "eslint \"**/*.{ts,tsx}\" \"*.config.js\"",
     "test": "npm run type-check && npm run lint",
     "type-check": "tsc --noEmit",
+    "validate": "yarn lint && yarn type-check",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
