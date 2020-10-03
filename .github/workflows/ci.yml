@@ -29,6 +29,6 @@ jobs:
         with:
           path: '.'
           key: ${{ github.sha }}
-      - run: yarn validate
+      - run: yarn run validate
         env:
           CI: true
