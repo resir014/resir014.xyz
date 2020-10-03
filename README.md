@@ -1,5 +1,6 @@
 # resir014.xyz
 
+[![Build Status](https://github.com/resir014/resir014.xyz/workflows/CI/badge.svg)](https://github.com/resir014/resir014.xyz/actions?query=workflow%3ACI)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/61368615-14f6-48ee-9e3f-0fb221cdc447/deploy-status)](https://app.netlify.com/sites/resir014/deploys)
 [![CircleCI (all branches)](https://img.shields.io/circleci/project/github/resir014/resir014.xyz.svg)](https://circleci.com/gh/resir014/resir014.xyz)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=resir014_resir014.xyz&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=resir014_resir014.xyz)
@@ -23,16 +24,13 @@ yarn dev
 # build for production
 yarn build
 
-# export static build
-yarn export
-
 # run tests (lint + type check)
 yarn test
 ```
 
 ## Credits
 
-Built with [Next.js](https://nextjs.org/)
+Built with [Next.js](https://nextjs.org/).
 
 ## License
 
