@@ -43,6 +43,9 @@ const Page: React.SFC<PageProps> = ({ children, className, style, pageTitle }) =
         ))}
         <link rel="alternate" type="application/rss+xml" title="All posts by @resir014" href="/posts/rss.xml" />
         {process.env.NODE_ENV === 'production' && <meta name="monetization" content={process.env.NEXT_PUBLIC_ILP_URL} />}
+        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
+          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
+        )}
       </Head>
       <Masthead title="@resir014" items={menuItems} />
       {children}
