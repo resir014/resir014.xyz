@@ -1,9 +1,8 @@
-import { css } from '@emotion/core'
 import * as React from 'react'
 import { NextPage, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 
-import { Stack, Anchor } from '~/components/chungking-core'
+import { Stack, Anchor, Text } from '~/components/chungking-core'
 import { Container, Page } from '~/components/layout'
 import { HomepageContent, HomepageSection, HomepageSectionTitle, HomepageHero, LiveBanner } from '~/modules/home'
 import { FeaturedProjectCard } from '~/modules/projects'
@@ -51,9 +50,11 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, featuredProj
                   <PostListItem key={post.slug} post={post} />
                 ))}
               </Stack>
-              <Link href="/posts" passHref>
-                <Anchor variant={500}>View all posts &rarr;</Anchor>
-              </Link>
+              <Text variant={500}>
+                <Link href="/posts" passHref>
+                  <Anchor>View all posts &rarr;</Anchor>
+                </Link>
+              </Text>
             </Stack>
           </Container>
         </HomepageSection>
@@ -65,27 +66,16 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, featuredProj
                 metadata={<PostMeta category={recentJam.category} date={recentJam.date} />}
                 title={
                   <Link href="/jam/[...slug]/" as={`/jam/${recentJam.slug}/`} passHref>
-                    <a
-                      css={css`
-                        &::after {
-                          content: '';
-                          position: absolute;
-                          left: 0;
-                          top: 0;
-                          right: 0;
-                          bottom: 0;
-                        }
-                      `}
-                    >
-                      {recentJam.title}
-                    </a>
+                    <a>{recentJam.title}</a>
                   </Link>
                 }
                 embed={<LiteYouTube videoId={recentJam.youtube_embed_id} />}
               />
-              <Link href="/jam" passHref>
-                <Anchor variant={500}>View all jams &rarr;</Anchor>
-              </Link>
+              <Text variant={500}>
+                <Link href="/jam" passHref>
+                  <Anchor>View all jams &rarr;</Anchor>
+                </Link>
+              </Text>
             </Stack>
           </Container>
         </HomepageSection>
@@ -94,9 +84,11 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, featuredProj
             <Stack spacing="xxl">
               <HomepageSectionTitle>Featured project</HomepageSectionTitle>
               <FeaturedProjectCard project={featuredProject} />
-              <Link href="/projects" passHref>
-                <Anchor variant={500}>View all projects &rarr;</Anchor>
-              </Link>
+              <Text variant={500}>
+                <Link href="/projects" passHref>
+                  <Anchor>View all projects &rarr;</Anchor>
+                </Link>
+              </Text>
             </Stack>
           </Container>
         </HomepageSection>

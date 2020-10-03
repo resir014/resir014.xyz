@@ -1,4 +1,3 @@
-import { css } from '@emotion/core'
 import * as React from 'react'
 import { NextPage, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
@@ -41,20 +40,7 @@ const VideosIndexPage: NextPage<VideosIndexPageProps> = ({ allPosts }) => {
                 metadata={<PostMeta category={post.category} date={post.date} />}
                 title={
                   <Link href="/videos/[...slug]/" as={`/videos/${post.slug}/`} passHref>
-                    <a
-                      css={css`
-                        &::after {
-                          content: '';
-                          position: absolute;
-                          left: 0;
-                          top: 0;
-                          right: 0;
-                          bottom: 0;
-                        }
-                      `}
-                    >
-                      {post.title}
-                    </a>
+                    <a>{post.title}</a>
                   </Link>
                 }
                 embed={<LiteYouTube videoId={post.youtube_embed_id} />}
