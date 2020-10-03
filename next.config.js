@@ -3,9 +3,53 @@ const flavours = require('./config/flavourText')
 
 const nextConfig = {
   trailingSlash: true,
+  exportTrailingSlash: true,
   target: 'serverless',
   env: {
     FLAVOUR_TEXT: process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || flavours[Math.floor(Math.random() * flavours.length)]
+  },
+  async headers() {
+    return [
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      {
+        source: '/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'same-origin'
+          }
+        ]
+      }
+    ]
   }
 }
 
