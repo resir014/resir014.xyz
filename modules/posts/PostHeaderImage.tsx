@@ -12,15 +12,14 @@ const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
   return (
     <Box as="section" px="lg">
       <Container size="xl">
-        <Box height="100%" maxHeight={560} overflow="hidden">
+        <Box height={560} overflow="hidden">
           <img
             alt={alt}
             src={src}
             css={css`
               margin: 0;
               width: 100%;
-              height: 100%;
-              max-height: 560px;
+              height: 560px;
               object-fit: cover;
             `}
           />
