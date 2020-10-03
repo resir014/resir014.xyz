@@ -3,7 +3,7 @@
 import { css } from '@emotion/core'
 import { colors } from '../components/chungking-core'
 
-const PrismTheme = css`
+const prismTheme = css`
   /**
    * atom-dark theme for \`prism.js\`
    * Based on Atom's \`atom-dark\` theme: https://github.com/atom/atom-dark-syntax
@@ -153,4 +153,4 @@ const PrismTheme = css`
   }
 `
 
-export default PrismTheme
+export default prismTheme

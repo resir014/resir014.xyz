@@ -1,8 +1,29 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import matter from 'gray-matter'
+import { ProjectMetadata } from '~/types/projects'
 
 const projectsDirectory = path.join(process.cwd(), '_projects')
+
+export function filterProjectsByCategory(projects: ProjectMetadata[]) {
+  return [
+    {
+      title: 'Portfolio',
+      category: 'portfolio',
+      projects: projects.filter((project) => project.category === 'portfolio')
+    },
+    {
+      title: 'Open-source stuff',
+      category: 'oss',
+      projects: projects.filter((project) => project.category === 'oss')
+    },
+    {
+      title: 'Other stuff',
+      category: 'other',
+      projects: projects.filter((project) => project.category === 'other')
+    }
+  ]
+}
 
 export function getProjectPaths() {
   return fs.readdirSync(projectsDirectory)

@@ -11,15 +11,13 @@ export function renderMarkdown(markdown: string) {
         try {
           loadPrismLanguage(lang)
         } catch (e) {
-          let message = 'null'
-          switch (lang) {
-            case 'none': {
-              return code
-            }
-            default: {
-              message = `unable to find prism language '${lang}' for parsing`
-            }
+          let message = null
+
+          if (lang === 'none') {
+            return code
           }
+
+          message = `unable to find prism language '${lang}' for parsing`
 
           console.warn(message)
           return code

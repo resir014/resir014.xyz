@@ -24,7 +24,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     })
     .then(async (json) => {
       const token = json.access_token
-      res.status(200).json(await getTwitchData(user, token))
+      res.status(200).json(await getTwitchData(token, user))
     })
     .catch((err) => {
       res.status(422).json(err)

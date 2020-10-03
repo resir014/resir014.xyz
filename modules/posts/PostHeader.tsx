@@ -5,7 +5,7 @@ import { SiteAuthor } from '~/types/default'
 import PostMeta from './PostMeta'
 import PostSubtitle from './PostSubtitle'
 import PostTitle from './PostTitle'
-import { PostHCard } from '.'
+import PostHCard from './PostHCard'
 
 interface PostHeaderProps {
   title: string

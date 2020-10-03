@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { Box, colors, Heading, Text } from '~/components/chungking-core'
 import { SiteAuthor } from '~/types/default'
 
-interface HCardPostProps {
+interface PostHCardProps {
   className?: string
   hidden?: boolean
   image?: string
@@ -26,7 +26,7 @@ const HCardEmail = styled('a')`
 
 const HeadingAnchor = styled(Heading)<{ rel?: string; target?: string; href?: string }>``
 
-const HCardPost: React.FC<HCardPostProps> = ({ className, hidden, image, author }) => (
+const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author }) => (
   <Box className={classnames(className, 'p-author h-card')} display={hidden ? 'none' : 'inline-block'} my="xl">
     <Box display="flex" flexDirection="row" alignItems="center" textAlign="left" color="inherit">
       <Box display="flex" position="relative" textAlign="center" alignItems="center" justifyContent="flex-start" mb={0}>
@@ -56,4 +56,4 @@ const HCardPost: React.FC<HCardPostProps> = ({ className, hidden, image, author 
   </Box>
 )
 
-export default HCardPost
+export default PostHCard

@@ -4,8 +4,7 @@ import { Stack } from '~/components/chungking-core'
 import { Content, Page } from '~/components/layout'
 import { PostBody, PostHeader } from '~/modules/posts'
 import { FeaturedProjectCard, ProjectItemList } from '~/modules/projects'
-import filterProjectsByCategory from '~/lib/filter-projects'
-import { getAllProjects, getFeaturedProject } from '~/lib/projects'
+import { getAllProjects, getFeaturedProject, filterProjectsByCategory } from '~/lib/projects'
 import { ProjectMetadata } from '~/types/projects'
 
 export const getStaticProps = async () => {

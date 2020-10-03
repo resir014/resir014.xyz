@@ -2,7 +2,7 @@ import useSWR from 'swr'
 import { TwitchData } from '../types/default'
 import fetch from './fetch'
 
-export async function getTwitchData(user: string | string[] = 'resir014', token: string) {
+export async function getTwitchData(token: string, user: string | string[] = 'resir014') {
   console.log('Fetching broadcast info...')
 
   const apiUrl = `https://api.twitch.tv/helix/streams?user_login=${Array.isArray(user) ? user.join(',') : user}`

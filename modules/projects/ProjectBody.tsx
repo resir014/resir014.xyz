@@ -5,13 +5,13 @@ import { Box, Stack } from '~/components/chungking-core'
 import { Container, ContainerSizes } from '~/components/layout'
 import htmrTransform from '~/lib/htmr-transform'
 
-interface PostBodyProps {
+interface ProjectBodyProps {
   content?: string
   containerSize?: ContainerSizes
   projectLink?: string
 }
 
-const PostBody: React.FC<PostBodyProps> = ({ content, containerSize = 'md', children }) => {
+const ProjectBody: React.FC<ProjectBodyProps> = ({ content, containerSize = 'md', children }) => {
   if (content) {
     return (
       <Box as="section" pt="xxl" px="lg" pb={96}>
@@ -31,4 +31,4 @@ const PostBody: React.FC<PostBodyProps> = ({ content, containerSize = 'md', chil
   )
 }
 
-export default PostBody
+export default ProjectBody

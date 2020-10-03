@@ -7,8 +7,8 @@ import { cache } from 'emotion'
 import nProgress from 'nprogress'
 
 import { Theme, GlobalStyles } from '~/components/chungking-core'
-import nProgressStyles from '~/styles/nProgress'
-import PrismTheme from '~/styles/prismTheme'
+import nProgressStyles from '~/styles/nProgressStyles'
+import prismTheme from '~/styles/prismTheme'
 
 import '~/fonts/jetbrains-mono.css'
 import 'typeface-inter'
@@ -41,7 +41,7 @@ export default class MyApp extends App {
         <Theme>
           <Global styles={GlobalStyles} />
           <Global styles={nProgressStyles} />
-          <Global styles={PrismTheme} />
+          <Global styles={prismTheme} />
           <Component {...pageProps} />
         </Theme>
       </CacheProvider>
