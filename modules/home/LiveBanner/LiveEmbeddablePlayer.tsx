@@ -45,7 +45,7 @@ const LiveEmbeddablePlayer: React.FC<LiveEmbeddablePlayerProps> = ({ username })
         >
           <Text
             variant={800}
-            color={hsl(textHsl.hue, textHsl.saturation, textHsl.lightness * 0.4)}
+            color={hsl(textHsl.hue, textHsl.saturation, textHsl.lightness * 0.7)}
             css={css`
               text-transform: uppercase;
               letter-spacing: 0.2em;

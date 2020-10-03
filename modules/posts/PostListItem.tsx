@@ -16,7 +16,7 @@ const PostListItem: React.FC<PostListItemProps> = ({ post, className, style, ...
   return (
     <Stack as="article" spacing="xs" position="relative" className={className} style={style} {...rest}>
       <PostMeta date={date} category={category} />
-      <Heading as="h3" variant={600}>
+      <Heading as="h2" variant={600}>
         <Link href="/posts/[...slug]" as={`/posts/${slug}/`} passHref>
           <a
             css={css`
