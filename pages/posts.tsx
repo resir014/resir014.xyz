@@ -8,9 +8,15 @@ import { getAllPosts } from '~/lib/posts'
 import { PostMetadata } from '~/types/posts'
 
 import siteMetadata from '~/_data/siteMetadata.json'
+import { generateRSS } from '~/lib/rss'
 
 export const getStaticProps = async () => {
   const allPosts: PostMetadata[] = getAllPosts(['category', 'title', 'lead', 'slug', 'date'], 'article')
+  const rss = generateRSS(allPosts)
+  const fs = await import('fs')
+
+  fs.mkdirSync('./public/posts', { recursive: true })
+  fs.writeFileSync('./public/posts/rss.xml', rss)
 
   return {
     props: { allPosts, siteMetadata }

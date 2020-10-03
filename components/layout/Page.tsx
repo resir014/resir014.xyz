@@ -41,6 +41,7 @@ const Page: React.SFC<PageProps> = ({ children, className, style, pageTitle }) =
         {Object.keys(author.url).map((key) => (
           <link key={key} rel="me" href={author.url[key]} />
         ))}
+        <link rel="alternate" type="application/rss+xml" title="All posts by @resir014" href="/posts/rss.xml" />
         {process.env.NODE_ENV === 'production' && <meta name="monetization" content={process.env.NEXT_PUBLIC_ILP_URL} />}
       </Head>
       <Masthead title="@resir014" items={menuItems} />

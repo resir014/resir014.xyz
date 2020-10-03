@@ -2,8 +2,3 @@
 /.env https://www.youtube.com/watch?v=V4MF2s6MLxY 302!
 /wp-login.php https://www.youtube.com/watch?v=V4MF2s6MLxY 302!
 /wp-admin https://www.youtube.com/watch?v=V4MF2s6MLxY 302!
-
-# Direct rewrite link to RSS Feed
-# (use the actual functions URL until native Next.js rewrites is supported on `next-on-netlify`)
-# https://github.com/netlify/next-on-netlify/issues/24
-/posts/rss.xml /.netlify/functions/next_api_feed 200

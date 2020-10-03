@@ -1,10 +1,10 @@
-import { BasePostProps } from '~/types/posts'
+import { PostMetadata } from '~/types/posts'
 
 import siteMetadata from '~/_data/siteMetadata.json'
 
 const wrapWithCData = (text?: string): string => `<![CDATA[${text}]]>`
 
-export const generateRSSItem = (post: BasePostProps): string => `
+export const generateRSSItem = (post: PostMetadata): string => `
   <item>
     <guid isPermalink="true">https://resir014.xyz/posts/${post.slug}/</guid>
     <title>${wrapWithCData(post.title)}</title>
@@ -14,13 +14,14 @@ export const generateRSSItem = (post: BasePostProps): string => `
   </item>
 `
 
-export const generateRSS = (posts: BasePostProps[]): string => `
+export const generateRSS = (posts: PostMetadata[]): string => `
+  <?xml version="1.0" encoding="utf-8"?>
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>${wrapWithCData(`Posts · ${siteMetadata.title}`)}</title>
       <link>https://resir014.xyz/posts/</link>
       <description>${wrapWithCData(siteMetadata.description)}</description>
-      <generator>nextjs</generator>
+      <generator>Next.js</generator>
       <language>${wrapWithCData('en')}</language>
       <lastBuildDate>${new Date(posts[0].date).toUTCString()}</lastBuildDate>
       <atom:link href="https://resir014.xyz/posts/rss.xml" rel="self" type="application/rss+xml"/>
