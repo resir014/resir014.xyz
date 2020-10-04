@@ -1,7 +1,7 @@
 [
-  { "name": "About", "path": "/about" },
+  { "name": "About", "path": "/[...slug]", "as": "/about" },
   { "name": "Posts", "path": "/posts" },
   { "name": "Projects", "path": "/projects" },
-  { "name": "Stuff", "path": "/etc" },
-  { "name": "Contact", "path": "/contact" }
+  { "name": "Stuff", "path": "/[...slug]", "as": "/etc" },
+  { "name": "Contact", "path": "/[...slug]", "as": "/contact" }
 ]

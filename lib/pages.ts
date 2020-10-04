@@ -1,11 +1,13 @@
 import * as fs from 'fs'
 import * as path from 'path'
+import * as glob from 'glob'
 import matter from 'gray-matter'
 
 const pagesDirectory = path.join(process.cwd(), '_pages')
 
 export function getPagePaths() {
-  return fs.readdirSync(pagesDirectory)
+  // Get all files within posts directory, then trim out the full path.
+  return glob.sync(`${pagesDirectory}/**/*`).map((file) => file.replace(/^.+\/_pages\//, ''))
 }
 
 export function getPageBySlug(slug: string, fields: string[] = []) {
