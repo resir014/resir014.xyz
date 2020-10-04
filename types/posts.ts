@@ -1,6 +1,7 @@
 export type PostCategories = 'article' | 'note'
 
 export interface PostMetadata {
+  layout?: string
   category: PostCategories
   title: string
   date: string
@@ -11,6 +12,7 @@ export interface PostMetadata {
 }
 
 export interface PageMetadata {
+  layout?: string
   title: string
   slug: string
   lead?: string
@@ -18,6 +20,7 @@ export interface PageMetadata {
 }
 
 export interface JamMetadata {
+  layout?: string
   category: PostCategories
   title: string
   date: string
@@ -26,6 +29,7 @@ export interface JamMetadata {
 }
 
 export interface VideoMetadata {
+  layout?: string
   category: PostCategories
   title: string
   date: string
