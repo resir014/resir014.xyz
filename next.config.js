@@ -9,6 +9,9 @@ const nextConfig = {
   env: {
     FLAVOUR_TEXT: process.env.GATSBY_HOMEPAGE_SPLASH_TEXT || flavours[Math.floor(Math.random() * flavours.length)]
   },
+  experimental: {
+    productionBrowserSourceMaps: true
+  },
   webpack: (config, { isServer }) => {
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
