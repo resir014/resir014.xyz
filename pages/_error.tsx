@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Link from 'next/link'
 import { ErrorProps } from 'next/error'
+import Link from 'next/link'
 
 import { Anchor, Paragraph } from '~/components/chungking-core'
 import { Content, Page } from '~/components/layout'

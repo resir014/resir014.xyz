@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import Error from 'next/error'
 
 import { getPostBySlug, getAllPosts } from '~/lib/posts'
 import markdownToHtml from '~/lib/markdown-to-html'
@@ -8,6 +7,7 @@ import markdownToHtml from '~/lib/markdown-to-html'
 import { Content, Page } from '~/components/layout'
 import { YouTubePreconnect } from '~/components/perf'
 import { PostBody, PostHeader } from '~/modules/posts'
+import CustomErrorPage from '~/pages/_error'
 import { BasePostProps } from '~/types/posts'
 import { SiteMetadata } from '~/types/default'
 
@@ -35,7 +35,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
     )
   }
 
-  return <Error statusCode={404} />
+  return <CustomErrorPage statusCode={404} />
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {

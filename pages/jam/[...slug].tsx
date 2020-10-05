@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import Error from 'next/error'
 
 import { getPostBySlug, getAllPosts } from '~/lib/posts'
 import markdownToHtml from '~/lib/markdown-to-html'
@@ -9,6 +8,7 @@ import { Container, Content, Page } from '~/components/layout'
 import { LiteYouTube, VideoCard } from '~/modules/video'
 import { YouTubePreconnect } from '~/components/perf'
 import { PostBody, PostHeader } from '~/modules/posts'
+import CustomErrorPage from '~/pages/_error'
 import { BaseJamProps } from '~/types/posts'
 import { SiteMetadata } from '~/types/default'
 
@@ -37,7 +37,7 @@ const JamPostPage: NextPage<JamPostPageProps> = ({ post }) => {
     )
   }
 
-  return <Error statusCode={404} />
+  return <CustomErrorPage statusCode={404} />
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {

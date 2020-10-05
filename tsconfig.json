@@ -12,6 +12,7 @@
       "~/fonts/*": ["fonts/*"],
       "~/lib/*": ["lib/*"],
       "~/modules/*": ["modules/*"],
+      "~/pages/*": ["pages/*"],
       "~/styles/*": ["styles/*"],
       "~/types/*": ["types/*"]
     },

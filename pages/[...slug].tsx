@@ -1,17 +1,16 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
-import Error from 'next/error'
+import dynamic from 'next/dynamic'
 import * as React from 'react'
 
 import { Content, Page } from '~/components/layout'
 import { YouTubePreconnect } from '~/components/perf'
-import PostHeaderImage from '~/modules/posts/PostHeaderImage'
-import { PostBody, PostHeader } from '~/modules/posts'
+import { PostBody, PostHeader, PostHeaderImage } from '~/modules/posts'
+import CustomErrorPage from '~/pages/_error'
 import { getAllPages, getPageBySlug } from '~/lib/pages'
 import markdownToHtml from '~/lib/markdown-to-html'
 import { BasePageProps } from '~/types/posts'
 
 import siteMetadata from '~/_data/siteMetadata.json'
-import { HomepageHero, LiveBanner } from '~/modules/home'
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   if (params?.slug && Array.isArray(params.slug)) {
@@ -26,6 +25,8 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   return { props: { siteMetadata } }
 }
 
+const LiveBanner = dynamic(() => import('~/modules/live/LiveBanner'))
+
 type MarkdownPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
@@ -34,11 +35,7 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
     return (
       <Page pageTitle={title}>
         <YouTubePreconnect />
-        {layout === 'live' && (
-          <HomepageHero>
-            <LiveBanner />
-          </HomepageHero>
-        )}
+        {layout === 'live' && <LiveBanner />}
         <Content>
           {header_image && <PostHeaderImage src={header_image} alt={title} />}
           <PostHeader title={title} lead={lead} />
@@ -48,7 +45,7 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
     )
   }
 
-  return <Error statusCode={404} />
+  return <CustomErrorPage statusCode={404} />
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

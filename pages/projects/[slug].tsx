@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import Error from 'next/error'
+import CustomErrorPage from '~/pages/_error'
 import { Box } from '~/components/chungking-core'
 import { Container, Content, Page } from '~/components/layout'
 import { YouTubePreconnect } from '~/components/perf'
@@ -35,7 +35,7 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
     )
   }
 
-  return <Error statusCode={404} />
+  return <CustomErrorPage statusCode={404} />
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {

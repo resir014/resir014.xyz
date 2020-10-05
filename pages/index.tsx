@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { NextPage, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
 import { Stack, Anchor, Text } from '~/components/chungking-core'
 import { Container, Page } from '~/components/layout'
-import { HomepageContent, HomepageSection, HomepageSectionTitle, HomepageHero, LiveBanner } from '~/modules/home'
+import { HomepageContent, HomepageSection, HomepageSectionTitle } from '~/modules/home'
 import { FeaturedProjectCard } from '~/modules/projects'
 import { LiteYouTube, VideoCard } from '~/modules/video'
 import { PostListItem, PostMeta } from '~/modules/posts'
@@ -32,13 +33,13 @@ export const getStaticProps = async () => {
   }
 }
 
+const LiveBanner = dynamic(() => import('~/modules/live/LiveBanner'))
+
 type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, featuredProject }) => (
   <Page>
-    <HomepageHero>
-      <LiveBanner />
-    </HomepageHero>
+    <LiveBanner />
     <HomepageContent>
       <Stack spacing={96}>
         <HomepageSection>
