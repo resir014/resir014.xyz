@@ -2,6 +2,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import matter from 'gray-matter'
 import { PostKind } from '~/types/default'
+import { renderMarkdown } from './markdown-to-html'
 
 const postsDirectory = path.join(process.cwd(), '_posts')
 
@@ -69,5 +70,17 @@ export function getFeaturedArticles(maxPosts = 5) {
 }
 
 export function getFeaturedJam() {
-  return getAllPosts(['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured'], 'jam')[0]
+  const videos = getAllPosts(['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'], 'jam').map((post) => ({
+    ...post,
+    content: renderMarkdown(post.content || '')
+  }))
+  return videos[0]
+}
+
+export function getFeaturedVideo() {
+  const videos = getAllPosts(['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'], 'video').map((post) => ({
+    ...post,
+    content: renderMarkdown(post.content || '')
+  }))
+  return videos[0]
 }

@@ -7,17 +7,18 @@ import { Stack, Anchor, Text } from '~/components/chungking-core'
 import { Container, Page } from '~/components/layout'
 import { HomepageContent, HomepageSection, HomepageSectionTitle } from '~/modules/home'
 import { FeaturedProjectCard } from '~/modules/projects'
-import { LiteYouTube, VideoCard } from '~/modules/video'
-import { PostListItem, PostMeta } from '~/modules/posts'
+import { PostListItem } from '~/modules/posts'
 
-import { getFeaturedArticles, getFeaturedJam } from '~/lib/posts'
+import { getFeaturedArticles, getFeaturedJam, getFeaturedVideo } from '~/lib/posts'
 import { getFeaturedProject } from '~/lib/projects'
-import { BaseJamProps, BasePostProps, PostMetadata } from '~/types/posts'
+import { BaseJamProps, BasePostProps, BaseVideoProps, PostMetadata } from '~/types/posts'
 import { ProjectMetadata } from '~/types/projects'
+import renderFeaturedVideo from '~/modules/video/renderFeaturedVideo'
 
 export const getStaticProps = async () => {
   const allPosts: BasePostProps[] = getFeaturedArticles()
   const recentJam: BaseJamProps = getFeaturedJam()
+  const recentVideo: BaseVideoProps = getFeaturedVideo()
   const featuredProject: ProjectMetadata = getFeaturedProject([
     'category',
     'title',
@@ -29,7 +30,7 @@ export const getStaticProps = async () => {
   ])
 
   return {
-    props: { allPosts: allPosts.slice(0, 3), recentJam, featuredProject }
+    props: { allPosts: allPosts.slice(0, 3), recentJam, recentVideo, featuredProject }
   }
 }
 
@@ -37,7 +38,7 @@ const LiveBanner = dynamic(() => import('~/modules/live/LiveBanner'))
 
 type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
-const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, featuredProject }) => (
+const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, recentVideo, featuredProject }) => (
   <Page>
     <LiveBanner />
     <HomepageContent>
@@ -63,18 +64,23 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, featuredProj
           <Container size="md">
             <Stack spacing="xxl">
               <HomepageSectionTitle>Currently listening to</HomepageSectionTitle>
-              <VideoCard
-                metadata={<PostMeta category={recentJam.category} date={recentJam.date} />}
-                title={
-                  <Link href="/jam/[...slug]/" as={`/jam/${recentJam.slug}/`} passHref>
-                    <a>{recentJam.title}</a>
-                  </Link>
-                }
-                embed={<LiteYouTube videoId={recentJam.youtube_embed_id} />}
-              />
+              {renderFeaturedVideo(recentJam, 'jam')}
               <Text variant={500}>
                 <Link href="/jam" passHref>
                   <Anchor>View all jams &rarr;</Anchor>
+                </Link>
+              </Text>
+            </Stack>
+          </Container>
+        </HomepageSection>
+        <HomepageSection>
+          <Container size="md">
+            <Stack spacing="xxl">
+              <HomepageSectionTitle>Recently watched</HomepageSectionTitle>
+              {renderFeaturedVideo(recentVideo, 'videos')}
+              <Text variant={500}>
+                <Link href="/videos" passHref>
+                  <Anchor>View all videos &rarr;</Anchor>
                 </Link>
               </Text>
             </Stack>
