@@ -12,7 +12,7 @@ export async function getTwitchData(token: string, user: string | string[] = 're
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
-        'Client-ID': process.env.GATSBY_TWITCH_CLIENT_ID || ''
+        'Client-ID': process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID || ''
       }
     })
 

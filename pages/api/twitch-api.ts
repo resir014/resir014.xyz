@@ -6,13 +6,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const { user } = req.query
   const TWITCH_API = 'https://id.twitch.tv/oauth2/token'
-  const tokenUrl = `${TWITCH_API}?client_id=${process.env.GATSBY_TWITCH_CLIENT_ID}&client_secret=${process.env.GATSBY_TWITCH_CLIENT_SECRET}&grant_type=client_credentials`
+  const tokenUrl = `${TWITCH_API}?client_id=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID}&client_secret=${process.env.NEXT_PUBLIC_TWITCH_CLIENT_SECRET}&grant_type=client_credentials`
 
   fetch(tokenUrl, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      'Client-ID': process.env.GATSBY_TWITCH_CLIENT_ID || ''
+      'Client-ID': process.env.NEXT_PUBLIC_TWITCH_CLIENT_ID || ''
     }
   })
     .then((tokenResponse) => {

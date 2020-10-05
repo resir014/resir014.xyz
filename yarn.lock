@@ -1852,6 +1852,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@corex/deepmerge@npm:^2.4.6":
+  version: 2.4.14
+  resolution: "@corex/deepmerge@npm:2.4.14"
+  checksum: 486e9ec358a3862d34b8afefb3a4449626cd9135ebb677242027f523d73b23c463f09a3f43dba0635873a842211b2638f98bfd70ebbd6563953266f4b09c6b46
+  languageName: node
+  linkType: hard
+
 "@emotion/babel-plugin-jsx-pragmatic@npm:^0.1.5":
   version: 0.1.5
   resolution: "@emotion/babel-plugin-jsx-pragmatic@npm:0.1.5"
@@ -11278,6 +11285,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"next-sitemap@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "next-sitemap@npm:1.2.4"
+  dependencies:
+    "@corex/deepmerge": ^2.4.6
+  bin:
+    next-sitemap: bin/next-sitemap
+  checksum: dadc63ef31084399a140f7c46ac5afc3919a72841bc0bbe9ddab1d9e78eb8bad187b4f80584445de3df8c0eb6101132e41df3ed385bc506940710745e1d86414
+  languageName: node
+  linkType: hard
+
 "next-tick@npm:~1.0.0":
   version: 1.0.0
   resolution: "next-tick@npm:1.0.0"
@@ -13617,6 +13635,7 @@ fsevents@^1.2.7:
     next: 9.5.2
     next-images: ^1.6.0
     next-on-netlify: ^2.5.1
+    next-sitemap: ^1.2.4
     node-fetch: ^2.6.1
     nprogress: ^0.2.0
     polished: ^3.6.7
