@@ -11285,6 +11285,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"next-seo@npm:^4.11.0":
+  version: 4.11.0
+  resolution: "next-seo@npm:4.11.0"
+  peerDependencies:
+    next: ^8.1.1-canary.54 || ^9.0.0
+    react: ^16.0.0
+    react-dom: ^16.0.0
+  checksum: 923df5ff557dc52411a5c53dfcd42836b697a3b567509a1a047e48cc66effe329a6a51c247379d62c2eefabb4fb7fef3fc21d2b0bc7f6c5de022e4992e8bfc14
+  languageName: node
+  linkType: hard
+
 "next-sitemap@npm:^1.2.4":
   version: 1.2.4
   resolution: "next-sitemap@npm:1.2.4"
@@ -13635,6 +13646,7 @@ fsevents@^1.2.7:
     next: 9.5.2
     next-images: ^1.6.0
     next-on-netlify: ^2.5.1
+    next-seo: ^4.11.0
     next-sitemap: ^1.2.4
     node-fetch: ^2.6.1
     nprogress: ^0.2.0

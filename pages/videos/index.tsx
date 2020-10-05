@@ -26,7 +26,7 @@ type VideosIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const VideosIndexPage: NextPage<VideosIndexPageProps> = ({ allPosts }) => {
   return (
-    <Page pageTitle="Posts">
+    <Page pageTitle="Videos">
       <Content>
         <PostHeader title="Videos" lead="What is @resir014 watching right now?" />
         <PostBody>

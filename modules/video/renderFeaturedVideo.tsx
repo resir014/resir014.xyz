@@ -12,7 +12,7 @@ export default function renderFeaturedVideo(featuredPost: BaseJamProps | BaseVid
     <VideoCard
       metadata={<PostMeta category={featuredPost.category} date={featuredPost.date} />}
       title={
-        <Link href={`/${category}/[...slug]/`} as={`/${category}/${featuredPost.slug}/`} passHref>
+        <Link href={`/${category}/[...slug]`} as={`/${category}/${featuredPost.slug}`} passHref>
           <a>{featuredPost.title}</a>
         </Link>
       }

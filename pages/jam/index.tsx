@@ -26,7 +26,7 @@ type JamIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const JamIndexPage: NextPage<JamIndexPageProps> = ({ allPosts }) => {
   return (
-    <Page pageTitle="Posts">
+    <Page pageTitle="Jam">
       <Content>
         <PostHeader title="Jam" lead="What is @resir014 listening to right now?" />
         <PostBody>

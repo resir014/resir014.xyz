@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextSeo } from 'next-seo'
 import CustomErrorPage from '~/pages/_error'
 import { Box } from '~/components/chungking-core'
 import { Container, Content, Page } from '~/components/layout'
@@ -19,9 +20,22 @@ type BlogPostPageProps = {
 
 const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
   if (project) {
-    const { title, content } = project
+    const { title, description, header_image, content } = project
     return (
       <Page pageTitle={`${title} · Projects`}>
+        <NextSeo
+          openGraph={{
+            description,
+            images: [
+              {
+                url: `${siteMetadata.siteUrl}${header_image}`,
+                width: 1200,
+                height: 630,
+                alt: title
+              }
+            ]
+          }}
+        />
         <YouTubePreconnect />
         <Content>
           <Box as="header" pt="xxl" px="lg">

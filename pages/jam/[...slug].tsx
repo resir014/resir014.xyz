@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
+import { NextSeo } from 'next-seo'
 
 import { getPostBySlug, getAllPosts } from '~/lib/posts'
 import markdownToHtml from '~/lib/markdown-to-html'
@@ -25,6 +26,18 @@ const JamPostPage: NextPage<JamPostPageProps> = ({ post }) => {
     const { title, date, youtube_embed_id, category, content } = post
     return (
       <Page pageTitle={title}>
+        <NextSeo
+          openGraph={{
+            type: 'article',
+            title,
+            description: 'Jam posted by @resir014',
+            article: {
+              authors: [siteMetadata.author.name],
+              publishedTime: date,
+              section: category
+            }
+          }}
+        />
         <YouTubePreconnect />
         <Content>
           <PostHeader title={title} author={author} category={category} date={date} />

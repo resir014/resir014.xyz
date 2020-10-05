@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 
 import menuItems from '~/_data/menuItems.json'
 import siteMetadata from '~/_data/siteMetadata.json'
@@ -15,8 +16,8 @@ interface PageProps {
   pageTitle?: string
 }
 
-const Page: React.SFC<PageProps> = ({ children, className, style, pageTitle }) => {
-  const { title, description, author }: SiteMetadata = siteMetadata
+const Page: React.FC<PageProps> = ({ children, className, style, pageTitle }) => {
+  const { author }: SiteMetadata = siteMetadata
 
   return (
     <Box
@@ -30,13 +31,8 @@ const Page: React.SFC<PageProps> = ({ children, className, style, pageTitle }) =
       position="relative"
       padding={0}
     >
+      {pageTitle && <NextSeo title={pageTitle} openGraph={{ title: pageTitle }} />}
       <Head>
-        <title>{pageTitle ? `${pageTitle} · ${siteMetadata.title}` : '@resir014'}</title>
-        <meta name="description" content={description} />
-        <meta property="og:site_name" content={title} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={description} />
         <meta name="twitter:dnt" content="on" />
         {Object.keys(author.url).map((key) => (
           <link key={key} rel="me" href={author.url[key]} />

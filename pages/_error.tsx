@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { ErrorProps } from 'next/error'
 import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 
 import { Anchor, Paragraph } from '~/components/chungking-core'
 import { Content, Page } from '~/components/layout'
@@ -17,7 +18,8 @@ const CustomErrorPage: React.FC<ErrorProps> = ({ statusCode, title }) => {
   const errorMessage = React.useMemo(() => title || statusCodes[statusCode] || 'Unknown error', [statusCode, title])
 
   return (
-    <Page pageTitle={`${statusCode}: ${errorMessage}`}>
+    <Page>
+      <NextSeo title={`${statusCode}: ${errorMessage}`} noindex />
       <Content>
         <PostHeader title={`${statusCode}.`} />
         <PostBody>

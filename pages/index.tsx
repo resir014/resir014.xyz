@@ -2,6 +2,7 @@ import * as React from 'react'
 import { NextPage, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { NextSeo } from 'next-seo'
 
 import { Stack, Anchor, Text } from '~/components/chungking-core'
 import { Container, Page } from '~/components/layout'
@@ -40,6 +41,7 @@ type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, recentVideo, featuredProject }) => (
   <Page>
+    <NextSeo title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }} />
     <LiveBanner />
     <HomepageContent>
       <Stack spacing={96}>

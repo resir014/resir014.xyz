@@ -13,7 +13,7 @@ export default function renderVideoList(allPosts: (BaseJamProps | BaseVideoProps
       key={post.slug}
       metadata={<PostMeta category={post.category} date={post.date} />}
       title={
-        <Link href={`/${category}/[...slug]/`} as={`/${category}/${post.slug}/`} passHref>
+        <Link href={`/${category}/[...slug]`} as={`/${category}/${post.slug}`} passHref>
           <a>{post.title}</a>
         </Link>
       }

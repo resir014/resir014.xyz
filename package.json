@@ -41,6 +41,7 @@
     "next": "9.5.2",
     "next-images": "^1.6.0",
     "next-on-netlify": "^2.5.1",
+    "next-seo": "^4.11.0",
     "node-fetch": "^2.6.1",
     "nprogress": "^0.2.0",
     "polished": "^3.6.7",
