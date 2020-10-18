@@ -14,7 +14,7 @@ It used to be a staple event at the [Electronic Sports World Cup (ESWC)](https:/
 
 There are many things that are unique to TMGL, one of them is the controversial point-loss system, introduced for the Fall 2020 season. This has been a topic of hot debate on the Trackmania community. Some people think it's complete bullshit, others think it's fine as long as you get used to it.
 
-Over the past few weeks, I have been doing the Open Grand League (OGL). This is the portion of TMGL that's open for all players, where the top 8 players at the end of the league will get a chance to play against the TMGL players.
+Over the past few weeks, I have been taking part in the Open Grand League (OGL). This is the portion of TMGL that's open for all players, where the top 8 players at the end of the league will get a chance to play against the TMGL players in the Combined Match.
 
 While I have no strong feelings one way or the other about the point-loss system, I wondered what it would look like if the same system is implemented on a real-life motorsport series. So I decided to do that with last year's F1 season.
 
