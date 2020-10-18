@@ -36,24 +36,21 @@ TMGL consists of 6 matchdays span over 6 weeks, known as "steps". Each "step" ha
 
 In the first 2 races of the step, the "Opening" phase will commence. During the Opening phase, points are awarded as usual.
 
-<blockquote>
-<p>The first two maps are played in the first phase of the step called «Opening», players that finish from the 9th to 16th place do not lose any points gained.</p>
-<cite>— <a href="https://trackmania-grand-league.com/uploads/2019/01/RULEBOOK_TMGL_CIRCUIT_2020-2021.pdf">TrackMania Grand League rulebook</a>, section 4.3.2 "Point distribution"</cite>
-</blockquote>
+> The first two maps are played in the first phase of the step called «Opening», players that finish from the 9th to 16th place do not lose any points gained.
+
+— [TrackMania Grand League rulebook](https://trackmania-grand-league.com/uploads/2019/01/RULEBOOK_TMGL_CIRCUIT_2020-2021.pdf), section 4.3.2 "Point distribution"
 
 The next 2 races will be used for phase 2 of the step, known as "Semi", or semi-final phase. During the Semifinal phase, everyone who finishes in the bottom half have their points cut in half. Any fractional numbers resulting from the point loss are rounded up to the nearest integer.
 
-<blockquote>
-<p>Map three and four are used in phase two of the step called «Semi», players that finish from the 9th to 16th place lose half of their points gained on the previous maps. All resulting fractional numbers are rounded up to the nearest integer.
-<cite>— <a href="https://trackmania-grand-league.com/uploads/2019/01/RULEBOOK_TMGL_CIRCUIT_2020-2021.pdf">TrackMania Grand League rulebook</a>, section 4.3.2 "Point distribution"</cite>
-</blockquote>
+> Map three and four are used in phase two of the step called «Semi», players that finish from the 9th to 16th place lose half of their points gained on the previous maps. All resulting fractional numbers are rounded up to the nearest integer.
+
+— [TrackMania Grand League rulebook](https://trackmania-grand-league.com/uploads/2019/01/RULEBOOK_TMGL_CIRCUIT_2020-2021.pdf), section 4.3.2 "Point distribution"
 
 This leaves races 5 and 6 of the step, the "Final" phase. During the final phase, the same thing happens like the semi-final phase, but instead of losing half of their points, they lose all the points they accrued so far.
 
-<blockquote>
-<p>The last two maps are part of the last phase of the step called «Final» where players that finish from the 9th to 16th place lose all their points gained on the previous maps. Gained points are applied after the point loss.</p>
-<cite>— <a href="https://trackmania-grand-league.com/uploads/2019/01/RULEBOOK_TMGL_CIRCUIT_2020-2021.pdf">TrackMania Grand League rulebook</a>, section 4.3.2 "Point distribution"</cite>
-</blockquote>
+> The last two maps are part of the last phase of the step called «Final» where players that finish from the 9th to 16th place lose all their points gained on the previous maps. Gained points are applied after the point loss.</p>
+
+— [TrackMania Grand League rulebook](https://trackmania-grand-league.com/uploads/2019/01/RULEBOOK_TMGL_CIRCUIT_2020-2021.pdf), section 4.3.2 "Point distribution"
 
 This will be repeated for 5 more steps. Each step is a clean slate, where the total points from the end of each step contribute to the final points tally.
 
