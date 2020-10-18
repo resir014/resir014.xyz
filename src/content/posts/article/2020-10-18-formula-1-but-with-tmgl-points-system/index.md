@@ -6,7 +6,7 @@ lead: "Formula 1 isn't weird enough. The Trackmania Grand League has a weird poi
 header_image: header.png
 ---
 
-Trackmania, despite having a dedicated community behind it, has always had a rather modest esports scene. Throughout the game's existence, all esports competitions have been held by other organisations, with varying levels of prominence. These range from for-fun competitions held by clans, to national, or global events with big organisations behind it.
+[Trackmania](https://trackmania.com/), despite having a dedicated community behind it, has always had a rather modest esports scene. Throughout the game's existence, all esports competitions within Trackmania have been held by other organisations, with varying levels of prominence. These range from for-fun competitions held by clans, to national, or global events with big organisations behind it.
 
 It used to be a staple event at the [Electronic Sports World Cup (ESWC)](https://liquipedia.net/trackmania/ESWC) until it was dropped in 2015. After years of absence, a global-level tournament comes back to the Trackmania esports scene, with the advent of the Trackmania Grand League.
 
@@ -22,7 +22,7 @@ And when you see these pro players play the game, oh boy.
 
 There are many things that are unique to TMGL, one of them is the controversial point-loss system, introduced for the Fall 2020 season. This has been a topic of hot debate on the Trackmania community. Some people think it's complete bullshit, others think it's fine as long as you get used to it.
 
-Over the past few weeks, I have been taking part in the Open Grand League (OGL). This is the portion of TMGL that's open for all players, where the top 8 players at the end of the league will get a chance to play against the TMGL players in the Combined Match.
+Over the past few weeks, I have been taking part in the Open Grand League (OGL). This is the portion of TMGL that's open for all players, where the top 8 players at the end of the league will get a chance to play against the TMGL players.
 
 While I have no strong feelings one way or the other about the point-loss system, I wondered what it would look like if the same system is implemented on a real-life motorsport series. So I decided to do that with last year's F1 season.
 
@@ -52,7 +52,7 @@ This leaves races 5 and 6 of the step, the "Final" phase. During the final phase
 
 — [TrackMania Grand League rulebook](https://trackmania-grand-league.com/uploads/2019/01/RULEBOOK_TMGL_CIRCUIT_2020-2021.pdf), section 4.3.2 "Point distribution"
 
-This will be repeated for 5 more steps. Each step is a clean slate, where the total points from the end of each step contribute to the final points tally.
+This will be repeated for 5 more steps. Each step is a clean slate, where the total points from the end of each step contribute to the final points tally. At the end, the top 8 players in TMGL gets a free pass to the playoffs, where the bottom 8 players will fight against the top 8 players from the Open Grand League (OGL) in the Combined Match. The top 8 players from the Combined Match will then proceed to the playoffs.
 
 ## Making this work with Formula 1
 
@@ -62,11 +62,7 @@ We're going to use the [2019 F1 season](https://en.wikipedia.org/wiki/2019_Formu
 
 Next up, we'll have split the entire calendar into steps of 6 races. Unfortunately, the 2019 calendar has 21 races — a number not divisible by 6 — which means the best thing we could do is to divide it into 3 "steps" of 7 races. The first 3 races will be the opening phase rounds, the next 2 will be the semi-final phase, and the last 2 will be the final phase.
 
-This... might not end well.
-
-## Spreadsheet
-
-For the complete spreadsheet used in this post, which includes race-by-race point calculation, [click here](https://docs.google.com/spreadsheets/d/1N3K1xYiTSPmS20RAlIbx6ghhhd6S2nN8B5SHAVb4_-c/edit?usp=sharing).
+If you would like to take a look at how everything pans out throughout the season, I've published the spreadsheet I used to perform this experiment, which includes race-by-race point calculation. You can read it in its entirety [here](https://docs.google.com/spreadsheets/d/1N3K1xYiTSPmS20RAlIbx6ghhhd6S2nN8B5SHAVb4_-c/edit?usp=sharing).
 
 ## Step 1
 
@@ -148,15 +144,19 @@ Coming into the final step of the season, it looked pretty clear that the field 
 
 **Abu Dhabi GP:** After that insane race at Interlagos, surely we're pumped up for more action. Unfortunately, we're at Yas Marina. Gasly's short-lived glory was cut short when all of his points are erased after finishing 18th. Bottas, Vettel, and Albon, salvages whatever points they could get after losing all of it last round.
 
-## Recap
+---
+
+## Conclusion
 
 So, here are your final results of the 2019 Formula One season, with the TMGL point-loss system. The up/down arrows indicate if the driver had gained/lost positions compared to the regular 2019 F1 season.
 
 ![Untitled-3.png](./Untitled-3.png)
 
-We can see that since the season was primarily dominated by the top 3 teams, there weren't much changes at the top 5. Despite some heartbreaking losses on the last race of each step — like Vettel's Monza disaster — the F1 points distribution of 25-18-15-12-10-8-6-4-2-1 spreads out the field a lot more at the front. If we were to find substantial changes in the field, we'll have to look at the midfield.
+As you can see with this experiment, since the season was primarily dominated by the top 3 teams, there weren't much changes at the top 5. Despite some heartbreaking losses on the last race of each step — like Vettel's Monza disaster — the F1 points distribution of 25-18-15-12-10-8-6-4-2-1 spreads out the field a lot more at the front. If we were to find substantial changes in the field, we'll have to look at the midfield.
 
 Both Albon and Gasly remained the outlier within the top 3 teams, with Albon just edging out Gasly by virtue of surviving in the top 10 in Abu Dhabi. Lando's messy first 2 steps resulting in him dropping down to 12th in the standings, with Hulkenberg jumping up to 11th after a strong Step 2.
+
+And not just that, by sheer virtue of luck, other drivers who have never done well throughout a step, can be boosted up in the standings. You don't just _have_ to win a lot more times than the other drivers, you have to be _consistent_ in where you finish.
 
 Despite losing a bunch of points, Lance Stroll managed to finish higher than his regular F1 season. This is partly helped by Kimi Raikkonen failing to hold on to his points in each step.
 
@@ -165,12 +165,6 @@ The bottom 3 remains unchanged, with Grosjean, Kubica, and Russel finishing at t
 As a reminder, the complete spreadsheet used in this post, which includes race-by-race point calculation, is available [here](https://docs.google.com/spreadsheets/d/1N3K1xYiTSPmS20RAlIbx6ghhhd6S2nN8B5SHAVb4_-c/edit?usp=sharing).
 
 ---
-
-## Conclusion
-
-As you can see with this experiment, the point-loss system can really shake up the field in-between races. You, as an audience, can feel how heartbreaking it is when your favourite driver loses all their points.
-
-And not just that, by sheer virtue of luck, other drivers who have never done well throughout a step, can be boosted up in the standings. You don't just _have_ to win a lot more times than the other drivers, you have to be _consistent_ in where you finish.
 
 So after this experiment, has my opinion on the point-loss system changed? Frankly, no.
 
