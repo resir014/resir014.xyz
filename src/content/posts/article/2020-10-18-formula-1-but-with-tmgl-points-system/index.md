@@ -10,7 +10,15 @@ Trackmania, despite having a dedicated community behind it, has always had a rat
 
 It used to be a staple event at the [Electronic Sports World Cup (ESWC)](https://liquipedia.net/trackmania/ESWC) until it was dropped in 2015. After years of absence, a global-level tournament comes back to the Trackmania esports scene, with the advent of the Trackmania Grand League.
 
+![Trackmania_Screenshot_Review-2.jpg](./Trackmania_Screenshot_Review-2.jpg)
+
 [Trackmania Grand League (TMGL)](https://trackmania-grand-league.com/) is the premier esports competition in the Trackmania community. It was officially hosted by [Ubisoft Nadeo](https://nadeo.com/), the makers of the game. It's where 16 of the best Trackmania players in the world pit against each other in maps of different styles, comprising of many different road surfaces, with one of them bring crowned as the world champion.
+
+The maps of TrackMania are full of twists and turns, loops and wallrides, and it takes a lot of precision for even the high-level professional players to be just an inch faster from their other rivals.
+
+And when you see these pro players play the game, oh boy.
+
+<iframe src="https://clips.twitch.tv/embed?clip=HotTransparentTermiteCclamChamp&parent=resir014.xyz&parent=motorsport101.com&parent=deploy-preview-139--resir014.netlify.app" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
 
 There are many things that are unique to TMGL, one of them is the controversial point-loss system, introduced for the Fall 2020 season. This has been a topic of hot debate on the Trackmania community. Some people think it's complete bullshit, others think it's fine as long as you get used to it.
 
