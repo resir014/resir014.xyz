@@ -52,7 +52,11 @@ This leaves races 5 and 6 of the step, the "Final" phase. During the final phase
 
 — [TrackMania Grand League rulebook](https://trackmania-grand-league.com/uploads/2019/01/RULEBOOK_TMGL_CIRCUIT_2020-2021.pdf), section 4.3.2 "Point distribution"
 
-This will be repeated for 5 more steps. Each step is a clean slate, where the total points from the end of each step contribute to the final points tally. At the end, the top 8 players in TMGL gets a free pass to the playoffs, where the bottom 8 players will fight against the top 8 players from the Open Grand League (OGL) in the Combined Match. The top 8 players from the Combined Match will then proceed to the playoffs.
+Got it so far? Good.
+
+We repeat this whole point dance for 5 more steps. Each step is a clean slate, where the total points from the end of each step contribute to the final points tally.
+
+At the end, the top 8 players in TMGL gets a free pass to the playoffs, where the bottom 8 players will fight against the top 8 players from the Open Grand League (OGL) in the Combined Match. The top 8 players from the Combined Match will then proceed to the playoffs.
 
 ## Making this work with Formula 1
 
