@@ -18,7 +18,7 @@ The maps of TrackMania are full of twists and turns, loops and wallrides, and it
 
 And when you see these pro players play the game, oh boy.
 
-<iframe src="https://clips.twitch.tv/embed?clip=HotTransparentTermiteCclamChamp&parent=resir014.xyz&parent=motorsport101.com&parent=deploy-preview-139--resir014.netlify.app" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+<iframe src="https://clips.twitch.tv/embed?clip=HotTransparentTermiteCclamChamp&parent=resir014.xyz&parent=motorsport101.com&parent=deploy-preview-139--resir014.netlify.app" autoplay="false" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
 
 There are many things that are unique to TMGL, one of them is the controversial point-loss system, introduced for the Fall 2020 season. This has been a topic of hot debate on the Trackmania community. Some people think it's complete bullshit, others think it's fine as long as you get used to it.
 
