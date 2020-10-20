@@ -91,6 +91,18 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, recentVideo,
         <HomepageSection>
           <Container size="md">
             <Stack spacing="xxl">
+              <HomepageSectionTitle>Recent photo</HomepageSectionTitle>
+              <Text variant={500}>
+                <Link href="/photos" passHref>
+                  <Anchor>View all photos &rarr;</Anchor>
+                </Link>
+              </Text>
+            </Stack>
+          </Container>
+        </HomepageSection>
+        <HomepageSection>
+          <Container size="md">
+            <Stack spacing="xxl">
               <HomepageSectionTitle>Featured project</HomepageSectionTitle>
               <FeaturedProjectCard project={featuredProject} />
               <Text variant={500}>

@@ -1,9 +1,11 @@
-export type PostCategories = 'article' | 'note'
+import { PostKind } from './default'
+
+export type PostCategories = Extract<PostKind, 'article' | 'note'>
 
 export interface PostMetadata {
   layout?: string
   category: PostCategories
-  title: string
+  title?: string
   date: string
   slug: string
   featured?: boolean
@@ -21,7 +23,7 @@ export interface PageMetadata {
 
 export interface JamMetadata {
   layout?: string
-  category: PostCategories
+  category: PostKind
   title: string
   date: string
   slug: string
@@ -30,11 +32,19 @@ export interface JamMetadata {
 
 export interface VideoMetadata {
   layout?: string
-  category: PostCategories
+  category: PostKind
   title: string
   date: string
   slug: string
   youtube_embed_id: string
+}
+
+export interface PhotoMetadata {
+  layout?: string
+  category: PostKind
+  date: string
+  slug: string
+  header_image?: string
 }
 
 export interface BasePostProps extends PostMetadata {
@@ -50,5 +60,9 @@ export interface BaseJamProps extends JamMetadata {
 }
 
 export interface BaseVideoProps extends VideoMetadata {
+  content: string
+}
+
+export interface BasePhotoProps extends PhotoMetadata {
   content: string
 }
