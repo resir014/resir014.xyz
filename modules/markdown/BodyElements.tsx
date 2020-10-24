@@ -68,6 +68,7 @@ const FigureStyles = css`
     border-radius: 6px;
     box-shadow: ${shadows.single};
     vertical-align: middle;
+    background-color: ${colors.grey90};
 
     + figcaption {
       margin-top: 8px;
