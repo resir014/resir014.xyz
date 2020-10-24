@@ -11,6 +11,10 @@ title: 'Get in touch'
 - [**Twitter**](https://twitter.com/resir014) – Mostly just retweets now.
 - [**Mastodon**](/mastodon) – A fancy distributed social network.
 
+## Linktree
+
+[View my Linktree here.](/linktree)
+
 ## Email
 
 Due to the increasing amount of spam that I get nowadays, you will have to solve this simple puzzle to get my email address:
