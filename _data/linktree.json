@@ -1,0 +1,40 @@
+[
+  {
+    "category": "Follow",
+    "items": [
+      {
+        "url": "https://twitter.com/resir014",
+        "title": "Twitter",
+        "backgroundColor": "#1da1f2"
+      },
+      {
+        "url": "https://www.twitch.tv/resir014",
+        "title": "Twitch",
+        "backgroundColor": "#9146ff"
+      },
+      {
+        "url": "https://www.youtube.com/c/resir014",
+        "title": "YouTube",
+        "backgroundColor": "#f00"
+      },
+      {
+        "url": "https://github.com/resir014",
+        "title": "GitHub",
+        "backgroundColor": "#1b1f23"
+      }
+    ]
+  },
+  {
+    "category": "Support",
+    "items": [
+      {
+        "url": "https://saweria.co/resir014",
+        "title": "Saweria (indonesia only)"
+      },
+      {
+        "url": "https://streamlabs.com/resir014/",
+        "title": "Streamlabs"
+      }
+    ]
+  }
+]

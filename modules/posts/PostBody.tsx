@@ -2,20 +2,21 @@ import * as React from 'react'
 import convert from 'htmr'
 
 import htmrTransform from '~/lib/htmr-transform'
-import { Box, Stack } from '~/components/chungking-core'
+import { Box, Space, Stack } from '~/components/chungking-core'
 import { Container, ContainerSizes } from '~/components/layout'
 
 interface PostBodyProps {
   content?: string
   containerSize?: ContainerSizes
+  spacing?: Space | number
 }
 
-const PostBody: React.FC<PostBodyProps> = ({ content, containerSize = 'md', children }) => {
+const PostBody: React.FC<PostBodyProps> = ({ content, containerSize = 'md', spacing = 'md', children }) => {
   if (content) {
     return (
       <Box as="section" p="lg" pb={96}>
         <Container size={containerSize}>
-          <Stack spacing="md">{convert(content, { transform: htmrTransform })}</Stack>
+          <Stack spacing={spacing}>{convert(content, { transform: htmrTransform })}</Stack>
         </Container>
       </Box>
     )
@@ -24,7 +25,7 @@ const PostBody: React.FC<PostBodyProps> = ({ content, containerSize = 'md', chil
   return (
     <Box as="section" p="lg" pb={96}>
       <Container size={containerSize}>
-        <Stack spacing="md">{children}</Stack>
+        <Stack spacing={spacing}>{children}</Stack>
       </Container>
     </Box>
   )

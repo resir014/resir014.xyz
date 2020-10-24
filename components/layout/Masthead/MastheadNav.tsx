@@ -24,7 +24,7 @@ const MastheadNav: React.FC<MastheadNavProps> = ({ items }) => {
         return (
           <Text
             as="li"
-            key={item.path}
+            key={item.name}
             mr="lg"
             css={css`
               text-transform: lowercase;

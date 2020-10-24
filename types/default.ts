@@ -33,6 +33,18 @@ export interface MenuProps {
   items: MenuItem[]
 }
 
+export interface LinktreeItem {
+  url: string
+  title: string
+  backgroundColor?: string
+  textColor?: string
+}
+
+export interface LinktreeCategoryItem {
+  category: string
+  items: LinktreeItem[]
+}
+
 export interface TwitchData {
   id: string
   user_id: string
