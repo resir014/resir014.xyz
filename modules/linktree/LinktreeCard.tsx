@@ -16,7 +16,7 @@ const LinktreeCard: React.FC<LinktreeCardProps> = ({ className, style, item, ...
       boxShadow="single"
       p="md"
       borderRadius={6}
-      backgroundColor={item.backgroundColor || 'grey90'}
+      backgroundColor={item.backgroundColor || 'grey.900'}
       className={className}
       style={style}
       {...rest}

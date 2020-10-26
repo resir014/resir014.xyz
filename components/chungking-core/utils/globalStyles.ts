@@ -30,7 +30,7 @@ const GlobalStyles = css`
 
   html,
   body {
-    color: ${colors.grey10};
+    color: ${colors.grey[50]};
     background-color: ${colors.black};
   }
 
@@ -60,7 +60,7 @@ const GlobalStyles = css`
     &:focus,
     &:active {
       outline: none;
-      box-shadow: 0 0 0 3px ${transparentize(0.4, colors.green30)};
+      box-shadow: 0 0 0 3px ${transparentize(0.4, colors.turquoise[400])};
     }
   }
 
@@ -94,13 +94,13 @@ const GlobalStyles = css`
     margin-bottom: ${space.sm}px;
     width: 100%;
     font-size: 85%;
-    border: 1px solid ${colors.grey20};
+    border: 1px solid ${colors.grey[100]};
     border-collapse: collapse;
 
     td,
     th {
       padding: ${space.xxs}px ${space.xs}px;
-      border: 1px solid ${colors.grey20};
+      border: 1px solid ${colors.grey[100]};
     }
 
     th {
@@ -109,7 +109,7 @@ const GlobalStyles = css`
 
     tbody tr:nth-child(odd) td,
     tbody tr:nth-child(odd) th {
-      background-color: ${colors.grey10};
+      background-color: ${colors.grey[50]};
     }
   }
 
@@ -134,7 +134,7 @@ const GlobalStyles = css`
     position: relative;
     margin: ${space.xl}px 0;
     border: 0;
-    border-bottom: 1px solid ${colors.grey80};
+    border-bottom: 1px solid ${colors.grey[800]};
   }
 
   abbr {
@@ -143,7 +143,7 @@ const GlobalStyles = css`
 
     &[title] {
       cursor: help;
-      border-bottom: 1px dotted ${colors.grey30};
+      border-bottom: 1px dotted ${colors.grey[200]};
     }
   }
 

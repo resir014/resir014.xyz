@@ -16,6 +16,9 @@
 # Static export path
 out/
 
+# storybook output
+storybook-static/
+
 # Logs
 logs
 *.log

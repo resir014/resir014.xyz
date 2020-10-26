@@ -6,8 +6,8 @@ import { ButtonProps } from './types'
 export const DisabledButtonStyles = css`
   &:disabled,
   &.disabled {
-    background-color: ${transparentize(0.5, colors.grey90)};
-    border-color: ${colors.grey70};
+    background-color: ${transparentize(0.5, colors.grey[900])};
+    border-color: ${colors.grey[700]};
     color: ${colors.white};
     user-select: none;
 
@@ -57,8 +57,8 @@ export const GhostedButtonStyles = css`
 
     &:focus,
     &:active {
-      border-color: ${colors.grey70};
-      box-shadow: ${rgba(colors.grey70, 0.25)} 0 0 4px 2px;
+      border-color: ${colors.grey[700]};
+      box-shadow: ${rgba(colors.grey[700], 0.25)} 0 0 4px 2px;
     }
   }
 
@@ -76,18 +76,18 @@ export const GhostedButtonStyles = css`
 
 export const PrimaryButtonStyles = css`
   &:not(:disabled):not(.disabled) {
-    border-color: ${colors.blue30};
-    background-color: ${colors.blue30};
+    border-color: ${colors.blue[500]};
+    background-color: ${colors.blue[500]};
     color: ${colors.white};
 
     &:hover,
     &:focus {
-      background-color: ${transparentize(0.75, colors.blue30)};
+      background-color: ${transparentize(0.75, colors.blue[500])};
     }
 
     &:focus,
     &:active {
-      box-shadow: ${rgba(colors.blue30, 0.25)} 0 0 4px 2px;
+      box-shadow: ${rgba(colors.blue[500], 0.25)} 0 0 4px 2px;
     }
   }
 
@@ -96,18 +96,18 @@ export const PrimaryButtonStyles = css`
 
 export const SecondaryButtonStyles = css`
   &:not(:disabled):not(.disabled) {
-    border-color: ${colors.grey70};
-    background-color: ${colors.grey70};
+    border-color: ${colors.grey[700]};
+    background-color: ${colors.grey[700]};
     color: ${colors.white};
 
     &:hover,
     &:focus {
-      background-color: ${transparentize(0.75, colors.grey70)};
+      background-color: ${transparentize(0.75, colors.grey[700])};
     }
 
     &:focus,
     &:active {
-      box-shadow: ${rgba(colors.grey70, 0.25)} 0 0 4px 2px;
+      box-shadow: ${rgba(colors.grey[700], 0.25)} 0 0 4px 2px;
     }
   }
 
@@ -116,18 +116,18 @@ export const SecondaryButtonStyles = css`
 
 export const DangerButtonStyles = css`
   &:not(:disabled):not(.disabled) {
-    border-color: ${colors.red30};
-    background-color: ${colors.red30};
+    border-color: ${colors.red[500]};
+    background-color: ${colors.red[500]};
     color: ${colors.white};
 
     &:hover,
     &:focus {
-      background-color: ${transparentize(0.75, colors.red30)};
+      background-color: ${transparentize(0.75, colors.red[500])};
     }
 
     &:focus,
     &:active {
-      box-shadow: ${rgba(colors.red30, 0.25)} 0 0 4px 2px;
+      box-shadow: ${rgba(colors.red[500], 0.25)} 0 0 4px 2px;
     }
   }
 

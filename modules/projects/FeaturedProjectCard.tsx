@@ -27,8 +27,8 @@ const FeaturedProjectDetails = styled('div')`
   display: flex;
   flex-direction: column;
   padding: 24px;
-  background-color: ${colors.ultramarine30};
-  background-image: linear-gradient(to right, ${colors.ultramarine30}, ${colors.blue30});
+  background-color: ${colors.ultramarine[500]};
+  background-image: linear-gradient(to right, ${colors.ultramarine[500]}, ${colors.ultramarine[600]});
 `
 
 interface FeaturedProjectCardProps extends BoxProps {
@@ -71,7 +71,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
           >
             Featured project
           </Text>
-          <Heading as="h2" variant={700} mt="xxs" mb="sm" color="green30">
+          <Heading as="h2" variant={700} mt="xxs" mb="sm" color="turquoise.400">
             {title}
           </Heading>
         </Box>

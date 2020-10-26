@@ -23,7 +23,7 @@ const UnorderedListStyles = css`
   > li::before {
     content: '–';
     display: inline-block;
-    color: ${colors.grey40};
+    color: ${colors.grey[300]};
     position: absolute;
     margin-left: -15px;
   }
@@ -38,7 +38,7 @@ const BlockquoteStyles = css`
   padding: 0;
   padding-right: ${space.md}px;
   padding-left: ${space.sm}px;
-  color: ${colors.grey30};
+  color: ${colors.grey[200]};
   border-left: 1px solid ${colors.white};
 
   &:first-child {
@@ -57,7 +57,7 @@ const CodeBlockStyles = css`
 const InlineCodeStyles = css`
   padding: 0.125rem 0.25rem;
   font-size: 90%;
-  color: ${colors.magenta30};
+  color: ${colors.magenta[400]};
   background-color: #1d1f21;
   border-radius: 3px;
 `
@@ -68,7 +68,7 @@ const FigureStyles = css`
     border-radius: 6px;
     box-shadow: ${shadows.single};
     vertical-align: middle;
-    background-color: ${colors.grey90};
+    background-color: ${colors.grey[900]};
 
     + figcaption {
       margin-top: 8px;

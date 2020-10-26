@@ -7,7 +7,7 @@ import { colors, mediaQueries } from '../../../utils'
 export type AnchorProps = TextProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
 
 const AnchorBase = css`
-  color: ${colors.green30};
+  color: ${colors.turquoise[400]};
   text-decoration: underline;
 
   strong {

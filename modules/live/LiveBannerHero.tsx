@@ -20,7 +20,7 @@ const LiveBannerHero: React.FC<LiveBannerHeroProps> = ({ className, children }) 
     backgroundColor={darken(0.05, colors.black)}
     background={`linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${BackgroundPattern})`}
     borderBottom="1px solid"
-    borderBottomColor="grey90"
+    borderBottomColor="grey.900"
     className={className}
   >
     <Box display="flex" flexDirection="column" gridColumn="3/4">

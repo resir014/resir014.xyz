@@ -42,7 +42,7 @@ const prismTheme = css`
 
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    color: ${colors.magenta30};
+    color: ${colors.magenta[400]};
     background: #1d1f21;
   }
 

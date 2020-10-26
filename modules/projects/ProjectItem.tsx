@@ -12,13 +12,13 @@ import ProjectTags from './ProjectTags'
 const colorByCategory = (category: string) => {
   switch (category) {
     case 'portfolio':
-      return `${colors.green30}`
+      return `${colors.turquoise[400]}`
     case 'oss':
-      return `${colors.orange30}`
+      return `${colors.orange[400]}`
     case 'other':
-      return `${colors.magenta30}`
+      return `${colors.magenta[400]}`
     default:
-      return `${colors.grey90}`
+      return `${colors.grey[900]}`
   }
 }
 
@@ -36,7 +36,7 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ project, ...rest }) => {
       flexDirection="column"
       position="relative"
       flex="1 1 100%"
-      backgroundColor="grey90"
+      backgroundColor="grey.900"
       borderRadius={6}
       overflow="hidden"
       {...rest}

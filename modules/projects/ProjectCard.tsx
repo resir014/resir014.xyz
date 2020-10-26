@@ -14,7 +14,7 @@ interface ProjectCardProps extends BoxProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, ...rest }) => {
   const { category, header_image, title, description, tags, project_url } = project
   return (
-    <Box as="section" p={0} backgroundColor="ultramarine30" borderRadius={8} overflow="hidden" boxShadow="single" {...rest}>
+    <Box as="section" p={0} backgroundColor="ultramarine.500" borderRadius={8} overflow="hidden" boxShadow="single" {...rest}>
       {header_image && (
         <img
           loading="lazy"
@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, ...rest }) => {
         >
           Projects / {category}
         </Text>
-        <Heading as="h1" variant={700} mt="xxs" mb="sm" color="green30" className="p-name">
+        <Heading as="h1" variant={700} mt="xxs" mb="sm" color="turquoise.400" className="p-name">
           {title}
         </Heading>
         {description ? (

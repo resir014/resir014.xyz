@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { HtmrOptions } from 'htmr/src/types'
 
-import { Anchor, BoxProps, Iframe, MessageBox, ResponsiveWrapper } from '~/components/chungking-core'
+import { Anchor, Box, BoxProps, Iframe, MessageBox, ResponsiveWrapper } from '~/components/chungking-core'
 import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI, Blockquote, InlineCode, CodeBlock, Figure } from '~/modules/markdown'
 
 const htmrTransform: HtmrOptions['transform'] = {
@@ -15,6 +15,10 @@ const htmrTransform: HtmrOptions['transform'] = {
   ul: UL,
   ol: OL,
   li: LI,
+  hr: (node: Partial<React.ReactHTMLElement<HTMLHRElement>['props'] & Pick<BoxProps, 'mt' | 'mb'>>) => {
+    const { mt: _mt, mb: _mb, ...rest } = node
+    return <Box as="hr" {...rest} />
+  },
   blockquote: Blockquote,
   pre: CodeBlock,
   code: InlineCode,

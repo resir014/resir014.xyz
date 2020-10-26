@@ -7,7 +7,7 @@ import { ProjectMetadata } from '~/types/projects'
 import ProjectItem from './ProjectItem'
 
 const ProjectEmpty = styled('p')`
-  color: ${colors.grey50};
+  color: ${colors.grey[400]};
 `
 
 export interface ProjectItemListProps extends BoxProps {

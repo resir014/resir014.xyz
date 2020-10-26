@@ -10,7 +10,7 @@ interface VideoCardProps extends BoxProps {
 
 const VideoCard: React.FC<VideoCardProps> = ({ metadata, embed, title, children, ...rest }) => {
   return (
-    <Box backgroundColor="grey90" borderRadius={6} boxShadow="single" overflow="hidden" {...rest}>
+    <Box backgroundColor="grey.900" borderRadius={6} boxShadow="single" overflow="hidden" {...rest}>
       {embed}
       {title || children ? (
         <Stack spacing="sm" p="lg" position="relative">

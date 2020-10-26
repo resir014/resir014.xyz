@@ -19,7 +19,7 @@ const BoxBase: React.FC<Pick<LiveCTAProps, 'backgroundColor'>> = ({ backgroundCo
       alignItems="center"
       justifyContent="space-between"
       p={16}
-      bg={backgroundColor || 'grey90'}
+      bg={backgroundColor || 'grey.900'}
       borderRadius={6}
       boxShadow="single"
     >

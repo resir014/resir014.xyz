@@ -7,18 +7,18 @@ import Container from './Container'
 import CCLogo from '~/assets/images/cc-by-nc-sa.svg'
 
 const StyledFooter = styled('footer')`
-  border-top: 1px solid ${colors.grey90};
+  border-top: 1px solid ${colors.grey[900]};
   padding: ${space.lg}px;
 `
 
 const FooterContent = styled('div')`
   a {
-    color: ${colors.green30};
+    color: ${colors.turquoise[400]};
     text-decoration: underline;
 
     &:hover,
     &:focus {
-      color: ${colors.green30};
+      color: ${colors.turquoise[400]};
     }
 
     ${mediaQueries.md} {

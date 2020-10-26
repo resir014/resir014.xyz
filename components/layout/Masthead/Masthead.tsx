@@ -19,7 +19,7 @@ const Root = styled('nav')`
   padding: 0 ${space.lg}px;
   background-color: ${colors.black};
   z-index: 50;
-  box-shadow: inset 0 -1px ${colors.grey90};
+  box-shadow: inset 0 -1px ${colors.grey[900]};
 `
 
 const MastheadInner = styled('ul')`

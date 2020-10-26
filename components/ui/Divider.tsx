@@ -46,7 +46,7 @@ const DividerBase = (props: DividerProps) => css`
   height: 6px;
   border: none;
   border-radius: 6px;
-  background: linear-gradient(to right, ${colors.blue30}, ${colors.magenta30});
+  background: linear-gradient(to right, ${colors.blue[500]}, ${colors.magenta[400]});
 
   ${!props.fullWidth && DividerFullWidth(props)};
 `
