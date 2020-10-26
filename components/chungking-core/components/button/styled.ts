@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { darken, transparentize, rgba } from 'polished'
+import { darken, transparentize } from 'polished'
 import { colors, fonts } from '../../utils'
 import { ButtonProps } from './types'
 
