@@ -36,20 +36,20 @@
     "gray-matter": "^4.0.2",
     "htmr": "^0.8.8",
     "isomorphic-unfetch": "^3.1.0",
-    "markdown-it": "^11.0.1",
+    "markdown-it": "^12.0.2",
     "markdown-it-implicit-figures": "^0.10.0",
-    "next": "9.5.2",
+    "next": "10.0.0",
     "next-images": "^1.6.0",
-    "next-on-netlify": "^2.5.1",
-    "next-seo": "^4.11.0",
+    "next-on-netlify": "^2.6.0",
+    "next-seo": "^4.14.0",
     "node-fetch": "^2.6.1",
     "nprogress": "^0.2.0",
     "polished": "^3.6.7",
     "prismjs": "^1.21.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "styled-system": "^5.1.5",
-    "swr": "^0.3.5",
+    "swr": "^0.3.6",
     "typeface-inter": "^3.15.0"
   },
   "devDependencies": {
@@ -72,9 +72,9 @@
     "eslint-config-blvd": "^1.0.2",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "next-sitemap": "^1.2.4",
+    "next-sitemap": "^1.2.19",
     "prettier": "^2.1.2",
     "react-is": "^16.13.1",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.5"
   }
 }
