@@ -86,16 +86,12 @@ Anyways, here's how Step 1 ended up.
 **Canadian GP:** We all know what happened in Canada. We don't need to talk about it.
 
 <figure>
-
-![Untitled.png](/assets/article/2020/formula-1-but-with-tmgl-points-system/Untitled.png)
-
+<img src="/assets/article/2020/formula-1-but-with-tmgl-points-system/Untitled.png" />
 <figcaption>Step 1 results</figcaption>
 </figure>
 
 <figure>
-
-![msedge_SlzpwKSirr.png](/assets/article/2020/formula-1-but-with-tmgl-points-system/msedge_SlzpwKSirr.png)
-
+<img src="/assets/article/2020/formula-1-but-with-tmgl-points-system/msedge_SlzpwKSirr.png" />
 <figcaption>Drivers' standings after Step 1. The up/down arrows indicate if the driver had gained/lost positions compared to the regular 2019 F1 season.</figcaption>
 </figure>
 
@@ -118,16 +114,12 @@ With step 1 done and dusted, and all the points have been tallied, it's time for
 **Italian GP:** Final race of Step 2. The mess during Q3 gave a head start for Leclerc, who went on to win the race. The same cannot be said for his teammate Vettel, though. After spinning and hitting Stroll, the German limped back home to 13th place, making him lose all of his 69 (nice) points. This means that Vettel finishes with a step total of 0 points.
 
 <figure>
-
-![Untitled-1.png](/assets/article/2020/formula-1-but-with-tmgl-points-system/Untitled-1.png)
-
+<img src="/assets/article/2020/formula-1-but-with-tmgl-points-system/Untitled-1.png" />
 <figcaption>Step 2 results</figcaption>
 </figure>
 
 <figure>
-
-![Untitled-2.png](/assets/article/2020/formula-1-but-with-tmgl-points-system/Untitled-2.png)
-
+<img src="/assets/article/2020/formula-1-but-with-tmgl-points-system/Untitled-2.png" />
 <figcaption>Drivers' standings after Step 2. The up/down arrows indicate if the driver had gained/lost positions compared to the regular 2019 F1 season.</figcaption>
 </figure>
 
