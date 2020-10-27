@@ -6,7 +6,7 @@ import { PostBody, PostHeader } from '~/modules/posts'
 
 const DesignPage: NextPage = () => {
   return (
-    <Page>
+    <Page pageTitle="Design">
       <Content>
         <PostHeader title="Chungking Design System" />
         <PostBody>
