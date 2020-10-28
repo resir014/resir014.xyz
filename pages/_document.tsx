@@ -9,12 +9,7 @@ export default class MyDocument extends Document {
     const styles = extractCritical(initialProps.html)
     return {
       ...initialProps,
-      styles: (
-        <>
-          {initialProps.styles}
-          <style data-emotion-css={styles.ids.join(' ')} dangerouslySetInnerHTML={{ __html: styles.css }} />
-        </>
-      )
+      styles: [initialProps.styles, <style data-emotion-css={styles.ids.join(' ')} dangerouslySetInnerHTML={{ __html: styles.css }} />]
     }
   }
 

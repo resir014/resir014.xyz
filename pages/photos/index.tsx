@@ -28,7 +28,7 @@ const PhotosIndexPage: NextPage<PhotosIndexPageProps> = ({ allPosts }) => {
   return (
     <Page pageTitle="Photos">
       <Content>
-        <PostHeader title="Photos" lead="Recent photos taken by @resir014." />
+        <PostHeader title="Photos" lead="Sometimes I go outside and take photos with my camera." />
         <PostBody>
           <Stack spacing={64} mt="lg">
             {allPosts.map((photo) => (

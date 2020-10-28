@@ -69,6 +69,10 @@ export function getFeaturedArticles(maxPosts = 5) {
     .slice(0, maxPosts)
 }
 
+export function getFeaturedBookmarks(maxPosts = 5) {
+  return getAllPosts(['category', 'title', 'link', 'slug', 'date'], 'bookmark').slice(0, maxPosts)
+}
+
 export function getFeaturedJam() {
   const videos = getAllPosts(['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'], 'jam').map((post) => ({
     ...post,

@@ -21,6 +21,15 @@ export interface PageMetadata {
   header_image?: string
 }
 
+export interface BookmarkMetadata {
+  layout?: string
+  category: PostKind
+  date: string
+  slug: string
+  title: string
+  link: string
+}
+
 export interface JamMetadata {
   layout?: string
   category: PostKind
@@ -52,6 +61,10 @@ export interface BasePostProps extends PostMetadata {
 }
 
 export interface BasePageProps extends PageMetadata {
+  content: string
+}
+
+export interface BaseBookmarkProps extends BookmarkMetadata {
   content: string
 }
 
