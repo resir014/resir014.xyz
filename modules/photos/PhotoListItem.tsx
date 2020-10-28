@@ -26,9 +26,11 @@ const PhotoListItem: React.FC<PhotoListItemProps> = ({ photo, className, style, 
           </Link>
         </Box>
       )}
-      <Stack as="section" spacing="md">
-        {convert(content, { transform: htmrTransform })}
-      </Stack>
+      {content && (
+        <Stack as="section" spacing="md">
+          {convert(content, { transform: htmrTransform })}
+        </Stack>
+      )}
     </Stack>
   )
 }

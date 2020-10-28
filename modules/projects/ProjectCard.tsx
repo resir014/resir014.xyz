@@ -1,5 +1,6 @@
 import { css } from '@emotion/core'
 import convert from 'htmr'
+import Image from 'next/image'
 import * as React from 'react'
 import { Heading, Text, Badge, Box, BoxProps, AnchorButton } from '~/components/chungking-core'
 import htmrTransform from '~/lib/htmr-transform'
@@ -16,12 +17,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, ...rest }) => {
   return (
     <Box as="section" p={0} backgroundColor="ultramarine.500" borderRadius={8} overflow="hidden" boxShadow="single" {...rest}>
       {header_image && (
-        <img
+        <Image
           loading="lazy"
-          alt={title}
           src={header_image}
+          alt={title}
+          width={1140}
+          height={580}
+          unoptimized
           css={css`
-            margin: 0;
+            object-fit: cover;
           `}
         />
       )}

@@ -8,18 +8,20 @@ import { Stack, Anchor, Text } from '~/components/chungking-core'
 import { Container, Page } from '~/components/layout'
 import { HomepageContent, HomepageSection, HomepageSectionTitle } from '~/modules/home'
 import { FeaturedProjectCard } from '~/modules/projects'
+import { FeaturedPhoto } from '~/modules/photos'
 import { PostListItem } from '~/modules/posts'
+import { renderFeaturedVideo } from '~/modules/video'
 
-import { getFeaturedArticles, getFeaturedJam, getFeaturedVideo } from '~/lib/posts'
+import { getFeaturedArticles, getFeaturedJam, getFeaturedPhoto, getFeaturedVideo } from '~/lib/posts'
 import { getFeaturedProject } from '~/lib/projects'
-import { BaseJamProps, BasePostProps, BaseVideoProps, PostMetadata } from '~/types/posts'
+import { BaseJamProps, BasePhotoProps, BasePostProps, BaseVideoProps, PostMetadata } from '~/types/posts'
 import { ProjectMetadata } from '~/types/projects'
-import renderFeaturedVideo from '~/modules/video/renderFeaturedVideo'
 
 export const getStaticProps = async () => {
   const allPosts: BasePostProps[] = getFeaturedArticles()
   const recentJam: BaseJamProps = getFeaturedJam()
   const recentVideo: BaseVideoProps = getFeaturedVideo()
+  const featuredPhoto: BasePhotoProps = getFeaturedPhoto()
   const featuredProject: ProjectMetadata = getFeaturedProject([
     'category',
     'title',
@@ -31,7 +33,7 @@ export const getStaticProps = async () => {
   ])
 
   return {
-    props: { allPosts: allPosts.slice(0, 3), recentJam, recentVideo, featuredProject }
+    props: { allPosts: allPosts.slice(0, 3), recentJam, recentVideo, featuredPhoto, featuredProject }
   }
 }
 
@@ -39,7 +41,7 @@ const LiveBanner = dynamic(() => import('~/modules/live/LiveBanner'))
 
 type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
-const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, recentVideo, featuredProject }) => (
+const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, recentVideo, featuredPhoto, featuredProject }) => (
   <Page>
     <NextSeo title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }} />
     <LiveBanner />
@@ -91,7 +93,8 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, recentJam, recentVideo,
         <HomepageSection>
           <Container size="md">
             <Stack spacing="xxl">
-              <HomepageSectionTitle>Recent photo</HomepageSectionTitle>
+              <HomepageSectionTitle>Featured photo</HomepageSectionTitle>
+              <FeaturedPhoto photo={featuredPhoto} />
               <Text variant={500}>
                 <Link href="/photos" passHref>
                   <Anchor>View all photos &rarr;</Anchor>

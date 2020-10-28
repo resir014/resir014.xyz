@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { Text, Heading, colors, shadows, Badge, Box, BoxProps, AnchorButton } from '~/components/chungking-core'
@@ -41,22 +42,21 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
   const { header_image, title, description, tags, slug } = project
   return (
     <FeaturedProjectWrapper as="section" className={className} style={style} {...rest}>
-      <Box display={['none', null, null, 'block']} position="relative" width="100%" height="100%">
-        <Box
-          as="img"
-          loading="lazy"
-          src={header_image}
-          alt={title}
-          m={0}
-          width="100%"
-          height="100%"
-          minHeight={320}
-          maxHeight={[0, null, null, null, 480]}
-          css={css`
-            object-fit: cover;
-          `}
-        />
-      </Box>
+      {header_image && (
+        <Box display={['none', null, null, 'block']} position="relative" width="100%" height="100%">
+          <Image
+            loading="lazy"
+            src={header_image}
+            alt={title}
+            width={1140}
+            height={580}
+            unoptimized
+            css={css`
+              object-fit: cover;
+            `}
+          />
+        </Box>
+      )}
       <FeaturedProjectDetails className="column">
         <Box>
           <Text

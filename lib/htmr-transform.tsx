@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Image from 'next/image'
 import { HtmrOptions } from 'htmr/src/types'
 
 import { Anchor, Box, BoxProps, Iframe, MessageBox, ResponsiveWrapper } from '~/components/chungking-core'
@@ -22,9 +23,17 @@ const htmrTransform: HtmrOptions['transform'] = {
   blockquote: Blockquote,
   pre: CodeBlock,
   code: InlineCode,
-  img: (node: Partial<React.ReactHTMLElement<HTMLImageElement>['props']>) => {
-    const { alt, crossOrigin, ...rest } = node
-    return <img loading="lazy" alt={alt?.toString()} crossOrigin={crossOrigin as any} {...rest} />
+  img: (node: JSX.IntrinsicElements['img']) => {
+    const { src, alt, crossOrigin, ...rest } = node
+    if (src) {
+      if (src.substr(0, 4) === 'http') {
+        return <img loading="lazy" src={src} alt={alt} crossOrigin={crossOrigin} {...rest} />
+      }
+
+      return <Image loading="lazy" src={src} alt={alt} crossOrigin={crossOrigin} unoptimized unsized {...rest} />
+    }
+
+    return null
   },
   figure: (node: Partial<React.ReactHTMLElement<HTMLElement>['props'] & Pick<BoxProps, 'mt' | 'mb'>>) => {
     const { mt: _mt, mb: _mb, ...rest } = node

@@ -1,4 +1,5 @@
 import { css } from '@emotion/core'
+import Image from 'next/image'
 import * as React from 'react'
 import { Box } from '~/components/chungking-core'
 import { Container } from '~/components/layout'
@@ -12,18 +13,17 @@ const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
   return (
     <Box as="section" px="lg">
       <Container size="xl">
-        <Box height={560} overflow="hidden">
-          <img
-            alt={alt}
-            src={src}
-            css={css`
-              margin: 0;
-              width: 100%;
-              height: 560px;
-              object-fit: cover;
-            `}
-          />
-        </Box>
+        <Image
+          loading="lazy"
+          src={src}
+          alt={alt}
+          width={1140}
+          height={671}
+          unoptimized
+          css={css`
+            object-fit: cover;
+          `}
+        />
       </Container>
     </Box>
   )

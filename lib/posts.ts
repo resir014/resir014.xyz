@@ -84,3 +84,9 @@ export function getFeaturedVideo() {
   }))
   return videos[0]
 }
+
+export function getFeaturedPhoto() {
+  const videos = getAllPosts(['category', 'slug', 'date', 'header_image', 'featured', 'content'], 'photo').filter((post) => post.featured)
+
+  return videos[0]
+}
