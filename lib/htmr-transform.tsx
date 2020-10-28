@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import Image from 'next/image'
+import Link from 'next/link'
 import { HtmrOptions } from 'htmr/src/types'
 
 import { Anchor, Box, BoxProps, Iframe, MessageBox, ResponsiveWrapper } from '~/components/chungking-core'
@@ -87,14 +88,22 @@ const htmrTransform: HtmrOptions['transform'] = {
 
     return <div {...rest}>{children}</div>
   },
-  a: (node: Partial<React.ReactHTMLElement<HTMLAnchorElement>['props']>) => {
+  a: (node: JSX.IntrinsicElements['a']) => {
     const { href } = node
 
-    if (href && href.substr(0, 4) === 'http') {
+    if (href) {
+      if (href.substr(0, 4) === 'http') {
+        return (
+          <Anchor href={href} target="_blank" rel="noopener noreferrer">
+            {node.children}
+          </Anchor>
+        )
+      }
+
       return (
-        <Anchor href={href} target="_blank" rel="noopener noreferrer">
-          {node.children}
-        </Anchor>
+        <Link href={href} passHref>
+          <Anchor>{node.children}</Anchor>
+        </Link>
       )
     }
 
