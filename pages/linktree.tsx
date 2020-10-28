@@ -19,7 +19,7 @@ type LinktreePageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const LinktreePage: NextPage<LinktreePageProps> = ({ linktree }) => {
   return (
-    <Page>
+    <Page pageTitle="Linktree">
       <Content>
         <PostHeader title="Linktree" lead="Because who needs an external service for this?" />
         <PostBody spacing="lg">
