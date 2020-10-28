@@ -1,7 +1,6 @@
 ---
 category: note
 layout: note
-title: 'electron-with-server-webpack'
 date: '2019-12-12T12:47:00+07:00'
 ---
 

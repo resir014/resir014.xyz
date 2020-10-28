@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { css } from '@emotion/core'
 import Image from 'next/image'
 import { HtmrOptions } from 'htmr/src/types'
 
@@ -24,13 +25,31 @@ const htmrTransform: HtmrOptions['transform'] = {
   pre: CodeBlock,
   code: InlineCode,
   img: (node: JSX.IntrinsicElements['img']) => {
-    const { src, alt, crossOrigin, ...rest } = node
+    const { className, src, alt, crossOrigin, ...rest } = node
+
+    if (className?.includes('is-inline')) {
+      return (
+        <img
+          loading="lazy"
+          className={className}
+          src={src}
+          alt={alt}
+          crossOrigin={crossOrigin}
+          css={css`
+            display: inline-block;
+            margin: 0;
+          `}
+          {...rest}
+        />
+      )
+    }
+
     if (src) {
       if (src.substr(0, 4) === 'http') {
-        return <img loading="lazy" src={src} alt={alt} crossOrigin={crossOrigin} {...rest} />
+        return <img loading="lazy" className={className} src={src} alt={alt} crossOrigin={crossOrigin} {...rest} />
       }
 
-      return <Image loading="lazy" src={src} alt={alt} crossOrigin={crossOrigin} unoptimized unsized {...rest} />
+      return <Image loading="lazy" className={className} src={src} alt={alt} crossOrigin={crossOrigin} unoptimized unsized {...rest} />
     }
 
     return null
