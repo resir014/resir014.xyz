@@ -29,7 +29,7 @@ const FeaturedProjectDetails = styled('div')`
   flex-direction: column;
   padding: 24px;
   background-color: ${colors.ultramarine[500]};
-  background-image: linear-gradient(to right, ${colors.ultramarine[500]}, ${colors.ultramarine[600]});
+  background-image: linear-gradient(to right, ${colors.ultramarine[500]}, ${colors.blue[500]});
 `
 
 interface FeaturedProjectCardProps extends BoxProps {

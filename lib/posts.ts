@@ -69,7 +69,7 @@ export function getFeaturedArticles(maxPosts = 5) {
     .slice(0, maxPosts)
 }
 
-export function getFeaturedBookmarks(maxPosts = 5) {
+export function getFeaturedBookmarks(maxPosts = 3) {
   return getAllPosts(['category', 'title', 'link', 'slug', 'date'], 'bookmark').slice(0, maxPosts)
 }
 

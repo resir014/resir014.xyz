@@ -18,7 +18,7 @@ const BookmarksPage: NextPage<BookmarksPageProps> = ({ bookmarks }) => {
   return (
     <Page pageTitle="Bookmarks">
       <Content>
-        <PostHeader title="Bookmarks" lead="@resir014's reading list. Recommended articles from blogs I follow" />
+        <PostHeader title="Bookmarks" lead="@resir014's reading list." />
         <PostBody>
           <BookmarkList bookmarks={bookmarks} />
         </PostBody>
