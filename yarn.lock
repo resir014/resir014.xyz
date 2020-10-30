@@ -1651,6 +1651,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.12.0":
+  version: 7.12.1
+  resolution: "@babel/runtime@npm:7.12.1"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: 979d1c099c386031f96a952ee903e7bc3c60ae6e4eefe2bf49e4224014542d4ac2b1e2fb708031da36501a3842d4442dfdab38ab359ab3f46634b3c7cb5f6c6e
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.10.4, @babel/template@npm:^7.7.4":
   version: 7.10.4
   resolution: "@babel/template@npm:7.10.4"
@@ -9023,15 +9032,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"htmr@npm:^0.8.8":
-  version: 0.8.8
-  resolution: "htmr@npm:0.8.8"
+"htmr@npm:^0.9.2":
+  version: 0.9.2
+  resolution: "htmr@npm:0.9.2"
   dependencies:
     html-entities: ^1.2.1
     htmlparser2: ^3.10.1
   peerDependencies:
     react: ^15.6.1 || ^16.0.0
-  checksum: 927edc4aaeeb98755ba06011095e144ff5259111e3638d95a5dd8f43f2bfbb289b9acb102953beeff2bd4003e333b883723ff3c4519d9a30cfc12e2526fd6605
+  checksum: 6246a00643dce39c14682af987880483488bcfd63c835e1a067e38878dc73a6e9415711ddeec346d7c956b3a30131a6c281fa6517d8609ee1602b6adbcf9160e
   languageName: node
   linkType: hard
 
@@ -12334,12 +12343,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"polished@npm:^3.6.7":
-  version: 3.6.7
-  resolution: "polished@npm:3.6.7"
+"polished@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "polished@npm:4.0.3"
   dependencies:
-    "@babel/runtime": ^7.9.2
-  checksum: ff43f3917c1a101ee179e361a8a9fa17b1cc8aa7d04421992c5fc6e1a31b3635ce1fcda75545c4cdee300b647c1d96c91f288b1de9a5184fc8ca82b337f5f479
+    "@babel/runtime": ^7.12.0
+  checksum: ae644280769a5ebd87101f7452a82233fb81e6ac824acffd90e470ce76098abfcfecf989a1ffb328aaa88804ed265f3308a861c6bf48611eecc69ac5767130da
   languageName: node
   linkType: hard
 
@@ -13613,7 +13622,7 @@ fsevents@^1.2.7:
     eslint-plugin-prettier: ^3.1.4
     glob: ^7.1.6
     gray-matter: ^4.0.2
-    htmr: ^0.8.8
+    htmr: ^0.9.2
     isomorphic-unfetch: ^3.1.0
     markdown-it: ^12.0.2
     markdown-it-implicit-figures: ^0.10.0
@@ -13624,7 +13633,7 @@ fsevents@^1.2.7:
     next-sitemap: ^1.2.20
     node-fetch: ^2.6.1
     nprogress: ^0.2.0
-    polished: ^3.6.7
+    polished: ^4.0.3
     prettier: ^2.1.2
     prismjs: ^1.22.0
     react: ^16.14.0
