@@ -69,10 +69,10 @@ const FigureStyles = css`
     box-shadow: ${shadows.single};
     vertical-align: middle;
     background-color: ${colors.grey[900]};
+  }
 
-    + figcaption {
-      margin-top: 8px;
-    }
+  figcaption:not(:first-child) {
+    margin-top: 8px;
   }
 `
 
