@@ -21,7 +21,7 @@ const BookmarkList: React.FC<BookmarkListProps> = ({ bookmarks, ...rest }) => {
       {...rest}
     >
       {bookmarks.map((bookmark) => (
-        <BookmarkListItem bookmark={bookmark} />
+        <BookmarkListItem key={bookmark.slug} bookmark={bookmark} />
       ))}
     </Stack>
   )

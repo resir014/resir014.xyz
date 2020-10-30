@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import * as React from 'react'
 import { Content, Page } from '~/components/layout'
-import ColorSpecs from '~/modules/design/ColorSpecs'
+import { ColorSpecs, ComponentSpecs, TypographySpecs } from '~/modules/design'
 import { PostBody, PostHeader } from '~/modules/posts'
 
 const DesignPage: NextPage = () => {
@@ -11,6 +11,8 @@ const DesignPage: NextPage = () => {
         <PostHeader title="Chungking Design System" />
         <PostBody>
           <ColorSpecs />
+          <TypographySpecs />
+          <ComponentSpecs />
         </PostBody>
       </Content>
     </Page>

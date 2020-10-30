@@ -6,10 +6,11 @@ import { ButtonProps } from './types'
 export const DisabledButtonStyles = css`
   &:disabled,
   &.disabled {
-    background-color: ${transparentize(0.5, colors.grey[900])};
-    border-color: ${colors.grey[700]};
+    background-color: ${colors.grey[700]};
     color: ${colors.white};
     user-select: none;
+    opacity: 0.5;
+    cursor: not-allowed;
 
     &:hover,
     &:focus {

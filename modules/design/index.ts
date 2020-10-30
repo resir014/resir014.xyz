@@ -1,2 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export { default as ColorSpecs } from './ColorSpecs'
+export { default as ComponentSpecs } from './ComponentSpecs'
+export { default as TypographySpecs } from './TypographySpecs'
