@@ -22,7 +22,7 @@ type BlogPostPageProps = {
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
   const { author } = siteMetadata
   if (post) {
-    const { title, lead, category, date, header_image, content } = post
+    const { title, lead, category, date, header_image, syndication, content } = post
     return (
       <Page pageTitle={title}>
         <NextSeo
@@ -49,7 +49,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
         <Content>
           {header_image && <PostHeaderImage src={header_image} alt={title} />}
           <PostHeader title={title} lead={lead} author={author} category={category} date={date} />
-          <PostBody content={content} />
+          <PostBody content={content} syndication={syndication} />
         </Content>
       </Page>
     )
@@ -60,7 +60,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   if (ctx.params && Array.isArray(ctx.params?.slug)) {
-    const post = getPostBySlug(ctx.params.slug, ['category', 'title', 'lead', 'date', 'header_image', 'slug', 'content'])
+    const post = getPostBySlug(ctx.params.slug, ['category', 'title', 'lead', 'date', 'header_image', 'slug', 'content', 'syndication'])
 
     const content = await markdownToHtml(post.content || '')
 

@@ -2,20 +2,45 @@ import * as React from 'react'
 import convert from 'htmr'
 
 import htmrTransform from '~/lib/htmr-transform'
-import { Box, Space, Stack } from '~/components/chungking-core'
+import { Anchor, Box, MessageBox, Paragraph, Space, Stack } from '~/components/chungking-core'
 import { Container, ContainerSizes } from '~/components/layout'
+import { SyndicationFormat } from '~/types/default'
+import { LI, UL } from '../markdown'
 
 interface PostBodyProps {
   content?: string
   containerSize?: ContainerSizes
+  syndication?: SyndicationFormat[]
   spacing?: Space | number
 }
 
-const PostBody: React.FC<PostBodyProps> = ({ content, containerSize = 'md', spacing = 'md', children }) => {
+const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize = 'md', spacing = 'md', children }) => {
+  const renderSyndication = () => {
+    if (syndication) {
+      return (
+        <MessageBox mb="lg">
+          <Paragraph mb="xs">This post is also published on:</Paragraph>
+          <UL>
+            {syndication.map((item) => (
+              <LI>
+                <Anchor href={item.url} target="_blank" className="u-syndication" rel="noopener noreferrer external syndication">
+                  {item.name}
+                </Anchor>
+              </LI>
+            ))}
+          </UL>
+        </MessageBox>
+      )
+    }
+
+    return null
+  }
+
   if (content) {
     return (
       <Box as="section" p="lg" pb={96}>
         <Container size={containerSize}>
+          {renderSyndication()}
           <Stack spacing={spacing}>{convert(content, { transform: htmrTransform })}</Stack>
         </Container>
       </Box>
@@ -25,6 +50,7 @@ const PostBody: React.FC<PostBodyProps> = ({ content, containerSize = 'md', spac
   return (
     <Box as="section" p="lg" pb={96}>
       <Container size={containerSize}>
+        {renderSyndication()}
         <Stack spacing={spacing}>{children}</Stack>
       </Container>
     </Box>

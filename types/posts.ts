@@ -1,4 +1,4 @@
-import { PostKind } from './default'
+import { PostKind, SyndicationFormat } from './default'
 
 export type PostCategories = Extract<PostKind, 'article' | 'note'>
 
@@ -11,6 +11,7 @@ export interface PostMetadata {
   featured?: boolean
   lead?: string
   header_image?: string
+  syndication?: SyndicationFormat[]
 }
 
 export interface PageMetadata {
