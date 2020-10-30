@@ -34,7 +34,7 @@ const htmrTransform: HtmrOptions['transform'] = {
           loading="lazy"
           className={className}
           src={src}
-          alt={alt}
+          alt={alt?.toString()}
           crossOrigin={crossOrigin}
           css={css`
             display: inline-block;

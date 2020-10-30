@@ -21,6 +21,7 @@ export const MastheadLinkStyles = css`
 
   &.is-active {
     text-decoration: none;
+    border-bottom-color: ${colors.white};
 
     &:hover,
     &:focus {

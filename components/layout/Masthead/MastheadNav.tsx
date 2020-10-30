@@ -19,7 +19,7 @@ const MastheadNav: React.FC<MastheadNavProps> = ({ items }) => {
   return (
     <>
       {items.map((item) => {
-        const isActive = asPath !== '/' && asPath.startsWith(item.as || item.path)
+        const isActive = asPath !== '/' && asPath.startsWith(item.path)
 
         return (
           <Text
