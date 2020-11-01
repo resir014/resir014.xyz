@@ -9,7 +9,7 @@ import { Container, Page } from '~/components/layout'
 import { HomepageContent, HomepageSection, HomepageSectionHeader } from '~/modules/home'
 import { FeaturedProjectCard } from '~/modules/projects'
 import { FeaturedPhoto } from '~/modules/photos'
-import { PostListItem } from '~/modules/posts'
+import { PostHCard, PostListItem } from '~/modules/posts'
 import { renderFeaturedVideo } from '~/modules/video'
 
 import { getFeaturedArticles, getFeaturedBookmarks, getFeaturedJam, getFeaturedPhoto, getFeaturedVideo } from '~/lib/posts'
@@ -17,6 +17,9 @@ import { getFeaturedProject } from '~/lib/projects'
 import { BaseBookmarkProps, BaseJamProps, BasePhotoProps, BasePostProps, BaseVideoProps, PostMetadata } from '~/types/posts'
 import { ProjectMetadata } from '~/types/projects'
 import { BookmarkList } from '~/modules/bookmarks'
+import { SiteAuthor } from '~/types/default'
+
+import siteMetadata from '~/_data/siteMetadata.json'
 
 export const getStaticProps = async () => {
   const allPosts: BasePostProps[] = getFeaturedArticles()
@@ -33,9 +36,10 @@ export const getStaticProps = async () => {
     'project_url',
     'slug'
   ])
+  const { author } = siteMetadata
 
   return {
-    props: { allPosts: allPosts.slice(0, 3), featuredBookmarks, recentJam, recentVideo, featuredPhoto, featuredProject }
+    props: { allPosts: allPosts.slice(0, 3), featuredBookmarks, recentJam, recentVideo, featuredPhoto, featuredProject, author }
   }
 }
 
@@ -43,7 +47,15 @@ const LiveBanner = dynamic(() => import('~/modules/live/LiveBanner'))
 
 type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
-const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, recentJam, recentVideo, featuredPhoto, featuredProject }) => (
+const IndexPage: NextPage<IndexPageProps> = ({
+  allPosts,
+  featuredBookmarks,
+  recentJam,
+  recentVideo,
+  featuredPhoto,
+  featuredProject,
+  author
+}) => (
   <Page>
     <NextSeo title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }} />
     <LiveBanner />
@@ -134,6 +146,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, rece
             </Stack>
           </Container>
         </HomepageSection>
+        <PostHCard hidden author={author} m={0} />
       </Stack>
     </HomepageContent>
   </Page>

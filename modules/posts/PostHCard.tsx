@@ -3,10 +3,10 @@ import classnames from 'clsx'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import { Box, colors, Heading, Text } from '~/components/chungking-core'
+import { Box, BoxProps, colors, Heading, Text } from '~/components/chungking-core'
 import { SiteAuthor } from '~/types/default'
 
-interface PostHCardProps {
+interface PostHCardProps extends BoxProps {
   className?: string
   hidden?: boolean
   image?: string
@@ -25,7 +25,7 @@ const HCardEmail = styled('a')`
   display: none;
 `
 
-const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author }) => (
+const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author, ...rest }) => (
   <Box
     className={classnames(className, 'p-author h-card')}
     display={hidden ? 'none' : 'inline-block'}
@@ -35,6 +35,7 @@ const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author 
         margin-bottom: 0;
       }
     `}
+    {...rest}
   >
     <Box display="grid" gridTemplateColumns="64px 1fr" gridGap={['md', null, null, 'lg']} textAlign="left" color="inherit">
       <Box display="flex" position="relative" textAlign="center" alignItems="center" justifyContent="flex-start" mb={0}>
