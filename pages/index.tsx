@@ -17,7 +17,6 @@ import { getFeaturedProject } from '~/lib/projects'
 import { BaseBookmarkProps, BaseJamProps, BasePhotoProps, BasePostProps, BaseVideoProps, PostMetadata } from '~/types/posts'
 import { ProjectMetadata } from '~/types/projects'
 import { BookmarkList } from '~/modules/bookmarks'
-import { SiteAuthor } from '~/types/default'
 
 import siteMetadata from '~/_data/siteMetadata.json'
 
