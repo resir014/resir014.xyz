@@ -21,7 +21,7 @@ import { BookmarkList } from '~/modules/bookmarks'
 import siteMetadata from '~/_data/siteMetadata.json'
 
 export const getStaticProps = async () => {
-  const allPosts: BasePostProps[] = getFeaturedArticles()
+  const allPosts: BasePostProps[] = getFeaturedArticles(3)
   const featuredBookmarks: BaseBookmarkProps[] = getFeaturedBookmarks()
   const recentJam: BaseJamProps = getFeaturedJam()
   const recentVideo: BaseVideoProps = getFeaturedVideo()
@@ -38,7 +38,7 @@ export const getStaticProps = async () => {
   const { author } = siteMetadata
 
   return {
-    props: { allPosts: allPosts.slice(0, 3), featuredBookmarks, recentJam, recentVideo, featuredPhoto, featuredProject, author }
+    props: { allPosts, featuredBookmarks, recentJam, recentVideo, featuredPhoto, featuredProject, author }
   }
 }
 
