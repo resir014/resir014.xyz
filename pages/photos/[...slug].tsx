@@ -7,7 +7,7 @@ import markdownToHtml from '~/lib/markdown-to-html'
 
 import { Content, Page } from '~/components/layout'
 import { YouTubePreconnect } from '~/components/perf'
-import { PostHeader } from '~/modules/posts'
+import { Post, PostHeader } from '~/modules/posts'
 import { PhotoPostBody } from '~/modules/photos'
 import CustomErrorPage from '~/pages/_error'
 import { BasePhotoProps } from '~/types/posts'
@@ -47,8 +47,10 @@ const PhotoPostPage: NextPage<PhotoPostPageProps> = ({ post }) => {
         />
         <YouTubePreconnect />
         <Content>
-          <PostHeader author={author} category={category} date={date} />
-          <PhotoPostBody image={header_image} content={content} />
+          <Post>
+            <PostHeader author={author} category={category} date={date} />
+            <PhotoPostBody image={header_image} content={content} />
+          </Post>
         </Content>
       </Page>
     )

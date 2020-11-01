@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { Content, Page } from '~/components/layout'
 import { YouTubePreconnect } from '~/components/perf'
-import { PostBody, PostHeader, PostHeaderImage } from '~/modules/posts'
+import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts'
 import CustomErrorPage from '~/pages/_error'
 import { getAllPages, getPageBySlug } from '~/lib/pages'
 import markdownToHtml from '~/lib/markdown-to-html'
@@ -37,9 +37,11 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
         <YouTubePreconnect />
         {layout === 'live' && <LiveBanner />}
         <Content>
-          {header_image && <PostHeaderImage src={header_image} alt={title} />}
-          <PostHeader title={title} lead={lead} />
-          <PostBody content={content} />
+          <Post>
+            {header_image && <PostHeaderImage src={header_image} alt={title} />}
+            <PostHeader title={title} lead={lead} />
+            <PostBody content={content} />
+          </Post>
         </Content>
       </Page>
     )

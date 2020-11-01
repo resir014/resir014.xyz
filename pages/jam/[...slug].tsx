@@ -8,12 +8,13 @@ import markdownToHtml from '~/lib/markdown-to-html'
 import { Container, Content, Page } from '~/components/layout'
 import { LiteYouTube, VideoCard } from '~/modules/video'
 import { YouTubePreconnect } from '~/components/perf'
-import { PostBody, PostHeader } from '~/modules/posts'
+import { Post, PostBody, PostHeader } from '~/modules/posts'
 import CustomErrorPage from '~/pages/_error'
 import { BaseJamProps } from '~/types/posts'
 import { SiteMetadata } from '~/types/default'
 
 import siteMetadata from '~/_data/siteMetadata.json'
+import { Box } from '~/components/chungking-core'
 
 type JamPostPageProps = {
   post?: BaseJamProps
@@ -40,11 +41,15 @@ const JamPostPage: NextPage<JamPostPageProps> = ({ post }) => {
         />
         <YouTubePreconnect />
         <Content>
-          <PostHeader title={title} author={author} category={category} date={date} />
-          <Container size="lg">
-            <VideoCard embed={<LiteYouTube videoId={youtube_embed_id} />} />
-          </Container>
-          <PostBody content={content} />
+          <Post>
+            <PostHeader title={title} author={author} category={category} date={date} />
+            <Box pt="lg" px="lg">
+              <Container size="lg">
+                <VideoCard embed={<LiteYouTube videoId={youtube_embed_id} />} />
+              </Container>
+            </Box>
+            <PostBody content={content} />
+          </Post>
         </Content>
       </Page>
     )

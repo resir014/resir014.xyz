@@ -6,6 +6,7 @@ import { Box } from '~/components/chungking-core'
 import { Container, Content, Page } from '~/components/layout'
 import { YouTubePreconnect } from '~/components/perf'
 import { BaseProjectProps } from '~/types/projects'
+import { Post } from '~/modules/posts'
 import { ProjectBody, ProjectCard } from '~/modules/projects'
 import { getAllProjects, getProjectBySlug } from '~/lib/projects'
 import markdownToHtml from '~/lib/markdown-to-html'
@@ -38,12 +39,14 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
         />
         <YouTubePreconnect />
         <Content>
-          <Box as="header" pt="xxl" px="lg">
-            <Container size="lg">
-              <ProjectCard project={project} />
-            </Container>
-          </Box>
-          <ProjectBody content={content} />
+          <Post>
+            <Box as="header" pt="xxl" px="lg">
+              <Container size="lg">
+                <ProjectCard project={project} />
+              </Container>
+            </Box>
+            <ProjectBody content={content} />
+          </Post>
         </Content>
       </Page>
     )

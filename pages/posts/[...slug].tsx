@@ -7,7 +7,7 @@ import markdownToHtml from '~/lib/markdown-to-html'
 
 import { Content, Page } from '~/components/layout'
 import { YouTubePreconnect } from '~/components/perf'
-import { PostBody, PostHeader, PostHeaderImage } from '~/modules/posts'
+import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts'
 import CustomErrorPage from '~/pages/_error'
 import { BasePostProps } from '~/types/posts'
 import { SiteMetadata } from '~/types/default'
@@ -47,9 +47,11 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
         />
         <YouTubePreconnect />
         <Content>
-          {header_image && <PostHeaderImage src={header_image} alt={title} />}
-          <PostHeader title={title} lead={lead} author={author} category={category} date={date} />
-          <PostBody content={content} syndication={syndication} />
+          <Post>
+            {header_image && <PostHeaderImage src={header_image} alt={title} />}
+            <PostHeader title={title} lead={lead} author={author} category={category} date={date} />
+            <PostBody content={content} syndication={syndication} />
+          </Post>
         </Content>
       </Page>
     )

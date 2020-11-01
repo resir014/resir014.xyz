@@ -22,8 +22,8 @@ const PostHeader: React.FC<PostHeaderProps> = ({ title, lead, date, author, cate
     <Box as="header" pt="xxl" px="lg">
       <Container>
         {date && category && <PostMeta date={date} category={category} mb="md" slug={slug} isMetaClickable={isMetaClickable} />}
-        {title && <PostTitle>{title}</PostTitle>}
-        {lead && <PostSubtitle>{lead}</PostSubtitle>}
+        {title && <PostTitle className="p-name">{title}</PostTitle>}
+        {lead && <PostSubtitle className="p-summary">{lead}</PostSubtitle>}
         {author && <PostHCard author={author} />}
       </Container>
     </Box>

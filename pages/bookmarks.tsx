@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Content, Page } from '~/components/layout'
 import { getAllPosts } from '~/lib/posts'
 import { BookmarkList } from '~/modules/bookmarks'
-import { PostBody, PostHeader } from '~/modules/posts'
+import { Post, PostBody, PostHeader } from '~/modules/posts'
 import { BaseBookmarkProps } from '~/types/posts'
 
 export const getStaticProps = async () => {
@@ -18,10 +18,12 @@ const BookmarksPage: NextPage<BookmarksPageProps> = ({ bookmarks }) => {
   return (
     <Page pageTitle="Bookmarks">
       <Content>
-        <PostHeader title="Bookmarks" lead="@resir014's reading list." />
-        <PostBody>
-          <BookmarkList bookmarks={bookmarks} />
-        </PostBody>
+        <Post>
+          <PostHeader title="Bookmarks" lead="@resir014's reading list." />
+          <PostBody>
+            <BookmarkList bookmarks={bookmarks} />
+          </PostBody>
+        </Post>
       </Content>
     </Page>
   )
