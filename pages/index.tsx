@@ -61,6 +61,7 @@ const IndexPage: NextPage<IndexPageProps> = ({
     <LiveBanner />
     <HomepageContent>
       <Stack spacing={96}>
+        <PostHCard hidden author={author} m={0} />
         <HomepageSection>
           <Container size="md">
             <Stack spacing="xxl">
@@ -146,7 +147,6 @@ const IndexPage: NextPage<IndexPageProps> = ({
             </Stack>
           </Container>
         </HomepageSection>
-        <PostHCard hidden author={author} m={0} />
       </Stack>
     </HomepageContent>
   </Page>
