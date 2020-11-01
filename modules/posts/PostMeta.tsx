@@ -13,28 +13,10 @@ export interface PostListItemProps extends BoxProps {
   isMetaClickable?: boolean
 }
 
-const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, category, slug, isMetaClickable, ...rest }) => {
+const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, category, slug, ...rest }) => {
   const path = React.useMemo(() => (category === 'note' ? 'notes' : 'posts'), [category])
 
   const renderMetadata = () => {
-    if (slug && isMetaClickable) {
-      return (
-        <Text
-          display="block"
-          fontFamily="monospace"
-          css={css`
-            text-transform: uppercase;
-          `}
-        >
-          <Link href={`/${path}/[...slug]`} as={`/${path}/${slug}`}>
-            <a>
-              {formatPostDate(new Date(date))} / {category}
-            </a>
-          </Link>
-        </Text>
-      )
-    }
-
     return (
       <Text
         display="block"
@@ -43,7 +25,14 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
           text-transform: uppercase;
         `}
       >
-        {formatPostDate(new Date(date))} / {category}
+        <Link href={`/${path}/[...slug]`} as={`/${path}/${slug}`}>
+          <a className="u-url">
+            <Text as="time" className="dt-published" dateTime={date}>
+              {formatPostDate(new Date(date))}
+            </Text>{' '}
+            / <span className="p-category">{category}</span>
+          </a>
+        </Link>
       </Text>
     )
   }

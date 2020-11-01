@@ -41,7 +41,9 @@ const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize
       <Box as="section" p="lg" pb={96}>
         <Container size={containerSize}>
           {renderSyndication()}
-          <Stack spacing={spacing}>{convert(content, { transform: htmrTransform })}</Stack>
+          <Stack spacing={spacing} className="e-content">
+            {convert(content, { transform: htmrTransform })}
+          </Stack>
         </Container>
       </Box>
     )
@@ -51,7 +53,9 @@ const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize
     <Box as="section" p="lg" pb={96}>
       <Container size={containerSize}>
         {renderSyndication()}
-        <Stack spacing={spacing}>{children}</Stack>
+        <Stack spacing={spacing} className="e-content">
+          {children}
+        </Stack>
       </Container>
     </Box>
   )
