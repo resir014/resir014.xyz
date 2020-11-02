@@ -23,7 +23,7 @@ type PhotoPostPageProps = {
 const PhotoPostPage: NextPage<PhotoPostPageProps> = ({ post }) => {
   const { author } = siteMetadata
   if (post) {
-    const { category, date, header_image, content } = post
+    const { category, date, header_image, slug, content } = post
     return (
       <Page pageTitle="Photo posted by @resir014">
         <NextSeo
@@ -48,7 +48,7 @@ const PhotoPostPage: NextPage<PhotoPostPageProps> = ({ post }) => {
         <YouTubePreconnect />
         <Content>
           <Post>
-            <PostHeader author={author} category={category} date={date} />
+            <PostHeader author={author} category={category} date={date} slug={slug} />
             <PhotoPostBody image={header_image} content={content} />
           </Post>
         </Content>

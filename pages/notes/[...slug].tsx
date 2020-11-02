@@ -22,7 +22,7 @@ type NotePostPageProps = {
 const NotePostPage: NextPage<NotePostPageProps> = ({ post }) => {
   const { author } = siteMetadata
   if (post) {
-    const { title, category, date, header_image, content } = post
+    const { title, category, date, header_image, slug, content } = post
     return (
       <Page pageTitle={title}>
         <NextSeo
@@ -47,7 +47,7 @@ const NotePostPage: NextPage<NotePostPageProps> = ({ post }) => {
         <YouTubePreconnect />
         <Content>
           <Post>
-            <PostHeader title={title} author={author} category={category} date={date} />
+            <PostHeader title={title} author={author} category={category} date={date} slug={slug} />
             <PostBody content={content} />
           </Post>
         </Content>

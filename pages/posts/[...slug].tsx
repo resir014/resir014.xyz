@@ -21,8 +21,9 @@ type BlogPostPageProps = {
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
   const { author } = siteMetadata
+
   if (post) {
-    const { title, lead, category, date, header_image, syndication, content } = post
+    const { title, lead, category, date, header_image, syndication, slug, content } = post
     return (
       <Page pageTitle={title}>
         <NextSeo
@@ -49,7 +50,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
         <Content>
           <Post>
             {header_image && <PostHeaderImage src={header_image} alt={title} />}
-            <PostHeader title={title} lead={lead} author={author} category={category} date={date} />
+            <PostHeader title={title} lead={lead} author={author} category={category} date={date} slug={slug} />
             <PostBody content={content} syndication={syndication} />
           </Post>
         </Content>
