@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import Image from 'next/image'
 
 import { space, colors, mediaQueries, Stack, Box, Text } from '../chungking-core'
 import Container from './Container'
@@ -56,7 +55,7 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
             </Box>
             <Box display="flex" flexDirection={['column', null, null, null, 'row']} alignItems={['flex-start', null, null, null, 'center']}>
               <a rel="license noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
-                <Image alt="Creative Commons License" src={CCLogo} width={89} height={31} unoptimized />
+                <img alt="Creative Commons License" src={CCLogo} width={89} height={31} />
               </a>
               <Box mt={['md', null, null, null, 0]} ml={[0, null, null, null, 'md']}>
                 <Text as="p" display="block" variant={200}>
