@@ -1,10 +1,11 @@
 import { css } from '@emotion/core'
 import clsx from 'clsx'
-import Link from 'next/link'
 import * as React from 'react'
 import { Box, BoxProps, Text } from '~/components/chungking-core'
 import { formatPostDate } from '~/lib/date-formatter'
 import { PostKind } from '~/types/default'
+
+import siteMetadata from '~/_data/siteMetadata.json'
 
 export interface PostListItemProps extends BoxProps {
   date: string
@@ -19,18 +20,16 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
   const renderPermalink = () => {
     if (slug) {
       return (
-        <Link href={slug}>
-          <a className="u-url">
-            <Text as="time" dateTime={date}>
-              {formatPostDate(new Date(date))}
-            </Text>
-          </a>
-        </Link>
+        <a className="u-url" href={`${siteMetadata.siteUrl}/${slug}`}>
+          <Text as="time" className="dt-timestamp" dateTime={date}>
+            {formatPostDate(new Date(date))}
+          </Text>
+        </a>
       )
     }
 
     return (
-      <Text as="time" dateTime={date}>
+      <Text as="time" className="dt-timestamp" dateTime={date}>
         {formatPostDate(new Date(date))}
       </Text>
     )
@@ -46,9 +45,9 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
         `}
       >
         {renderPermalink()} /{' '}
-        <Link href={`/${path}`}>
-          <a className="p-category">{category}</a>
-        </Link>
+        <a className="p-category" href={`${siteMetadata.siteUrl}/${path}/`}>
+          {category}
+        </a>
       </Text>
     )
   }
