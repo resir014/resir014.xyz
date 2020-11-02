@@ -13,10 +13,10 @@ export interface PostListItemProps extends BoxProps {
   date: string
   category: PostKind
   slug?: string
-  isMetaClickable?: boolean
+  disableMetaClick?: boolean
 }
 
-const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, category, slug, ...rest }) => {
+const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, category, slug, disableMetaClick, ...rest }) => {
   const postDate = React.useMemo(() => new Date(date), [date])
 
   const renderPermalink = () => {
@@ -37,6 +37,38 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
     return null
   }
 
+  const renderTimestamp = () => {
+    if (disableMetaClick) {
+      return (
+        <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
+          {formatPostDate(postDate)}
+        </Text>
+      )
+    }
+
+    return (
+      <Link href={slugByCategory(slug, category)}>
+        <a>
+          <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
+            {formatPostDate(postDate)}
+          </Text>
+        </a>
+      </Link>
+    )
+  }
+
+  const renderCategory = () => {
+    if (disableMetaClick) {
+      return <Text className="p-category">{category}</Text>
+    }
+
+    return (
+      <Link href={getCategorySlug(category)}>
+        <a className="p-category">{category}</a>
+      </Link>
+    )
+  }
+
   const renderMetadata = () => {
     return (
       <Text
@@ -46,17 +78,7 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
           text-transform: uppercase;
         `}
       >
-        <Link href={slugByCategory(slug, category)}>
-          <a>
-            <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
-              {formatPostDate(postDate)}
-            </Text>
-          </a>
-        </Link>{' '}
-        /{' '}
-        <Link href={getCategorySlug(category)}>
-          <a className="p-category">{category}</a>
-        </Link>
+        {renderTimestamp()} / {renderCategory()}
       </Text>
     )
   }

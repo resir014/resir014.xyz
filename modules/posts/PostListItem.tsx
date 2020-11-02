@@ -16,7 +16,7 @@ const PostListItem: React.FC<PostListItemProps> = ({ post, className, style, ...
 
   return (
     <Stack as="article" spacing="xs" position="relative" className={clsx('h-entry', className)} style={style} {...rest}>
-      <PostMeta date={date} category={category} slug={slug} />
+      <PostMeta date={date} category={category} slug={slug} disableMetaClick />
       {title && (
         <Heading as="h2" variant={600}>
           <Link href="/posts/[...slug]" as={`/posts/${slug}`} passHref>
