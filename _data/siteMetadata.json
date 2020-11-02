@@ -1,0 +1,20 @@
+{
+  "title": "@resir014",
+  "description": "Web developer based in Jakarta, Indonesia.",
+  "siteUrl": "https://resir014.xyz",
+  "author": {
+    "name": "Resi Respati",
+    "description": "Web developer based in Jakarta, Indonesia.",
+    "website": "https://resir014.xyz",
+    "avatar": "/static/resir014-icon.jpg",
+    "twitter": "@resir014",
+    "url": {
+      "twitter": "https://twitter.com/resir014",
+      "mastodon": "https://icosahedron.website/@resir014",
+      "instagram": "https://instagram.com/resir014",
+      "tumblr": "https://resir014.tumblr.com/",
+      "github": "https://github.com/resir014"
+    },
+    "email": "resir014@gmail.com"
+  }
+}

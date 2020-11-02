@@ -1,22 +1,38 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "target": "esnext",
+    "module": "esnext",
     "jsx": "preserve",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "es2017"],
+    "baseUrl": ".",
+    "paths": {
+      "~/_data/*": ["_data/*"],
+      "~/assets/*": ["assets/*"],
+      "~/components/*": ["components/*"],
+      "~/fonts/*": ["fonts/*"],
+      "~/lib/*": ["lib/*"],
+      "~/modules/*": ["modules/*"],
+      "~/pages/*": ["pages/*"],
+      "~/styles/*": ["styles/*"],
+      "~/types/*": ["types/*"]
+    },
+    "moduleResolution": "node",
     "strict": true,
-    "noEmit": true,
-    "isolatedModules": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "removeComments": false,
     "preserveConstEnums": true,
-    "typeRoots": [
-      "./@types",
-      "./node_modules/@types"
-    ]
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "typeRoots": ["./@types", "./node_modules/@types"]
   },
-  "include": ["./src/**/*"]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
