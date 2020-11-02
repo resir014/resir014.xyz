@@ -68,8 +68,8 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
                 </Text>
                 <Text as="p" display="block" variant={200}>
                   Powered by{' '}
-                  <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">
-                    Gatsby
+                  <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
+                    Next.js
                   </a>{' '}
                   and{' '}
                   <a href="https://www.reactjs.org/" target="_blank" rel="noopener noreferrer">
