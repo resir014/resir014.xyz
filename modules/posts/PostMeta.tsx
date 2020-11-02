@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import clsx from 'clsx'
+import Link from 'next/link'
 import * as React from 'react'
 import { Box, BoxProps, Text } from '~/components/chungking-core'
 import { formatPostDate } from '~/lib/date-formatter'
@@ -23,18 +23,12 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
     if (slug) {
       return (
         <a className="u-url" href={`${siteMetadata.siteUrl}${slugByCategory(slug, category)}`}>
-          <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
-            {formatPostDate(postDate)}
-          </Text>
+          Permalink
         </a>
       )
     }
 
-    return (
-      <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
-        {formatPostDate(postDate)}
-      </Text>
-    )
+    return null
   }
 
   const renderMetadata = () => {
@@ -46,17 +40,25 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
           text-transform: uppercase;
         `}
       >
-        {renderPermalink()} /{' '}
-        <a className="p-category" href={`${siteMetadata.siteUrl}${getCategorySlug(category)}`}>
-          {category}
-        </a>
+        <Link href={slugByCategory(slug, category)}>
+          <a>
+            <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
+              {formatPostDate(postDate)}
+            </Text>
+          </a>
+        </Link>{' '}
+        /{' '}
+        <Link href={getCategorySlug(category)}>
+          <a className="p-category">{category}</a>
+        </Link>
       </Text>
     )
   }
 
   return (
-    <Box as="section" className={clsx('h-entry', className)} style={style} {...rest}>
+    <Box as="section" className={className} style={style} {...rest}>
       {renderMetadata()}
+      {renderPermalink()}
     </Box>
   )
 }

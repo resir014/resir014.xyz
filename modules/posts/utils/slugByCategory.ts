@@ -1,6 +1,6 @@
 import { PostKind } from '~/types/default'
 
-function slugByCategory(slug: string, category: PostKind = 'article') {
+function slugByCategory(slug?: string, category: PostKind = 'article') {
   switch (category) {
     case 'article': {
       return `/posts/${slug}`
