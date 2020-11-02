@@ -16,21 +16,22 @@ export interface PostListItemProps extends BoxProps {
 
 const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, category, slug, ...rest }) => {
   const path = React.useMemo(() => (category === 'note' ? 'notes' : 'posts'), [category])
+  const postDate = React.useMemo(() => new Date(date), [date])
 
   const renderPermalink = () => {
     if (slug) {
       return (
         <a className="u-url" href={`${siteMetadata.siteUrl}/${slug}`}>
-          <Text as="time" className="dt-timestamp" dateTime={date}>
-            {formatPostDate(new Date(date))}
+          <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
+            {formatPostDate(postDate)}
           </Text>
         </a>
       )
     }
 
     return (
-      <Text as="time" className="dt-timestamp" dateTime={date}>
-        {formatPostDate(new Date(date))}
+      <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
+        {formatPostDate(postDate)}
       </Text>
     )
   }
