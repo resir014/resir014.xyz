@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import Link from 'next/link'
 import * as React from 'react'
 import convert from 'htmr'
@@ -15,7 +16,7 @@ const PhotoListItem: React.FC<PhotoListItemProps> = ({ photo, className, style, 
   const { date, category, header_image, content, slug } = photo
 
   return (
-    <Stack as="article" spacing="md" position="relative" className={className} style={style} {...rest}>
+    <Stack as="article" spacing="md" position="relative" className={clsx('h-entry', className)} style={style} {...rest}>
       <PostMeta date={date} category={category} />
       {header_image && (
         <Box as="section">

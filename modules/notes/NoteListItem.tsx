@@ -1,4 +1,5 @@
 import * as React from 'react'
+import clsx from 'clsx'
 import Link from 'next/link'
 import { css } from '@emotion/core'
 import convert from 'htmr'
@@ -22,7 +23,7 @@ const NoteListItem: React.FC<PostListItemProps> = ({ post, className, style, ...
       borderBottom="1px solid"
       borderBottomColor="grey.800"
       pb="xxl"
-      className={className}
+      className={clsx('h-entry', className)}
       style={style}
       css={css`
         &:last-of-type {
