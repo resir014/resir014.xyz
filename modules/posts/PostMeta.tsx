@@ -22,7 +22,13 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
   const renderPermalink = () => {
     if (slug) {
       return (
-        <a className="u-url" href={`${siteMetadata.siteUrl}${slugByCategory(slug, category)}`}>
+        <a
+          css={css`
+            display: none;
+          `}
+          className="u-url"
+          href={`${siteMetadata.siteUrl}${slugByCategory(slug, category)}`}
+        >
           Permalink
         </a>
       )
