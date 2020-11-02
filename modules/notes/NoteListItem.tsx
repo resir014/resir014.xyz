@@ -33,7 +33,7 @@ const NoteListItem: React.FC<PostListItemProps> = ({ post, className, style, ...
       {...rest}
     >
       <Stack as="header" spacing="xs">
-        <PostMeta date={date} category={category} slug={slug} isMetaClickable />
+        <PostMeta date={date} category={category} slug={slug} />
         {title && (
           <Heading as="h2" variant={800}>
             <Link href="/notes/[...slug]" as={`/notes/${slug}`} passHref>
