@@ -6,6 +6,8 @@ import { formatPostDate } from '~/lib/date-formatter'
 import { PostKind } from '~/types/default'
 
 import siteMetadata from '~/_data/siteMetadata.json'
+import getCategorySlug from './utils/getCategorySlug'
+import slugByCategory from './utils/slugByCategory'
 
 export interface PostListItemProps extends BoxProps {
   date: string
@@ -15,13 +17,12 @@ export interface PostListItemProps extends BoxProps {
 }
 
 const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, category, slug, ...rest }) => {
-  const path = React.useMemo(() => (category === 'note' ? 'notes' : 'posts'), [category])
   const postDate = React.useMemo(() => new Date(date), [date])
 
   const renderPermalink = () => {
     if (slug) {
       return (
-        <a className="u-url" href={`${siteMetadata.siteUrl}/${slug}`}>
+        <a className="u-url" href={`${siteMetadata.siteUrl}${slugByCategory(slug, category)}`}>
           <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
             {formatPostDate(postDate)}
           </Text>
@@ -46,7 +47,7 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
         `}
       >
         {renderPermalink()} /{' '}
-        <a className="p-category" href={`${siteMetadata.siteUrl}/${path}/`}>
+        <a className="p-category" href={`${siteMetadata.siteUrl}${getCategorySlug(category)}`}>
           {category}
         </a>
       </Text>
