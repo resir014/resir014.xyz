@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import Link from 'next/link'
 import * as React from 'react'
 import convert from 'htmr'
@@ -15,8 +16,8 @@ const PhotoListItem: React.FC<PhotoListItemProps> = ({ photo, className, style, 
   const { date, category, header_image, content, slug } = photo
 
   return (
-    <Stack as="article" spacing="md" position="relative" className={className} style={style} {...rest}>
-      <PostMeta date={date} category={category} />
+    <Stack as="article" spacing="md" position="relative" className={clsx('h-entry', className)} style={style} {...rest}>
+      <PostMeta date={date} category={category} slug={slug} />
       {header_image && (
         <Box as="section">
           <Link href="/photos/[...slug]" as={`/photos/${slug}`} passHref>
@@ -27,7 +28,7 @@ const PhotoListItem: React.FC<PhotoListItemProps> = ({ photo, className, style, 
         </Box>
       )}
       {content && (
-        <Stack as="section" spacing="md">
+        <Stack as="section" className="e-content" spacing="md">
           {convert(content, { transform: htmrTransform })}
         </Stack>
       )}

@@ -14,6 +14,7 @@ const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
     <Box as="section" px="lg">
       <Container size="xl">
         <Image
+          className="u-photo"
           loading="lazy"
           src={src}
           alt={alt}

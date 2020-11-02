@@ -12,16 +12,15 @@ interface PostHeaderProps {
   lead?: string
   date?: string
   slug?: string
-  isMetaClickable?: boolean
   category?: PostKind
   author?: SiteAuthor
 }
 
-const PostHeader: React.FC<PostHeaderProps> = ({ title, lead, date, author, category, slug, isMetaClickable }) => {
+const PostHeader: React.FC<PostHeaderProps> = ({ title, lead, date, author, category, slug }) => {
   return (
     <Box as="header" pt="xxl" px="lg">
       <Container>
-        {date && category && <PostMeta date={date} category={category} mb="md" slug={slug} isMetaClickable={isMetaClickable} />}
+        {date && category && <PostMeta date={date} category={category} mb="md" slug={slug} />}
         {title && <PostTitle className="p-name">{title}</PostTitle>}
         {lead && <PostSubtitle className="p-summary">{lead}</PostSubtitle>}
         {author && <PostHCard author={author} />}
