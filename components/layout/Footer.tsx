@@ -43,6 +43,13 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ size }) => {
+  const handleOptOut = () => {
+    if (typeof window.gaOptout === 'function') {
+      console.log('gaOptOut')
+      window.gaOptout()
+    }
+  }
+
   return (
     <StyledFooter>
       <Container size={size}>
@@ -84,6 +91,13 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
                   </a>
                 </Text>
               </Box>
+            </Box>
+            <Box>
+              <Text as="p" display="block" variant={200}>
+                <a href="#" onClick={handleOptOut}>
+                  Opt out of Google Analytics tracking.
+                </a>
+              </Text>
             </Box>
           </Stack>
         </FooterContent>

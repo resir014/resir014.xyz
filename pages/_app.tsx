@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AppProps } from 'next/app'
+import { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 import { CacheProvider, Global } from '@emotion/core'
@@ -10,6 +10,7 @@ import { Theme, GlobalStyles, colors } from '~/components/chungking-core'
 import nProgressStyles from '~/styles/nProgressStyles'
 import prismTheme from '~/styles/prismTheme'
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo'
+import { event, pageview } from '~/lib/ga'
 
 import siteMetadata from '~/_data/siteMetadata.json'
 
@@ -17,6 +18,16 @@ import '~/fonts/jetbrains-mono.css'
 import 'typeface-inter'
 
 const progress = nProgress.configure({ showSpinner: false })
+
+export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
+  event({
+    action: name,
+    category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+    label: id,
+    value: Math.round(name === 'CLS' ? value * 1000 : value),
+    nonInteraction: true
+  })
+}
 
 function App({ Component, pageProps, router }: AppProps) {
   React.useEffect(() => {
@@ -32,6 +43,16 @@ function App({ Component, pageProps, router }: AppProps) {
     }
   }, [])
 
+  React.useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
   return (
     <CacheProvider value={cache}>
       <Head>
@@ -43,6 +64,7 @@ function App({ Component, pageProps, router }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="msapplication-TileColor" content={colors.blue[500]} />
         <meta name="theme-color" content={colors.blue[500]} />
+        <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
       </Head>
 
       <DefaultSeo
