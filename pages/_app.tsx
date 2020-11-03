@@ -10,6 +10,7 @@ import { Theme, GlobalStyles, colors } from '~/components/chungking-core'
 import nProgressStyles from '~/styles/nProgressStyles'
 import prismTheme from '~/styles/prismTheme'
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo'
+import { pageview } from '~/lib/gtag'
 
 import siteMetadata from '~/_data/siteMetadata.json'
 
@@ -32,6 +33,16 @@ function App({ Component, pageProps, router }: AppProps) {
     }
   }, [])
 
+  React.useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
+
   return (
     <CacheProvider value={cache}>
       <Head>
@@ -43,6 +54,7 @@ function App({ Component, pageProps, router }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="msapplication-TileColor" content={colors.blue[500]} />
         <meta name="theme-color" content={colors.blue[500]} />
+        <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
       </Head>
 
       <DefaultSeo
