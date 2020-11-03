@@ -65,6 +65,7 @@ function App({ Component, pageProps, router }: AppProps) {
         <meta name="msapplication-TileColor" content={colors.blue[500]} />
         <meta name="theme-color" content={colors.blue[500]} />
         <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
+        <meta name="monetization" content={process.env.NEXT_PUBLIC_ILP_URL} />
       </Head>
 
       <DefaultSeo
