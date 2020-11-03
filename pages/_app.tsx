@@ -10,7 +10,7 @@ import { Theme, GlobalStyles, colors } from '~/components/chungking-core'
 import nProgressStyles from '~/styles/nProgressStyles'
 import prismTheme from '~/styles/prismTheme'
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo'
-import { pageview } from '~/lib/gtag'
+import { pageview } from '~/lib/ga'
 
 import siteMetadata from '~/_data/siteMetadata.json'
 
