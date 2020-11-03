@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AppProps } from 'next/app'
+import { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 import { CacheProvider, Global } from '@emotion/core'
@@ -10,7 +10,7 @@ import { Theme, GlobalStyles, colors } from '~/components/chungking-core'
 import nProgressStyles from '~/styles/nProgressStyles'
 import prismTheme from '~/styles/prismTheme'
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo'
-import { pageview } from '~/lib/ga'
+import { event, pageview } from '~/lib/ga'
 
 import siteMetadata from '~/_data/siteMetadata.json'
 
@@ -18,6 +18,16 @@ import '~/fonts/jetbrains-mono.css'
 import 'typeface-inter'
 
 const progress = nProgress.configure({ showSpinner: false })
+
+export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
+  event({
+    action: name,
+    category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+    label: id,
+    value: Math.round(name === 'CLS' ? value * 1000 : value),
+    nonInteraction: true
+  })
+}
 
 function App({ Component, pageProps, router }: AppProps) {
   React.useEffect(() => {
