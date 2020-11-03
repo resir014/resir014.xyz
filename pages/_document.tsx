@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
                   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
                 }
                 if (typeof ga === "function") {
-                  ga('create', ${GA_TRACKING_ID}, 'auto', {});
+                  ga('create', '${GA_TRACKING_ID}', 'auto', {});
                   ga('set', 'anonymizeIp', true);
                 }
               `

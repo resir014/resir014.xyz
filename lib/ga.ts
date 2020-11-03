@@ -13,7 +13,7 @@ export interface EventArgs {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
-  if (typeof window.ga === 'function' && GA_TRACKING_ID) {
+  if (typeof window.ga === 'function') {
     window.ga('send', 'pageview', url)
   }
 }
