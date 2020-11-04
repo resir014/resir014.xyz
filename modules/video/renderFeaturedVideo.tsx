@@ -10,7 +10,7 @@ import VideoCard from './VideoCard'
 export default function renderFeaturedVideo(featuredPost: BaseJamProps | BaseVideoProps, category: 'jam' | 'videos' = 'videos') {
   return (
     <VideoCard
-      metadata={<PostMeta category={featuredPost.category} date={featuredPost.date} />}
+      metadata={<PostMeta category={featuredPost.category} date={featuredPost.date} slug={featuredPost.slug} />}
       title={
         <Link href={`/${category}/[...slug]`} as={`/${category}/${featuredPost.slug}`} passHref>
           <a>{featuredPost.title}</a>
