@@ -66,6 +66,7 @@ export const GhostedButtonStyles = css`
   &.disabled {
     color: ${darken(0.5, colors.white)};
     user-select: none;
+    cursor: not-allowed;
 
     &:hover,
     &:focus {

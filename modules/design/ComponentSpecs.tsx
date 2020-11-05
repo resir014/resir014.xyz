@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box, Badge, Button, MessageBox, Paragraph, Anchor } from '~/components/chungking-core'
+import { Box, Badge, Button, MessageBox, Paragraph, Anchor, Inline } from '~/components/chungking-core'
 import { H2, H3, H4 } from '../markdown'
 import ComponentSpecimen from './components/ComponentSpecimen'
 
@@ -18,46 +18,45 @@ const ComponentSpecs: React.FC = () => {
       </ComponentSpecimen>
       <H3>Button</H3>
       <H4>Primary</H4>
-      <ComponentSpecimen spacing="xs">
-        <Box>
-          <Button variant="primary">Push Me</Button>
-        </Box>
-        <Box>
-          <Button variant="primary" disabled>
-            I&apos;m disabled
-          </Button>
-        </Box>
-      </ComponentSpecimen>
-      <H4>Secondary</H4>
-      <ComponentSpecimen spacing="xs">
-        <Box>
-          <Button>Push Me</Button>
-        </Box>
-        <Box>
-          <Button disabled>I&apos;m disabled</Button>
-        </Box>
-      </ComponentSpecimen>
-      <H4>Danger</H4>
-      <ComponentSpecimen spacing="xs">
-        <Box>
-          <Button variant="danger">Push Me</Button>
-        </Box>
-        <Box>
-          <Button variant="danger" disabled>
-            I&apos;m disabled
-          </Button>
-        </Box>
-      </ComponentSpecimen>
-      <H4>Ghosted</H4>
-      <ComponentSpecimen spacing="xs">
-        <Box>
-          <Button ghosted>Push Me</Button>
-        </Box>
-        <Box>
-          <Button ghosted disabled>
-            I&apos;m disabled
-          </Button>
-        </Box>
+      <ComponentSpecimen spacing="sm">
+        <Inline spacing="xs">
+          <Box>
+            <Button variant="primary">Push Me</Button>
+          </Box>
+          <Box>
+            <Button variant="primary" disabled>
+              I&apos;m disabled
+            </Button>
+          </Box>
+        </Inline>
+        <Inline spacing="xs">
+          <Box>
+            <Button>Push Me</Button>
+          </Box>
+          <Box>
+            <Button disabled>I&apos;m disabled</Button>
+          </Box>
+        </Inline>
+        <Inline spacing="xs">
+          <Box>
+            <Button variant="danger">Push Me</Button>
+          </Box>
+          <Box>
+            <Button variant="danger" disabled>
+              I&apos;m disabled
+            </Button>
+          </Box>
+        </Inline>
+        <Inline spacing="lg">
+          <Box>
+            <Button ghosted>Push Me</Button>
+          </Box>
+          <Box>
+            <Button ghosted disabled>
+              I&apos;m disabled
+            </Button>
+          </Box>
+        </Inline>
       </ComponentSpecimen>
       <H3>Box</H3>
       <ComponentSpecimen spacing="xs">
