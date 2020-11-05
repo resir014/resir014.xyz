@@ -8,13 +8,15 @@ const ComponentSpecs: React.FC = () => {
     <>
       <H2>Components</H2>
       <H3>Badge</H3>
-      <ComponentSpecimen spacing="xs">
-        <Box>
-          <Badge>default</Badge>
-        </Box>
-        <Box>
-          <Badge variant="grey">grey</Badge>
-        </Box>
+      <ComponentSpecimen spacing="sm">
+        <Inline spacing="xs">
+          <Box>
+            <Badge>default</Badge>
+          </Box>
+          <Box>
+            <Badge variant="grey">grey</Badge>
+          </Box>
+        </Inline>
       </ComponentSpecimen>
       <H3>Button</H3>
       <H4>Primary</H4>
