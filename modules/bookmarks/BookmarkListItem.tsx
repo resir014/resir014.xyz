@@ -31,6 +31,8 @@ const BookmarkListItem: React.FC<BookmarkListItemProps> = ({ bookmark, ...rest }
           target="_blank"
           rel="noopener noreferrer"
           css={css`
+            text-decoration: none;
+
             &:hover,
             &:focus {
               text-decoration: none;
