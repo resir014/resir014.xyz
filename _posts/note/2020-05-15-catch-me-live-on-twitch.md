@@ -1,6 +1,6 @@
 ---
 category: note
-layout: post
+layout: note
 date: '2020-05-15T14:55:00+07:00'
 ---
 

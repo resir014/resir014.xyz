@@ -47,10 +47,21 @@ const htmrTransform: HtmrOptions['transform'] = {
 
     if (src) {
       if (src.substr(0, 4) === 'http') {
-        return <img loading="lazy" className={className} src={src} alt={alt} crossOrigin={crossOrigin} {...rest} />
+        return <img loading="lazy" className={className} src={src} alt={alt?.toString()} crossOrigin={crossOrigin} {...rest} />
       }
 
-      return <Image loading="lazy" className={className} src={src} alt={alt} crossOrigin={crossOrigin} unoptimized unsized {...rest} />
+      return (
+        <Image
+          loading="lazy"
+          className={className}
+          src={src}
+          alt={alt?.toString()}
+          crossOrigin={crossOrigin}
+          unoptimized
+          unsized
+          {...rest}
+        />
+      )
     }
 
     return null
