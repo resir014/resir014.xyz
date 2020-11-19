@@ -1,7 +1,6 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { ResponsiveWrapper } from '../responsive-wrapper'
 import Iframe, { IframeProps } from './Iframe'
 
 export default {
@@ -10,11 +9,7 @@ export default {
 } as Meta<IframeProps>
 
 export const Example: Story<IframeProps> = (args) => {
-  return (
-    <ResponsiveWrapper width="100%" maxWidth={500}>
-      <Iframe {...args} />
-    </ResponsiveWrapper>
-  )
+  return <Iframe {...args} />
 }
 
 Example.args = {

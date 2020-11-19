@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import { hsl, parseToHsl } from 'polished'
 import * as React from 'react'
-import { Box, colors, Iframe, ResponsiveWrapper, Text } from '~/components/chungking-core'
+import { Box, colors, ResponsiveIframe, ResponsiveWrapper, Text } from '~/components/chungking-core'
 import { useTwitchData } from '~/lib/twitch-api'
 
 interface LiveEmbeddablePlayerProps {
@@ -17,7 +17,7 @@ const LiveEmbeddablePlayer: React.FC<LiveEmbeddablePlayerProps> = ({ username })
     if (data && !isError) {
       return (
         <ResponsiveWrapper borderRadius={6} overflow="hidden">
-          <Iframe
+          <ResponsiveIframe
             src={`https://player.twitch.tv/?channel=${data.user_name}&parent=resir014.xyz`}
             frameBorder={0}
             allowFullScreen

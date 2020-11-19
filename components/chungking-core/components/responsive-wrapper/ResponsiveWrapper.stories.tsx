@@ -1,7 +1,7 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import { Iframe } from '../iframe'
+import ResponsiveIframe from './ResponsiveIframe'
 import ResponsiveWrapper, { ResponsiveWrapperProps } from './ResponsiveWrapper'
 
 export default {
@@ -12,7 +12,7 @@ export default {
 export const Example: Story<ResponsiveWrapperProps> = (args) => {
   return (
     <ResponsiveWrapper {...args}>
-      <Iframe
+      <ResponsiveIframe
         src="https://www.youtube-nocookie.com/embed/P_mQpbCSQOo"
         frameBorder={0}
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
