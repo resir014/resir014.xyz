@@ -5,6 +5,16 @@
   "main": "dist/index.js",
   "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/resir014/resir014.xyz.git",
+  "author": "Resi Respati <resir014@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
