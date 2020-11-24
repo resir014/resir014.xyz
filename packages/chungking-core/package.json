@@ -16,7 +16,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "microbundle",
+    "build": "microbundle --jsx 'React.createElement'",
     "dev": "microbundle watch",
     "storybook": "start-storybook -p 6006 --no-dll",
     "build-storybook": "build-storybook --no-dll"

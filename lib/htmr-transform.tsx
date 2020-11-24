@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
-import Image, { ImageProps } from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { HtmrOptions } from 'htmr/src/types'
 
