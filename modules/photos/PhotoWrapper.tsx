@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import * as React from 'react'
-import { BoxProps } from '~/components/chungking-core'
+import { BoxProps } from '@resir014/chungking-core'
 import { Figure } from '../markdown'
 
 interface PhotoWrapperProps extends BoxProps {

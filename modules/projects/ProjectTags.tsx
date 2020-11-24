@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box, Inline } from '~/components/chungking-core'
+import { Box, Inline } from '@resir014/chungking-core'
 
 const ProjectTags: React.FC = ({ children }) => {
   return (

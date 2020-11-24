@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Heading } from '~/components/chungking-core'
+import { Heading } from '@resir014/chungking-core'
 
 interface PostTitleProps {
   className?: string

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { Heading, colors, Stack, Box, BoxProps } from '~/components/chungking-core'
+import { Heading, colors, Stack, Box, BoxProps } from '@resir014/chungking-core'
 import { ProjectMetadata } from '~/types/projects'
 
 import ProjectItem from './ProjectItem'

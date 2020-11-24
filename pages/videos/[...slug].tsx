@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import { NextSeo } from 'next-seo'
+import { Box } from '@resir014/chungking-core'
 
 import { getPostBySlug, getAllPosts } from '~/lib/posts'
 import markdownToHtml from '~/lib/markdown-to-html'
 
 import { Container, Content, Page } from '~/components/layout'
-import { Box } from '~/components/chungking-core'
 import { LiteYouTube, VideoCard } from '~/modules/video'
 import { YouTubePreconnect } from '~/components/perf'
 import { Post, PostBody, PostHeader } from '~/modules/posts'

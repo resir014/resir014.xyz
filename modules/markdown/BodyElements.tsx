@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 
-import { Paragraph, ParagraphProps, Text, TextProps, Box, BoxProps, Stack, colors, space, shadows } from '~/components/chungking-core'
+import { Paragraph, ParagraphProps, Text, TextProps, Box, BoxProps, Stack, colors, space, shadows } from '@resir014/chungking-core'
 
 interface WithStylesProps {
   className?: string

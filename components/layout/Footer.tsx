@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { space, colors, mediaQueries, Stack, Box, Text } from '../chungking-core'
+import { space, colors, mediaQueries, Stack, Box, Text } from '@resir014/chungking-core'
 import Container from './Container'
 
 import CCLogo from '~/assets/images/cc-by-nc-sa.svg'

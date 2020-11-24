@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Text, Heading, colors, shadows, Badge, Box, BoxProps, AnchorButton } from '~/components/chungking-core'
+import { Text, Heading, colors, shadows, Badge, Box, BoxProps, AnchorButton } from '@resir014/chungking-core'
 import { P } from '~/modules/markdown'
 
 import ProjectTags from './ProjectTags'

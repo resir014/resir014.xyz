@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { NextPage, InferGetStaticPropsType } from 'next'
+import { Stack } from '@resir014/chungking-core'
 
 import { Content, Page } from '~/components/layout'
 import { PostBody, PostHeader } from '~/modules/posts'
@@ -8,7 +9,6 @@ import { renderMarkdown } from '~/lib/markdown-to-html'
 import { BasePhotoProps } from '~/types/posts'
 
 import siteMetadata from '~/_data/siteMetadata.json'
-import { Stack } from '~/components/chungking-core'
 import PhotoListItem from '~/modules/photos/PhotoListItem'
 
 export const getStaticProps = async () => {

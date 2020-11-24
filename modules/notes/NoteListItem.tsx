@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { css } from '@emotion/core'
 import convert from 'htmr'
 
-import { Stack, StackProps, Heading } from '~/components/chungking-core'
+import { Stack, StackProps, Heading } from '@resir014/chungking-core'
 import { BasePostProps } from '~/types/posts'
 import htmrTransform from '~/lib/htmr-transform'
 import PostMeta from '../posts/PostMeta'

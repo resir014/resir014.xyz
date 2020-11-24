@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { colors } from '~/components/chungking-core'
+import { colors } from '@resir014/chungking-core'
 
 const progressBarColor = colors.white
 

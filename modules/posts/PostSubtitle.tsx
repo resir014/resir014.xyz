@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Text } from '~/components/chungking-core'
+import { Text } from '@resir014/chungking-core'
 
 interface PostSubtitleProps {
   className?: string

@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
 import { transparentize } from 'polished'
-import { space, colors, mediaQueries } from '../../chungking-core'
+import { space, colors, mediaQueries } from '@resir014/chungking-core'
 
 export const MastheadLinkStyles = css`
   display: block;

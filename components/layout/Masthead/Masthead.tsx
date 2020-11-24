@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import Link from 'next/link'
 
-import { mediaQueries, colors, widths, Text, breakpoints, space } from '~/components/chungking-core'
+import { mediaQueries, colors, widths, Text, breakpoints, space } from '@resir014/chungking-core'
 import { MenuProps } from '~/types/default'
 
 import MastheadNav from './MastheadNav'

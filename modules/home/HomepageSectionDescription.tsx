@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Paragraph } from '~/components/chungking-core'
+import { Paragraph } from '@resir014/chungking-core'
 
 interface HomepageSectionDescriptionProps {
   className?: string

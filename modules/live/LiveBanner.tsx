@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Box } from '~/components/chungking-core'
+import { Box } from '@resir014/chungking-core'
 
 import LiveEmbeddablePlayer from './LiveEmbeddablePlayer'
 import LiveStreamStatus from './LiveStreamStatus'

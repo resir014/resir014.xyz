@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import { NextSeo } from 'next-seo'
+import { Box } from '@resir014/chungking-core'
 
 import { getPostBySlug, getAllPosts } from '~/lib/posts'
 import markdownToHtml from '~/lib/markdown-to-html'
@@ -14,7 +15,6 @@ import { BaseJamProps } from '~/types/posts'
 import { SiteMetadata } from '~/types/default'
 
 import siteMetadata from '~/_data/siteMetadata.json'
-import { Box } from '~/components/chungking-core'
 
 type JamPostPageProps = {
   post?: BaseJamProps

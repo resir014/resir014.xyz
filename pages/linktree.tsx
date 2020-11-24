@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { InferGetStaticPropsType, NextPage } from 'next'
+import { Heading, Stack } from '@resir014/chungking-core'
 import { LinktreeCategoryItem } from '~/types/default'
 import { Content, Page } from '~/components/layout'
 import { Post, PostBody, PostHeader } from '~/modules/posts'
 import { LinktreeCard, LinktreeList } from '~/modules/linktree'
-import { Heading, Stack } from '~/components/chungking-core'
 
 export const getStaticProps = async () => {
   const data = await import('_data/linktree.json')

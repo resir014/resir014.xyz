@@ -1,0 +1,20 @@
+{
+  "name": "@resir014/chungking-core",
+  "version": "0.0.1",
+  "source": "src/index.ts",
+  "scripts": {},
+  "peerDependencies": {
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27"
+  },
+  "dependencies": {
+    "@styled-system/should-forward-prop": "^5.1.5",
+    "@styled-system/theme-get": "^5.1.2",
+    "@types/styled-system": "^5.1.10",
+    "@types/styled-system__theme-get": "^5.0.1",
+    "clsx": "^1.1.1",
+    "emotion-theming": "^10.0.27",
+    "polished": "^4.0.3",
+    "styled-system": "^5.1.5"
+  }
+}

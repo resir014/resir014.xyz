@@ -1,8 +1,8 @@
 import * as React from 'react'
 import convert from 'htmr'
+import { Anchor, Box, MessageBox, Paragraph, Space, Stack } from '@resir014/chungking-core'
 
 import htmrTransform from '~/lib/htmr-transform'
-import { Anchor, Box, MessageBox, Paragraph, Space, Stack } from '~/components/chungking-core'
 import { Container, ContainerSizes } from '~/components/layout'
 import { SyndicationFormat } from '~/types/default'
 import { LI, UL } from '../markdown'

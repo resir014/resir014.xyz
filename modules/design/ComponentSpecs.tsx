@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box, Badge, Button, MessageBox, Paragraph, Anchor, Inline } from '~/components/chungking-core'
+import { Box, Badge, Button, MessageBox, Paragraph, Anchor, Inline } from '@resir014/chungking-core'
 import { H2, H3, H4 } from '../markdown'
 import ComponentSpecimen from './components/ComponentSpecimen'
 

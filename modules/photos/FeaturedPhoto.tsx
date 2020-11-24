@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StackProps } from '~/components/chungking-core'
+import { StackProps } from '@resir014/chungking-core'
 import { BasePhotoProps } from '~/types/posts'
 import PhotoListItem from './PhotoListItem'
 
