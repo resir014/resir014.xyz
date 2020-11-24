@@ -20,6 +20,7 @@ const nextConfig = {
       }
     }
 
+    config.resolve.mainFields = ['source', 'module', 'main']
     return config
   },
   async headers() {

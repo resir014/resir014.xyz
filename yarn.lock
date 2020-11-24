@@ -3034,6 +3034,7 @@ __metadata:
     emotion-theming: ^10.0.27
     microbundle: ^0.12.4
     polished: ^4.0.3
+    rimraf: ^3.0.2
     styled-system: ^5.1.5
   peerDependencies:
     "@emotion/core": ^10.0.35
