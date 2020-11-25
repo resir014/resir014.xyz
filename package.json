@@ -19,7 +19,6 @@
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "lint": "eslint \"**/*.{ts,tsx}\" \"*.config.js\"",
     "prepublish": "yarn compile",
-    "postinstall": "yarn compile",
     "test": "npm run type-check && npm run lint",
     "type-check": "tsc --noEmit",
     "validate": "yarn lint && yarn type-check",
