@@ -13,6 +13,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next-sitemap && next-on-netlify",
+    "build:components": "yarn workspace @resir014/chungking-core run build",
     "export": "next export",
     "start": "next start",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
