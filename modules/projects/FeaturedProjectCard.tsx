@@ -49,8 +49,9 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
             src={header_image}
             alt={title}
             width={1140}
-            height={580}
+            height={671}
             unoptimized
+            layout="responsive"
             css={css`
               object-fit: cover;
             `}

@@ -19,7 +19,7 @@ const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
           src={src}
           alt={alt}
           width={1140}
-          height={671}
+          height={580}
           unoptimized
           css={css`
             object-fit: cover;
