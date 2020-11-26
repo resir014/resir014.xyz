@@ -1,0 +1,51 @@
+{
+  "name": "@resir014/chungking-react",
+  "version": "0.0.1",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/resir014/resir014.xyz.git",
+  "author": "Resi Respati <resir014@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "microbundle --jsx 'React.createElement'",
+    "dev": "microbundle watch --jsx 'React.createElement'",
+    "clean": "rimraf dist",
+    "compile": "yarn clean && yarn build",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "prepublishOnly": "yarn build",
+    "storybook": "start-storybook -p 6006 --no-dll",
+    "build-storybook": "build-storybook --no-dll"
+  },
+  "peerDependencies": {
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
+    "react": "^16.14.0 || ^17.0.0",
+    "react-dom": "^16.14.0 || ^17.0.0"
+  },
+  "dependencies": {
+    "@styled-system/should-forward-prop": "^5.1.5",
+    "@styled-system/theme-get": "^5.1.2",
+    "@types/styled-system": "^5.1.10",
+    "@types/styled-system__theme-get": "^5.0.1",
+    "clsx": "^1.1.1",
+    "emotion-theming": "^10.0.27",
+    "polished": "^4.0.3",
+    "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "6.0.28",
+    "@storybook/addon-links": "6.0.28",
+    "@storybook/react": "6.0.28",
+    "microbundle": "^0.12.4",
+    "rimraf": "^3.0.2"
+  }
+}

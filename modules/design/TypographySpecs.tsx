@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Heading, Text, Anchor, Paragraph } from '~/components/chungking-core'
+import { Heading, Text, Anchor, Paragraph } from '@resir014/chungking-react'
 import { Blockquote, H2, H3, InlineCode, LI, OL, UL } from '../markdown'
 import ComponentSpecimen from './components/ComponentSpecimen'
 

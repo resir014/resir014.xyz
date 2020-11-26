@@ -3,7 +3,7 @@ import classnames from 'clsx'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 
-import { Box, BoxProps, colors, Heading, Text } from '~/components/chungking-core'
+import { Box, BoxProps, colors, Heading, Text } from '@resir014/chungking-react'
 import { SiteAuthor } from '~/types/default'
 
 interface PostHCardProps extends BoxProps {

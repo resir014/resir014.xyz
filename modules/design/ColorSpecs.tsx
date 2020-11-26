@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { colors } from '~/components/chungking-core'
+import { colors } from '@resir014/chungking-react'
 import { H2, H3 } from '../markdown'
 import ColorSwatch from './components/ColorSwatch'
 

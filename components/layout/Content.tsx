@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box } from '../chungking-core'
+import { Box } from '@resir014/chungking-react'
 
 interface ContentProps {
   className?: string

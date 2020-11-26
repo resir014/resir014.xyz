@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
 import styled from '@emotion/styled'
-import { mediaQueries, widths } from '../chungking-core'
+import { mediaQueries, widths } from '@resir014/chungking-react'
 
 export type ContainerSizes = 'md' | 'lg' | 'xl' | 'fluid'
 

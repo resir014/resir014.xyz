@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Stack, StackProps, Text } from '~/components/chungking-core'
+import { Stack, StackProps, Text } from '@resir014/chungking-react'
 import HomepageSectionTitle from './HomepageSectionTitle'
 
 interface HomepageSectionHeaderProps extends StackProps {

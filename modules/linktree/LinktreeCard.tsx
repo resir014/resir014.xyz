@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
 import * as React from 'react'
-import { Anchor, Box, BoxProps, colors } from '~/components/chungking-core'
+import { Anchor, Box, BoxProps, colors } from '@resir014/chungking-react'
 import { LinktreeItem } from '~/types/default'
 
 interface LinktreeCardProps extends BoxProps {

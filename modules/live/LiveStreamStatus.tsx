@@ -1,6 +1,6 @@
 import { css } from '@emotion/core'
 import * as React from 'react'
-import { Anchor, Box, Heading, MessageBox, Paragraph, Skeleton, Text } from '~/components/chungking-core'
+import { Anchor, Box, Heading, MessageBox, Paragraph, Skeleton, Text } from '@resir014/chungking-react'
 import { useTwitchData } from '~/lib/twitch-api'
 
 interface LiveStreamStatusProps {

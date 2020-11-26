@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Text, Heading, colors, shadows, Badge, Box, BoxProps, AnchorButton } from '~/components/chungking-core'
+import { Text, Heading, colors, shadows, Badge, Box, BoxProps, AnchorButton } from '@resir014/chungking-react'
 import { P } from '~/modules/markdown'
 
 import ProjectTags from './ProjectTags'
@@ -49,8 +49,9 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
             src={header_image}
             alt={title}
             width={1140}
-            height={580}
+            height={671}
             unoptimized
+            layout="responsive"
             css={css`
               object-fit: cover;
             `}

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { colors, shadows } from '~/components/chungking-core'
+import { colors, shadows } from '@resir014/chungking-react'
 
 interface ColorSwatchProps {
   color: string

@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import Link from 'next/link'
 import * as React from 'react'
-import { Box, BoxProps, Text } from '~/components/chungking-core'
+import { Box, BoxProps, Text } from '@resir014/chungking-react'
 import { formatPostDate } from '~/lib/date-formatter'
 import { PostKind } from '~/types/default'
 

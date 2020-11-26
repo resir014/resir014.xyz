@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Box, BoxProps, Heading, Stack } from '~/components/chungking-core'
+import { Box, BoxProps, Heading, Stack } from '@resir014/chungking-react'
 
 interface VideoCardProps extends BoxProps {
   metadata?: React.ReactNode

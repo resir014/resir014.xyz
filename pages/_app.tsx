@@ -6,7 +6,7 @@ import { CacheProvider, Global } from '@emotion/core'
 import { cache } from 'emotion'
 import nProgress from 'nprogress'
 
-import { Theme, GlobalStyles, colors } from '~/components/chungking-core'
+import { Theme, GlobalStyles, colors } from '@resir014/chungking-react'
 import nProgressStyles from '~/styles/nProgressStyles'
 import prismTheme from '~/styles/prismTheme'
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo'

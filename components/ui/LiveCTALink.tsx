@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import * as React from 'react'
 
-import { Box, Text, UnstyledAnchor, Color } from '../chungking-core'
+import { Box, Text, UnstyledAnchor, Color } from '@resir014/chungking-react'
 
 interface LiveCTAProps {
   backgroundColor?: Color | string

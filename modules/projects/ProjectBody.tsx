@@ -1,7 +1,7 @@
 import * as React from 'react'
 import convert from 'htmr'
 
-import { Box, Stack } from '~/components/chungking-core'
+import { Box, Stack } from '@resir014/chungking-react'
 import { Container, ContainerSizes } from '~/components/layout'
 import htmrTransform from '~/lib/htmr-transform'
 

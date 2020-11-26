@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.project.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "jsx": "react",
+    "typeRoots": ["./@types", "./node_modules/@types", "../../@types", "../../node_modules/@types"]
+  }
+}

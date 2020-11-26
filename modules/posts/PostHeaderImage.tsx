@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import Image from 'next/image'
 import * as React from 'react'
-import { Box } from '~/components/chungking-core'
+import { Box } from '@resir014/chungking-react'
 import { Container } from '~/components/layout'
 
 interface PostHeaderImageProps {
@@ -19,7 +19,7 @@ const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
           src={src}
           alt={alt}
           width={1140}
-          height={671}
+          height={580}
           unoptimized
           css={css`
             object-fit: cover;

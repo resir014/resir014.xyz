@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { darken } from 'polished'
 
-import { colors, widths, Box } from '~/components/chungking-core'
+import { colors, widths, Box } from '@resir014/chungking-react'
 import BackgroundPattern from '~/assets/images/architect.svg'
 
 interface LiveBannerHeroProps {

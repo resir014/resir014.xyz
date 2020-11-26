@@ -3,7 +3,7 @@ import { ErrorProps } from 'next/error'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 
-import { Anchor, Paragraph } from '~/components/chungking-core'
+import { Anchor, Paragraph } from '@resir014/chungking-react'
 import { Content, Page } from '~/components/layout'
 import { PostBody, PostHeader } from '~/modules/posts'
 

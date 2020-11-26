@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box } from '~/components/chungking-core'
+import { Box } from '@resir014/chungking-react'
 import { Container } from '~/components/layout'
 import { PostKind, SiteAuthor } from '~/types/default'
 import PostMeta from './PostMeta'

@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { css } from '@emotion/core'
-import Image from 'next/image'
 import Link from 'next/link'
 import { HtmrOptions } from 'htmr/src/types'
 
-import { Anchor, Box, BoxProps, ResponsiveIframe, MessageBox, ResponsiveWrapper } from '~/components/chungking-core'
+import { Anchor, Box, BoxProps, ResponsiveIframe, MessageBox, ResponsiveWrapper } from '@resir014/chungking-react'
 import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI, Blockquote, InlineCode, CodeBlock, Figure } from '~/modules/markdown'
 
 const htmrTransform: HtmrOptions['transform'] = {
@@ -46,22 +45,7 @@ const htmrTransform: HtmrOptions['transform'] = {
     }
 
     if (src) {
-      if (src.substr(0, 4) === 'http') {
-        return <img loading="lazy" className={className} src={src} alt={alt?.toString()} crossOrigin={crossOrigin} {...rest} />
-      }
-
-      return (
-        <Image
-          loading="lazy"
-          className={className}
-          src={src}
-          alt={alt?.toString()}
-          crossOrigin={crossOrigin}
-          unoptimized
-          unsized
-          {...rest}
-        />
-      )
+      return <img loading="lazy" className={className} src={src} alt={alt?.toString()} crossOrigin={crossOrigin} {...rest} />
     }
 
     return null

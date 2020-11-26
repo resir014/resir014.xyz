@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Stack, StackProps } from '~/components/chungking-core'
+import { Stack, StackProps } from '@resir014/chungking-react'
 
 interface ComponentSpecimenProps extends StackProps {
   className?: string
