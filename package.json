@@ -22,14 +22,14 @@
     "test": "npm run type-check && npm run lint",
     "type-check": "tsc --noEmit",
     "validate": "yarn lint && yarn type-check",
-    "storybook": "yarn workspace @resir014/chungking-core run storybook",
-    "build-storybook": "yarn workspace @resir014/chungking-core run build-storybook"
+    "storybook": "yarn workspace @resir014/chungking-react run storybook",
+    "build-storybook": "yarn workspace @resir014/chungking-react run build-storybook"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
-    "@resir014/chungking-core": "workspace:packages/chungking-core",
+    "@resir014/chungking-react": "workspace:packages/chungking-react",
     "clsx": "^1.1.1",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",

@@ -2,7 +2,7 @@ import { css } from '@emotion/core'
 import convert from 'htmr'
 import Image from 'next/image'
 import * as React from 'react'
-import { Heading, Text, Badge, Box, BoxProps, AnchorButton } from '@resir014/chungking-core'
+import { Heading, Text, Badge, Box, BoxProps, AnchorButton } from '@resir014/chungking-react'
 import htmrTransform from '~/lib/htmr-transform'
 import { ProjectMetadata } from '~/types/projects'
 

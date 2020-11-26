@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Box, BoxProps } from '@resir014/chungking-core'
+import { Box, BoxProps } from '@resir014/chungking-react'
 
 interface PostContentProps extends BoxProps {
   className?: string

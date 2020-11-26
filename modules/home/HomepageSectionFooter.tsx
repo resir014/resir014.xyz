@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Box } from '@resir014/chungking-core'
+import { Box } from '@resir014/chungking-react'
 
 interface HomepageSectionProps {
   className?: string

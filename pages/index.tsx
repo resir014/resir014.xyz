@@ -3,7 +3,7 @@ import { NextPage, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { NextSeo } from 'next-seo'
-import { Stack, Anchor, Text } from '@resir014/chungking-core'
+import { Stack, Anchor, Text } from '@resir014/chungking-react'
 
 import { Container, Page } from '~/components/layout'
 import { HomepageContent, HomepageSection, HomepageSectionHeader } from '~/modules/home'

@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import Image from 'next/image'
 import * as React from 'react'
-import { Box } from '@resir014/chungking-core'
+import { Box } from '@resir014/chungking-react'
 import { Container } from '~/components/layout'
 
 interface PostHeaderImageProps {

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import convert from 'htmr'
-import { Anchor, Box, MessageBox, Paragraph, Space, Stack } from '@resir014/chungking-core'
+import { Anchor, Box, MessageBox, Paragraph, Space, Stack } from '@resir014/chungking-react'
 
 import htmrTransform from '~/lib/htmr-transform'
 import { Container, ContainerSizes } from '~/components/layout'

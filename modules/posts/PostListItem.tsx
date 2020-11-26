@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { css } from '@emotion/core'
 
-import { Stack, StackProps, Heading, Paragraph } from '@resir014/chungking-core'
+import { Stack, StackProps, Heading, Paragraph } from '@resir014/chungking-react'
 import { PostMetadata } from '~/types/posts'
 import PostMeta from './PostMeta'
 

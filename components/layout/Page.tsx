@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Head from 'next/head'
 import { NextSeo } from 'next-seo'
-import { Box } from '@resir014/chungking-core'
+import { Box } from '@resir014/chungking-react'
 
 import menuItems from '~/_data/menuItems.json'
 import siteMetadata from '~/_data/siteMetadata.json'

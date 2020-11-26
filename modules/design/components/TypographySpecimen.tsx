@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { fonts } from '@resir014/chungking-core'
+import { fonts } from '@resir014/chungking-react'
 
 interface ColorSwatchProps {
   weight?: number

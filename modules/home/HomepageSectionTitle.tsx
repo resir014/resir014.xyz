@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Heading, HeadingProps } from '@resir014/chungking-core'
+import { Heading, HeadingProps } from '@resir014/chungking-react'
 
 interface HomepageSectionTitleProps extends HeadingProps {
   className?: string

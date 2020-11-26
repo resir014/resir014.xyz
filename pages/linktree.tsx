@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { InferGetStaticPropsType, NextPage } from 'next'
-import { Heading, Stack } from '@resir014/chungking-core'
+import { Heading, Stack } from '@resir014/chungking-react'
 import { LinktreeCategoryItem } from '~/types/default'
 import { Content, Page } from '~/components/layout'
 import { Post, PostBody, PostHeader } from '~/modules/posts'

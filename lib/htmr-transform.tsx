@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import Link from 'next/link'
 import { HtmrOptions } from 'htmr/src/types'
 
-import { Anchor, Box, BoxProps, ResponsiveIframe, MessageBox, ResponsiveWrapper } from '@resir014/chungking-core'
+import { Anchor, Box, BoxProps, ResponsiveIframe, MessageBox, ResponsiveWrapper } from '@resir014/chungking-react'
 import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI, Blockquote, InlineCode, CodeBlock, Figure } from '~/modules/markdown'
 
 const htmrTransform: HtmrOptions['transform'] = {

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import { Box } from '@resir014/chungking-core'
+import { Box } from '@resir014/chungking-react'
 import CustomErrorPage from '~/pages/_error'
 import { Container, Content, Page } from '~/components/layout'
 import { YouTubePreconnect } from '~/components/perf'

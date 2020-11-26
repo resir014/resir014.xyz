@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import { transparentize } from 'polished'
 import * as React from 'react'
-import { Anchor, Box, Text, BoxProps, colors, Heading } from '@resir014/chungking-core'
+import { Anchor, Box, Text, BoxProps, colors, Heading } from '@resir014/chungking-react'
 import { BaseBookmarkProps } from '~/types/posts'
 
 interface BookmarkListItemProps extends BoxProps {

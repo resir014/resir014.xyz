@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { css } from '@emotion/core'
 import clsx from 'clsx'
 
-import { Text } from '@resir014/chungking-core'
+import { Text } from '@resir014/chungking-react'
 import { MenuItem } from '~/types/default'
 import { MastheadLinkStyles } from './styled'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { space } from '@resir014/chungking-core'
+import { space } from '@resir014/chungking-react'
 
 const StyledHomepageContent = styled('main')`
   display: block;

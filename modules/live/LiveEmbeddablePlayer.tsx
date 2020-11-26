@@ -1,7 +1,7 @@
 import { css } from '@emotion/core'
 import { hsl, parseToHsl } from 'polished'
 import * as React from 'react'
-import { Box, colors, ResponsiveIframe, ResponsiveWrapper, Text } from '@resir014/chungking-core'
+import { Box, colors, ResponsiveIframe, ResponsiveWrapper, Text } from '@resir014/chungking-react'
 import { useTwitchData } from '~/lib/twitch-api'
 
 interface LiveEmbeddablePlayerProps {
