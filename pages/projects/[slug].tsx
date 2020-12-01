@@ -56,7 +56,7 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  if (ctx.params && !Array.isArray(ctx.params?.slug)) {
+  if (ctx.params?.slug && !Array.isArray(ctx.params?.slug)) {
     const project = getProjectBySlug(ctx.params.slug, [
       'category',
       'title',

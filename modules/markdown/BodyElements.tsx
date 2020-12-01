@@ -130,7 +130,7 @@ export const Figure: React.FC<WithStylesProps & BoxProps> = ({ children, ...rest
 )
 
 export const Figcaption: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text as="figcaption" scale={100} {...rest}>
+  <Text as="figcaption" variant={100} {...rest}>
     {children}
   </Text>
 )
