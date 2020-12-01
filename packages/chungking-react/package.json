@@ -22,12 +22,13 @@
     "compile": "yarn clean && yarn build",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "prepublishOnly": "yarn build",
+    "type-check": "tsc",
     "storybook": "start-storybook -p 6006 --no-dll",
     "build-storybook": "build-storybook --no-dll"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.35",
-    "@emotion/styled": "^10.0.27",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "react": "^16.14.0 || ^17.0.0",
     "react-dom": "^16.14.0 || ^17.0.0"
   },
@@ -37,8 +38,7 @@
     "@types/styled-system": "^5.1.10",
     "@types/styled-system__theme-get": "^5.0.1",
     "clsx": "^1.1.1",
-    "emotion-theming": "^10.0.27",
-    "polished": "^4.0.3",
+    "polished": "^4.0.5",
     "styled-system": "^5.1.5"
   },
   "devDependencies": {

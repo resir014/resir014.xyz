@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { colors, space } from '@resir014/chungking-react'
 

@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import Image from 'next/image'
 import * as React from 'react'
 import { Box } from '@resir014/chungking-react'

@@ -8,7 +8,7 @@ export default {
   component: Iframe
 } as Meta<IframeProps>
 
-export const Example: Story<IframeProps> = (args) => {
+export const Example: Story<IframeProps> = ({ ref: _ref, ...args }) => {
   return <Iframe {...args} />
 }
 

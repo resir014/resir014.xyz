@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 import { Paragraph, ParagraphProps, Text, TextProps, Box, BoxProps, Stack, colors, space, shadows } from '@resir014/chungking-react'
 

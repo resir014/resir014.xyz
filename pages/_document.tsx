@@ -1,8 +1,11 @@
 /* eslint-disable react/no-danger */
 import * as React from 'react'
 import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
-import { extractCritical } from 'emotion-server'
+import createEmotionServer from '@emotion/server/create-instance'
 import { GA_TRACKING_ID } from '~/lib/ga'
+import emotionCache from '~/lib/emotion-cache'
+
+const { extractCritical } = createEmotionServer(emotionCache)
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

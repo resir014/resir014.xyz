@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 import * as React from 'react'
 import Link from 'next/link'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import convert from 'htmr'
 import { Heading, Paragraph, colors, Badge, AnchorButton, BoxProps, Card, Text, Box } from '@resir014/chungking-react'
 import htmrTransform from '~/lib/htmr-transform'

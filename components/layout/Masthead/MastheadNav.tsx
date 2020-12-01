@@ -2,7 +2,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import clsx from 'clsx'
 
 import { Text } from '@resir014/chungking-react'

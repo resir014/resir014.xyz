@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { transparentize } from 'polished'
 import { space, colors, mediaQueries } from '@resir014/chungking-react'
 

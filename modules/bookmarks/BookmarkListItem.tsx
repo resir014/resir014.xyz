@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { transparentize } from 'polished'
 import * as React from 'react'
 import { Anchor, Box, Text, BoxProps, colors, Heading } from '@resir014/chungking-react'

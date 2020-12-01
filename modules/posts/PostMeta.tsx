@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import Link from 'next/link'
 import * as React from 'react'
 import { Box, BoxProps, Text } from '@resir014/chungking-react'
@@ -15,6 +15,7 @@ export interface PostListItemProps extends BoxProps {
   slug?: string
   disableMetaClick?: boolean
 }
+const Time = Text.withComponent('time')
 
 const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, category, slug, disableMetaClick, ...rest }) => {
   const postDate = React.useMemo(() => new Date(date), [date])
@@ -40,18 +41,18 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
   const renderTimestamp = () => {
     if (disableMetaClick) {
       return (
-        <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
+        <Time className="dt-published" dateTime={postDate.toISOString()}>
           {formatPostDate(postDate)}
-        </Text>
+        </Time>
       )
     }
 
     return (
       <Link href={slugByCategory(slug, category)}>
         <a>
-          <Text as="time" className="dt-published" dateTime={postDate.toISOString()}>
+          <Time className="dt-published" dateTime={postDate.toISOString()}>
             {formatPostDate(postDate)}
-          </Text>
+          </Time>
         </a>
       </Link>
     )

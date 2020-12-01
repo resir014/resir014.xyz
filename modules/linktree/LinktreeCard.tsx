@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import * as React from 'react'
 import { Anchor, Box, BoxProps, colors } from '@resir014/chungking-react'
 import { LinktreeItem } from '~/types/default'

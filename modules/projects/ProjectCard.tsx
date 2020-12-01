@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import convert from 'htmr'
 import Image from 'next/image'
 import * as React from 'react'

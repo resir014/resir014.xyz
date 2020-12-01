@@ -12,7 +12,7 @@ export type HeadingProps = TypographyProps
 /**
  * Heading component provided as a styled component primitive.
  */
-const Heading = styled<'span', HeadingProps>('span', { shouldForwardProp })`
+const Heading = styled('span', { shouldForwardProp })<HeadingProps>`
   ${styledSystemVariant({
     prop: 'variant',
     variants: typeScale

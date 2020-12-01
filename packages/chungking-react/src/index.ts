@@ -1,4 +1,4 @@
 export * from './components'
 export * from './foundations'
 export * from './utils'
-export * from './Theme'
+export { default as ChungkingProvider } from './ChungkingProvider'

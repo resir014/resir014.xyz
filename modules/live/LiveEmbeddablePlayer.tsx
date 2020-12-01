@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { hsl, parseToHsl } from 'polished'
 import * as React from 'react'
 import { Box, colors, ResponsiveIframe, ResponsiveWrapper, Text } from '@resir014/chungking-react'
