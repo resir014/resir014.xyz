@@ -11,7 +11,6 @@ const LinktreeCard: React.FC<LinktreeCardProps> = ({ className, style, item, ...
   return (
     <Box
       as="li"
-      spacing="md"
       position="relative"
       boxShadow="single"
       p="md"
