@@ -6,10 +6,12 @@ interface PhotoWrapperProps extends BoxProps {
   image: string
 }
 
+const Img = Box.withComponent('img')
+
 const PhotoWrapper: React.FC<PhotoWrapperProps> = ({ image, ...rest }) => {
   return (
     <Figure my={0} {...rest}>
-      <Box as="img" className="u-photo" loading="lazy" src={image} alt="Photo Post" />
+      <Img className="u-photo" loading="lazy" src={image} alt="Photo Post" />
     </Figure>
   )
 }
