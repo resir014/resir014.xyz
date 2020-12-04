@@ -3,9 +3,12 @@ import styled from '@emotion/styled'
 import classnames from 'clsx'
 
 import { ButtonBaseProps, AnchorButtonProps } from './types'
-import { ButtonBase } from './styled'
+import { ButtonBase, ButtonVariants } from './styled'
 
-const Root = styled('a')<ButtonBaseProps>(ButtonBase)
+const Root = styled('a')<ButtonBaseProps>`
+  ${ButtonBase}
+  ${ButtonVariants}
+`
 
 const AnchorButton: React.ForwardRefRenderFunction<HTMLAnchorElement, AnchorButtonProps> = (
   { id, className, style, disabled, children, variant: color = 'secondary', size = 'md', ...rest },

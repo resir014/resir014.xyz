@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 import { Paragraph, ParagraphProps, Text, TextProps, Box, BoxProps, Stack, colors, space, shadows } from '@resir014/chungking-react'
 
@@ -130,7 +130,7 @@ export const Figure: React.FC<WithStylesProps & BoxProps> = ({ children, ...rest
 )
 
 export const Figcaption: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text as="figcaption" scale={100} {...rest}>
+  <Text as="figcaption" variant={100} {...rest}>
     {children}
   </Text>
 )

@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { themeGet } from '@styled-system/theme-get'
 
 import { Box, BoxProps } from '../../box'
-import { Space } from '../../../Theme'
+import { Space } from '../../../utils'
 
 export interface InlineProps extends Omit<BoxProps, 'color'> {
   id?: string

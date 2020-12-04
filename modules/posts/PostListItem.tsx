@@ -1,7 +1,7 @@
 import * as React from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 import { Stack, StackProps, Heading, Paragraph } from '@resir014/chungking-react'
 import { PostMetadata } from '~/types/posts'

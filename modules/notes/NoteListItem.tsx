@@ -1,7 +1,7 @@
 import * as React from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import convert from 'htmr'
 
 import { Stack, StackProps, Heading } from '@resir014/chungking-react'

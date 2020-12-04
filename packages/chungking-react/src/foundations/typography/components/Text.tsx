@@ -11,7 +11,7 @@ export type TextProps = TypographyProps
 /**
  * Text component provided as a styled component primitive.
  */
-export const Text = styled<'span', TextProps>('span', { shouldForwardProp })`
+export const Text = styled('span', { shouldForwardProp })<TextProps>`
   ${variant({
     prop: 'variant',
     variants: typeScale

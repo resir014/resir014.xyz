@@ -11,9 +11,9 @@ export type ParagraphProps = TypographyProps
 /**
  * Heading component provided as a styled component primitive.
  */
-export const Paragraph = styled<'p', ParagraphProps>('p', {
+export const Paragraph = styled('p', {
   shouldForwardProp
-})`
+})<ParagraphProps>`
   a {
     color: ${colors.turquoise[400]};
   }

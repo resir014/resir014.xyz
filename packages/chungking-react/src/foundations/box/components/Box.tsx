@@ -23,7 +23,7 @@ import {
   ShadowProps
 } from 'styled-system'
 import shouldForwardProp from '@styled-system/should-forward-prop'
-import { Color } from '../../../Theme'
+import { Color } from '../../../utils'
 
 export interface BoxProps
   extends LayoutProps,
@@ -48,9 +48,9 @@ export interface BoxProps
  * Box is a view with all styled-system hooks added to it. You can use it as a
  * base component for all display elements.
  */
-export const Box = styled<'div', BoxProps>('div', {
+export const Box = styled('div', {
   shouldForwardProp: (propName) => shouldForwardProp(propName) && propName !== 'spacing'
-})`
+})<BoxProps>`
   ${layout}
   ${flexbox}
   ${position}

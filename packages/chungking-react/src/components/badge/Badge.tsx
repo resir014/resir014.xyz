@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 import { Box, BoxProps } from '../../foundations'
 import { colors } from '../../utils'
@@ -22,7 +22,7 @@ const GreyColorStyles = css`
   background-color: ${colors.grey[800]};
 `
 
-const Root = styled(Box)`
+const Root = styled(Box)<BadgeProps>`
   padding: 0 4px;
   font-size: 14px;
   line-height: 20px;

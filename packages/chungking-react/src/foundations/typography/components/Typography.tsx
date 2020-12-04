@@ -12,7 +12,7 @@ import {
 } from 'styled-system'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import { TypeScale, Color } from '../../../Theme'
+import { TypeScale, Color } from '../../../utils'
 
 export interface TypographyProps extends LayoutProps, SpaceProps, ColorProps, StyledTypographyProps {
   /** Additional CSS classes to add to the component. */
@@ -30,7 +30,7 @@ export interface TypographyProps extends LayoutProps, SpaceProps, ColorProps, St
 /**
  * This is a base `Text` element to handle typography elements.
  */
-export const Typography = styled<'span', TypographyProps>('span', { shouldForwardProp })`
+export const Typography = styled('span', { shouldForwardProp })<TypographyProps>`
   ${layout}
   ${space}
   ${color}

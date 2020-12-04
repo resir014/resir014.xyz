@@ -2,15 +2,15 @@ import * as React from 'react'
 import { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
-import { CacheProvider, Global } from '@emotion/core'
-import { cache } from 'emotion'
+import { CacheProvider, Global } from '@emotion/react'
 import nProgress from 'nprogress'
 
-import { Theme, GlobalStyles, colors } from '@resir014/chungking-react'
+import { ChungkingProvider, colors } from '@resir014/chungking-react'
 import nProgressStyles from '~/styles/nProgressStyles'
 import prismTheme from '~/styles/prismTheme'
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo'
 import { event, pageview } from '~/lib/ga'
+import emotionCache from '~/lib/emotion-cache'
 
 import siteMetadata from '~/_data/siteMetadata.json'
 
@@ -54,7 +54,7 @@ function App({ Component, pageProps, router }: AppProps) {
   }, [router.events])
 
   return (
-    <CacheProvider value={cache}>
+    <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -77,12 +77,11 @@ function App({ Component, pageProps, router }: AppProps) {
         twitter={defaultTwitterCard}
       />
 
-      <Theme>
-        <Global styles={GlobalStyles} />
+      <ChungkingProvider>
         <Global styles={nProgressStyles} />
         <Global styles={prismTheme} />
         <Component {...pageProps} />
-      </Theme>
+      </ChungkingProvider>
     </CacheProvider>
   )
 }

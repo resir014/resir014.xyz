@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Heading, Text, Anchor, Paragraph } from '@resir014/chungking-react'
+import { Heading, Text, Anchor, Paragraph, TypeScale } from '@resir014/chungking-react'
 import { Blockquote, H2, H3, InlineCode, LI, OL, UL } from '../markdown'
 import ComponentSpecimen from './components/ComponentSpecimen'
 
-const variants = [900, 800, 700, 600, 500, 400, 300, 200, 100]
+const variants: TypeScale[] = [900, 800, 700, 600, 500, 400, 300, 200, 100]
 
 const TypographySpecs: React.FC = () => {
   return (

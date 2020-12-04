@@ -3,8 +3,8 @@ import { Box } from '../../foundations'
 
 export type IframeProps = JSX.IntrinsicElements['iframe']
 
-const Iframe: React.FC<IframeProps> = ({ title, ...rest }) => {
-  return <Box as="iframe" display="block" verticalAlign="middle" borderWidth={0} borderStyle="solid" title={title} {...rest} />
+const Iframe: React.ForwardRefRenderFunction<HTMLIFrameElement, IframeProps> = ({ title, ...rest }, ref) => {
+  return <Box ref={ref} as="iframe" display="block" verticalAlign="middle" borderWidth={0} borderStyle="solid" title={title} {...rest} />
 }
 
-export default Iframe
+export default React.forwardRef(Iframe)

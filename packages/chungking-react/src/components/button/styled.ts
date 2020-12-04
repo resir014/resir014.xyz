@@ -1,7 +1,7 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { darken, transparentize } from 'polished'
 import { colors, fonts } from '../../utils'
-import { ButtonProps } from './types'
+import { ButtonBaseProps } from './types'
 
 export const DisabledButtonStyles = css`
   &:disabled,
@@ -132,7 +132,7 @@ export const DangerButtonStyles = css`
   ${DisabledButtonStyles}
 `
 
-export const ButtonBase = (props: ButtonProps) => css`
+export const ButtonBase = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +153,9 @@ export const ButtonBase = (props: ButtonProps) => css`
     outline: none;
     text-decoration: none;
   }
+`
 
+export const ButtonVariants = (props: ButtonBaseProps) => `
   ${props.variant === 'primary' && !props.ghosted && PrimaryButtonStyles}
   ${props.variant === 'secondary' && !props.ghosted && SecondaryButtonStyles}
   ${props.variant === 'danger' && !props.ghosted && DangerButtonStyles}

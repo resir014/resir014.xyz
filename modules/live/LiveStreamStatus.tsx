@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import * as React from 'react'
 import { Anchor, Box, Heading, MessageBox, Paragraph, Skeleton, Text } from '@resir014/chungking-react'
 import { useTwitchData } from '~/lib/twitch-api'
