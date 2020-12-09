@@ -22,7 +22,7 @@ const LinktreePage: NextPage<LinktreePageProps> = ({ linktree }) => {
     <Page pageTitle="Linktree">
       <Content>
         <Post>
-          <PostHeader title="Linktree" lead="Because who needs an external service for this?" />
+          <PostHeader title="Linktree" lead="Everywhere I am on the Internet, in one neatly-organised list!" />
           <PostBody spacing="lg">
             {linktree.map((tree) => (
               <Stack spacing="md" key={tree.category}>
