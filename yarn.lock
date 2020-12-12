@@ -15050,6 +15050,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"query-string@npm:^6.13.7":
+  version: 6.13.7
+  resolution: "query-string@npm:6.13.7"
+  dependencies:
+    decode-uri-component: ^0.2.0
+    split-on-first: ^1.0.0
+    strict-uri-encode: ^2.0.0
+  checksum: b6d9ef79b77640456e764dcb427591e6079616141aa68f1dae444387864cbc44f945d766085a1ebef1e0fa1b0f8faa8925a96eaebf933119b97bacc12c5d22e5
+  languageName: node
+  linkType: hard
+
 "querystring-es3@npm:^0.2.0":
   version: 0.2.1
   resolution: "querystring-es3@npm:0.2.1"
@@ -15920,6 +15931,7 @@ fsevents@^1.2.7:
     polished: ^4.0.5
     prettier: ^2.2.1
     prismjs: ^1.22.0
+    query-string: ^6.13.7
     react: ^17.0.1
     react-dom: ^17.0.1
     react-is: ^17.0.1
@@ -16867,6 +16879,13 @@ resolve@1.12.0:
   languageName: node
   linkType: hard
 
+"split-on-first@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "split-on-first@npm:1.1.0"
+  checksum: 2ef26fee62665be9547e8035734b856e658b08fd13e70271a2f258147f29d1f18e12b5cb7f7670d83e113c172a9c5fe3d87d9d7c02a1d3d57824818d75d942ab
+  languageName: node
+  linkType: hard
+
 "split-string@npm:^3.0.1, split-string@npm:^3.0.2":
   version: 3.1.0
   resolution: "split-string@npm:3.1.0"
@@ -17016,6 +17035,13 @@ resolve@1.12.0:
   version: 1.0.1
   resolution: "stream-shift@npm:1.0.1"
   checksum: 5d777b222e460dc660ee29acad4f99649eb8d0051d3cb648fc92f3f77557b33d0a8ad656291c2cfa87703204191534a6003c2b035606a699674d0bb600353ad3
+  languageName: node
+  linkType: hard
+
+"strict-uri-encode@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "strict-uri-encode@npm:2.0.0"
+  checksum: 775012e88b9d8dff939d514bf376d615a15e8228a5dd587a94ac3c71fce41aa3635cd808aa796e2c1cd33f3f2fe2fbf89b74ee18a504a1905efa1854311e04bb
   languageName: node
   linkType: hard
 
