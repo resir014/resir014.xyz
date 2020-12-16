@@ -10,7 +10,6 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next-sitemap",
-    "build:dev": "yarn build && next-on-netlify",
     "export": "next export",
     "start": "next start",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
