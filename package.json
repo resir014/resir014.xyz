@@ -10,7 +10,6 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next-sitemap",
-    "export": "next export",
     "start": "next start",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "lint": "eslint \"**/*.{ts,tsx}\" \"*.config.js\"",
