@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import convert from 'htmr'
 import Image from 'next/image'
 import * as React from 'react'
-import { Heading, Text, Badge, Box, BoxProps, AnchorButton } from '@resir014/chungking-react'
+import { Heading, Text, Badge, Box, BoxProps, Anchor } from '@resir014/chungking-react'
 import htmrTransform from '~/lib/htmr-transform'
 import { ProjectMetadata } from '~/types/projects'
 
@@ -61,9 +61,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, ...rest }) => {
         ) : null}
         {project_url && (
           <Box mt="lg">
-            <AnchorButton href={project_url} target="_blank" rel="noopener noreferrer" size="lg" ghosted>
+            <Anchor href={project_url} target="_blank" rel="noopener noreferrer" variant={500}>
               Go to project &rarr;
-            </AnchorButton>
+            </Anchor>
           </Box>
         )}
       </Box>

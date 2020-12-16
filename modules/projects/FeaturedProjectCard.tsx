@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Text, Heading, colors, shadows, Badge, Box, BoxProps, AnchorButton } from '@resir014/chungking-react'
+import { Text, Heading, colors, shadows, Badge, Box, BoxProps, Anchor } from '@resir014/chungking-react'
 import { P } from '~/modules/markdown'
 
 import ProjectTags from './ProjectTags'
@@ -88,9 +88,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
         </Box>
         <Box mt="xl">
           <Link href="/projects/[slug]" as={`/projects/${slug}`} passHref>
-            <AnchorButton ghosted size="lg">
-              Visit project &rarr;
-            </AnchorButton>
+            <Anchor variant={500}>Visit project &rarr;</Anchor>
           </Link>
         </Box>
       </FeaturedProjectDetails>

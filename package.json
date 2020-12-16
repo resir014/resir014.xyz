@@ -7,9 +7,6 @@
   "author": "Resi Respati <resir014@gmail.com>",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "dev": "next",
     "build": "yarn compile && next build && next-sitemap && next-on-netlify",
@@ -21,9 +18,7 @@
     "prepublish": "yarn compile",
     "test": "npm run type-check && npm run lint",
     "type-check": "tsc --noEmit",
-    "validate": "yarn lint && yarn type-check",
-    "storybook": "yarn workspace @resir014/chungking-react run storybook",
-    "build-storybook": "yarn workspace @resir014/chungking-react run build-storybook"
+    "validate": "yarn lint && yarn type-check"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.0.0",
@@ -31,7 +26,7 @@
     "@emotion/react": "^11.1.1",
     "@emotion/server": "^11.0.0",
     "@emotion/styled": "^11.0.0",
-    "@resir014/chungking-react": "workspace:packages/chungking-react",
+    "@resir014/chungking-react": "^0.0.2",
     "clsx": "^1.1.1",
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
