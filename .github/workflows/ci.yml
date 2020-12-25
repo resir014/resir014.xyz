@@ -13,7 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install --immutable
-      - run: yarn run compile
       - uses: actions/cache@v1
         id: cache-build
         with:
