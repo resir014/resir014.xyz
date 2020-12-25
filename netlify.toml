@@ -10,3 +10,6 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[plugins]]
+  package = "netlify-plugin-cache-nextjs"
