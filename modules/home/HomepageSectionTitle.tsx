@@ -6,7 +6,7 @@ interface HomepageSectionTitleProps extends HeadingProps {
 }
 
 const HomepageSectionTitle: React.FC<HomepageSectionTitleProps> = ({ children, className, ...rest }) => (
-  <Heading as="h1" variant={900} className={className} {...rest}>
+  <Heading as="h2" variant={900} className={className} {...rest}>
     {children}
   </Heading>
 )
