@@ -8,8 +8,8 @@ export const defaultOpenGraph = {
   images: [
     {
       url: `${siteMetadata.siteUrl}/social.png`,
-      width: 1024,
-      height: 512,
+      width: 1200,
+      height: 630,
       alt: siteMetadata.title
     }
   ]
