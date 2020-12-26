@@ -55,18 +55,10 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
   }
 
   const renderStreamDuration = () => {
-    if (isLoading) {
+    if (isLoading || isError) {
       return (
         <Text display="block" mt="xs">
           -
-        </Text>
-      )
-    }
-
-    if (isError) {
-      return (
-        <Text display="block" mt="xs" color="red.500">
-          Failed retrieving stream status
         </Text>
       )
     }
