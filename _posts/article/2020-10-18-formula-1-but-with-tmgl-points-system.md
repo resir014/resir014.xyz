@@ -1,5 +1,4 @@
 ---
-featured: true
 category: article
 layout: post
 title: "What if Formula 1 used Trackmania Grand League's points system?"

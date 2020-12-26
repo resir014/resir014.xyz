@@ -1,5 +1,4 @@
 ---
-featured: true
 category: article
 layout: post
 title: 'A tribute to a 100% Gran Turismo 4 speedrun attempt'

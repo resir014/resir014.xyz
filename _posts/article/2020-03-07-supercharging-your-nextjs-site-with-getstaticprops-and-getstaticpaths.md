@@ -1,5 +1,4 @@
 ---
-featured: true
 category: article
 layout: post
 title: 'Supercharging your Next.js site with getStaticProps and getStaticPaths'
