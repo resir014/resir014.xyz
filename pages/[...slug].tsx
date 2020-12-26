@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
-import dynamic from 'next/dynamic'
 import * as React from 'react'
 
-import { Content, Page } from '~/components/layout'
+import { Content, HeroWrapper, Page } from '~/components/layout'
 import { YouTubePreconnect } from '~/components/perf'
 import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts'
+import LiveEmbeddablePlayer from '~/modules/live/LiveEmbeddablePlayer'
 import CustomErrorPage from '~/pages/_error'
 import { getAllPages, getPageBySlug } from '~/lib/pages'
 import markdownToHtml from '~/lib/markdown-to-html'
@@ -25,8 +25,6 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   return { props: { siteMetadata } }
 }
 
-const LiveBanner = dynamic(() => import('~/modules/live/LiveBanner'))
-
 type MarkdownPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
@@ -35,7 +33,11 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
     return (
       <Page pageTitle={title}>
         <YouTubePreconnect />
-        {layout === 'live' && <LiveBanner />}
+        {layout === 'live' && (
+          <HeroWrapper>
+            <LiveEmbeddablePlayer />
+          </HeroWrapper>
+        )}
         <Content>
           <Post>
             {header_image && <PostHeaderImage src={header_image} alt={title} />}
