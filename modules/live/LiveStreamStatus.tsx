@@ -57,7 +57,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
   const renderStreamDuration = () => {
     if (isLoading || isError) {
       return (
-        <Text display="block" mt="xs">
+        <Text as="p" display="block" mt="xs">
           -
         </Text>
       )
@@ -65,14 +65,14 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
 
     if (data) {
       return (
-        <Text display="block" mt="xs">
+        <Text as="p" display="block" mt="xs">
           Streaming for {relativeTime(new Date(data.started_at))}
         </Text>
       )
     }
 
     return (
-      <Text display="block" mt="xs">
+      <Text as="p" display="block" mt="xs">
         Follow to be notified when they go live!
       </Text>
     )
@@ -108,7 +108,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
         </Text>
       </Box>
       <Box px="md" pt="sm" flex="1 1 auto">
-        <Heading as="h4" variant={800}>
+        <Heading as="p" variant={800}>
           <Anchor
             href={`https://www.twitch.tv/${username}`}
             target="_blank"
