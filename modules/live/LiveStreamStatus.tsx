@@ -1,115 +1,156 @@
 import { css } from '@emotion/react'
 import * as React from 'react'
-import { Anchor, Box, Heading, MessageBox, Paragraph, Skeleton, Text } from '@resir014/chungking-react'
+import { Anchor, Box, Heading, Text, BoxProps } from '@resir014/chungking-react'
+import { Twitch } from 'react-feather'
 import { useTwitchData } from '~/lib/twitch-api'
+import relativeTime from '~/lib/relative-time'
 
-interface LiveStreamStatusProps {
+interface LiveStreamStatusProps extends BoxProps {
   username?: string
 }
 
-const LiveStreamViewCount: React.FC<LiveStreamStatusProps> = ({ username }) => {
-  const { data, isLoading } = useTwitchData(username)
-
-  if (isLoading) {
-    return <Skeleton width="100%" maxHeight={14} mt={10} mb={2} />
-  }
-
-  if (data) {
-    return (
-      <Text as="p" display="block" variant={400} mt="xs">
-        Streaming to {data?.viewer_count} viewers
-      </Text>
-    )
-  }
-
-  return null
-}
-
-const LiveStreamTitle: React.FC<LiveStreamStatusProps> = ({ username }) => {
-  const { data, isLoading } = useTwitchData(username)
-
-  if (isLoading) {
-    return (
-      <Box>
-        <Skeleton width="100%" height={18} my={4} />
-        <Skeleton display={['none', null, null, null, 'block']} width="100%" height={18} my={4} />
-        <Skeleton display={['none', null, null, null, 'block']} width="66%" height={18} my={4} />
-      </Box>
-    )
-  }
-
-  if (data) {
-    return <Paragraph display="block">{data?.title}</Paragraph>
-  }
-
-  return <Paragraph display="block">Follow {username} on Twitch to be notified when they go online!</Paragraph>
-}
-
-const LiveStreamRedirectLink: React.FC<LiveStreamStatusProps> = ({ username }) => {
-  const { data, isLoading } = useTwitchData(username)
-
-  if (isLoading) {
-    return <Skeleton width="100%" maxHeight={16} my={2} />
-  }
-
-  if (data) {
-    return (
-      <Text variant={400}>
-        <Anchor href={`https://www.twitch.tv/${username}`} target="_blank" rel="noopener noreferrrer">
-          Join the conversation on Twitch &rarr;
-        </Anchor>
-      </Text>
-    )
-  }
-
-  return (
-    <Text variant={400}>
-      <Anchor href={`https://www.twitch.tv/${username}`} target="_blank" rel="noopener noreferrrer">
-        Follow on Twitch and get notified &rarr;
-      </Anchor>
-    </Text>
-  )
-}
-
-const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username }) => {
+const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir014', ...rest }) => {
   const { data, isLoading, isError } = useTwitchData(username)
 
+  const renderStreamStatus = () => {
+    if (isLoading || isError) {
+      return '-'
+    }
+
+    if (data) {
+      return 'Online'
+    }
+
+    return 'Offline'
+  }
+
+  const renderViewCount = () => {
+    if (isError) {
+      return (
+        <>
+          <Text ml="xs" variant={300}>
+            &middot;
+          </Text>
+          <Text display="block" variant={300} color="red.500" ml="xs">
+            Failed retrieving stream status.
+          </Text>
+        </>
+      )
+    }
+
+    if (data) {
+      return (
+        <>
+          <Text ml="xs" variant={300}>
+            &middot;
+          </Text>
+          <Text display="block" variant={300} ml="xs" {...rest}>
+            {data?.viewer_count} viewers
+          </Text>
+        </>
+      )
+    }
+
+    return null
+  }
+
+  const renderStreamDuration = () => {
+    if (isLoading) {
+      return (
+        <Text display="block" mt="xs">
+          -
+        </Text>
+      )
+    }
+
+    if (isError) {
+      return (
+        <Text display="block" mt="xs" color="red.500">
+          Failed retrieving stream status
+        </Text>
+      )
+    }
+
+    if (data) {
+      return (
+        <Text display="block" mt="xs">
+          Streaming for {relativeTime(new Date(data.started_at))}
+        </Text>
+      )
+    }
+
+    return (
+      <Text display="block" mt="xs">
+        Follow to be notified when they go live!
+      </Text>
+    )
+  }
+
   return (
-    <Box display="flex" flexDirection="column" flex="1 1 auto">
-      <Box pt="md" px="md">
+    <Box
+      display="flex"
+      flexDirection="column"
+      flex="1 1 auto"
+      position="relative"
+      border="1px solid"
+      borderColor="grey.800"
+      borderRadius={6}
+      overflow="hidden"
+      _hover={{
+        backgroundColor: 'grey.800',
+        boxShadow: 'double'
+      }}
+      {...rest}
+    >
+      <Box px="md" pt="md">
         <Text
           variant={300}
           display="block"
           fontFamily="monospace"
           fontWeight={300}
-          mb="sm"
           css={css`
             text-transform: uppercase;
           `}
         >
           Stream Status
         </Text>
-        {isLoading ? (
-          <Skeleton width="100%" maxHeight={[18, null, null, null, 20]} my={2} />
-        ) : (
-          <Heading as="h4" variant={600}>
-            {username} is {data ? 'online' : 'offline'}
-          </Heading>
-        )}
-        <LiveStreamViewCount username={username} />
       </Box>
-      <Box flex="1 1 auto" px="md" py="md">
-        <LiveStreamTitle username={username} />
+      <Box px="md" pt="sm" flex="1 1 auto">
+        <Heading as="h4" variant={800}>
+          <Anchor
+            href={`https://www.twitch.tv/${username}`}
+            target="_blank"
+            rel="noopener noreferrrer"
+            display="inline-block"
+            css={css`
+              &:hover,
+              &:focus {
+                text-decoration: none;
+              }
+
+              &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+              }
+            `}
+          >
+            {renderStreamStatus()}
+          </Anchor>
+        </Heading>
+        {renderStreamDuration()}
       </Box>
-      {isError && (
-        <Box px="md" pb="md">
-          <MessageBox variant="warning">
-            <Text>Failed retrieving stream status.</Text>
-          </MessageBox>
+      <Box display="flex" alignItems="center" px="md" py="md">
+        <Box display="flex" flexDirection="row" alignItems="center">
+          <Twitch aria-hidden size={18} />
+          <Text variant={300} ml="xs">
+            {username}
+          </Text>
         </Box>
-      )}
-      <Box px="md" pb="md">
-        <LiveStreamRedirectLink username={username} />
+        {renderViewCount()}
       </Box>
     </Box>
   )

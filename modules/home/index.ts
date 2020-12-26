@@ -1,5 +1,5 @@
 export { default as HomepageContent } from './HomepageContent'
-export { default as LiveBannerHero } from '../live/LiveBannerHero'
+export { default as HomepageHero } from './HomepageHero'
 export { default as HomepageSection } from './HomepageSection'
 export { default as HomepageSectionDescription } from './HomepageSectionDescription'
 export { default as HomepageSectionFooter } from './HomepageSectionFooter'

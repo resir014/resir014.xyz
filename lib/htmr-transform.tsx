@@ -3,7 +3,7 @@ import { css } from '@emotion/react'
 import Link from 'next/link'
 import { HtmrOptions } from 'htmr/src/types'
 
-import { Anchor, Box, BoxProps, ResponsiveIframe, MessageBox, ResponsiveWrapper } from '@resir014/chungking-react'
+import { Anchor, Box, BoxProps, Iframe, MessageBox, AspectRatio } from '@resir014/chungking-react'
 import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI, Blockquote, InlineCode, CodeBlock, Figure } from '~/modules/markdown'
 
 const HorizontalRule = Box.withComponent('hr')
@@ -59,9 +59,9 @@ const htmrTransform: HtmrOptions['transform'] = {
   iframe: (node: Partial<React.ReactHTMLElement<HTMLIFrameElement>['props'] & Pick<BoxProps, 'mt' | 'mb'>>) => {
     const { title, mt: _mt, mb: _mb, allowFullScreen: _allowFullScreen, ...rest } = node
     return (
-      <ResponsiveWrapper my="xl" mx={[null, null, null, null, -48]} borderRadius={6} boxShadow="single" overflow="hidden">
-        <ResponsiveIframe title={title} allowFullScreen {...rest} />
-      </ResponsiveWrapper>
+      <AspectRatio ratio={16 / 9} my="xl" mx={[null, null, null, null, -48]} borderRadius={6} boxShadow="single" overflow="hidden">
+        <Iframe title={title} allowFullScreen {...rest} />
+      </AspectRatio>
     )
   },
   div: (node: Partial<React.ReactHTMLElement<HTMLDivElement>['props']> & Pick<BoxProps, 'mt' | 'mb'>) => {

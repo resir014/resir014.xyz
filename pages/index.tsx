@@ -1,15 +1,14 @@
 import * as React from 'react'
 import { NextPage, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
 import { NextSeo } from 'next-seo'
 import { Stack, Anchor, Text } from '@resir014/chungking-react'
 
 import { Container, Page } from '~/components/layout'
-import { HomepageContent, HomepageSection, HomepageSectionHeader } from '~/modules/home'
+import { HomepageContent, HomepageHero, HomepageSection, HomepageSectionHeader } from '~/modules/home'
 import { FeaturedProjectCard } from '~/modules/projects'
 import { FeaturedPhoto } from '~/modules/photos'
-import { PostHCard, PostListItem } from '~/modules/posts'
+import { PostListItem } from '~/modules/posts'
 import { renderFeaturedVideo } from '~/modules/video'
 
 import { getFeaturedArticles, getFeaturedBookmarks, getFeaturedJam, getFeaturedPhoto, getFeaturedVideo } from '~/lib/posts'
@@ -17,8 +16,7 @@ import { getFeaturedProject } from '~/lib/projects'
 import { BaseBookmarkProps, BaseJamProps, BasePhotoProps, BasePostProps, BaseVideoProps, PostMetadata } from '~/types/posts'
 import { ProjectMetadata } from '~/types/projects'
 import { BookmarkList } from '~/modules/bookmarks'
-
-import siteMetadata from '~/_data/siteMetadata.json'
+import LiveStreamStatus from '~/modules/live/LiveStreamStatus'
 
 export const getStaticProps = async () => {
   const allPosts: BasePostProps[] = getFeaturedArticles(3)
@@ -35,32 +33,28 @@ export const getStaticProps = async () => {
     'project_url',
     'slug'
   ])
-  const { author } = siteMetadata
 
   return {
-    props: { allPosts, featuredBookmarks, recentJam, recentVideo, featuredPhoto, featuredProject, author }
+    props: { allPosts, featuredBookmarks, recentJam, recentVideo, featuredPhoto, featuredProject }
   }
 }
 
-const LiveBanner = dynamic(() => import('~/modules/live/LiveBanner'))
-
 type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
-const IndexPage: NextPage<IndexPageProps> = ({
-  allPosts,
-  featuredBookmarks,
-  recentJam,
-  recentVideo,
-  featuredPhoto,
-  featuredProject,
-  author
-}) => (
+const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, recentJam, recentVideo, featuredPhoto, featuredProject }) => (
   <Page>
     <NextSeo title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }} />
-    <LiveBanner />
+    <HomepageHero />
     <HomepageContent>
       <Stack spacing={96}>
-        <PostHCard hidden author={author} m={0} />
+        <HomepageSection>
+          <Container size="md">
+            <Stack spacing="xxl">
+              <HomepageSectionHeader title="Livestream" description="Video game and live coding streams on Twitch, three times a week." />
+              <LiveStreamStatus />
+            </Stack>
+          </Container>
+        </HomepageSection>
         <HomepageSection>
           <Container size="md">
             <Stack spacing="xxl">
