@@ -1,6 +1,6 @@
 import { stringifyUrl } from 'query-string'
 import useSWR from 'swr'
-import { TwitchData } from '../types/default'
+import { HelixStreamsResponse, TwitchOAuthResponse } from '~/types/twitch'
 import fetch from './fetch'
 
 export async function getTwitchData(token: string, user: string | string[] = 'resir014') {
@@ -14,7 +14,7 @@ export async function getTwitchData(token: string, user: string | string[] = 're
   })
 
   try {
-    const res = await fetch(apiUrl, {
+    const res = await fetch<HelixStreamsResponse>(apiUrl, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -40,7 +40,7 @@ export async function getTwitchToken() {
     }
   })
 
-  return fetch(tokenUrl, {
+  return fetch<TwitchOAuthResponse>(tokenUrl, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -56,7 +56,7 @@ export async function getTwitchToken() {
 }
 
 export function useTwitchData(user = 'resir014') {
-  const { data, error } = useSWR<{ data: TwitchData[] }>(`/api/twitch-api/?user=${user}`, fetch)
+  const { data, error } = useSWR<HelixStreamsResponse>(`/api/twitch-api/?user=${user}`, fetch)
   const streamInfo = Boolean(data?.data && data?.data[0])
 
   return {
