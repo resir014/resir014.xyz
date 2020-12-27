@@ -2,8 +2,8 @@ import { css } from '@emotion/react'
 import * as React from 'react'
 import { Anchor, Box, Heading, Text, BoxProps } from '@resir014/chungking-react'
 import { Twitch } from 'react-feather'
+import { formatRelativeTime } from '~/lib/date-formatter'
 import { useTwitchData } from '~/lib/twitch-api'
-import relativeTime from '~/lib/relative-time'
 
 interface LiveStreamStatusProps extends BoxProps {
   username?: string
@@ -66,7 +66,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
     if (data) {
       return (
         <Text as="p" display="block" mt="xs">
-          Streaming for {relativeTime(new Date(data.started_at))}
+          Streaming for {formatRelativeTime(new Date(data.started_at))}
         </Text>
       )
     }
