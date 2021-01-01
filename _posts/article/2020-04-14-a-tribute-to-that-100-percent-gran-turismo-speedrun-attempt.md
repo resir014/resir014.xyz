@@ -41,7 +41,7 @@ Let's meet our team. First we have Tyler (aka [thebook92](https://www.twitch.tv/
 
 The COVID-19 lockdown might be part of the reason this run attempt came to be, but Tyler did mention in a post-stream Q&A session that this run is what he has always wanted to do - the lockdown provided them with an opportunity to complete this run once and for all.
 
-<iframe src="https://clips.twitch.tv/embed?clip=TsundereAmorphousIguanaPipeHype&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
+<iframe src="https://clips.twitch.tv/embed?clip=TsundereAmorphousIguanaPipeHype&autoplay=false&parent=resir014.xyz" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
 In Gran Turismo 4, you can do races in two modes; A-Spec, where you physically drive the car, and B-Spec, where you enter the "director's mode" and let the AI take over from you, whilst also giving instructions on whether to push harder, reduce the pace a bit, or enter the pits. In this mode you can also run the game at up to 3x speed, which can drastically reduce the time to complete a race. However, the category that they're running is No B-Spec mode, which means you can never use the B-Spec mode in your run, ever.
 
@@ -83,7 +83,7 @@ Their route involved doing the races that would be the most profitable for them,
 
 At hour 67, they unlocked the Formula GT. From there, they would spend over 100 hours in that machine, racking up nearly 10000 miles on its odometer.
 
-<iframe src="https://clips.twitch.tv/embed?clip=BillowingAwkwardAlfalfaBatChest&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
+<iframe src="https://clips.twitch.tv/embed?clip=BillowingAwkwardAlfalfaBatChest&autoplay=false&parent=resir014.xyz" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
 From there, they cleared off the high-speed events in the Bentley Speed 8, that wouldn't require the same amount of control as the Formula GT car, and just needed raw power. After that, it was onto the one-make races.
 
@@ -99,19 +99,19 @@ The Green Hell.
 
 Tyler, being the most experienced of the four, was repeatedly called upon to attempt to save races, frequently on little sleep. This included a Hong Kong race in the Formula GT vs. Group C cars, going a lap down at Côte d’Azur (Monaco to you and me) and needing to bring the deficit back, among several others. Sleep-deprived as he already is at this point of the run, he took the wheel one last time.
 
-<iframe src="https://clips.twitch.tv/embed?clip=GrotesqueInspiringLegMikeHogu&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
+<iframe src="https://clips.twitch.tv/embed?clip=GrotesqueInspiringLegMikeHogu&autoplay=false&parent=resir014.xyz" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
 As mentioned earlier, they were meant to do this during the first hours in their route but they had so many issues, so they decided to put the final Driving Mission aside for the finale.
 
 Many attempts, many close calls. The stress was real.
 
-<iframe src="https://clips.twitch.tv/embed?clip=AcceptableNurturingJackalTooSpicy&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
+<iframe src="https://clips.twitch.tv/embed?clip=AcceptableNurturingJackalTooSpicy&autoplay=false&parent=resir014.xyz" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
 <iframe src="https://clips.twitch.tv/embed?clip=PeppyScrumptiousCurlewTooSpicy&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
 And then on 4:22am, this happened.
 
-<iframe src="https://clips.twitch.tv/embed?clip=ObliviousProductivePeafowlWutFace&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
+<iframe src="https://clips.twitch.tv/embed?clip=ObliviousProductivePeafowlWutFace&autoplay=false&parent=resir014.xyz" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
 They did it. They achieved 100% completion in Gran Turismo 4 after 230 hours of non-stop streaming. Celebrations erupted in the Twitch chat as Tyler accepts the Formula GT Black Edition prize car to stop the timer. They had done what nobody has done before.
 
