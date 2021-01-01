@@ -107,7 +107,7 @@ Many attempts, many close calls. The stress was real.
 
 <iframe src="https://clips.twitch.tv/embed?clip=AcceptableNurturingJackalTooSpicy&autoplay=false&parent=resir014.xyz" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
-<iframe src="https://clips.twitch.tv/embed?clip=PeppyScrumptiousCurlewTooSpicy&autoplay=false" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
+<iframe src="https://clips.twitch.tv/embed?clip=PeppyScrumptiousCurlewTooSpicy&autoplay=false&parent=resir014.xyz" frameborder="0" allowfullscreen="true" height="378" width="620"></iframe>
 
 And then on 4:22am, this happened.
 
