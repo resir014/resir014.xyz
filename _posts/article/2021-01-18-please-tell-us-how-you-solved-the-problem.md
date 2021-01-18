@@ -14,11 +14,11 @@ There's never been a better time to start programming. With the internet at our 
 
 There are also online communities for the programming languages you enjoy. There you can meet like-minded people and discuss your favourite languages/libraries, share your knowledge with others, and ask for help if you're stuck.
 
-Previously if you came across errors while programming, you would have to consult a reference specific to the programming language you're writing in - which could be hundreds of pages long - and find the exact section for the error you're having. No [Google](https://www.google.com/), [StackOverflow](https://stackoverflow.com/), or [freeCodeCamp](https://www.freecodecamp.org/) to help you.
+Previously if you came across errors while programming, you would have to consult a reference specific to the programming language you're writing in — which could be hundreds of pages long — and find the exact section for the error you're having. No [Google](https://www.google.com/), [Stack Overflow](https://stackoverflow.com/), or [freeCodeCamp](https://www.freecodecamp.org/) to help you.
 
 Nowadays everything is available at our fingertips. If you know where to look, a quick web search would get you to your solution. Or you can jump into discussion boards of programming communities to ask for help, and get answers from people who are fluent in the languages that you use.
 
-But there are times where we take the convenience of modern programming too much for granted. And there are times where we forget, the web is a huge knowledgebase that people will come across in the future.
+But there are times where we take the convenience of modern programming too much for granted. And there are times where we forget the web is a huge knowledgebase that people will come across in the future.
 
 Too often I go on the help channels of developer communities seeing this.
 
@@ -38,7 +38,7 @@ You're stuck for hours on end on a certain tech problem, be it standard computer
 
 Jackpot. You found a thread on some random tech forum you've barely heard about, and you decided to click said search result, hoping to find a solution.
 
-One post. Zero replies. The OP explained exactly the problem you're having, to amazing detail. But alas, nobody seem to have replied with a solution. Or even worse, nobody seemed to care.
+One post. Zero replies. The OP explained exactly the problem you're having, in amazing detail. But alas, nobody seem to have replied with a solution. Or even worse, nobody seemed to care.
 
 You felt frustrated. It was so close, yet so far. Did this random person solve their problem in the end? Did they jump around into other forums, and ask the same question hoping someone will answer? Or did they just give up, and continue to throw more solutions into the problem until something works? _What did they see?_
 
