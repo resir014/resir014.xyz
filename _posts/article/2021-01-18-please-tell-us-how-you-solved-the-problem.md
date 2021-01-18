@@ -51,7 +51,7 @@ There's even a relevant XKCD to this.
   <figcaption><a href="https://xkcd.com/979/">"Wisdom of the Ancients"</a> - xkcd.com</figcaption>
 </figure>
 
-In the next section, I ask every single one in the developer communities I participate in to practice good etiquette in asking help from the internet. All you need to do is simple.
+In the next section, I ask everyone in the developer communities I participate in to practice good etiquette in asking help from the internet. All you need to do is simple.
 
 ---
 
