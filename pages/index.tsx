@@ -67,7 +67,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, rece
                   <PostListItem key={post.slug} post={post} />
                 ))}
               </Stack>
-              <Text variant={500}>
+              <Text display="block" variant={500}>
                 <Link href="/posts" passHref>
                   <Anchor>View all posts &rarr;</Anchor>
                 </Link>
@@ -80,7 +80,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, rece
             <Stack spacing="xxl">
               <HomepageSectionHeader title="Reading list" />
               <BookmarkList bookmarks={featuredBookmarks} />
-              <Text variant={500}>
+              <Text display="block" variant={500}>
                 <Link href="/bookmarks" passHref>
                   <Anchor>View all bookmarks &rarr;</Anchor>
                 </Link>
@@ -93,7 +93,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, rece
             <Stack spacing="xxl">
               <HomepageSectionHeader title="Current jam" description="What have I been listening to on repeat?" />
               {renderFeaturedVideo(recentJam, 'jam')}
-              <Text variant={500}>
+              <Text display="block" variant={500}>
                 <Link href="/jam" passHref>
                   <Anchor>View all jams &rarr;</Anchor>
                 </Link>
@@ -106,7 +106,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, rece
             <Stack spacing="xxl">
               <HomepageSectionHeader title="Recently watched" />
               {renderFeaturedVideo(recentVideo, 'videos')}
-              <Text variant={500}>
+              <Text display="block" variant={500}>
                 <Link href="/videos" passHref>
                   <Anchor>View all videos &rarr;</Anchor>
                 </Link>
@@ -119,7 +119,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, rece
             <Stack spacing="xxl">
               <HomepageSectionHeader title="Featured photo" description="Sometimes I go outside and take photos with my camera." />
               <FeaturedPhoto photo={featuredPhoto} />
-              <Text variant={500}>
+              <Text display="block" variant={500}>
                 <Link href="/photos" passHref>
                   <Anchor>View all photos &rarr;</Anchor>
                 </Link>
@@ -132,7 +132,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, rece
             <Stack spacing="xxl">
               <HomepageSectionHeader title="Featured project" />
               <FeaturedProjectCard project={featuredProject} />
-              <Text variant={500}>
+              <Text display="block" variant={500}>
                 <Link href="/projects" passHref>
                   <Anchor>View all projects &rarr;</Anchor>
                 </Link>
