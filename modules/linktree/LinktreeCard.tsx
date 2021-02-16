@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import * as React from 'react'
-import { Anchor, Box, BoxProps, colors } from '@resir014/chungking-react'
+import { Anchor, Box, BoxProps, theme } from '@resir014/chungking-react'
 import { LinktreeItem } from '~/types/default'
 
 interface LinktreeCardProps extends BoxProps {
@@ -26,7 +26,7 @@ const LinktreeCard: React.FC<LinktreeCardProps> = ({ className, style, item, ...
         target="_blank"
         rel="noopener noreferrer"
         css={css`
-          color: ${item.textColor || colors.white};
+          color: ${item.textColor || theme.colors.white};
 
           &::after {
             content: '';

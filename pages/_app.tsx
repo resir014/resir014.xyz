@@ -2,10 +2,10 @@ import * as React from 'react'
 import { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
-import { CacheProvider, Global } from '@emotion/react'
+import { CacheProvider, Global, useTheme } from '@emotion/react'
 import nProgress from 'nprogress'
 
-import { ChungkingProvider, colors } from '@resir014/chungking-react'
+import { ChungkingProvider, Theme } from '@resir014/chungking-react'
 import nProgressStyles from '~/styles/nProgressStyles'
 import prismTheme from '~/styles/prismTheme'
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo'
@@ -30,6 +30,8 @@ export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric)
 }
 
 function App({ Component, pageProps, router }: AppProps) {
+  const theme: Theme = useTheme() as Theme
+
   React.useEffect(() => {
     // NProgress
     router.events.on('routeChangeStart', () => progress.start())
@@ -62,8 +64,8 @@ function App({ Component, pageProps, router }: AppProps) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="msapplication-TileColor" content={colors.blue[500]} />
-        <meta name="theme-color" content={colors.blue[500]} />
+        <meta name="msapplication-TileColor" content={theme.colors.blue[500]} />
+        <meta name="theme-color" content={theme.colors.blue[500]} />
         <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
         <meta name="monetization" content={process.env.NEXT_PUBLIC_ILP_URL} />
       </Head>

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { mediaQueries, widths } from '@resir014/chungking-react'
+import { theme } from '@resir014/chungking-react'
 
 export type ContainerSizes = 'md' | 'lg' | 'xl' | 'fluid'
 
@@ -11,18 +11,18 @@ interface ContainerProps {
 }
 
 const MediumStyles = css`
-  max-width: ${widths.md}px;
+  max-width: ${theme.sizes.containers.md}px;
 `
 
 const LargeStyles = css`
-  ${mediaQueries.lg} {
-    max-width: ${widths.lg}px;
+  ${theme.mediaQueries.lg} {
+    max-width: ${theme.sizes.containers.lg}px;
   }
 `
 
 const XLargeStyles = css`
-  ${mediaQueries.xl} {
-    max-width: ${widths.xl}px;
+  ${theme.mediaQueries.xl} {
+    max-width: ${theme.sizes.containers.xl}px;
   }
 `
 

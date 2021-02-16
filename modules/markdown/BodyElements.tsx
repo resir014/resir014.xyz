@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/react'
 
-import { Paragraph, ParagraphProps, Text, TextProps, Box, BoxProps, Stack, colors, space, shadows } from '@resir014/chungking-react'
+import { Paragraph, ParagraphProps, Text, TextProps, Box, BoxProps, Stack, theme } from '@resir014/chungking-react'
 
 interface WithStylesProps {
   className?: string
@@ -23,7 +23,7 @@ const UnorderedListStyles = css`
   > li::before {
     content: '–';
     display: inline-block;
-    color: ${colors.grey[300]};
+    color: ${theme.colors.grey[300]};
     position: absolute;
     margin-left: -15px;
   }
@@ -36,10 +36,10 @@ const OrderedListStyles = css`
 
 const BlockquoteStyles = css`
   padding: 0;
-  padding-right: ${space.md}px;
-  padding-left: ${space.sm}px;
-  color: ${colors.grey[200]};
-  border-left: 1px solid ${colors.white};
+  padding-right: ${theme.space.md}px;
+  padding-left: ${theme.space.sm}px;
+  color: ${theme.colors.grey[200]};
+  border-left: 1px solid ${theme.colors.white};
 
   &:first-child {
     margin-top: 0;
@@ -57,7 +57,7 @@ const CodeBlockStyles = css`
 const InlineCodeStyles = css`
   padding: 0.125rem 0.25rem;
   font-size: 90%;
-  color: ${colors.magenta[400]};
+  color: ${theme.colors.magenta[400]};
   background-color: #1d1f21;
   border-radius: 3px;
 `
@@ -66,9 +66,9 @@ const FigureStyles = css`
   img {
     margin: 0 auto;
     border-radius: 6px;
-    box-shadow: ${shadows.single};
+    box-shadow: ${theme.shadows.single};
     vertical-align: middle;
-    background-color: ${colors.grey[900]};
+    background-color: ${theme.colors.grey[900]};
   }
 
   figcaption:not(:first-child) {

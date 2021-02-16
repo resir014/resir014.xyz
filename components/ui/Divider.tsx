@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { colors, space } from '@resir014/chungking-react'
+import { theme } from '@resir014/chungking-react'
 
 interface DividerProps {
   className?: string
@@ -13,7 +13,7 @@ interface DividerProps {
 const Divider: React.FC<DividerProps> = ({ className }) => <hr className={className} />
 
 const DividerFullWidth = (props: DividerProps) => css`
-  width: ${space.xxl * 2}px;
+  width: ${theme.space.xxl * 2}px;
   margin-left: ${props.center ? 'auto' : 0};
   margin-right: auto;
 `
@@ -22,20 +22,20 @@ const DividerMatcher = (props: DividerProps) => {
   switch (props.spacing) {
     case 'large': {
       return css`
-        margin-top: ${space.xxl}px;
-        margin-bottom: ${space.xxl}px;
+        margin-top: ${theme.space.xxl}px;
+        margin-bottom: ${theme.space.xxl}px;
       `
     }
     case 'small': {
       return css`
-        margin-top: ${space.md}px;
-        margin-bottom: ${space.md}px;
+        margin-top: ${theme.space.md}px;
+        margin-bottom: ${theme.space.md}px;
       `
     }
     default: {
       return css`
-        margin-top: ${space.lg}px;
-        margin-bottom: ${space.lg}px;
+        margin-top: ${theme.space.lg}px;
+        margin-bottom: ${theme.space.lg}px;
       `
     }
   }
@@ -46,7 +46,7 @@ const DividerBase = (props: DividerProps) => css`
   height: 6px;
   border: none;
   border-radius: 6px;
-  background: linear-gradient(to right, ${colors.blue[500]}, ${colors.magenta[400]});
+  background: linear-gradient(to right, ${theme.colors.blue[500]}, ${theme.colors.magenta[400]});
 
   ${!props.fullWidth && DividerFullWidth(props)};
 `

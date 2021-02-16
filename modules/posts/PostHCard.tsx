@@ -3,7 +3,7 @@ import classnames from 'clsx'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { Box, BoxProps, colors, Heading, Text } from '@resir014/chungking-react'
+import { Box, BoxProps, theme, Heading, Text } from '@resir014/chungking-react'
 import { SiteAuthor } from '~/types/default'
 
 interface PostHCardProps extends BoxProps {
@@ -17,7 +17,7 @@ const HCardAvatarImg = styled('img')`
   width: 64px;
   height: 64px;
   margin: 0;
-  border: 2px solid ${colors.white};
+  border: 2px solid ${theme.colors.white};
   border-radius: 64px;
 `
 

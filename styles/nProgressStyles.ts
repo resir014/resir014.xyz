@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import { colors } from '@resir014/chungking-react'
+import { theme } from '@resir014/chungking-react'
 
-const progressBarColor = colors.white
+const progressBarColor = theme.colors.white
 
 const nProgressStyles = css`
   /* Make clicks pass-through */

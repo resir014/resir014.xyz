@@ -3,7 +3,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { css } from '@emotion/react'
 import convert from 'htmr'
-import { Heading, Paragraph, colors, Badge, AnchorButton, BoxProps, Card, Text, Box } from '@resir014/chungking-react'
+import { Heading, Paragraph, theme, Badge, AnchorButton, BoxProps, Card, Text, Box } from '@resir014/chungking-react'
 import htmrTransform from '~/lib/htmr-transform'
 import { ProjectMetadata } from '~/types/projects'
 
@@ -12,13 +12,13 @@ import ProjectTags from './ProjectTags'
 const colorByCategory = (category: string) => {
   switch (category) {
     case 'portfolio':
-      return `${colors.turquoise[400]}`
+      return `${theme.colors.turquoise[400]}`
     case 'oss':
-      return `${colors.orange[400]}`
+      return `${theme.colors.orange[400]}`
     case 'other':
-      return `${colors.magenta[400]}`
+      return `${theme.colors.magenta[400]}`
     default:
-      return `${colors.grey[900]}`
+      return `${theme.colors.grey[900]}`
   }
 }
 
