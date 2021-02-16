@@ -1,12 +1,12 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { space } from '@resir014/chungking-react'
+import { theme } from '@resir014/chungking-react'
 
 const StyledHomepageContent = styled('main')`
   display: block;
   flex: 1 1 auto;
-  padding: 96px ${space.lg}px;
+  padding: 96px ${theme.space.lg}px;
 `
 
 interface HomepageContentProps {

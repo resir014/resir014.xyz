@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { transparentize } from 'polished'
 import * as React from 'react'
-import { Anchor, Box, Text, BoxProps, colors, Heading } from '@resir014/chungking-react'
+import { Anchor, Box, Text, BoxProps, theme, Heading } from '@resir014/chungking-react'
 import { BaseBookmarkProps } from '~/types/posts'
 
 interface BookmarkListItemProps extends BoxProps {
@@ -20,8 +20,8 @@ const BookmarkListItem: React.FC<BookmarkListItemProps> = ({ bookmark, ...rest }
       boxShadow="single"
       borderRadius={6}
       css={css`
-        background-color: ${colors.grey[800]};
-        background-image: linear-gradient(to right, ${colors.grey[800]}, ${colors.grey[700]});
+        background-color: ${theme.colors.grey[800]};
+        background-image: linear-gradient(to right, ${theme.colors.grey[800]}, ${theme.colors.grey[700]});
       `}
       {...rest}
     >
@@ -55,7 +55,7 @@ const BookmarkListItem: React.FC<BookmarkListItemProps> = ({ bookmark, ...rest }
           <span>{title}</span>&nbsp;&rarr;
         </Anchor>
       </Heading>
-      <Text display="block" variant={300} px="lg" py="xs" backgroundColor={transparentize(0.3, colors.black)}>
+      <Text display="block" variant={300} px="lg" py="xs" backgroundColor={transparentize(0.3, theme.colors.black)}>
         {parsedURL.host}
       </Text>
     </Box>

@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import Link from 'next/link'
 
-import { mediaQueries, colors, widths, Text, breakpoints, space } from '@resir014/chungking-react'
+import { theme, Text } from '@resir014/chungking-react'
 import { MenuProps } from '~/types/default'
 
 import MastheadNav from './MastheadNav'
@@ -15,11 +15,11 @@ interface MastheadProps extends MenuProps {
 
 const Root = styled('nav')`
   display: grid;
-  grid-template-columns: 1fr 1fr minmax(auto, ${widths.xl}px) 1fr 1fr;
-  padding: 0 ${space.lg}px;
-  background-color: ${colors.black};
+  grid-template-columns: 1fr 1fr minmax(auto, ${theme.sizes.containers.xl}px) 1fr 1fr;
+  padding: 0 ${theme.space.lg}px;
+  background-color: ${theme.colors.black};
   z-index: 50;
-  box-shadow: inset 0 -1px ${colors.grey[900]};
+  box-shadow: inset 0 -1px ${theme.colors.grey[900]};
 `
 
 const MastheadInner = styled('ul')`
@@ -31,7 +31,7 @@ const MastheadInner = styled('ul')`
   padding: 0;
   list-style-type: none;
 
-  ${mediaQueries.lg} {
+  ${theme.mediaQueries.lg} {
     justify-content: flex-end;
   }
 `
@@ -39,7 +39,7 @@ const MastheadInner = styled('ul')`
 const MastheadTitle = styled(Text)`
   margin-right: auto;
 
-  @media (max-width: calc(${breakpoints[3]} - 1px)) {
+  @media (max-width: calc(${theme.breakpoints[3]} - 1px)) {
     flex-basis: 100%;
     text-align: center;
   }

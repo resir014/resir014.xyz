@@ -1,7 +1,7 @@
 // tslint:disable:no-unused-expression
 
 import { css } from '@emotion/react'
-import { colors } from '@resir014/chungking-react'
+import { theme } from '@resir014/chungking-react'
 
 const prismTheme = css`
   /**
@@ -42,7 +42,7 @@ const prismTheme = css`
 
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
-    color: ${colors.magenta[400]};
+    color: ${theme.colors.magenta[400]};
     background: #1d1f21;
   }
 

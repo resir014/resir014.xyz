@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Text, Heading, colors, shadows, Badge, Box, BoxProps, Anchor } from '@resir014/chungking-react'
+import { Text, Heading, theme, Badge, Box, BoxProps, Anchor } from '@resir014/chungking-react'
 import { P } from '~/modules/markdown'
 
 import ProjectTags from './ProjectTags'
@@ -14,10 +14,10 @@ const FeaturedProjectWrapper = styled(Box)`
   display: flex;
   flex-direction: column;
   min-height: 300px;
-  color: ${colors.white};
+  color: ${theme.colors.white};
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: ${shadows.single};
+  box-shadow: ${theme.shadows.single};
 
   .column {
     flex: 1;
@@ -28,8 +28,8 @@ const FeaturedProjectDetails = styled('div')`
   display: flex;
   flex-direction: column;
   padding: 24px;
-  background-color: ${colors.ultramarine[500]};
-  background-image: linear-gradient(to right, ${colors.ultramarine[500]}, ${colors.blue[500]});
+  background-color: ${theme.colors.ultramarine[500]};
+  background-image: linear-gradient(to right, ${theme.colors.ultramarine[500]}, ${theme.colors.blue[500]});
 `
 
 interface FeaturedProjectCardProps extends BoxProps {

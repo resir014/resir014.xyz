@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { transparentize } from 'polished'
 
-import { colors, Heading, Text, Stack } from '@resir014/chungking-react'
+import { theme, Heading, Text, Stack } from '@resir014/chungking-react'
 
 import siteMetadata from '~/_data/siteMetadata.json'
 import { HeroWrapper } from '~/components/layout'
@@ -15,7 +15,7 @@ const HomepageHero: React.FC = () => {
         className="p-author h-card"
         spacing="xs"
         p="lg"
-        backgroundColor={transparentize(0.75, colors.blue[500])}
+        backgroundColor={transparentize(0.75, theme.colors.blue[500])}
         borderLeft="4px solid"
         borderLeftColor="blue.500"
         boxShadow="double"

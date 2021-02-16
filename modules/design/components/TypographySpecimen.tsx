@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-import { fonts } from '@resir014/chungking-react'
+import { theme } from '@resir014/chungking-react'
 
 interface ColorSwatchProps {
   weight?: number
@@ -23,13 +23,13 @@ export default TypographySpecimen
 
 const MonospaceText = (props: ColorSwatchProps) => css`
   font-weight: ${props.weight};
-  font-family: ${fonts.monospace};
+  font-family: ${theme.fonts.monospace};
 `
 
 const SansText = (props: ColorSwatchProps) => css`
   font-size: 2rem;
   font-weight: ${props.weight};
-  font-family: ${fonts.sansSerif};
+  font-family: ${theme.fonts.sansSerif};
 `
 
 const Text = styled('div')<ColorSwatchProps>`

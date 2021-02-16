@@ -1,4 +1,4 @@
-import { Box, colors, widths } from '@resir014/chungking-react'
+import { Box, theme } from '@resir014/chungking-react'
 import { darken, transparentize } from 'polished'
 import * as React from 'react'
 
@@ -13,15 +13,15 @@ const HeroWrapper: React.FC<HeroWrapperProps> = ({ children, className }) => {
     <Box
       as="header"
       display="grid"
-      gridTemplateColumns={`1fr 1fr minmax(auto, ${widths.md}px) 1fr 1fr`}
+      gridTemplateColumns={`1fr 1fr minmax(auto, ${theme.sizes.containers.md}px) 1fr 1fr`}
       position="relative"
       m={0}
       py="xxl"
       px="lg"
-      backgroundColor={darken(0.05, colors.black)}
-      background={`linear-gradient(0deg, ${transparentize(0.75, colors.black)}, ${transparentize(
+      backgroundColor={darken(0.05, theme.colors.black)}
+      background={`linear-gradient(0deg, ${transparentize(0.75, theme.colors.black)}, ${transparentize(
         0.75,
-        colors.ultramarine[700]
+        theme.colors.ultramarine[700]
       )}), url(${BackgroundPattern})`}
       borderBottom="1px solid"
       borderBottomColor="grey.900"

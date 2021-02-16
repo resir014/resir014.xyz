@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { colors, shadows } from '@resir014/chungking-react'
+import { theme } from '@resir014/chungking-react'
 
 interface ColorSwatchProps {
   color: string
@@ -64,7 +64,7 @@ const Inner = styled('div')<ColorSwatchProps>`
   justify-content: center;
   height: 76px;
   width: 76px;
-  color: ${(props) => (props.darkText ? colors.black : colors.white)};
+  color: ${(props) => (props.darkText ? theme.colors.black : theme.colors.white)};
   font-size: 12px;
   background: ${(props) => props.color};
   border: 1px solid transparent;
@@ -82,14 +82,14 @@ const Root = styled('button')`
   border: none;
   border-radius: 5px;
   background: none;
-  background-color: ${colors.grey[900]};
+  background-color: ${theme.colors.grey[900]};
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: ${shadows.single};
+  box-shadow: ${theme.shadows.single};
 
   &:hover,
   &:focus {
-    box-shadow: ${shadows.double};
+    box-shadow: ${theme.shadows.double};
   }
 
   &:focus {

@@ -1,27 +1,27 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { space, colors, mediaQueries, Stack, Box, Text } from '@resir014/chungking-react'
+import { theme, Stack, Box, Text } from '@resir014/chungking-react'
 import Container from './Container'
 
 import CCLogo from '~/assets/images/cc-by-nc-sa.svg'
 
 const StyledFooter = styled('footer')`
-  border-top: 1px solid ${colors.grey[900]};
-  padding: ${space.lg}px;
+  border-top: 1px solid ${theme.colors.grey[900]};
+  padding: ${theme.space.lg}px;
 `
 
 const FooterContent = styled('div')`
   a {
-    color: ${colors.turquoise[400]};
+    color: ${theme.colors.turquoise[400]};
     text-decoration: underline;
 
     &:hover,
     &:focus {
-      color: ${colors.turquoise[400]};
+      color: ${theme.colors.turquoise[400]};
     }
 
-    ${mediaQueries.md} {
+    ${theme.mediaQueries.md} {
       text-decoration: none;
 
       &:hover,

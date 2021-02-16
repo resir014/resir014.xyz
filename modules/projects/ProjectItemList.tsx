@@ -1,13 +1,13 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-import { Heading, colors, Stack, Box, BoxProps } from '@resir014/chungking-react'
+import { Heading, theme, Stack, Box, BoxProps } from '@resir014/chungking-react'
 import { ProjectMetadata } from '~/types/projects'
 
 import ProjectItem from './ProjectItem'
 
 const ProjectEmpty = styled('p')`
-  color: ${colors.grey[400]};
+  color: ${theme.colors.grey[400]};
 `
 
 export interface ProjectItemListProps extends BoxProps {

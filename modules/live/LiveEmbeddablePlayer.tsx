@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { hsl, parseToHsl } from 'polished'
 import * as React from 'react'
-import { Box, colors, AspectRatio, Iframe, Text } from '@resir014/chungking-react'
+import { Box, theme, AspectRatio, Iframe, Text } from '@resir014/chungking-react'
 import { useTwitchData } from '~/lib/twitch-api'
 
 interface LiveEmbeddablePlayerProps {
@@ -10,8 +10,8 @@ interface LiveEmbeddablePlayerProps {
 
 const LiveEmbeddablePlayer: React.FC<LiveEmbeddablePlayerProps> = ({ username }) => {
   const { data, isLoading, isError } = useTwitchData(username)
-  const backgroundHsl = parseToHsl(colors.grey[900])
-  const textHsl = parseToHsl(colors.grey[50])
+  const backgroundHsl = parseToHsl(theme.colors.grey[900])
+  const textHsl = parseToHsl(theme.colors.grey[50])
 
   const renderPlayer = () => {
     if (data && !isError) {
