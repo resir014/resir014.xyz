@@ -1991,9 +1991,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@resir014/chungking-react@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "@resir014/chungking-react@npm:0.2.0"
+"@resir014/chungking-react@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@resir014/chungking-react@npm:0.2.1"
   dependencies:
     "@spicy-ui/styled-system": ^0.0.1-alpha.3
     clsx: ^1.1.1
@@ -2006,7 +2006,7 @@ __metadata:
     "@emotion/styled": ^11.0.0
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
-  checksum: 82d97d8debdb44ed6c33136f17f351dfb6f2402c9a689b5518fbe039d710b97ad83c87123c2f13690828a1abe753263ef95781bec828c75c2669ed7a4db4efc0
+  checksum: 4629d97649414c23f22b9f20a160d34b9afdbc4335593ad831fd91f295e18f9a840c420e62bd6e9d15a8dd1d37b358dba87458cf58e51d09324ea4aba82ffaad
   languageName: node
   linkType: hard
 
@@ -8449,7 +8449,7 @@ fsevents@~2.3.1:
     "@emotion/server": ^11.0.0
     "@emotion/styled": ^11.1.5
     "@netlify/plugin-nextjs": ^1.1.1
-    "@resir014/chungking-react": ^0.2.0
+    "@resir014/chungking-react": ^0.2.1
     "@types/glob": ^7.1.3
     "@types/google.analytics": ^0.0.41
     "@types/markdown-it": ^12.0.1
