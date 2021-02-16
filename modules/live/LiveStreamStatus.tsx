@@ -44,7 +44,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
           <Text ml="xs" variant={300}>
             &middot;
           </Text>
-          <Text display="block" variant={300} ml="xs" {...rest}>
+          <Text display="block" variant={300} ml="xs">
             {data?.viewer_count} viewers
           </Text>
         </>
@@ -138,7 +138,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
       <Box display="flex" alignItems="center" px="md" py="md">
         <Box display="flex" flexDirection="row" alignItems="center">
           <Twitch aria-hidden size={18} />
-          <Text variant={300} ml="xs">
+          <Text display="block" variant={300} ml="xs">
             {username}
           </Text>
         </Box>
