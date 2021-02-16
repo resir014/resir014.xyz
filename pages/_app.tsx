@@ -2,10 +2,10 @@ import * as React from 'react'
 import { AppProps, NextWebVitalsMetric } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
-import { CacheProvider, Global, useTheme } from '@emotion/react'
+import { CacheProvider, Global } from '@emotion/react'
 import nProgress from 'nprogress'
 
-import { ChungkingProvider, Theme } from '@resir014/chungking-react'
+import { ChungkingProvider, theme } from '@resir014/chungking-react'
 import nProgressStyles from '~/styles/nProgressStyles'
 import prismTheme from '~/styles/prismTheme'
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo'
@@ -30,8 +30,6 @@ export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric)
 }
 
 function App({ Component, pageProps, router }: AppProps) {
-  const theme: Theme = useTheme() as Theme
-
   React.useEffect(() => {
     // NProgress
     router.events.on('routeChangeStart', () => progress.start())
