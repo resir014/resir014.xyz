@@ -8,11 +8,7 @@ interface WithStylesProps {
   style?: React.CSSProperties
 }
 
-export const P: React.FC<WithStylesProps & ParagraphProps> = ({ children, ...rest }) => (
-  <Paragraph variant={400} {...rest}>
-    {children}
-  </Paragraph>
-)
+export const P: React.FC<WithStylesProps & ParagraphProps> = ({ children, ...rest }) => <Paragraph {...rest}>{children}</Paragraph>
 
 export const Small: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
   <Text variant={200} {...rest}>

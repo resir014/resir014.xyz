@@ -16,7 +16,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ metadata, embed, title, children,
         <Stack spacing="sm" p="lg" position="relative">
           {metadata}
           {title && (
-            <Heading as="h1" variant={600} mt={0} mb="sm" className="p-name">
+            <Heading as="h1" variant={600} className="p-name">
               {title}
             </Heading>
           )}

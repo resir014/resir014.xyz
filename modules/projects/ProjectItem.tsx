@@ -3,7 +3,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import { css } from '@emotion/react'
 import convert from 'htmr'
-import { Heading, Paragraph, theme, Badge, AnchorButton, BoxProps, Card, Text, Box } from '@resir014/chungking-react'
+import { Heading, Paragraph, theme, Badge, Anchor, BoxProps, Card, Text, Box } from '@resir014/chungking-react'
 import htmrTransform from '~/lib/htmr-transform'
 import { ProjectMetadata } from '~/types/projects'
 
@@ -70,7 +70,7 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ project, ...rest }) => {
       </Box>
       <Box pt={0} px="lg" pb="lg">
         <Link href="/projects/[slug]" as={`/projects/${slug}`} passHref>
-          <AnchorButton ghosted>Go to project &rarr;</AnchorButton>
+          <Anchor>Go to project &rarr;</Anchor>
         </Link>
       </Box>
     </Card>
