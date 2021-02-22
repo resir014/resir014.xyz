@@ -10,8 +10,8 @@ const HomepageHero: React.FC = () => {
 
   return (
     <HeroWrapper>
-      <Stack spacing="lg">
-        <Stack className="p-author h-card" spacing="xs" py="lg">
+      <Stack spacing="xxl">
+        <Stack className="p-author h-card" spacing="xs">
           <Heading as="h1" className="p-name" variant={900} color="turquoise.400">
             {author.name}
           </Heading>
