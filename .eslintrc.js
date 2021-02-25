@@ -1,8 +1,12 @@
 module.exports = {
   root: true,
-  extends: ['blvd/react', 'prettier', 'prettier/@typescript-eslint', 'prettier/react', 'plugin:prettier/recommended'],
-  plugins: ['prettier'],
+  extends: ['blvd/react', 'plugin:prettier/recommended'],
   rules: {
+    camelcase: 'off',
+    'no-console': 'off',
+    'no-undef': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-unresolved': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'react/jsx-props-no-spreading': 'off',
     'prettier/prettier': 'error'
@@ -18,16 +22,9 @@ module.exports = {
         warnOnUnsupportedTypeScriptVersion: true
       },
       rules: {
-        'no-console': 'off',
-        'no-undef': 'off',
-        'no-unused-vars': 'off',
-        'spaced-comment': ['error', 'always', { markers: ['/'] }],
-        'import/no-extraneous-dependencies': 'off',
-        'import/no-unresolved': 'off',
         '@typescript-eslint/camelcase': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }]
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-explicit-any': 'off'
       }
     },
     {
@@ -35,5 +32,10 @@ module.exports = {
       parserOptions: { sourceType: 'script' },
       env: { node: true }
     }
-  ]
+  ],
+  settings: {
+    'import/resolver': {
+      typescript: {} // this loads <rootdir>/tsconfig.json to eslint
+    }
+  }
 }

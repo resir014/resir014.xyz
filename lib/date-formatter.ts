@@ -1,5 +1,4 @@
-import format from 'date-fns/format'
-import formatDistance from 'date-fns/formatDistance'
+import { format, formatDistance } from 'date-fns'
 
 export const formatPostDate = (date: Date) => `${format(date, 'dd MMMM yyyy')}`
 
