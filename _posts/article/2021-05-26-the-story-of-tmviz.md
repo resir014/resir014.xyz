@@ -84,11 +84,17 @@ I spent a few hours refactoring the control schemes to support multiple input me
 
 The next day, the same streamer reports some issues. After asking some questions, I learned that sometimes he has two controllers plugged in. It turns out, the order of when the controller is plugged in takes precedence in the overlay, and TMViz would. And through computer restarts, the order might change, because of how Windows detects USB devices during bootup. I tweaked the customiser so that users can pick which controller gets picked up by the overlay.
 
+![Screenshot of the controller selection screen.](/assets/article/2021/the-story-of-tmviz/tmviz-controller-selection.png)
+
 I pushed the fix. The next bug report that came from him completely baffled me. The overlay would crash seemingly at random. Throughout my streams and debugging sessions, I could never replicate it.
+
+![Screencap of a Discord message of a streamer reporting the random crash bug.](/assets/article/2021/the-story-of-tmviz/tmviz-bug-report.png)
 
 Then something dawned on me. At work, we've been using [Sentry](https://sentry.io/) to log any errors from our users. Sentry collects detailed stack trace from any user whenever an exception is handled within the code, and it has been instrumental to us at work. So I thought it would be a great time to finally give it a spin on my side projects.
 
 So I implemented Sentry and waited for more errors to come in. Based on the stack trace I collected, it turns out I didn't handle the case where a pressed button doesn't exist in the controller.
+
+![Screenshot of the Sentry log showing the unhandled input.](/assets/article/2021/the-story-of-tmviz/tmviz-rookie-mistake.png)
 
 Oops. Rookie mistake, I know.
 
