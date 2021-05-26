@@ -92,7 +92,7 @@ So I implemented Sentry and waited for more errors to come in. Based on the stac
 
 Oops. Rookie mistake, I know.
 
-Fixing this issue didn't take that long. But of course, debugging and triaging this issue did take a while. I'm glad that tools like Sentry exists. Otherwise the best way of debugging this issue would be individually contacting whoever reported the issue, and asking them about technical stuff they wouldn't understand.
+Fixing this issue didn't take that long. But of course, debugging and triaging this issue did take a while. I'm glad that tools like Sentry exist. Otherwise the best way of debugging this issue would be individually contacting whoever reported the issue, and asking them about technical stuff they wouldn't understand.
 
 After this final fix, the overlay has grown more stable over time. It's still being picked up by more streamers as time goes, and it's becoming more commonly shared around amongst the Trackmania communities on Discord.
 
