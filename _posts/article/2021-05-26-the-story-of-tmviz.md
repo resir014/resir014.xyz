@@ -47,7 +47,7 @@ I recently read [a thread by Kavaeric](https://twitter.com/Kavaeric/status/13919
 - they need a set-and-forget solution that can be easily plugged into any streaming software
 - they use a multitude of controllers; even keyboards
 
-So immediately, I saw the need for a usable overlay customizer. I put together a customiser UI with NextJS and Chakra UI, which generates an overlay URL.
+So immediately, I saw the need for a usable overlay customizer. I put together a customiser UI with [NextJS](https://nextjs.org/) and [Chakra UI](https://chakra-ui.com/), which generates an overlay URL.
 
 ![Screenshot of the TMViz customizer](/assets/article/2021/the-story-of-tmviz/tmviz-customizer.png)
 
@@ -72,7 +72,7 @@ The streamer reported the overlay would be frozen after a while. When this happe
 
 At this point, I was still using the first iteration of my overlay, so I wasn't able to eat my own dogfood. I decided to transition to TMViz so that I could test this issue, and I ran into the same issue. I also realised that when I opened Task Manager, the OBS process which houses the browser source would have an unusually high memory usage.
 
-I decided to run a memory profiler while the overlay was being used, and soon enough, I found the problem. It turns out that implementing the UI of the controller overlay in Chakra UI caused a memory leak. This will cause the overlay to freeze when the OBS browser source can't handle the memory. So I immediately rushed to rewrite the overlay part of TMViz to use [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css).
+I decided to run a memory profiler while the overlay was being used, and soon enough, I found the problem. It turns out that implementing the UI of the controller overlay in Chakra UI [caused a memory leak](https://github.com/resir014/TMViz/issues/5#issuecomment-724651067). This will cause the overlay to freeze when the OBS browser source can't handle the memory. So I immediately rushed to rewrite the overlay part of TMViz to use [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css).
 
 So that's one issue fixed. I could also relax for a bit, knowing that I could now eat my own dogfood by using TMViz on my own channel.
 
