@@ -115,3 +115,5 @@ I would like to personally thank all the streamers who use TMViz. It always brig
 What's next for TMViz, then? The next item on the list would be keyboard support. This would be a technical feat in of itself, but I understand there's a lot of demand for this. So I'll be sure to make that a reality.
 
 Until then, I can assure everyone that I will keep maintaining TMViz as long as I remain in the Trackmania scene. I am also open for any questions regarding the technical side of the overlay, or just to ask for technical support. You can mention me on [Twitter](https://twitter.com/resir014), or you can head over to the `#tmviz-support` channel on my [Discord server](https://discord.gg/ws3P4wf).
+
+For those interested, the code for TMViz is also open source and is [available on GitHub](https://github.com/resir014/TMViz). If you would like to report a bug or help work on pull requests, any contribution is very much appreciated!
