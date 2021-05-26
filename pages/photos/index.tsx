@@ -12,10 +12,9 @@ import siteMetadata from '~/_data/siteMetadata.json'
 import PhotoListItem from '~/modules/photos/PhotoListItem'
 
 export const getStaticProps = async () => {
-  const allPosts: BasePhotoProps[] = getAllPosts(
-    ['category', 'title', 'slug', 'date', 'header_image', 'featured', 'content'],
-    'photo'
-  ).map((post) => ({ ...post, content: renderMarkdown(post.content || '') }))
+  const allPosts: BasePhotoProps[] = getAllPosts(['category', 'title', 'slug', 'date', 'header_image', 'featured', 'content'], 'photo').map(
+    (post) => ({ ...post, content: renderMarkdown(post.content || '') })
+  )
 
   return {
     props: { allPosts, siteMetadata }

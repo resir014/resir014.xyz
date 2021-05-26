@@ -40,6 +40,10 @@ const prismTheme = css`
     border-radius: 0.3em;
   }
 
+  pre > code[class*='language-'] {
+    padding: 0;
+  }
+
   :not(pre) > code[class*='language-'],
   pre[class*='language-'] {
     color: ${theme.colors.magenta[400]};

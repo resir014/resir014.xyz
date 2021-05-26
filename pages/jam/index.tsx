@@ -12,10 +12,9 @@ import { BaseJamProps } from '~/types/posts'
 import siteMetadata from '~/_data/siteMetadata.json'
 
 export const getStaticProps = async () => {
-  const allPosts: BaseJamProps[] = getAllPosts(
-    ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
-    'jam'
-  ).map((post) => ({ ...post, content: renderMarkdown(post.content || '') }))
+  const allPosts: BaseJamProps[] = getAllPosts(['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'], 'jam').map(
+    (post) => ({ ...post, content: renderMarkdown(post.content || '') })
+  )
 
   return {
     props: { allPosts, siteMetadata }
