@@ -5,7 +5,7 @@ layout: post
 title: 'How I accidentally built a popular tool for Trackmania streamers: the story of TMViz'
 lead: 'From a side project created out of frustration, to a tool used by many.'
 header_image: /assets/article/2021/the-story-of-tmviz/header.png
-date: '2021-05-26T14:30:00+07:00'
+date: '2021-05-26T13:00:00+07:00'
 ---
 
 For developers, side projects often feel like a nuisance.
