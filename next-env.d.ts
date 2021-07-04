@@ -4,5 +4,3 @@
 /// <reference types="@emotion/react/types/css-prop" />
 
 /// <reference types="next-images" />
-
-declare var gaOptout: () => void | undefined
