@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 
 import { theme, Stack, Box, Text } from '@resir014/chungking-react'
-import Container from './Container'
+import Container, { ContainerSizes } from './Container'
 
 import CCLogo from '~/assets/images/cc-by-nc-sa.svg'
 
@@ -39,7 +39,7 @@ const FooterContent = styled('div')`
 `
 
 interface FooterProps {
-  size?: 'md' | 'lg' | 'xl' | 'fluid'
+  size?: ContainerSizes
 }
 
 const Img = Box.withComponent('img')
