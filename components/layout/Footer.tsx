@@ -42,12 +42,6 @@ interface FooterProps {
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-declare global {
-  interface Window {
-    gaOptout: () => void | undefined
-  }
-}
-
 const Img = Box.withComponent('img')
 
 const Footer: React.FC<FooterProps> = ({ size }) => {
