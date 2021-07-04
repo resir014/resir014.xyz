@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Box, BoxProps } from '@resir014/chungking-react'
+import { Container } from '~/components/layout'
 
 interface HomepageSectionProps extends BoxProps {
   className?: string
@@ -7,14 +8,10 @@ interface HomepageSectionProps extends BoxProps {
   size?: 'md' | 'lg' | 'xl' | 'fluid'
 }
 
-const HomepageSection: React.FC<HomepageSectionProps> = ({ children, className, style, ...rest }) => (
+const HomepageSection: React.FC<HomepageSectionProps> = ({ children, className, style, size = 'fluid', ...rest }) => (
   <Box as="section" className={className} style={style} {...rest}>
-    {children}
+    <Container size={size}>{children}</Container>
   </Box>
 )
 
 export default HomepageSection
-
-HomepageSection.defaultProps = {
-  size: 'md'
-}

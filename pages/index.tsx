@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import { Stack, Anchor, Text } from '@resir014/chungking-react'
 
-import { Container, Page } from '~/components/layout'
+import { Page } from '~/components/layout'
 import { HomepageContent, HomepageHero, HomepageSection, HomepageSectionHeader } from '~/modules/home'
 import { FeaturedProjectCard } from '~/modules/projects'
 import { FeaturedPhoto } from '~/modules/photos'
@@ -47,98 +47,84 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, rece
     <HomepageHero />
     <HomepageContent>
       <Stack spacing={96}>
-        <HomepageSection>
-          <Container size="md">
-            <Stack spacing="xxl">
-              <HomepageSectionHeader title="Livestream" description="Video game and live coding streams on Twitch, three times a week." />
-              <LiveStreamStatus />
-            </Stack>
-          </Container>
+        <HomepageSection size="md">
+          <Stack spacing="xxl">
+            <HomepageSectionHeader title="Livestream" description="Video game and live coding streams on Twitch, three times a week." />
+            <LiveStreamStatus />
+          </Stack>
         </HomepageSection>
-        <HomepageSection>
-          <Container size="md">
+        <HomepageSection size="md">
+          <Stack spacing="xxl">
+            <HomepageSectionHeader
+              title="Featured articles"
+              description="Writings about web development, technology, and everything in between."
+            />
             <Stack spacing="xxl">
-              <HomepageSectionHeader
-                title="Featured articles"
-                description="Writings about web development, technology, and everything in between."
-              />
-              <Stack spacing="xxl">
-                {allPosts.map((post: PostMetadata) => (
-                  <PostListItem key={post.slug} post={post} />
-                ))}
-              </Stack>
-              <Text display="block" variant={500}>
-                <Link href="/posts" passHref>
-                  <Anchor>View all posts &rarr;</Anchor>
-                </Link>
-              </Text>
+              {allPosts.map((post: PostMetadata) => (
+                <PostListItem key={post.slug} post={post} />
+              ))}
             </Stack>
-          </Container>
+            <Text display="block" variant={500}>
+              <Link href="/posts" passHref>
+                <Anchor>View all posts &rarr;</Anchor>
+              </Link>
+            </Text>
+          </Stack>
         </HomepageSection>
-        <HomepageSection>
-          <Container size="md">
-            <Stack spacing="xxl">
-              <HomepageSectionHeader title="Reading list" />
-              <BookmarkList bookmarks={featuredBookmarks} />
-              <Text display="block" variant={500}>
-                <Link href="/bookmarks" passHref>
-                  <Anchor>View all bookmarks &rarr;</Anchor>
-                </Link>
-              </Text>
-            </Stack>
-          </Container>
+        <HomepageSection size="md">
+          <Stack spacing="xxl">
+            <HomepageSectionHeader title="Reading list" />
+            <BookmarkList bookmarks={featuredBookmarks} />
+            <Text display="block" variant={500}>
+              <Link href="/bookmarks" passHref>
+                <Anchor>View all bookmarks &rarr;</Anchor>
+              </Link>
+            </Text>
+          </Stack>
         </HomepageSection>
-        <HomepageSection>
-          <Container size="md">
-            <Stack spacing="xxl">
-              <HomepageSectionHeader title="Current jam" description="What have I been listening to on repeat?" />
-              {renderFeaturedVideo(recentJam, 'jam')}
-              <Text display="block" variant={500}>
-                <Link href="/jam" passHref>
-                  <Anchor>View all jams &rarr;</Anchor>
-                </Link>
-              </Text>
-            </Stack>
-          </Container>
+        <HomepageSection size="md">
+          <Stack spacing="xxl">
+            <HomepageSectionHeader title="Current jam" description="What have I been listening to on repeat?" />
+            {renderFeaturedVideo(recentJam, 'jam')}
+            <Text display="block" variant={500}>
+              <Link href="/jam" passHref>
+                <Anchor>View all jams &rarr;</Anchor>
+              </Link>
+            </Text>
+          </Stack>
         </HomepageSection>
-        <HomepageSection>
-          <Container size="md">
-            <Stack spacing="xxl">
-              <HomepageSectionHeader title="Recently watched" />
-              {renderFeaturedVideo(recentVideo, 'videos')}
-              <Text display="block" variant={500}>
-                <Link href="/videos" passHref>
-                  <Anchor>View all videos &rarr;</Anchor>
-                </Link>
-              </Text>
-            </Stack>
-          </Container>
+        <HomepageSection size="md">
+          <Stack spacing="xxl">
+            <HomepageSectionHeader title="Recently watched" />
+            {renderFeaturedVideo(recentVideo, 'videos')}
+            <Text display="block" variant={500}>
+              <Link href="/videos" passHref>
+                <Anchor>View all videos &rarr;</Anchor>
+              </Link>
+            </Text>
+          </Stack>
         </HomepageSection>
-        <HomepageSection>
-          <Container size="md">
-            <Stack spacing="xxl">
-              <HomepageSectionHeader title="Featured photo" description="Sometimes I go outside and take photos with my camera." />
-              <FeaturedPhoto photo={featuredPhoto} />
-              <Text display="block" variant={500}>
-                <Link href="/photos" passHref>
-                  <Anchor>View all photos &rarr;</Anchor>
-                </Link>
-              </Text>
-            </Stack>
-          </Container>
+        <HomepageSection size="md">
+          <Stack spacing="xxl">
+            <HomepageSectionHeader title="Featured photo" description="Sometimes I go outside and take photos with my camera." />
+            <FeaturedPhoto photo={featuredPhoto} />
+            <Text display="block" variant={500}>
+              <Link href="/photos" passHref>
+                <Anchor>View all photos &rarr;</Anchor>
+              </Link>
+            </Text>
+          </Stack>
         </HomepageSection>
-        <HomepageSection>
-          <Container size="md">
-            <Stack spacing="xxl">
-              <HomepageSectionHeader title="Featured project" />
-              <FeaturedProjectCard project={featuredProject} />
-              <Text display="block" variant={500}>
-                <Link href="/projects" passHref>
-                  <Anchor>View all projects &rarr;</Anchor>
-                </Link>
-              </Text>
-            </Stack>
-          </Container>
+        <HomepageSection size="md">
+          <Stack spacing="xxl">
+            <HomepageSectionHeader title="Featured project" />
+            <FeaturedProjectCard project={featuredProject} />
+            <Text display="block" variant={500}>
+              <Link href="/projects" passHref>
+                <Anchor>View all projects &rarr;</Anchor>
+              </Link>
+            </Text>
+          </Stack>
         </HomepageSection>
       </Stack>
     </HomepageContent>
