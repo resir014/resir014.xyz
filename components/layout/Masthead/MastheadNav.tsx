@@ -2,7 +2,6 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { css } from '@emotion/react'
 import clsx from 'clsx'
 
 import { Text } from '@resir014/chungking-react'
@@ -26,13 +25,12 @@ const MastheadNav: React.FC<MastheadNavProps> = ({ items }) => {
             as="li"
             key={item.name}
             mr="lg"
-            css={css`
-              text-transform: lowercase;
-
-              &:last-child {
-                margin-right: 0;
+            sx={{
+              textTransform: 'lowercase',
+              _last: {
+                marginRight: 0
               }
-            `}
+            }}
           >
             <Link href={item.path} as={item.as} passHref>
               <a css={MastheadLinkStyles} className={clsx(isActive && 'is-active')}>

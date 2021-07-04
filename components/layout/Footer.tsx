@@ -87,10 +87,7 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
                   <a href="https://github.com/resir014/resir014.xyz" target="_blank" rel="noopener noreferrer">
                     MIT License
                   </a>
-                  .{' '}
-                  <a href="https://blacklivesmatters.carrd.co/" target="_blank" rel="noopener noreferrer">
-                    #BLM
-                  </a>
+                  .
                 </Text>
               </Box>
             </Box>
