@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['blvd/react', 'plugin:prettier/recommended'],
+  extends: ['blvd/react', 'plugin:prettier/recommended', 'plugin:@next/next/recommended'],
   rules: {
     camelcase: 'off',
     'no-console': 'off',
