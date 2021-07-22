@@ -8,7 +8,7 @@ interface PostSubtitleProps {
 
 const PostSubtitle: React.FC<PostSubtitleProps> = ({ className, style, children }) => {
   return (
-    <Text as="p" mt="sm" mb={0} variant={500} fontWeight={300} className={className} style={style}>
+    <Text as="p" mt="sm" mb={0} fontSize="2xl" lineHeight="shorter" fontWeight={300} className={className} style={style}>
       {children}
     </Text>
   )

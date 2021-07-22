@@ -13,7 +13,7 @@ const HomepageSectionHeader: React.FC<HomepageSectionHeaderProps> = ({ className
   <Stack spacing="xs" className={className} style={style} {...rest}>
     <HomepageSectionTitle>{title}</HomepageSectionTitle>
     {description && (
-      <Text as="p" variant={500} fontWeight={300}>
+      <Text as="p" fontSize="xl" fontWeight={300}>
         {description}
       </Text>
     )}

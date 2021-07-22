@@ -11,7 +11,7 @@ interface WithStylesProps {
 export const P: React.FC<WithStylesProps & ParagraphProps> = ({ children, ...rest }) => <Paragraph {...rest}>{children}</Paragraph>
 
 export const Small: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text variant={200} {...rest}>
+  <Text fontSize="sm" {...rest}>
     {children}
   </Text>
 )
@@ -130,7 +130,7 @@ export const Figure: React.FC<WithStylesProps & BoxProps> = ({ children, ...rest
 )
 
 export const Figcaption: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Text as="figcaption" variant={100} {...rest}>
+  <Text as="figcaption" fontSize="sm" {...rest}>
     {children}
   </Text>
 )
