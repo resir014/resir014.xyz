@@ -1192,7 +1192,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.12.5, @babel/runtime@npm:^7.12.5":
+"@babel/runtime@npm:7.12.5":
   version: 7.12.5
   resolution: "@babel/runtime@npm:7.12.5"
   dependencies:
@@ -1225,6 +1225,15 @@ __metadata:
   dependencies:
     regenerator-runtime: ^0.13.4
   checksum: ab6653f2f8ecdaebf36674894cef458a9d4f881dc007fdcd50a8261f5c6d9731e03fda2c17e32ecf0e6c779d69eb6cf49d68a48c780aaf07d5b572e8b7ef0508
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.14.0":
+  version: 7.14.8
+  resolution: "@babel/runtime@npm:7.14.8"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: ebadb3e013a26e0f62abea0da6f6f5d83c9566f0d900e65069885f93088066c64586076d15dcbe6e093c536f66cffc9e2e136ad5d8b3e66235af62f0051afa42
   languageName: node
   linkType: hard
 
@@ -1371,6 +1380,16 @@ __metadata:
     "@babel/helper-validator-identifier": ^7.14.0
     to-fast-properties: ^2.0.0
   checksum: 34893ac415826cd2ddead0511be9c3cb876bf626148b00b0a471c4630b193939ba46a9bf9d8b2be88e46fceb3ae9204ed7488ceb6a08a67550211d40df65a7c7
+  languageName: node
+  linkType: hard
+
+"@chakra-ui/css-reset@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@chakra-ui/css-reset@npm:1.0.0"
+  peerDependencies:
+    "@emotion/react": ">=10.0.35"
+    react: ">=16.8.6"
+  checksum: f41eca4d828e5c5d397785e125915104eea68a5759ba3a91c5ecb5e5570b745e012bf95c02d071470146fa15633435015f0f8769515c7aaafd75d156a91ea27e
   languageName: node
   linkType: hard
 
@@ -1838,22 +1857,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@resir014/chungking-react@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "@resir014/chungking-react@npm:0.2.3"
+"@resir014/chungking-react@npm:next":
+  version: 0.2.4-canary.0
+  resolution: "@resir014/chungking-react@npm:0.2.4-canary.0"
   dependencies:
+    "@chakra-ui/css-reset": ^1.0.0
     "@spicy-ui/styled-system": ^0.0.1-alpha.3
     clsx: ^1.1.1
-    csstype: ^3.0.6
+    csstype: ^3.0.8
     deepmerge: ^4.2.2
-    polished: ^4.1.0
+    polished: ^4.1.3
     react-fast-compare: ^3.2.0
   peerDependencies:
     "@emotion/react": ^11.0.0
     "@emotion/styled": ^11.0.0
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
-  checksum: c256cd9944a23a9a0f5d3c17d7bb0526560f647fce9f3d4d8b05b05d17e1138f2df741207993cd72cceaae8568c080dbabd58c1cc0b8a796a6800bc861fe0836
+    react-feather: ^2.0.0
+  checksum: 5b5052b2590d87be259c734d549a52e7861a1c40d4ba822837067ab0e04f98512a588fc0753c3d4df1ef4924f41f3818c8d82d70e2ceab144836259bf27731e2
   languageName: node
   linkType: hard
 
@@ -1861,13 +1882,6 @@ __metadata:
   version: 1.0.6
   resolution: "@rushstack/eslint-patch@npm:1.0.6"
   checksum: cc01301f09d881da550a2f3c6a3f10b72dfb4c422b7a00a4b2e8bfc90d998aee06f08a6e7c9d03db89d5b286318d533435dc6c8c500884fe6ab05cb1309dfcc7
-  languageName: node
-  linkType: hard
-
-"@scarf/scarf@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@scarf/scarf@npm:1.1.0"
-  checksum: 5916794e55f63aeba8e3b57c0bc0cc935fb3341359b9de66cc5ad07ee987eb6cd80cab013b519649cfc8f9ff65b18dd9bb778d377eef2725e8b3dcfc7ff63d64
   languageName: node
   linkType: hard
 
@@ -3716,6 +3730,13 @@ __metadata:
   version: 3.0.6
   resolution: "csstype@npm:3.0.6"
   checksum: ebdca96d26e1af5604658e6876af29ac1e218750efb587684f2b2b13bb062a397b351586d285f911e6985e03112e56c2aee127d35ae7354cc7d25f3000e22556
+  languageName: node
+  linkType: hard
+
+"csstype@npm:^3.0.8":
+  version: 3.0.8
+  resolution: "csstype@npm:3.0.8"
+  checksum: e15233592a2c580fd72c4346a5c921044b8f4f29bcb81628a81199c4d6a91eb8f8e4875f440ef9c990e85f179a3370f3b842fe55e4743119ad0ce712519e7123
   languageName: node
   linkType: hard
 
@@ -8378,22 +8399,21 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"polished@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "polished@npm:4.1.0"
-  dependencies:
-    "@babel/runtime": ^7.12.5
-    "@scarf/scarf": ^1.1.0
-  checksum: 013588440627689567dc4890a47faee534b5cff990839917c9d8f383b993993341e7b6de4ba3ff575222c3a38ca8733123ada456e8818989073d43c6e23e7a55
-  languageName: node
-  linkType: hard
-
 "polished@npm:^4.1.2":
   version: 4.1.2
   resolution: "polished@npm:4.1.2"
   dependencies:
     "@babel/runtime": ^7.13.17
   checksum: 98cd991bba0ee0ec9b8926e374bc6701ebdff2ab9ab7258589046afbe90d3d4e7db48e7c9e32d3e36ba7a6d788ededc6ec053f64f448e6e765edabe9ce28d6aa
+  languageName: node
+  linkType: hard
+
+"polished@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "polished@npm:4.1.3"
+  dependencies:
+    "@babel/runtime": ^7.14.0
+  checksum: 1ba2b0a8d7ca9e229359abf3a743eabe861b2b17ea69b088de5b0905d78401ac2b258371804208af5b412818a6d5ee28359ef6c79cd054245c159fe6c756a85c
   languageName: node
   linkType: hard
 
@@ -8885,7 +8905,7 @@ fsevents@~2.3.1:
     "@emotion/server": ^11.4.0
     "@emotion/styled": ^11.3.0
     "@netlify/plugin-nextjs": ^3.6.1
-    "@resir014/chungking-react": ^0.2.3
+    "@resir014/chungking-react": next
     "@types/glob": ^7.1.3
     "@types/google.analytics": ^0.0.41
     "@types/markdown-it": ^12.0.1
