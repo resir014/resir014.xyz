@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import * as React from 'react'
-import { Anchor, Box, Heading, Text, BoxProps } from '@resir014/chungking-react'
+import { Box, Text, BoxProps, Link, Heading } from '@resir014/chungking-react'
 import { Twitch } from 'react-feather'
 import { formatRelativeTime } from '~/lib/date-formatter'
 import { useTwitchData } from '~/lib/twitch-api'
@@ -28,10 +28,10 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
     if (isError) {
       return (
         <>
-          <Text ml="xs" variant={300}>
+          <Text ml="xs" variant="sm">
             &middot;
           </Text>
-          <Text display="block" variant={300} color="red.500" ml="xs">
+          <Text display="block" variant="sm" color="red.500" ml="xs">
             Failed retrieving stream status.
           </Text>
         </>
@@ -41,10 +41,10 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
     if (data) {
       return (
         <>
-          <Text ml="xs" variant={300}>
+          <Text ml="xs" variant="sm">
             &middot;
           </Text>
-          <Text display="block" variant={300} ml="xs">
+          <Text display="block" variant="sm" ml="xs">
             {data?.viewer_count} viewers
           </Text>
         </>
@@ -96,7 +96,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
     >
       <Box px="md" pt="md">
         <Text
-          variant={300}
+          variant="sm"
           display="block"
           fontFamily="monospace"
           fontWeight={300}
@@ -108,8 +108,8 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
         </Text>
       </Box>
       <Box px="md" pt="sm" flex="1 1 auto">
-        <Heading as="p" variant={800}>
-          <Anchor
+        <Heading as="p" display="block" variant="3xl">
+          <Link
             href={`https://www.twitch.tv/${username}`}
             target="_blank"
             rel="noopener noreferrrer"
@@ -131,14 +131,14 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
             `}
           >
             {renderStreamStatus()}
-          </Anchor>
+          </Link>
         </Heading>
         {renderStreamDuration()}
       </Box>
       <Box display="flex" alignItems="center" px="md" py="md">
         <Box display="flex" flexDirection="row" alignItems="center">
           <Twitch aria-hidden size={18} />
-          <Text display="block" variant={300} ml="xs">
+          <Text display="block" variant="sm" ml="xs">
             {username}
           </Text>
         </Box>

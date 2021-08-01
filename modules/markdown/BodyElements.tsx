@@ -89,9 +89,9 @@ export const OL: React.FC<WithStylesProps & TextProps> = ({ children, ...rest })
 )
 
 export const LI: React.FC<WithStylesProps & TextProps> = ({ children, ...rest }) => (
-  <Paragraph as="li" mt={0} {...rest}>
+  <Text as="li" mt={0} {...rest}>
     {children}
-  </Paragraph>
+  </Text>
 )
 
 export const Blockquote: React.FC<WithStylesProps & BoxProps> = ({ children, ...rest }) => (

@@ -20,7 +20,7 @@ const ProjectItemList: React.FC<ProjectItemListProps> = ({ title, projects, ...r
     return (
       <Box {...rest}>
         {title && (
-          <Heading as="h2" variant={800} mb="lg">
+          <Heading as="h2" variant="xl" mb="lg">
             {title}
           </Heading>
         )}

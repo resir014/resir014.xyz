@@ -1858,8 +1858,8 @@ __metadata:
   linkType: hard
 
 "@resir014/chungking-react@npm:next":
-  version: 0.2.4-canary.0
-  resolution: "@resir014/chungking-react@npm:0.2.4-canary.0"
+  version: 0.2.4-canary.2
+  resolution: "@resir014/chungking-react@npm:0.2.4-canary.2"
   dependencies:
     "@chakra-ui/css-reset": ^1.0.0
     "@spicy-ui/styled-system": ^0.0.1-alpha.3
@@ -1874,7 +1874,7 @@ __metadata:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
     react-feather: ^2.0.0
-  checksum: 5b5052b2590d87be259c734d549a52e7861a1c40d4ba822837067ab0e04f98512a588fc0753c3d4df1ef4924f41f3818c8d82d70e2ceab144836259bf27731e2
+  checksum: ef3561ff15fabc023124a6640782cd249971c3db9cd990d34271bd4b2f5d93b9c1d0a7340e4566cab7ed28ae0fe9f2b943ce5d3359926003bb58d5fe5ee67186
   languageName: node
   linkType: hard
 

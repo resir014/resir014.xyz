@@ -1,9 +1,9 @@
 import * as React from 'react'
-import { Heading, Text, Anchor, Paragraph, TypeScale } from '@resir014/chungking-react'
+import { Heading, Text, Anchor, Paragraph, TextVariants } from '@resir014/chungking-react'
 import { Blockquote, H2, H3, InlineCode, LI, OL, UL } from '../markdown'
 import ComponentSpecimen from './components/ComponentSpecimen'
 
-const variants: TypeScale[] = [900, 800, 700, 600, 500, 400, 300, 200, 100]
+const variants: TextVariants[] = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl', '9xl']
 
 const TypographySpecs: React.FC = () => {
   return (
@@ -48,7 +48,7 @@ const TypographySpecs: React.FC = () => {
           nostrum nobis atque, quidem repudiandae sunt repellat. Corrupti magni ipsum quasi et ex. Rem, eum. Officia fugiat alias magnam
           voluptatum temporibus minus voluptatem eos?
         </Paragraph>
-        <Paragraph variant={300}>
+        <Paragraph variant="smaller">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores distinctio natus in incidunt quas totam enim laborum, facilis
           ipsam, sunt odio accusamus doloribus eaque dolorem nisi iusto reprehenderit possimus optio. Sequi iste quas optio natus odit
           nostrum nobis atque, quidem repudiandae sunt repellat. Corrupti magni ipsum quasi et ex. Rem, eum. Officia fugiat alias magnam

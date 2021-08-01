@@ -25,7 +25,7 @@ const BookmarkListItem: React.FC<BookmarkListItemProps> = ({ bookmark, ...rest }
       `}
       {...rest}
     >
-      <Heading as="h3" display="block" m={0} py="sm" px="lg" variant={500} fontWeight={600}>
+      <Heading as="h3" display="block" m={0} py="sm" px="lg" variant="xl" fontWeight={600}>
         <Anchor
           href={link}
           target="_blank"
@@ -55,7 +55,7 @@ const BookmarkListItem: React.FC<BookmarkListItemProps> = ({ bookmark, ...rest }
           <span>{title}</span>&nbsp;&rarr;
         </Anchor>
       </Heading>
-      <Text display="block" variant={300} px="lg" py="xs" backgroundColor={transparentize(0.3, theme.colors.black)}>
+      <Text display="block" variant="sm" px="lg" py="xs" backgroundColor={transparentize(0.3, theme.colors.black)}>
         {parsedURL.host}
       </Text>
     </Box>

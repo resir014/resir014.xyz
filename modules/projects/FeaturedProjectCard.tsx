@@ -61,7 +61,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
       <FeaturedProjectDetails className="column">
         <Box>
           <Text
-            variant={300}
+            fontSize="sm"
             letterSpacing="0.01em"
             fontWeight={300}
             fontFamily="monospace"
@@ -72,7 +72,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
           >
             Featured project
           </Text>
-          <Heading as="h2" variant={700} mt="xxs" mb="sm" color="turquoise.400">
+          <Heading as="h2" variant="lg" mt="xxs" mb="sm" color="turquoise.400">
             {title}
           </Heading>
         </Box>
@@ -88,7 +88,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
         </Box>
         <Box mt="xl">
           <Link href="/projects/[slug]" as={`/projects/${slug}`} passHref>
-            <Anchor variant={500}>Visit project &rarr;</Anchor>
+            <Anchor variant="xl">Visit project &rarr;</Anchor>
           </Link>
         </Box>
       </FeaturedProjectDetails>

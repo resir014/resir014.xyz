@@ -21,7 +21,7 @@ const LinktreeCard: React.FC<LinktreeCardProps> = ({ className, style, item, ...
       {...rest}
     >
       <Anchor
-        variant={500}
+        variant="xl"
         href={item.url}
         target="_blank"
         rel="noopener noreferrer"

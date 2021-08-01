@@ -58,7 +58,7 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
         <FooterContent>
           <Stack spacing="md">
             <Box>
-              <Text as="p" display="block" fontSize="2xl">
+              <Text as="p" display="block" variant="2xl">
                 <Text fontWeight={700}>@resir014</Text> <Text>{process.env.FLAVOUR_TEXT}</Text>
               </Text>
             </Box>
@@ -67,14 +67,14 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
                 <Img alt="Creative Commons License" src={CCLogo} m={0} height={36} />
               </a>
               <Box mt={['md', null, null, null, 0]} ml={[0, null, null, null, 'md']}>
-                <Text display="block" fontSize="sm">
+                <Text as="p" display="block" variant="sm">
                   Except where otherwise noted, contents are licensed under{' '}
                   <a rel="license noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
                     CC-BY-NC-SA 4.0
                   </a>
                   .
                 </Text>
-                <Text display="block" fontSize="sm">
+                <Text as="p" display="block" variant="sm">
                   Powered by{' '}
                   <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
                     Next.js
@@ -92,7 +92,7 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
               </Box>
             </Box>
             <Box>
-              <Text display="block" fontSize="sm">
+              <Text as="p" display="block" variant="sm">
                 <a href="#" onClick={handleOptOut}>
                   Opt out of Google Analytics tracking.
                 </a>

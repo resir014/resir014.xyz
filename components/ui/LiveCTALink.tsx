@@ -33,7 +33,7 @@ const LiveCTALink: React.FC<LiveCTAProps> = ({ backgroundColor, color, href, isE
     return (
       <UnstyledAnchor href={href} target="_blank" rel="noopener noreferrer">
         <BoxBase backgroundColor={backgroundColor}>
-          <Text variant={500} color={color || 'white'}>
+          <Text variant="xl" color={color || 'white'}>
             {children}
           </Text>
           {icon}
@@ -45,7 +45,7 @@ const LiveCTALink: React.FC<LiveCTAProps> = ({ backgroundColor, color, href, isE
   return (
     <Link href={href} passHref>
       <BoxBase backgroundColor={backgroundColor}>
-        <Text variant={500}>{children}</Text>
+        <Text variant="xl">{children}</Text>
         {icon}
       </BoxBase>
     </Link>

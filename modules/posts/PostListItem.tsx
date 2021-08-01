@@ -15,10 +15,10 @@ const PostListItem: React.FC<PostListItemProps> = ({ post, className, style, ...
   const { title, lead, date, category, slug } = post
 
   return (
-    <Stack as="article" spacing="xs" position="relative" className={clsx('h-entry', className)} style={style} {...rest}>
+    <Stack as="article" spacing="xxs" position="relative" className={clsx('h-entry', className)} style={style} {...rest}>
       <PostMeta date={date} category={category} slug={slug} disableMetaClick />
       {title && (
-        <Heading as="h3" variant={600}>
+        <Heading as="h3" variant="xl">
           <Link href="/posts/[...slug]" as={`/posts/${slug}`} passHref>
             <a
               css={css`
