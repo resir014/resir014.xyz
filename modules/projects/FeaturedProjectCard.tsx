@@ -72,7 +72,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
           >
             Featured project
           </Text>
-          <Heading as="h2" variant="lg" mt="xxs" mb="sm" color="turquoise.400">
+          <Heading as="h2" variant="3xl" mt="xxs" mb="sm" color="turquoise.400">
             {title}
           </Heading>
         </Box>

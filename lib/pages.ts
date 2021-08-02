@@ -2,17 +2,16 @@ import * as fs from 'fs'
 import * as path from 'path'
 import * as glob from 'glob'
 import matter from 'gray-matter'
-
-const pagesDirectory = path.join(process.cwd(), '_pages')
+import { getContentDirectory } from './content'
 
 export function getPagePaths() {
   // Get all files within posts directory, then trim out the full path.
-  return glob.sync(`${pagesDirectory}/**/*`).map((file) => file.replace(/^.+\/_pages\//, ''))
+  return glob.sync(`${getContentDirectory('_pages')}/**/*`).map((file) => file.replace(/^.+\/_pages\//, ''))
 }
 
 export function getPageBySlug(slug: string, fields: string[] = []) {
   const actualSlug = slug.replace(/\.md$/, '')
-  const fullPath = path.join(pagesDirectory, `${actualSlug}.md`)
+  const fullPath = path.join(getContentDirectory('_pages'), `${actualSlug}.md`)
   const contents = fs.readFileSync(fullPath)
   const { data, content } = matter(contents)
 
