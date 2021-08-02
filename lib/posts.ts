@@ -3,20 +3,19 @@ import * as path from 'path'
 import matter from 'gray-matter'
 import { PostKind } from '~/types/default'
 import { renderMarkdown } from './markdown-to-html'
-
-const postsDirectory = path.join(process.cwd(), '_posts')
+import { getContentDirectory } from './content'
 
 // Regex to parse date and title from the filename
 const BLOG_POST_SLUG_REGEX = /^([\d]{4})-([\d]{2})-([\d]{2})-(.+)\.md$/
 
 export function getPostPaths(category: PostKind = 'article') {
-  return fs.readdirSync(path.join(postsDirectory, category))
+  return fs.readdirSync(path.join(getContentDirectory('_posts'), category))
 }
 
 export function getPostBySlug(paths: string[], fields: string[] = [], category: PostKind = 'article') {
   const [year, month, day, slug] = paths
   const actualSlug = `${year}-${month}-${day}-${slug}.md`
-  const contents = fs.readFileSync(path.join(postsDirectory, category, actualSlug))
+  const contents = fs.readFileSync(path.join(getContentDirectory('_posts'), category, actualSlug))
   const { data, content } = matter(contents)
 
   const items: any = {}

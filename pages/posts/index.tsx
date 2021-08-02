@@ -33,7 +33,7 @@ const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts
       <PostBody>
         <Stack mt="md" spacing="xxl">
           <Stack spacing="lg">
-            <Heading as="h2" variant={800}>
+            <Heading as="h2" variant="3xl">
               Featured Posts
             </Heading>
             <Stack spacing="xl">
@@ -43,7 +43,7 @@ const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts
             </Stack>
           </Stack>
           <Stack spacing="lg">
-            <Heading as="h2" variant={800}>
+            <Heading as="h2" variant="3xl">
               All Posts
             </Heading>
             <Stack spacing="xl">

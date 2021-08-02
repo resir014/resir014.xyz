@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { HtmrOptions } from 'htmr/src/types'
 
 import { Anchor, Box, BoxProps, Iframe, MessageBox, AspectRatio } from '@resir014/chungking-react'
-import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI, Blockquote, InlineCode, CodeBlock, Figure } from '~/modules/markdown'
+import { H1, H2, H3, H4, H5, H6, P, UL, OL, LI, Blockquote, InlineCode, CodeBlock, Figure, Figcaption } from '~/modules/markdown'
 
 const HorizontalRule = Box.withComponent('hr')
 
@@ -21,7 +21,7 @@ const htmrTransform: HtmrOptions['transform'] = {
   li: LI,
   hr: (node: Partial<JSX.IntrinsicElements['hr'] & Pick<BoxProps, 'mt' | 'mb'>>) => {
     const { mt: _mt, mb: _mb, ...rest } = node
-    return <HorizontalRule {...rest} />
+    return <HorizontalRule my="xl" borderColor="grey.700" {...rest} />
   },
   blockquote: Blockquote,
   pre: CodeBlock,
@@ -55,6 +55,10 @@ const htmrTransform: HtmrOptions['transform'] = {
   figure: (node: Partial<React.ReactHTMLElement<HTMLElement>['props'] & Pick<BoxProps, 'mt' | 'mb'>>) => {
     const { mt: _mt, mb: _mb, ...rest } = node
     return <Figure {...rest} />
+  },
+  figcaption: (node: Partial<React.ReactHTMLElement<HTMLElement>['props'] & Pick<BoxProps, 'mt' | 'mb'>>) => {
+    const { mt: _mt, mb: _mb, ...rest } = node
+    return <Figcaption {...rest} />
   },
   iframe: (node: Partial<React.ReactHTMLElement<HTMLIFrameElement>['props'] & Pick<BoxProps, 'mt' | 'mb'>>) => {
     const { title, mt: _mt, mb: _mb, allowFullScreen: _allowFullScreen, ...rest } = node

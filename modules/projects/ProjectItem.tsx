@@ -43,7 +43,7 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ project, ...rest }) => {
     >
       <Box display="flex" flexDirection="column" px="lg" pt="lg" pb={0}>
         <Text
-          variant={200}
+          variant="xs"
           display="block"
           fontFamily="monospace"
           fontWeight={300}
@@ -54,7 +54,7 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ project, ...rest }) => {
         >
           {category}
         </Text>
-        <Heading as="h3" variant={700} m={0} color={colorByCategory(category)}>
+        <Heading as="h3" variant="2xl" m={0} color={colorByCategory(category)}>
           {title}
         </Heading>
       </Box>

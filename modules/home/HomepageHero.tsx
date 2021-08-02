@@ -12,10 +12,10 @@ const HomepageHero: React.FC = () => {
     <HeroWrapper>
       <Stack spacing="xxl">
         <Stack className="p-author h-card" spacing="xs">
-          <Heading as="h1" className="p-name" variant={900} color="turquoise.400">
+          <Heading as="h1" className="p-name" variant="5xl" color="turquoise.400">
             {author.name}
           </Heading>
-          <Text as="p" className="p-note" variant={500}>
+          <Text as="p" className="p-note" variant="2xl">
             {author.description}
           </Text>
           <Anchor display="none" className="u-url u-uid" href={author.website}>

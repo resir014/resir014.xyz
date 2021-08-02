@@ -2,8 +2,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import matter from 'gray-matter'
 import { ProjectMetadata } from '~/types/projects'
-
-const projectsDirectory = path.join(process.cwd(), '_projects')
+import { getContentDirectory } from './content'
 
 export function filterProjectsByCategory(projects: ProjectMetadata[]) {
   return [
@@ -26,13 +25,12 @@ export function filterProjectsByCategory(projects: ProjectMetadata[]) {
 }
 
 export function getProjectPaths() {
-  return fs.readdirSync(projectsDirectory)
+  return fs.readdirSync(getContentDirectory('_projects'))
 }
 
 export function getProjectBySlug(slug: string, fields: string[] = []) {
   const actualSlug = slug.replace(/\.md$/, '')
-  const fullPath = path.join(projectsDirectory, `${actualSlug}.md`)
-  const contents = fs.readFileSync(fullPath)
+  const contents = fs.readFileSync(path.join(getContentDirectory('_projects'), `${actualSlug}.md`))
   const { data, content } = matter(contents)
 
   const items: any = {}

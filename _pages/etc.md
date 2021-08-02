@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "/etc/ - the land of 'anything goes'"
-lead: 'These are some random, maybe dumb things I used to make some time ago. I am solely not responsible for what might happen to your sanity after looking through them.'
+title: '/etc/'
+lead: 'The land of "anything goes". These are some random, maybe dumb things I used to make some time ago. I am solely not responsible for what might happen to your sanity after looking through them.'
 ---
 
 ## 2017

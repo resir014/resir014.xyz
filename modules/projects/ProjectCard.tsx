@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, ...rest }) => {
       )}
       <Box p="lg">
         <Text
-          variant={300}
+          variant="sm"
           letterSpacing="0.01em"
           fontWeight={300}
           fontFamily="monospace"
@@ -42,11 +42,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, ...rest }) => {
         >
           Projects / {category}
         </Text>
-        <Heading as="h1" variant={700} mt="xxs" mb="sm" color="turquoise.400" className="p-name">
+        <Heading as="h1" variant="4xl" mt="xxs" mb="sm" color="turquoise.400" className="p-name">
           {title}
         </Heading>
         {description ? (
-          <Text as="p" variant={400} fontWeight={300} m={0} className="p-summary">
+          <Text as="p" variant="xl" fontWeight={300} m={0} className="p-summary">
             {convert(description, { transform: htmrTransform })}
           </Text>
         ) : null}
@@ -61,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, ...rest }) => {
         ) : null}
         {project_url && (
           <Box mt="lg">
-            <Anchor href={project_url} target="_blank" rel="noopener noreferrer" variant={500}>
+            <Anchor href={project_url} target="_blank" rel="noopener noreferrer" variant="xl">
               Go to project &rarr;
             </Anchor>
           </Box>

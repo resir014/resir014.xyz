@@ -24,7 +24,7 @@
     "@emotion/react": "^11.4.0",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@resir014/chungking-react": "^0.2.3",
+    "@resir014/chungking-react": "next",
     "clsx": "^1.1.1",
     "copee": "^1.0.6",
     "date-fns": "^2.21.3",

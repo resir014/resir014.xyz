@@ -56,25 +56,25 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
     <StyledFooter>
       <Container size={size}>
         <FooterContent>
-          <Stack spacing="xl">
+          <Stack spacing="md">
             <Box>
-              <Text as="p" display="block" variant={600}>
+              <Text as="p" display="block" variant="2xl">
                 <Text fontWeight={700}>@resir014</Text> <Text>{process.env.FLAVOUR_TEXT}</Text>
               </Text>
             </Box>
             <Box display="flex" flexDirection={['column', null, null, null, 'row']} alignItems={['flex-start', null, null, null, 'center']}>
               <a rel="license noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
-                <Img alt="Creative Commons License" src={CCLogo} m={0} width={89} height={31} />
+                <Img alt="Creative Commons License" src={CCLogo} m={0} height={36} />
               </a>
               <Box mt={['md', null, null, null, 0]} ml={[0, null, null, null, 'md']}>
-                <Text as="p" display="block" variant={200}>
+                <Text as="p" display="block" variant="sm">
                   Except where otherwise noted, contents are licensed under{' '}
                   <a rel="license noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
                     CC-BY-NC-SA 4.0
                   </a>
                   .
                 </Text>
-                <Text as="p" display="block" variant={200}>
+                <Text as="p" display="block" variant="sm">
                   Powered by{' '}
                   <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
                     Next.js
@@ -92,7 +92,7 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
               </Box>
             </Box>
             <Box>
-              <Text as="p" display="block" variant={200}>
+              <Text as="p" display="block" variant="sm">
                 <a href="#" onClick={handleOptOut}>
                   Opt out of Google Analytics tracking.
                 </a>

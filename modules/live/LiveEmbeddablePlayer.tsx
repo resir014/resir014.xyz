@@ -33,7 +33,7 @@ const LiveEmbeddablePlayer: React.FC<LiveEmbeddablePlayerProps> = ({ username })
         backgroundColor={hsl(backgroundHsl.hue, backgroundHsl.saturation, backgroundHsl.lightness * 0.4)}
       >
         <Text
-          variant={800}
+          variant="3xl"
           color={hsl(textHsl.hue, textHsl.saturation, textHsl.lightness * 0.4)}
           css={css`
             text-transform: uppercase;

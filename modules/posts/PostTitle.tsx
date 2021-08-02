@@ -7,7 +7,7 @@ interface PostTitleProps {
 }
 
 const PostTitle: React.FC<PostTitleProps> = ({ className, style, children }) => (
-  <Heading as="h1" variant={900} className={className} style={style} m={0}>
+  <Heading as="h1" variant="5xl" className={className} style={style} m={0}>
     {children}
   </Heading>
 )

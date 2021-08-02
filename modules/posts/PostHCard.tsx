@@ -43,7 +43,7 @@ const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author,
       </Box>
       <Box display="flex" flexDirection="row" alignItems="center">
         <Box position="relative">
-          <Heading as="p" display="block" variant={500} m={0}>
+          <Heading as="p" display="block" variant="xl" m={0}>
             <a
               className="p-name u-url"
               rel="author noopener noreferrer"
