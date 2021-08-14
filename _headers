@@ -6,8 +6,5 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin
 
-/_next/static/(.*)
-  Cache-Control: public, max-age=31536000, immutable
-
-/static/(.*)
+/_next/static/*
   Cache-Control: public, max-age=31536000, immutable
