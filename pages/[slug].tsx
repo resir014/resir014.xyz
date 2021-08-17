@@ -12,9 +12,11 @@ import { BasePageProps } from '~/types/posts'
 
 import siteMetadata from '~/_data/siteMetadata.json'
 
+const contentDirectory = '_content/pages'
+
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
-  if (params?.slug && Array.isArray(params.slug)) {
-    const page: BasePageProps = getPageBySlug(params.slug.join('/'), ['layout', 'title', 'lead', 'header_image', 'slug', 'content'])
+  if (params?.slug && !Array.isArray(params.slug)) {
+    const page: BasePageProps = getPageBySlug(contentDirectory, params.slug, ['layout', 'title', 'lead', 'header_image', 'slug', 'content'])
     const content = await markdownToHtml(page.content || '')
 
     return {
@@ -53,14 +55,16 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPages(['slug'])
+  const posts = getAllPages(contentDirectory, ['slug'])
   const paths = posts.map((post) => {
     return {
       params: {
-        slug: post.slug.split('/').filter(Boolean)
+        slug: post.slug
       }
     }
   })
+
+  console.log(paths)
 
   return {
     paths,
