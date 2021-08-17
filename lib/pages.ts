@@ -6,12 +6,12 @@ import { getContentDirectory } from './content'
 
 export function getPagePaths() {
   // Get all files within posts directory, then trim out the full path.
-  return glob.sync(`${getContentDirectory('_pages')}/**/*`).map((file) => file.replace(/^.+\/_pages\//, ''))
+  return glob.sync(`${getContentDirectory('_content/pages')}/**/*`).map((file) => file.replace(/^.+\/_content\/pages\//, ''))
 }
 
 export function getPageBySlug(slug: string, fields: string[] = []) {
   const actualSlug = slug.replace(/\.md$/, '')
-  const fullPath = path.join(getContentDirectory('_pages'), `${actualSlug}.md`)
+  const fullPath = path.join(getContentDirectory('_content/pages'), `${actualSlug}.md`)
   const contents = fs.readFileSync(fullPath)
   const { data, content } = matter(contents)
 
