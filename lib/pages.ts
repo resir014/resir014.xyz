@@ -1,17 +1,11 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import * as glob from 'glob'
 import matter from 'gray-matter'
-import { getContentDirectory } from './content'
+import { getContentDirectory, getContentFiles } from './content'
 
-export function getPagePaths() {
-  // Get all files within posts directory, then trim out the full path.
-  return glob.sync(`${getContentDirectory('_content/pages')}/**/*`).map((file) => file.replace(/^.+\/_content\/pages\//, ''))
-}
-
-export function getPageBySlug(slug: string, fields: string[] = []) {
+export function getPageBySlug(contentDirectory: string, slug: string, fields: string[] = []) {
   const actualSlug = slug.replace(/\.md$/, '')
-  const fullPath = path.join(getContentDirectory('_content/pages'), `${actualSlug}.md`)
+  const fullPath = path.join(getContentDirectory(contentDirectory), `${actualSlug}.md`)
   const contents = fs.readFileSync(fullPath)
   const { data, content } = matter(contents)
 
@@ -34,11 +28,11 @@ export function getPageBySlug(slug: string, fields: string[] = []) {
   return items
 }
 
-export function getAllPages(fields: string[] = []) {
-  const slugs = getPagePaths()
-  const posts = slugs
-    .map((slug) => getPageBySlug(slug, fields))
+export function getAllPages(contentDirectory: string, fields: string[] = []) {
+  const files = getContentFiles(contentDirectory)
+  const pages = files
+    .map((slug) => getPageBySlug(contentDirectory, slug, fields))
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return posts
+  return pages
 }
