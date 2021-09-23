@@ -8,14 +8,16 @@ import { getContentDirectory } from './content'
 // Regex to parse date and title from the filename
 const BLOG_POST_SLUG_REGEX = /^([\d]{4})-([\d]{2})-([\d]{2})-(.+)\.md$/
 
+const contentDirectory = '_content/posts'
+
 export function getPostPaths(category: PostKind = 'article') {
-  return fs.readdirSync(path.join(getContentDirectory('_posts'), category))
+  return fs.readdirSync(path.join(getContentDirectory(contentDirectory), category))
 }
 
 export function getPostBySlug(paths: string[], fields: string[] = [], category: PostKind = 'article') {
   const [year, month, day, slug] = paths
   const actualSlug = `${year}-${month}-${day}-${slug}.md`
-  const contents = fs.readFileSync(path.join(getContentDirectory('_posts'), category, actualSlug))
+  const contents = fs.readFileSync(path.join(getContentDirectory(contentDirectory), category, actualSlug))
   const { data, content } = matter(contents)
 
   const items: any = {}

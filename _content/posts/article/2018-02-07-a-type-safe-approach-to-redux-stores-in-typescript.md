@@ -236,10 +236,7 @@ export const updateUsersList: ActionCreator<UsersListUpdatedAction> = (users: Us
   }
 })
 
-export const messageReceived: ActionCreator<MessageReceivedAction> = (
-  user: string,
-  message: MessagePayload
-) => ({
+export const messageReceived: ActionCreator<MessageReceivedAction> = (user: string, message: MessagePayload) => ({
   type: '@@chat/MESSAGE_RECEIVED',
   payload: {
     timestamp: new Date(),
@@ -305,20 +302,13 @@ import { History } from 'history'
 // Import the state interface and our combined reducers.
 import { ApplicationState, reducers } from './store'
 
-export default function configureStore(
-  history: History,
-  initialState: ApplicationState
-): Store<ApplicationState> {
+export default function configureStore(history: History, initialState: ApplicationState): Store<ApplicationState> {
   // create the composing function for our middlewares
   const composeEnhancers = composeWithDevTools({})
 
   // We'll create our store with the combined reducers and the initial Redux state that
   // we'll be passing from our entry point.
-  return createStore<ApplicationState>(
-    reducers,
-    initialState,
-    composeEnhancers(applyMiddleware(routerMiddleware(history)))
-  )
+  return createStore<ApplicationState>(reducers, initialState, composeEnhancers(applyMiddleware(routerMiddleware(history))))
 }
 ```
 
@@ -352,7 +342,7 @@ const ChatWindow: React.FC<AllProps> = ({ username, messages }) => (
       <ChatHeader username={username} />
       <ChatMessages>
         {messages &&
-          messages.map(message => (
+          messages.map((message) => (
             <ChatMessageItem
               key={`[${message.timestamp.toISOString()}]${message.user}`}
               payload={message}
