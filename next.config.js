@@ -2,6 +2,7 @@
 const withImages = require('next-images')
 const flavours = require('./config/flavourText')
 
+/** @type {import("next/dist/server/config-shared").NextConfig} */
 const nextConfig = {
   env: {
     FLAVOUR_TEXT: process.env.NEXT_PUBLIC_HOMEPAGE_SPLASH_TEXT || flavours[Math.floor(Math.random() * flavours.length)]
