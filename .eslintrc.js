@@ -9,6 +9,8 @@ module.exports = {
     'import/no-unresolved': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/no-unused-prop-types': 'off',
+    'react/require-default-props': 'off',
     'prettier/prettier': 'error'
   },
   overrides: [
