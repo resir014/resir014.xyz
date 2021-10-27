@@ -593,10 +593,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@resir014/chungking-react@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@resir014/chungking-react/-/chungking-react-0.3.1.tgz#2cb8380800512bfa9ec5cf694622c8ccafdd63db"
-  integrity sha512-OFtLzMeDXYnWN+QK6gRuh1Wo1uL4L+8ftPf0729PJcNI97dml8jA7EVjeJTf5JgPZVLXu0c9/fQ9yaHGXdA0RQ==
+"@resir014/chungking-react@^0.3.2-canary.1":
+  version "0.3.2-canary.1"
+  resolved "https://registry.yarnpkg.com/@resir014/chungking-react/-/chungking-react-0.3.2-canary.1.tgz#77a83850e3c8e9febfeea1c7daf9c2e731b6607e"
+  integrity sha512-FOD7CNlPykgMqeqtNV/VFAvJcRIOcfW5rPyXqAzogZNixVGoe/PpNBk1hKpX0j8a1kG4Wx1rBiWuK+S8AgW3EA==
   dependencies:
     "@chakra-ui/css-reset" "^1.0.0"
     "@spicy-ui/styled-system" "^0.0.1-alpha.3"

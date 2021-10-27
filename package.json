@@ -25,7 +25,7 @@
     "@emotion/react": "^11.4.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@resir014/chungking-react": "^0.3.1",
+    "@resir014/chungking-react": "^0.3.2-canary.1",
     "clsx": "^1.1.1",
     "copee": "^1.0.6",
     "date-fns": "^2.24.0",
