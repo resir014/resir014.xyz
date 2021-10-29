@@ -19,7 +19,7 @@ const Root = styled('button')`
   border: none;
   border-radius: 5px;
   background: none;
-  background-color: ${theme.colors.grey[900]};
+  background-color: ${theme.colors.grey[800]};
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: ${theme.shadows.single};

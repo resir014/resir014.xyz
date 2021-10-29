@@ -7,7 +7,7 @@ import Container, { ContainerSizes } from './Container'
 import CCLogo from '~/assets/images/cc-by-nc-sa.svg'
 
 const StyledFooter = styled('footer')`
-  border-top: 1px solid ${theme.colors.grey[900]};
+  border-top: 1px solid ${theme.colors.grey[800]};
   padding: ${theme.space.lg}px;
 `
 

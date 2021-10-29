@@ -17,7 +17,7 @@ const Root = styled('nav')`
   display: grid;
   grid-template-columns: 1fr 1fr minmax(auto, ${theme.sizes.containers.xl}px) 1fr 1fr;
   padding: 0 ${theme.space.lg}px;
-  background-color: ${theme.colors.black};
+  background-color: ${theme.colors.grey[800]};
   z-index: 50;
   box-shadow: inset 0 -1px ${theme.colors.grey[900]};
 `

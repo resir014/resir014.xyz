@@ -8,7 +8,7 @@ interface ComponentSpecimenProps extends StackProps {
 
 const ComponentSpecimen: React.FC<ComponentSpecimenProps> = ({ className, style, spacing, children }) => {
   return (
-    <Stack className={className} style={style} spacing={spacing} px="lg" py="md" bg="grey.900" borderRadius={6} boxShadow="single">
+    <Stack className={className} style={style} spacing={spacing} px="lg" py="md" bg="grey.800" borderRadius={6} boxShadow="single">
       {children}
     </Stack>
   )
