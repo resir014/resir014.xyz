@@ -30,6 +30,27 @@
     ]
   },
   {
+    "category": "Trackmania",
+    "items": [
+      {
+        "url": "https://trackmania.io/#/player/resir014",
+        "title": "Trackmania.io profile"
+      },
+      {
+        "url": "https://trackmania.exchange/user/profile/2125",
+        "title": "Trackmania Exchange profile"
+      },
+      {
+        "url": "https://tmviz.vercel.app",
+        "title": "TMViz"
+      },
+      {
+        "url": "https://twitter.com/KeRSapocryphal",
+        "title": "Killing eSports Racing Southeast"
+      }
+    ]
+  },
+  {
     "category": "Support",
     "items": [
       {
