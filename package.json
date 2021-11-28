@@ -53,7 +53,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
-    "@netlify/plugin-nextjs": "^3.9.0",
+    "@netlify/plugin-nextjs": "^3.9.2",
     "@types/glob": "^7.1.4",
     "@types/google.analytics": "^0.0.42",
     "@types/markdown-it": "^12.2.1",
