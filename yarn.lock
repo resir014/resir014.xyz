@@ -598,10 +598,10 @@
   resolved "https://registry.yarnpkg.com/@resir014/chungking-core/-/chungking-core-0.1.2-canary.4.tgz#d46745ab80eda3a7872458f3b1de90033379d17a"
   integrity sha512-LtFG8RM92IQzrPxw9ajf9Gzzpl7tzDZ4BSr/zGw7TOz0lRMv5UyRakgBl2f4S8AERiigvQwszLO+1tQpmqHg5w==
 
-"@resir014/chungking-react@^0.3.2-canary.4":
-  version "0.3.2-canary.4"
-  resolved "https://registry.yarnpkg.com/@resir014/chungking-react/-/chungking-react-0.3.2-canary.4.tgz#638460c10303d20cc776c3cb26b8d084e049415a"
-  integrity sha512-zth2S8Lvlc+jq81KWc/3nBiD5ISLQhQdasHuvJkPtho/3+4Jp5It9P1KbF7QoWPDhkvF/Im0dw9fwt9JFOU7pw==
+"@resir014/chungking-react@^0.3.2-canary.5":
+  version "0.3.2-canary.5"
+  resolved "https://registry.yarnpkg.com/@resir014/chungking-react/-/chungking-react-0.3.2-canary.5.tgz#430f6d8feddb264a93efaffeb253dbc56884d165"
+  integrity sha512-QKS7tLSDCXCpUVpZbHBfXgaJbZTgE7v+4/YnDHuPWqzSuPRdD7lXQ/wmE+Mn0ZJfkp4iA9sgEUDBzy/sveqpFw==
   dependencies:
     "@chakra-ui/css-reset" "^1.1.1"
     "@resir014/chungking-core" "^0.1.2-canary.4"

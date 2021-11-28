@@ -1,4 +1,5 @@
 import * as React from 'react'
+import CSS from 'csstype'
 import convert from 'htmr'
 import { Anchor, Box, MessageBox, Paragraph, Space, Stack } from '@resir014/chungking-react'
 
@@ -11,7 +12,7 @@ interface PostBodyProps {
   content?: string
   containerSize?: ContainerSizes
   syndication?: SyndicationFormat[]
-  spacing?: Space | number
+  spacing?: Space | CSS.Property.Margin
 }
 
 const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize = 'md', spacing = 'md', children }) => {
