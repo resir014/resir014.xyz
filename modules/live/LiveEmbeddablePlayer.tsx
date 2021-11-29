@@ -10,7 +10,7 @@ interface LiveEmbeddablePlayerProps {
 
 const LiveEmbeddablePlayer: React.FC<LiveEmbeddablePlayerProps> = ({ username }) => {
   const { data, isLoading, isError } = useTwitchData(username)
-  const backgroundHsl = parseToHsl(theme.colors.grey[900])
+  const backgroundHsl = parseToHsl(theme.colors.grey[800])
   const textHsl = parseToHsl(theme.colors.grey[50])
 
   const renderPlayer = () => {
