@@ -20,7 +20,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.grey[600]} />
       <ColorSwatch color={theme.colors.grey[700]} />
       <ColorSwatch color={theme.colors.grey[800]} />
-      <ColorSwatch color={theme.colors.grey[900]} />
+      <ColorSwatch color={theme.colors.grey[800]} />
       <H3>Red</H3>
       <ColorSwatch color={theme.colors.red[50]} darkText />
       <ColorSwatch color={theme.colors.red[100]} darkText />

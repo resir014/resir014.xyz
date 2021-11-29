@@ -18,7 +18,7 @@ const colorByCategory = (category: string) => {
     case 'other':
       return `${theme.colors.magenta[400]}`
     default:
-      return `${theme.colors.grey[900]}`
+      return `${theme.colors.grey[800]}`
   }
 }
 
@@ -36,7 +36,7 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ project, ...rest }) => {
       flexDirection="column"
       position="relative"
       flex="1 1 100%"
-      backgroundColor="grey.900"
+      backgroundColor="grey.800"
       borderRadius={6}
       overflow="hidden"
       {...rest}

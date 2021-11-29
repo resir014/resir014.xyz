@@ -68,7 +68,7 @@ const FigureStyles = css`
     border-radius: 6px;
     box-shadow: ${theme.shadows.single};
     vertical-align: middle;
-    background-color: ${theme.colors.grey[900]};
+    background-color: ${theme.colors.grey[800]};
   }
 
   figcaption:not(:first-child) {

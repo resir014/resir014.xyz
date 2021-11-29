@@ -593,12 +593,18 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@resir014/chungking-react@^0.3.2-canary.1":
-  version "0.3.2-canary.1"
-  resolved "https://registry.yarnpkg.com/@resir014/chungking-react/-/chungking-react-0.3.2-canary.1.tgz#77a83850e3c8e9febfeea1c7daf9c2e731b6607e"
-  integrity sha512-FOD7CNlPykgMqeqtNV/VFAvJcRIOcfW5rPyXqAzogZNixVGoe/PpNBk1hKpX0j8a1kG4Wx1rBiWuK+S8AgW3EA==
+"@resir014/chungking-core@^0.1.2-canary.3":
+  version "0.1.2-canary.3"
+  resolved "https://registry.yarnpkg.com/@resir014/chungking-core/-/chungking-core-0.1.2-canary.3.tgz#2e6274b38e448f49a3a9812b0fdadab5df294670"
+  integrity sha512-3EJgPoRw2MdmAxWsjQGkqdoDjJB+8v1EQYGi0f7ReMQVymvUyExpZ85iANfQozc8PeIqEvqLsLF0ROFkU1gKEQ==
+
+"@resir014/chungking-react@^0.3.2-canary.3":
+  version "0.3.2-canary.3"
+  resolved "https://registry.yarnpkg.com/@resir014/chungking-react/-/chungking-react-0.3.2-canary.3.tgz#c962dc09a2bde36e2315e579d18e69ab899b47db"
+  integrity sha512-8ullSJJO5X6fQhTECcrYIRf3TUdi/Tx0kSukWXfUhTciRivQwUDWWFRBB/6motcjaDSHcfeUHfk+6kxnJfdi0g==
   dependencies:
     "@chakra-ui/css-reset" "^1.0.0"
+    "@resir014/chungking-core" "^0.1.2-canary.3"
     "@spicy-ui/styled-system" "^0.0.1-alpha.3"
     clsx "^1.1.1"
     csstype "^3.0.8"
