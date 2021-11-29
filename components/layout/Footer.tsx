@@ -6,11 +6,6 @@ import Container, { ContainerSizes } from './Container'
 
 import CCLogo from '~/assets/images/cc-by-nc-sa.svg'
 
-const StyledFooter = styled('footer')`
-  border-top: 1px solid ${theme.colors.grey[800]};
-  padding: ${theme.space.lg}px;
-`
-
 const FooterContent = styled('div')`
   a {
     color: ${theme.colors.turquoise[400]};
@@ -53,7 +48,7 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
   }
 
   return (
-    <StyledFooter>
+    <Box padding="lg" borderTopWidth="1px" borderTopStyle="solid" borderTopColor="grey.800">
       <Container size={size}>
         <FooterContent>
           <Stack spacing="md">
@@ -101,7 +96,7 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
           </Stack>
         </FooterContent>
       </Container>
-    </StyledFooter>
+    </Box>
   )
 }
 

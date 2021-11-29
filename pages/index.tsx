@@ -46,7 +46,7 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, rece
     <NextSeo title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }} />
     <HomepageHero />
     <HomepageContent>
-      <Stack spacing={96}>
+      <Stack spacing="96px">
         <HomepageSection size="md">
           <Stack spacing="xxl">
             <HomepageSectionHeader title="Livestream" description="Video game and live coding streams on Twitch, three times a week." />
