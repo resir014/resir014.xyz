@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { NextPage, InferGetStaticPropsType } from 'next'
-import { Heading, Stack } from '@resir014/chungking-react'
+import { Stack } from '@resir014/chungking-react'
 
 import { Content, Page } from '~/components/layout'
 import { PostBody, PostHeader, PostListItem } from '~/modules/posts'

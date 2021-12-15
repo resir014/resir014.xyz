@@ -14,7 +14,7 @@ interface PostBodyProps {
   spacing?: Space | CSS.Property.Margin
 }
 
-const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize = 'md', spacing = 'md', children }) => {
+const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize = 'md', children }) => {
   const renderSyndication = () => {
     if (syndication) {
       return (
