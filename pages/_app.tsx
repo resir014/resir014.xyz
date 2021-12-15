@@ -16,6 +16,7 @@ import siteMetadata from '~/_data/siteMetadata.json'
 
 import '~/fonts/jetbrains-mono.css'
 import 'typeface-inter'
+import '~/styles/global.css'
 
 const progress = nProgress.configure({ showSpinner: false })
 
@@ -77,7 +78,7 @@ function App({ Component, pageProps, router }: AppProps) {
         twitter={defaultTwitterCard}
       />
 
-      <ChungkingProvider>
+      <ChungkingProvider disableResetCSS>
         <Global styles={nProgressStyles} />
         <Global styles={prismTheme} />
         <Component {...pageProps} />

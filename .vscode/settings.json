@@ -28,5 +28,7 @@
   },
   "[markdown]": {
     "editor.formatOnSave": true
-  }
+  },
+  "css.validate": false,
+  "stylelint.enable": true
 }
