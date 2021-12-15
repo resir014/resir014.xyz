@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { css } from '@emotion/react'
 
-import { Stack, StackProps, Heading, Paragraph } from '@resir014/chungking-react'
+import { Stack, StackProps, Paragraph } from '@resir014/chungking-react'
 import { PostMetadata } from '~/types/posts'
 import PostMeta from './PostMeta'
 
@@ -18,26 +18,13 @@ const PostListItem: React.FC<PostListItemProps> = ({ post, className, style, ...
     <Stack as="article" spacing="xxs" position="relative" className={clsx('h-entry', className)} style={style} {...rest}>
       <PostMeta date={date} category={category} slug={slug} disableMetaClick />
       {title && (
-        <Heading as="h3" variant="xl">
-          <Link href="/posts/[...slug]" as={`/posts/${slug}`} passHref>
-            <a
-              css={css`
-                &::after {
-                  content: '';
-                  position: absolute;
-                  left: 0;
-                  top: 0;
-                  right: 0;
-                  bottom: 0;
-                }
-              `}
-            >
-              {title}
-            </a>
+        <h3 className="text-lg sm:text-xl lg:text-2xl leading-tight">
+          <Link href="/posts/[...slug]" as={`/posts/${slug}`}>
+            <a className="helper-link-cover font-semibold no-underline hover:underline">{title}</a>
           </Link>
-        </Heading>
+        </h3>
       )}
-      {lead && <Paragraph>{lead}</Paragraph>}
+      {lead && <p className="text-sm lg:text-base">{lead}</p>}
     </Stack>
   )
 }

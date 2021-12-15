@@ -1,9 +1,8 @@
 import * as React from 'react'
 import CSS from 'csstype'
 import convert from 'htmr'
-import { Anchor, Box, MessageBox, Paragraph, Space, Stack } from '@resir014/chungking-react'
+import { Anchor, Box, MessageBox, Paragraph, Space } from '@resir014/chungking-react'
 
-import htmrTransform from '~/lib/htmr-transform'
 import { Container, ContainerSizes } from '~/components/layout'
 import { SyndicationFormat } from '~/types/default'
 import { LI, UL } from '../markdown'
@@ -42,9 +41,7 @@ const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize
       <Box as="section" p="lg" pb={96}>
         <Container size={containerSize}>
           {renderSyndication()}
-          <Stack spacing={spacing} className="e-content">
-            {convert(content, { transform: htmrTransform })}
-          </Stack>
+          <div className="e-content prose prose-base lg:prose-lg prose-invert">{convert(content)}</div>
         </Container>
       </Box>
     )
@@ -54,9 +51,7 @@ const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize
     <Box as="section" p="lg" pb={96}>
       <Container size={containerSize}>
         {renderSyndication()}
-        <Stack spacing={spacing} className="e-content">
-          {children}
-        </Stack>
+        <div className="e-content">{children}</div>
       </Container>
     </Box>
   )
