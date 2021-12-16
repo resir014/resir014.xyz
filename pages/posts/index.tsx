@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { NextPage, InferGetStaticPropsType } from 'next'
-import { Heading, Stack } from '@resir014/chungking-react'
+import { Stack } from '@resir014/chungking-react'
 
 import { Content, Page } from '~/components/layout'
 import { PostBody, PostHeader, PostListItem } from '~/modules/posts'
@@ -33,9 +33,7 @@ const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts
       <PostBody>
         <Stack mt="md" spacing="xxl">
           <Stack spacing="lg">
-            <Heading as="h2" variant="3xl">
-              Featured Posts
-            </Heading>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">Featured Posts</h2>
             <Stack spacing="xl">
               {featuredPosts.map((post) => (
                 <PostListItem key={post.slug} post={post} />
@@ -43,9 +41,7 @@ const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts
             </Stack>
           </Stack>
           <Stack spacing="lg">
-            <Heading as="h2" variant="3xl">
-              All Posts
-            </Heading>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">All Posts</h2>
             <Stack spacing="xl">
               {allPosts.map((post) => (
                 <PostListItem key={post.slug} post={post} />

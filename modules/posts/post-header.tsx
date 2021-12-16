@@ -3,8 +3,6 @@ import { Box } from '@resir014/chungking-react'
 import { Container } from '~/components/layout'
 import { PostKind, SiteAuthor } from '~/types/default'
 import PostMeta from './PostMeta'
-import PostSubtitle from './PostSubtitle'
-import PostTitle from './PostTitle'
 import PostHCard from './PostHCard'
 
 interface PostHeaderProps {
@@ -21,8 +19,8 @@ const PostHeader: React.FC<PostHeaderProps> = ({ title, lead, date, author, cate
     <Box as="header" pt="xxl" px="lg">
       <Container>
         {date && category && <PostMeta date={date} category={category} mb="md" slug={slug} />}
-        {title && <PostTitle className="p-name">{title}</PostTitle>}
-        {lead && <PostSubtitle className="p-summary">{lead}</PostSubtitle>}
+        {title && <h1 className="p-name text-3xl sm:text-4xl lg:text-5xl font-semibold">{title}</h1>}
+        {lead && <p className="p-summary mt-4 text-xl sm:text-2xl lg:text-3xl font-light">{lead}</p>}
         {author && <PostHCard author={author} />}
       </Container>
     </Box>
