@@ -1,3 +1,5 @@
+const { colors } = require('@resir014/chungking-core')
+
 /* eslint-disable global-require */
 module.exports = {
   content: [
@@ -8,7 +10,11 @@ module.exports = {
   ],
   presets: [require('@resir014/tailwind-preset-chungking')],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        gray: colors.grey
+      }
+    }
   },
   variants: {
     extend: {}
