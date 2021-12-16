@@ -2,6 +2,7 @@ import * as React from 'react'
 import clsx from 'clsx'
 import CSS from 'csstype'
 import convert from 'htmr'
+import Link from 'next/link'
 import { Anchor, Box, MessageBox, Paragraph, Space } from '@resir014/chungking-react'
 
 import { Container, ContainerSizes } from '~/components/layout'
@@ -45,6 +46,13 @@ const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize
           <div className="e-content mx-auto prose prose-base lg:prose-lg prose-invert">
             {convert(content, {
               transform: {
+                iframe: ({ className, title, ...rest }: JSX.IntrinsicElements['iframe']) => (
+                  <iframe
+                    title={title}
+                    className={clsx('w-full aspect-video rounded-lg drop-shadow-lg overflow-hidden', className)}
+                    {...rest}
+                  />
+                ),
                 pre: ({ className, ...rest }: JSX.IntrinsicElements['pre']) => (
                   <pre className={clsx('rounded-lg drop-shadow-lg overflow-hidden lg:-mx-12', className)} {...rest} />
                 ),
@@ -56,7 +64,32 @@ const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize
                 ),
                 img: ({ className, alt, ...rest }: JSX.IntrinsicElements['img']) => (
                   <img className={clsx('mx-auto rounded-lg drop-shadow-lg bg-chungking-grey-800', className)} alt={alt} {...rest} />
-                )
+                ),
+                a: (node: JSX.IntrinsicElements['a']) => {
+                  const { href, children: innerChildren, ...rest } = node
+
+                  if (href) {
+                    if (href.substr(0, 4) === 'http') {
+                      return (
+                        <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+                          {innerChildren}
+                        </a>
+                      )
+                    }
+
+                    return (
+                      <Link href={href} passHref>
+                        <a {...rest}>{innerChildren}</a>
+                      </Link>
+                    )
+                  }
+
+                  return (
+                    <a href={href} {...rest}>
+                      {children}
+                    </a>
+                  )
+                }
               }
             })}
           </div>
