@@ -1,18 +1,23 @@
-import * as React from 'react'
-import convert from 'htmr'
-import { Box, Stack } from '@resir014/chungking-react'
+import * as React from 'react';
+import convert from 'htmr';
+import { Box, Stack } from '@resir014/chungking-react';
 
-import htmrTransform from '~/lib/htmr-transform'
-import { Container, ContainerSizes } from '~/components/layout'
-import PhotoWrapper from './PhotoWrapper'
+import PhotoWrapper from './PhotoWrapper';
+import htmrTransform from '~/lib/htmr-transform';
+import { Container, ContainerSizes } from '~/components/layout';
 
 interface PhotoPostBodyProps {
-  content?: string
-  image?: string
-  containerSize?: ContainerSizes
+  content?: string;
+  image?: string;
+  containerSize?: ContainerSizes;
 }
 
-const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({ content, containerSize = 'md', image, children }) => {
+const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({
+  content,
+  containerSize = 'md',
+  image,
+  children,
+}) => {
   if (content) {
     return (
       <Box as="section" p="lg" pb={96}>
@@ -25,7 +30,7 @@ const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({ content, containerSize = 
           </Stack>
         </Container>
       </Box>
-    )
+    );
   }
 
   return (
@@ -39,7 +44,7 @@ const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({ content, containerSize = 
         </Stack>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default PhotoPostBody
+export default PhotoPostBody;

@@ -1,2 +1,2 @@
-export * from './BodyElements'
-export * from './Headings'
+export * from './BodyElements';
+export * from './Headings';

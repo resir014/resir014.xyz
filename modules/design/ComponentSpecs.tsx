@@ -1,7 +1,16 @@
-import * as React from 'react'
-import { Box, Badge, Button, MessageBox, Paragraph, Anchor, Inline, Stack } from '@resir014/chungking-react'
-import { H2, H3, H4 } from '../markdown'
-import ComponentSpecimen from './components/ComponentSpecimen'
+import * as React from 'react';
+import {
+  Box,
+  Badge,
+  Button,
+  MessageBox,
+  Paragraph,
+  Anchor,
+  Inline,
+  Stack,
+} from '@resir014/chungking-react';
+import { H2, H3, H4 } from '../markdown';
+import ComponentSpecimen from './components/ComponentSpecimen';
 
 const ComponentSpecs: React.FC = () => {
   return (
@@ -144,18 +153,20 @@ const ComponentSpecs: React.FC = () => {
       <ComponentSpecimen spacing="md">
         <MessageBox variant="default">
           <Paragraph>
-            <strong>Info:</strong> This post is also published on <Anchor href="https://medium.com/">Medium</Anchor>.
+            <strong>Info:</strong> This post is also published on{' '}
+            <Anchor href="https://medium.com/">Medium</Anchor>.
           </Paragraph>
         </MessageBox>
         <MessageBox variant="warning">
           <Paragraph>
-            <strong>Update:</strong> Phoenix 1.4 ships with <Anchor href="https://webpack.js.org/">Webpack</Anchor> by default, therefore
-            this guide is now outdated.
+            <strong>Update:</strong> Phoenix 1.4 ships with{' '}
+            <Anchor href="https://webpack.js.org/">Webpack</Anchor> by default, therefore this guide
+            is now outdated.
           </Paragraph>
         </MessageBox>
       </ComponentSpecimen>
     </>
-  )
-}
+  );
+};
 
-export default ComponentSpecs
+export default ComponentSpecs;

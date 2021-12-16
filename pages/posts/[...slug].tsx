@@ -1,29 +1,29 @@
-import * as React from 'react'
-import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import { NextSeo } from 'next-seo'
+import * as React from 'react';
+import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
+import { NextSeo } from 'next-seo';
 
-import { getPostBySlug, getAllPosts } from '~/lib/posts'
-import markdownToHtml from '~/lib/markdown-to-html'
+import { getPostBySlug, getAllPosts } from '~/lib/posts';
+import markdownToHtml from '~/lib/markdown-to-html';
 
-import { Content, Page } from '~/components/layout'
-import { YouTubePreconnect } from '~/components/perf'
-import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts'
-import CustomErrorPage from '~/pages/_error'
-import { BasePostProps } from '~/types/posts'
-import { SiteMetadata } from '~/types/default'
+import { Content, Page } from '~/components/layout';
+import { YouTubePreconnect } from '~/components/perf';
+import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts';
+import CustomErrorPage from '~/pages/_error';
+import { BasePostProps } from '~/types/posts';
+import { SiteMetadata } from '~/types/default';
 
-import siteMetadata from '~/_data/siteMetadata.json'
+import siteMetadata from '~/_data/siteMetadata.json';
 
 type BlogPostPageProps = {
-  post?: BasePostProps
-  siteMetadata: SiteMetadata
-}
+  post?: BasePostProps;
+  siteMetadata: SiteMetadata;
+};
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
-  const { author } = siteMetadata
+  const { author } = siteMetadata;
 
   if (post) {
-    const { title, lead, category, date, header_image, syndication, slug, content } = post
+    const { title, lead, category, date, header_image, syndication, slug, content } = post;
     return (
       <Page pageTitle={title}>
         <NextSeo
@@ -34,62 +34,78 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
             article: {
               authors: [siteMetadata.author.name],
               publishedTime: date,
-              section: category
+              section: category,
             },
             images: [
               {
                 url: `${siteMetadata.siteUrl}${header_image}`,
                 width: 1200,
                 height: 630,
-                alt: title
-              }
-            ]
+                alt: title,
+              },
+            ],
           }}
         />
         <YouTubePreconnect />
         <Content>
           <Post>
             {header_image && <PostHeaderImage src={header_image} alt={title} />}
-            <PostHeader title={title} lead={lead} author={author} category={category} date={date} slug={slug} />
+            <PostHeader
+              title={title}
+              lead={lead}
+              author={author}
+              category={category}
+              date={date}
+              slug={slug}
+            />
             <PostBody content={content} syndication={syndication} />
           </Post>
         </Content>
       </Page>
-    )
+    );
   }
 
-  return <CustomErrorPage statusCode={404} />
-}
+  return <CustomErrorPage statusCode={404} />;
+};
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  if (ctx.params && Array.isArray(ctx.params?.slug)) {
-    const post = getPostBySlug(ctx.params.slug, ['category', 'title', 'lead', 'date', 'header_image', 'slug', 'content', 'syndication'])
+export const getStaticProps: GetStaticProps = async ctx => {
+  if (ctx.params && Array.isArray(ctx.params.slug)) {
+    const post = getPostBySlug(ctx.params.slug, [
+      'category',
+      'title',
+      'lead',
+      'date',
+      'header_image',
+      'slug',
+      'content',
+      'syndication',
+    ]);
 
-    const content = await markdownToHtml(post.content || '')
+    const content = await markdownToHtml(post.content || '');
 
     return {
-      props: { siteMetadata, post: { ...post, content } }
-    }
+      props: { siteMetadata, post: { ...post, content } },
+    };
   }
 
   return {
-    props: { siteMetadata }
-  }
-}
+    props: { siteMetadata },
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(['slug'])
+  const posts = getAllPosts(['slug']);
 
   return {
-    paths: posts.map((post) => {
+    paths: posts.map(post => {
       return {
         params: {
-          slug: post.slug.split('/').filter(Boolean)
-        }
-      }
+          slug: post.slug.split('/').filter(Boolean),
+        },
+      };
     }),
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
-export default BlogPostPage
+export default BlogPostPage;

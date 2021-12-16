@@ -1,33 +1,42 @@
 /* eslint-disable react/no-danger */
-import * as React from 'react'
-import Link from 'next/link'
-import { css } from '@emotion/react'
-import convert from 'htmr'
-import { Heading, Paragraph, theme, Badge, Anchor, BoxProps, Card, Text, Box } from '@resir014/chungking-react'
-import htmrTransform from '~/lib/htmr-transform'
-import { ProjectMetadata } from '~/types/projects'
-
-import ProjectTags from './ProjectTags'
+import * as React from 'react';
+import Link from 'next/link';
+import { css } from '@emotion/react';
+import convert from 'htmr';
+import {
+  Heading,
+  Paragraph,
+  theme,
+  Badge,
+  Anchor,
+  BoxProps,
+  Card,
+  Text,
+  Box,
+} from '@resir014/chungking-react';
+import ProjectTags from './ProjectTags';
+import htmrTransform from '~/lib/htmr-transform';
+import { ProjectMetadata } from '~/types/projects';
 
 const colorByCategory = (category: string) => {
   switch (category) {
     case 'portfolio':
-      return `${theme.colors.turquoise[400]}`
+      return `${theme.colors.turquoise[400]}`;
     case 'oss':
-      return `${theme.colors.orange[400]}`
+      return `${theme.colors.orange[400]}`;
     case 'other':
-      return `${theme.colors.magenta[400]}`
+      return `${theme.colors.magenta[400]}`;
     default:
-      return `${theme.colors.grey[800]}`
+      return `${theme.colors.grey[800]}`;
   }
-}
+};
 
 interface ProjectFieldProps extends BoxProps {
-  project: ProjectMetadata
+  project: ProjectMetadata;
 }
 
 const ProjectItem: React.FC<ProjectFieldProps> = ({ project, ...rest }) => {
-  const { title, description, category, tags, slug } = project
+  const { title, description, category, tags, slug } = project;
 
   return (
     <Card
@@ -59,10 +68,10 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ project, ...rest }) => {
         </Heading>
       </Box>
       <Box flex="1 0 auto" pb="lg" px="lg" pt="sm">
-        <Paragraph m={0}>{convert(description || '', { transform: htmrTransform })}</Paragraph>
+        <Paragraph m={0}>{convert(description ?? '', { transform: htmrTransform })}</Paragraph>
         {tags ? (
           <ProjectTags>
-            {tags.map((tag) => (
+            {tags.map(tag => (
               <Badge key={tag}>{tag}</Badge>
             ))}
           </ProjectTags>
@@ -74,7 +83,7 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ project, ...rest }) => {
         </Link>
       </Box>
     </Card>
-  )
-}
+  );
+};
 
-export default ProjectItem
+export default ProjectItem;

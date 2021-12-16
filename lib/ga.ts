@@ -1,16 +1,16 @@
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
 
 export interface EventArgs {
   /** Typically the object that was interacted with (e.g. 'Video') */
-  category: string
+  category: string;
   /** The type of interaction (e.g. 'play') */
-  action: string
+  action: string;
   /** Useful for categorizing events (e.g. 'Fall Campaign') */
-  label?: string
+  label?: string;
   /** A numeric value associated with the event (e.g. 42) */
-  value?: number
+  value?: number;
   /** Specifies that a hit be considered non-interactive. */
-  nonInteraction?: boolean
+  nonInteraction?: boolean;
   /**
    * This specifies the transport mechanism with which hits will be sent.
    * The options are 'beacon', 'xhr', or 'image'. By default, analytics.js
@@ -19,15 +19,15 @@ export interface EventArgs {
    * the `navigator.sendBeacon` method, it will fall back to 'image' or 'xhr'
    * depending on hit size.
    */
-  transport?: 'beacon' | 'xhr' | 'image'
+  transport?: 'beacon' | 'xhr' | 'image';
 }
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
   if (typeof window.ga === 'function') {
-    window.ga('send', 'pageview', url)
+    window.ga('send', 'pageview', url);
   }
-}
+};
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const event = ({ action, category, label, value, nonInteraction, transport }: EventArgs) => {
@@ -38,7 +38,7 @@ export const event = ({ action, category, label, value, nonInteraction, transpor
       eventLabel: label,
       eventValue: value,
       nonInteraction,
-      transport
-    })
+      transport,
+    });
   }
-}
+};

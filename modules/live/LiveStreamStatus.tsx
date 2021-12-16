@@ -1,28 +1,28 @@
-import { css } from '@emotion/react'
-import * as React from 'react'
-import { Box, Text, BoxProps, Link, Heading } from '@resir014/chungking-react'
-import { Twitch } from 'react-feather'
-import { formatRelativeTime } from '~/lib/date-formatter'
-import { useTwitchData } from '~/lib/twitch-api'
+import { css } from '@emotion/react';
+import * as React from 'react';
+import { Box, Text, BoxProps, Link, Heading } from '@resir014/chungking-react';
+import { Twitch } from 'react-feather';
+import { formatRelativeTime } from '~/lib/date-formatter';
+import { useTwitchData } from '~/lib/twitch-api';
 
 interface LiveStreamStatusProps extends BoxProps {
-  username?: string
+  username?: string;
 }
 
 const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir014', ...rest }) => {
-  const { data, isLoading, isError } = useTwitchData(username)
+  const { data, isLoading, isError } = useTwitchData(username);
 
   const renderStreamStatus = () => {
     if (isLoading || isError) {
-      return '-'
+      return '-';
     }
 
     if (data) {
-      return 'Online'
+      return 'Online';
     }
 
-    return 'Offline'
-  }
+    return 'Offline';
+  };
 
   const renderViewCount = () => {
     if (isError) {
@@ -35,7 +35,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
             Failed retrieving stream status.
           </Text>
         </>
-      )
+      );
     }
 
     if (data) {
@@ -45,14 +45,14 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
             &middot;
           </Text>
           <Text display="block" variant="sm" ml="xs">
-            {data?.viewer_count} viewers
+            {data.viewer_count} viewers
           </Text>
         </>
-      )
+      );
     }
 
-    return null
-  }
+    return null;
+  };
 
   const renderStreamDuration = () => {
     if (isLoading || isError) {
@@ -60,7 +60,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
         <Text as="p" display="block" mt="xs">
           -
         </Text>
-      )
+      );
     }
 
     if (data) {
@@ -68,15 +68,15 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
         <Text as="p" display="block" mt="xs">
           Streaming for {formatRelativeTime(new Date(data.started_at))}
         </Text>
-      )
+      );
     }
 
     return (
       <Text as="p" display="block" mt="xs">
         Follow to be notified when they go live!
       </Text>
-    )
-  }
+    );
+  };
 
   return (
     <Box
@@ -90,7 +90,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
       overflow="hidden"
       _hover={{
         backgroundColor: 'grey.800',
-        boxShadow: 'double'
+        boxShadow: 'double',
       }}
       {...rest}
     >
@@ -145,7 +145,7 @@ const LiveStreamStatus: React.FC<LiveStreamStatusProps> = ({ username = 'resir01
         {renderViewCount()}
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default LiveStreamStatus
+export default LiveStreamStatus;

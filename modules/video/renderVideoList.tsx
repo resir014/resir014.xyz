@@ -1,14 +1,17 @@
-import convert from 'htmr'
-import Link from 'next/link'
-import * as React from 'react'
-import htmrTransform from '~/lib/htmr-transform'
-import { BaseJamProps, BaseVideoProps } from '~/types/posts'
-import { PostMeta } from '../posts'
-import LiteYouTube from './LiteYouTube'
-import VideoCard from './VideoCard'
+import convert from 'htmr';
+import Link from 'next/link';
+import * as React from 'react';
+import { PostMeta } from '../posts';
+import LiteYouTube from './LiteYouTube';
+import VideoCard from './VideoCard';
+import { BaseJamProps, BaseVideoProps } from '~/types/posts';
+import htmrTransform from '~/lib/htmr-transform';
 
-export default function renderVideoList(allPosts: (BaseJamProps | BaseVideoProps)[], category: 'jam' | 'videos' = 'videos') {
-  return allPosts.map((post) => (
+export default function renderVideoList(
+  allPosts: (BaseJamProps | BaseVideoProps)[],
+  category: 'jam' | 'videos' = 'videos'
+) {
+  return allPosts.map(post => (
     <VideoCard
       key={post.slug}
       metadata={<PostMeta category={post.category} date={post.date} />}
@@ -21,5 +24,5 @@ export default function renderVideoList(allPosts: (BaseJamProps | BaseVideoProps
     >
       {convert(post.content, { transform: htmrTransform })}
     </VideoCard>
-  ))
+  ));
 }

@@ -1,9 +1,23 @@
-import * as React from 'react'
-import { Heading, Text, Anchor, Paragraph, TextVariants } from '@resir014/chungking-react'
-import { Blockquote, H2, H3, InlineCode, LI, OL, UL } from '../markdown'
-import ComponentSpecimen from './components/ComponentSpecimen'
+import * as React from 'react';
+import { Heading, Text, Anchor, Paragraph, TextVariants } from '@resir014/chungking-react';
+import { Blockquote, H2, H3, InlineCode, ListItem, OrderedList, UnorderedList } from '../markdown';
+import ComponentSpecimen from './components/ComponentSpecimen';
 
-const variants: TextVariants[] = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl', '8xl', '9xl']
+const variants: TextVariants[] = [
+  'xs',
+  'sm',
+  'base',
+  'lg',
+  'xl',
+  '2xl',
+  '3xl',
+  '4xl',
+  '5xl',
+  '6xl',
+  '7xl',
+  '8xl',
+  '9xl',
+];
 
 const TypographySpecs: React.FC = () => {
   return (
@@ -11,7 +25,7 @@ const TypographySpecs: React.FC = () => {
       <H2>Typography</H2>
       <H3>Heading</H3>
       <ComponentSpecimen spacing="sm">
-        {variants.map((variant) => (
+        {variants.map(variant => (
           <Heading key={variant} variant={variant}>
             Heading - {variant}
           </Heading>
@@ -19,7 +33,7 @@ const TypographySpecs: React.FC = () => {
       </ComponentSpecimen>
       <H3>Text</H3>
       <ComponentSpecimen spacing="sm">
-        {variants.map((variant) => (
+        {variants.map(variant => (
           <Text key={variant} variant={variant} display="block">
             Text - {variant}
           </Text>
@@ -36,41 +50,51 @@ const TypographySpecs: React.FC = () => {
       </ComponentSpecimen>
       <H3>Anchor</H3>
       <ComponentSpecimen>
-        <Anchor href="https://www.youtube.com/watch?v=P_mQpbCSQOo" target="_blank" rel="noopener noreferrer">
+        <Anchor
+          href="https://www.youtube.com/watch?v=P_mQpbCSQOo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </Anchor>
       </ComponentSpecimen>
       <H3>Paragraph</H3>
       <ComponentSpecimen spacing="md">
         <Paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores distinctio natus in incidunt quas totam enim laborum, facilis
-          ipsam, sunt odio accusamus doloribus eaque dolorem nisi iusto reprehenderit possimus optio. Sequi iste quas optio natus odit
-          nostrum nobis atque, quidem repudiandae sunt repellat. Corrupti magni ipsum quasi et ex. Rem, eum. Officia fugiat alias magnam
-          voluptatum temporibus minus voluptatem eos?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores distinctio natus in
+          incidunt quas totam enim laborum, facilis ipsam, sunt odio accusamus doloribus eaque
+          dolorem nisi iusto reprehenderit possimus optio. Sequi iste quas optio natus odit nostrum
+          nobis atque, quidem repudiandae sunt repellat. Corrupti magni ipsum quasi et ex. Rem, eum.
+          Officia fugiat alias magnam voluptatum temporibus minus voluptatem eos?
         </Paragraph>
         <Paragraph variant="smaller">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores distinctio natus in incidunt quas totam enim laborum, facilis
-          ipsam, sunt odio accusamus doloribus eaque dolorem nisi iusto reprehenderit possimus optio. Sequi iste quas optio natus odit
-          nostrum nobis atque, quidem repudiandae sunt repellat. Corrupti magni ipsum quasi et ex. Rem, eum. Officia fugiat alias magnam
-          voluptatum temporibus minus voluptatem eos?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores distinctio natus in
+          incidunt quas totam enim laborum, facilis ipsam, sunt odio accusamus doloribus eaque
+          dolorem nisi iusto reprehenderit possimus optio. Sequi iste quas optio natus odit nostrum
+          nobis atque, quidem repudiandae sunt repellat. Corrupti magni ipsum quasi et ex. Rem, eum.
+          Officia fugiat alias magnam voluptatum temporibus minus voluptatem eos?
         </Paragraph>
       </ComponentSpecimen>
       <H2>Markdown</H2>
       <H3>Unordered List</H3>
       <ComponentSpecimen>
-        <UL>
-          <LI>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!</LI>
-          <LI>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</LI>
-          <LI>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</LI>
-        </UL>
+        <UnorderedList>
+          <ListItem>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!
+          </ListItem>
+          <ListItem>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</ListItem>
+          <ListItem>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</ListItem>
+        </UnorderedList>
       </ComponentSpecimen>
       <H3>Ordered List</H3>
       <ComponentSpecimen>
-        <OL>
-          <LI>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!</LI>
-          <LI>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</LI>
-          <LI>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</LI>
-        </OL>
+        <OrderedList>
+          <ListItem>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, id!
+          </ListItem>
+          <ListItem>Quasi quis ad deleniti sint. Similique ipsa quas debitis adipisci?</ListItem>
+          <ListItem>Nemo saepe quia odio impedit esse. Minus dignissimos ipsa delectus.</ListItem>
+        </OrderedList>
       </ComponentSpecimen>
       <H3>Inline Code</H3>
       <ComponentSpecimen>
@@ -83,7 +107,7 @@ const TypographySpecs: React.FC = () => {
         <Blockquote>The quick brown fox jumps over the lazy dog.</Blockquote>
       </ComponentSpecimen>
     </>
-  )
-}
+  );
+};
 
-export default TypographySpecs
+export default TypographySpecs;

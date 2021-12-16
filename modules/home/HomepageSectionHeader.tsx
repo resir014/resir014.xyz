@@ -1,15 +1,21 @@
-import * as React from 'react'
-import { Stack, StackProps, Text } from '@resir014/chungking-react'
-import HomepageSectionTitle from './HomepageSectionTitle'
+import * as React from 'react';
+import { Stack, StackProps, Text } from '@resir014/chungking-react';
+import HomepageSectionTitle from './HomepageSectionTitle';
 
 interface HomepageSectionHeaderProps extends StackProps {
-  className?: string
-  style?: React.CSSProperties
-  title: string
-  description?: string
+  className?: string;
+  style?: React.CSSProperties;
+  title: string;
+  description?: string;
 }
 
-const HomepageSectionHeader: React.FC<HomepageSectionHeaderProps> = ({ className, style, title, description, ...rest }) => (
+const HomepageSectionHeader: React.FC<HomepageSectionHeaderProps> = ({
+  className,
+  style,
+  title,
+  description,
+  ...rest
+}) => (
   <Stack spacing="xs" className={className} style={style} {...rest}>
     <HomepageSectionTitle>{title}</HomepageSectionTitle>
     {description && (
@@ -18,6 +24,6 @@ const HomepageSectionHeader: React.FC<HomepageSectionHeaderProps> = ({ className
       </Text>
     )}
   </Stack>
-)
+);
 
-export default HomepageSectionHeader
+export default HomepageSectionHeader;

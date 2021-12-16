@@ -1,5 +1,5 @@
-import styled from '@emotion/styled'
-import { theme } from '@resir014/chungking-react'
+import styled from '@emotion/styled';
+import { theme } from '@resir014/chungking-react';
 
 const HeaderDivider = styled('hr')`
   width: 100%;
@@ -10,6 +10,6 @@ const HeaderDivider = styled('hr')`
   border: none;
   border-radius: 6px;
   background: linear-gradient(to right, ${theme.colors.blue[500]}, ${theme.colors.magenta[400]});
-`
+`;
 
-export default HeaderDivider
+export default HeaderDivider;

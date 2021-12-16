@@ -1,16 +1,25 @@
-import convert from 'htmr'
-import Link from 'next/link'
-import * as React from 'react'
-import htmrTransform from '~/lib/htmr-transform'
-import { BaseJamProps, BaseVideoProps } from '~/types/posts'
-import { PostMeta } from '../posts'
-import LiteYouTube from './LiteYouTube'
-import VideoCard from './VideoCard'
+import convert from 'htmr';
+import Link from 'next/link';
+import * as React from 'react';
+import { PostMeta } from '../posts';
+import LiteYouTube from './LiteYouTube';
+import VideoCard from './VideoCard';
+import { BaseJamProps, BaseVideoProps } from '~/types/posts';
+import htmrTransform from '~/lib/htmr-transform';
 
-export default function renderFeaturedVideo(featuredPost: BaseJamProps | BaseVideoProps, category: 'jam' | 'videos' = 'videos') {
+export default function renderFeaturedVideo(
+  featuredPost: BaseJamProps | BaseVideoProps,
+  category: 'jam' | 'videos' = 'videos'
+) {
   return (
     <VideoCard
-      metadata={<PostMeta category={featuredPost.category} date={featuredPost.date} slug={featuredPost.slug} />}
+      metadata={
+        <PostMeta
+          category={featuredPost.category}
+          date={featuredPost.date}
+          slug={featuredPost.slug}
+        />
+      }
       title={
         <Link href={`/${category}/[...slug]`} as={`/${category}/${featuredPost.slug}`} passHref>
           <a>{featuredPost.title}</a>
@@ -20,5 +29,5 @@ export default function renderFeaturedVideo(featuredPost: BaseJamProps | BaseVid
     >
       {convert(featuredPost.content, { transform: htmrTransform })}
     </VideoCard>
-  )
+  );
 }

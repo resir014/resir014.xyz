@@ -1,7 +1,5 @@
-// tslint:disable:no-unused-expression
-
-import { css } from '@emotion/react'
-import { theme } from '@resir014/chungking-react'
+import { css } from '@emotion/react';
+import { theme } from '@resir014/chungking-react';
 
 const prismTheme = css`
   /**
@@ -155,6 +153,6 @@ const prismTheme = css`
   .token.entity {
     cursor: help;
   }
-`
+`;
 
-export default prismTheme
+export default prismTheme;

@@ -1,27 +1,27 @@
-import * as React from 'react'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { NextSeo } from 'next-seo'
-import { Box } from '@resir014/chungking-react'
-import CustomErrorPage from '~/pages/_error'
-import { Container, Content, Page } from '~/components/layout'
-import { YouTubePreconnect } from '~/components/perf'
-import { BaseProjectProps } from '~/types/projects'
-import { Post } from '~/modules/posts'
-import { ProjectBody, ProjectCard } from '~/modules/projects'
-import { getAllProjects, getProjectBySlug } from '~/lib/projects'
-import markdownToHtml from '~/lib/markdown-to-html'
-import { SiteMetadata } from '~/types/default'
+import * as React from 'react';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+import { Box } from '@resir014/chungking-react';
+import CustomErrorPage from '~/pages/_error';
+import { Container, Content, Page } from '~/components/layout';
+import { YouTubePreconnect } from '~/components/perf';
+import { BaseProjectProps } from '~/types/projects';
+import { Post } from '~/modules/posts';
+import { ProjectBody, ProjectCard } from '~/modules/projects';
+import { getAllProjects, getProjectBySlug } from '~/lib/projects';
+import markdownToHtml from '~/lib/markdown-to-html';
+import { SiteMetadata } from '~/types/default';
 
-import siteMetadata from '~/_data/siteMetadata.json'
+import siteMetadata from '~/_data/siteMetadata.json';
 
 type BlogPostPageProps = {
-  project?: BaseProjectProps
-  siteMetadata: SiteMetadata
-}
+  project?: BaseProjectProps;
+  siteMetadata: SiteMetadata;
+};
 
 const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
   if (project) {
-    const { title, description, header_image, content } = project
+    const { title, description, header_image, content } = project;
     return (
       <Page pageTitle={`${title} · Projects`}>
         <NextSeo
@@ -32,9 +32,9 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
                 url: `${siteMetadata.siteUrl}${header_image}`,
                 width: 1200,
                 height: 630,
-                alt: title
-              }
-            ]
+                alt: title,
+              },
+            ],
           }}
         />
         <YouTubePreconnect />
@@ -49,14 +49,14 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
           </Post>
         </Content>
       </Page>
-    )
+    );
   }
 
-  return <CustomErrorPage statusCode={404} />
-}
+  return <CustomErrorPage statusCode={404} />;
+};
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  if (ctx.params?.slug && !Array.isArray(ctx.params?.slug)) {
+export const getStaticProps: GetStaticProps = async ctx => {
+  if (ctx.params?.slug && !Array.isArray(ctx.params.slug)) {
     const project = getProjectBySlug(ctx.params.slug, [
       'category',
       'title',
@@ -66,34 +66,34 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       'project_url',
       'tags',
       'slug',
-      'content'
-    ])
+      'content',
+    ]);
 
-    const content = await markdownToHtml(project.content || '')
+    const content = await markdownToHtml(project.content || '');
 
     return {
-      props: { siteMetadata, project: { ...project, content } }
-    }
+      props: { siteMetadata, project: { ...project, content } },
+    };
   }
 
   return {
-    props: { siteMetadata }
-  }
-}
+    props: { siteMetadata },
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = getAllProjects(['slug'])
+  const projects = getAllProjects(['slug']);
 
   return {
-    paths: projects.map((project) => {
+    paths: projects.map(project => {
       return {
         params: {
-          slug: project.slug
-        }
-      }
+          slug: project.slug,
+        },
+      };
     }),
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
-export default ProjectsDetailPage
+export default ProjectsDetailPage;

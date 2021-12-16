@@ -45,5 +45,5 @@ module.exports = [
   'is not a furry',
   'wishes you a good day',
   'probably likes you',
-  "thinks you're cool"
-]
+  "thinks you're cool",
+];

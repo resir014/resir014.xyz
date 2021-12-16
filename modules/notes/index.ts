@@ -1,2 +1,2 @@
-export { default as NoteListItem } from './NoteListItem'
-export * from './NoteListItem'
+export { default as NoteListItem } from './NoteListItem';
+export * from './NoteListItem';

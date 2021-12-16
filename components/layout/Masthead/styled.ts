@@ -1,6 +1,6 @@
-import { css } from '@emotion/react'
-import { transparentize } from 'polished'
-import { theme } from '@resir014/chungking-react'
+import { css } from '@emotion/react';
+import { transparentize } from 'polished';
+import { theme } from '@resir014/chungking-react';
 
 export const MastheadLinkStyles = css`
   display: block;
@@ -33,7 +33,7 @@ export const MastheadLinkStyles = css`
     padding: ${theme.space.md}px 0;
     padding-bottom: calc(16px - 2px);
   }
-`
+`;
 
 export const MastheadTitleLinkStyles = css`
   font-weight: 700;
@@ -42,4 +42,4 @@ export const MastheadTitleLinkStyles = css`
     font-weight: 400;
     white-space: nowrap;
   }
-`
+`;

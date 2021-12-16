@@ -1,7 +1,7 @@
-import { css } from '@emotion/react'
-import { theme } from '@resir014/chungking-react'
+import { css } from '@emotion/react';
+import { theme } from '@resir014/chungking-react';
 
-const progressBarColor = theme.colors.white
+const progressBarColor = theme.colors.white;
 
 const nProgressStyles = css`
   /* Make clicks pass-through */
@@ -66,6 +66,6 @@ const nProgressStyles = css`
       transform: rotate(360deg);
     }
   }
-`
+`;
 
-export default nProgressStyles
+export default nProgressStyles;

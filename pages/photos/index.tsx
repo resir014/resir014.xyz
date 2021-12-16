@@ -1,27 +1,28 @@
-import * as React from 'react'
-import { NextPage, InferGetStaticPropsType } from 'next'
-import { Stack } from '@resir014/chungking-react'
+import * as React from 'react';
+import { NextPage, InferGetStaticPropsType } from 'next';
+import { Stack } from '@resir014/chungking-react';
 
-import { Content, Page } from '~/components/layout'
-import { PostBody, PostHeader } from '~/modules/posts'
-import { getAllPosts } from '~/lib/posts'
-import { renderMarkdown } from '~/lib/markdown-to-html'
-import { BasePhotoProps } from '~/types/posts'
+import { Content, Page } from '~/components/layout';
+import { PostBody, PostHeader } from '~/modules/posts';
+import { getAllPosts } from '~/lib/posts';
+import { renderMarkdown } from '~/lib/markdown-to-html';
+import { BasePhotoProps } from '~/types/posts';
 
-import siteMetadata from '~/_data/siteMetadata.json'
-import PhotoListItem from '~/modules/photos/PhotoListItem'
+import siteMetadata from '~/_data/siteMetadata.json';
+import PhotoListItem from '~/modules/photos/PhotoListItem';
 
 export const getStaticProps = async () => {
-  const allPosts: BasePhotoProps[] = getAllPosts(['category', 'title', 'slug', 'date', 'header_image', 'featured', 'content'], 'photo').map(
-    (post) => ({ ...post, content: renderMarkdown(post.content || '') })
-  )
+  const allPosts: BasePhotoProps[] = getAllPosts(
+    ['category', 'title', 'slug', 'date', 'header_image', 'featured', 'content'],
+    'photo'
+  ).map(post => ({ ...post, content: renderMarkdown(post.content || '') }));
 
   return {
-    props: { allPosts, siteMetadata }
-  }
-}
+    props: { allPosts, siteMetadata },
+  };
+};
 
-type PhotosIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
+type PhotosIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const PhotosIndexPage: NextPage<PhotosIndexPageProps> = ({ allPosts }) => {
   return (
@@ -30,14 +31,14 @@ const PhotosIndexPage: NextPage<PhotosIndexPageProps> = ({ allPosts }) => {
         <PostHeader title="Photos" lead="Sometimes I go outside and take photos with my camera." />
         <PostBody>
           <Stack spacing="64px" mt="lg">
-            {allPosts.map((photo) => (
+            {allPosts.map(photo => (
               <PhotoListItem key={photo.slug} photo={photo} />
             ))}
           </Stack>
         </PostBody>
       </Content>
     </Page>
-  )
-}
+  );
+};
 
-export default PhotosIndexPage
+export default PhotosIndexPage;
