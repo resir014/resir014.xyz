@@ -9,6 +9,9 @@ const nextConfig = {
       process.env.NEXT_PUBLIC_HOMEPAGE_SPLASH_TEXT ||
       flavours[Math.floor(Math.random() * flavours.length)],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   experimental: {
     productionBrowserSourceMaps: true,
   },
