@@ -4,6 +4,6 @@ export { default as PostHeader } from './post-header';
 export { default as PostListItem } from './post-list-item';
 export { default as PostContent } from './PostContent';
 export { default as PostHCard } from './PostHCard';
-export { default as PostHeaderImage } from './PostHeaderImage';
+export { default as PostHeaderImage } from './post-header-image';
 export { default as PostMeta } from './PostMeta';
 export { default as PostSubtitle } from './PostSubtitle';
