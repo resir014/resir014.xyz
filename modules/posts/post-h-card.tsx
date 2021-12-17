@@ -28,8 +28,7 @@ const HCardEmail = styled('a')`
 const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author, ...rest }) => (
   <Box
     className={classnames(className, 'p-author h-card')}
-    display={hidden ? 'none' : 'inline-block'}
-    my="xl"
+    display={hidden ? 'none' : 'block'}
     css={css`
       &:last-of-type {
         margin-bottom: 0;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 
 import { theme, Stack, Box, Text } from '@resir014/chungking-react';
-import Container, { ContainerSizes } from './Container';
+import Container, { ContainerSizes } from './container';
 
 import CCLogo from '~/assets/images/cc-by-nc-sa.svg';
 
