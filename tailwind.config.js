@@ -27,8 +27,8 @@ module.exports = {
         },
         chungking: {
           css: {
-            '--tw-prose-links': theme('colors.chungking-green.600'),
-            '--tw-prose-invert-links': theme('colors.chungking-green.500'),
+            '--tw-prose-links': theme('colors.chungking-turquoise.500'),
+            '--tw-prose-invert-links': theme('colors.chungking-turquoise.400'),
           },
         },
       }),
