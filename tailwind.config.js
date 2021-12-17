@@ -11,6 +11,27 @@ module.exports = {
   presets: [require('@resir014/tailwind-preset-chungking')],
   theme: {
     extend: {
+      typography: theme => ({
+        DEFAULT: {
+          css: [
+            {
+              maxWidth: 'unset',
+              h1: {
+                fontWeight: 600,
+              },
+              h2: {
+                fontWeight: 600,
+              },
+            },
+          ],
+        },
+        chungking: {
+          css: {
+            '--tw-prose-links': theme('colors.chungking-green.600'),
+            '--tw-prose-invert-links': theme('colors.chungking-green.500'),
+          },
+        },
+      }),
       colors: {
         gray: colors.grey,
       },

@@ -53,7 +53,7 @@ const PostBody: React.FC<PostBodyProps> = ({
       <Box as="section" px="lg" pt={64} pb={96}>
         <Container size={containerSize}>
           {renderSyndication()}
-          <div className="e-content mx-auto prose prose-base lg:prose-lg prose-invert">
+          <div className="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
             {convert(content, {
               transform: {
                 iframe: ({ className, title, ...rest }: JSX.IntrinsicElements['iframe']) => (
