@@ -6,4 +6,4 @@ export { default as Footer } from './Footer';
 export { default as HeroWrapper } from './HeroWrapper';
 export { default as Page } from './Page';
 
-export * from './Masthead';
+export * from './masthead';

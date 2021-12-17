@@ -2,7 +2,6 @@ import { css } from '@emotion/react';
 import Image from 'next/image';
 import * as React from 'react';
 import { Box } from '@resir014/chungking-react';
-import { Container } from '~/components/layout';
 
 interface PostHeaderImageProps {
   src: string;
@@ -12,7 +11,7 @@ interface PostHeaderImageProps {
 const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
   return (
     <Box as="section" px="lg">
-      <Container size="xl">
+      <div className="w-full lg:max-w-4xl xl:max-w-6xl mx-auto">
         <Image
           className="u-photo"
           loading="lazy"
@@ -24,7 +23,7 @@ const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
             object-fit: cover;
           `}
         />
-      </Container>
+      </div>
     </Box>
   );
 };

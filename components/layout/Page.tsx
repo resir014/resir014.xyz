@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
+import clsx from 'clsx';
 import { Box } from '@resir014/chungking-react';
 
-import { Masthead } from './Masthead';
+import { Masthead } from './masthead';
 import Footer from './Footer';
 import menuItems from '~/_data/menuItems.json';
 import siteMetadata from '~/_data/siteMetadata.json';
@@ -21,7 +22,7 @@ const Page: React.FC<PageProps> = ({ children, className, style, pageTitle }) =>
 
   return (
     <Box
-      className={className}
+      className={clsx('bg-chungking-grey-900 text-chungking-white', className)}
       style={style}
       display="flex"
       flexDirection="column"

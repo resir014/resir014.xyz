@@ -14,6 +14,9 @@ module.exports = {
       colors: {
         gray: colors.grey,
       },
+      boxShadow: {
+        'header-inset': `inset 0 -1px ${colors.grey[800]}`,
+      },
     },
   },
   variants: {
