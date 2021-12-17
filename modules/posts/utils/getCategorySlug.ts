@@ -1,26 +1,26 @@
-import { PostKind } from '~/types/default'
+import { PostKind } from '~/types/default';
 
 function getCategorySlug(category: PostKind = 'article') {
   switch (category) {
     case 'article': {
-      return `/posts/`
+      return `/posts/`;
     }
     case 'jam': {
-      return `/jam/`
+      return `/jam/`;
     }
     case 'note': {
-      return `/notes/`
+      return `/notes/`;
     }
     case 'photo': {
-      return `/photos/`
+      return `/photos/`;
     }
     case 'video': {
-      return `/videos/`
+      return `/videos/`;
     }
     default: {
-      return `/posts/`
+      return `/posts/`;
     }
   }
 }
 
-export default getCategorySlug
+export default getCategorySlug;

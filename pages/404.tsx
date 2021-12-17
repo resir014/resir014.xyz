@@ -1,6 +1,6 @@
-import * as React from 'react'
-import CustomErrorPage from './_error'
+import * as React from 'react';
+import CustomErrorPage from './_error';
 
-const NotFoundPage = () => <CustomErrorPage statusCode={404} />
+const NotFoundPage = () => <CustomErrorPage statusCode={404} />;
 
-export default NotFoundPage
+export default NotFoundPage;

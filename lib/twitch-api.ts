@@ -1,67 +1,70 @@
-import { stringifyUrl } from 'query-string'
-import useSWR from 'swr'
-import { HelixStreamsResponse, TwitchOAuthResponse } from '~/types/twitch'
-import fetch from './fetch'
+import { stringifyUrl } from 'query-string';
+import useSWR from 'swr';
+import fetch from './fetch';
+import { HelixStreamsResponse, TwitchOAuthResponse } from '~/types/twitch';
 
 export async function getTwitchData(token: string, user: string | string[] = 'resir014') {
-  console.log('Fetching broadcast info...')
+  console.log('Fetching broadcast info...');
 
   const apiUrl = stringifyUrl({
     url: 'https://api.twitch.tv/helix/streams',
     query: {
-      user_login: Array.isArray(user) ? user.join(',') : user
-    }
-  })
+      user_login: Array.isArray(user) ? user.join(',') : user,
+    },
+  });
 
   try {
     const res = await fetch<HelixStreamsResponse>(apiUrl, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
-        'Client-ID': process.env.TWITCH_CLIENT_ID || ''
-      }
-    })
+        'Client-ID': process.env.TWITCH_CLIENT_ID ?? '',
+      },
+    });
 
-    return res
-  } catch (err) {
-    throw new Error('Unable to authenticate with Twitch API')
+    return res;
+  } catch (err: unknown) {
+    throw new Error('Unable to authenticate with Twitch API');
   }
 }
 
 export async function getTwitchToken() {
-  console.log('Requesting token from Twitch API...')
+  console.log('Requesting token from Twitch API...');
 
   const tokenUrl = stringifyUrl({
     url: 'https://id.twitch.tv/oauth2/token',
     query: {
       grant_type: 'client_credentials',
       client_id: process.env.TWITCH_CLIENT_ID,
-      client_secret: process.env.TWITCH_CLIENT_SECRET
-    }
-  })
+      client_secret: process.env.TWITCH_CLIENT_SECRET,
+    },
+  });
 
   return fetch<TwitchOAuthResponse>(tokenUrl, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      'Client-ID': process.env.TWITCH_CLIENT_ID || ''
-    }
-  }).then((data) => {
+      'Client-ID': process.env.TWITCH_CLIENT_ID ?? '',
+    },
+  }).then(data => {
     if (data.access_token) {
-      return data
+      return data;
     }
 
-    throw new Error('Cannot retrieve access_token from Twitch API')
-  })
+    throw new Error('Cannot retrieve access_token from Twitch API');
+  });
 }
 
 export function useTwitchData(user = 'resir014') {
-  const { data, error } = useSWR<HelixStreamsResponse>(`/api/twitch-api/?user=${user}`, fetch)
-  const streamInfo = Boolean(data?.data && data?.data[0])
+  const { data, error } = useSWR<HelixStreamsResponse, unknown>(
+    `/api/twitch-api/?user=${user}`,
+    fetch
+  );
+  const streamInfo = Boolean(data?.data && data.data[0]);
 
   return {
-    data: streamInfo && data?.data[0]?.type === 'live' && data?.data[0]?.type === 'live' ? data?.data[0] : undefined,
+    data: streamInfo && data?.data[0]?.type === 'live' ? data.data[0] : undefined,
     isLoading: !error && !data,
-    isError: error
-  }
+    isError: error,
+  } as const;
 }

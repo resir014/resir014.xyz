@@ -1,23 +1,28 @@
 /* eslint-disable react/no-danger */
-import * as React from 'react'
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document'
-import createEmotionServer from '@emotion/server/create-instance'
-import { GA_TRACKING_ID } from '~/lib/ga'
-import emotionCache from '~/lib/emotion-cache'
+import * as React from 'react';
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import createEmotionServer from '@emotion/server/create-instance';
+import { GA_TRACKING_ID } from '~/lib/ga';
+import emotionCache from '~/lib/emotion-cache';
 
-const { extractCritical } = createEmotionServer(emotionCache)
+const server = createEmotionServer(emotionCache);
+const extractCritical = server.extractCritical.bind(server);
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    const styles = extractCritical(initialProps.html)
+    const initialProps = await Document.getInitialProps(ctx);
+    const styles = extractCritical(initialProps.html);
     return {
       ...initialProps,
       styles: [
         initialProps.styles,
-        <style key="emotion-css" data-emotion-css={styles.ids.join(' ')} dangerouslySetInnerHTML={{ __html: styles.css }} />
-      ]
-    }
+        <style
+          key="emotion-css"
+          data-emotion-css={styles.ids.join(' ')}
+          dangerouslySetInnerHTML={{ __html: styles.css }}
+        />,
+      ],
+    };
   }
 
   render() {
@@ -42,11 +47,11 @@ export default class MyDocument extends Document {
                   ga('create', '${GA_TRACKING_ID}', 'auto', {});
                   ga('set', 'anonymizeIp', true);
                 }
-              `
+              `,
             }}
           />
         </body>
       </Html>
-    )
+    );
   }
 }

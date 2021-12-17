@@ -1,24 +1,24 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import * as React from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import clsx from 'clsx'
+import * as React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import clsx from 'clsx';
 
-import { Text } from '@resir014/chungking-react'
-import { MenuItem } from '~/types/default'
-import { MastheadLinkStyles } from './styled'
+import { Text } from '@resir014/chungking-react';
+import { MastheadLinkStyles } from './styled';
+import { MenuItem } from '~/types/default';
 
 interface MastheadNavProps {
-  items: MenuItem[]
+  items: MenuItem[];
 }
 
 const MastheadNav: React.FC<MastheadNavProps> = ({ items }) => {
-  const { asPath } = useRouter()
+  const { asPath } = useRouter();
 
   return (
     <>
-      {items.map((item) => {
-        const isActive = asPath !== '/' && asPath.startsWith(item.path)
+      {items.map(item => {
+        const isActive = asPath !== '/' && asPath.startsWith(item.path);
 
         return (
           <Text
@@ -28,8 +28,8 @@ const MastheadNav: React.FC<MastheadNavProps> = ({ items }) => {
             sx={{
               textTransform: 'lowercase',
               _last: {
-                marginRight: 0
-              }
+                marginRight: 0,
+              },
             }}
           >
             <Link href={item.path} as={item.as} passHref>
@@ -38,10 +38,10 @@ const MastheadNav: React.FC<MastheadNavProps> = ({ items }) => {
               </a>
             </Link>
           </Text>
-        )
+        );
       })}
     </>
-  )
-}
+  );
+};
 
-export default MastheadNav
+export default MastheadNav;

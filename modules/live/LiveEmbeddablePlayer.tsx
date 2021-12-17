@@ -1,17 +1,17 @@
-import { css } from '@emotion/react'
-import { hsl, parseToHsl } from 'polished'
-import * as React from 'react'
-import { Box, theme, AspectRatio, Iframe, Text } from '@resir014/chungking-react'
-import { useTwitchData } from '~/lib/twitch-api'
+import { css } from '@emotion/react';
+import { hsl, parseToHsl } from 'polished';
+import * as React from 'react';
+import { Box, theme, AspectRatio, Iframe, Text } from '@resir014/chungking-react';
+import { useTwitchData } from '~/lib/twitch-api';
 
 interface LiveEmbeddablePlayerProps {
-  username?: string
+  username?: string;
 }
 
 const LiveEmbeddablePlayer: React.FC<LiveEmbeddablePlayerProps> = ({ username }) => {
-  const { data, isLoading, isError } = useTwitchData(username)
-  const backgroundHsl = parseToHsl(theme.colors.grey[800])
-  const textHsl = parseToHsl(theme.colors.grey[50])
+  const { data, isLoading, isError } = useTwitchData(username);
+  const backgroundHsl = parseToHsl(theme.colors.grey[800]);
+  const textHsl = parseToHsl(theme.colors.grey[50]);
 
   const renderPlayer = () => {
     if (data && !isError) {
@@ -22,7 +22,7 @@ const LiveEmbeddablePlayer: React.FC<LiveEmbeddablePlayerProps> = ({ username })
           allowFullScreen
           scrolling="no"
         />
-      )
+      );
     }
 
     return (
@@ -30,7 +30,11 @@ const LiveEmbeddablePlayer: React.FC<LiveEmbeddablePlayerProps> = ({ username })
         display="flex"
         alignItems="center"
         justifyContent="center"
-        backgroundColor={hsl(backgroundHsl.hue, backgroundHsl.saturation, backgroundHsl.lightness * 0.4)}
+        backgroundColor={hsl(
+          backgroundHsl.hue,
+          backgroundHsl.saturation,
+          backgroundHsl.lightness * 0.4
+        )}
       >
         <Text
           variant="3xl"
@@ -43,16 +47,22 @@ const LiveEmbeddablePlayer: React.FC<LiveEmbeddablePlayerProps> = ({ username })
           {isLoading ? 'Loading...' : 'Offline'}
         </Text>
       </Box>
-    )
-  }
+    );
+  };
 
   return (
     <Box width="100%" maxWidth={[null, null, null, null, 640]} mx="auto">
-      <AspectRatio ratio={16 / 9} borderRadius={6} overflow="hidden" maxHeight={360} boxShadow="double">
+      <AspectRatio
+        ratio={16 / 9}
+        borderRadius={6}
+        overflow="hidden"
+        maxHeight={360}
+        boxShadow="double"
+      >
         {renderPlayer()}
       </AspectRatio>
     </Box>
-  )
-}
+  );
+};
 
-export default LiveEmbeddablePlayer
+export default LiveEmbeddablePlayer;

@@ -1,10 +1,10 @@
-import * as React from 'react'
-import styled from '@emotion/styled'
+import * as React from 'react';
+import styled from '@emotion/styled';
 
-import { theme, Stack, Box, Text } from '@resir014/chungking-react'
-import Container, { ContainerSizes } from './Container'
+import { theme, Stack, Box, Text } from '@resir014/chungking-react';
+import Container, { ContainerSizes } from './Container';
 
-import CCLogo from '~/assets/images/cc-by-nc-sa.svg'
+import CCLogo from '~/assets/images/cc-by-nc-sa.svg';
 
 const FooterContent = styled('div')`
   a {
@@ -31,21 +31,21 @@ const FooterContent = styled('div')`
     display: block;
     margin: 0;
   }
-`
+`;
 
 interface FooterProps {
-  size?: ContainerSizes
+  size?: ContainerSizes;
 }
 
-const Img = Box.withComponent('img')
+const Img = Box.withComponent('img');
 
 const Footer: React.FC<FooterProps> = ({ size }) => {
   const handleOptOut = () => {
     if (typeof window.gaOptout === 'function') {
-      console.log('gaOptOut')
-      window.gaOptout()
+      console.log('gaOptOut');
+      window.gaOptout();
     }
-  }
+  };
 
   return (
     <Box padding="lg" borderTopWidth="1px" borderTopStyle="solid" borderTopColor="grey.800">
@@ -57,14 +57,26 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
                 <Text fontWeight={700}>@resir014</Text> <Text>{process.env.FLAVOUR_TEXT}</Text>
               </Text>
             </Box>
-            <Box display="flex" flexDirection={['column', null, null, null, 'row']} alignItems={['flex-start', null, null, null, 'center']}>
-              <a rel="license noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+            <Box
+              display="flex"
+              flexDirection={['column', null, null, null, 'row']}
+              alignItems={['flex-start', null, null, null, 'center']}
+            >
+              <a
+                rel="license noopener noreferrer"
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                target="_blank"
+              >
                 <Img alt="Creative Commons License" src={CCLogo} m={0} height={36} />
               </a>
               <Box mt={['md', null, null, null, 0]} ml={[0, null, null, null, 'md']}>
                 <Text as="p" display="block" variant="sm">
                   Except where otherwise noted, contents are licensed under{' '}
-                  <a rel="license noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">
+                  <a
+                    rel="license noopener noreferrer"
+                    href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                    target="_blank"
+                  >
                     CC-BY-NC-SA 4.0
                   </a>
                   .
@@ -79,7 +91,11 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
                     React
                   </a>
                   . Code licensed under the{' '}
-                  <a href="https://github.com/resir014/resir014.xyz" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://github.com/resir014/resir014.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     MIT License
                   </a>
                   .
@@ -97,11 +113,11 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
         </FooterContent>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
 Footer.defaultProps = {
-  size: 'xl'
-}
+  size: 'xl',
+};
 
-export default Footer
+export default Footer;

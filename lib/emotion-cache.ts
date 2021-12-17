@@ -1,7 +1,7 @@
-import createCache from '@emotion/cache'
+import createCache from '@emotion/cache';
 
 const emotionCache = createCache({
-  key: 'chungking'
-})
+  key: 'chungking',
+});
 
-export default emotionCache
+export default emotionCache;

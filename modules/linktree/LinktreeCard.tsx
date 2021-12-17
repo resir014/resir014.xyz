@@ -1,10 +1,10 @@
-import { css } from '@emotion/react'
-import * as React from 'react'
-import { Anchor, Box, BoxProps, theme } from '@resir014/chungking-react'
-import { LinktreeItem } from '~/types/default'
+import { css } from '@emotion/react';
+import * as React from 'react';
+import { Anchor, Box, BoxProps, theme } from '@resir014/chungking-react';
+import { LinktreeItem } from '~/types/default';
 
 interface LinktreeCardProps extends BoxProps {
-  item: LinktreeItem
+  item: LinktreeItem;
 }
 
 const LinktreeCard: React.FC<LinktreeCardProps> = ({ className, style, item, ...rest }) => {
@@ -15,7 +15,7 @@ const LinktreeCard: React.FC<LinktreeCardProps> = ({ className, style, item, ...
       boxShadow="single"
       p="md"
       borderRadius={6}
-      backgroundColor={item.backgroundColor || 'grey.800'}
+      backgroundColor={item.backgroundColor ?? 'grey.800'}
       className={className}
       style={style}
       {...rest}
@@ -26,7 +26,7 @@ const LinktreeCard: React.FC<LinktreeCardProps> = ({ className, style, item, ...
         target="_blank"
         rel="noopener noreferrer"
         css={css`
-          color: ${item.textColor || theme.colors.white};
+          color: ${item.textColor ?? theme.colors.white};
 
           &::after {
             content: '';
@@ -41,7 +41,7 @@ const LinktreeCard: React.FC<LinktreeCardProps> = ({ className, style, item, ...
         {item.title}
       </Anchor>
     </Box>
-  )
-}
+  );
+};
 
-export default LinktreeCard
+export default LinktreeCard;

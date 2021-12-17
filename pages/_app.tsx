@@ -1,24 +1,24 @@
-import * as React from 'react'
-import { AppProps, NextWebVitalsMetric } from 'next/app'
-import Head from 'next/head'
-import { DefaultSeo } from 'next-seo'
-import { CacheProvider, Global } from '@emotion/react'
-import nProgress from 'nprogress'
+import * as React from 'react';
+import { AppProps, NextWebVitalsMetric } from 'next/app';
+import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
+import { CacheProvider, Global } from '@emotion/react';
+import nProgress from 'nprogress';
 
-import { ChungkingProvider, theme } from '@resir014/chungking-react'
-import nProgressStyles from '~/styles/nProgressStyles'
-import prismTheme from '~/styles/prismTheme'
-import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo'
-import { event, pageview } from '~/lib/ga'
-import emotionCache from '~/lib/emotion-cache'
+import { ChungkingProvider, theme } from '@resir014/chungking-react';
+import nProgressStyles from '~/styles/nProgressStyles';
+import prismTheme from '~/styles/prismTheme';
+import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo';
+import { event, pageview } from '~/lib/ga';
+import emotionCache from '~/lib/emotion-cache';
 
-import siteMetadata from '~/_data/siteMetadata.json'
+import siteMetadata from '~/_data/siteMetadata.json';
 
-import '~/fonts/jetbrains-mono.css'
-import 'typeface-inter'
-import '~/styles/global.css'
+import '~/fonts/jetbrains-mono.css';
+import 'typeface-inter';
+import '~/styles/global.css';
 
-const progress = nProgress.configure({ showSpinner: false })
+const progress = nProgress.configure({ showSpinner: false });
 
 export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric) {
   event({
@@ -26,33 +26,33 @@ export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric)
     category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
     label: id,
     value: Math.round(name === 'CLS' ? value * 1000 : value),
-    nonInteraction: true
-  })
+    nonInteraction: true,
+  });
 }
 
 function App({ Component, pageProps, router }: AppProps) {
   React.useEffect(() => {
     // NProgress
-    router.events.on('routeChangeStart', () => progress.start())
-    router.events.on('routeChangeComplete', () => progress.done())
-    router.events.on('routeChangeError', () => progress.done())
+    router.events.on('routeChangeStart', () => progress.start());
+    router.events.on('routeChangeComplete', () => progress.done());
+    router.events.on('routeChangeError', () => progress.done());
 
     return () => {
-      router.events.off('routeChangeStart', () => progress.start())
-      router.events.off('routeChangeComplete', () => progress.done())
-      router.events.off('routeChangeError', () => progress.done())
-    }
-  }, [])
+      router.events.off('routeChangeStart', () => progress.start());
+      router.events.off('routeChangeComplete', () => progress.done());
+      router.events.off('routeChangeError', () => progress.done());
+    };
+  }, []);
 
   React.useEffect(() => {
     const handleRouteChange = (url: string) => {
-      pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
+      pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <CacheProvider value={emotionCache}>
@@ -65,7 +65,10 @@ function App({ Component, pageProps, router }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="msapplication-TileColor" content={theme.colors.blue[500]} />
         <meta name="theme-color" content={theme.colors.blue[500]} />
-        <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
+        <meta
+          name="google-site-verification"
+          content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
+        />
         <meta name="monetization" content={process.env.NEXT_PUBLIC_ILP_URL} />
       </Head>
 
@@ -84,7 +87,7 @@ function App({ Component, pageProps, router }: AppProps) {
         <Component {...pageProps} />
       </ChungkingProvider>
     </CacheProvider>
-  )
+  );
 }
 
-export default App
+export default App;

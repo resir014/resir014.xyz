@@ -1,11 +1,11 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { Box, BoxProps, Heading, Stack } from '@resir014/chungking-react'
+import { Box, BoxProps, Heading, Stack } from '@resir014/chungking-react';
 
 interface VideoCardProps extends BoxProps {
-  metadata?: React.ReactNode
-  embed: React.ReactNode
-  title?: React.ReactNode
+  metadata?: React.ReactNode;
+  embed: React.ReactNode;
+  title?: React.ReactNode;
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({ metadata, embed, title, children, ...rest }) => {
@@ -24,7 +24,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ metadata, embed, title, children,
         </Stack>
       ) : null}
     </Box>
-  )
-}
+  );
+};
 
-export default VideoCard
+export default VideoCard;

@@ -1,12 +1,12 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { Heading, Text, Stack, Anchor, Paragraph } from '@resir014/chungking-react'
+import { Heading, Text, Stack, Anchor, Paragraph } from '@resir014/chungking-react';
 
-import siteMetadata from '~/_data/siteMetadata.json'
-import { HeroWrapper } from '~/components/layout'
+import siteMetadata from '~/_data/siteMetadata.json';
+import { HeroWrapper } from '~/components/layout';
 
 const HomepageHero: React.FC = () => {
-  const { author } = siteMetadata
+  const { author } = siteMetadata;
 
   return (
     <HeroWrapper>
@@ -23,12 +23,13 @@ const HomepageHero: React.FC = () => {
           </Anchor>
         </Stack>
         <Paragraph>
-          <strong>Hey there, I&apos;m Resi!</strong> I&apos;m a self-taught web developer based in Jakarta, Indonesia. I aim to blur the
-          line between high-performance engineering and good design.
+          <strong>Hey there, I&apos;m Resi!</strong> I&apos;m a self-taught web developer based in
+          Jakarta, Indonesia. I aim to blur the line between high-performance engineering and good
+          design.
         </Paragraph>
       </Stack>
     </HeroWrapper>
-  )
-}
+  );
+};
 
-export default HomepageHero
+export default HomepageHero;

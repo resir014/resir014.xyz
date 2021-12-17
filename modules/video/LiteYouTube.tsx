@@ -3,10 +3,10 @@
  * https://github.com/paulirish/lite-youtube-embed
  */
 
-import * as React from 'react'
-import clsx from 'clsx'
-import styled from '@emotion/styled'
-import usePrefetch from '~/lib/use-prefetch'
+import * as React from 'react';
+import clsx from 'clsx';
+import styled from '@emotion/styled';
+import usePrefetch from '~/lib/use-prefetch';
 
 const LiteYouTubeWrapper = styled('div')`
   display: block;
@@ -77,36 +77,36 @@ const LiteYouTubeWrapper = styled('div')`
     opacity: 0;
     pointer-events: none;
   }
-`
+`;
 
 interface LiteYouTubeProps {
-  videoId: string
-  className?: string
-  style?: React.CSSProperties
+  videoId: string;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const LiteYouTube: React.FC<LiteYouTubeProps> = ({ videoId, className, style }) => {
-  const encodedVideoId = encodeURIComponent(videoId)
-  const posterUrl = `https://i.ytimg.com/vi/${encodedVideoId}/hqdefault.jpg`
+  const encodedVideoId = encodeURIComponent(videoId);
+  const posterUrl = `https://i.ytimg.com/vi/${encodedVideoId}/hqdefault.jpg`;
 
-  usePrefetch('preload', posterUrl, 'image')
+  usePrefetch('preload', posterUrl, 'image');
 
   // The iframe document and most of its subresources come right off youtube.com
-  usePrefetch('preconnect', 'https://www.youtube-nocookie.com')
+  usePrefetch('preconnect', 'https://www.youtube-nocookie.com');
 
   // The botguard script is fetched off from google.com
-  usePrefetch('preconnect', 'https://www.google.com')
+  usePrefetch('preconnect', 'https://www.google.com');
 
   // Not certain if these ad related domains are in the critical path. Could verify with domain-specific throttling.
-  usePrefetch('preconnect', 'https://googleads.g.doubleclick.net')
-  usePrefetch('preconnect', 'https://static.doubleclick.net')
+  usePrefetch('preconnect', 'https://googleads.g.doubleclick.net');
+  usePrefetch('preconnect', 'https://static.doubleclick.net');
 
-  const [activated, setActivated] = React.useState(false)
+  const [activated, setActivated] = React.useState(false);
 
   const addIframe = () => {
-    if (activated) return
-    setActivated(true)
-  }
+    if (activated) return;
+    setActivated(true);
+  };
 
   return (
     <LiteYouTubeWrapper
@@ -127,12 +127,12 @@ const LiteYouTube: React.FC<LiteYouTubeProps> = ({ videoId, className, style }) 
         />
       )}
     </LiteYouTubeWrapper>
-  )
-}
+  );
+};
 
 LiteYouTube.defaultProps = {
   className: undefined,
-  style: undefined
-}
+  style: undefined,
+};
 
-export default LiteYouTube
+export default LiteYouTube;

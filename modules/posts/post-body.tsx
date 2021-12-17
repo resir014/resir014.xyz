@@ -1,42 +1,52 @@
-import * as React from 'react'
-import clsx from 'clsx'
-import CSS from 'csstype'
-import convert from 'htmr'
-import Link from 'next/link'
-import { Anchor, Box, MessageBox, Paragraph, Space } from '@resir014/chungking-react'
+import * as React from 'react';
+import clsx from 'clsx';
+import CSS from 'csstype';
+import convert from 'htmr';
+import Link from 'next/link';
+import { Anchor, Box, MessageBox, Paragraph, Space } from '@resir014/chungking-react';
 
-import { Container, ContainerSizes } from '~/components/layout'
-import { SyndicationFormat } from '~/types/default'
-import { LI, UL } from '../markdown'
+import { ListItem, UnorderedList } from '../markdown';
+import { Container, ContainerSizes } from '~/components/layout';
+import { SyndicationFormat } from '~/types/default';
 
 interface PostBodyProps {
-  content?: string
-  containerSize?: ContainerSizes
-  syndication?: SyndicationFormat[]
-  spacing?: Space | CSS.Property.Margin
+  content?: string;
+  containerSize?: ContainerSizes;
+  syndication?: SyndicationFormat[];
+  spacing?: Space | CSS.Property.Margin;
 }
 
-const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize = 'md', children }) => {
+const PostBody: React.FC<PostBodyProps> = ({
+  content,
+  syndication,
+  containerSize = 'md',
+  children,
+}) => {
   const renderSyndication = () => {
     if (syndication) {
       return (
         <MessageBox mb="lg">
           <Paragraph mb="xs">This post is also published on:</Paragraph>
-          <UL>
-            {syndication.map((item) => (
-              <LI>
-                <Anchor href={item.url} target="_blank" className="u-syndication" rel="noopener noreferrer external syndication">
+          <UnorderedList>
+            {syndication.map(item => (
+              <ListItem key={item.url}>
+                <Anchor
+                  href={item.url}
+                  target="_blank"
+                  className="u-syndication"
+                  rel="noopener noreferrer external syndication"
+                >
                   {item.name}
                 </Anchor>
-              </LI>
+              </ListItem>
             ))}
-          </UL>
+          </UnorderedList>
         </MessageBox>
-      )
+      );
     }
 
-    return null
-  }
+    return null;
+  };
 
   if (content) {
     return (
@@ -49,24 +59,43 @@ const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize
                 iframe: ({ className, title, ...rest }: JSX.IntrinsicElements['iframe']) => (
                   <iframe
                     title={title}
-                    className={clsx('w-full aspect-video rounded-lg drop-shadow-lg overflow-hidden', className)}
+                    className={clsx(
+                      'w-full aspect-video rounded-lg drop-shadow-lg overflow-hidden',
+                      className
+                    )}
                     {...rest}
                   />
                 ),
                 pre: ({ className, ...rest }: JSX.IntrinsicElements['pre']) => (
-                  <pre className={clsx('rounded-lg drop-shadow-lg overflow-hidden lg:-mx-12', className)} {...rest} />
+                  <pre
+                    className={clsx(
+                      'rounded-lg drop-shadow-lg overflow-hidden lg:-mx-12',
+                      className
+                    )}
+                    {...rest}
+                  />
                 ),
                 figure: ({ className, ...rest }: JSX.IntrinsicElements['figure']) => (
-                  <figure className={clsx('space-y-2 text-center lg:-mx-12', className)} {...rest} />
+                  <figure
+                    className={clsx('space-y-2 text-center lg:-mx-12', className)}
+                    {...rest}
+                  />
                 ),
                 figcaption: ({ className, ...rest }: JSX.IntrinsicElements['figcaption']) => (
                   <figcaption className={clsx('text-sm', className)} {...rest} />
                 ),
                 img: ({ className, alt, ...rest }: JSX.IntrinsicElements['img']) => (
-                  <img className={clsx('mx-auto rounded-lg drop-shadow-lg bg-chungking-grey-800', className)} alt={alt} {...rest} />
+                  <img
+                    className={clsx(
+                      'mx-auto rounded-lg drop-shadow-lg bg-chungking-grey-800',
+                      className
+                    )}
+                    alt={alt}
+                    {...rest}
+                  />
                 ),
                 a: (node: JSX.IntrinsicElements['a']) => {
-                  const { href, children: innerChildren, ...rest } = node
+                  const { href, children: innerChildren, ...rest } = node;
 
                   if (href) {
                     if (href.substr(0, 4) === 'http') {
@@ -74,28 +103,28 @@ const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize
                         <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
                           {innerChildren}
                         </a>
-                      )
+                      );
                     }
 
                     return (
                       <Link href={href} passHref>
                         <a {...rest}>{innerChildren}</a>
                       </Link>
-                    )
+                    );
                   }
 
                   return (
                     <a href={href} {...rest}>
                       {children}
                     </a>
-                  )
-                }
-              }
+                  );
+                },
+              },
             })}
           </div>
         </Container>
       </Box>
-    )
+    );
   }
 
   return (
@@ -105,7 +134,7 @@ const PostBody: React.FC<PostBodyProps> = ({ content, syndication, containerSize
         <div className="e-content mx-auto">{children}</div>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default PostBody
+export default PostBody;

@@ -1,14 +1,21 @@
-import { InferGetStaticPropsType, NextPage } from 'next'
-import * as React from 'react'
-import { Stack } from '@resir014/chungking-react'
-import { Content, Page } from '~/components/layout'
-import { PostBody, PostHeader } from '~/modules/posts'
-import { FeaturedProjectCard, ProjectItemList } from '~/modules/projects'
-import { getAllProjects, getFeaturedProject, filterProjectsByCategory } from '~/lib/projects'
-import { ProjectMetadata } from '~/types/projects'
+import { InferGetStaticPropsType, NextPage } from 'next';
+import * as React from 'react';
+import { Stack } from '@resir014/chungking-react';
+import { Content, Page } from '~/components/layout';
+import { PostBody, PostHeader } from '~/modules/posts';
+import { FeaturedProjectCard, ProjectItemList } from '~/modules/projects';
+import { getAllProjects, getFeaturedProject, filterProjectsByCategory } from '~/lib/projects';
+import { ProjectMetadata } from '~/types/projects';
 
 export const getStaticProps = async () => {
-  const allProjects: ProjectMetadata[] = getAllProjects(['category', 'title', 'description', 'year', 'project_url', 'slug'])
+  const allProjects: ProjectMetadata[] = getAllProjects([
+    'category',
+    'title',
+    'description',
+    'year',
+    'project_url',
+    'slug',
+  ]);
   const featuredProject: ProjectMetadata = getFeaturedProject([
     'category',
     'title',
@@ -16,18 +23,18 @@ export const getStaticProps = async () => {
     'description',
     'tags',
     'project_url',
-    'slug'
-  ])
+    'slug',
+  ]);
 
   return {
-    props: { allProjects, featuredProject }
-  }
-}
+    props: { allProjects, featuredProject },
+  };
+};
 
-type ProjectsIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
+type ProjectsIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, featuredProject }) => {
-  const filteredProjects = filterProjectsByCategory(allProjects)
+  const filteredProjects = filterProjectsByCategory(allProjects);
 
   return (
     <Page pageTitle="Projects">
@@ -36,14 +43,18 @@ const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, feat
         <PostBody>
           <Stack spacing="xxl">
             <FeaturedProjectCard project={featuredProject} />
-            {filteredProjects.map((filteredProject) => (
-              <ProjectItemList key={filteredProject.category} title={filteredProject.title} projects={filteredProject.projects} />
+            {filteredProjects.map(filteredProject => (
+              <ProjectItemList
+                key={filteredProject.category}
+                title={filteredProject.title}
+                projects={filteredProject.projects}
+              />
             ))}
           </Stack>
         </PostBody>
       </Content>
     </Page>
-  )
-}
+  );
+};
 
-export default ProjectsIndexPage
+export default ProjectsIndexPage;

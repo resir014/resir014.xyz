@@ -1,18 +1,21 @@
-import { InferGetStaticPropsType, NextPage } from 'next'
-import * as React from 'react'
-import { Content, Page } from '~/components/layout'
-import { getAllPosts } from '~/lib/posts'
-import { BookmarkList } from '~/modules/bookmarks'
-import { Post, PostBody, PostHeader } from '~/modules/posts'
-import { BaseBookmarkProps } from '~/types/posts'
+import { InferGetStaticPropsType, NextPage } from 'next';
+import * as React from 'react';
+import { Content, Page } from '~/components/layout';
+import { getAllPosts } from '~/lib/posts';
+import { BookmarkList } from '~/modules/bookmarks';
+import { Post, PostBody, PostHeader } from '~/modules/posts';
+import { BaseBookmarkProps } from '~/types/posts';
 
 export const getStaticProps = async () => {
-  const bookmarks: BaseBookmarkProps[] = getAllPosts(['category', 'title', 'link', 'slug', 'date'], 'bookmark')
+  const bookmarks: BaseBookmarkProps[] = getAllPosts(
+    ['category', 'title', 'link', 'slug', 'date'],
+    'bookmark'
+  );
 
-  return { props: { bookmarks } }
-}
+  return { props: { bookmarks } };
+};
 
-type BookmarksPageProps = InferGetStaticPropsType<typeof getStaticProps>
+type BookmarksPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const BookmarksPage: NextPage<BookmarksPageProps> = ({ bookmarks }) => {
   return (
@@ -26,7 +29,7 @@ const BookmarksPage: NextPage<BookmarksPageProps> = ({ bookmarks }) => {
         </Post>
       </Content>
     </Page>
-  )
-}
+  );
+};
 
-export default BookmarksPage
+export default BookmarksPage;

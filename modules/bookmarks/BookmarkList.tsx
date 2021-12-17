@@ -1,11 +1,11 @@
-import { css } from '@emotion/react'
-import * as React from 'react'
-import { Stack, StackProps } from '@resir014/chungking-react'
-import { BaseBookmarkProps } from '~/types/posts'
-import BookmarkListItem from './BookmarkListItem'
+import { css } from '@emotion/react';
+import * as React from 'react';
+import { Stack, StackProps } from '@resir014/chungking-react';
+import BookmarkListItem from './BookmarkListItem';
+import { BaseBookmarkProps } from '~/types/posts';
 
 interface BookmarkListProps extends StackProps {
-  bookmarks: BaseBookmarkProps[]
+  bookmarks: BaseBookmarkProps[];
 }
 
 const BookmarkList: React.FC<BookmarkListProps> = ({ bookmarks, ...rest }) => {
@@ -20,11 +20,11 @@ const BookmarkList: React.FC<BookmarkListProps> = ({ bookmarks, ...rest }) => {
       `}
       {...rest}
     >
-      {bookmarks.map((bookmark) => (
+      {bookmarks.map(bookmark => (
         <BookmarkListItem key={bookmark.slug} bookmark={bookmark} />
       ))}
     </Stack>
-  )
-}
+  );
+};
 
-export default BookmarkList
+export default BookmarkList;

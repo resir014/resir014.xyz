@@ -1,8 +1,8 @@
-import { css } from '@emotion/react'
-import * as React from 'react'
-import { Stack, StackProps } from '@resir014/chungking-react'
+import { css } from '@emotion/react';
+import * as React from 'react';
+import { Stack, StackProps } from '@resir014/chungking-react';
 
-type LinktreeListProps = StackProps
+type LinktreeListProps = StackProps;
 
 const LinktreeList: React.FC<LinktreeListProps> = ({ className, style, children, ...rest }) => {
   return (
@@ -19,7 +19,7 @@ const LinktreeList: React.FC<LinktreeListProps> = ({ className, style, children,
     >
       {children}
     </Stack>
-  )
-}
+  );
+};
 
-export default LinktreeList
+export default LinktreeList;

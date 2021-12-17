@@ -1,14 +1,14 @@
-import * as React from 'react'
-import convert from 'htmr'
+import * as React from 'react';
+import convert from 'htmr';
 
-import { Box, Stack } from '@resir014/chungking-react'
-import { Container, ContainerSizes } from '~/components/layout'
-import htmrTransform from '~/lib/htmr-transform'
+import { Box, Stack } from '@resir014/chungking-react';
+import { Container, ContainerSizes } from '~/components/layout';
+import htmrTransform from '~/lib/htmr-transform';
 
 interface ProjectBodyProps {
-  content?: string
-  containerSize?: ContainerSizes
-  projectLink?: string
+  content?: string;
+  containerSize?: ContainerSizes;
+  projectLink?: string;
 }
 
 const ProjectBody: React.FC<ProjectBodyProps> = ({ content, containerSize = 'md', children }) => {
@@ -19,7 +19,7 @@ const ProjectBody: React.FC<ProjectBodyProps> = ({ content, containerSize = 'md'
           <Stack spacing="md">{convert(content, { transform: htmrTransform })}</Stack>
         </Container>
       </Box>
-    )
+    );
   }
 
   return (
@@ -28,7 +28,7 @@ const ProjectBody: React.FC<ProjectBodyProps> = ({ content, containerSize = 'md'
         <Stack spacing="md">{children}</Stack>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default ProjectBody
+export default ProjectBody;

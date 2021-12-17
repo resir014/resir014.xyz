@@ -1,20 +1,20 @@
-import * as React from 'react'
-import clsx from 'clsx'
-import Link from 'next/link'
-import { css } from '@emotion/react'
-import convert from 'htmr'
+import * as React from 'react';
+import clsx from 'clsx';
+import Link from 'next/link';
+import { css } from '@emotion/react';
+import convert from 'htmr';
 
-import { Stack, StackProps, Heading } from '@resir014/chungking-react'
-import { BasePostProps } from '~/types/posts'
-import htmrTransform from '~/lib/htmr-transform'
-import PostMeta from '../posts/PostMeta'
+import { Stack, StackProps, Heading } from '@resir014/chungking-react';
+import PostMeta from '../posts/PostMeta';
+import { BasePostProps } from '~/types/posts';
+import htmrTransform from '~/lib/htmr-transform';
 
 export interface PostListItemProps extends StackProps {
-  post: BasePostProps
+  post: BasePostProps;
 }
 
 const NoteListItem: React.FC<PostListItemProps> = ({ post, className, style, ...rest }) => {
-  const { title, date, category, content, slug } = post
+  const { title, date, category, content, slug } = post;
 
   return (
     <Stack
@@ -46,7 +46,7 @@ const NoteListItem: React.FC<PostListItemProps> = ({ post, className, style, ...
         {convert(content, { transform: htmrTransform })}
       </Stack>
     </Stack>
-  )
-}
+  );
+};
 
-export default NoteListItem
+export default NoteListItem;

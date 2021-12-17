@@ -1,14 +1,14 @@
-import * as React from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/react'
-import Image from 'next/image'
-import Link from 'next/link'
+import * as React from 'react';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { Text, Heading, theme, Badge, Box, BoxProps, Anchor } from '@resir014/chungking-react'
-import { P } from '~/modules/markdown'
+import { Text, Heading, theme, Badge, Box, BoxProps, Anchor } from '@resir014/chungking-react';
+import ProjectTags from './ProjectTags';
+import { MarkdownParagraph } from '~/modules/markdown';
 
-import ProjectTags from './ProjectTags'
-import { ProjectMetadata } from '~/types/projects'
+import { ProjectMetadata } from '~/types/projects';
 
 const FeaturedProjectWrapper = styled(Box)`
   display: flex;
@@ -22,24 +22,33 @@ const FeaturedProjectWrapper = styled(Box)`
   .column {
     flex: 1;
   }
-`
+`;
 
 const FeaturedProjectDetails = styled('div')`
   display: flex;
   flex-direction: column;
   padding: 24px;
   background-color: ${theme.colors.ultramarine[500]};
-  background-image: linear-gradient(to right, ${theme.colors.ultramarine[500]}, ${theme.colors.blue[500]});
-`
+  background-image: linear-gradient(
+    to right,
+    ${theme.colors.ultramarine[500]},
+    ${theme.colors.blue[500]}
+  );
+`;
 
 interface FeaturedProjectCardProps extends BoxProps {
-  className?: string
-  style?: React.CSSProperties
-  project: ProjectMetadata
+  className?: string;
+  style?: React.CSSProperties;
+  project: ProjectMetadata;
 }
 
-const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, style, project, ...rest }) => {
-  const { header_image, title, description, tags, slug } = project
+const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
+  className,
+  style,
+  project,
+  ...rest
+}) => {
+  const { header_image, title, description, tags, slug } = project;
   return (
     <FeaturedProjectWrapper as="section" className={className} style={style} {...rest}>
       {header_image && (
@@ -77,10 +86,10 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
           </Heading>
         </Box>
         <Box flex="1">
-          <P m={0}>{description}</P>
+          <MarkdownParagraph m={0}>{description}</MarkdownParagraph>
           {tags ? (
             <ProjectTags>
-              {tags.map((tag) => (
+              {tags.map(tag => (
                 <Badge key={tag}>{tag}</Badge>
               ))}
             </ProjectTags>
@@ -93,7 +102,7 @@ const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ className, st
         </Box>
       </FeaturedProjectDetails>
     </FeaturedProjectWrapper>
-  )
-}
+  );
+};
 
-export default FeaturedProjectCard
+export default FeaturedProjectCard;

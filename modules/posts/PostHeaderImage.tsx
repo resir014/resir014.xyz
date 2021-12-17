@@ -1,12 +1,12 @@
-import { css } from '@emotion/react'
-import Image from 'next/image'
-import * as React from 'react'
-import { Box } from '@resir014/chungking-react'
-import { Container } from '~/components/layout'
+import { css } from '@emotion/react';
+import Image from 'next/image';
+import * as React from 'react';
+import { Box } from '@resir014/chungking-react';
+import { Container } from '~/components/layout';
 
 interface PostHeaderImageProps {
-  src: string
-  alt?: string
+  src: string;
+  alt?: string;
 }
 
 const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
@@ -26,7 +26,7 @@ const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
         />
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default PostHeaderImage
+export default PostHeaderImage;

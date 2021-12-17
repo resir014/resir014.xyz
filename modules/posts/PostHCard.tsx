@@ -1,16 +1,16 @@
-import * as React from 'react'
-import classnames from 'clsx'
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
+import * as React from 'react';
+import classnames from 'clsx';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
-import { Box, BoxProps, theme, Heading, Text } from '@resir014/chungking-react'
-import { SiteAuthor } from '~/types/default'
+import { Box, BoxProps, theme, Heading, Text } from '@resir014/chungking-react';
+import { SiteAuthor } from '~/types/default';
 
 interface PostHCardProps extends BoxProps {
-  className?: string
-  hidden?: boolean
-  image?: string
-  author: SiteAuthor
+  className?: string;
+  hidden?: boolean;
+  image?: string;
+  author: SiteAuthor;
 }
 
 const HCardAvatarImg = styled('img')`
@@ -19,11 +19,11 @@ const HCardAvatarImg = styled('img')`
   margin: 0;
   border: 2px solid ${theme.colors.white};
   border-radius: 64px;
-`
+`;
 
 const HCardEmail = styled('a')`
   display: none;
-`
+`;
 
 const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author, ...rest }) => (
   <Box
@@ -37,9 +37,22 @@ const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author,
     `}
     {...rest}
   >
-    <Box display="grid" gridTemplateColumns="64px 1fr" gridGap={['md', null, null, 'lg']} textAlign="left" color="inherit">
-      <Box display="flex" position="relative" textAlign="center" alignItems="center" justifyContent="flex-start" mb={0}>
-        <HCardAvatarImg className="u-photo" src={image || author.avatar} alt={author.name} />
+    <Box
+      display="grid"
+      gridTemplateColumns="64px 1fr"
+      gridGap={['md', null, null, 'lg']}
+      textAlign="left"
+      color="inherit"
+    >
+      <Box
+        display="flex"
+        position="relative"
+        textAlign="center"
+        alignItems="center"
+        justifyContent="flex-start"
+        mb={0}
+      >
+        <HCardAvatarImg className="u-photo" src={image ?? author.avatar} alt={author.name} />
       </Box>
       <Box display="flex" flexDirection="row" alignItems="center">
         <Box position="relative">
@@ -73,6 +86,6 @@ const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author,
       </Box>
     </Box>
   </Box>
-)
+);
 
-export default PostHCard
+export default PostHCard;

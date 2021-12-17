@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { theme } from '@resir014/chungking-react'
-import { H2, H3 } from '../markdown'
-import ColorSwatch from './components/ColorSwatch'
+import * as React from 'react';
+import { theme } from '@resir014/chungking-react';
+import { H2, H3 } from '../markdown';
+import ColorSwatch from './components/ColorSwatch';
 
 const ColorSpecs: React.FC = () => {
   return (
@@ -110,7 +110,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.magenta[800]} />
       <ColorSwatch color={theme.colors.magenta[900]} />
     </>
-  )
-}
+  );
+};
 
-export default ColorSpecs
+export default ColorSpecs;

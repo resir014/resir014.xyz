@@ -1,30 +1,30 @@
-import * as React from 'react'
-import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import { NextSeo } from 'next-seo'
-import { Box } from '@resir014/chungking-react'
+import * as React from 'react';
+import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
+import { NextSeo } from 'next-seo';
+import { Box } from '@resir014/chungking-react';
 
-import { getPostBySlug, getAllPosts } from '~/lib/posts'
-import markdownToHtml from '~/lib/markdown-to-html'
+import { getPostBySlug, getAllPosts } from '~/lib/posts';
+import markdownToHtml from '~/lib/markdown-to-html';
 
-import { Container, Content, Page } from '~/components/layout'
-import { LiteYouTube, VideoCard } from '~/modules/video'
-import { YouTubePreconnect } from '~/components/perf'
-import { Post, PostBody, PostHeader } from '~/modules/posts'
-import CustomErrorPage from '~/pages/_error'
-import { BaseVideoProps } from '~/types/posts'
-import { SiteMetadata } from '~/types/default'
+import { Container, Content, Page } from '~/components/layout';
+import { LiteYouTube, VideoCard } from '~/modules/video';
+import { YouTubePreconnect } from '~/components/perf';
+import { Post, PostBody, PostHeader } from '~/modules/posts';
+import CustomErrorPage from '~/pages/_error';
+import { BaseVideoProps } from '~/types/posts';
+import { SiteMetadata } from '~/types/default';
 
-import siteMetadata from '~/_data/siteMetadata.json'
+import siteMetadata from '~/_data/siteMetadata.json';
 
 type VideoPostPageProps = {
-  post?: BaseVideoProps
-  siteMetadata: SiteMetadata
-}
+  post?: BaseVideoProps;
+  siteMetadata: SiteMetadata;
+};
 
 const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
-  const { author } = siteMetadata
+  const { author } = siteMetadata;
   if (post) {
-    const { title, date, youtube_embed_id, category, slug, content } = post
+    const { title, date, youtube_embed_id, category, slug, content } = post;
     return (
       <Page pageTitle={title}>
         <NextSeo
@@ -35,8 +35,8 @@ const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
             article: {
               authors: [siteMetadata.author.name],
               publishedTime: date,
-              section: category
-            }
+              section: category,
+            },
           }}
         />
         <YouTubePreconnect />
@@ -52,41 +52,45 @@ const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
           </Post>
         </Content>
       </Page>
-    )
+    );
   }
 
-  return <CustomErrorPage statusCode={404} />
-}
+  return <CustomErrorPage statusCode={404} />;
+};
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  if (ctx.params && Array.isArray(ctx.params?.slug)) {
-    const post = getPostBySlug(ctx.params.slug, ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'], 'video')
+export const getStaticProps: GetStaticProps = async ctx => {
+  if (ctx.params && Array.isArray(ctx.params.slug)) {
+    const post = getPostBySlug(
+      ctx.params.slug,
+      ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
+      'video'
+    );
 
-    const content = await markdownToHtml(post.content || '')
+    const content = await markdownToHtml(post.content || '');
 
     return {
-      props: { siteMetadata, post: { ...post, content } }
-    }
+      props: { siteMetadata, post: { ...post, content } },
+    };
   }
 
   return {
-    props: { siteMetadata }
-  }
-}
+    props: { siteMetadata },
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(['slug'], 'video')
+  const posts = getAllPosts(['slug'], 'video');
 
   return {
-    paths: posts.map((post) => {
+    paths: posts.map(post => {
       return {
         params: {
-          slug: post.slug.split('/').filter(Boolean)
-        }
-      }
+          slug: post.slug.split('/').filter(Boolean),
+        },
+      };
     }),
-    fallback: false
-  }
-}
+    fallback: false,
+  };
+};
 
-export default VideoPostPage
+export default VideoPostPage;

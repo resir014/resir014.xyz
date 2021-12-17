@@ -1,16 +1,16 @@
-import * as React from 'react'
-import styled from '@emotion/styled'
-import Link from 'next/link'
+import * as React from 'react';
+import styled from '@emotion/styled';
+import Link from 'next/link';
 
-import { theme, Text } from '@resir014/chungking-react'
-import { MenuProps } from '~/types/default'
+import { theme, Text } from '@resir014/chungking-react';
 
-import MastheadNav from './MastheadNav'
-import { MastheadLinkStyles, MastheadTitleLinkStyles } from './styled'
+import MastheadNav from './MastheadNav';
+import { MastheadLinkStyles, MastheadTitleLinkStyles } from './styled';
+import { MenuProps } from '~/types/default';
 
 interface MastheadProps extends MenuProps {
-  title: string
-  className?: string
+  title: string;
+  className?: string;
 }
 
 const Root = styled('nav')`
@@ -20,7 +20,7 @@ const Root = styled('nav')`
   background-color: ${theme.colors.grey[900]};
   z-index: 50;
   box-shadow: inset 0 -1px ${theme.colors.grey[800]};
-`
+`;
 
 const MastheadInner = styled('ul')`
   display: flex;
@@ -34,7 +34,7 @@ const MastheadInner = styled('ul')`
   ${theme.mediaQueries.lg} {
     justify-content: flex-end;
   }
-`
+`;
 
 const MastheadTitle = styled(Text)`
   margin-right: auto;
@@ -43,9 +43,9 @@ const MastheadTitle = styled(Text)`
     flex-basis: 100%;
     text-align: center;
   }
-`
+`;
 
-const MastheadTitleLink = styled('a')(MastheadLinkStyles, MastheadTitleLinkStyles)
+const MastheadTitleLink = styled('a')(MastheadLinkStyles, MastheadTitleLinkStyles);
 
 const Masthead: React.FC<MastheadProps> = ({ className, title, items }) => {
   return (
@@ -59,7 +59,7 @@ const Masthead: React.FC<MastheadProps> = ({ className, title, items }) => {
         <MastheadNav items={items} />
       </MastheadInner>
     </Root>
-  )
-}
+  );
+};
 
-export default Masthead
+export default Masthead;

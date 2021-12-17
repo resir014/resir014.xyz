@@ -1,8 +1,8 @@
-import { PostMetadata } from '~/types/posts'
+import { PostMetadata } from '~/types/posts';
 
-import siteMetadata from '~/_data/siteMetadata.json'
+import siteMetadata from '~/_data/siteMetadata.json';
 
-const wrapWithCData = (text?: string): string => `<![CDATA[${text}]]>`
+const wrapWithCData = (text?: string): string => `<![CDATA[${text}]]>`;
 
 export const generateRSSItem = (post: PostMetadata): string => `
   <item>
@@ -12,9 +12,11 @@ export const generateRSSItem = (post: PostMetadata): string => `
     <description>${wrapWithCData(post.lead)}</description>
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
   </item>
-`
+`;
 
-export const generateRSS = (posts: PostMetadata[]): string => `<?xml version="1.0" encoding="utf-8"?>
+export const generateRSS = (
+  posts: PostMetadata[]
+): string => `<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${wrapWithCData(`Posts · ${siteMetadata.title}`)}</title>
@@ -27,4 +29,4 @@ export const generateRSS = (posts: PostMetadata[]): string => `<?xml version="1.
     ${posts.map(generateRSSItem).join('')}
   </channel>
 </rss>
-`
+`;

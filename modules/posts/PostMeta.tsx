@@ -1,24 +1,32 @@
-import { css } from '@emotion/react'
-import Link from 'next/link'
-import * as React from 'react'
-import { Box, BoxProps, Text } from '@resir014/chungking-react'
-import { formatPostDate } from '~/lib/date-formatter'
-import { PostKind } from '~/types/default'
+import { css } from '@emotion/react';
+import Link from 'next/link';
+import * as React from 'react';
+import { Box, BoxProps, Text } from '@resir014/chungking-react';
+import getCategorySlug from './utils/getCategorySlug';
+import slugByCategory from './utils/slugByCategory';
+import { formatPostDate } from '~/lib/date-formatter';
+import { PostKind } from '~/types/default';
 
-import siteMetadata from '~/_data/siteMetadata.json'
-import getCategorySlug from './utils/getCategorySlug'
-import slugByCategory from './utils/slugByCategory'
+import siteMetadata from '~/_data/siteMetadata.json';
 
 export interface PostListItemProps extends BoxProps {
-  date: string
-  category: PostKind
-  slug?: string
-  disableMetaClick?: boolean
+  date: string;
+  category: PostKind;
+  slug?: string;
+  disableMetaClick?: boolean;
 }
-const Time = Text.withComponent('time')
+const Time = Text.withComponent('time');
 
-const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, category, slug, disableMetaClick, ...rest }) => {
-  const postDate = React.useMemo(() => new Date(date), [date])
+const PostMeta: React.FC<PostListItemProps> = ({
+  className,
+  style,
+  date,
+  category,
+  slug,
+  disableMetaClick,
+  ...rest
+}) => {
+  const postDate = React.useMemo(() => new Date(date), [date]);
 
   const renderPermalink = () => {
     if (slug) {
@@ -32,11 +40,11 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
         >
           Permalink
         </a>
-      )
+      );
     }
 
-    return null
-  }
+    return null;
+  };
 
   const renderTimestamp = () => {
     if (disableMetaClick) {
@@ -44,7 +52,7 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
         <Time className="dt-published" dateTime={postDate.toISOString()}>
           {formatPostDate(postDate)}
         </Time>
-      )
+      );
     }
 
     return (
@@ -55,20 +63,20 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
           </Time>
         </a>
       </Link>
-    )
-  }
+    );
+  };
 
   const renderCategory = () => {
     if (disableMetaClick) {
-      return <Text className="p-category">{category}</Text>
+      return <Text className="p-category">{category}</Text>;
     }
 
     return (
       <Link href={getCategorySlug(category)}>
         <a className="p-category">{category}</a>
       </Link>
-    )
-  }
+    );
+  };
 
   const renderMetadata = () => {
     return (
@@ -81,15 +89,15 @@ const PostMeta: React.FC<PostListItemProps> = ({ className, style, date, categor
       >
         {renderTimestamp()} / {renderCategory()}
       </Text>
-    )
-  }
+    );
+  };
 
   return (
     <Box as="section" className={className} style={style} {...rest}>
       {renderMetadata()}
       {renderPermalink()}
     </Box>
-  )
-}
+  );
+};
 
-export default PostMeta
+export default PostMeta;
