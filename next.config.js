@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-const withImages = require('next-images');
 const flavours = require('./config/flavourText');
 
 /** @type {import("next/dist/server/config-shared").NextConfig} */
@@ -56,6 +55,26 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    // https://twitter.com/LiamHammett/status/1260984553570570240
+    return [
+      {
+        source: '/.env',
+        destination: 'https://www.youtube.com/watch?v=V4MF2s6MLxY',
+        permanent: false,
+      },
+      {
+        source: '/wp-login.php',
+        destination: 'https://www.youtube.com/watch?v=V4MF2s6MLxY',
+        permanent: false,
+      },
+      {
+        source: '/wp-admin',
+        destination: 'https://www.youtube.com/watch?v=V4MF2s6MLxY',
+        permanent: false,
+      },
+    ];
+  },
 };
 
-module.exports = withImages(nextConfig);
+module.exports = nextConfig;
