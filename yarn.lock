@@ -607,10 +607,10 @@
     ufo "^0.7.9"
     unstorage "^0.2.8"
 
-"@netlify/plugin-nextjs@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.0.0.tgz#16db896171aa6663bded9e95cd1c2ef7fa1e4474"
-  integrity sha512-OL3e8GEMjx1cYQ3aarDzWLi6rUmhd369yBsJUZ1jC8yFebWj7ygN3auG8jXVb+DrgZK1p1YrKmaQQxf9bEgrTw==
+"@netlify/plugin-nextjs@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-4.1.0.tgz#f2246c85a483a2abe800129c3443ce2855194feb"
+  integrity sha512-A/gUIIboPMXoYgN4YTgh9LunV53x9n0vKHSW8TJEks+HmydOnP9AXK4iYHQqttlykerR9Xjauhl3s6PB6m+pug==
   dependencies:
     "@netlify/functions" "^0.10.0"
     "@netlify/ipx" "^0.0.8"
@@ -814,10 +814,10 @@
   resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.2.tgz#ed4e0ad92306a704f9fb132a0cfcf77486dbe2bc"
   integrity sha512-HnYpAE1Y6kRyKM/XkEuiRQhTHvkzMBurTHnpFLYLBGPIylZNPs9jJcuOOYWxPLJCSEtmZT0Y8rHDokKN7rRTig==
 
-"@types/glob@^7.1.4":
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.1.4.tgz#ea59e21d2ee5c517914cb4bc8e4153b99e566672"
-  integrity sha512-w+LsMxKyYQm347Otw+IfBXOv9UWVjpHpCDdbBMt8Kz/xbvCYNjP+0qPh91Km3iKfSRLBB0P7fAMf0KHrPu+MyA==
+"@types/glob@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.2.0.tgz#bc1b5bf3aa92f25bd5dd39f35c57361bdce5b2eb"
+  integrity sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==
   dependencies:
     "@types/minimatch" "*"
     "@types/node" "*"
@@ -920,17 +920,26 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.4.tgz#fcf7205c25dff795ee79af1e30da2c9790808f11"
   integrity sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
 
-"@types/react-dom@^17.0.9":
-  version "17.0.9"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.9.tgz#441a981da9d7be117042e1a6fd3dac4b30f55add"
-  integrity sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg==
+"@types/react-dom@^17.0.11":
+  version "17.0.11"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.11.tgz#e1eadc3c5e86bdb5f7684e00274ae228e7bcc466"
+  integrity sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^17.0.26":
+"@types/react@*":
   version "17.0.26"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.26.tgz#960ea4b3518cc154ed7df3b35656c508df653331"
   integrity sha512-MXxuXrH2xOcv5cp/su4oz69dNQnSA90JjFw5HBd5wifw6Ihi94j7dRJm7qNsB30tnruXSCPc9qmlhGop4nh9Hw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17.0.37":
+  version "17.0.37"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.37.tgz#6884d0aa402605935c397ae689deed115caad959"
+  integrity sha512-2FS1oTqBGcH/s0E+CjrCCR9+JMpsu9b69RTFO+40ua43ZqP5MmQ4iUde/dMjWR909KxZwmOQIFq6AV6NjEG5xg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -3281,10 +3290,10 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-husky@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.2.tgz#21900da0f30199acca43a46c043c4ad84ae88dff"
-  integrity sha512-8yKEWNX4z2YsofXAMT7KvA1g8p+GxtB1ffV8XtpAEGuXNAbCV5wdNKH+qTpw8SM9fh4aMPDR+yQuKfgnreyZlg==
+husky@^7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-7.0.4.tgz#242048245dc49c8fb1bf0cc7cfb98dd722531535"
+  integrity sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==
 
 iconv-lite@0.4.24:
   version "0.4.24"
@@ -4265,10 +4274,10 @@ next-seo@^4.28.1:
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.28.1.tgz#c98ee559c8ab7196c62d0f6903afd7a8cde47a03"
   integrity sha512-WZgwdM+UhpNF3A37zFllzmPhnOVJ9vYeYlc0n3Z/kYfz/QQgy8NEdncNNggS9dU4JD8xriaCcyknhy5OsrFsJw==
 
-next-sitemap@^1.6.173:
-  version "1.6.173"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.6.173.tgz#a61e8891c6a655333d52d5fa0e2e8dc9c61e99da"
-  integrity sha512-wRLMQ4M03bNElt6BqFBPrqt+5q+qgD5/VFnJ9aYFvfYehkQb/kPbQh74FY7chG2VNn8ZYLydOfTBKsH7PW/X9g==
+next-sitemap@^1.6.203:
+  version "1.6.203"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-1.6.203.tgz#bfa2e67fea2bab1efed60cda743e7f98dc00bb46"
+  integrity sha512-WigcoqIUNbXQa2GnwOiCOydGx/XHCS4kRtIPNEsc8DGX2XvJtbAJKRxcidZZ2KihTAtwwCu1XQ4Hbof4mJbvLg==
   dependencies:
     "@corex/deepmerge" "^2.6.34"
     matcher "^4.0.0"
@@ -4838,7 +4847,7 @@ postcss-safe-parser@^6.0.0:
   resolved "https://registry.yarnpkg.com/postcss-safe-parser/-/postcss-safe-parser-6.0.0.tgz#bb4c29894171a94bc5c996b9a30317ef402adaa1"
   integrity sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==
 
-postcss-selector-parser@^6.0.6:
+postcss-selector-parser@^6.0.6, postcss-selector-parser@^6.0.7:
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.7.tgz#48404830a635113a71fd79397de8209ed05a66fc"
   integrity sha512-U+b/Deoi4I/UmE6KOVPpnhS7I7AYdKbhGcat+qTQ27gycvaACvNEw11ba6RrkwVmDVRW7sigWgLj4/KbbJjeDA==
@@ -5888,10 +5897,10 @@ table@^6.7.3:
     string-width "^4.2.3"
     strip-ansi "^6.0.1"
 
-tailwindcss@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.5.tgz#468e20347b8c4b59bb0585361682126edb1dd9e3"
-  integrity sha512-59pNgzx2o+wkAk7IZGIH7H9eNS53gzZGrO3+NPyOEWHDbquHgiLL/c993T5t1vPSAeBxox4X5OgZwNuRvXVf+g==
+tailwindcss@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.0.6.tgz#1981a0bb55919c0af566c98870ab2ec672599efb"
+  integrity sha512-+CA2f09rbHFDsdQ1iDvsOGbF1tZFmyPoRhUeaF9/5FRT5GYObtp+UjTSCdmeDcu6T90bx4WAaOkddYFPBkjbAA==
   dependencies:
     arg "^5.0.1"
     chalk "^4.1.2"
@@ -5909,7 +5918,7 @@ tailwindcss@^3.0.5:
     postcss-js "^3.0.3"
     postcss-load-config "^3.1.0"
     postcss-nested "5.0.6"
-    postcss-selector-parser "^6.0.6"
+    postcss-selector-parser "^6.0.7"
     postcss-value-parser "^4.2.0"
     quick-lru "^5.1.1"
     resolve "^1.20.0"
