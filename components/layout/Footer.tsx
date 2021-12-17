@@ -1,10 +1,9 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import Image from 'next/image';
 
 import { theme, Stack, Box, Text } from '@resir014/chungking-react';
 import Container, { ContainerSizes } from './container';
-
-import CCLogo from '~/assets/images/cc-by-nc-sa.svg';
 
 const FooterContent = styled('div')`
   a {
@@ -37,8 +36,6 @@ interface FooterProps {
   size?: ContainerSizes;
 }
 
-const Img = Box.withComponent('img');
-
 const Footer: React.FC<FooterProps> = ({ size }) => {
   const handleOptOut = () => {
     if (typeof window.gaOptout === 'function') {
@@ -63,11 +60,17 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
               alignItems={['flex-start', null, null, null, 'center']}
             >
               <a
+                className="flex"
                 rel="license noopener noreferrer"
                 href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
                 target="_blank"
               >
-                <Img alt="Creative Commons License" src={CCLogo} m={0} height={36} />
+                <Image
+                  alt="Creative Commons License"
+                  src="/static/cc-by-nc-sa.svg"
+                  width={103}
+                  height={36}
+                />
               </a>
               <Box mt={['md', null, null, null, 0]} ml={[0, null, null, null, 'md']}>
                 <Text as="p" display="block" variant="sm">
