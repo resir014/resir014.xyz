@@ -12,9 +12,7 @@ import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
 import { BaseJamProps } from '~/types/posts';
-import { SiteMetadata } from '~/types/default';
-
-import siteMetadata from '~/_data/siteMetadata.json';
+import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
 
 type JamPostPageProps = {
   post?: BaseJamProps;

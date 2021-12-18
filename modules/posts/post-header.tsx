@@ -3,7 +3,8 @@ import { Box } from '@resir014/chungking-react';
 import PostMeta from './PostMeta';
 import PostHCard from './post-h-card';
 import { Container } from '~/components/layout';
-import { PostKind, SiteAuthor } from '~/types/default';
+import { PostKind } from '~/types/default';
+import { SiteAuthor } from '~/lib/data/site-metadata';
 
 interface PostHeaderProps {
   title?: string;

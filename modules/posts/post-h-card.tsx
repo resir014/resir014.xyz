@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 import { Box, BoxProps, theme, Heading, Text } from '@resir014/chungking-react';
-import { SiteAuthor } from '~/types/default';
+import { SiteAuthor } from '~/lib/data/site-metadata';
 
 interface PostHCardProps extends BoxProps {
   className?: string;

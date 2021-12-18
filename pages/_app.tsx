@@ -11,8 +11,7 @@ import prismTheme from '~/styles/prismTheme';
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo';
 import { event, pageview } from '~/lib/ga';
 import emotionCache from '~/lib/emotion-cache';
-
-import siteMetadata from '~/_data/siteMetadata.json';
+import siteMetadata from '~/lib/data/site-metadata';
 
 import '~/fonts/jetbrains-mono.css';
 import 'typeface-inter';
@@ -42,7 +41,7 @@ function App({ Component, pageProps, router }: AppProps) {
       router.events.off('routeChangeComplete', () => progress.done());
       router.events.off('routeChangeError', () => progress.done());
     };
-  }, []);
+  }, [router.events]);
 
   React.useEffect(() => {
     const handleRouteChange = (url: string) => {

@@ -10,9 +10,7 @@ import { Post } from '~/modules/posts';
 import { ProjectBody, ProjectCard } from '~/modules/projects';
 import { getAllProjects, getProjectBySlug } from '~/lib/projects';
 import markdownToHtml from '~/lib/markdown-to-html';
-import { SiteMetadata } from '~/types/default';
-
-import siteMetadata from '~/_data/siteMetadata.json';
+import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
 
 type BlogPostPageProps = {
   project?: BaseProjectProps;
