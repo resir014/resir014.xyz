@@ -1,21 +1,19 @@
 import * as React from 'react';
 import Head from 'next/head';
-import { NextSeo } from 'next-seo';
 import clsx from 'clsx';
 import { Box } from '@resir014/chungking-react';
 
-import { Masthead } from './masthead';
-import Footer from './footer';
+import { Masthead } from '../components/layout/masthead';
+import Footer from '../components/layout/footer';
 import siteMetadata from '~/lib/data/site-metadata';
 import menuItems from '~/lib/data/menu-items';
 
-interface LayoutRootProps {
+interface DefaultLayoutProps {
   className?: string;
   style?: React.CSSProperties;
-  pageTitle?: string;
 }
 
-const Page: React.FC<LayoutRootProps> = ({ children, className, style, pageTitle }) => {
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children, className, style }) => {
   const { author } = siteMetadata;
 
   return (
@@ -30,7 +28,6 @@ const Page: React.FC<LayoutRootProps> = ({ children, className, style, pageTitle
       position="relative"
       padding={0}
     >
-      {pageTitle && <NextSeo title={pageTitle} openGraph={{ title: pageTitle }} />}
       <Head>
         <meta name="twitter:dnt" content="on" />
         {Object.keys(author.url).map(key => (
@@ -59,4 +56,4 @@ const Page: React.FC<LayoutRootProps> = ({ children, className, style, pageTitle
   );
 };
 
-export default Page;
+export default DefaultLayout;

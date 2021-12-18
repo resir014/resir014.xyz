@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import * as React from 'react';
 
-import { Content, HeroWrapper, Page } from '~/components/layout';
+import { Content, HeroWrapper } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts';
 import LiveEmbeddablePlayer from '~/modules/live/LiveEmbeddablePlayer';
@@ -10,6 +10,7 @@ import { getAllPages, getPageBySlug } from '~/lib/pages';
 import siteMetadata from '~/lib/data/site-metadata';
 import markdownToHtml from '~/lib/markdown-to-html';
 import { BasePageProps } from '~/types/posts';
+import DefaultLayout from '~/layouts/default-layout';
 
 const contentDirectory = '_content/etc';
 
@@ -39,21 +40,21 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
   if (page) {
     const { layout, title, lead, header_image, content } = page;
     return (
-      <Page pageTitle={title}>
+      <DefaultLayout>
         <YouTubePreconnect />
         {layout === 'live' && (
           <HeroWrapper>
             <LiveEmbeddablePlayer />
           </HeroWrapper>
         )}
-        <Content>
+        <Content pageTitle={title}>
           <Post>
             {header_image && <PostHeaderImage src={header_image} alt={title} />}
             <PostHeader title={title} lead={lead} />
             <PostBody content={content} />
           </Post>
         </Content>
-      </Page>
+      </DefaultLayout>
     );
   }
 

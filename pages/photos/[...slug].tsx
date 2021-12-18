@@ -5,13 +5,14 @@ import { NextSeo } from 'next-seo';
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
 import markdownToHtml from '~/lib/markdown-to-html';
 
-import { Content, Page } from '~/components/layout';
+import { Content } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostHeader } from '~/modules/posts';
 import { PhotoPostBody } from '~/modules/photos';
 import CustomErrorPage from '~/pages/_error';
 import { BasePhotoProps } from '~/types/posts';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
+import DefaultLayout from '~/layouts/default-layout';
 
 type PhotoPostPageProps = {
   post?: BasePhotoProps;
@@ -23,34 +24,34 @@ const PhotoPostPage: NextPage<PhotoPostPageProps> = ({ post }) => {
   if (post) {
     const { category, date, header_image, slug, content } = post;
     return (
-      <Page pageTitle="Photo posted by @resir014">
-        <NextSeo
-          openGraph={{
-            type: 'article',
-            title: 'Photo posted by @resir014',
-            article: {
-              authors: [siteMetadata.author.name],
-              publishedTime: date,
-              section: category,
-            },
-            images: [
-              {
-                url: `${siteMetadata.siteUrl}${header_image}`,
-                width: 1200,
-                height: 630,
-                alt: 'Photo posted by @resir014',
-              },
-            ],
-          }}
-        />
+      <DefaultLayout>
         <YouTubePreconnect />
-        <Content>
+        <Content pageTitle="Photo posted by @resir014">
+          <NextSeo
+            openGraph={{
+              type: 'article',
+              title: 'Photo posted by @resir014',
+              article: {
+                authors: [siteMetadata.author.name],
+                publishedTime: date,
+                section: category,
+              },
+              images: [
+                {
+                  url: `${siteMetadata.siteUrl}${header_image}`,
+                  width: 1200,
+                  height: 630,
+                  alt: 'Photo posted by @resir014',
+                },
+              ],
+            }}
+          />
           <Post>
             <PostHeader author={author} category={category} date={date} slug={slug} />
             <PhotoPostBody image={header_image} content={content} />
           </Post>
         </Content>
-      </Page>
+      </DefaultLayout>
     );
   }
 

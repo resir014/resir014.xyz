@@ -5,12 +5,13 @@ import { NextSeo } from 'next-seo';
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
 import markdownToHtml from '~/lib/markdown-to-html';
 
-import { Content, Page } from '~/components/layout';
+import { Content } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
 import { BasePostProps } from '~/types/posts';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
+import DefaultLayout from '~/layouts/default-layout';
 
 type BlogPostPageProps = {
   post?: BasePostProps;
@@ -23,29 +24,29 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
   if (post) {
     const { title, lead, category, date, header_image, syndication, slug, content } = post;
     return (
-      <Page pageTitle={title}>
-        <NextSeo
-          openGraph={{
-            type: 'article',
-            title,
-            description: lead,
-            article: {
-              authors: [siteMetadata.author.name],
-              publishedTime: date,
-              section: category,
-            },
-            images: [
-              {
-                url: `${siteMetadata.siteUrl}${header_image}`,
-                width: 1200,
-                height: 630,
-                alt: title,
-              },
-            ],
-          }}
-        />
+      <DefaultLayout>
         <YouTubePreconnect />
-        <Content>
+        <Content pageTitle={title}>
+          <NextSeo
+            openGraph={{
+              type: 'article',
+              title,
+              description: lead,
+              article: {
+                authors: [siteMetadata.author.name],
+                publishedTime: date,
+                section: category,
+              },
+              images: [
+                {
+                  url: `${siteMetadata.siteUrl}${header_image}`,
+                  width: 1200,
+                  height: 630,
+                  alt: title,
+                },
+              ],
+            }}
+          />
           <Post>
             {header_image && <PostHeaderImage src={header_image} alt={title} />}
             <PostHeader
@@ -59,7 +60,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
             <PostBody content={content} syndication={syndication} />
           </Post>
         </Content>
-      </Page>
+      </DefaultLayout>
     );
   }
 

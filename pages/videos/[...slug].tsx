@@ -6,13 +6,14 @@ import { Box } from '@resir014/chungking-react';
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
 import markdownToHtml from '~/lib/markdown-to-html';
 
-import { Container, Content, Page } from '~/components/layout';
+import { Container, Content } from '~/components/layout';
 import { LiteYouTube, VideoCard } from '~/modules/video';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
 import { BaseVideoProps } from '~/types/posts';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
+import DefaultLayout from '~/layouts/default-layout';
 
 type VideoPostPageProps = {
   post?: BaseVideoProps;
@@ -24,21 +25,21 @@ const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
   if (post) {
     const { title, date, youtube_embed_id, category, slug, content } = post;
     return (
-      <Page pageTitle={title}>
-        <NextSeo
-          openGraph={{
-            type: 'article',
-            title,
-            description: 'Video posted by @resir014',
-            article: {
-              authors: [siteMetadata.author.name],
-              publishedTime: date,
-              section: category,
-            },
-          }}
-        />
+      <DefaultLayout>
         <YouTubePreconnect />
-        <Content>
+        <Content pageTitle={title}>
+          <NextSeo
+            openGraph={{
+              type: 'article',
+              title,
+              description: 'Video posted by @resir014',
+              article: {
+                authors: [siteMetadata.author.name],
+                publishedTime: date,
+                section: category,
+              },
+            }}
+          />
           <Post>
             <PostHeader title={title} author={author} category={category} date={date} slug={slug} />
             <Box pt="lg" px="lg">
@@ -49,7 +50,7 @@ const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
             <PostBody content={content} />
           </Post>
         </Content>
-      </Page>
+      </DefaultLayout>
     );
   }
 

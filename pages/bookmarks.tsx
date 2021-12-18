@@ -1,6 +1,7 @@
 import { InferGetStaticPropsType, NextPage } from 'next';
 import * as React from 'react';
-import { Content, Page } from '~/components/layout';
+import { Content } from '~/components/layout';
+import DefaultLayout from '~/layouts/default-layout';
 import { getAllPosts } from '~/lib/posts';
 import { BookmarkList } from '~/modules/bookmarks';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
@@ -19,8 +20,8 @@ type BookmarksPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const BookmarksPage: NextPage<BookmarksPageProps> = ({ bookmarks }) => {
   return (
-    <Page pageTitle="Bookmarks">
-      <Content>
+    <DefaultLayout>
+      <Content pageTitle="Bookmarks">
         <Post>
           <PostHeader title="Bookmarks" lead="@resir014's reading list." />
           <PostBody>
@@ -28,7 +29,7 @@ const BookmarksPage: NextPage<BookmarksPageProps> = ({ bookmarks }) => {
           </PostBody>
         </Post>
       </Content>
-    </Page>
+    </DefaultLayout>
   );
 };
 

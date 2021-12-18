@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import { Stack, Anchor, Text } from '@resir014/chungking-react';
 
-import { Page } from '~/components/layout';
 import {
   HomepageContent,
   HomepageHero,
@@ -35,6 +34,7 @@ import {
 import { ProjectMetadata } from '~/types/projects';
 import { BookmarkList } from '~/modules/bookmarks';
 import LiveStreamStatus from '~/modules/live/LiveStreamStatus';
+import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
   const allPosts: BasePostProps[] = getFeaturedArticles(3);
@@ -67,7 +67,7 @@ const IndexPage: NextPage<IndexPageProps> = ({
   featuredPhoto,
   featuredProject,
 }) => (
-  <Page>
+  <DefaultLayout>
     <NextSeo title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }} />
     <HomepageHero />
     <HomepageContent>
@@ -162,7 +162,7 @@ const IndexPage: NextPage<IndexPageProps> = ({
         </HomepageSection>
       </Stack>
     </HomepageContent>
-  </Page>
+  </DefaultLayout>
 );
 
 export default IndexPage;

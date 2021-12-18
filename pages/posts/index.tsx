@@ -2,12 +2,13 @@ import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
 import { Stack } from '@resir014/chungking-react';
 
-import { Content, Page } from '~/components/layout';
+import { Content } from '~/components/layout';
 import { PostBody, PostHeader, PostListItem } from '~/modules/posts';
 import siteMetadata from '~/lib/data/site-metadata';
 import { getAllPosts, getFeaturedArticles } from '~/lib/posts';
 import { generateRSS } from '~/lib/rss';
 import { BasePostProps, PostMetadata } from '~/types/posts';
+import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
   const featuredPosts: BasePostProps[] = getFeaturedArticles(3);
@@ -29,8 +30,8 @@ export const getStaticProps = async () => {
 type PostsIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts }) => (
-  <Page pageTitle="Posts">
-    <Content>
+  <DefaultLayout>
+    <Content pageTitle="Posts">
       <PostHeader title="Posts" />
       <PostBody>
         <Stack mt="md" spacing="xxl">
@@ -53,7 +54,7 @@ const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts
         </Stack>
       </PostBody>
     </Content>
-  </Page>
+  </DefaultLayout>
 );
 
 export default PostsIndexPage;

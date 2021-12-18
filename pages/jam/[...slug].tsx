@@ -6,13 +6,14 @@ import { Box } from '@resir014/chungking-react';
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
 import markdownToHtml from '~/lib/markdown-to-html';
 
-import { Container, Content, Page } from '~/components/layout';
+import { Container, Content } from '~/components/layout';
 import { LiteYouTube, VideoCard } from '~/modules/video';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
 import { BaseJamProps } from '~/types/posts';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
+import DefaultLayout from '~/layouts/default-layout';
 
 type JamPostPageProps = {
   post?: BaseJamProps;
@@ -24,7 +25,7 @@ const JamPostPage: NextPage<JamPostPageProps> = ({ post }) => {
   if (post) {
     const { title, date, youtube_embed_id, category, slug, content } = post;
     return (
-      <Page pageTitle={title}>
+      <DefaultLayout>
         <NextSeo
           openGraph={{
             type: 'article',
@@ -38,7 +39,7 @@ const JamPostPage: NextPage<JamPostPageProps> = ({ post }) => {
           }}
         />
         <YouTubePreconnect />
-        <Content>
+        <Content pageTitle={title}>
           <Post>
             <PostHeader title={title} author={author} category={category} date={date} slug={slug} />
             <Box pt="lg" px="lg">
@@ -49,7 +50,7 @@ const JamPostPage: NextPage<JamPostPageProps> = ({ post }) => {
             <PostBody content={content} />
           </Post>
         </Content>
-      </Page>
+      </DefaultLayout>
     );
   }
 
