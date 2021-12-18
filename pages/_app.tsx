@@ -54,7 +54,8 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
     };
   }, [router.events]);
 
-  const getLayout = Component.layout ?? ((children: JSX.Element) => children);
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  const getLayout = Component?.layout ?? ((children: JSX.Element) => children);
   const page = getLayout(<Component {...pageProps} />);
 
   return (
