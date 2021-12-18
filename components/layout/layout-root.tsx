@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { Box } from '@resir014/chungking-react';
 
 import { Masthead } from './masthead';
-import Footer from './Footer';
+import Footer from './footer';
 import siteMetadata from '~/lib/data/site-metadata';
 import menuItems from '~/lib/data/menu-items';
 
