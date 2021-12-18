@@ -36,7 +36,7 @@ interface FooterProps {
   size?: ContainerSizes;
 }
 
-const Footer: React.FC<FooterProps> = ({ size }) => {
+const Footer: React.FC<FooterProps> = ({ size = 'xl' }) => {
   const handleOptOut = () => {
     if (typeof window.gaOptout === 'function') {
       console.log('gaOptOut');
@@ -117,10 +117,6 @@ const Footer: React.FC<FooterProps> = ({ size }) => {
       </Container>
     </Box>
   );
-};
-
-Footer.defaultProps = {
-  size: 'xl',
 };
 
 export default Footer;
