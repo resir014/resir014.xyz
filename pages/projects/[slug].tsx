@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { Box } from '@resir014/chungking-react';
 import CustomErrorPage from '~/pages/_error';
-import { Container, Content, Page } from '~/components/layout';
+import { Container, Content } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { BaseProjectProps } from '~/types/projects';
 import { Post } from '~/modules/posts';
@@ -11,6 +11,7 @@ import { ProjectBody, ProjectCard } from '~/modules/projects';
 import { getAllProjects, getProjectBySlug } from '~/lib/projects';
 import markdownToHtml from '~/lib/markdown-to-html';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
+import DefaultLayout from '~/layouts/default-layout';
 
 type BlogPostPageProps = {
   project?: BaseProjectProps;
@@ -21,22 +22,22 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
   if (project) {
     const { title, description, header_image, content } = project;
     return (
-      <Page pageTitle={`${title} · Projects`}>
-        <NextSeo
-          openGraph={{
-            description,
-            images: [
-              {
-                url: `${siteMetadata.siteUrl}${header_image}`,
-                width: 1200,
-                height: 630,
-                alt: title,
-              },
-            ],
-          }}
-        />
+      <DefaultLayout>
         <YouTubePreconnect />
-        <Content>
+        <Content pageTitle={`${title} · Projects`}>
+          <NextSeo
+            openGraph={{
+              description,
+              images: [
+                {
+                  url: `${siteMetadata.siteUrl}${header_image}`,
+                  width: 1200,
+                  height: 630,
+                  alt: title,
+                },
+              ],
+            }}
+          />
           <Post>
             <Box as="header" pt="xxl" px="lg">
               <Container size="lg">
@@ -46,7 +47,7 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
             <ProjectBody content={content} />
           </Post>
         </Content>
-      </Page>
+      </DefaultLayout>
     );
   }
 

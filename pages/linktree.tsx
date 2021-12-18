@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { InferGetStaticPropsType, NextPage } from 'next';
 import { Stack } from '@resir014/chungking-react';
-import { Content, Page } from '~/components/layout';
+import { Content } from '~/components/layout';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
 import { LinktreeCard, LinktreeList } from '~/modules/linktree';
 import { H2 } from '~/modules/markdown';
+import DefaultLayout from '~/layouts/default-layout';
 
 export async function getStaticProps() {
   const data = await import('~/lib/data/linktree');
@@ -19,8 +20,8 @@ type LinktreePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const LinktreePage: NextPage<LinktreePageProps> = ({ linktree }) => {
   return (
-    <Page pageTitle="Linktree">
-      <Content>
+    <DefaultLayout>
+      <Content pageTitle="Linktree">
         <Post>
           <PostHeader
             title="Linktree"
@@ -40,7 +41,7 @@ const LinktreePage: NextPage<LinktreePageProps> = ({ linktree }) => {
           </PostBody>
         </Post>
       </Content>
-    </Page>
+    </DefaultLayout>
   );
 };
 

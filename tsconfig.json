@@ -9,6 +9,7 @@
       "~/assets/*": ["assets/*"],
       "~/components/*": ["components/*"],
       "~/fonts/*": ["fonts/*"],
+      "~/layouts/*": ["layouts/*"],
       "~/lib/*": ["lib/*"],
       "~/modules/*": ["modules/*"],
       "~/pages/*": ["pages/*"],

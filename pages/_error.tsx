@@ -4,21 +4,22 @@ import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import { Anchor, Paragraph } from '@resir014/chungking-react';
-import { Content, Page } from '~/components/layout';
+import { Content } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
+import DefaultLayout from '~/layouts/default-layout';
 
 const statusCodes: { [code: number]: string } = {
   400: 'Bad Request',
-  404: 'This page could not be found',
+  404: 'This DefaultLayout could not be found',
   405: 'Method Not Allowed',
   500: 'Internal Server Error',
 };
 
-const CustomErrorPage: React.FC<ErrorProps> = ({ statusCode, title }) => {
+const CustomErrorDefaultLayout: React.FC<ErrorProps> = ({ statusCode, title }) => {
   const errorMessage = React.useMemo(() => title ?? statusCodes[statusCode], [statusCode, title]);
 
   return (
-    <Page>
+    <DefaultLayout>
       <NextSeo title={`${statusCode}: ${errorMessage}`} noindex />
       <Content>
         <PostHeader title={`${statusCode}.`} />
@@ -31,8 +32,8 @@ const CustomErrorPage: React.FC<ErrorProps> = ({ statusCode, title }) => {
           </Paragraph>
         </PostBody>
       </Content>
-    </Page>
+    </DefaultLayout>
   );
 };
 
-export default CustomErrorPage;
+export default CustomErrorDefaultLayout;

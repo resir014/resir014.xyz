@@ -1,11 +1,12 @@
 import { InferGetStaticPropsType, NextPage } from 'next';
 import * as React from 'react';
 import { Stack } from '@resir014/chungking-react';
-import { Content, Page } from '~/components/layout';
+import { Content } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import { FeaturedProjectCard, ProjectItemList } from '~/modules/projects';
 import { getAllProjects, getFeaturedProject, filterProjectsByCategory } from '~/lib/projects';
 import { ProjectMetadata } from '~/types/projects';
+import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
   const allProjects: ProjectMetadata[] = getAllProjects([
@@ -37,8 +38,8 @@ const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, feat
   const filteredProjects = filterProjectsByCategory(allProjects);
 
   return (
-    <Page pageTitle="Projects">
-      <Content>
+    <DefaultLayout>
+      <Content pageTitle="Projects">
         <PostHeader title="Projects" />
         <PostBody>
           <Stack spacing="xxl">
@@ -53,7 +54,7 @@ const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, feat
           </Stack>
         </PostBody>
       </Content>
-    </Page>
+    </DefaultLayout>
   );
 };
 

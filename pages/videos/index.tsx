@@ -2,13 +2,14 @@ import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
 
 import { Stack } from '@resir014/chungking-react';
-import { Content, Page } from '~/components/layout';
+import { Content } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import { renderVideoList } from '~/modules/video';
 import { getAllPosts } from '~/lib/posts';
 import siteMetadata from '~/lib/data/site-metadata';
 import { renderMarkdown } from '~/lib/markdown-to-html';
 import { BaseVideoProps } from '~/types/posts';
+import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
   const allPosts: BaseVideoProps[] = getAllPosts(
@@ -25,14 +26,14 @@ type VideosIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const VideosIndexPage: NextPage<VideosIndexPageProps> = ({ allPosts }) => {
   return (
-    <Page pageTitle="Videos">
-      <Content>
+    <DefaultLayout>
+      <Content pageTitle="Videos">
         <PostHeader title="Videos" lead="What is @resir014 watching right now?" />
         <PostBody>
           <Stack spacing="xxl">{renderVideoList(allPosts, 'videos')}</Stack>
         </PostBody>
       </Content>
-    </Page>
+    </DefaultLayout>
   );
 };
 
