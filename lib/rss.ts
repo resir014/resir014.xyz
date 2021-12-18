@@ -1,6 +1,5 @@
+import siteMetadata from './data/site-metadata';
 import { PostMetadata } from '~/types/posts';
-
-import siteMetadata from '~/_data/siteMetadata.json';
 
 const wrapWithCData = (text?: string): string => `<![CDATA[${text}]]>`;
 

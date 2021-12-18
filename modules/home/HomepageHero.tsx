@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { Heading, Text, Stack, Anchor, Paragraph } from '@resir014/chungking-react';
 
-import siteMetadata from '~/_data/siteMetadata.json';
 import { HeroWrapper } from '~/components/layout';
+import siteMetadata from '~/lib/data/site-metadata';
 
 const HomepageHero: React.FC = () => {
   const { author } = siteMetadata;

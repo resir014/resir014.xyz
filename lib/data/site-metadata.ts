@@ -5,6 +5,7 @@ export type SiteAuthor = {
   readonly description: string;
   readonly website: string;
   readonly avatar: string;
+  readonly twitter: string;
   readonly url: { [key: string]: string };
   readonly email: string;
 };

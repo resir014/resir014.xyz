@@ -6,8 +6,7 @@ import getCategorySlug from './utils/getCategorySlug';
 import slugByCategory from './utils/slugByCategory';
 import { formatPostDate } from '~/lib/date-formatter';
 import { PostKind } from '~/types/default';
-
-import siteMetadata from '~/_data/siteMetadata.json';
+import siteMetadata from '~/lib/data/site-metadata';
 
 export interface PostListItemProps extends BoxProps {
   date: string;
