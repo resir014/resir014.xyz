@@ -11,9 +11,7 @@ import { Post, PostHeader } from '~/modules/posts';
 import { PhotoPostBody } from '~/modules/photos';
 import CustomErrorPage from '~/pages/_error';
 import { BasePhotoProps } from '~/types/posts';
-import { SiteMetadata } from '~/types/default';
-
-import siteMetadata from '~/_data/siteMetadata.json';
+import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
 
 type PhotoPostPageProps = {
   post?: BasePhotoProps;

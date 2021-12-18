@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import * as React from 'react';
 import { Anchor, Box, BoxProps, theme } from '@resir014/chungking-react';
-import { LinktreeItem } from '~/types/default';
+import { LinktreeItem } from '~/lib/data/linktree';
 
 interface LinktreeCardProps extends BoxProps {
   item: LinktreeItem;

@@ -3,8 +3,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import clsx from 'clsx';
-
-import { MenuItem } from '~/types/default';
+import { MenuItem } from '~/lib/data/menu-items';
 
 interface MastheadNavProps {
   items: MenuItem[];

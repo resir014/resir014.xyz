@@ -3,11 +3,12 @@ import Link from 'next/link';
 import clsx from 'clsx';
 
 import MastheadNav from './masthead-nav';
-import { MenuProps } from '~/types/default';
+import { MenuItem } from '~/lib/data/menu-items';
 
-interface MastheadProps extends MenuProps {
+interface MastheadProps {
   title: string;
   className?: string;
+  items: MenuItem[];
 }
 
 const Masthead: React.FC<MastheadProps> = ({ className, title, items }) => {

@@ -1,4 +1,4 @@
-import siteMetadata from '~/_data/siteMetadata.json';
+import siteMetadata from './data/site-metadata';
 
 export const defaultOpenGraph = {
   title: siteMetadata.title,

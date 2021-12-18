@@ -1,20 +1,19 @@
 import * as React from 'react';
 import { InferGetStaticPropsType, NextPage } from 'next';
 import { Stack } from '@resir014/chungking-react';
-import { LinktreeCategoryItem } from '~/types/default';
 import { Content, Page } from '~/components/layout';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
 import { LinktreeCard, LinktreeList } from '~/modules/linktree';
 import { H2 } from '~/modules/markdown';
 
-export const getStaticProps = async () => {
-  const data = await import('_data/linktree.json');
-  const linktree: LinktreeCategoryItem[] = data.default;
+export async function getStaticProps() {
+  const data = await import('~/lib/data/linktree');
+  const linktree = data.default;
 
   return {
     props: { linktree },
   };
-};
+}
 
 type LinktreePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 

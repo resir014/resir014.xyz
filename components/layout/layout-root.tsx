@@ -6,19 +6,17 @@ import { Box } from '@resir014/chungking-react';
 
 import { Masthead } from './masthead';
 import Footer from './Footer';
-import menuItems from '~/_data/menuItems.json';
-import siteMetadata from '~/_data/siteMetadata.json';
+import siteMetadata from '~/lib/data/site-metadata';
+import menuItems from '~/lib/data/menu-items';
 
-import { SiteMetadata } from '~/types/default';
-
-interface PageProps {
+interface LayoutRootProps {
   className?: string;
   style?: React.CSSProperties;
   pageTitle?: string;
 }
 
-const Page: React.FC<PageProps> = ({ children, className, style, pageTitle }) => {
-  const { author }: SiteMetadata = siteMetadata;
+const Page: React.FC<LayoutRootProps> = ({ children, className, style, pageTitle }) => {
+  const { author } = siteMetadata;
 
   return (
     <Box

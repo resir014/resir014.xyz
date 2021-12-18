@@ -6,10 +6,9 @@ import { Content, Page } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import { getAllPosts } from '~/lib/posts';
 import { renderMarkdown } from '~/lib/markdown-to-html';
-import { BasePhotoProps } from '~/types/posts';
-
-import siteMetadata from '~/_data/siteMetadata.json';
 import PhotoListItem from '~/modules/photos/PhotoListItem';
+import siteMetadata from '~/lib/data/site-metadata';
+import { BasePhotoProps } from '~/types/posts';
 
 export const getStaticProps = async () => {
   const allPosts: BasePhotoProps[] = getAllPosts(

@@ -4,11 +4,10 @@ import { Stack } from '@resir014/chungking-react';
 
 import { Content, Page } from '~/components/layout';
 import { PostBody, PostHeader, PostListItem } from '~/modules/posts';
+import siteMetadata from '~/lib/data/site-metadata';
 import { getAllPosts, getFeaturedArticles } from '~/lib/posts';
-import { BasePostProps, PostMetadata } from '~/types/posts';
-
-import siteMetadata from '~/_data/siteMetadata.json';
 import { generateRSS } from '~/lib/rss';
+import { BasePostProps, PostMetadata } from '~/types/posts';
 
 export const getStaticProps = async () => {
   const featuredPosts: BasePostProps[] = getFeaturedArticles(3);

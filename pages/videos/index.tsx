@@ -6,10 +6,9 @@ import { Content, Page } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import { renderVideoList } from '~/modules/video';
 import { getAllPosts } from '~/lib/posts';
+import siteMetadata from '~/lib/data/site-metadata';
 import { renderMarkdown } from '~/lib/markdown-to-html';
 import { BaseVideoProps } from '~/types/posts';
-
-import siteMetadata from '~/_data/siteMetadata.json';
 
 export const getStaticProps = async () => {
   const allPosts: BaseVideoProps[] = getAllPosts(

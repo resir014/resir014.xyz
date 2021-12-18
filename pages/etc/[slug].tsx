@@ -7,10 +7,9 @@ import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts';
 import LiveEmbeddablePlayer from '~/modules/live/LiveEmbeddablePlayer';
 import CustomErrorPage from '~/pages/_error';
 import { getAllPages, getPageBySlug } from '~/lib/pages';
+import siteMetadata from '~/lib/data/site-metadata';
 import markdownToHtml from '~/lib/markdown-to-html';
 import { BasePageProps } from '~/types/posts';
-
-import siteMetadata from '~/_data/siteMetadata.json';
 
 const contentDirectory = '_content/etc';
 
