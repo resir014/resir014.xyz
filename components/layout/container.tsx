@@ -3,14 +3,14 @@ import clsx from 'clsx';
 
 export type ContainerSizes = 'md' | 'lg' | 'xl' | 'fluid';
 
-interface ContainerProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface ContainerProps extends React.ComponentPropsWithoutRef<'div'> {
   className?: string;
   style?: React.CSSProperties;
   size?: ContainerSizes;
   children?: React.ReactNode;
 }
 
-const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
+export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
   ({ className, style, children, size = 'md', ...rest }, ref) => {
     const isLgOrHigher = React.useMemo(() => size === 'lg' || size === 'xl', [size]);
 
@@ -33,5 +33,3 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
 );
 
 Container.displayName = 'Container';
-
-export default Container;

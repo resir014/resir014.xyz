@@ -5,16 +5,7 @@
     "lib": ["dom", "es2017"],
     "baseUrl": ".",
     "paths": {
-      "~/_data/*": ["_data/*"],
-      "~/assets/*": ["assets/*"],
-      "~/components/*": ["components/*"],
-      "~/fonts/*": ["fonts/*"],
-      "~/layouts/*": ["layouts/*"],
-      "~/lib/*": ["lib/*"],
-      "~/modules/*": ["modules/*"],
-      "~/pages/*": ["pages/*"],
-      "~/styles/*": ["styles/*"],
-      "~/types/*": ["types/*"]
+      "~/*": ["*"]
     },
     "jsx": "preserve",
     "typeRoots": ["./@types", "./node_modules/@types"],

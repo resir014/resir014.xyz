@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 
 import { theme, Stack, Box, Text } from '@resir014/chungking-react';
-import Container, { ContainerSizes } from './container';
+import { Container, ContainerSizes } from './container';
 
 const FooterContent = styled('div')`
   a {
@@ -32,11 +32,11 @@ const FooterContent = styled('div')`
   }
 `;
 
-interface FooterProps {
+export interface FooterProps {
   size?: ContainerSizes;
 }
 
-const Footer: React.FC<FooterProps> = ({ size = 'xl' }) => {
+export const Footer: React.FC<FooterProps> = ({ size = 'xl' }) => {
   const handleOptOut = () => {
     if (typeof window.gaOptout === 'function') {
       console.log('gaOptOut');
@@ -118,5 +118,3 @@ const Footer: React.FC<FooterProps> = ({ size = 'xl' }) => {
     </Box>
   );
 };
-
-export default Footer;

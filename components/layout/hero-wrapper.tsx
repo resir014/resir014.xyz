@@ -2,11 +2,11 @@ import { useTheme } from '@emotion/react';
 import { Box, Theme } from '@resir014/chungking-react';
 import * as React from 'react';
 
-interface HeroWrapperProps {
+export interface HeroWrapperProps {
   className?: string;
 }
 
-const HeroWrapper: React.FC<HeroWrapperProps> = ({ children, className }) => {
+export const HeroWrapper: React.FC<HeroWrapperProps> = ({ children, className }) => {
   const theme: Theme = useTheme() as Theme;
 
   return (
@@ -26,5 +26,3 @@ const HeroWrapper: React.FC<HeroWrapperProps> = ({ children, className }) => {
     </Box>
   );
 };
-
-export default HeroWrapper;
