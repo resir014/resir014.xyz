@@ -87,6 +87,9 @@ typings/
 !.yarn/versions
 .pnp.*
 
+# TypeScript build info
+*.tsbuildinfo
+
 # =========================
 # Operating System Files
 # =========================

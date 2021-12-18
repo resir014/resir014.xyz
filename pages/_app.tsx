@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppProps, NextWebVitalsMetric } from 'next/app';
+import { NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import { CacheProvider, Global } from '@emotion/react';
@@ -12,6 +12,7 @@ import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo';
 import { event, pageview } from '~/lib/ga';
 import emotionCache from '~/lib/emotion-cache';
 import siteMetadata from '~/lib/data/site-metadata';
+import { NextAppProps } from '~/types/next';
 
 import '~/fonts/jetbrains-mono.css';
 import 'typeface-inter';
@@ -29,7 +30,7 @@ export function reportWebVitals({ id, name, label, value }: NextWebVitalsMetric)
   });
 }
 
-function App({ Component, pageProps, router }: AppProps) {
+function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
   React.useEffect(() => {
     // NProgress
     router.events.on('routeChangeStart', () => progress.start());
@@ -52,6 +53,10 @@ function App({ Component, pageProps, router }: AppProps) {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
+
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  const getLayout = Component?.layout ?? ((children: JSX.Element) => children);
+  const page = getLayout(<Component {...pageProps} />);
 
   return (
     <CacheProvider value={emotionCache}>
@@ -83,7 +88,7 @@ function App({ Component, pageProps, router }: AppProps) {
       <ChungkingProvider disableResetCSS>
         <Global styles={nProgressStyles} />
         <Global styles={prismTheme} />
-        <Component {...pageProps} />
+        {page}
       </ChungkingProvider>
     </CacheProvider>
   );

@@ -1,12 +1,10 @@
 import * as React from 'react';
 import Head from 'next/head';
-import clsx from 'clsx';
-import { Box } from '@resir014/chungking-react';
 
 import { Masthead } from '../components/layout/masthead';
-import Footer from '../components/layout/footer';
 import siteMetadata from '~/lib/data/site-metadata';
 import menuItems from '~/lib/data/menu-items';
+import { Footer, LayoutRoot } from '~/components/layout';
 
 interface DefaultLayoutProps {
   className?: string;
@@ -17,17 +15,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children, className, styl
   const { author } = siteMetadata;
 
   return (
-    <Box
-      className={clsx('bg-chungking-grey-900 text-chungking-white', className)}
-      style={style}
-      display="flex"
-      flexDirection="column"
-      width="100%"
-      height="100%"
-      minHeight="100vh"
-      position="relative"
-      padding={0}
-    >
+    <LayoutRoot className={className} style={style}>
       <Head>
         <meta name="twitter:dnt" content="on" />
         {Object.keys(author.url).map(key => (
@@ -52,7 +40,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children, className, styl
       <Masthead title="@resir014" items={menuItems} />
       {children}
       <Footer />
-    </Box>
+    </LayoutRoot>
   );
 };
 
