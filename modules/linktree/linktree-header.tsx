@@ -2,8 +2,11 @@ import Image from 'next/image';
 import * as React from 'react';
 import { Container } from '~/components/layout';
 import { Avatar } from '~/components/ui';
+import siteMetadata from '~/lib/data/site-metadata';
 
 export function LinktreeHeader() {
+  const { title, description } = siteMetadata;
+
   return (
     <div className="px-6 pt-12">
       <Container>
@@ -14,8 +17,8 @@ export function LinktreeHeader() {
             <div className="flex flex-col space-y-6 items-center">
               <Avatar src="/static/resir014-icon.png" size={96} />
               <div className="space-y-1 text-center">
-                <h1 className="text-2xl text-chungking-turquoise-400 font-semibold">@resir014</h1>
-                <p className="font-semibold">insert compelling headline here</p>
+                <h1 className="text-2xl text-chungking-turquoise-400 font-semibold">{title}</h1>
+                <p className="font-semibold">{description}</p>
               </div>
             </div>
           </div>
