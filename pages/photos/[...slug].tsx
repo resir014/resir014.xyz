@@ -20,7 +20,6 @@ type PhotoPostPageProps = {
 };
 
 const PhotoPostPage: NextPage<PhotoPostPageProps> = ({ post }) => {
-  const { author } = siteMetadata;
   if (post) {
     const { category, date, header_image, slug, content } = post;
     return (
@@ -47,7 +46,7 @@ const PhotoPostPage: NextPage<PhotoPostPageProps> = ({ post }) => {
             }}
           />
           <Post>
-            <PostHeader author={author} category={category} date={date} slug={slug} />
+            <PostHeader category={category} date={date} slug={slug} />
             <PhotoPostBody image={header_image} content={content} />
           </Post>
         </Content>

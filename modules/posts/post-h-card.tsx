@@ -1,90 +1,41 @@
 import * as React from 'react';
 import classnames from 'clsx';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
 
-import { Box, BoxProps, theme, Heading, Text } from '@resir014/chungking-react';
 import { SiteAuthor } from '~/lib/data/site-metadata';
+import { Avatar } from '~/components/ui';
 
-interface PostHCardProps extends BoxProps {
+export interface PostHCardProps extends React.ComponentPropsWithoutRef<'div'> {
   className?: string;
-  hidden?: boolean;
   image?: string;
   author: SiteAuthor;
 }
 
-const HCardAvatarImg = styled('img')`
-  width: 64px;
-  height: 64px;
-  margin: 0;
-  border: 2px solid ${theme.colors.white};
-  border-radius: 64px;
-`;
-
-const HCardEmail = styled('a')`
-  display: none;
-`;
-
-const PostHCard: React.FC<PostHCardProps> = ({ className, hidden, image, author, ...rest }) => (
-  <Box
-    className={classnames(className, 'p-author h-card')}
-    display={hidden ? 'none' : 'block'}
-    css={css`
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    `}
+export const PostHCard: React.FC<PostHCardProps> = ({ className, image, author, ...rest }) => (
+  <div
+    className={classnames(
+      'p-author h-card flex flex-col items-center text-center space-y-6 px-4 py-6 lg:py-8 bg-chungking-grey-800 shadow-lg rounded-md overflow-hidden',
+      className
+    )}
     {...rest}
   >
-    <Box
-      display="grid"
-      gridTemplateColumns="64px 1fr"
-      gridGap={['md', null, null, 'lg']}
-      textAlign="left"
-      color="inherit"
-    >
-      <Box
-        display="flex"
-        position="relative"
-        textAlign="center"
-        alignItems="center"
-        justifyContent="flex-start"
-        mb={0}
-      >
-        <HCardAvatarImg className="u-photo" src={image ?? author.avatar} alt={author.name} />
-      </Box>
-      <Box display="flex" flexDirection="row" alignItems="center">
-        <Box position="relative">
-          <Heading as="p" display="block" variant="xl" m={0}>
-            <a
-              className="p-name u-url"
-              rel="author noopener noreferrer"
-              target="_blank"
-              href={author.website || '/'}
-              css={css`
-                &::after {
-                  content: '';
-                  position: absolute;
-                  top: 0;
-                  bottom: 0;
-                  left: 0;
-                  right: 0;
-                }
-              `}
-            >
-              {author.name}
-            </a>
-          </Heading>
-          <Text as="p" mt="xxs" mb={0} className="p-note">
-            {author.description}
-          </Text>
-        </Box>
-        <HCardEmail className="u-email" href={`mailto:${author.email}`}>
-          {author.email}
-        </HCardEmail>
-      </Box>
-    </Box>
-  </Box>
+    <div className="flex relative text-center items-center">
+      <Avatar className="u-photo" src={image ?? author.avatar} alt={author.name} />
+    </div>
+    <div className="relative space-y-1">
+      <p className="text-xl font-semibold">
+        <a
+          className="p-name u-url helper-link-cover"
+          rel="author noopener noreferrer"
+          target="_blank"
+          href={author.website || '/'}
+        >
+          {author.name}
+        </a>
+      </p>
+      <p className="p-note text-base">{author.description}</p>
+    </div>
+    <a className="u-email hidden" href={`mailto:${author.email}`}>
+      {author.email}
+    </a>
+  </div>
 );
-
-export default PostHCard;

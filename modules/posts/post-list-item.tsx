@@ -2,37 +2,33 @@ import * as React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 
-import { Stack, StackProps } from '@resir014/chungking-react';
-import PostMeta from './PostMeta';
 import { PostMetadata } from '~/types/posts';
+import { formatPostDate } from '~/lib/date-formatter';
 
-export interface PostListItemProps extends StackProps {
+export interface PostListItemProps extends React.ComponentPropsWithoutRef<'article'> {
   post: PostMetadata;
 }
 
-const PostListItem: React.FC<PostListItemProps> = ({ post, className, style, ...rest }) => {
-  const { title, lead, date, category, slug } = post;
+export const PostListItem: React.FC<PostListItemProps> = ({ post, className, style, ...rest }) => {
+  const { title, lead, date, slug } = post;
+  const postDate = React.useMemo(() => new Date(date), [date]);
 
   return (
-    <Stack
-      as="article"
-      spacing="xxs"
-      position="relative"
-      className={clsx('h-entry', className)}
-      style={style}
-      {...rest}
-    >
-      <PostMeta date={date} category={category} slug={slug} disableMetaClick />
+    <article className={clsx('h-entry relative space-y-1', className)} style={style} {...rest}>
+      <time
+        className="dt-published text-chungking-grey-400 text-xs lg:text-sm"
+        dateTime={postDate.toISOString()}
+      >
+        {formatPostDate(postDate)}
+      </time>
       {title && (
-        <h3 className="text-lg sm:text-xl lg:text-2xl leading-tight">
+        <h3 className="text-lg lg:text-xl leading-tight">
           <Link href="/posts/[...slug]" as={`/posts/${slug}`}>
             <a className="helper-link-cover font-semibold no-underline hover:underline">{title}</a>
           </Link>
         </h3>
       )}
-      {lead && <p className="text-sm lg:text-base">{lead}</p>}
-    </Stack>
+      {lead && <p className="text-sm lg:text-base text-chungking-grey-200">{lead}</p>}
+    </article>
   );
 };
-
-export default PostListItem;

@@ -1,9 +1,7 @@
-export { default as Post } from './post';
-export { default as PostBody } from './post-body';
-export { default as PostHCard } from './post-h-card';
-export { default as PostHeaderImage } from './post-header-image';
-export { default as PostHeader } from './post-header';
-export { default as PostListItem } from './post-list-item';
-export { default as PostContent } from './PostContent';
-export { default as PostMeta } from './PostMeta';
-export { default as PostSubtitle } from './PostSubtitle';
+export * from './post-body';
+export * from './post-h-card';
+export * from './post-header-image';
+export * from './post-header';
+export * from './post-list-item';
+export * from './post-meta';
+export * from './post';
