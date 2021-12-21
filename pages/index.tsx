@@ -11,9 +11,7 @@ import {
   HomepageSectionHeader,
 } from '~/modules/home';
 import { FeaturedProjectCard } from '~/modules/projects';
-import { FeaturedPhoto } from '~/modules/photos';
-import { PostListItem } from '~/modules/posts';
-import { renderFeaturedVideo } from '~/modules/video';
+import { FeaturedPostList } from '~/modules/posts';
 
 import {
   getFeaturedArticles,
@@ -29,11 +27,9 @@ import {
   BasePhotoProps,
   BasePostProps,
   BaseVideoProps,
-  PostMetadata,
 } from '~/types/posts';
 import { ProjectMetadata } from '~/types/projects';
 import { BookmarkList } from '~/modules/bookmarks';
-import LiveStreamStatus from '~/modules/live/LiveStreamStatus';
 import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
@@ -59,39 +55,19 @@ export const getStaticProps = async () => {
 
 type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-const IndexPage: NextPage<IndexPageProps> = ({
-  allPosts,
-  featuredBookmarks,
-  recentJam,
-  recentVideo,
-  featuredPhoto,
-  featuredProject,
-}) => (
+const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, featuredProject }) => (
   <DefaultLayout>
     <NextSeo title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }} />
     <HomepageHero />
     <HomepageContent>
-      <Stack spacing="96px">
-        <HomepageSection size="md">
-          <Stack spacing="xxl">
-            <HomepageSectionHeader
-              title="Livestream"
-              description="Video game and live coding streams on Twitch, three times a week."
-            />
-            <LiveStreamStatus />
-          </Stack>
-        </HomepageSection>
+      <div className="space-y-12">
         <HomepageSection size="md">
           <Stack spacing="xxl">
             <HomepageSectionHeader
               title="Featured articles"
               description="Writings about web development, technology, and everything in between."
             />
-            <Stack spacing="xxl">
-              {allPosts.map((post: PostMetadata) => (
-                <PostListItem key={post.slug} post={post} />
-              ))}
-            </Stack>
+            <FeaturedPostList posts={allPosts} />
             <Text display="block" variant="xl">
               <Link href="/posts" passHref>
                 <Anchor>View all posts &rarr;</Anchor>
@@ -112,45 +88,6 @@ const IndexPage: NextPage<IndexPageProps> = ({
         </HomepageSection>
         <HomepageSection size="md">
           <Stack spacing="xxl">
-            <HomepageSectionHeader
-              title="Current jam"
-              description="What have I been listening to on repeat?"
-            />
-            {renderFeaturedVideo(recentJam, 'jam')}
-            <Text display="block" variant="xl">
-              <Link href="/jam" passHref>
-                <Anchor>View all jams &rarr;</Anchor>
-              </Link>
-            </Text>
-          </Stack>
-        </HomepageSection>
-        <HomepageSection size="md">
-          <Stack spacing="xxl">
-            <HomepageSectionHeader title="Recently watched" />
-            {renderFeaturedVideo(recentVideo, 'videos')}
-            <Text display="block" variant="xl">
-              <Link href="/videos" passHref>
-                <Anchor>View all videos &rarr;</Anchor>
-              </Link>
-            </Text>
-          </Stack>
-        </HomepageSection>
-        <HomepageSection size="md">
-          <Stack spacing="xxl">
-            <HomepageSectionHeader
-              title="Featured photo"
-              description="Sometimes I go outside and take photos with my camera."
-            />
-            <FeaturedPhoto photo={featuredPhoto} />
-            <Text display="block" variant="xl">
-              <Link href="/photos" passHref>
-                <Anchor>View all photos &rarr;</Anchor>
-              </Link>
-            </Text>
-          </Stack>
-        </HomepageSection>
-        <HomepageSection size="md">
-          <Stack spacing="xxl">
             <HomepageSectionHeader title="Featured project" />
             <FeaturedProjectCard project={featuredProject} />
             <Text display="block" variant="xl">
@@ -160,7 +97,7 @@ const IndexPage: NextPage<IndexPageProps> = ({
             </Text>
           </Stack>
         </HomepageSection>
-      </Stack>
+      </div>
     </HomepageContent>
   </DefaultLayout>
 );

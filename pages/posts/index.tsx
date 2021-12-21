@@ -2,14 +2,13 @@ import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
 
 import { Content } from '~/components/layout';
-import { PostHeader } from '~/modules/posts';
+import { FeaturedPostList, PostList, PostHeader } from '~/modules/posts';
 import siteMetadata from '~/lib/data/site-metadata';
 import { getAllPosts, getFeaturedArticles } from '~/lib/posts';
 import { generateRSS } from '~/lib/rss';
 import { BasePostProps, PostMetadata } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 import { PageBody } from '~/components/page';
-import { PostList } from '~/modules/posts/post-list';
 
 export const getStaticProps = async () => {
   const featuredPosts: BasePostProps[] = getFeaturedArticles(3);
@@ -36,7 +35,7 @@ const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts
       <PostHeader title="Posts" />
       <PageBody>
         <div className="space-y-12">
-          <PostList title="Featured posts" posts={featuredPosts} />
+          <FeaturedPostList title="Featured posts" posts={featuredPosts} />
           <PostList title="Other posts" posts={allPosts} />
         </div>
       </PageBody>

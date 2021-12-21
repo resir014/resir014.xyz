@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import * as React from 'react';
-import { PostListItem } from '.';
+import { PostListItem } from './post-list-item';
 import { PostMetadata } from '~/types/posts';
 
 export interface PostListProps extends React.ComponentPropsWithoutRef<'div'> {
