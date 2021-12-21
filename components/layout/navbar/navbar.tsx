@@ -6,13 +6,13 @@ import { NavbarItems } from './navbar-items';
 import { MenuItem } from '~/lib/data/menu-items';
 import { Logo } from '~/components/ui';
 
-export interface MastheadProps {
+export interface NavbarProps {
   title: string;
   className?: string;
   items: MenuItem[];
 }
 
-export const Masthead: React.FC<MastheadProps> = ({ className, title, items }) => {
+export const Navbar: React.FC<NavbarProps> = ({ className, title, items }) => {
   return (
     <header className={clsx('px-6 bg-chungking-grey-900 shadow-header-inset z-50', className)}>
       <div className="flex flex-col lg:flex-row-reverse lg:justify-between w-full lg:max-w-4xl xl:max-w-6xl mx-auto">

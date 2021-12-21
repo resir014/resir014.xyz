@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { Masthead } from '../components/layout/navbar';
+import { Navbar } from '../components/layout/navbar';
 import siteMetadata from '~/lib/data/site-metadata';
 import menuItems from '~/lib/data/menu-items';
 import { Footer, LayoutRoot } from '~/components/layout';
@@ -37,7 +37,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children, className, styl
           />
         )}
       </Head>
-      <Masthead title="@resir014" items={menuItems} />
+      <Navbar title="@resir014" items={menuItems} />
       {children}
       <Footer />
     </LayoutRoot>

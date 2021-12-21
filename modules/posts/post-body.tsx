@@ -1,45 +1,46 @@
 import * as React from 'react';
-import CSS from 'csstype';
 import convert from 'htmr';
-import { Anchor, Box, MessageBox, Paragraph, Space } from '@resir014/chungking-react';
 
-import { ListItem, UnorderedList } from '../markdown';
+import { PostHCard } from '.';
 import { Container, ContainerSizes } from '~/components/layout';
 import { SyndicationFormat } from '~/types/default';
 import htmrTransform from '~/lib/htmr-transform';
+import { SiteAuthor } from '~/lib/data/site-metadata';
+import { MessageBox } from '~/components/ui/message-box';
 
-interface PostBodyProps {
+export interface PostBodyProps {
   content?: string;
   containerSize?: ContainerSizes;
   syndication?: SyndicationFormat[];
-  spacing?: Space | CSS.Property.Margin;
+  author?: SiteAuthor;
 }
 
-const PostBody: React.FC<PostBodyProps> = ({
+export const PostBody: React.FC<PostBodyProps> = ({
   content,
   syndication,
   containerSize = 'md',
+  author,
   children,
 }) => {
   const renderSyndication = () => {
     if (syndication) {
       return (
-        <MessageBox mb="lg">
-          <Paragraph mb="xs">This post is also published on:</Paragraph>
-          <UnorderedList>
+        <MessageBox className="space-y-2">
+          <p className="text-base">This post is also published on:</p>
+          <ul className="list-disc list-inside">
             {syndication.map(item => (
-              <ListItem key={item.url}>
-                <Anchor
+              <li key={item.url}>
+                <a
                   href={item.url}
                   target="_blank"
-                  className="u-syndication"
+                  className="u-syndication text-chungking-turquoise-400 hover:underline"
                   rel="noopener noreferrer external syndication"
                 >
                   {item.name}
-                </Anchor>
-              </ListItem>
+                </a>
+              </li>
             ))}
-          </UnorderedList>
+          </ul>
         </MessageBox>
       );
     }
@@ -49,27 +50,31 @@ const PostBody: React.FC<PostBodyProps> = ({
 
   if (content) {
     return (
-      <Box as="section" px="lg" pt={64} pb={96}>
+      <section className="px-6 pt-12 pb-24">
         <Container size={containerSize}>
-          {renderSyndication()}
-          <div className="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
-            {convert(content, {
-              transform: htmrTransform,
-            })}
+          <div className="space-y-12">
+            {renderSyndication()}
+            <div className="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
+              {convert(content, {
+                transform: htmrTransform,
+              })}
+            </div>
+            {author && <PostHCard author={author} />}
           </div>
         </Container>
-      </Box>
+      </section>
     );
   }
 
   return (
-    <Box as="section" p="lg" pb={96}>
+    <section className="px-6 pt-12 pb-24">
       <Container size={containerSize}>
-        {renderSyndication()}
-        <div className="e-content mx-auto">{children}</div>
+        <div className="space-y-12">
+          {renderSyndication()}
+          <div className="e-content mx-auto">{children}</div>
+          {author && <PostHCard author={author} />}
+        </div>
       </Container>
-    </Box>
+    </section>
   );
 };
-
-export default PostBody;

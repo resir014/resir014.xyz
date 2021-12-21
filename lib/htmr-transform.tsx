@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { HtmrOptions } from 'htmr/src/types';
 import clsx from 'clsx';
 
-import { BoxProps, MessageBox } from '@resir014/chungking-react';
+import { BoxProps } from '@resir014/chungking-react';
+import { MessageBox } from '~/components/ui/message-box';
 
 const htmrTransform: HtmrOptions['transform'] = {
   iframe: ({ className, title, ...rest }: JSX.IntrinsicElements['iframe']) => (

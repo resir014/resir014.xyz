@@ -6,6 +6,7 @@ export type AvatarSizes = 64 | 96;
 
 export interface AvatarProps extends React.ComponentPropsWithoutRef<'div'> {
   size?: AvatarSizes;
+  alt?: ImageProps['alt'];
   src: ImageProps['src'];
 }
 

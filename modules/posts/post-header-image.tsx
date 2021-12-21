@@ -1,31 +1,20 @@
-import { css } from '@emotion/react';
 import Image from 'next/image';
 import * as React from 'react';
-import { Box } from '@resir014/chungking-react';
+import { Container } from '~/components/layout';
 
-interface PostHeaderImageProps {
+export interface PostHeaderImageProps {
   src: string;
   alt?: string;
 }
 
-const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
+export const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) => {
   return (
-    <Box as="section" px="lg">
-      <div className="w-full lg:max-w-4xl xl:max-w-6xl mx-auto">
-        <Image
-          className="u-photo"
-          loading="lazy"
-          src={src}
-          alt={alt}
-          width={1140}
-          height={580}
-          css={css`
-            object-fit: cover;
-          `}
-        />
-      </div>
-    </Box>
+    <section className="px-6 pt-12">
+      <Container>
+        <div className="relative w-full h-[420px] overflow-hidden rounded-md shadow-lg">
+          <Image loading="lazy" src={src} alt={alt} layout="fill" objectFit="cover" />
+        </div>
+      </Container>
+    </section>
   );
 };
-
-export default PostHeaderImage;
