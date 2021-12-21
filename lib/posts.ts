@@ -71,7 +71,10 @@ export function getAllPosts(fields: string[] = [], category: PostKind = 'article
 }
 
 export function getFeaturedArticles(maxPosts = 5) {
-  return getAllPosts(['category', 'title', 'lead', 'slug', 'date', 'featured'], 'article')
+  return getAllPosts(
+    ['category', 'title', 'lead', 'slug', 'date', 'featured', 'header_image'],
+    'article'
+  )
     .filter(post => post.featured)
     .slice(0, maxPosts);
 }
