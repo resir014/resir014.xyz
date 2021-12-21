@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-import { Masthead } from '../components/layout/masthead';
+import { Masthead } from '../components/layout/navbar';
 import siteMetadata from '~/lib/data/site-metadata';
 import menuItems from '~/lib/data/menu-items';
 import { Footer, LayoutRoot } from '~/components/layout';
