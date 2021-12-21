@@ -53,9 +53,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, ...rest }) => {
           {title}
         </Heading>
         {description ? (
-          <Text as="p" variant="xl" fontWeight={300} m={0} className="p-summary">
+          <p className="p-summary font-light text-xl">
             {convert(description, { transform: htmrTransform })}
-          </Text>
+          </p>
         ) : null}
         {tags ? (
           <ProjectTags>

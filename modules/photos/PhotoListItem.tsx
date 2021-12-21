@@ -35,9 +35,9 @@ const PhotoListItem: React.FC<PhotoListItemProps> = ({ photo, className, style, 
         </Box>
       )}
       {content && (
-        <Stack as="section" className="e-content" spacing="md">
+        <div className="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
           {convert(content, { transform: htmrTransform })}
-        </Stack>
+        </div>
       )}
     </Stack>
   );

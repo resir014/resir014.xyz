@@ -5,7 +5,6 @@ import { css } from '@emotion/react';
 import convert from 'htmr';
 import {
   Heading,
-  Paragraph,
   theme,
   Badge,
   Anchor,
@@ -68,7 +67,7 @@ const ProjectItem: React.FC<ProjectFieldProps> = ({ project, ...rest }) => {
         </Heading>
       </Box>
       <Box flex="1 0 auto" pb="lg" px="lg" pt="sm">
-        <Paragraph m={0}>{convert(description ?? '', { transform: htmrTransform })}</Paragraph>
+        <p className="text-base">{convert(description ?? '', { transform: htmrTransform })}</p>
         {tags ? (
           <ProjectTags>
             {tags.map(tag => (

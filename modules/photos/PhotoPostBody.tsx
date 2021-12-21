@@ -24,9 +24,9 @@ const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({
         <Container size={containerSize}>
           <Stack spacing="md">
             {image && <PhotoWrapper image={image} />}
-            <Stack className="e-content" spacing="md">
+            <div className="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
               {convert(content, { transform: htmrTransform })}
-            </Stack>
+            </div>
           </Stack>
         </Container>
       </Box>
@@ -38,9 +38,9 @@ const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({
       <Container size={containerSize}>
         <Stack spacing="md">
           {image && <PhotoWrapper image={image} />}
-          <Stack className="e-content" spacing="md">
+          <div className="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
             {children}
-          </Stack>
+          </div>
         </Stack>
       </Container>
     </Box>
