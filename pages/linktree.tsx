@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { InferGetStaticPropsType, NextPage } from 'next';
-import { Stack } from '@resir014/chungking-react';
 import { Content } from '~/components/layout';
-import { Post, PostBody, PostHeader } from '~/modules/posts';
-import { LinktreeCard, LinktreeList } from '~/modules/linktree';
-import { H2 } from '~/modules/markdown';
+import { LinktreeHeader, LinktreeSection } from '~/modules/linktree';
 import DefaultLayout from '~/layouts/default-layout';
+import { PageBody } from '~/components/page';
 
 export async function getStaticProps() {
   const data = await import('~/lib/data/linktree');
@@ -22,24 +20,14 @@ const LinktreePage: NextPage<LinktreePageProps> = ({ linktree }) => {
   return (
     <DefaultLayout>
       <Content pageTitle="Linktree">
-        <Post>
-          <PostHeader
-            title="Linktree"
-            lead="Everywhere I am on the Internet, in one neatly-organised list!"
-          />
-          <PostBody spacing="lg">
+        <LinktreeHeader />
+        <PageBody>
+          <div className="space-y-12">
             {linktree.map(tree => (
-              <Stack spacing="md" key={tree.category}>
-                <H2>{tree.category}</H2>
-                <LinktreeList>
-                  {tree.items.map(item => (
-                    <LinktreeCard key={item.url} item={item} />
-                  ))}
-                </LinktreeList>
-              </Stack>
+              <LinktreeSection key={tree.category} category={tree.category} items={tree.items} />
             ))}
-          </PostBody>
-        </Post>
+          </div>
+        </PageBody>
       </Content>
     </DefaultLayout>
   );

@@ -1,2 +1,3 @@
-export { default as LinktreeCard } from './LinktreeCard';
-export { default as LinktreeList } from './LinktreeList';
+export * from './linktree-card';
+export * from './linktree-header';
+export * from './linktree-section';
