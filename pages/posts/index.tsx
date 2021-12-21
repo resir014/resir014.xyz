@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
-import { Stack } from '@resir014/chungking-react';
 
 import { Content } from '~/components/layout';
-import { PostBody, PostHeader, PostListItem } from '~/modules/posts';
+import { PostHeader } from '~/modules/posts';
 import siteMetadata from '~/lib/data/site-metadata';
 import { getAllPosts, getFeaturedArticles } from '~/lib/posts';
 import { generateRSS } from '~/lib/rss';
 import { BasePostProps, PostMetadata } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
+import { PageBody } from '~/components/page';
+import { PostList } from '~/modules/posts/post-list';
 
 export const getStaticProps = async () => {
   const featuredPosts: BasePostProps[] = getFeaturedArticles(3);
@@ -33,26 +34,12 @@ const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts
   <DefaultLayout>
     <Content pageTitle="Posts">
       <PostHeader title="Posts" />
-      <PostBody>
-        <Stack mt="md" spacing="xxl">
-          <Stack spacing="lg">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">Featured Posts</h2>
-            <Stack spacing="xl">
-              {featuredPosts.map(post => (
-                <PostListItem key={post.slug} post={post} />
-              ))}
-            </Stack>
-          </Stack>
-          <Stack spacing="lg">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">All Posts</h2>
-            <Stack spacing="xl">
-              {allPosts.map(post => (
-                <PostListItem key={post.slug} post={post} />
-              ))}
-            </Stack>
-          </Stack>
-        </Stack>
-      </PostBody>
+      <PageBody>
+        <div className="space-y-12">
+          <PostList title="Featured posts" posts={featuredPosts} />
+          <PostList title="Other posts" posts={allPosts} />
+        </div>
+      </PageBody>
     </Content>
   </DefaultLayout>
 );

@@ -15,7 +15,7 @@ export const PageBody = React.forwardRef<HTMLDivElement, PageBodyProps>(
       return (
         <section className={clsx('px-4 pt-12 pb-24', className)} ref={ref} {...rest}>
           <Container size={containerSize}>
-            <div className="e-content">
+            <div className="e-content prose lg:prose-lg prose-base prose-invert prose-chungking">
               {convert(htmlContent, {
                 transform: htmrTransform,
               })}

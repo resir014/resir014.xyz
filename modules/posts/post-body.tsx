@@ -54,7 +54,7 @@ export const PostBody: React.FC<PostBodyProps> = ({
         <Container size={containerSize}>
           <div className="space-y-12">
             {renderSyndication()}
-            <div className="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
+            <div className="e-content prose lg:prose-lg prose-base prose-invert prose-chungking">
               {convert(content, {
                 transform: htmrTransform,
               })}
@@ -71,7 +71,7 @@ export const PostBody: React.FC<PostBodyProps> = ({
       <Container size={containerSize}>
         <div className="space-y-12">
           {renderSyndication()}
-          <div className="e-content mx-auto">{children}</div>
+          <div className="e-content">{children}</div>
           {author && <PostHCard author={author} />}
         </div>
       </Container>
