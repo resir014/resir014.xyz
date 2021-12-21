@@ -1,4 +1,5 @@
 export * from './avatar';
+export * from './logo';
 
 export { default as Divider } from './Divider';
 export { default as HeaderDivider } from './HeaderDivider';

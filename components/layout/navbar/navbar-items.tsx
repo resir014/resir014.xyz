@@ -5,15 +5,15 @@ import { useRouter } from 'next/router';
 import clsx from 'clsx';
 import { MenuItem } from '~/lib/data/menu-items';
 
-interface MastheadNavProps {
+export interface NavbarItemsProps {
   items: MenuItem[];
 }
 
-const MastheadNav: React.FC<MastheadNavProps> = ({ items }) => {
+export const NavbarItems: React.FC<NavbarItemsProps> = ({ items }) => {
   const router = useRouter();
 
   return (
-    <ul className="flex items-center justify-around lg:justify-end lg:space-x-6 list-none">
+    <ul className="flex items-center lg:justify-end space-x-6 list-none">
       {items.map(item => {
         const isActive = router.asPath !== '/' && router.asPath.startsWith(item.as ?? item.path);
         return (
@@ -34,5 +34,3 @@ const MastheadNav: React.FC<MastheadNavProps> = ({ items }) => {
     </ul>
   );
 };
-
-export default MastheadNav;
