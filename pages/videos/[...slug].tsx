@@ -21,7 +21,6 @@ type VideoPostPageProps = {
 };
 
 const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
-  const { author } = siteMetadata;
   if (post) {
     const { title, date, youtube_embed_id, category, slug, content } = post;
     return (
@@ -41,7 +40,7 @@ const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
             }}
           />
           <Post>
-            <PostHeader title={title} author={author} category={category} date={date} slug={slug} />
+            <PostHeader title={title} category={category} date={date} slug={slug} />
             <Box pt="lg" px="lg">
               <Container size="lg">
                 <VideoCard embed={<LiteYouTube videoId={youtube_embed_id} />} />
