@@ -11,7 +11,7 @@ export const PostHeaderImage: React.FC<PostHeaderImageProps> = ({ alt, src }) =>
   return (
     <section className="px-6 pt-12">
       <Container>
-        <div className="relative w-full h-[420px] overflow-hidden rounded-md shadow-lg">
+        <div className="relative w-full h-full aspect-video overflow-hidden rounded-md shadow-lg">
           <Image loading="lazy" src={src} alt={alt} layout="fill" objectFit="cover" />
         </div>
       </Container>
