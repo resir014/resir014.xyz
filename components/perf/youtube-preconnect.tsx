@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 
-const YouTubePreconnect: React.FC = () => {
+export function YouTubePreconnect() {
   return (
     <Head>
       {/* The iframe document and most of its subresources come right off youtube.com */}
@@ -15,6 +15,4 @@ const YouTubePreconnect: React.FC = () => {
       <link rel="preconnect" href="https://static.doubleclick.net" />
     </Head>
   );
-};
-
-export default YouTubePreconnect;
+}
