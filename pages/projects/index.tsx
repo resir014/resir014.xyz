@@ -2,7 +2,7 @@ import { InferGetStaticPropsType, NextPage } from 'next';
 import * as React from 'react';
 import { MainContent } from '~/components/layout';
 import { PostHeader } from '~/modules/posts';
-import { FeaturedProjectCard, ProjectItemList } from '~/modules/projects';
+import { FeaturedProjectSection, ProjectSection } from '~/modules/projects';
 import { getAllProjects, getFeaturedProject, filterProjectsByCategory } from '~/lib/projects';
 import { ProjectMetadata } from '~/types/projects';
 import DefaultLayout from '~/layouts/default-layout';
@@ -44,9 +44,9 @@ const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, feat
           <PostHeader title="Projects" />
           <PageBody>
             <div className="space-y-12">
-              <FeaturedProjectCard project={featuredProject} />
+              <FeaturedProjectSection title="Featured project" project={featuredProject} />
               {filteredProjects.map(filteredProject => (
-                <ProjectItemList
+                <ProjectSection
                   key={filteredProject.category}
                   title={filteredProject.title}
                   projects={filteredProject.projects}

@@ -1,30 +1,26 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import ProjectItem from './ProjectItem';
+import { FeaturedProjectCard } from './featured-project-card';
 import { ProjectMetadata } from '~/types/projects';
 
-export interface ProjectItemListProps extends React.ComponentPropsWithoutRef<'section'> {
+export interface FeaturedProjectSectionProps extends React.ComponentPropsWithoutRef<'section'> {
   title?: string;
-  projects: ProjectMetadata[];
+  project?: ProjectMetadata;
 }
 
-export const ProjectItemList: React.FC<ProjectItemListProps> = ({
+export const FeaturedProjectSection: React.FC<FeaturedProjectSectionProps> = ({
   className,
   style,
   title,
-  projects,
+  project,
   ...rest
 }) => {
-  if (projects.length !== 0) {
+  if (project) {
     return (
       <section className={clsx('space-y-9', className)} style={style} {...rest}>
         {title && <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold">{title}</h2>}
-        <div className="space-y-6">
-          {projects.map(project => (
-            <ProjectItem key={project.slug} project={project} />
-          ))}
-        </div>
+        <FeaturedProjectCard key={project.slug} project={project} />
       </section>
     );
   }
