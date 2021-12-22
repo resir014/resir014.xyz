@@ -3,7 +3,7 @@
 /**
  * ES6/TS implementation of the MurmurHash3 pseudorandom number generator (PRNG).
  *
- * @see {@link https://github.com/bryc/code/blob/master/jshash/PRNGs.md#addendum-a-seed-generating-functions}
+ * @see {@link https://github.com/bryc/code/blob/bb4dea11d861d7b10c5cf2e2f920c71c1792fe68/jshash/PRNGs.md#addendum-a-seed-generating-functions}
  */
 export function xmur3a(str: string) {
   for (var k, i = 0, h = 2166136261 >>> 0; i < str.length; i++) {
@@ -27,7 +27,7 @@ export function xmur3a(str: string) {
 /**
  * ES6/TS implementation of the Small Fast Counter (sfc32) pseudorandom number generator (PRNG).
  *
- * @see {@link https://github.com/bryc/code/blob/master/jshash/PRNGs.md#sfc32}
+ * @see {@link https://github.com/bryc/code/blob/bb4dea11d861d7b10c5cf2e2f920c71c1792fe68/jshash/PRNGs.md#sfc32}
  */
 export function sfc32(a: number, b: number, c: number, d: number) {
   return function generate() {
@@ -48,7 +48,7 @@ export function sfc32(a: number, b: number, c: number, d: number) {
 /**
  * ES6/TS implementation of the Mulberry32 pseudorandom number generator (PRNG).
  *
- * @see {@link https://github.com/bryc/code/blob/master/jshash/PRNGs.md#mulberry32}
+ * @see {@link https://github.com/bryc/code/blob/bb4dea11d861d7b10c5cf2e2f920c71c1792fe68/jshash/PRNGs.md#mulberry32}
  */
 export function mulberry32(a: number) {
   return function generate() {
