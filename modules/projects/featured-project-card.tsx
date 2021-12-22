@@ -2,8 +2,8 @@ import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
+import { ProjectBadge } from './project-badge';
 import { ProjectMetadata } from '~/types/projects';
-import { Badge } from '~/components/ui';
 
 export interface FeaturedProjectCardProps extends React.ComponentPropsWithoutRef<'section'> {
   className?: string;
@@ -27,9 +27,7 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
       {tags ? (
         <div className="space-x-4">
           {tags.map(tag => (
-            <Badge key={tag} size="lg" variant="minimal" colorScheme="blue">
-              {tag}
-            </Badge>
+            <ProjectBadge key={tag} seed={`${slug} ${tag}`} tag={tag} />
           ))}
         </div>
       ) : null}
