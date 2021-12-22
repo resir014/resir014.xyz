@@ -9,15 +9,7 @@ import DefaultLayout from '~/layouts/default-layout';
 import { Page, PageBody } from '~/components/page';
 
 export const getStaticProps = async () => {
-  const allProjects: ProjectMetadata[] = getAllProjects([
-    'category',
-    'title',
-    'description',
-    'year',
-    'project_url',
-    'slug',
-  ]);
-  const featuredProject: ProjectMetadata = getFeaturedProject([
+  const projectFields = [
     'category',
     'title',
     'header_image',
@@ -25,7 +17,10 @@ export const getStaticProps = async () => {
     'tags',
     'project_url',
     'slug',
-  ]);
+  ];
+
+  const allProjects: ProjectMetadata[] = getAllProjects(projectFields);
+  const featuredProject: ProjectMetadata = getFeaturedProject(projectFields);
 
   return {
     props: { allProjects, featuredProject },

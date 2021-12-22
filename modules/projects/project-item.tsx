@@ -1,26 +1,28 @@
+/* eslint-disable react/no-danger */
 import * as React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
+import Image from 'next/image';
 import { ProjectBadge } from './project-badge';
 import { ProjectMetadata } from '~/types/projects';
 
-export interface FeaturedProjectCardProps extends React.ComponentPropsWithoutRef<'section'> {
-  className?: string;
-  style?: React.CSSProperties;
+export interface ProjectFieldProps extends React.ComponentPropsWithoutRef<'article'> {
   project: ProjectMetadata;
 }
 
-export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
+export const ProjectItem: React.FC<ProjectFieldProps> = ({
   className,
   style,
   project,
   ...rest
 }) => {
   const { header_image, title, description, tags, slug } = project;
+
+  console.log(project);
+
   return (
-    <section
-      className={clsx('flex flex-col relative space-y-2', className)}
+    <article
+      className={clsx('flex flex-col relative space-y-1', className)}
       style={style}
       {...rest}
     >
@@ -33,7 +35,7 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
       ) : null}
       <div className="space-y-2">
         {header_image && (
-          <div className="relative w-full h-full aspect-video overflow-hidden rounded-md shadow-lg">
+          <div className="relative w-full h-[144px] overflow-hidden rounded-md shadow-lg">
             <Image loading="lazy" src={header_image} alt={title} layout="fill" objectFit="cover" />
           </div>
         )}
@@ -43,9 +45,9 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
               <a className="helper-link-cover hover:underline">{title}</a>
             </Link>
           </h2>
-          <p className="text-base text-chungking-grey-200">{description}</p>
+          <p className="text-base text-chungking-grey-200">{description ?? ''}</p>
         </div>
       </div>
-    </section>
+    </article>
   );
 };

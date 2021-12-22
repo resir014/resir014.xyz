@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import ProjectItem from './ProjectItem';
+import { ProjectItem } from './project-item';
 import { ProjectMetadata } from '~/types/projects';
 
 export interface ProjectSectionProps extends React.ComponentPropsWithoutRef<'section'> {
