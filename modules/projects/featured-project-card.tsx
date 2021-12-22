@@ -2,14 +2,10 @@ import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
-
-import { Box, BoxProps } from '@resir014/chungking-react';
-import { MarkdownParagraph } from '~/modules/markdown';
-
 import { ProjectMetadata } from '~/types/projects';
 import { Badge } from '~/components/ui';
 
-export interface FeaturedProjectCardProps extends BoxProps {
+export interface FeaturedProjectCardProps extends React.ComponentPropsWithoutRef<'section'> {
   className?: string;
   style?: React.CSSProperties;
   project: ProjectMetadata;
@@ -48,9 +44,7 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
             <a className="helper-link-cover hover:underline">{title}</a>
           </Link>
         </h2>
-        <Box flex="1">
-          <MarkdownParagraph m={0}>{description}</MarkdownParagraph>
-        </Box>
+        <p className="text-base">{description}</p>
       </div>
     </section>
   );
