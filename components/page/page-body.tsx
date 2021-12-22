@@ -4,7 +4,7 @@ import convert from 'htmr';
 import { Container, ContainerProps } from '../layout';
 import htmrTransform from '~/lib/htmr-transform';
 
-interface PageBodyProps extends React.ComponentPropsWithoutRef<'div'> {
+export interface PageBodyProps extends React.ComponentPropsWithoutRef<'div'> {
   htmlContent?: string;
   containerSize?: ContainerProps['size'];
 }

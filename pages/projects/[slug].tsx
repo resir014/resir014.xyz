@@ -2,10 +2,10 @@ import * as React from 'react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import CustomErrorPage from '~/pages/_error';
-import { Container, MainContent } from '~/components/layout';
+import { MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { BaseProjectProps } from '~/types/projects';
-import { FeaturedProjectCard, ProjectBody } from '~/modules/projects';
+import { ProjectBody, ProjectHeader } from '~/modules/projects';
 import { getAllProjects, getProjectBySlug } from '~/lib/projects';
 import markdownToHtml from '~/lib/markdown-to-html';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
@@ -38,12 +38,8 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
             }}
           />
           <Page>
-            <header className="px-6 pt-12">
-              <Container>
-                <FeaturedProjectCard project={project} />
-              </Container>
-            </header>
-            <ProjectBody content={content} />
+            <ProjectHeader project={project} />
+            <ProjectBody htmlContent={content} />
           </Page>
         </MainContent>
       </DefaultLayout>
