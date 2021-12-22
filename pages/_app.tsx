@@ -85,7 +85,7 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
         twitter={defaultTwitterCard}
       />
 
-      <ChungkingProvider disableResetCSS>
+      <ChungkingProvider disableResetCSS disableInjection>
         <Global styles={nProgressStyles} />
         <Global styles={prismTheme} />
         {page}

@@ -1,0 +1,7 @@
+[
+  { "name": "/about", "path": "/[slug]", "as": "/about" },
+  { "name": "/contact", "path": "/[slug]", "as": "/contact" },
+  { "name": "/linktree", "path": "/linktree" },
+  { "name": "/uses", "path": "/[slug]", "as": "/uses" },
+  { "name": "/etc", "path": "/[slug]", "as": "/etc" }
+]
