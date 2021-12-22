@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 /**
- * ES6/TS Implementation of the MurmurHash3 seed generator.
+ * ES6/TS implementation of the MurmurHash3 pseudorandom number generator (PRNG).
  *
  * @see {@link https://github.com/bryc/code/blob/master/jshash/PRNGs.md#addendum-a-seed-generating-functions}
  */
@@ -25,7 +25,28 @@ export function xmur3a(str: string) {
 }
 
 /**
- * ES6/TS Implementation of the Mulberry32 pseudorandom number generator (PRNG).
+ * ES6/TS implementation of the Small Fast Counter (sfc32) pseudorandom number generator (PRNG).
+ *
+ * @see {@link https://github.com/bryc/code/blob/master/jshash/PRNGs.md#sfc32}
+ */
+export function sfc32(a: number, b: number, c: number, d: number) {
+  return function generate() {
+    a |= 0;
+    b |= 0;
+    c |= 0;
+    d |= 0;
+    var t = (((a + b) | 0) + d) | 0;
+    d = (d + 1) | 0;
+    a = b ^ (b >>> 9);
+    b = (c + (c << 3)) | 0;
+    c = (c << 21) | (c >>> 11);
+    c = (c + t) | 0;
+    return (t >>> 0) / 4294967296;
+  };
+}
+
+/**
+ * ES6/TS implementation of the Mulberry32 pseudorandom number generator (PRNG).
  *
  * @see {@link https://github.com/bryc/code/blob/master/jshash/PRNGs.md#mulberry32}
  */
