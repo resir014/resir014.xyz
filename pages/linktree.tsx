@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { InferGetStaticPropsType, NextPage } from 'next';
-import { Content } from '~/components/layout';
+import { InferGetStaticPropsType } from 'next';
+import { MainContent } from '~/components/layout';
 import { LinktreeHeader, LinktreeSection } from '~/modules/linktree';
 import DefaultLayout from '~/layouts/default-layout';
 import { PageBody } from '~/components/page';
+import { NextPage } from '~/types/next';
 
 export async function getStaticProps() {
   const data = await import('~/lib/data/linktree');
@@ -18,19 +19,19 @@ type LinktreePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const LinktreePage: NextPage<LinktreePageProps> = ({ linktree }) => {
   return (
-    <DefaultLayout>
-      <Content pageTitle="Linktree">
-        <LinktreeHeader />
-        <PageBody>
-          <div className="space-y-12">
-            {linktree.map(tree => (
-              <LinktreeSection key={tree.category} category={tree.category} items={tree.items} />
-            ))}
-          </div>
-        </PageBody>
-      </Content>
-    </DefaultLayout>
+    <MainContent pageTitle="Linktree">
+      <LinktreeHeader />
+      <PageBody>
+        <div className="space-y-12">
+          {linktree.map(tree => (
+            <LinktreeSection key={tree.category} category={tree.category} items={tree.items} />
+          ))}
+        </div>
+      </PageBody>
+    </MainContent>
   );
 };
+
+LinktreePage.layout = page => <DefaultLayout>{page}</DefaultLayout>;
 
 export default LinktreePage;

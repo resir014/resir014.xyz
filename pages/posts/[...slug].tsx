@@ -5,7 +5,7 @@ import { NextSeo } from 'next-seo';
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
 import markdownToHtml from '~/lib/markdown-to-html';
 
-import { Content } from '~/components/layout';
+import { MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
@@ -26,7 +26,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
     return (
       <DefaultLayout>
         <YouTubePreconnect />
-        <Content pageTitle={title}>
+        <MainContent pageTitle={title}>
           <NextSeo
             openGraph={{
               type: 'article',
@@ -52,7 +52,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
             <PostHeader title={title} lead={lead} category={category} date={date} slug={slug} />
             <PostBody content={content} syndication={syndication} author={author} />
           </Post>
-        </Content>
+        </MainContent>
       </DefaultLayout>
     );
   }

@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { Box } from '@resir014/chungking-react';
 import CustomErrorPage from '~/pages/_error';
-import { Container, Content } from '~/components/layout';
+import { Container, MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { BaseProjectProps } from '~/types/projects';
 import { Post } from '~/modules/posts';
@@ -24,7 +24,7 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
     return (
       <DefaultLayout>
         <YouTubePreconnect />
-        <Content pageTitle={`${title} · Projects`}>
+        <MainContent pageTitle={`${title} · Projects`}>
           <NextSeo
             openGraph={{
               description,
@@ -46,7 +46,7 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
             </Box>
             <ProjectBody content={content} />
           </Post>
-        </Content>
+        </MainContent>
       </DefaultLayout>
     );
   }

@@ -1,7 +1,7 @@
 import { InferGetStaticPropsType, NextPage } from 'next';
 import * as React from 'react';
 import { Stack } from '@resir014/chungking-react';
-import { Content } from '~/components/layout';
+import { MainContent } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import { FeaturedProjectCard, ProjectItemList } from '~/modules/projects';
 import { getAllProjects, getFeaturedProject, filterProjectsByCategory } from '~/lib/projects';
@@ -39,7 +39,7 @@ const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, feat
 
   return (
     <DefaultLayout>
-      <Content pageTitle="Projects">
+      <MainContent pageTitle="Projects">
         <PostHeader title="Projects" />
         <PostBody>
           <Stack spacing="xxl">
@@ -53,7 +53,7 @@ const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, feat
             ))}
           </Stack>
         </PostBody>
-      </Content>
+      </MainContent>
     </DefaultLayout>
   );
 };

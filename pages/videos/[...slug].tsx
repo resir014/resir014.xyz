@@ -6,7 +6,7 @@ import { Box } from '@resir014/chungking-react';
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
 import markdownToHtml from '~/lib/markdown-to-html';
 
-import { Container, Content } from '~/components/layout';
+import { Container, MainContent } from '~/components/layout';
 import { LiteYouTube, VideoCard } from '~/modules/video';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
@@ -26,7 +26,7 @@ const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
     return (
       <DefaultLayout>
         <YouTubePreconnect />
-        <Content pageTitle={title}>
+        <MainContent pageTitle={title}>
           <NextSeo
             openGraph={{
               type: 'article',
@@ -48,7 +48,7 @@ const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
             </Box>
             <PostBody content={content} />
           </Post>
-        </Content>
+        </MainContent>
       </DefaultLayout>
     );
   }

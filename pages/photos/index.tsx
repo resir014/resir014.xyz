@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
 import { Stack } from '@resir014/chungking-react';
 
-import { Content } from '~/components/layout';
+import { MainContent } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import { getAllPosts } from '~/lib/posts';
 import { renderMarkdown } from '~/lib/markdown-to-html';
@@ -27,7 +27,7 @@ type PhotosIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const PhotosIndexPage: NextPage<PhotosIndexPageProps> = ({ allPosts }) => {
   return (
     <DefaultLayout>
-      <Content pageTitle="Photos">
+      <MainContent pageTitle="Photos">
         <PostHeader title="Photos" lead="Sometimes I go outside and take photos with my camera." />
         <PostBody>
           <Stack spacing="64px" mt="lg">
@@ -36,7 +36,7 @@ const PhotosIndexPage: NextPage<PhotosIndexPageProps> = ({ allPosts }) => {
             ))}
           </Stack>
         </PostBody>
-      </Content>
+      </MainContent>
     </DefaultLayout>
   );
 };

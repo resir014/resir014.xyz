@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
 
-import { Content } from '~/components/layout';
+import { MainContent } from '~/components/layout';
 import { FeaturedPostList, PostList, PostHeader } from '~/modules/posts';
 import siteMetadata from '~/lib/data/site-metadata';
 import { getAllPosts, getFeaturedArticles } from '~/lib/posts';
@@ -31,7 +31,7 @@ type PostsIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts }) => (
   <DefaultLayout>
-    <Content pageTitle="Posts">
+    <MainContent pageTitle="Posts">
       <PostHeader title="Posts" />
       <PageBody>
         <div className="space-y-12">
@@ -39,7 +39,7 @@ const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts
           <PostList title="Other posts" posts={allPosts} />
         </div>
       </PageBody>
-    </Content>
+    </MainContent>
   </DefaultLayout>
 );
 

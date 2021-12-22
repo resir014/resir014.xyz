@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
 
 import { Stack } from '@resir014/chungking-react';
-import { Content } from '~/components/layout';
+import { MainContent } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import { renderVideoList } from '~/modules/video';
 import { getAllPosts } from '~/lib/posts';
@@ -27,12 +27,12 @@ type JamIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const JamIndexPage: NextPage<JamIndexPageProps> = ({ allPosts }) => {
   return (
     <DefaultLayout>
-      <Content pageTitle="Jam">
+      <MainContent pageTitle="Jam">
         <PostHeader title="Jam" lead="What is @resir014 listening to right now?" />
         <PostBody>
           <Stack spacing="xxl">{renderVideoList(allPosts, 'jam')}</Stack>
         </PostBody>
-      </Content>
+      </MainContent>
     </DefaultLayout>
   );
 };

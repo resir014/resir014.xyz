@@ -2,4 +2,4 @@ export * from './container';
 export * from './footer';
 export * from './hero-wrapper';
 export * from './layout-root';
-export * from './page';
+export * from './main-content';

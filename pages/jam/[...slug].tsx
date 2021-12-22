@@ -6,7 +6,7 @@ import { Box } from '@resir014/chungking-react';
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
 import markdownToHtml from '~/lib/markdown-to-html';
 
-import { Container, Content } from '~/components/layout';
+import { Container, MainContent } from '~/components/layout';
 import { LiteYouTube, VideoCard } from '~/modules/video';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
@@ -38,7 +38,7 @@ const JamPostPage: NextPage<JamPostPageProps> = ({ post }) => {
           }}
         />
         <YouTubePreconnect />
-        <Content pageTitle={title}>
+        <MainContent pageTitle={title}>
           <Post>
             <PostHeader title={title} category={category} date={date} slug={slug} />
             <Box pt="lg" px="lg">
@@ -48,7 +48,7 @@ const JamPostPage: NextPage<JamPostPageProps> = ({ post }) => {
             </Box>
             <PostBody content={content} />
           </Post>
-        </Content>
+        </MainContent>
       </DefaultLayout>
     );
   }

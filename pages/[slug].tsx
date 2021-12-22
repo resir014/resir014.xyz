@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import * as React from 'react';
 
-import { Content, HeroWrapper } from '~/components/layout';
+import { MainContent, HeroWrapper } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostHeader, PostHeaderImage } from '~/modules/posts';
 import LiveEmbeddablePlayer from '~/modules/live/LiveEmbeddablePlayer';
@@ -48,13 +48,13 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
             <LiveEmbeddablePlayer />
           </HeroWrapper>
         )}
-        <Content pageTitle={title}>
+        <MainContent pageTitle={title}>
           <Post>
             {header_image && <PostHeaderImage src={header_image} alt={title} />}
             <PostHeader title={title} lead={lead} />
             <PageBody htmlContent={content} />
           </Post>
-        </Content>
+        </MainContent>
       </DefaultLayout>
     );
   }

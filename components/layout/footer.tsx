@@ -25,20 +25,25 @@ export function Footer() {
             </div>
           ))}
         </nav>
-        <p className="mt-8 text-center text-base text-chungking-grey-500">
-          <a
-            className="hover:text-chungking-grey-100"
-            rel="license noopener noreferrer"
-            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-            target="_blank"
-          >
-            CC-BY-NC-SA 4.0
-          </a>{' '}
-          &middot;{' '}
-          <a className="hover:text-chungking-grey-100" href="#" onClick={handleOptOut}>
-            Opt out of Google Analytics tracking.
-          </a>
-        </p>
+        <div className="mt-8 text-center text-base text-chungking-grey-500">
+          <div className="-mx-2 -my-1">
+            <p className="inline-block px-2 py-1">
+              <a
+                className="hover:text-chungking-grey-100"
+                rel="license noopener noreferrer"
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                target="_blank"
+              >
+                CC-BY-NC-SA 4.0
+              </a>
+            </p>
+            <p className="inline-block px-2 py-1">
+              <a className="hover:text-chungking-grey-100" href="#" onClick={handleOptOut}>
+                Opt out of Google Analytics tracking.
+              </a>
+            </p>
+          </div>
+        </div>
       </Container>
     </footer>
   );

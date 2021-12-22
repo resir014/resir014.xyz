@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import { Anchor, Paragraph } from '@resir014/chungking-react';
-import { Content } from '~/components/layout';
+import { MainContent } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import DefaultLayout from '~/layouts/default-layout';
 
@@ -21,7 +21,7 @@ const CustomErrorDefaultLayout: React.FC<ErrorProps> = ({ statusCode, title }) =
   return (
     <DefaultLayout>
       <NextSeo title={`${statusCode}: ${errorMessage}`} noindex />
-      <Content>
+      <MainContent>
         <PostHeader title={`${statusCode}.`} />
         <PostBody>
           <Paragraph>
@@ -31,7 +31,7 @@ const CustomErrorDefaultLayout: React.FC<ErrorProps> = ({ statusCode, title }) =
             </Link>
           </Paragraph>
         </PostBody>
-      </Content>
+      </MainContent>
     </DefaultLayout>
   );
 };
