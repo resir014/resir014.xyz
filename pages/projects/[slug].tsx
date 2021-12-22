@@ -1,17 +1,16 @@
 import * as React from 'react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
-import { Box } from '@resir014/chungking-react';
 import CustomErrorPage from '~/pages/_error';
 import { Container, MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { BaseProjectProps } from '~/types/projects';
-import { Post } from '~/modules/posts';
-import { ProjectBody, ProjectCard } from '~/modules/projects';
+import { FeaturedProjectCard, ProjectBody } from '~/modules/projects';
 import { getAllProjects, getProjectBySlug } from '~/lib/projects';
 import markdownToHtml from '~/lib/markdown-to-html';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
 import DefaultLayout from '~/layouts/default-layout';
+import { Page } from '~/components/page';
 
 type BlogPostPageProps = {
   project?: BaseProjectProps;
@@ -38,14 +37,14 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
               ],
             }}
           />
-          <Post>
-            <Box as="header" pt="xxl" px="lg">
-              <Container size="lg">
-                <ProjectCard project={project} />
+          <Page>
+            <header className="px-6 pt-12">
+              <Container>
+                <FeaturedProjectCard project={project} />
               </Container>
-            </Box>
+            </header>
             <ProjectBody content={content} />
-          </Post>
+          </Page>
         </MainContent>
       </DefaultLayout>
     );
