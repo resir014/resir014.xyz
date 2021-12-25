@@ -1,15 +1,8 @@
 import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
-import Link from 'next/link';
 import { NextSeo } from 'next-seo';
-import { Stack, Anchor, Text } from '@resir014/chungking-react';
 
-import {
-  HomepageContent,
-  HomepageHero,
-  HomepageSection,
-  HomepageSectionHeader,
-} from '~/modules/home';
+import { HomepageContent, HomepageHero, HomepageSection } from '~/modules/home';
 import { FeaturedProjectCard } from '~/modules/projects';
 import { FeaturedPostList } from '~/modules/posts';
 
@@ -31,6 +24,7 @@ import {
 import { ProjectMetadata } from '~/types/projects';
 import { BookmarkList } from '~/modules/bookmarks';
 import DefaultLayout from '~/layouts/default-layout';
+import { Divider } from '~/components/ui';
 
 export const getStaticProps = async () => {
   const allPosts: BasePostProps[] = getFeaturedArticles(3);
@@ -61,41 +55,27 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, feat
     <HomepageHero />
     <HomepageContent>
       <div className="space-y-12">
-        <HomepageSection size="md">
-          <Stack spacing="xxl">
-            <HomepageSectionHeader
-              title="Featured articles"
-              description="Writings about web development, technology, and everything in between."
-            />
-            <FeaturedPostList posts={allPosts} />
-            <Text display="block" variant="xl">
-              <Link href="/posts" passHref>
-                <Anchor>View all posts &rarr;</Anchor>
-              </Link>
-            </Text>
-          </Stack>
+        <HomepageSection
+          title="Blog"
+          description="Writings about web development, technology, and everything in between."
+          callToAction={{ text: 'View all posts', href: '/posts' }}
+        >
+          <FeaturedPostList posts={allPosts} />
         </HomepageSection>
-        <HomepageSection size="md">
-          <Stack spacing="xxl">
-            <HomepageSectionHeader title="Reading list" />
-            <BookmarkList bookmarks={featuredBookmarks} />
-            <Text display="block" variant="xl">
-              <Link href="/bookmarks" passHref>
-                <Anchor>View all bookmarks &rarr;</Anchor>
-              </Link>
-            </Text>
-          </Stack>
+        <Divider size="lg" />
+        <HomepageSection
+          title="Reading list"
+          description="What I've been reading."
+          callToAction={{ text: 'View all bookmarks', href: '/bookmarks' }}
+        >
+          <BookmarkList bookmarks={featuredBookmarks} />
         </HomepageSection>
-        <HomepageSection size="md">
-          <Stack spacing="xxl">
-            <HomepageSectionHeader title="Featured project" />
-            <FeaturedProjectCard project={featuredProject} />
-            <Text display="block" variant="xl">
-              <Link href="/projects" passHref>
-                <Anchor>View all projects &rarr;</Anchor>
-              </Link>
-            </Text>
-          </Stack>
+        <Divider size="lg" />
+        <HomepageSection
+          title="Featured project"
+          callToAction={{ text: 'View all projects', href: '/projects' }}
+        >
+          <FeaturedProjectCard project={featuredProject} />
         </HomepageSection>
       </div>
     </HomepageContent>
