@@ -2,7 +2,12 @@ import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
 import { NextSeo } from 'next-seo';
 
-import { HomepageContent, HomepageHero, HomepageSection } from '~/modules/home';
+import {
+  HomepageContent,
+  HomepageHero,
+  HomepageIntroduction,
+  HomepageSection,
+} from '~/modules/home';
 import { FeaturedProjectCard } from '~/modules/projects';
 import { FeaturedPostList } from '~/modules/posts';
 
@@ -55,6 +60,8 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, feat
     <HomepageHero />
     <HomepageContent>
       <div className="space-y-12">
+        <HomepageIntroduction />
+        <Divider size="lg" />
         <HomepageSection
           title="Blog"
           description="Writings about web development, technology, and everything in between."
