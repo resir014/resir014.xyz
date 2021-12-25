@@ -7,6 +7,7 @@ import { getAllProjects, getFeaturedProject, filterProjectsByCategory } from '~/
 import { ProjectMetadata } from '~/types/projects';
 import DefaultLayout from '~/layouts/default-layout';
 import { Page, PageBody } from '~/components/page';
+import { Divider } from '~/components/ui';
 
 export const getStaticProps = async () => {
   const projectFields = [
@@ -40,6 +41,7 @@ const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, feat
           <PageBody>
             <div className="space-y-12">
               <FeaturedProjectSection title="Featured project" project={featuredProject} />
+              <Divider size="lg" />
               {filteredProjects.map(filteredProject => (
                 <ProjectSection
                   key={filteredProject.category}

@@ -9,6 +9,7 @@ import { generateRSS } from '~/lib/rss';
 import { BasePostProps, PostMetadata } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 import { PageBody } from '~/components/page';
+import { Divider } from '~/components/ui';
 
 export const getStaticProps = async () => {
   const featuredPosts: BasePostProps[] = getFeaturedArticles(3);
@@ -36,6 +37,7 @@ const PostsIndexPage: NextPage<PostsIndexPageProps> = ({ featuredPosts, allPosts
       <PageBody>
         <div className="space-y-12">
           <FeaturedPostList title="Featured posts" posts={featuredPosts} />
+          <Divider size="lg" />
           <PostList title="Other posts" posts={allPosts} />
         </div>
       </PageBody>

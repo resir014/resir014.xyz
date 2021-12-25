@@ -37,6 +37,7 @@ module.exports = {
         gray: colors.grey,
       },
       boxShadow: {
+        'hero-inner': `inset 0 0 230px 0 ${colors.black}`,
         'header-inset': `inset 0 -1px ${colors.grey[800]}`,
       },
     },
