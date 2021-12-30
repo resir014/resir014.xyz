@@ -8,19 +8,21 @@ const nextConfig = {
       process.env.NEXT_PUBLIC_HOMEPAGE_SPLASH_TEXT ||
       flavours[Math.floor(Math.random() * flavours.length)],
   },
+
   eslint: {
     ignoreDuringBuilds: true,
   },
+
+  // https://github.com/vercel/next.js/blob/v12.0.7/packages/next/server/config-shared.ts#L127-L172
   experimental: {
-    productionBrowserSourceMaps: true,
+    optimizeCss: true,
+    optimizeImages: true,
+    workerThreads: true,
   },
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    if (!isServer) {
-      config.resolve.fallback.fs = false;
-    }
-    return config;
-  },
+
+  // This config won't be loaded until Netlify supports the `headers` option on `next.config.js`.
+  // For now, when you make changes here, also make the necessary changes on `netlify.toml`.
+  // https://github.com/netlify/netlify-plugin-nextjs/issues/150
   async headers() {
     return [
       {
@@ -55,6 +57,10 @@ const nextConfig = {
       },
     ];
   },
+
+  // https://github.com/vercel/next.js/blob/v12.0.7/packages/next/server/config-shared.ts#L111
+  productionBrowserSourceMaps: true,
+
   async redirects() {
     // https://twitter.com/LiamHammett/status/1260984553570570240
     return [
@@ -74,6 +80,14 @@ const nextConfig = {
         permanent: false,
       },
     ];
+  },
+
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on `fs` module
+    if (!isServer) {
+      config.resolve.fallback.fs = false;
+    }
+    return config;
   },
 };
 
