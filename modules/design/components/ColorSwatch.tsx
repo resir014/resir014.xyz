@@ -67,7 +67,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText }) => 
   }
 
   return (
-    <Root type="button" onClick={copyToClipboard(color)}>
+    <Root className="not-prose" type="button" onClick={copyToClipboard(color)}>
       <Inner color={color} darkText={darkText}>
         {copySuccess ?? title ?? color}
       </Inner>

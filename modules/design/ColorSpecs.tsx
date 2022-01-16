@@ -1,16 +1,15 @@
 import * as React from 'react';
 import { theme } from '@resir014/chungking-react';
-import { H2, H3 } from '../markdown';
 import ColorSwatch from './components/ColorSwatch';
 
 const ColorSpecs: React.FC = () => {
   return (
-    <>
-      <H2>Colors</H2>
-      <H3>Neutrals</H3>
+    <div className="prose lg:prose-lg prose-base prose-invert prose-chungking">
+      <h2>Colors</h2>
+      <h3>Neutrals</h3>
       <ColorSwatch color={theme.colors.black} />
       <ColorSwatch color={theme.colors.white} darkText />
-      <H3>Grey</H3>
+      <h3>Grey</h3>
       <ColorSwatch color={theme.colors.grey[50]} darkText />
       <ColorSwatch color={theme.colors.grey[100]} darkText />
       <ColorSwatch color={theme.colors.grey[200]} darkText />
@@ -21,7 +20,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.grey[700]} />
       <ColorSwatch color={theme.colors.grey[800]} />
       <ColorSwatch color={theme.colors.grey[800]} />
-      <H3>Red</H3>
+      <h3>Red</h3>
       <ColorSwatch color={theme.colors.red[50]} darkText />
       <ColorSwatch color={theme.colors.red[100]} darkText />
       <ColorSwatch color={theme.colors.red[200]} darkText />
@@ -32,7 +31,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.red[700]} />
       <ColorSwatch color={theme.colors.red[800]} />
       <ColorSwatch color={theme.colors.red[900]} />
-      <H3>Orange</H3>
+      <h3>Orange</h3>
       <ColorSwatch color={theme.colors.orange[50]} darkText />
       <ColorSwatch color={theme.colors.orange[100]} darkText />
       <ColorSwatch color={theme.colors.orange[200]} darkText />
@@ -43,7 +42,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.orange[700]} />
       <ColorSwatch color={theme.colors.orange[800]} />
       <ColorSwatch color={theme.colors.orange[900]} />
-      <H3>Green</H3>
+      <h3>Green</h3>
       <ColorSwatch color={theme.colors.green[50]} darkText />
       <ColorSwatch color={theme.colors.green[100]} darkText />
       <ColorSwatch color={theme.colors.green[200]} darkText />
@@ -54,7 +53,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.green[700]} />
       <ColorSwatch color={theme.colors.green[800]} />
       <ColorSwatch color={theme.colors.green[900]} />
-      <H3>Turquoise</H3>
+      <h3>Turquoise</h3>
       <ColorSwatch color={theme.colors.turquoise[50]} darkText />
       <ColorSwatch color={theme.colors.turquoise[100]} darkText />
       <ColorSwatch color={theme.colors.turquoise[200]} darkText />
@@ -65,7 +64,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.turquoise[700]} />
       <ColorSwatch color={theme.colors.turquoise[800]} />
       <ColorSwatch color={theme.colors.turquoise[900]} />
-      <H3>Blue</H3>
+      <h3>Blue</h3>
       <ColorSwatch color={theme.colors.blue[50]} darkText />
       <ColorSwatch color={theme.colors.blue[100]} darkText />
       <ColorSwatch color={theme.colors.blue[200]} darkText />
@@ -76,7 +75,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.blue[700]} />
       <ColorSwatch color={theme.colors.blue[800]} />
       <ColorSwatch color={theme.colors.blue[900]} />
-      <H3>Ultramarine</H3>
+      <h3>Ultramarine</h3>
       <ColorSwatch color={theme.colors.ultramarine[50]} darkText />
       <ColorSwatch color={theme.colors.ultramarine[100]} darkText />
       <ColorSwatch color={theme.colors.ultramarine[200]} darkText />
@@ -87,7 +86,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.ultramarine[700]} />
       <ColorSwatch color={theme.colors.ultramarine[800]} />
       <ColorSwatch color={theme.colors.ultramarine[900]} />
-      <H3>Purple</H3>
+      <h3>Purple</h3>
       <ColorSwatch color={theme.colors.purple[50]} darkText />
       <ColorSwatch color={theme.colors.purple[100]} darkText />
       <ColorSwatch color={theme.colors.purple[200]} darkText />
@@ -98,7 +97,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.purple[700]} />
       <ColorSwatch color={theme.colors.purple[800]} />
       <ColorSwatch color={theme.colors.purple[900]} />
-      <H3>Magenta</H3>
+      <h3>Magenta</h3>
       <ColorSwatch color={theme.colors.magenta[50]} darkText />
       <ColorSwatch color={theme.colors.magenta[100]} darkText />
       <ColorSwatch color={theme.colors.magenta[200]} darkText />
@@ -109,7 +108,7 @@ const ColorSpecs: React.FC = () => {
       <ColorSwatch color={theme.colors.magenta[700]} />
       <ColorSwatch color={theme.colors.magenta[800]} />
       <ColorSwatch color={theme.colors.magenta[900]} />
-    </>
+    </div>
   );
 };
 

@@ -1,30 +1,17 @@
-import { css } from '@emotion/react';
 import * as React from 'react';
-import { Stack, StackProps } from '@resir014/chungking-react';
-import BookmarkListItem from './BookmarkListItem';
+import { BookmarkListItem } from './BookmarkListItem';
 import { BaseBookmarkProps } from '~/types/posts';
 
-interface BookmarkListProps extends StackProps {
+export interface BookmarkListProps extends React.ComponentPropsWithoutRef<'ul'> {
   bookmarks: BaseBookmarkProps[];
 }
 
-const BookmarkList: React.FC<BookmarkListProps> = ({ bookmarks, ...rest }) => {
+export const BookmarkList: React.FC<BookmarkListProps> = ({ bookmarks, ...rest }) => {
   return (
-    <Stack
-      as="ul"
-      spacing="md"
-      p={0}
-      m={0}
-      css={css`
-        list-style-type: none;
-      `}
-      {...rest}
-    >
+    <ul className="space-y-4" {...rest}>
       {bookmarks.map(bookmark => (
         <BookmarkListItem key={bookmark.slug} bookmark={bookmark} />
       ))}
-    </Stack>
+    </ul>
   );
 };
-
-export default BookmarkList;
