@@ -2,12 +2,10 @@ import * as React from 'react';
 import { NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
-import { CacheProvider, Global } from '@emotion/react';
+import { CacheProvider } from '@emotion/react';
 import nProgress from 'nprogress';
 
 import { ChungkingProvider, theme } from '@resir014/chungking-react';
-import nProgressStyles from '~/styles/nProgressStyles';
-import prismTheme from '~/styles/prismTheme';
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo';
 import { event, pageview } from '~/lib/ga';
 import emotionCache from '~/lib/emotion-cache';
@@ -17,6 +15,8 @@ import { NextAppProps } from '~/types/next';
 import '~/fonts/jetbrains-mono.css';
 import 'typeface-inter';
 import '~/styles/global.css';
+import '~/styles/nprogress.css';
+import '~/styles/prism-theme.css';
 
 const progress = nProgress.configure({ showSpinner: false });
 
@@ -86,8 +86,6 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
       />
 
       <ChungkingProvider disableResetCSS disableInjection>
-        <Global styles={nProgressStyles} />
-        <Global styles={prismTheme} />
         {page}
       </ChungkingProvider>
     </CacheProvider>

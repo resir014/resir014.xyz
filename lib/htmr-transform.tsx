@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { HtmrOptions } from 'htmr/src/types';
 import clsx from 'clsx';
 
-import { BoxProps } from '@resir014/chungking-react';
 import { MessageBox } from '~/components/ui/message-box';
 
 const htmrTransform: HtmrOptions['transform'] = {
@@ -33,9 +32,7 @@ const htmrTransform: HtmrOptions['transform'] = {
       {...rest}
     />
   ),
-  div: (
-    node: Partial<React.ReactHTMLElement<HTMLDivElement>['props']> & Pick<BoxProps, 'mt' | 'mb'>
-  ) => {
+  div: (node: React.ComponentPropsWithoutRef<'div'>) => {
     const { className: cn, children, ...rest } = node;
 
     if (cn?.includes('message')) {
