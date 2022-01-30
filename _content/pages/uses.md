@@ -59,4 +59,4 @@ lead: 'Tools of the trade.'
 - **Power Supply:** Seasonic Focus Plus Gold FX-550 550W
 - **CPU Cooler:** Cooler Master HYPER 212 LED Turbo
 - **Case:** Phanteks Eclipse P400S Tempered Glass, Black
-- **OS:** Windows 10 Pro 64-bit
+- **OS:** Windows 11 Pro 64-bit
