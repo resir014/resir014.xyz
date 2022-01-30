@@ -18,8 +18,6 @@ export const ProjectItem: React.FC<ProjectFieldProps> = ({
 }) => {
   const { header_image, title, description, tags, slug } = project;
 
-  console.log(project);
-
   return (
     <article
       className={clsx('flex flex-col relative space-y-1', className)}
