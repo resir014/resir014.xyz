@@ -3,8 +3,12 @@ import useSWR from 'swr';
 import { CurrentlyPlayingResponse } from './types';
 import fetch from '~/lib/fetch';
 
-export function useCurrentlyPlaying() {
-  const { data, error } = useSWR<CurrentlyPlayingResponse>('/api/spotify/currently-playing', fetch);
+export function useCurrentlyPlaying({ refreshInterval = 10000 } = {}) {
+  const { data, error } = useSWR<CurrentlyPlayingResponse>(
+    '/api/spotify/currently-playing',
+    fetch,
+    { refreshInterval }
+  );
 
   return {
     data,
