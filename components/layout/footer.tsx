@@ -13,7 +13,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="px-6 pt-8 pb-12">
+    <footer className="px-4 lg:px-6 pt-8 pb-12">
       <Container className="space-y-4 pt-8 border-t border-t-chungking-grey-800">
         <SpotifyCurrentlyPlaying />
         <div className="space-y-2">

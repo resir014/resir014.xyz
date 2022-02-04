@@ -13,7 +13,7 @@ export interface PostHeaderProps {
 
 export const PostHeader: React.FC<PostHeaderProps> = ({ title, lead, date, category, slug }) => {
   return (
-    <header className="px-6 pt-12">
+    <header className="px-4 lg:px-6 pt-12">
       <Container className="space-y-8">
         <div className="space-y-4">
           {date && category && <PostMeta date={date} category={category} slug={slug} />}

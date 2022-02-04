@@ -14,7 +14,7 @@ export const ProjectHeader = React.forwardRef<HTMLDivElement, ProjectHeaderProps
     const { header_image, title, description, tags, project_url } = project;
 
     return (
-      <header ref={ref} className={clsx('px-6 pt-12', className)} style={style} {...rest}>
+      <header ref={ref} className={clsx('px-4 lg:px-6 pt-12', className)} style={style} {...rest}>
         <Container className="space-y-12">
           {header_image && (
             <div className="relative w-full h-full aspect-video overflow-hidden rounded-md shadow-lg">
