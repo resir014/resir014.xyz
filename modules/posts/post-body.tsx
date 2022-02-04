@@ -50,7 +50,7 @@ export const PostBody: React.FC<PostBodyProps> = ({
 
   if (content) {
     return (
-      <section className="px-6 pt-12 pb-24">
+      <section className="px-4 lg:px-6 pt-12 pb-24">
         <Container size={containerSize}>
           <div className="space-y-12">
             {renderSyndication()}
@@ -67,7 +67,7 @@ export const PostBody: React.FC<PostBodyProps> = ({
   }
 
   return (
-    <section className="px-6 pt-12 pb-24">
+    <section className="px-4 lg:px-6 pt-12 pb-24">
       <Container size={containerSize}>
         <div className="space-y-12">
           {renderSyndication()}

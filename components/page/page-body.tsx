@@ -13,7 +13,7 @@ export const PageBody = React.forwardRef<HTMLDivElement, PageBodyProps>(
   ({ containerSize = 'md', children, className, htmlContent, ...rest }, ref) => {
     if (htmlContent) {
       return (
-        <section className={clsx('px-4 pt-12 pb-24', className)} ref={ref} {...rest}>
+        <section className={clsx('px-4 lg:px-6 pt-12 pb-24', className)} ref={ref} {...rest}>
           <Container size={containerSize}>
             <div className="e-content prose lg:prose-lg prose-base prose-invert prose-chungking">
               {convert(htmlContent, {
@@ -26,7 +26,7 @@ export const PageBody = React.forwardRef<HTMLDivElement, PageBodyProps>(
     }
 
     return (
-      <section className={clsx('px-4 pt-12 pb-24', className)} ref={ref} {...rest}>
+      <section className={clsx('px-4 lg:px-6 pt-12 pb-24', className)} ref={ref} {...rest}>
         <Container size={containerSize}>
           <div className="e-content">{children}</div>
         </Container>

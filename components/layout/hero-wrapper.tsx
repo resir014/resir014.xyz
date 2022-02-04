@@ -8,7 +8,7 @@ export interface HeroWrapperProps {
 
 export const HeroWrapper: React.FC<HeroWrapperProps> = ({ children, className }) => {
   return (
-    <div className={clsx('relative px-6 pt-12', className)}>
+    <div className={clsx('relative px-4 lg:px-6 pt-12', className)}>
       <Container>{children}</Container>
     </div>
   );

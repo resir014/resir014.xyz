@@ -14,7 +14,9 @@ export interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ className, title, items }) => {
   return (
-    <header className={clsx('px-6 bg-chungking-grey-900 shadow-header-inset z-50', className)}>
+    <header
+      className={clsx('px-4 lg:px-6 bg-chungking-grey-900 shadow-header-inset z-50', className)}
+    >
       <div className="flex flex-col items-center lg:flex-row-reverse lg:justify-between w-full lg:max-w-4xl xl:max-w-6xl mx-auto">
         <div className="flex items-center relative space-x-4">
           <h1 className="pt-[8px] pb-[6px] lg:pt-[16px] lg:pb-[14px] ">

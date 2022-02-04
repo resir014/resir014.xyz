@@ -10,7 +10,12 @@ export interface HomepageContentProps extends React.ComponentPropsWithoutRef<'ma
 export const HomepageContent = React.forwardRef<HTMLDivElement, HomepageContentProps>(
   ({ children, className, style, ...rest }, ref) => {
     return (
-      <main ref={ref} className={clsx('pt-12 px-6 pb-24', className)} style={style} {...rest}>
+      <main
+        ref={ref}
+        className={clsx('px-4 lg:px-6 pt-12 pb-24', className)}
+        style={style}
+        {...rest}
+      >
         {children}
       </main>
     );
