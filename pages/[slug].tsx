@@ -1,10 +1,9 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import * as React from 'react';
 
-import { MainContent, HeroWrapper } from '~/components/layout';
+import { MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostHeader, PostHeaderImage } from '~/modules/posts';
-import LiveEmbeddablePlayer from '~/modules/live/LiveEmbeddablePlayer';
 import CustomErrorPage from '~/pages/_error';
 import { getAllPages, getPageBySlug } from '~/lib/pages';
 import siteMetadata from '~/lib/data/site-metadata';
@@ -39,15 +38,10 @@ type MarkdownPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
   if (page) {
-    const { layout, title, lead, header_image, content } = page;
+    const { title, lead, header_image, content } = page;
     return (
       <DefaultLayout>
         <YouTubePreconnect />
-        {layout === 'live' && (
-          <HeroWrapper>
-            <LiveEmbeddablePlayer />
-          </HeroWrapper>
-        )}
         <MainContent pageTitle={title}>
           <Post>
             {header_image && <PostHeaderImage src={header_image} alt={title} />}
