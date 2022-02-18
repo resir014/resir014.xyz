@@ -4,7 +4,6 @@ layout: project
 title: 'Kawal COVID-19'
 description: 'Information resource regarding the recent outbreak of the coronavirus COVID-19 in Indonesia.'
 year: 2020
-featured: true
 header_image: /assets/projects/portfolio/kawalcovid19.id/kawalcovid19-preview.png
 project_url: 'https://kawalcovid19.id/'
 tags:
