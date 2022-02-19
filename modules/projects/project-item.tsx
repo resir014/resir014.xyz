@@ -20,7 +20,7 @@ export const ProjectItem: React.FC<ProjectFieldProps> = ({
 
   return (
     <article
-      className={clsx('flex flex-col relative space-y-1', className)}
+      className={clsx('flex flex-col relative space-y-2', className)}
       style={style}
       {...rest}
     >
