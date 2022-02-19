@@ -30,6 +30,7 @@ import { ProjectMetadata } from '~/types/projects';
 import { BookmarkList } from '~/modules/bookmarks';
 import DefaultLayout from '~/layouts/default-layout';
 import { Divider } from '~/components/ui';
+import { Container } from '~/components/layout';
 
 export const getStaticProps = async () => {
   const allPosts: BasePostProps[] = getFeaturedArticles(3);
@@ -59,32 +60,34 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, feat
     <NextSeo title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }} />
     <HomepageHero />
     <HomepageContent>
-      <div className="space-y-12">
-        <HomepageIntroduction />
-        <Divider size="lg" />
-        <HomepageSection
-          title="Blog"
-          description="Writings about web development, technology, and everything in between."
-          callToAction={{ text: 'View all posts', href: '/posts' }}
-        >
-          <FeaturedPostList posts={allPosts} />
-        </HomepageSection>
-        <Divider size="lg" />
-        <HomepageSection
-          title="Reading list"
-          description="What I've been reading."
-          callToAction={{ text: 'View all bookmarks', href: '/bookmarks' }}
-        >
-          <BookmarkList bookmarks={featuredBookmarks} />
-        </HomepageSection>
-        <Divider size="lg" />
-        <HomepageSection
-          title="Featured project"
-          callToAction={{ text: 'View all projects', href: '/projects' }}
-        >
-          <FeaturedProjectCard project={featuredProject} />
-        </HomepageSection>
-      </div>
+      <Container size="md">
+        <div className="space-y-12">
+          <HomepageIntroduction />
+          <Divider size="lg" />
+          <HomepageSection
+            title="Blog"
+            description="Writings about web development, technology, and everything in between."
+            callToAction={{ text: 'View all posts', href: '/posts' }}
+          >
+            <FeaturedPostList posts={allPosts} />
+          </HomepageSection>
+          <Divider size="lg" />
+          <HomepageSection
+            title="Reading list"
+            description="What I've been reading."
+            callToAction={{ text: 'View all bookmarks', href: '/bookmarks' }}
+          >
+            <BookmarkList bookmarks={featuredBookmarks} />
+          </HomepageSection>
+          <Divider size="lg" />
+          <HomepageSection
+            title="Featured project"
+            callToAction={{ text: 'View all projects', href: '/projects' }}
+          >
+            <FeaturedProjectCard project={featuredProject} />
+          </HomepageSection>
+        </div>
+      </Container>
     </HomepageContent>
   </DefaultLayout>
 );
