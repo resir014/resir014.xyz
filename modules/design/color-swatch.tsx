@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { theme } from '@resir014/chungking-react';
+import { colors, shadows } from '@resir014/chungking-core';
 import { toClipboard } from 'copee';
 
-interface ColorSwatchProps {
+export interface ColorSwatchProps {
   color: string;
   title?: string;
   darkText?: boolean;
@@ -19,14 +19,14 @@ const Root = styled('button')`
   border: none;
   border-radius: 5px;
   background: none;
-  background-color: ${theme.colors.grey[800]};
+  background-color: ${colors.grey[800]};
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: ${theme.shadows.single};
+  box-shadow: ${shadows.single};
 
   &:hover,
   &:focus {
-    box-shadow: ${theme.shadows.double};
+    box-shadow: ${shadows.double};
   }
 
   &:focus {
@@ -44,7 +44,7 @@ const Inner = styled('div')<ColorSwatchProps>`
   justify-content: center;
   height: 76px;
   width: 76px;
-  color: ${props => (props.darkText ? theme.colors.black : theme.colors.white)};
+  color: ${props => (props.darkText ? colors.black : colors.white)};
   font-size: 12px;
   background: ${props => props.color};
   border: 1px solid transparent;
@@ -52,7 +52,7 @@ const Inner = styled('div')<ColorSwatchProps>`
   transition: all 0.3s ease;
 `;
 
-const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText }) => {
+export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText }) => {
   const [copySuccess, setCopySuccess] = React.useState<string | undefined>(undefined);
 
   function copyToClipboard(str: string) {
@@ -74,5 +74,3 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText }) => 
     </Root>
   );
 };
-
-export default ColorSwatch;
