@@ -1,1 +1,1 @@
-export { default as ColorSpecs } from './ColorSpecs';
+export * from './color-specs';
