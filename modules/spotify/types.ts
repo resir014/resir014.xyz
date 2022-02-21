@@ -46,7 +46,7 @@ export interface SpotifyTrack {
   href: string;
   id: string;
   is_local: boolean;
-  name: 'Midsummer Night';
+  name: string;
   popularity: 40;
   preview_url: string;
   track_number: 2;
@@ -68,11 +68,23 @@ export interface SpotifyCurrentlyPlaying {
   is_playing: boolean;
 }
 
-export interface CurrentlyPlayingResponse {
+export interface SpotifyTopTracks {
+  items: SpotifyTrack[];
+}
+
+export interface TrackResponseItem {
   album: string;
   albumImageUrl: string;
   artist: string;
   songUrl: string;
   title: string;
+  id: string;
+}
+
+export interface TopTracksResponse {
+  tracks: TrackResponseItem[];
+}
+
+export interface CurrentlyPlayingResponse extends TrackResponseItem {
   isPlaying: boolean;
 }

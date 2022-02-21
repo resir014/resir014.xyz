@@ -1,6 +1,6 @@
 import qs from 'query-string';
 import fetch from './fetch';
-import { SpotifyCurrentlyPlaying } from '~/modules/spotify/types';
+import { SpotifyCurrentlyPlaying, SpotifyTopTracks } from '~/modules/spotify/types';
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -14,6 +14,8 @@ const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 interface GetAccessTokenResponse {
   access_token: string;
 }
+
+export type TopTracksRange = 'short_term' | 'medium_term' | 'long_term';
 
 async function getAccessToken() {
   try {
@@ -47,12 +49,20 @@ export async function getNowPlaying() {
   return response;
 }
 
-export async function getTopTracks() {
+export async function getTopTracks(range: TopTracksRange = 'short_term') {
   const { access_token } = await getAccessToken();
+  const url = qs.stringifyUrl({
+    url: TOP_TRACKS_ENDPOINT,
+    query: {
+      time_range: range,
+    },
+  });
 
-  return fetch(TOP_TRACKS_ENDPOINT, {
+  const response: SpotifyTopTracks = await fetch(url, {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   });
+
+  return response;
 }
