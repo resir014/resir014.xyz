@@ -24,7 +24,10 @@ export const SpotifyDashboard: React.FC<SpotifyDashboardProps> = ({ ...rest }) =
   return (
     <DashboardSection title="Music" {...rest}>
       <SpotifyCurrentlyPlaying />
-      <div>{renderTracks()}</div>
+      <div className="space-y-4">
+        <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold">Top tracks</h3>
+        <div>{renderTracks()}</div>
+      </div>
     </DashboardSection>
   );
 };
