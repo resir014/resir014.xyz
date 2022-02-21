@@ -18,7 +18,7 @@ export const SpotifyTopTrackItem: React.FC<SpotifyTopTrackItemProps> = ({
 
       return (
         <>
-          <img className="w-12 h-12" src={albumImageUrl} alt={`${title} - ${artist}`} />
+          <img className="w-12 h-12 rounded-sm" src={albumImageUrl} alt={`${title} - ${artist}`} />
           <div className="flex-1 min-w-0">
             <p className="flex items-center flex-1 min-w-0">
               <a
