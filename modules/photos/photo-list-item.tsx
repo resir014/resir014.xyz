@@ -3,15 +3,20 @@ import Link from 'next/link';
 import * as React from 'react';
 import convert from 'htmr';
 import { PostMeta } from '../posts';
-import PhotoWrapper from './PhotoWrapper';
+import { PhotoWrapper } from './photo-wrapper';
 import { BasePhotoProps } from '~/types/posts';
 import htmrTransform from '~/lib/htmr-transform';
 
-interface PhotoListItemProps extends React.ComponentPropsWithoutRef<'article'> {
+export interface PhotoListItemProps extends React.ComponentPropsWithoutRef<'article'> {
   photo: BasePhotoProps;
 }
 
-const PhotoListItem: React.FC<PhotoListItemProps> = ({ photo, className, style, ...rest }) => {
+export const PhotoListItem: React.FC<PhotoListItemProps> = ({
+  photo,
+  className,
+  style,
+  ...rest
+}) => {
   const { date, category, header_image, content, slug } = photo;
 
   return (
@@ -34,5 +39,3 @@ const PhotoListItem: React.FC<PhotoListItemProps> = ({ photo, className, style, 
     </article>
   );
 };
-
-export default PhotoListItem;

@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-interface PhotoWrapperProps extends React.ComponentPropsWithoutRef<'figure'> {
+export interface PhotoWrapperProps extends React.ComponentPropsWithoutRef<'figure'> {
   image: string;
   alt?: string;
 }
 
-const PhotoWrapper: React.FC<PhotoWrapperProps> = ({ className, image, alt, ...rest }) => {
+export const PhotoWrapper: React.FC<PhotoWrapperProps> = ({ className, image, alt, ...rest }) => {
   return (
     <figure className={clsx('lg:-mx-12', className)} {...rest}>
       <img
@@ -18,5 +18,3 @@ const PhotoWrapper: React.FC<PhotoWrapperProps> = ({ className, image, alt, ...r
     </figure>
   );
 };
-
-export default PhotoWrapper;

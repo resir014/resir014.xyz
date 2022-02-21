@@ -1,17 +1,16 @@
 import * as React from 'react';
 import convert from 'htmr';
-
-import PhotoWrapper from './PhotoWrapper';
+import { PhotoWrapper } from './photo-wrapper';
 import htmrTransform from '~/lib/htmr-transform';
 import { Container, ContainerSizes } from '~/components/layout';
 
-interface PhotoPostBodyProps {
+export interface PhotoPostBodyProps {
   content?: string;
   image?: string;
   containerSize?: ContainerSizes;
 }
 
-const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({
+export const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({
   content,
   containerSize = 'md',
   image,
@@ -38,5 +37,3 @@ const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({
     </section>
   );
 };
-
-export default PhotoPostBody;
