@@ -25,7 +25,6 @@
     "@emotion/react": "^11.7.0",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
-    "@resir014/chungking-react": "^0.3.2-canary.6",
     "@resir014/tailwind-preset-chungking": "^0.1.4-canary.5",
     "@tailwindcss/typography": "^0.5.0",
     "clsx": "^1.1.1",
