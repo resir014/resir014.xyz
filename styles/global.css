@@ -4,7 +4,7 @@
 
 @layer base {
   a:focus {
-    @apply outline-none ring-[3px] ring-chungking-green-600;
+    @apply outline-none ring-[3px] ring-chungking-green-500 ring-opacity-60;
   }
 }
 

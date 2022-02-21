@@ -138,11 +138,13 @@ export const FeaturedPostListItem: React.FC<FeaturedPostListItemProps> = ({
           {title && <h3 className="text-lg lg:text-xl font-semibold leading-tight">{title}</h3>}
           {lead && <p className="text-sm lg:text-base text-chungking-grey-200">{lead}</p>}
         </div>
-        <Link href="/posts/[...slug]" as={`/posts/${slug}`}>
-          <a className="helper-link-cover group">
-            <span className="group-hover:underline">Read more</span> &rarr;
-          </a>
-        </Link>
+        <div>
+          <Link href="/posts/[...slug]" as={`/posts/${slug}`}>
+            <a className="helper-link-cover group">
+              <span className="group-hover:underline">Read more</span> &rarr;
+            </a>
+          </Link>
+        </div>
       </div>
     </article>
   );
