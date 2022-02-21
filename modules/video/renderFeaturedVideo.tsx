@@ -2,8 +2,8 @@ import convert from 'htmr';
 import Link from 'next/link';
 import * as React from 'react';
 import { PostMeta } from '../posts';
-import LiteYouTube from './LiteYouTube';
-import VideoCard from './VideoCard';
+import { LiteYouTube } from './lite-youtube';
+import { VideoCard } from './video-card';
 import { BaseJamProps, BaseVideoProps } from '~/types/posts';
 import htmrTransform from '~/lib/htmr-transform';
 

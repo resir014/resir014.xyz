@@ -1,2 +1,2 @@
-export * from './BookmarkList';
-export * from './BookmarkListItem';
+export * from './bookmark-list';
+export * from './bookmark-list-item';

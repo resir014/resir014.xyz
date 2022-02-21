@@ -4,8 +4,8 @@ import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import { CacheProvider } from '@emotion/react';
 import nProgress from 'nprogress';
+import { colors } from '@resir014/chungking-core';
 
-import { ChungkingProvider, theme } from '@resir014/chungking-react';
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo';
 import { event, pageview } from '~/lib/ga';
 import emotionCache from '~/lib/emotion-cache';
@@ -17,6 +17,7 @@ import 'typeface-inter';
 import '~/styles/global.css';
 import '~/styles/nprogress.css';
 import '~/styles/prism-theme.css';
+import '~/styles/lite-youtube.css';
 
 const progress = nProgress.configure({ showSpinner: false });
 
@@ -67,8 +68,8 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="msapplication-TileColor" content={theme.colors.blue[500]} />
-        <meta name="theme-color" content={theme.colors.blue[500]} />
+        <meta name="msapplication-TileColor" content={colors.blue[500]} />
+        <meta name="theme-color" content={colors.blue[500]} />
         <meta
           name="google-site-verification"
           content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
@@ -85,9 +86,7 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
         twitter={defaultTwitterCard}
       />
 
-      <ChungkingProvider disableResetCSS disableInjection>
-        {page}
-      </ChungkingProvider>
+      {page}
     </CacheProvider>
   );
 }

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  a:focus {
+    @apply outline-none ring-[3px] ring-chungking-green-500;
+  }
+}
+
 @layer utilities {
   .helper-link-cover::after {
     content: ' ';

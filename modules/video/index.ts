@@ -1,4 +1,4 @@
-export { default as LiteYouTube } from './LiteYouTube';
+export * from './lite-youtube';
 export { default as renderFeaturedVideo } from './renderFeaturedVideo';
 export { default as renderVideoList } from './renderVideoList';
-export { default as VideoCard } from './VideoCard';
+export * from './video-card';
