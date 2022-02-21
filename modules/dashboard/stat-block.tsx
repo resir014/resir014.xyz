@@ -52,7 +52,7 @@ export const StatBlock = React.forwardRef<HTMLDivElement, StatBlockProps>(
       <div
         ref={ref}
         className={clsx(
-          'p-4 space-y-2 relative border border-chungking-grey-700 rounded-lg',
+          'p-4 space-y-2 relative border border-chungking-grey-700 rounded-lg select-none',
           className
         )}
         style={style}
