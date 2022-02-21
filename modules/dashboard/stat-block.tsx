@@ -52,13 +52,15 @@ export const StatBlock = React.forwardRef<HTMLDivElement, StatBlockProps>(
       <div
         ref={ref}
         className={clsx(
-          'p-4 space-y-2 relative border border-chungking-grey-700 rounded-lg select-none',
+          'p-4 space-y-2 relative border border-chungking-grey-700 rounded-lg',
           className
         )}
         style={style}
         {...rest}
       >
-        <div className="flex items-center space-x-2 text-chungking-grey-200">{renderTitle()}</div>
+        <div className="flex items-center space-x-2 text-chungking-grey-200 select-none">
+          {renderTitle()}
+        </div>
         <div className="flex items-center">{renderCount()}</div>
       </div>
     );
