@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
-import { Stack } from '@resir014/chungking-react';
 
 import { MainContent } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
@@ -30,11 +29,11 @@ const PhotosIndexPage: NextPage<PhotosIndexPageProps> = ({ allPosts }) => {
       <MainContent pageTitle="Photos">
         <PostHeader title="Photos" lead="Sometimes I go outside and take photos with my camera." />
         <PostBody>
-          <Stack spacing="64px" mt="lg">
+          <div className="space-y-[64px] mt-6">
             {allPosts.map(photo => (
               <PhotoListItem key={photo.slug} photo={photo} />
             ))}
-          </Stack>
+          </div>
         </PostBody>
       </MainContent>
     </DefaultLayout>

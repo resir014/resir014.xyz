@@ -1,6 +1,5 @@
 import * as React from 'react';
 import convert from 'htmr';
-import { Box, Stack } from '@resir014/chungking-react';
 
 import PhotoWrapper from './PhotoWrapper';
 import htmrTransform from '~/lib/htmr-transform';
@@ -18,32 +17,25 @@ const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({
   image,
   children,
 }) => {
-  if (content) {
-    return (
-      <Box as="section" p="lg" pb={96}>
-        <Container size={containerSize}>
-          <Stack spacing="md">
-            {image && <PhotoWrapper image={image} />}
-            <div className="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
-              {convert(content, { transform: htmrTransform })}
-            </div>
-          </Stack>
-        </Container>
-      </Box>
-    );
-  }
+  const renderContent = () => {
+    if (content) {
+      return convert(content, { transform: htmrTransform });
+    }
+
+    return children;
+  };
 
   return (
-    <Box as="section" p="lg" pb={96}>
+    <section className="px-6 pt-6 pb-[96px]">
       <Container size={containerSize}>
-        <Stack spacing="md">
+        <div className="space-y-4">
           {image && <PhotoWrapper image={image} />}
           <div className="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
-            {children}
+            {renderContent()}
           </div>
-        </Stack>
+        </div>
       </Container>
-    </Box>
+    </section>
   );
 };
 

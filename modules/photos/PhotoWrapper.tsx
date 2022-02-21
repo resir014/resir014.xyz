@@ -1,18 +1,21 @@
+import clsx from 'clsx';
 import * as React from 'react';
-import { Box, BoxProps } from '@resir014/chungking-react';
-import { Figure } from '../markdown';
 
-interface PhotoWrapperProps extends BoxProps {
+interface PhotoWrapperProps extends React.ComponentPropsWithoutRef<'figure'> {
   image: string;
+  alt?: string;
 }
 
-const Img = Box.withComponent('img');
-
-const PhotoWrapper: React.FC<PhotoWrapperProps> = ({ image, ...rest }) => {
+const PhotoWrapper: React.FC<PhotoWrapperProps> = ({ className, image, alt, ...rest }) => {
   return (
-    <Figure my={0} {...rest}>
-      <Img className="u-photo" loading="lazy" src={image} alt="Photo Post" />
-    </Figure>
+    <figure className={clsx('lg:-mx-12', className)} {...rest}>
+      <img
+        className="u-photo mx-auto rounded-md shadow-single align-middle bg-chungking-grey-800"
+        loading="lazy"
+        src={image}
+        alt={alt ?? ''}
+      />
+    </figure>
   );
 };
 

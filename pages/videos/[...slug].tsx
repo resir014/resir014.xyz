@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import { NextSeo } from 'next-seo';
-import { Box } from '@resir014/chungking-react';
 
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
 import markdownToHtml from '~/lib/markdown-to-html';
@@ -41,11 +40,11 @@ const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
           />
           <Post>
             <PostHeader title={title} category={category} date={date} slug={slug} />
-            <Box pt="lg" px="lg">
+            <div className="px-4 lg:px-6 pt-12">
               <Container size="lg">
                 <VideoCard embed={<LiteYouTube videoId={youtube_embed_id} />} />
               </Container>
-            </Box>
+            </div>
             <PostBody content={content} />
           </Post>
         </MainContent>

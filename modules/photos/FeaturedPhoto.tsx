@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { StackProps } from '@resir014/chungking-react';
 import PhotoListItem from './PhotoListItem';
 import { BasePhotoProps } from '~/types/posts';
 
-interface FeaturedPhotoProps extends StackProps {
+interface FeaturedPhotoProps {
   photo: BasePhotoProps;
 }
 
-const FeaturedPhoto: React.FC<FeaturedPhotoProps> = ({ photo, ...rest }) => {
-  return <PhotoListItem photo={photo} {...rest} />;
+const FeaturedPhoto: React.FC<FeaturedPhotoProps> = ({ photo }) => {
+  return <PhotoListItem photo={photo} />;
 };
 
 export default FeaturedPhoto;

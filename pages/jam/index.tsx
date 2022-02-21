@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NextPage, InferGetStaticPropsType } from 'next';
 
-import { Stack } from '@resir014/chungking-react';
 import { MainContent } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import { renderVideoList } from '~/modules/video';
@@ -30,7 +29,7 @@ const JamIndexPage: NextPage<JamIndexPageProps> = ({ allPosts }) => {
       <MainContent pageTitle="Jam">
         <PostHeader title="Jam" lead="What is @resir014 listening to right now?" />
         <PostBody>
-          <Stack spacing="xxl">{renderVideoList(allPosts, 'jam')}</Stack>
+          <div className="space-y-12">{renderVideoList(allPosts, 'jam')}</div>
         </PostBody>
       </MainContent>
     </DefaultLayout>
