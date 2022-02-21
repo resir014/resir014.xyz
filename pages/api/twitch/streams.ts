@@ -1,5 +1,5 @@
 import { NextApiHandler } from 'next';
-import { getTwitchData, getTwitchToken } from '~/lib/twitch-api';
+import { getTwitchStreams, getTwitchToken } from '~/lib/twitch-api';
 
 const handler: NextApiHandler = async (req, res) => {
   const { user } = req.query;
@@ -8,9 +8,9 @@ const handler: NextApiHandler = async (req, res) => {
     const { access_token } = await getTwitchToken();
 
     if (access_token) {
-      res.status(200).json(await getTwitchData(access_token, user));
+      res.status(200).json(await getTwitchStreams(access_token, user));
     }
-  } catch (err) {
+  } catch (err: unknown) {
     res.status(422).json(err);
   }
 };

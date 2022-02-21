@@ -7,7 +7,7 @@ export function SpotifyCurrentlyPlaying() {
   const { data } = useCurrentlyPlaying();
 
   return (
-    <div className="flex items-start space-x-4 bg-chungking-grey-800 px-4 py-2 rounded-md">
+    <div className="flex items-start space-x-4 bg-chungking-grey-800 px-4 py-2 rounded-md shadow-single">
       <PlayCircle
         aria-hidden
         size={20}

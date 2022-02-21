@@ -13,6 +13,7 @@ const handler: NextApiHandler = async (req, res) => {
       const album = song.item.album.name;
       const albumImageUrl = song.item.album.images[0].url;
       const songUrl = song.item.external_urls.spotify;
+      const id = song.item.id;
 
       return res.status(200).json({
         album,
@@ -21,6 +22,7 @@ const handler: NextApiHandler = async (req, res) => {
         isPlaying,
         songUrl,
         title,
+        id,
       });
     } catch (err: unknown) {
       return res.status(200).json({ isPlaying: false });

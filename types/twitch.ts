@@ -7,16 +7,25 @@ export interface TwitchOAuthResponse {
 }
 
 export interface HelixUsersData {
-  id: number;
-  login: number;
-  display_name: number;
-  type: number;
-  broadcaster_type: number;
-  description: number;
-  profile_image_url: number;
-  offline_image_url: number;
+  id: string;
+  login: string;
+  display_name: string;
+  type: string;
+  broadcaster_type: string;
+  description: string;
+  profile_image_url: string;
+  offline_image_url: string;
   view_count: number;
-  email: number;
+  email: string;
+}
+
+export interface HelixFollowsData {
+  from_id: string;
+  from_login: string;
+  from_name: string;
+  to_id: string;
+  to_name: string;
+  followed_at: string;
 }
 
 export interface HelixUsersResponse {
@@ -38,9 +47,19 @@ export interface HelixStreamsData {
   tag_ids: string[];
 }
 
+export interface HelixFollowsResponse {
+  total: number;
+  data: HelixFollowsData[];
+  pagination: {
+    cursor?: string;
+  };
+}
+
 export interface HelixStreamsResponse {
   data: HelixStreamsData[];
   pagination: {
     cursor?: string;
   };
 }
+
+export type TwitchAPIUserResponse = HelixUsersData & { followers: number };
