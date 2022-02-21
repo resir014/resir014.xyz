@@ -22,7 +22,7 @@ export const SpotifyTopTrackItem: React.FC<SpotifyTopTrackItemProps> = ({
           <div className="flex-1 min-w-0">
             <p className="flex items-center flex-1 min-w-0">
               <a
-                className="helper-link-cover truncate font-semibold"
+                className="helper-link-cover truncate font-semibold hover:underline"
                 href={songUrl}
                 title={`${title} - ${artist}`}
                 target="_blank"

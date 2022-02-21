@@ -7,7 +7,7 @@ export function SpotifyCurrentlyPlaying() {
   const { data } = useCurrentlyPlaying();
 
   return (
-    <div className="flex items-start space-x-4 bg-chungking-grey-800 px-4 py-2 rounded-md shadow-single">
+    <div className="flex items-start relative space-x-4 bg-chungking-grey-800 px-4 py-2 rounded-md shadow-single">
       <PlayCircle
         aria-hidden
         size={20}
@@ -20,9 +20,18 @@ export function SpotifyCurrentlyPlaying() {
         className="leading-tight"
         title={data ? `${data.title || 'Not Playing'} - ${data.artist || 'Spotify'}` : undefined}
       >
-        <span className="font-semibold text-chungking-white flex-1 min-w-0">
-          {data?.title ?? 'Not Playing'}
-        </span>{' '}
+        {data?.songUrl ? (
+          <a
+            href={data.songUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-chungking-white flex-1 min-w-0 hover:underline helper-link-cover"
+          >
+            {data.title}
+          </a>
+        ) : (
+          <span className="font-semibold text-chungking-white flex-1 min-w-0">Not Playing</span>
+        )}{' '}
         <span className="text-chungking-grey-300">–</span>&nbsp;
         <span className="text-chungking-grey-300">{data?.artist ?? 'Spotify'}</span>
       </p>
