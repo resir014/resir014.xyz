@@ -16,7 +16,8 @@ export const LiveStreamStatus = React.forwardRef<HTMLDivElement, LiveStreamStatu
     return (
       <div
         className={clsx(
-          'flex items-center space-x-4 relative leading-tight bg-chungking-grey-800 px-4 py-2 rounded-md shadow-single',
+          'flex flex-col lg:flex-row items-start lg:items-center space-y-1 lg:space-y-0 lg:space-x-4 relative',
+          'leading-tight bg-chungking-grey-800 px-4 py-2 rounded-md shadow-single',
           className
         )}
         style={style}
