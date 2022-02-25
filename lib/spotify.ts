@@ -49,7 +49,7 @@ export async function getNowPlaying() {
   return response;
 }
 
-export async function getTopTracks(range: TopTracksRange = 'short_term') {
+export async function getTopTracks(range: TopTracksRange = 'medium_term') {
   const { access_token } = await getAccessToken();
   const url = qs.stringifyUrl({
     url: TOP_TRACKS_ENDPOINT,
