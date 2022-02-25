@@ -1,5 +1,5 @@
-/* eslint-disable no-param-reassign */
-const flavours = require('./config/flavourText');
+// @ts-check
+const flavours = require('./config/flavour-text');
 
 /** @type {import("next/dist/server/config-shared").NextConfig} */
 const nextConfig = {
@@ -16,7 +16,6 @@ const nextConfig = {
   // https://github.com/vercel/next.js/blob/v12.0.7/packages/next/server/config-shared.ts#L127-L172
   experimental: {
     optimizeCss: true,
-    optimizeImages: true,
     workerThreads: true,
   },
 
