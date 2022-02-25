@@ -2,13 +2,11 @@ import * as React from 'react';
 import { NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
-import { CacheProvider } from '@emotion/react';
 import nProgress from 'nprogress';
 import { colors } from '@resir014/chungking-core';
 
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo';
 import { event, pageview } from '~/lib/ga';
-import emotionCache from '~/lib/emotion-cache';
 import siteMetadata from '~/lib/data/site-metadata';
 import { NextAppProps } from '~/types/next';
 
@@ -60,7 +58,7 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
   const page = getLayout(<Component {...pageProps} />);
 
   return (
-    <CacheProvider value={emotionCache}>
+    <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -87,7 +85,7 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
       />
 
       {page}
-    </CacheProvider>
+    </>
   );
 }
 

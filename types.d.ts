@@ -1,4 +1,3 @@
+/* eslint-disable @typescript-eslint/no-invalid-void-type */
 /* eslint-disable no-var */
-/// <reference types="@emotion/react/types/css-prop" />
-
 declare var gaOptout: () => void | undefined;
