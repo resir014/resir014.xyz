@@ -35,7 +35,7 @@ export async function getTwitchStreams(token: string, user: string | string[] = 
 }
 
 export async function getTwitchUsers(token: string, user: string | string[] = 'resir014') {
-  console.log('Fetching broadcast info...');
+  console.log('Fetching user info...');
 
   const apiUrl = stringifyUrl({
     url: 'https://api.twitch.tv/helix/users',
