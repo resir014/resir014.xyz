@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 import { Container } from './container';
 import footerLinks from '~/lib/data/footer-links';
-import { SpotifyCurrentlyPlaying } from '~/modules/spotify/spotify-currently-playing';
 
 export function Footer() {
   const handleOptOut = () => {
@@ -15,7 +14,6 @@ export function Footer() {
   return (
     <footer className="px-4 lg:px-6 pt-8 pb-12">
       <Container className="space-y-4 pt-8 border-t border-t-chungking-grey-800">
-        <SpotifyCurrentlyPlaying />
         <div className="space-y-2">
           <nav className="-mx-4 -my-1 flex flex-wrap" aria-label="Footer">
             {footerLinks.map(item => (
