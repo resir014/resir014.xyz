@@ -1,5 +1,4 @@
 ---
-featured: true
 category: article
 layout: post
 title: 'Introducing TMViz'
