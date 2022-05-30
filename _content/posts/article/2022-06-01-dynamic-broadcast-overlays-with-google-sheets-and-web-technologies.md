@@ -24,14 +24,14 @@ You can also feed in dynamic data and change elements of the overlay in real-tim
 
 I've used similar tech for my own personal [livestream overlays](https://github.com/resir014/stream-overlays), and figured it would be a good way to push this idea to the limit by putting it in a fast-paced environment of live esports broadcasting.
 
-The design was made by [...]
+The design was made by [Lvyathan](https://twitter.com/Lvyathan), who also have been doing our graphic design for the past few seasons of AOTC. We initially sketched the designs in a tool called [Figma](https://www.figma.com/), which is commonly used for web projects.
 
 <figure>
   <img src="/assets/article/2022/dynamic-broadcast-overlays-with-google-sheets-and-web-technologies/design-sketches.png" alt="Design sketches made in Figma, including some graphics that didn't make the cut." />
   <figcaption>Design sketches made in Figma, including some graphics that didn't make the cut.</figcaption>
 </figure>
 
-For the web itself, I've decided to use tools that I'm already familiar with, React with [Next.js](https://nextjs.org/) for the framework, and [Tailwind.css](https://tailwindcss.com/) for styling.
+For the web itself, I've decided to use tools that I'm already familiar with, React with [Next.js](https://nextjs.org/) for the framework, and [Tailwind.css](https://tailwindcss.com/) for styling. [...]
 
 [...] Google Sheets.
 
