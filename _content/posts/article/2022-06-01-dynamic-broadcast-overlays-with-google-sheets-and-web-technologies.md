@@ -12,7 +12,7 @@ The [Asia and Oceania Trackmania Championship](https://liquipedia.net/trackmania
 
 From the beginning, we've always wanted to push the limits on the production quality of all our broadcasts. And for this season, we decided to innovate by providing a customised, editable broadcast dashboard.
 
-This post outlines how we managed to put our simple, yet powerful broadcast overlays together. It is mostly meant for the technically-minded, but it's laid out so that everyone can still grasp the basics.
+This post outlines how we managed to put our simple, yet powerful broadcast overlays together. It is mostly meant for the technically-minded, so there will be a lot of code. However, I try to lay it out so that everyone can still grasp the basics.
 
 ## Design + implementation
 
@@ -97,7 +97,7 @@ export async function getGoogleSheetById(sheetId: string | number) {
 }
 ```
 
-Now we can use this object in any of our Google Sheets API calls. We use Next.js' API routes to wrap the Google Sheets api call and transform the data we received from it to a format that the overlay can consume.
+Now we can use this object in any of our Google Sheets API calls. We use Next.js' [API routes](https://nextjs.org/docs/api-routes/introduction) to wrap the Google Sheets API call and transform the data we received from it to a format that the overlay can consume.
 
 For example, to get the data for the latest results scene:
 
@@ -109,7 +109,8 @@ import { DEFAULT_SHEET_ID } from '~/utils/constants';
 export default async function handler(req, res) {
   if (req.method === 'GET') {
     // Load the target sheet at the defined ranges.
-    const sheet = await getGoogleSheetById(DEFAULT_SHEET_ID);
+    const locale = parseString(req.query.locale);
+    const sheet = await getGoogleSheetById(getSheetIdByLocale(locale));
     await sheet.loadCells('B14:D17');
 
     // Get each cell values for each line of the results range.
@@ -206,7 +207,7 @@ export default function ExampleScene() {
 
 From the beginning, we planned to have our broadcast available in multiple languages. Of course, since different broadcasts may cover different matches at once, we need to split these scenes to create one instance per language that we cover.
 
-Thankfully, Next.js' [internationalisation (i18n) routes](https://nextjs.org/docs/advanced-features/i18n-routing) has us covered. Once it's set up, we just need to add the locale path to make sure the scene has an idea of the current language.
+Thankfully, Next.js' [internationalisation (i18n) routes](https://nextjs.org/docs/advanced-features/i18n-routing) has us covered. Once it's set up, we only need to add the locale path to make sure the scene has an idea of the current language of the broadcast.
 
 ```bash
 # Load the scene in a different language, e.g. Indonesian
@@ -216,7 +217,38 @@ Thankfully, Next.js' [internationalisation (i18n) routes](https://nextjs.org/doc
 /scenes/matches/latest-result
 ```
 
-We can then get the current locale that we're currently using directly from Next.js' built-in router. So we can modify the fetcher function and React Query hook we made earlier like this:
+We can then get the current language directly from Next.js' built-in router.
+
+```tsx
+import { useRouter } from 'next/router';
+
+export function SomeReactComponent() {
+  const router = useRouter();
+  console.log(router.locale);
+}
+```
+
+Remember the different tabs for different languages that I showed on the dashboard spreadsheet? Well, with all of these set up, we can now edit our API route to get the tab that corresponds to our broadcast language in the dashboard spreadsheet.
+
+Here's an example. We will pass the current language to the API route as a query param (e.g. `?lang=id`). The `getSheedIdByLocale()` function is a placeholder, feel free to modify as you see fit.
+
+```diff
+ // pages/api/matches/latest-result.ts
+
+ import { DEFAULT_SHEET_ID } from '~/utils/constants';
+
+ export default async function handler(req, res) {
+   if (req.method === 'GET') {
+     // Load the target sheet at the defined ranges.
+-    const sheet = await getGoogleSheetById(DEFAULT_SHEET_ID);
++    const locale = parseString(req.query.locale);
++    const sheet = await getGoogleSheetById(getSheetIdByLocale(locale));
+     await sheet.loadCells('B14:D17');
+
+     // Get each cell values for each line of the results range.
+```
+
+To make sure the API routes receive this data can pass the query param to the API route. We edit the fetcher function and React Query hook we made earlier.
 
 ```diff
  // modules/results/api.ts
@@ -263,15 +295,13 @@ We can then get the current locale that we're currently using directly from Next
  }
 ```
 
-Remember the different tabs for different languages that I showed on the dashboard spreadsheet?
+And we're pretty much done! We can also use additional tools like [react-i18next](https://react.i18next.com/) to add localised strings for any text in the overlays. Although we didn't implement that due to time constraints.
 
-[easily add new languages, e.g. French]. This means we can also use additional tools to add localised strings for the overlays. Although we didn't implement that due to time constraints.
-
-[...]
+This solution is scalable as we add new languages into the mix, for example when we recruited French caster [GGeek](https://www.twitter.com/TMGGeek) to conduct the official French broadcast for AOTC.
 
 ## Results
 
-The result is a clean, dynamic overlay that can be updated in real-time. Here are some examples on how it looks like in action.
+The result is a clean, dynamic overlay that can be updated in real-time, and can be used for simultaneous broadcasts in different languages. Here are some examples on how it looks like in action.
 
 <p><iframe src="https://clips.twitch.tv/embed?clip=DeterminedRelievedSeahorseResidentSleeper-gRZL5gBFrjROuBxo&parent=resir014.xyz" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe></p>
 
