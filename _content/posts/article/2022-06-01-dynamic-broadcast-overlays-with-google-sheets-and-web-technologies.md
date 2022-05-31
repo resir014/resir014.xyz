@@ -313,4 +313,6 @@ As a way to give back to the community, I've made the source code to the overlay
 
 ## Future work
 
-[improve reliability]
+There are of course, some things to iron out. For example, using Next.js API Routes poses a risk of encountering the so-called ["cold start" issue](https://dashbird.io/blog/can-we-solve-serverless-cold-starts/), which will cause API calls to "hang" momentarily. We could find a way to make sure the process skips having to go through Next.js' API routes. Whether it's by colocating the Google Sheets API calls client-side, using a more robust, "serverful" backend, or through other means.
+
+But solving these problems is always the most interesting part. As with any projects we do here, this is not the end, but a beginning. We hope that sharing our work will help any folks doing live production for Trackmania events, no matter how big or small. And we hope that as community organisers, we can work together in providing a better production value for everyone.
