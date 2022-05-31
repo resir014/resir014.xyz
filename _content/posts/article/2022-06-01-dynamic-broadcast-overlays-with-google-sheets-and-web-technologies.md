@@ -31,7 +31,7 @@ The design was made by [Lvyathan](https://twitter.com/Lvyathan), who also have b
 
 For the web itself, we've decided to use tools that we're already familiar with, React with [Next.js](https://nextjs.org/) for the framework, and [Tailwind.css](https://tailwindcss.com/) for styling. Each overlay is generated as a Next.js page that the OBS browser source can point to. You can arrange these page URLs any way you like, e.g. `/scenes/next-match`. They're designed to fit within a 1920x1080 screen, the standard for 1080p broadcasts.
 
-Under the hood, we use [React Query](https://react-query.tanstack.com/) as our all-in-one data fetching logic. We use this to fetch dynamic data from our overlay, as well as handling data caching and polling API requests to make overlay updates seamless.
+Under the hood, we use [React Query](https://react-query.tanstack.com/) as our all-in-one data fetching logic. React Query provides a comprehensive data fetching logic through a simple [React hook](https://reactjs.org/docs/hooks-intro.html). We use this to fetch dynamic data from our overlay, as well as handling data caching and polling API requests to make overlay updates seamless.
 
 But of course, there's one missing piece of the puzzle: Google Sheets.
 
@@ -97,10 +97,12 @@ export async function getGoogleSheetById(sheetId: string | number) {
 }
 ```
 
-Now we can use this object in any of our Google Sheets API calls. [...]
+Now we can use this object in any of our Google Sheets API calls. We use Next.js' API routes to wrap the Google Sheets api call and transform the data we received from it to a format that the overlay can consume.
+
+For example, to get the data for the latest results scene:
 
 ```ts
-// pages/api/matches/get-latest-result.ts
+// pages/api/matches/latest-result.ts
 
 import { DEFAULT_SHEET_ID } from '~/utils/constants';
 
@@ -142,13 +144,126 @@ export default async function handler(req, res) {
 }
 ```
 
-[using react-query to poll data]
+So the API handler is created, now we use React Query to fetch and cache the data. We also poll the API call every 10 seconds, to make sure the overlay updates periodically every time we update the spreadsheet. Let's make a fetcher function and connect it with built-in hook provided by React Query.
+
+```ts
+// modules/results/api.ts
+
+import fetch from 'isomorphic-unfetch';
+
+export async function getLatestResults() {
+  return fetch('/api/matches/latest-result').then(res => res.json());
+}
+```
+
+```ts
+// modules/results/hooks.ts
+
+import { useQuery } from 'react-query';
+import { getLatestResults } from './api';
+
+const DEFAULT_REFRESH_TIMEOUT = 10000; // 10 seconds
+
+export function useLatestResults(refetchInterval = DEFAULT_REFRESH_TIMEOUT) {
+  const query = useQuery<LatestResultsDetails[]>('latest-results', getLatestResults, {
+    refetchInterval,
+  });
+
+  return query;
+}
+```
+
+And that's pretty much it! We can use this hook directly within our scenes now.
+
+```tsx
+// pages/scenes/example-scene.tsx
+
+import * as React from 'react';
+
+import { Scene, SceneContent } from '~/components/ui/scene';
+import { ResultsListItem } from '~/modules/players/components';
+
+export default function ExampleScene() {
+  const { data } = useLatestResults();
+
+  return (
+    <Scene title="Latest Results">
+      <SceneContent className="flex flex-col items-center justify-center space-y-6">
+        {data?.map(item => (
+          <ResultsListItem
+            className="w-full"
+            nationality={item.country ?? ''}
+            playerName={item.name ?? ''}
+          />
+        ))}
+      </SceneContent>
+    </Scene>
+  );
+}
+```
 
 ## Internationalisation (i18n) and multiple-language overlays
 
-From the beginning, we planned to have our broadcast available in multiple languages. Of course, since different broadcasts may cover different matches at once, we need to spl
+From the beginning, we planned to have our broadcast available in multiple languages. Of course, since different broadcasts may cover different matches at once, we need to split these scenes to create one instance per language that we cover.
 
-Thankfully, Next.js' [internationalisation (i18n) routes](https://nextjs.org/docs/advanced-features/i18n-routing) has us covered.
+Thankfully, Next.js' [internationalisation (i18n) routes](https://nextjs.org/docs/advanced-features/i18n-routing) has us covered. Once it's set up, we just need to add the locale path to make sure the scene has an idea of the current language.
+
+```bash
+# Load the scene in a different language, e.g. Indonesian
+/id/scenes/matches/latest-result
+
+# The default language is English, so we can omit the locale path for the English version
+/scenes/matches/latest-result
+```
+
+We can then get the current locale that we're currently using directly from Next.js' built-in router. So we can modify the fetcher function and React Query hook we made earlier like this:
+
+```diff
+ // modules/results/api.ts
+
+ import fetch from 'isomorphic-unfetch';
++import queryString from 'query-string';
+
+-export async function getLatestResults() {
+-  return fetch('/api/matches/latest-result').then(res => res.json());
++export async function getLatestResults(locale = 'en-US') {
++  const url = queryString.stringifyUrl({
++    url: '/api/matches/latest-result',
++    query: {
++      locale,
++    },
++  });
++  return fetch(url).then(res => res.json());
+ }
+```
+
+```diff
+ // modules/results/hooks.ts
+
++import { useRouter } from 'next/router';
+ import { useQuery } from 'react-query';
+ import { getLatestResults } from './api';
+
+ const DEFAULT_REFRESH_TIMEOUT = 10000; // 10 seconds
+
+ export function useLatestResults(refetchInterval = DEFAULT_REFRESH_TIMEOUT) {
+-  const query = useQuery<LatestResultsDetails[]>('latest-results', getLatestResults, {
+-    refetchInterval,
+-  });
++  const router = useRouter();
++  const query = useQuery<LatestResultsDetails[]>(
++    'latest-results',
++    () => getLatestResults(router.locale),
++    {
++      refetchInterval,
++    }
++  );
+
+   return query;
+ }
+```
+
+Remember the different tabs for different languages that I showed on the dashboard spreadsheet?
 
 [easily add new languages, e.g. French]. This means we can also use additional tools to add localised strings for the overlays. Although we didn't implement that due to time constraints.
 
@@ -156,7 +271,7 @@ Thankfully, Next.js' [internationalisation (i18n) routes](https://nextjs.org/doc
 
 ## Results
 
-The result is a clean, fluid overlay. Here are some examples on how it looked in action.
+The result is a clean, dynamic overlay that can be updated in real-time. Here are some examples on how it looks like in action.
 
 <p><iframe src="https://clips.twitch.tv/embed?clip=DeterminedRelievedSeahorseResidentSleeper-gRZL5gBFrjROuBxo&parent=resir014.xyz" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe></p>
 
