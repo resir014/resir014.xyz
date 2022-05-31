@@ -102,12 +102,16 @@ Now we can use this object in any of our Google Sheets API calls. [...]
 ```ts
 // pages/api/matches/get-latest-result.ts
 
+import { DEFAULT_SHEET_ID } from '~/utils/constants';
+
 export default async function handler(req, res) {
   if (req.method === 'GET') {
-    const locale = parseString(req.query.locale);
+    // Load the target sheet at the defined ranges.
     const sheet = await getGoogleSheetById(DEFAULT_SHEET_ID);
     await sheet.loadCells('B14:D17');
 
+    // Get each cell values for each line of the results range.
+    // This is a bit hardcoded, but feel free to make this cleaner.
     res.status(200).json([
       {
         name: sheet.getCellByA1('C14').value,
