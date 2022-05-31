@@ -5,7 +5,7 @@ layout: post
 title: 'Dynamic broadcast overlays with Google Sheets and web technologies'
 lead: 'How we built the broadcast package for the Asia/OCE Trackmania Championship.'
 header_image: /assets/article/2022/dynamic-broadcast-overlays-with-google-sheets-and-web-technologies/header.png
-date: '2022-06-01T12:00:00+07:00'
+date: '2022-05-31T20:15:00+07:00'
 ---
 
 The [Asia and Oceania Trackmania Championship](https://liquipedia.net/trackmania/Asia_and_Oceania_Trackmania_Championship/2022/Spring) concluded last Sunday with a $350+ prize pool given out to the winners. It is the premier Trackmania competition for the Asia, Middle East, and Oceania regions that has been going strong for 1 year.
