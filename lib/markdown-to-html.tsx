@@ -35,7 +35,3 @@ export function renderMarkdown(markdown: string) {
   const result = md.render(markdown);
   return result;
 }
-
-export default async function markdownToHtml(markdown: string) {
-  return renderMarkdown(markdown);
-}

@@ -34,7 +34,7 @@ export function getPostBySlug(
       items[field] = `${year}/${month}/${day}/${slug}`;
     }
     if (field === 'content') {
-      items[field] = content;
+      items[field] = renderMarkdown(content || '');
     }
     // if no date set, generate from filename.
     if (field === 'date' && !data[field]) {
@@ -60,7 +60,7 @@ export function getPostParams(slug: string): string[] {
   return [];
 }
 
-export function getAllPosts(fields: string[] = [], category: PostKind = 'article') {
+export async function getAllPosts(fields: string[] = [], category: PostKind = 'article') {
   const slugs = getPostPaths(category);
   const posts = slugs
     .map(slug => getPostBySlug(getPostParams(slug), [...fields, 'date'], category))
@@ -70,46 +70,43 @@ export function getAllPosts(fields: string[] = [], category: PostKind = 'article
   return posts;
 }
 
-export function getFeaturedArticles(maxPosts = 5) {
-  return getAllPosts(
+export async function getFeaturedArticles(maxPosts = 5) {
+  const posts = await getAllPosts(
     ['category', 'title', 'lead', 'slug', 'date', 'featured', 'header_image'],
     'article'
-  )
-    .filter(post => post.featured)
-    .slice(0, maxPosts);
+  );
+
+  return posts.filter(post => post.featured).slice(0, maxPosts);
 }
 
-export function getFeaturedBookmarks(maxPosts = 3) {
-  return getAllPosts(['category', 'title', 'link', 'slug', 'date'], 'bookmark').slice(0, maxPosts);
+export async function getFeaturedBookmarks(maxPosts = 3) {
+  const posts = await getAllPosts(['category', 'title', 'link', 'slug', 'date'], 'bookmark');
+  return posts.slice(0, maxPosts);
 }
 
-export function getFeaturedJam() {
-  const videos = getAllPosts(
+export async function getFeaturedJam() {
+  const posts = await getAllPosts(
     ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
     'jam'
-  ).map(post => ({
-    ...post,
-    content: renderMarkdown(post.content || ''),
-  }));
-  return videos[0];
+  );
+  return posts[0];
 }
 
-export function getFeaturedVideo() {
-  const videos = getAllPosts(
+export async function getFeaturedVideo() {
+  const posts = await getAllPosts(
     ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
     'video'
-  ).map(post => ({
-    ...post,
-    content: renderMarkdown(post.content || ''),
-  }));
-  return videos[0];
+  );
+  return posts[0];
 }
 
-export function getFeaturedPhoto() {
-  const videos = getAllPosts(
+export async function getFeaturedPhoto() {
+  const posts = await getAllPosts(
     ['category', 'slug', 'date', 'header_image', 'featured', 'content'],
     'photo'
-  ).filter(post => post.featured);
+  );
+
+  const videos = posts.filter(post => post.featured);
 
   return videos[0];
 }

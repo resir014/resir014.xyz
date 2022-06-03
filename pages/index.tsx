@@ -33,11 +33,11 @@ import { Divider } from '~/components/ui';
 import { Container } from '~/components/layout';
 
 export const getStaticProps = async () => {
-  const allPosts: BasePostProps[] = getFeaturedArticles(3);
-  const featuredBookmarks: BaseBookmarkProps[] = getFeaturedBookmarks();
-  const recentJam: BaseJamProps = getFeaturedJam();
-  const recentVideo: BaseVideoProps = getFeaturedVideo();
-  const featuredPhoto: BasePhotoProps = getFeaturedPhoto();
+  const allPosts: BasePostProps[] = await getFeaturedArticles(3);
+  const featuredBookmarks: BaseBookmarkProps[] = await getFeaturedBookmarks();
+  const recentJam: BaseJamProps = await getFeaturedJam();
+  const recentVideo: BaseVideoProps = await getFeaturedVideo();
+  const featuredPhoto: BasePhotoProps = await getFeaturedPhoto();
   const featuredProject: ProjectMetadata = getFeaturedProject([
     'category',
     'title',

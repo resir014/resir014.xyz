@@ -11,10 +11,14 @@ import { BasePhotoProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
-  const allPosts: BasePhotoProps[] = getAllPosts(
+  const posts = await getAllPosts(
     ['category', 'title', 'slug', 'date', 'header_image', 'featured', 'content'],
     'photo'
-  ).map(post => ({ ...post, content: renderMarkdown(post.content || '') }));
+  );
+  const allPosts: BasePhotoProps[] = posts.map(post => ({
+    ...post,
+    content: renderMarkdown(post.content || ''),
+  }));
 
   return {
     props: { allPosts, siteMetadata },

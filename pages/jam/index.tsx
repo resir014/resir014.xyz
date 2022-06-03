@@ -11,10 +11,14 @@ import { BaseJamProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
-  const allPosts: BaseJamProps[] = getAllPosts(
+  const posts = await getAllPosts(
     ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
     'jam'
-  ).map(post => ({ ...post, content: renderMarkdown(post.content || '') }));
+  );
+  const allPosts: BaseJamProps[] = posts.map(post => ({
+    ...post,
+    content: renderMarkdown(post.content || ''),
+  }));
 
   return {
     props: { allPosts, siteMetadata },

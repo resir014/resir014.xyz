@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
 import { getContentDirectory, getContentFiles } from './content';
+import { renderMarkdown } from './markdown-to-html';
 
 export function getPageBySlug(contentDirectory: string, slug: string, fields: string[] = []) {
   const actualSlug = slug.replace(/\.md$/, '');
@@ -17,7 +18,7 @@ export function getPageBySlug(contentDirectory: string, slug: string, fields: st
       items[field] = actualSlug;
     }
     if (field === 'content') {
-      items[field] = content;
+      items[field] = renderMarkdown(content || '');
     }
 
     if (data[field]) {

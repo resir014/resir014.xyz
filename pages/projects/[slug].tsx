@@ -7,7 +7,6 @@ import { YouTubePreconnect } from '~/components/perf';
 import { BaseProjectProps } from '~/types/projects';
 import { ProjectBody, ProjectHeader } from '~/modules/projects';
 import { getAllProjects, getProjectBySlug } from '~/lib/projects';
-import markdownToHtml from '~/lib/markdown-to-html';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
 import DefaultLayout from '~/layouts/default-layout';
 import { Page } from '~/components/page';
@@ -63,10 +62,8 @@ export const getStaticProps: GetStaticProps = async ctx => {
       'content',
     ]);
 
-    const content = await markdownToHtml(project.content || '');
-
     return {
-      props: { siteMetadata, project: { ...project, content } },
+      props: { siteMetadata, project },
     };
   }
 

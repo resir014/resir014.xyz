@@ -6,22 +6,24 @@ import { FeaturedPostList, PostList, PostHeader } from '~/modules/posts';
 import siteMetadata from '~/lib/data/site-metadata';
 import { getAllPosts, getFeaturedArticles } from '~/lib/posts';
 import { generateRSS } from '~/lib/rss';
-import { BasePostProps, PostMetadata } from '~/types/posts';
+import { BasePostProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 import { PageBody } from '~/components/page';
 import { Divider } from '~/components/ui';
 
 export const getStaticProps = async () => {
-  const featuredPosts: BasePostProps[] = getFeaturedArticles(3);
-  const allPosts: PostMetadata[] = getAllPosts(
-    ['category', 'title', 'lead', 'slug', 'date'],
+  const featuredPosts: BasePostProps[] = await getFeaturedArticles(3);
+  const allPosts: BasePostProps[] = await getAllPosts(
+    ['category', 'title', 'lead', 'slug', 'date', 'content'],
     'article'
   );
-  const rss = generateRSS(allPosts);
+  const feed = await generateRSS(allPosts);
   const fs = await import('fs');
 
   fs.mkdirSync('./public/posts', { recursive: true });
-  fs.writeFileSync('./public/posts/rss.xml', rss);
+  fs.writeFileSync('./public/posts/rss.xml', feed.rss2());
+  fs.writeFileSync('./public/posts/atom.xml', feed.atom1());
+  fs.writeFileSync('./public/posts/feed.json', feed.json1());
 
   return {
     props: { allPosts, featuredPosts, siteMetadata },
