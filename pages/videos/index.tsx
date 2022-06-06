@@ -11,10 +11,14 @@ import { BaseVideoProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
-  const allPosts: BaseVideoProps[] = getAllPosts(
+  const posts = await getAllPosts(
     ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
     'video'
-  ).map(post => ({ ...post, content: renderMarkdown(post.content || '') }));
+  );
+  const allPosts: BaseVideoProps[] = posts.map(post => ({
+    ...post,
+    content: renderMarkdown(post.content || ''),
+  }));
 
   return {
     props: { allPosts, siteMetadata },

@@ -3,7 +3,6 @@ import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import { NextSeo } from 'next-seo';
 
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
-import markdownToHtml from '~/lib/markdown-to-html';
 
 import { MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
@@ -62,7 +61,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
 
 export const getStaticProps: GetStaticProps = async ctx => {
   if (ctx.params && Array.isArray(ctx.params.slug)) {
-    const post = getPostBySlug(ctx.params.slug, [
+    const post: BasePostProps = getPostBySlug(ctx.params.slug, [
       'category',
       'title',
       'lead',
@@ -73,10 +72,8 @@ export const getStaticProps: GetStaticProps = async ctx => {
       'syndication',
     ]);
 
-    const content = await markdownToHtml(post.content || '');
-
     return {
-      props: { siteMetadata, post: { ...post, content } },
+      props: { siteMetadata, post },
     };
   }
 
@@ -86,7 +83,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(['slug']);
+  const posts = await getAllPosts(['slug']);
 
   return {
     paths: posts.map(post => {

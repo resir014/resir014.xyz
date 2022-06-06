@@ -7,7 +7,6 @@ import { Post, PostHeader, PostHeaderImage } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
 import { getAllPages, getPageBySlug } from '~/lib/pages';
 import siteMetadata from '~/lib/data/site-metadata';
-import markdownToHtml from '~/lib/markdown-to-html';
 import { BasePageProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 import { PageBody } from '~/components/page';
@@ -24,10 +23,9 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
       'slug',
       'content',
     ]);
-    const content = await markdownToHtml(page.content || '');
 
     return {
-      props: { page: { ...page, content }, siteMetadata },
+      props: { page, siteMetadata },
     };
   }
 

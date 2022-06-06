@@ -8,7 +8,7 @@ import { Post, PostBody, PostHeader } from '~/modules/posts';
 import { BaseBookmarkProps } from '~/types/posts';
 
 export const getStaticProps = async () => {
-  const bookmarks: BaseBookmarkProps[] = getAllPosts(
+  const bookmarks: BaseBookmarkProps[] = await getAllPosts(
     ['category', 'title', 'link', 'slug', 'date'],
     'bookmark'
   );

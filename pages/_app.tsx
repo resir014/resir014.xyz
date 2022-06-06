@@ -73,6 +73,24 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
           content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
         />
         <meta name="monetization" content={process.env.NEXT_PUBLIC_ILP_URL} />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          href={`${siteMetadata.siteUrl}/posts/rss.xml`}
+          title="RSS feed for this page"
+        />
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          href={`${siteMetadata.siteUrl}/posts/atom.xml`}
+          title="Atom feed for this page"
+        />
+        <link
+          rel="alternate"
+          type="application/json"
+          href={`${siteMetadata.siteUrl}/posts/feed.json`}
+          title="JSON feed for this page"
+        />
       </Head>
 
       <DefaultSeo

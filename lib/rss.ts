@@ -1,31 +1,47 @@
+import { Feed } from 'feed';
 import siteMetadata from './data/site-metadata';
-import { PostMetadata } from '~/types/posts';
+import { renderMarkdown } from './markdown-to-html';
+import { BasePostProps } from '~/types/posts';
 
-const wrapWithCData = (text?: string): string => `<![CDATA[${text}]]>`;
+export async function generateRSS(posts: BasePostProps[]) {
+  const { title, description, siteUrl, author: authorMetadata } = siteMetadata;
+  const updated = new Date();
+  const author = {
+    name: authorMetadata.name,
+    link: authorMetadata.website,
+    email: authorMetadata.email,
+  };
 
-export const generateRSSItem = (post: PostMetadata): string => `
-  <item>
-    <guid isPermalink="true">https://resir014.xyz/posts/${post.slug}/</guid>
-    <title>${wrapWithCData(post.title)}</title>
-    <link>https://resir014.xyz/posts/${post.slug}/</link>
-    <description>${wrapWithCData(post.lead)}</description>
-    <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-  </item>
-`;
+  const feed = new Feed({
+    title,
+    description,
+    id: `${siteUrl}/posts/`,
+    link: `${siteUrl}/posts/`,
+    copyright: '2016-present Resi Respati.',
+    updated,
+    author,
+    feedLinks: {
+      rss2: `${siteUrl}/rss/feed.xml`,
+      json: `${siteUrl}/rss/feed.json`,
+      atom: `${siteUrl}/rss/atom.xml`,
+    },
+  });
 
-export const generateRSS = (
-  posts: PostMetadata[]
-): string => `<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>${wrapWithCData(`Posts · ${siteMetadata.title}`)}</title>
-    <link>https://resir014.xyz/posts/</link>
-    <description>${wrapWithCData(siteMetadata.description)}</description>
-    <generator>Next.js</generator>
-    <language>${wrapWithCData('en')}</language>
-    <lastBuildDate>${new Date(posts[0].date).toUTCString()}</lastBuildDate>
-    <atom:link href="https://resir014.xyz/posts/rss.xml" rel="self" type="application/rss+xml"/>
-    ${posts.map(generateRSSItem).join('')}
-  </channel>
-</rss>
-`;
+  posts.forEach(post => {
+    console.log(post);
+    const url = `${siteUrl}/posts/${post.slug}/`;
+
+    feed.addItem({
+      title: post.title ?? '',
+      id: url,
+      link: url,
+      description: post.lead,
+      content: renderMarkdown(post.content || ''),
+      author: [author],
+      contributor: [author],
+      date: new Date(post.date),
+    });
+  });
+
+  return feed;
+}

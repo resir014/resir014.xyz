@@ -3,7 +3,6 @@ import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import { NextSeo } from 'next-seo';
 
 import { getPostBySlug, getAllPosts } from '~/lib/posts';
-import markdownToHtml from '~/lib/markdown-to-html';
 
 import { Container, MainContent } from '~/components/layout';
 import { LiteYouTube, VideoCard } from '~/modules/video';
@@ -63,10 +62,8 @@ export const getStaticProps: GetStaticProps = async ctx => {
       'jam'
     );
 
-    const content = await markdownToHtml(post.content || '');
-
     return {
-      props: { siteMetadata, post: { ...post, content } },
+      props: { siteMetadata, post },
     };
   }
 
@@ -76,7 +73,7 @@ export const getStaticProps: GetStaticProps = async ctx => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(['slug'], 'jam');
+  const posts = await getAllPosts(['slug'], 'jam');
 
   return {
     paths: posts.map(post => {
