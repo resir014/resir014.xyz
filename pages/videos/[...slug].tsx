@@ -2,7 +2,8 @@ import * as React from 'react';
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import { NextSeo } from 'next-seo';
 
-import { getPostBySlug, getAllPosts } from '~/lib/posts';
+import { getAllPosts } from '~/lib/posts';
+import { getPostBySlug } from '~/lib/item-by-slug';
 
 import { Container, MainContent } from '~/components/layout';
 import { LiteYouTube, VideoCard } from '~/modules/video';

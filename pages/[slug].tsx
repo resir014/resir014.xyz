@@ -5,17 +5,16 @@ import { MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostHeader, PostHeaderImage } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
-import { getAllPages, getPageBySlug } from '~/lib/pages';
 import siteMetadata from '~/lib/data/site-metadata';
 import { BasePageProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 import { PageBody } from '~/components/page';
-
-const contentDirectory = '_content/pages';
+import { getPageBySlug } from '~/lib/item-by-slug';
+import { getAllPages } from '~/lib/pages';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   if (params?.slug && !Array.isArray(params.slug)) {
-    const page: BasePageProps = getPageBySlug(contentDirectory, params.slug, [
+    const page: BasePageProps = getPageBySlug(params.slug, [
       'layout',
       'title',
       'lead',
@@ -55,7 +54,7 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPages(contentDirectory, ['slug']);
+  const posts = getAllPages(['slug']);
   const paths = posts.map(post => {
     return {
       params: {
