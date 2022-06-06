@@ -5,22 +5,21 @@ import { MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
-import { getAllPages, getPageBySlug } from '~/lib/pages';
+import { getAllPages } from '~/lib/pages';
 import siteMetadata from '~/lib/data/site-metadata';
 import { BasePageProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
+import { getPageBySlug } from '~/lib/item-by-slug';
 
 const contentDirectory = '_content/etc';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   if (params?.slug && !Array.isArray(params.slug)) {
-    const page: BasePageProps = getPageBySlug(contentDirectory, params.slug, [
-      'title',
-      'lead',
-      'header_image',
-      'slug',
-      'content',
-    ]);
+    const page: BasePageProps = getPageBySlug(
+      params.slug,
+      ['title', 'lead', 'header_image', 'slug', 'content'],
+      contentDirectory
+    );
 
     return {
       props: { page, siteMetadata },
@@ -53,7 +52,7 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPages(contentDirectory, ['slug']);
+  const posts = getAllPages(['slug'], contentDirectory);
   const paths = posts.map(post => {
     return {
       params: {
