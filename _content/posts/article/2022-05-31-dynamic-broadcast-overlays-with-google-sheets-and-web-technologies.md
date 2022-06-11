@@ -52,7 +52,7 @@ Note the different tabs for languages at the bottom. This will be explained late
 
 To fetch the data from the spreadsheet, we use the [google-spreadsheet](https://www.npmjs.com/package/google-spreadsheet) package from npm. This is a small subset of the core [Google APIs npm package](https://www.npmjs.com/package/googleapis), which is a huge package that contains APIs for _all Google products_. So that's a bit too overkill for us.
 
-First, we will need to create a service account. This is the standard authentication method to communicate with Google's API. The [google-spreadsheet documentation](https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account) provides a guide on how you
+First, we will need to create a service account. This is the standard authentication method to communicate with Google's API. The [google-spreadsheet documentation](https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication?id=service-account) provides a guide on how to create your service account credentials.
 
 After following the steps above, you should have your service account key like this.
 
