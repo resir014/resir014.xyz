@@ -6,19 +6,14 @@ import { PostBody, PostHeader } from '~/modules/posts';
 import { renderVideoList } from '~/modules/video';
 import { getAllPosts } from '~/lib/posts';
 import siteMetadata from '~/lib/data/site-metadata';
-import { renderMarkdown } from '~/lib/markdown-to-html';
 import { BaseJamProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
-  const posts = await getAllPosts(
+  const allPosts: BaseJamProps[] = await getAllPosts(
     ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
     'jam'
   );
-  const allPosts: BaseJamProps[] = posts.map(post => ({
-    ...post,
-    content: renderMarkdown(post.content || ''),
-  }));
 
   return {
     props: { allPosts, siteMetadata },

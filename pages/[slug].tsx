@@ -14,7 +14,7 @@ import { getAllPages } from '~/lib/pages';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   if (params?.slug && !Array.isArray(params.slug)) {
-    const page: BasePageProps = getPageBySlug(params.slug, [
+    const page: BasePageProps = await getPageBySlug(params.slug, [
       'layout',
       'title',
       'lead',
@@ -54,7 +54,7 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPages(['slug']);
+  const posts = await getAllPages(['slug']);
   const paths = posts.map(post => {
     return {
       params: {

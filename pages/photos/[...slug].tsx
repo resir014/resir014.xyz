@@ -59,7 +59,7 @@ const PhotoPostPage: NextPage<PhotoPostPageProps> = ({ post }) => {
 
 export const getStaticProps: GetStaticProps = async ctx => {
   if (ctx.params && Array.isArray(ctx.params.slug)) {
-    const post = getPostBySlug(
+    const post = await getPostBySlug(
       ctx.params.slug,
       ['category', 'title', 'lead', 'date', 'header_image', 'slug', 'content'],
       'photo'

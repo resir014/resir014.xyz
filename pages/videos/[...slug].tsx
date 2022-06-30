@@ -57,7 +57,7 @@ const VideoPostPage: NextPage<VideoPostPageProps> = ({ post }) => {
 
 export const getStaticProps: GetStaticProps = async ctx => {
   if (ctx.params && Array.isArray(ctx.params.slug)) {
-    const post = getPostBySlug(
+    const post = await getPostBySlug(
       ctx.params.slug,
       ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
       'video'

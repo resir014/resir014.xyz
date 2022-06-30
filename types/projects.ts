@@ -5,6 +5,7 @@ export interface ProjectMetadata {
   year: number;
   header_image?: string;
   tags?: string[];
+  featured?: boolean;
   project_url: string;
   slug: string;
 }

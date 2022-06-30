@@ -27,21 +27,21 @@ export async function generateRSS(posts: BasePostProps[]) {
     },
   });
 
-  posts.forEach(post => {
-    console.log(post);
+  for (const post of posts) {
     const url = `${siteUrl}/posts/${post.slug}/`;
+    const content = await renderMarkdown(post.content || '');
 
     feed.addItem({
+      content,
       title: post.title ?? '',
       id: url,
       link: url,
       description: post.lead,
-      content: renderMarkdown(post.content || ''),
       author: [author],
       contributor: [author],
       date: new Date(post.date),
     });
-  });
+  }
 
   return feed;
 }

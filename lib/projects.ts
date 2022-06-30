@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
-import { ProjectMetadata } from '~/types/projects';
+import { BaseProjectProps, ProjectMetadata } from '~/types/projects';
 import { getContentDirectory } from './content';
 import { renderMarkdown } from './markdown-to-html';
 
@@ -31,7 +31,7 @@ export function getProjectPaths() {
   return fs.readdirSync(getContentDirectory(contentDirectory));
 }
 
-export function getProjectBySlug(slug: string, fields: string[] = []) {
+export async function getProjectBySlug(slug: string, fields: string[] = []) {
   const actualSlug = slug.replace(/\.md$/, '');
   const contents = fs.readFileSync(
     path.join(getContentDirectory(contentDirectory), `${actualSlug}.md`)
@@ -41,32 +41,35 @@ export function getProjectBySlug(slug: string, fields: string[] = []) {
   const items: any = {};
 
   // Ensure only the minimal needed data is exposed
-  fields.forEach(field => {
+  for (const field of fields) {
     if (field === 'slug') {
       items[field] = actualSlug;
     }
     if (field === 'content') {
-      items[field] = renderMarkdown(content || '');
+      items[field] = await renderMarkdown(content || '');
     }
 
     if (data[field]) {
       items[field] = data[field];
     }
-  });
+  }
 
   return items;
 }
 
-export function getAllProjects(fields: string[] = []) {
+export async function getAllProjects(fields: string[] = []) {
   const slugs = getProjectPaths();
-  const posts = slugs
-    .map(slug => getProjectBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+  const posts: BaseProjectProps[] = [];
+
+  for (const slug of slugs) {
+    const post: BaseProjectProps = await getProjectBySlug(slug, fields);
+    posts.push(post);
+  }
+
   return posts;
 }
 
-export function getFeaturedProject(fields: string[] = []) {
-  const projects = getAllProjects([...fields, 'featured']);
+export async function getFeaturedProject(fields: string[] = []) {
+  const projects = await getAllProjects([...fields, 'featured']);
   return projects.find(project => project.featured);
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import CustomErrorPage from '~/pages/_error';
 import { MainContent } from '~/components/layout';
@@ -50,7 +50,7 @@ const ProjectsDetailPage: NextPage<BlogPostPageProps> = ({ project }) => {
 
 export const getStaticProps: GetStaticProps = async ctx => {
   if (ctx.params?.slug && !Array.isArray(ctx.params.slug)) {
-    const project = getProjectBySlug(ctx.params.slug, [
+    const project = await getProjectBySlug(ctx.params.slug, [
       'category',
       'title',
       'description',
@@ -73,16 +73,19 @@ export const getStaticProps: GetStaticProps = async ctx => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = getAllProjects(['slug']);
+  const projects = await getAllProjects(['slug']);
+  const paths: GetStaticPathsResult['paths'] = [];
+
+  for (const project of projects) {
+    paths.push({
+      params: {
+        slug: project.slug,
+      },
+    });
+  }
 
   return {
-    paths: projects.map(project => {
-      return {
-        params: {
-          slug: project.slug,
-        },
-      };
-    }),
+    paths,
     fallback: false,
   };
 };

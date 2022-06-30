@@ -62,7 +62,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
 
 export const getStaticProps: GetStaticProps = async ctx => {
   if (ctx.params && Array.isArray(ctx.params.slug)) {
-    const post: BasePostProps = getPostBySlug(ctx.params.slug, [
+    const post: BasePostProps = await getPostBySlug(ctx.params.slug, [
       'category',
       'title',
       'lead',

@@ -15,7 +15,7 @@ const contentDirectory = '_content/etc';
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   if (params?.slug && !Array.isArray(params.slug)) {
-    const page: BasePageProps = getPageBySlug(
+    const page: BasePageProps = await getPageBySlug(
       params.slug,
       ['title', 'lead', 'header_image', 'slug', 'content'],
       contentDirectory
@@ -52,7 +52,7 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPages(['slug'], contentDirectory);
+  const posts = await getAllPages(['slug'], contentDirectory);
   const paths = posts.map(post => {
     return {
       params: {

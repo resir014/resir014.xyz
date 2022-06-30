@@ -8,7 +8,7 @@ import { getContentDirectory } from './content';
 export const DEFAULT_PAGE_DIRECTORY = '_content/pages';
 export const DEFAULT_POST_DIRECTORY = '_content/posts';
 
-export function getPageBySlug(
+export async function getPageBySlug(
   slug: string,
   fields: string[] = [],
   contentDirectory: string = DEFAULT_PAGE_DIRECTORY
@@ -21,23 +21,23 @@ export function getPageBySlug(
   const items: any = {};
 
   // Ensure only the minimal needed data is exposed
-  fields.forEach(field => {
+  for (const field of fields) {
     if (field === 'slug') {
       items[field] = actualSlug;
     }
     if (field === 'content') {
-      items[field] = renderMarkdown(content || '');
+      items[field] = await renderMarkdown(content || '');
     }
 
     if (data[field]) {
       items[field] = data[field];
     }
-  });
+  }
 
   return items;
 }
 
-export function getPostBySlug(
+export async function getPostBySlug(
   paths: string[],
   fields: string[] = [],
   category: PostKind = 'article',
@@ -53,12 +53,12 @@ export function getPostBySlug(
   const items: any = {};
 
   // Ensure only the minimal needed data is exposed
-  fields.forEach(field => {
+  for (const field of fields) {
     if (field === 'slug') {
       items[field] = `${year}/${month}/${day}/${slug}`;
     }
     if (field === 'content') {
-      items[field] = renderMarkdown(content || '');
+      items[field] = await renderMarkdown(content || '');
     }
     // if no date set, generate from filename.
     if (field === 'date' && !data[field]) {
@@ -68,7 +68,7 @@ export function getPostBySlug(
     if (data[field]) {
       items[field] = data[field];
     }
-  });
+  }
 
   return items;
 }

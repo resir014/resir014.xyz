@@ -4,21 +4,16 @@ import { NextPage, InferGetStaticPropsType } from 'next';
 import { MainContent } from '~/components/layout';
 import { PostBody, PostHeader } from '~/modules/posts';
 import { getAllPosts } from '~/lib/posts';
-import { renderMarkdown } from '~/lib/markdown-to-html';
 import { PhotoListItem } from '~/modules/photos';
 import siteMetadata from '~/lib/data/site-metadata';
 import { BasePhotoProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
-  const posts = await getAllPosts(
+  const allPosts: BasePhotoProps[] = await getAllPosts(
     ['category', 'title', 'slug', 'date', 'header_image', 'featured', 'content'],
     'photo'
   );
-  const allPosts: BasePhotoProps[] = posts.map(post => ({
-    ...post,
-    content: renderMarkdown(post.content || ''),
-  }));
 
   return {
     props: { allPosts, siteMetadata },

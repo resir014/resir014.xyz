@@ -54,6 +54,7 @@ export interface PhotoMetadata {
   category: PostKind;
   date: string;
   slug: string;
+  featured?: boolean;
   header_image?: string;
 }
 

@@ -3,7 +3,7 @@ import markdownit from 'markdown-it';
 import implicitFigures from 'markdown-it-implicit-figures';
 import loadPrismLanguage from './load-prism-language';
 
-export function renderMarkdown(markdown: string) {
+export async function renderMarkdown(markdown: string) {
   const md = markdownit({
     html: true,
     highlight: (code, lang) => {

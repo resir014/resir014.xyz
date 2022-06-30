@@ -2,13 +2,13 @@ import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
-import { ProjectMetadata } from '~/types/projects';
+import { BaseProjectProps } from '~/types/projects';
 import { ProjectBadge } from './project-badge';
 
 export interface FeaturedProjectCardProps extends React.ComponentPropsWithoutRef<'section'> {
   className?: string;
   style?: React.CSSProperties;
-  project: ProjectMetadata;
+  project: BaseProjectProps;
 }
 
 export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
