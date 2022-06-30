@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { slugByCategory } from './utils/slug-by-category';
-import { PostDate } from './post-date';
 import { PostKind } from '~/types/default';
 import siteMetadata from '~/lib/data/site-metadata';
+import { slugByCategory } from './utils/slug-by-category';
+import { PostDate } from './post-date';
 
 export interface PostMetaProps extends React.ComponentPropsWithoutRef<'section'> {
   date: string;

@@ -1,9 +1,9 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
+import { PostKind } from '~/types/default';
 import { renderMarkdown } from './markdown-to-html';
 import { getContentDirectory } from './content';
-import { PostKind } from '~/types/default';
 
 export const DEFAULT_PAGE_DIRECTORY = '_content/pages';
 export const DEFAULT_POST_DIRECTORY = '_content/posts';

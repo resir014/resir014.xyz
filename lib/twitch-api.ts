@@ -1,6 +1,5 @@
 import { stringifyUrl } from 'query-string';
 import useSWR from 'swr';
-import fetch from './fetch';
 import {
   HelixFollowsResponse,
   HelixStreamsResponse,
@@ -8,6 +7,7 @@ import {
   TwitchAPIUserResponse,
   TwitchOAuthResponse,
 } from '~/types/twitch';
+import fetch from './fetch';
 
 export async function getTwitchStreams(token: string, user: string | string[] = 'resir014') {
   console.log('Fetching broadcast info...');

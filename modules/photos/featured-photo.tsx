@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { PhotoListItem } from './photo-list-item';
 import { BasePhotoProps } from '~/types/posts';
+import { PhotoListItem } from './photo-list-item';
 
 export interface FeaturedPhotoProps {
   photo: BasePhotoProps;

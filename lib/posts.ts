@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import { PostKind } from '~/types/default';
 import { getContentDirectory } from './content';
 import { getPostBySlug } from './item-by-slug';
-import { PostKind } from '~/types/default';
 
 // Regex to parse date and title from the filename
 const BLOG_POST_SLUG_REGEX = /^([\d]{4})-([\d]{2})-([\d]{2})-(.+)\.md$/;

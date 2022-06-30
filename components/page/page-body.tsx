@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 import convert from 'htmr';
-import { Container, ContainerProps } from '../layout';
 import htmrTransform from '~/lib/htmr-transform';
+import { Container, ContainerProps } from '../layout';
 
 export interface PageBodyProps extends React.ComponentPropsWithoutRef<'div'> {
   htmlContent?: string;

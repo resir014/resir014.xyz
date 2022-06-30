@@ -1,12 +1,12 @@
 import * as React from 'react';
 import convert from 'htmr';
 
-import { PostHCard } from '.';
 import { Container, ContainerSizes } from '~/components/layout';
 import { SyndicationFormat } from '~/types/default';
 import htmrTransform from '~/lib/htmr-transform';
 import { SiteAuthor } from '~/lib/data/site-metadata';
 import { MessageBox } from '~/components/ui/message-box';
+import { PostHCard } from '.';
 
 export interface PostBodyProps {
   content?: string;
@@ -59,7 +59,7 @@ export const PostBody: React.FC<PostBodyProps> = ({
                 transform: htmrTransform,
               })}
             </div>
-            {author && <PostHCard author={author} />}
+            {author ? <PostHCard author={author} /> : null}
           </div>
         </Container>
       </section>
@@ -72,7 +72,7 @@ export const PostBody: React.FC<PostBodyProps> = ({
         <div className="space-y-12">
           {renderSyndication()}
           <div className="e-content">{children}</div>
-          {author && <PostHCard author={author} />}
+          {author ? <PostHCard author={author} /> : null}
         </div>
       </Container>
     </section>

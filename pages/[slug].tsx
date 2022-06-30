@@ -41,7 +41,7 @@ const MarkdownPage: NextPage<MarkdownPageProps> = ({ page }) => {
         <YouTubePreconnect />
         <MainContent pageTitle={title}>
           <Post>
-            {header_image && <PostHeaderImage src={header_image} alt={title} />}
+            {header_image ? <PostHeaderImage src={header_image} alt={title} /> : null}
             <PostHeader title={title} lead={lead} />
             <PageBody htmlContent={content} />
           </Post>

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { Container } from './container';
 import footerLinks from '~/lib/data/footer-links';
+import { Container } from './container';
 
 export function Footer() {
   const handleOptOut = () => {

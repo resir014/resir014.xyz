@@ -21,14 +21,14 @@ export const PostListItem: React.FC<PostListItemProps> = ({ post, className, sty
       >
         {formatPostDate(postDate)}
       </time>
-      {title && (
+      {title ? (
         <h3 className="text-lg lg:text-xl leading-tight">
           <Link href="/posts/[...slug]" as={`/posts/${slug}`}>
             <a className="helper-link-cover font-semibold no-underline hover:underline">{title}</a>
           </Link>
         </h3>
-      )}
-      {lead && <p className="text-sm lg:text-base text-chungking-grey-200">{lead}</p>}
+      ) : null}
+      {lead ? <p className="text-sm lg:text-base text-chungking-grey-200">{lead}</p> : null}
     </article>
   );
 };

@@ -1,11 +1,11 @@
 import convert from 'htmr';
 import Link from 'next/link';
 import * as React from 'react';
+import { BaseJamProps, BaseVideoProps } from '~/types/posts';
+import htmrTransform from '~/lib/htmr-transform';
 import { PostMeta } from '../posts';
 import { LiteYouTube } from './lite-youtube';
 import { VideoCard } from './video-card';
-import { BaseJamProps, BaseVideoProps } from '~/types/posts';
-import htmrTransform from '~/lib/htmr-transform';
 
 export default function renderFeaturedVideo(
   featuredPost: BaseJamProps | BaseVideoProps,

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { LinktreeCard } from '.';
 import { LinktreeItem } from '~/lib/data/linktree';
+import { LinktreeCard } from '.';
 
 export interface LinktreeSectionProps {
   className?: string;

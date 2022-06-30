@@ -48,7 +48,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
             }}
           />
           <Post>
-            {header_image && <PostHeaderImage src={header_image} alt={title} />}
+            {header_image ? <PostHeaderImage src={header_image} alt={title} /> : null}
             <PostHeader title={title} lead={lead} category={category} date={date} slug={slug} />
             <PostBody content={content} syndication={syndication} author={author} />
           </Post>

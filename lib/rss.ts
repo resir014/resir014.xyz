@@ -1,7 +1,7 @@
 import { Feed } from 'feed';
+import { BasePostProps } from '~/types/posts';
 import siteMetadata from './data/site-metadata';
 import { renderMarkdown } from './markdown-to-html';
-import { BasePostProps } from '~/types/posts';
 
 export async function generateRSS(posts: BasePostProps[]) {
   const { title, description, siteUrl, author: authorMetadata } = siteMetadata;
