@@ -1,12 +1,12 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import { ProjectMetadata } from '~/types/projects';
+import { BaseProjectProps } from '~/types/projects';
 import { FeaturedProjectCard } from './featured-project-card';
 
 export interface FeaturedProjectSectionProps extends React.ComponentPropsWithoutRef<'section'> {
   title?: string;
-  project?: ProjectMetadata;
+  project?: BaseProjectProps;
 }
 
 export const FeaturedProjectSection: React.FC<FeaturedProjectSectionProps> = ({
