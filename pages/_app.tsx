@@ -15,6 +15,7 @@ import 'typeface-inter';
 import '~/styles/global.css';
 import '~/styles/nprogress.css';
 import '~/styles/lite-youtube.css';
+import '~/styles/shiki-twoslash.css';
 
 const progress = nProgress.configure({ showSpinner: false });
 
