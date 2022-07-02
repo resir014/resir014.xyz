@@ -1,30 +1,39 @@
 /* stylelint-disable */
 
-/*  Start of Shiki Twoslash CSS:
+/*
+ * Start of Shiki Twoslash CSS
+ *
+ *
+ * Code blocks structurally look like:
+ *
+ * <pre class='shiki lsp twoslash [theme-name]'>
+ *   <div class='language-id'>[lang-id]</div>
+ *   <div class='code-container'>
+ *     <code>[the code as a series of spans]</code>
+ *     <a href='playground...'>Try</a> (optional)
+ *   </div>
+ * </pre>
+ */
 
-Code blocks structurally look like:
+/*
+ * TODO: include more styles from here:
+ * https://github.com/shikijs/twoslash/tree/main/packages/remark-shiki-twoslash#plugin-setup
+ */
 
-<pre class='shiki lsp twoslash [theme-name]'>
-  <div class='language-id'>[lang-id]</div>
-    <div class='code-container'>
-      <code>[the code as a series of spans]</code>
-      <a href='playground...'>Try</a> (optional)
-    </div>
-  </pre>
-*/
 @tailwind components;
 
 @layer components {
-  .shiki {
+  pre {
     /* Important to allow the code to move horizontally */
     @apply overflow-x-auto relative;
   }
-  .shiki > div:not(:only-child):first-child {
-    /* Language ID */
-    @apply absolute top-0 left-0 bg-[#1f2428] p-2 text-[14px] leading-none;
+
+  pre.shiki {
+    @apply overflow-x-auto;
   }
-  .shiki > div:not(:only-child):last-child {
-    /* Code container */
-    @apply pt-[30px];
+  pre.shiki > div:not(:only-child):first-child,
+  pre.shiki .language-id {
+    /* Don't show the language identifiers */
+    @apply hidden;
   }
 }
