@@ -9,7 +9,7 @@ export interface MainContentProps {
 
 export const MainContent: React.FC<MainContentProps> = ({ children, pageTitle }) => (
   <main className="block flex-auto relative">
-    {pageTitle && <NextSeo title={pageTitle} openGraph={{ title: pageTitle }} />}
+    {pageTitle ? <NextSeo title={pageTitle} openGraph={{ title: pageTitle }} /> : null}
     {children}
   </main>
 );

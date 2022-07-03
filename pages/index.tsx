@@ -26,7 +26,6 @@ import {
   BasePostProps,
   BaseVideoProps,
 } from '~/types/posts';
-import { ProjectMetadata } from '~/types/projects';
 import { BookmarkList } from '~/modules/bookmarks';
 import DefaultLayout from '~/layouts/default-layout';
 import { Divider } from '~/components/ui';
@@ -38,7 +37,7 @@ export const getStaticProps = async () => {
   const recentJam: BaseJamProps = await getFeaturedJam();
   const recentVideo: BaseVideoProps = await getFeaturedVideo();
   const featuredPhoto: BasePhotoProps = await getFeaturedPhoto();
-  const featuredProject: ProjectMetadata = getFeaturedProject([
+  const featuredProject = await getFeaturedProject([
     'category',
     'title',
     'header_image',
@@ -79,13 +78,17 @@ const IndexPage: NextPage<IndexPageProps> = ({ allPosts, featuredBookmarks, feat
           >
             <BookmarkList bookmarks={featuredBookmarks} />
           </HomepageSection>
-          <Divider size="lg" />
-          <HomepageSection
-            title="Featured project"
-            callToAction={{ text: 'View all projects', href: '/projects' }}
-          >
-            <FeaturedProjectCard project={featuredProject} />
-          </HomepageSection>
+          {featuredProject ? (
+            <>
+              <Divider size="lg" />
+              <HomepageSection
+                title="Featured project"
+                callToAction={{ text: 'View all projects', href: '/projects' }}
+              >
+                <FeaturedProjectCard project={featuredProject} />
+              </HomepageSection>
+            </>
+          ) : null}
         </div>
       </Container>
     </HomepageContent>

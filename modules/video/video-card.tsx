@@ -27,7 +27,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({
       {title || children ? (
         <div className="relative space-y-3 p-6">
           {metadata}
-          {title && <h1 className="text-2xl font-semibold p-name">{title}</h1>}
+          {title ? <h1 className="text-2xl font-semibold p-name">{title}</h1> : null}
           {children}
         </div>
       ) : null}

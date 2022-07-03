@@ -117,7 +117,7 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
         style={style}
         {...rest}
       >
-        {variant === 'minimal' && (
+        {variant === 'minimal' ? (
           <svg
             className={clsx('mr-1.5 h-2 w-2', getMinimalBadgeColors(colorScheme))}
             fill="currentColor"
@@ -125,7 +125,7 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
           >
             <circle cx={4} cy={4} r={3} />
           </svg>
-        )}
+        ) : null}
         {children}
       </span>
     );

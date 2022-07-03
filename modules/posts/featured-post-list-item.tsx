@@ -112,7 +112,7 @@ export const FeaturedPostListItem: React.FC<FeaturedPostListItemProps> = ({
       style={style}
       {...rest}
     >
-      {header_image && (
+      {header_image ? (
         <>
           <div role="presentation" className="absolute w-full h-full z-10">
             <Image src={header_image} layout="fill" objectFit="cover" />
@@ -126,7 +126,7 @@ export const FeaturedPostListItem: React.FC<FeaturedPostListItemProps> = ({
             className="absolute w-full h-full bg-chungking-black bg-opacity-75 z-30"
           />
         </>
-      )}
+      ) : null}
       <div className="flex flex-col justify-between w-full h-full p-4 z-50 space-y-6">
         <div className="space-y-2">
           <time
@@ -135,8 +135,10 @@ export const FeaturedPostListItem: React.FC<FeaturedPostListItemProps> = ({
           >
             {formatPostDate(postDate)}
           </time>
-          {title && <h3 className="text-lg lg:text-xl font-semibold leading-tight">{title}</h3>}
-          {lead && <p className="text-sm lg:text-base text-chungking-grey-200">{lead}</p>}
+          {title ? (
+            <h3 className="text-lg lg:text-xl font-semibold leading-tight">{title}</h3>
+          ) : null}
+          {lead ? <p className="text-sm lg:text-base text-chungking-grey-200">{lead}</p> : null}
         </div>
         <div>
           <Link href="/posts/[...slug]" as={`/posts/${slug}`}>

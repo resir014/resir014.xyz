@@ -2,9 +2,9 @@ import * as React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
 
-import { NavbarItems } from './navbar-items';
 import { MenuItem } from '~/lib/data/menu-items';
 import { Logo } from '~/components/ui';
+import { NavbarItems } from './navbar-items';
 
 export interface NavbarProps {
   title: string;

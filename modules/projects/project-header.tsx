@@ -16,7 +16,7 @@ export const ProjectHeader = React.forwardRef<HTMLDivElement, ProjectHeaderProps
     return (
       <header ref={ref} className={clsx('px-4 lg:px-6 pt-12', className)} style={style} {...rest}>
         <Container className="space-y-12">
-          {header_image && (
+          {header_image ? (
             <div className="relative w-full h-full aspect-video overflow-hidden rounded-md shadow-lg">
               <Image
                 loading="lazy"
@@ -26,7 +26,7 @@ export const ProjectHeader = React.forwardRef<HTMLDivElement, ProjectHeaderProps
                 objectFit="cover"
               />
             </div>
-          )}
+          ) : null}
           <div className="space-y-4">
             {tags ? (
               <div className="space-x-4">

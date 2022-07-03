@@ -29,14 +29,14 @@ export const HomepageSection: React.FC<HomepageSectionProps> = ({
     <section className={clsx('space-y-9', className)} style={style} {...rest}>
       <header className="space-y-2">
         <h2 className="text-3xl lg:text-4xl font-semibold">{title}</h2>
-        {description && <p className="text-lg lg:text-xl font-light">{description}</p>}
+        {description ? <p className="text-lg lg:text-xl font-light">{description}</p> : null}
       </header>
       <section>{children}</section>
-      {callToAction && (
+      {callToAction ? (
         <footer>
           <HomepageCallToAction {...callToAction} />
         </footer>
-      )}
+      ) : null}
     </section>
   );
 };

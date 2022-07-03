@@ -10,9 +10,11 @@ module.exports = {
   ],
   plugins: ['prettier'],
   rules: {
-    '@babel/new-cap': 'off',
+    'new-cap': 'off',
+    'no-await-in-loop': 'off',
     'import/no-extraneous-dependencies': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
+    'react/no-invalid-html-attribute': 'off',
   },
   settings: {
     'import/resolver': {

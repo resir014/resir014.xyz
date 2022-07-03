@@ -2,7 +2,8 @@ import * as React from 'react';
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import { NextSeo } from 'next-seo';
 
-import { getPostBySlug, getAllPosts } from '~/lib/posts';
+import { getAllPosts } from '~/lib/posts';
+import { getPostBySlug } from '~/lib/item-by-slug';
 
 import { Container, MainContent } from '~/components/layout';
 import { LiteYouTube, VideoCard } from '~/modules/video';
@@ -56,7 +57,7 @@ const JamPostPage: NextPage<JamPostPageProps> = ({ post }) => {
 
 export const getStaticProps: GetStaticProps = async ctx => {
   if (ctx.params && Array.isArray(ctx.params.slug)) {
-    const post = getPostBySlug(
+    const post = await getPostBySlug(
       ctx.params.slug,
       ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
       'jam'

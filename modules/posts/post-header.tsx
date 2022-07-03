@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { PostMeta } from './post-meta';
 import { Container } from '~/components/layout';
 import { PostKind } from '~/types/default';
+import { PostMeta } from './post-meta';
 
 export interface PostHeaderProps {
   title?: string;
@@ -16,11 +16,13 @@ export const PostHeader: React.FC<PostHeaderProps> = ({ title, lead, date, categ
     <header className="px-4 lg:px-6 pt-12">
       <Container className="space-y-8">
         <div className="space-y-4">
-          {date && category && <PostMeta date={date} category={category} slug={slug} />}
-          {title && (
+          {date && category ? <PostMeta date={date} category={category} slug={slug} /> : null}
+          {title ? (
             <h1 className="p-name text-3xl sm:text-4xl lg:text-5xl font-semibold">{title}</h1>
-          )}
-          {lead && <p className="p-summary text-lg sm:text-xl lg:text-2xl font-light">{lead}</p>}
+          ) : null}
+          {lead ? (
+            <p className="p-summary text-lg sm:text-xl lg:text-2xl font-light">{lead}</p>
+          ) : null}
         </div>
       </Container>
     </header>

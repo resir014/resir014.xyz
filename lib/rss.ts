@@ -1,7 +1,7 @@
 import { Feed } from 'feed';
+import { BasePostProps } from '~/types/posts';
 import siteMetadata from './data/site-metadata';
 import { renderMarkdown } from './markdown-to-html';
-import { BasePostProps } from '~/types/posts';
 
 export async function generateRSS(posts: BasePostProps[]) {
   const { title, description, siteUrl, author: authorMetadata } = siteMetadata;
@@ -27,21 +27,21 @@ export async function generateRSS(posts: BasePostProps[]) {
     },
   });
 
-  posts.forEach(post => {
-    console.log(post);
+  for (const post of posts) {
     const url = `${siteUrl}/posts/${post.slug}/`;
+    const content = await renderMarkdown(post.content || '');
 
     feed.addItem({
+      content,
       title: post.title ?? '',
       id: url,
       link: url,
       description: post.lead,
-      content: renderMarkdown(post.content || ''),
       author: [author],
       contributor: [author],
       date: new Date(post.date),
     });
-  });
+  }
 
   return feed;
 }

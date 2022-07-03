@@ -4,7 +4,6 @@ import { MainContent } from '~/components/layout';
 import { PostHeader } from '~/modules/posts';
 import { FeaturedProjectSection, ProjectSection } from '~/modules/projects';
 import { getAllProjects, getFeaturedProject, filterProjectsByCategory } from '~/lib/projects';
-import { ProjectMetadata } from '~/types/projects';
 import DefaultLayout from '~/layouts/default-layout';
 import { Page, PageBody } from '~/components/page';
 import { Divider } from '~/components/ui';
@@ -20,8 +19,8 @@ export const getStaticProps = async () => {
     'slug',
   ];
 
-  const allProjects: ProjectMetadata[] = getAllProjects(projectFields);
-  const featuredProject: ProjectMetadata = getFeaturedProject(projectFields);
+  const allProjects = await getAllProjects(projectFields);
+  const featuredProject = await getFeaturedProject(projectFields);
 
   return {
     props: { allProjects, featuredProject },

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import useSWR from 'swr';
-import { TopTracksResponse } from './types';
 import fetch from '~/lib/fetch';
+import { TopTracksResponse } from './types';
 
 export function useSpotifyTopTracks() {
   const { data, error } = useSWR<TopTracksResponse>('/api/spotify/top-tracks', fetch);

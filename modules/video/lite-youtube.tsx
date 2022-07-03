@@ -52,7 +52,7 @@ export const LiteYouTube: React.FC<LiteYouTubeProps> = ({ videoId, className, st
       aria-label="Play media"
     >
       <div className="lty-playbtn" />
-      {activated && (
+      {activated ? (
         <iframe
           title="YouTube Video"
           width="700"
@@ -62,7 +62,7 @@ export const LiteYouTube: React.FC<LiteYouTubeProps> = ({ videoId, className, st
           allowFullScreen
           src={`https://www.youtube-nocookie.com/embed/${encodedVideoId}?autoplay=1`}
         />
-      )}
+      ) : null}
     </div>
   );
 };

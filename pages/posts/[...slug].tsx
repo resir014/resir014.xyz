@@ -2,7 +2,8 @@ import * as React from 'react';
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import { NextSeo } from 'next-seo';
 
-import { getPostBySlug, getAllPosts } from '~/lib/posts';
+import { getAllPosts } from '~/lib/posts';
+import { getPostBySlug } from '~/lib/item-by-slug';
 
 import { MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
@@ -47,7 +48,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
             }}
           />
           <Post>
-            {header_image && <PostHeaderImage src={header_image} alt={title} />}
+            {header_image ? <PostHeaderImage src={header_image} alt={title} /> : null}
             <PostHeader title={title} lead={lead} category={category} date={date} slug={slug} />
             <PostBody content={content} syndication={syndication} author={author} />
           </Post>
@@ -61,7 +62,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ post }) => {
 
 export const getStaticProps: GetStaticProps = async ctx => {
   if (ctx.params && Array.isArray(ctx.params.slug)) {
-    const post: BasePostProps = getPostBySlug(ctx.params.slug, [
+    const post: BasePostProps = await getPostBySlug(ctx.params.slug, [
       'category',
       'title',
       'lead',

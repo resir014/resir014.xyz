@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { useTwitchUsers } from '~/lib/twitch-api';
 import { DashboardSection, DashboardSectionProps, StatBlock } from '../dashboard';
 import { LiveStreamStatus } from './live-stream-status';
-import { useTwitchUsers } from '~/lib/twitch-api';
 
 export interface LiveStreamDashboardProps extends Omit<DashboardSectionProps, 'title'> {
   username?: string;

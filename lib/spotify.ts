@@ -1,6 +1,6 @@
 import qs from 'query-string';
-import fetch from './fetch';
 import { SpotifyCurrentlyPlaying, SpotifyTopTracks } from '~/modules/spotify/types';
+import fetch from './fetch';
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;

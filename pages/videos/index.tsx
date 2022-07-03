@@ -6,19 +6,14 @@ import { PostBody, PostHeader } from '~/modules/posts';
 import { renderVideoList } from '~/modules/video';
 import { getAllPosts } from '~/lib/posts';
 import siteMetadata from '~/lib/data/site-metadata';
-import { renderMarkdown } from '~/lib/markdown-to-html';
 import { BaseVideoProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
-  const posts = await getAllPosts(
+  const allPosts: BaseVideoProps[] = await getAllPosts(
     ['category', 'title', 'slug', 'date', 'youtube_embed_id', 'featured', 'content'],
     'video'
   );
-  const allPosts: BaseVideoProps[] = posts.map(post => ({
-    ...post,
-    content: renderMarkdown(post.content || ''),
-  }));
 
   return {
     props: { allPosts, siteMetadata },
