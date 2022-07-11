@@ -19,5 +19,5 @@ export async function renderMarkdown(markdown?: string) {
     return result;
   }
 
-  return null;
+  return '';
 }
