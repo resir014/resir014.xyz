@@ -22,16 +22,19 @@ export const getStaticProps = async () => {
   const allProjects = await getAllProjects(projectFields);
   const featuredProject = await getFeaturedProject(projectFields);
 
+  const projectsByCategory = filterProjectsByCategory(allProjects);
+
   return {
-    props: { allProjects, featuredProject },
+    props: { projectsByCategory, featuredProject },
   };
 };
 
 type ProjectsIndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, featuredProject }) => {
-  const filteredProjects = filterProjectsByCategory(allProjects);
-
+const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({
+  projectsByCategory,
+  featuredProject,
+}) => {
   return (
     <DefaultLayout>
       <MainContent pageTitle="Projects">
@@ -41,7 +44,7 @@ const ProjectsIndexPage: NextPage<ProjectsIndexPageProps> = ({ allProjects, feat
             <div className="space-y-12">
               <FeaturedProjectSection title="Featured project" project={featuredProject} />
               <Divider size="lg" />
-              {filteredProjects.map(filteredProject => (
+              {projectsByCategory.map(filteredProject => (
                 <ProjectSection
                   key={filteredProject.category}
                   title={filteredProject.title}

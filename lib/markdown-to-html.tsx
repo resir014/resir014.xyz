@@ -2,7 +2,7 @@ import markdownit from 'markdown-it';
 import implicitFigures from 'markdown-it-implicit-figures';
 import { markdownItShikiTwoslashSetup } from 'markdown-it-shiki-twoslash';
 
-export async function renderMarkdown(markdown: string) {
+export async function renderMarkdown(markdown?: string) {
   const md = markdownit({
     html: true,
   });
@@ -13,6 +13,11 @@ export async function renderMarkdown(markdown: string) {
 
   md.use(implicitFigures);
   md.use(shiki);
-  const result = md.render(markdown);
-  return result;
+
+  if (markdown) {
+    const result = md.render(markdown);
+    return result;
+  }
+
+  return '';
 }

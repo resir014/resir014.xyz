@@ -45,8 +45,9 @@ export async function getProjectBySlug(slug: string, fields: string[] = []) {
     if (field === 'slug') {
       items[field] = actualSlug;
     }
+
     if (field === 'content') {
-      items[field] = await renderMarkdown(content || '');
+      items[field] = await renderMarkdown(content);
     }
 
     if (data[field]) {
