@@ -67,7 +67,6 @@ export async function getAllProjects(fields: string[] = []) {
     posts.push(post);
   }
 
-  console.log(posts);
   return posts;
 }
 
