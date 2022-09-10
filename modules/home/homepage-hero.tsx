@@ -4,7 +4,7 @@ import * as React from 'react';
 import siteMetadata from '~/lib/data/site-metadata';
 
 export const HomepageHero: React.FC = () => {
-  const { author } = siteMetadata;
+  const { title, description } = siteMetadata;
 
   return (
     <div className="relative w-full h-[360px] overflow-hidden">
@@ -14,9 +14,9 @@ export const HomepageHero: React.FC = () => {
         <div className="flex flex-col space-y-6 items-center">
           <div className="space-y-2 text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl text-chungking-turquoise-400 font-semibold">
-              {author.name}
+              {title}
             </h1>
-            <p className="text-lg sm:text-xl lg:text-2xl font-semibold">{author.description}</p>
+            <p className="text-lg sm:text-xl lg:text-2xl font-semibold">{description}</p>
           </div>
         </div>
       </div>
