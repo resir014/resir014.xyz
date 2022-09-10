@@ -32,7 +32,7 @@ export const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
         className={clsx(
           'flex items-center',
           align === 'center' ? 'justify-center' : 'justify-start',
-          size === 'lg' ? 'space-x-9' : 'space-y-4',
+          size === 'lg' ? 'space-x-9' : 'space-x-4',
           className
         )}
         style={style}

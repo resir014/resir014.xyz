@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import * as React from 'react';
 import { Container } from '~/components/layout';
 
@@ -10,7 +9,7 @@ export interface HomepageIntroductionProps extends React.ComponentPropsWithoutRe
 export const HomepageIntroduction = React.forwardRef<HTMLDivElement, HomepageIntroductionProps>(
   ({ className, style, ...rest }, ref) => {
     return (
-      <section ref={ref} className={clsx('text-center', className)} style={style} {...rest}>
+      <section ref={ref} className={className} style={style} {...rest}>
         <Container size="sm">
           <p className="font-light text-xl lg:text-2xl">
             Hey there, I&apos;m Resi! I&apos;m a self-taught web developer based in Jakarta,
