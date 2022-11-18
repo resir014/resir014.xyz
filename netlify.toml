@@ -4,9 +4,6 @@
 [build.environment]
   YARN_VERSION = "1.22.5"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
 # Temporary header config until Netlify supports setting `headers` on `next.config.js`
 # https://github.com/netlify/netlify-plugin-nextjs/issues/150
 
