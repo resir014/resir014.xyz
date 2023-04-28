@@ -316,3 +316,7 @@ There are of course, some things to iron out. For example, using Next.js API Rou
 But solving these problems is always the most interesting part. As with any projects we do here, this is not the end, but a beginning. We hope that sharing our work will help any folks doing live production for Trackmania events, no matter how big or small. And we hope that as community organisers, we can work together in providing a better production value for everyone.
 
 As a way to give back to the community, I've made the source code to the overlays open-source and available on [GitHub](https://github.com/Trackmania-Asia-OCE/aotc-broadcast-package). Feel free to take it apart, fork it, and learn from it!
+
+---
+
+_Thanks to Oskars 'SRK' Zvejnieks for their help in co-authoring this article._
