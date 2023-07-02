@@ -21,8 +21,8 @@ export default function renderFeaturedVideo(
         />
       }
       title={
-        <Link href={`/${category}/[...slug]`} as={`/${category}/${featuredPost.slug}`} passHref>
-          <a>{featuredPost.title}</a>
+        <Link href={`/${category}/[...slug]`} as={`/${category}/${featuredPost.slug}`}>
+          {featuredPost.title}
         </Link>
       }
       embed={<LiteYouTube videoId={featuredPost.youtube_embed_id} />}

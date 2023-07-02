@@ -39,8 +39,12 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({
         ) : null}
         <div className="space-y-1">
           <h2 className="text-xl lg:text-2xl leading-tight lg:leading-tight font-semibold">
-            <Link href="/projects/[slug]" as={`/projects/${slug}`} passHref>
-              <a className="helper-link-cover hover:underline">{title}</a>
+            <Link
+              href="/projects/[slug]"
+              as={`/projects/${slug}`}
+              className="helper-link-cover hover:underline"
+            >
+              {title}
             </Link>
           </h2>
           <p className="text-base text-chungking-grey-200">{description}</p>

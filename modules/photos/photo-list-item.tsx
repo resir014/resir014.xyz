@@ -25,9 +25,7 @@ export const PhotoListItem: React.FC<PhotoListItemProps> = ({
       {header_image ? (
         <section>
           <Link href="/photos/[...slug]" as={`/photos/${slug}`}>
-            <a>
-              <PhotoWrapper image={header_image} />
-            </a>
+            <PhotoWrapper image={header_image} />
           </Link>
         </section>
       ) : null}
