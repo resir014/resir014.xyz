@@ -21,7 +21,7 @@ type BookmarksPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 const BookmarksPage: NextPage<BookmarksPageProps> = ({ bookmarks }) => {
   return (
     <DefaultLayout>
-      <MainContent pageTitle="Bookmarks">
+      <MainContent pageTitle="Bookmarks" pageDescription="@resir014's reading list.">
         <Post>
           <PostHeader title="Bookmarks" lead="@resir014's reading list." />
           <PostBody>

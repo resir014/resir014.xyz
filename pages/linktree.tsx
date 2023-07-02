@@ -19,7 +19,10 @@ type LinktreePageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const LinktreePage: NextPage<LinktreePageProps> = ({ linktree }) => {
   return (
-    <MainContent pageTitle="Linktree">
+    <MainContent
+      pageTitle="Linktree"
+      pageDescription="Everywhere I am on the Internet, on one neatly-organised list!"
+    >
       <LinktreeHeader />
       <PageBody>
         <div className="space-y-12">
