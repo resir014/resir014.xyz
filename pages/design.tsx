@@ -8,9 +8,12 @@ import { Post, PostBody, PostHeader } from '~/modules/posts';
 const DesignPage: NextPage = () => {
   return (
     <DefaultLayout>
-      <MainContent pageTitle="Design">
+      <MainContent
+        pageTitle="Brand & Design"
+        pageDescription="Design assets for the resir014 brand."
+      >
         <Post>
-          <PostHeader title="Chungking Design System" />
+          <PostHeader title="Brand & Design" />
           <PostBody>
             <ColorSpecs />
           </PostBody>
