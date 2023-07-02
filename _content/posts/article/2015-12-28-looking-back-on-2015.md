@@ -1,11 +1,9 @@
-2015-12-28-looking-back-on-2015---
+---
 category: article
 layout: post
 title: Looking back on 2015
 tags:
-
-- personal
-
+  - personal
 ---
 
 This is actually the first time I've ever done a year-in-review of some sort so I don't really know how to do this thing, but _man_, 2015 has been **one hell of a year** for me. Lots of things happened throughout this past year, some good, some bad, and going through all of them would be a pain.
