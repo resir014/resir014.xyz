@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 
 import { PostMetadata } from '~/types/posts';
 import { formatPostDate } from '~/lib/date-formatter';

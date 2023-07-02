@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import * as React from 'react';
 import { Container } from '~/components/layout';
 import { Avatar } from '~/components/ui';
