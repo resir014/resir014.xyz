@@ -6,10 +6,10 @@ export interface PostProps {
   style?: React.CSSProperties;
 }
 
-export const Post: React.FC<PostProps> = ({ children, className, style }) => {
+export function Post({ children, className, style }: React.PropsWithChildren<PostProps>) {
   return (
     <article className={clsx('h-entry', className)} style={style}>
       {children}
     </article>
   );
-};
+}

@@ -15,13 +15,13 @@ export interface PostBodyProps {
   author?: SiteAuthor;
 }
 
-export const PostBody: React.FC<PostBodyProps> = ({
+export function PostBody({
   content,
   syndication,
   containerSize = 'md',
   author,
   children,
-}) => {
+}: React.PropsWithChildren<PostBodyProps>) {
   const renderSyndication = () => {
     if (syndication) {
       return (
@@ -77,4 +77,4 @@ export const PostBody: React.FC<PostBodyProps> = ({
       </Container>
     </section>
   );
-};
+}
