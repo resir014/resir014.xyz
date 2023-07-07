@@ -24,7 +24,7 @@ export function HomepageCallToAction({
       className={clsx('group text-chungking-turquoise-400 text-lg lg:text-xl', className)}
       {...rest}
     >
-      <span className="group-hover:underline">{text}</span> <span role="presentation">&rarr;</span>
+      <span className="group-hover:underline">{text}</span> <span>&rarr;</span>
     </Link>
   );
 }
