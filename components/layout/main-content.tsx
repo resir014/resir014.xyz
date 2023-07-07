@@ -8,19 +8,21 @@ export interface MainContentProps {
   pageDescription?: string;
 }
 
-export const MainContent: React.FC<MainContentProps> = ({
+export function MainContent({
   children,
   pageTitle,
   pageDescription,
-}) => (
-  <main className="block flex-auto relative">
-    {pageTitle ? (
-      <NextSeo
-        title={pageTitle}
-        description={pageDescription}
-        openGraph={{ title: pageTitle, description: pageDescription }}
-      />
-    ) : null}
-    {children}
-  </main>
-);
+}: React.PropsWithChildren<MainContentProps>) {
+  return (
+    <main className="block flex-auto relative">
+      {pageTitle ? (
+        <NextSeo
+          title={pageTitle}
+          description={pageDescription}
+          openGraph={{ title: pageTitle, description: pageDescription }}
+        />
+      ) : null}
+      {children}
+    </main>
+  );
+}

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { ProjectMetadata } from '~/types/projects';
 import { ProjectBadge } from './project-badge';
 

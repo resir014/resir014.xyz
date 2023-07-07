@@ -10,12 +10,12 @@ export interface PhotoPostBodyProps {
   containerSize?: ContainerSizes;
 }
 
-export const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({
+export function PhotoPostBody({
   content,
   containerSize = 'md',
   image,
   children,
-}) => {
+}: React.PropsWithChildren<PhotoPostBodyProps>) {
   const renderContent = () => {
     if (content) {
       return convert(content, { transform: htmrTransform });
@@ -36,4 +36,4 @@ export const PhotoPostBody: React.FC<PhotoPostBodyProps> = ({
       </Container>
     </section>
   );
-};
+}

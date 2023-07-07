@@ -11,7 +11,11 @@ interface DefaultLayoutProps {
   style?: React.CSSProperties;
 }
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children, className, style }) => {
+export default function DefaultLayout({
+  children,
+  className,
+  style,
+}: React.PropsWithChildren<DefaultLayoutProps>) {
   const { author } = siteMetadata;
 
   return (
@@ -36,6 +40,4 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children, className, styl
       <Footer />
     </LayoutRoot>
   );
-};
-
-export default DefaultLayout;
+}

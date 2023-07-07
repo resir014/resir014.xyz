@@ -1,7 +1,7 @@
 // @ts-check
 const flavours = require('./config/flavour-text');
 
-/** @type {import("next/dist/server/config-shared").NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
   env: {
     FLAVOUR_TEXT:
@@ -13,10 +13,9 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  // https://github.com/vercel/next.js/blob/v12.0.7/packages/next/server/config-shared.ts#L127-L172
+  // https://github.com/vercel/next.js/blob/v13.4.9/packages/next/src/server/config-shared.ts#L147-L300
   experimental: {
     optimizeCss: true,
-    workerThreads: true,
   },
 
   // This config won't be loaded until Netlify supports the `headers` option on `next.config.js`.

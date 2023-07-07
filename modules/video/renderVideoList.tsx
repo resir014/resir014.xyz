@@ -16,8 +16,8 @@ export default function renderVideoList(
       key={post.slug}
       metadata={<PostDate date={post.date} />}
       title={
-        <Link href={`/${category}/[...slug]`} as={`/${category}/${post.slug}`} passHref>
-          <a>{post.title}</a>
+        <Link href={`/${category}/[...slug]`} as={`/${category}/${post.slug}`}>
+          {post.title}
         </Link>
       }
       embed={<LiteYouTube videoId={post.youtube_embed_id} />}

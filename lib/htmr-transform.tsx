@@ -54,26 +54,26 @@ const htmrTransform: HtmrOptions['transform'] = {
     return <div {...rest}>{children}</div>;
   },
   a: (node: JSX.IntrinsicElements['a']) => {
-    const { href, children, ...rest } = node;
+    const { href, children, ref, ...rest } = node;
 
     if (href) {
       if (href.substr(0, 4) === 'http') {
         return (
-          <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+          <a ref={ref} href={href} target="_blank" rel="noopener noreferrer" {...rest}>
             {children}
           </a>
         );
       }
 
       return (
-        <Link href={href} passHref>
-          <a {...rest}>{children}</a>
+        <Link href={href} passHref {...rest}>
+          {children}
         </Link>
       );
     }
 
     return (
-      <a href={href} {...rest}>
+      <a ref={ref} href={href} {...rest}>
         {children}
       </a>
     );

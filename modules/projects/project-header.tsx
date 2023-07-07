@@ -1,6 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { ProjectMetadata } from '~/types/projects';
 import { Container } from '~/components/layout';
 import { PageMetaItem } from '~/components/page';

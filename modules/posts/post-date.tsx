@@ -14,12 +14,10 @@ export const PostDate: React.FC<PostDateProps> = ({ className, style, date, href
   const renderTimestamp = () => {
     if (href) {
       return (
-        <Link href={href}>
-          <a className="hover:underline">
-            <time className="dt-published" dateTime={postDate.toISOString()}>
-              {formatPostDate(postDate)}
-            </time>
-          </a>
+        <Link href={href} className="hover:underline">
+          <time className="dt-published" dateTime={postDate.toISOString()}>
+            {formatPostDate(postDate)}
+          </time>
         </Link>
       );
     }

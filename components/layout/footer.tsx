@@ -18,10 +18,12 @@ export function Footer() {
           <nav className="-mx-4 -my-1 flex flex-wrap" aria-label="Footer">
             {footerLinks.map(item => (
               <div key={item.name} className="px-4 py-1">
-                <Link href={item.path} as={item.as}>
-                  <a className="text-sm text-chungking-grey-400 hover:text-chungking-grey-100">
-                    {item.name}
-                  </a>
+                <Link
+                  href={item.path}
+                  as={item.as}
+                  className="text-sm text-chungking-grey-400 hover:text-chungking-grey-100"
+                >
+                  {item.name}
                 </Link>
               </div>
             ))}

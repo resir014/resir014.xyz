@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/prefer-tag-over-role */
 import * as React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 
 import { PostMetadata } from '~/types/posts';
 import { formatPostDate } from '~/lib/date-formatter';
@@ -141,10 +142,8 @@ export const FeaturedPostListItem: React.FC<FeaturedPostListItemProps> = ({
           {lead ? <p className="text-sm lg:text-base text-chungking-grey-200">{lead}</p> : null}
         </div>
         <div>
-          <Link href="/posts/[...slug]" as={`/posts/${slug}`}>
-            <a className="helper-link-cover group">
-              <span className="group-hover:underline">Read more</span> &rarr;
-            </a>
+          <Link href="/posts/[...slug]" as={`/posts/${slug}`} className="helper-link-cover group">
+            <span className="group-hover:underline">Read more</span> &rarr;
           </Link>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import Link, { LinkProps } from 'next/link';
 import * as React from 'react';
 
@@ -7,7 +8,7 @@ export interface HomepageCallToActionProps extends LinkProps {
   text: string;
 }
 
-export const HomepageCallToAction: React.FC<HomepageCallToActionProps> = ({
+export function HomepageCallToAction({
   children,
   className,
   style,
@@ -15,13 +16,15 @@ export const HomepageCallToAction: React.FC<HomepageCallToActionProps> = ({
   as,
   text,
   ...rest
-}) => {
+}: React.PropsWithChildren<HomepageCallToActionProps>) {
   return (
-    <Link href={href} as={as} {...rest}>
-      <a className="group text-chungking-turquoise-400 text-lg lg:text-xl">
-        <span className="group-hover:underline">{text}</span>{' '}
-        <span role="presentation">&rarr;</span>
-      </a>
+    <Link
+      href={href}
+      as={as}
+      className={clsx('group text-chungking-turquoise-400 text-lg lg:text-xl', className)}
+      {...rest}
+    >
+      <span className="group-hover:underline">{text}</span> <span>&rarr;</span>
     </Link>
   );
-};
+}
