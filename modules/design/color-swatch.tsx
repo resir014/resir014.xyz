@@ -23,20 +23,26 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText
   }
 
   return (
-    <button
-      className="group not-prose inline-block w-[92px] m-0 mr-6 mb-6 p-2 border-none rounded-md bg-chungking-grey-800 cursor-pointer"
-      type="button"
-      onClick={copyToClipboard(color)}
-    >
-      <div
+    <div className="not-prose group flex flex-row h-[72px] m-0 py-1 pl-4 pr-1 border-none rounded-md bg-chungking-grey-800 shadow-single overflow-hidden">
+      <div className="flex items-center flex-1">
+        <div>
+          <span className="block text-md leading-tight font-semibold text-chungking-white">
+            {title}
+          </span>
+          <span className="block text-sm leading-normal text-chungking-grey-300">{color}</span>
+        </div>
+      </div>
+      <button
         className={clsx(
-          'flex items-center justify-center h-[76px] w-[76px] text-xs rounded-sm group-focus:opacity-70',
+          'flex items-center justify-center h-[64px] w-[64px] text-xs rounded-[4px] group-focus:opacity-70 cursor-pointer',
           darkText ? 'text-chungking-black' : 'text-chungking-white'
         )}
         style={{ backgroundColor: color }}
+        type="button"
+        onClick={copyToClipboard(color)}
       >
-        {copySuccess ?? title ?? color}
-      </div>
-    </button>
+        {copySuccess ?? 'Copy'}
+      </button>
+    </div>
   );
 };
