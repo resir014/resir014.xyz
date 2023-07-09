@@ -57,7 +57,13 @@ export function LogoSpecs() {
         </LogoCard>
       </LogoCardContainer>
       <p>
-        <a>Download the logo pack here.</a>
+        <a
+          href="https://drive.google.com/file/d/1cK9rKzOKg9xjj5-BhlK5M3GsHpDCKu2X/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download the logo pack here.
+        </a>
       </p>
     </>
   );
