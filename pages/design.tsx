@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import * as React from 'react';
 import { MainContent } from '~/components/layout';
 import DefaultLayout from '~/layouts/default-layout';
-import { ColorSpecs } from '~/modules/design';
+import { ColorSpecs, LogoSpecs } from '~/modules/design';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
 
 const DesignPage: NextPage = () => {
@@ -15,7 +15,10 @@ const DesignPage: NextPage = () => {
         <Post>
           <PostHeader title="Brand & Design" />
           <PostBody>
-            <ColorSpecs />
+            <div className="prose lg:prose-lg prose-base prose-invert prose-chungking">
+              <LogoSpecs />
+              <ColorSpecs />
+            </div>
           </PostBody>
         </Post>
       </MainContent>
