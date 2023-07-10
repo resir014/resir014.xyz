@@ -30,7 +30,7 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText
       disabled={!!copySuccess}
       onClick={copyToClipboard(color)}
     >
-      <div className="flex items-center w-full text-left py-2 space-x-2">
+      <div className="flex items-center justify-center w-full text-left py-2 space-x-2">
         <span className="block text-sm leading-normal font-semibold text-chungking-white">
           {title}
         </span>
@@ -38,7 +38,7 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText
       </div>
       <div
         className={clsx(
-          'flex items-center justify-center align-middle space-x-1 w-full h-[36px] text-xs rounded-[4px] px-4 py-2 group-focus:opacity-70 cursor-pointer border',
+          'flex items-center justify-center align-middle space-x-1 w-full h-[36px] text-xs rounded-[4px] px-4 group-focus:opacity-70 cursor-pointer border',
           darkText
             ? 'text-chungking-black border-chungking-black border-opacity-20'
             : 'text-chungking-white border-chungking-white border-opacity-20'
