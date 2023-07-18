@@ -62,16 +62,16 @@ export function LogoSpecs() {
           <Image
             src="/static/brand/logo-lightmode.png"
             alt="resir014's icon, in dark mode"
-            width={36}
-            height={63.5}
+            width={108}
+            height={190}
           />
         </LogoCard>
         <LogoCard mode="dark">
           <Image
             src="/static/brand/logo-darkmode.png"
             alt="resir014's icon, in dark mode"
-            width={36}
-            height={63.5}
+            width={108}
+            height={190}
           />
         </LogoCard>
       </LogoCardContainer>
