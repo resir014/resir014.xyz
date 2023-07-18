@@ -18,6 +18,25 @@ export function LogoSpecs() {
         </a>
         )
       </p>
+      <h3>Guidelines</h3>
+      <ul>
+        <li>
+          Only use the colours provided in the guidelines.
+          <ul>
+            <li>White + blue for dark mode</li>
+            <li>Black + blue for light mode</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Do not</strong> flip the logo. The chevron always points to the right.
+        </li>
+        <li>
+          <strong>Do not</strong> stretch/skew the logo.
+        </li>
+        <li>
+          <strong>Do not</strong> use any font other than Inter for the wordmark.
+        </li>
+      </ul>
       <h3>Icon + Wordmark</h3>
       <LogoCardContainer>
         <LogoCard mode="light">
