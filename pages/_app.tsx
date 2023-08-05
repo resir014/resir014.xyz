@@ -7,6 +7,7 @@ import { colors } from '@resir014/chungking-core';
 
 import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo';
 import { event, pageview } from '~/lib/ga';
+import { trpc } from '~/lib/trpc';
 import siteMetadata from '~/lib/data/site-metadata';
 import { NextAppProps } from '~/types/next';
 
@@ -107,4 +108,4 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
   );
 }
 
-export default App;
+export default trpc.withTRPC(App);
