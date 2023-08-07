@@ -1,6 +1,7 @@
 import * as trpc from '@trpc/server';
 import * as z from 'zod';
 import { getNowPlaying, getTopTracks } from '~/lib/spotify';
+import { CurrentlyPlayingResponse } from '~/modules/spotify/types';
 import { publicProcedure, router } from '../trpc';
 
 export const spotifyRouter = router({
@@ -24,9 +25,9 @@ export const spotifyRouter = router({
         songUrl,
         title,
         id,
-      };
+      } as CurrentlyPlayingResponse;
     } catch (err: unknown) {
-      return { isPlaying: false };
+      return { isPlaying: false } as CurrentlyPlayingResponse;
     }
   }),
   getTopTracks: publicProcedure

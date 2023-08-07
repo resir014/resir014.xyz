@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import * as React from 'react';
 import { PlayCircle } from 'react-feather';
-import { useCurrentlyPlaying } from './use-currently-playing';
+import { trpc } from '~/lib/trpc';
 
 export function SpotifyCurrentlyPlaying() {
-  const { data } = useCurrentlyPlaying();
+  const { data } = trpc.spotify.getCurrentlyPlaying.useQuery();
 
   return (
     <div className="flex items-start relative space-x-4 bg-chungking-grey-800 px-4 py-2 rounded-md shadow-single">
