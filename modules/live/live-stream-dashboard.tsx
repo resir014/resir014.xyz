@@ -21,12 +21,12 @@ export const LiveStreamDashboard: React.FC<LiveStreamDashboardProps> = ({
           title="Twitch followers"
           count={data?.followers}
           isLoading={isLoading || !data}
+          externalLink="https://www.twitch.tv/resir014"
         />
         <StatBlock
-          title="Twitch viewers"
-          count={data?.view_count}
-          isLoading={isLoading || !data}
-          externalLink="https://www.twitch.tv/resir014"
+          title="YouTube subscribers"
+          count={0}
+          externalLink="https://www.youtube.com/@resir014"
         />
       </div>
     </DashboardSection>

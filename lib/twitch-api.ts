@@ -1,13 +1,12 @@
 import { stringifyUrl } from 'query-string';
-import useSWR from 'swr';
 import {
   HelixFollowsResponse,
   HelixStreamsResponse,
   HelixUsersResponse,
-  TwitchAPIUserResponse,
   TwitchOAuthResponse,
 } from '~/types/twitch';
 import fetch from './fetch';
+import { trpc } from './trpc';
 
 export async function getTwitchStreams(token: string, user: string | string[] = 'resir014') {
   console.log('Fetching broadcast info...');
@@ -112,41 +111,26 @@ export async function getTwitchToken() {
 }
 
 export function useTwitchUsers(user = 'resir014') {
-  const { data, error } = useSWR<TwitchAPIUserResponse, unknown>(
-    `/api/twitch/users?user=${user}`,
-    fetch
-  );
+  const { data, isLoading, error } = trpc.twitch.getTwitchUsers.useQuery({
+    users: user,
+  });
 
   return {
-    data: data ?? undefined,
-    isLoading: !error && !data,
-    isError: error,
+    isLoading,
+    data,
+    error,
   } as const;
 }
 
 export function useTwitchStreams(user = 'resir014') {
-  const { data, error } = useSWR<HelixStreamsResponse, unknown>(
-    `/api/twitch/streams?user=${user}`,
-    fetch
-  );
+  const { data, isLoading, error } = trpc.twitch.getTwitchStreams.useQuery({
+    users: user,
+  });
   const streamInfo = Boolean(data?.data && data.data[0]);
 
   return {
+    isLoading,
     data: streamInfo && data?.data[0]?.type === 'live' ? data.data[0] : undefined,
-    isLoading: !error && !data,
-    isError: error,
-  } as const;
-}
-
-export function useTwitchFollowers(userId = '5162021') {
-  const { data, error } = useSWR<HelixFollowsResponse, unknown>(
-    `/api/twitch/followers?userId=${userId}`,
-    fetch
-  );
-
-  return {
-    data,
-    isLoading: !error && !data,
-    isError: error,
+    error,
   } as const;
 }
