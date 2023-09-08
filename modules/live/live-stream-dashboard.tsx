@@ -6,14 +6,16 @@ import { LiveStreamStatus } from './live-stream-status';
 
 export interface LiveStreamDashboardProps extends Omit<DashboardSectionProps, 'title'> {
   username?: string;
+  channelId?: string;
 }
 
 export const LiveStreamDashboard: React.FC<LiveStreamDashboardProps> = ({
   username = 'resir014',
+  channelId = 'UCz6PytBicQeSimntcYkezIQ',
   ...rest
 }) => {
   const { data: twitchData, isLoading: isTwitchLoading } = useTwitchUsers(username);
-  const { data: youtubeData, isLoading: isYouTubeLoading } = useYouTubeChannelStatistics();
+  const { data: youtubeData, isLoading: isYouTubeLoading } = useYouTubeChannelStatistics(channelId);
 
   return (
     <DashboardSection title="Livestream" {...rest}>

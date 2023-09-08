@@ -1,8 +1,8 @@
 import { trpc } from './trpc';
 
-export function useYouTubeChannelStatistics(channelId = 'UCz6PytBicQeSimntcYkezIQ') {
+export function useYouTubeChannelStatistics(channelId?: string) {
   const { data, isLoading, error } = trpc.youtube.getChannelStatistics.useQuery({
-    channels: [channelId],
+    channels: channelId ? [channelId] : undefined,
   });
 
   return {
