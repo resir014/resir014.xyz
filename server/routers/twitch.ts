@@ -1,13 +1,13 @@
 import * as trpc from '@trpc/server';
 import * as z from 'zod';
+import { TwitchAPIUserResponse } from '~/types/twitch';
+import { publicProcedure, router } from '../trpc';
 import {
   getTwitchFollowers,
   getTwitchStreams,
   getTwitchToken,
   getTwitchUsers,
-} from '~/lib/twitch-api';
-import { TwitchAPIUserResponse } from '~/types/twitch';
-import { publicProcedure, router } from '../trpc';
+} from '../data/twitch';
 
 export const twitchRouter = router({
   getTwitchStreams: publicProcedure
