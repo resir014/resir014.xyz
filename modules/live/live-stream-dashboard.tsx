@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useTwitchUsers } from '~/lib/twitch-api';
+import { useYouTubeChannelStatistics } from '~/lib/youtube-api';
 import { DashboardSection, DashboardSectionProps, StatBlock } from '../dashboard';
 import { LiveStreamStatus } from './live-stream-status';
 
@@ -11,7 +12,8 @@ export const LiveStreamDashboard: React.FC<LiveStreamDashboardProps> = ({
   username = 'resir014',
   ...rest
 }) => {
-  const { data, isLoading } = useTwitchUsers(username);
+  const { data: twitchData, isLoading: isTwitchLoading } = useTwitchUsers(username);
+  const { data: youtubeData, isLoading: isYouTubeLoading } = useYouTubeChannelStatistics();
 
   return (
     <DashboardSection title="Livestream" {...rest}>
@@ -19,13 +21,14 @@ export const LiveStreamDashboard: React.FC<LiveStreamDashboardProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <StatBlock
           title="Twitch followers"
-          count={data?.followers}
-          isLoading={isLoading || !data}
+          count={Number(twitchData?.followers ?? 0)}
+          isLoading={isTwitchLoading || !twitchData}
           externalLink="https://www.twitch.tv/resir014"
         />
         <StatBlock
           title="YouTube subscribers"
-          count={0}
+          count={Number(youtubeData?.statistics?.subscriberCount ?? 0)}
+          isLoading={isYouTubeLoading || !youtubeData}
           externalLink="https://www.youtube.com/@resir014"
         />
       </div>
