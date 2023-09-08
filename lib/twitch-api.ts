@@ -1,6 +1,6 @@
 import { stringifyUrl } from 'query-string';
 import {
-  HelixFollowsResponse,
+  HelixGetChannelFollowersResponse,
   HelixStreamsResponse,
   HelixUsersResponse,
   TwitchOAuthResponse,
@@ -62,14 +62,14 @@ export async function getTwitchFollowers(token: string, user: string = '5162021'
   console.log('Fetching broadcast info...');
 
   const apiUrl = stringifyUrl({
-    url: 'https://api.twitch.tv/helix/users/follows',
+    url: 'https://api.twitch.tv/helix/channels/followers',
     query: {
-      to_id: user,
+      broadcaster_id: user,
     },
   });
 
   try {
-    const res = await fetch<HelixFollowsResponse>(apiUrl, {
+    const res = await fetch<HelixGetChannelFollowersResponse>(apiUrl, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,

@@ -19,12 +19,10 @@ export interface HelixUsersData {
   email: string;
 }
 
-export interface HelixFollowsData {
-  from_id: string;
-  from_login: string;
-  from_name: string;
-  to_id: string;
-  to_name: string;
+export interface HelixFollowerData {
+  user_id: string;
+  user_name: string;
+  user_login: string;
   followed_at: string;
 }
 
@@ -47,9 +45,9 @@ export interface HelixStreamsData {
   tag_ids: string[];
 }
 
-export interface HelixFollowsResponse {
+export interface HelixGetChannelFollowersResponse {
   total: number;
-  data: HelixFollowsData[];
+  data: HelixFollowerData[];
   pagination: {
     cursor?: string;
   };
