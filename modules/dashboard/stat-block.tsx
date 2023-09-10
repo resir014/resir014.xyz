@@ -32,7 +32,7 @@ export const StatBlock = React.forwardRef<HTMLDivElement, StatBlockProps>(
     };
 
     const renderCount = () => {
-      if (!count || isLoading) {
+      if (typeof count !== 'number' || isLoading) {
         return (
           <div
             className="inline-block rounded-md h-8 sm:h-9 lg:h-10 min-w-[200px] bg-chungking-grey-800"

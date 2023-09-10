@@ -1,13 +1,16 @@
 import * as React from 'react';
+import { trpc } from '~/lib/trpc';
 import { DashboardSection, DashboardSectionProps } from '../dashboard';
 import { SpotifyCurrentlyPlaying } from './spotify-currently-playing';
 import { SpotifyTopTrackItem } from './spotify-top-track-item';
-import { useSpotifyTopTracks } from './use-spotify-top-tracks';
 
 export type SpotifyDashboardProps = Omit<DashboardSectionProps, 'title'>;
 
 export const SpotifyDashboard: React.FC<SpotifyDashboardProps> = ({ ...rest }) => {
-  const { data } = useSpotifyTopTracks();
+  const { data } = trpc.spotify.getTopTracks.useQuery(
+    { range: 'short_term' },
+    { refetchInterval: 10000 }
+  );
 
   const renderTracks = () => {
     if (data) {
