@@ -20,6 +20,7 @@
     "validate": "yarn lint && yarn type-check"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@resir014/tailwind-preset-chungking": "^0.1.4-canary.7",
     "@tailwindcss/typography": "^0.5.9",
     "@tanstack/react-query": "^4.32.6",

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
+import { Popover } from '@headlessui/react';
+import { Menu as MenuIcon } from 'react-feather';
 
 import { MenuItem } from '~/lib/data/menu-items';
-import { Logo } from '~/components/ui';
 import { NavbarItems } from './navbar-items';
 
 export interface NavbarProps {
@@ -15,24 +16,41 @@ export interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ className, title, items }) => {
   return (
     <header
-      className={clsx('px-4 lg:px-6 bg-chungking-grey-900 shadow-header-inset z-50', className)}
+      className={clsx('bg-chungking-grey-900 border-b border-chungking-grey-800 z-50', className)}
     >
-      <div className="flex flex-col items-center lg:flex-row-reverse lg:justify-between w-full lg:max-w-4xl xl:max-w-6xl mx-auto">
-        <div className="flex items-center relative space-x-4">
-          <h1 className="pt-[8px] pb-[6px] lg:pt-[16px] lg:pb-[14px] ">
-            <Link href="/" className="font-bold helper-link-cover">
-              {title}
-            </Link>
-          </h1>
-          <div className="hidden lg:inline-flex items-center justify-center bg-chungking-black w-8 h-8 lg:w-14 lg:h-14">
-            <span className="sr-only">@resir014</span>
-            <Logo aria-hidden className="h-6 lg:h-10" />
-          </div>
+      <nav
+        className="mx-auto flex lg:max-w-4xl xl:max-w-6xl items-center justify-between h-14 py-2 px-4 lg:px-6"
+        aria-label="Global"
+      >
+        <div className="pt-[8px] pb-[6px] lg:pt-[16px] lg:pb-[14px]">
+          <Link
+            href="/"
+            className="block px-2 py-1 rounded-md hover:bg-chungking-white/10 focus:bg-chungking-white/10"
+          >
+            <span className="text-chungking-white font-bold">{title}</span>
+          </Link>
         </div>
-        <nav>
+        <Popover className="relative">
+          {({ open }) => (
+            <>
+              <div className="flex lg:hidden">
+                <Popover.Button className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-chungking-white">
+                  <span className="sr-only">{open ? 'Close' : 'Open'} main menu</span>
+                  <MenuIcon className="h-6 w-6" aria-hidden />
+                </Popover.Button>
+              </div>
+              <Popover.Panel className="absolute right-0 z-10 mt-3 w-screen max-w-[160px] -translate-x-0 transform px-4 sm:px-0">
+                <div className="overflow-hidden rounded-lg bg-chungking-grey-900 shadow-double ring-1 ring-black ring-opacity-5 p-2">
+                  <NavbarItems items={items} />
+                </div>
+              </Popover.Panel>
+            </>
+          )}
+        </Popover>
+        <div className="hidden lg:flex lg:gap-x-12">
           <NavbarItems items={items} />
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
   );
 };
