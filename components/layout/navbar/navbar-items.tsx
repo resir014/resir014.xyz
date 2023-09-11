@@ -24,17 +24,17 @@ export const NavbarItems: React.FC<NavbarItemsProps> = ({ items }) => {
   );
 
   return (
-    <ul className="flex items-center lg:justify-end space-x-6 list-none">
+    <ul className="flex flex-col lg:flex-row items-center lg:justify-end space-y-1 lg:space-y-0 lg:space-x-6 list-none">
       {items.map(item => {
         const isActive = isActiveRoute(item.as ?? item.path, item.exact);
         return (
-          <li key={item.name} className="lowercase">
+          <li key={item.name} className="block w-full lowercase">
             <Link
               href={item.path}
               as={item.as}
               className={clsx(
-                'block pt-[8px] pb-[6px] lg:pt-[16px] lg:pb-[14px] border-b-2 hover:border-chungking-white focus:border-chungking-white focus:bg-chungking-white focus:bg-[rgba(255,255,255,0.1)]',
-                isActive ? 'border-chungking-white' : 'border-transparent'
+                'block px-2 py-1 rounded-md hover:bg-chungking-white/10 focus:bg-chungking-white/10',
+                isActive ? 'bg-chungking-white text-chungking-black font-semibold' : undefined
               )}
             >
               {item.name}

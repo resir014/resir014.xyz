@@ -1,5 +1,4 @@
 [
-  { "name": "Home", "path": "/", "exact": true },
   { "name": "About", "path": "/[slug]", "as": "/about" },
   { "name": "Posts", "path": "/posts" },
   { "name": "Projects", "path": "/projects" },
