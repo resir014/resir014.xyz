@@ -73,7 +73,6 @@ function App({ Component, pageProps, router }: NextAppProps): JSX.Element {
           name="google-site-verification"
           content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
         />
-        <meta name="monetization" content={process.env.NEXT_PUBLIC_ILP_URL} />
         <link
           rel="alternate"
           type="application/rss+xml"

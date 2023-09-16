@@ -16,7 +16,7 @@ export default function DefaultLayout({
   className,
   style,
 }: React.PropsWithChildren<DefaultLayoutProps>) {
-  const { author } = siteMetadata;
+  const { title, author } = siteMetadata;
 
   return (
     <LayoutRoot className={className} style={style}>
@@ -25,9 +25,6 @@ export default function DefaultLayout({
         {Object.keys(author.url).map(key => (
           <link key={key} rel="me" href={author.url[key]} />
         ))}
-        {process.env.NODE_ENV === 'production' ? (
-          <meta name="monetization" content={process.env.NEXT_PUBLIC_ILP_URL} />
-        ) : null}
         {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? (
           <meta
             name="google-site-verification"
@@ -35,7 +32,7 @@ export default function DefaultLayout({
           />
         ) : null}
       </Head>
-      <Navbar title="@resir014" items={menuItems} />
+      <Navbar title={title} items={menuItems} />
       {children}
       <Footer />
     </LayoutRoot>
