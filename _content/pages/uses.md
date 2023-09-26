@@ -28,14 +28,14 @@ lead: 'Tools of the trade.'
 ### Livestreaming
 
 - [OBS Studio](https://obsproject.com/)
-- **Alerts/notifications:** [Streamlabs](https://streamlabs.com/)
+- **Alerts/notifications:** [StreamElements](https://streamelements.com/)
 - **Overlays:** [Customised web-based overlays designed by me](https://github.com/resir014/stream-overlays) - Runs on a hosted Next.js instance, however some modules still needed to be run locally
-- **Chatbot:** [Nightbot](https://nightbot.tv/)
+- **Chatbot:** [Nightbot](https://nightbot.tv/) + [OxidizeBot](https://setbac.tv/)
 
 ### Video Processing/Editing
 
 - [HandBrake](https://handbrake.fr/)
-- [DaVinci Resolve 16](https://www.blackmagicdesign.com/products/davinciresolve/)
+- [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/)
 
 ## Miscellaneous
 
@@ -50,13 +50,14 @@ lead: 'Tools of the trade.'
 
 ### Desktop
 
-- **CPU:** AMD Ryzen 5 Pinnacle Ridge 2600 (3.4 GHz)
-- **Motherboard:** MSI B450 Gaming Plus
-- **RAM:** Team Dark Pro 16GB (2x8GB) DDR4
+- **CPU:** AMD Ryzen 7 7700X (4.5 GHz)
+- **Motherboard:** ASRock B650E PG RIPTIDE WIFI ATX AM5
+- **RAM:** Klevv BOLT V 32 GB (2x16 GB) DDR5
 - **Storage[0]:** Samsung SSD 860 EVO 250GB
-- **Storage[1]:** WDC 1TB SATA3 Black Ver.2
-- **GPU:** GALAX GeForce GTX 1650 4GB DDR5
-- **Power Supply:** Seasonic Focus Plus Gold FX-550 550W
-- **CPU Cooler:** Cooler Master HYPER 212 LED Turbo
+- **Storage[1]:** Western Digital Black 1 TB
+- **Storage[2]:** Western Digital Blue 2 TB
+- **GPU:** Asus DUAL OC GeForce RTX 4060 Ti 8 GB
+- **Power Supply:** SeaSonic PRIME Gold 80+ Gold Certified 650W
+- **CPU Cooler:** Deepcool AK620 ZERO DARK 68.99 CFM
 - **Case:** Phanteks Eclipse P400S Tempered Glass, Black
 - **OS:** Windows 11 Pro 64-bit
