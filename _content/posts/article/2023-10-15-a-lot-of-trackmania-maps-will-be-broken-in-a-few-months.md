@@ -66,3 +66,7 @@ If you're building a map right now, consider moving your signs to be hosted else
 - [ManiaCDN](https://upload.maniacdn.net/)
 
 This also goes without saying that if you are developing sign packs for a mapping project, or any other projects that require certain files to be hosted somewhere, **please don't use CDNs that are tied to a platform that's not intended to also act as file host**. Use a more reliable third party hosting platform, or if you have the means, host them yourselves using the alternatives mentioned above.
+
+---
+
+_Special thanks to [Tatauna](https://twitter.com/tatauna_), [psychoedge](https://twitter.com/psychoedge), and [ZaraStocher](https://twitter.com/zarstocher) for proofreading and fact-checking.\_
