@@ -78,7 +78,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^11.1.2",
     "next-sitemap": "^4.1.8",
-    "postcss": "^8.4.5",
+    "postcss": "^8.4.31",
     "prettier": "^2.4.1",
     "react-is": "^17.0.2",
     "stylelint": "^15.10.2",
