@@ -32,10 +32,10 @@ export const NavbarItems: React.FC<NavbarItemsProps> = ({ items }) => {
             <Link
               href={item.path}
               as={item.as}
-              className={clsx(
-                'block px-2 py-1 rounded-md hover:bg-chungking-white/10 focus:bg-chungking-white/10',
-                isActive ? 'bg-chungking-white text-chungking-black font-semibold' : undefined
-              )}
+              className={clsx('block px-2 py-1 rounded-md', {
+                'bg-chungking-white text-chungking-black font-semibold': isActive,
+                'hover:bg-chungking-white/10 focus:bg-chungking-white/10': !isActive,
+              })}
             >
               {item.name}
             </Link>
