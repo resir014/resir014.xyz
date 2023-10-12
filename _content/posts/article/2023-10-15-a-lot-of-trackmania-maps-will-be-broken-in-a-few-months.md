@@ -13,7 +13,7 @@ In a few months, many custom maps made for [Trackmania](https://www.trackmania.c
 
 You may know that you can embed custom signs and mods in a Trackmania. To make these signs visible to other players, you either need to use what is called a "locator file", a file ending in `.loc` which points to the URL in which the custom sign is hosted, or you can also do this in-game.
 
-[image: locator file]
+![Setting a custom sign through external URL in the Trackmania map editor](/assets/article/2023/a-lot-of-trackmania-maps-will-be-broken-in-a-few-months/Trackmania_1gNLtYyYWK.png)
 
 As long as the file remains available to load, the signs will still work. However, in a few months, many links to these signs will be broken, and will result in these signs to fall back to the default in-game signs. And if you use custom directional signs, this will break your map in terms of accessibility.
 
@@ -51,7 +51,7 @@ After this grace period, old CDN URLs without the appropriate query parameters w
 
 As mentioned earlier, custom signs will normally have something called a "locator file" associated to it. This is a file ending in `.loc` which will tell the game where to load the custom sign from. When the game fails to download these signs, due to one reason or another, it will fall back to the default in-game signs.
 
-[image: default Trackmania sign]
+![Default signs in a Trackmania map](/assets/article/2023/a-lot-of-trackmania-maps-will-be-broken-in-a-few-months/Screen11.jpg)
 
 This is bad news if your map relies on custom directional signs. Not having directional signs [breaks the accessibility of your map](https://twitter.com/SapphironTM/status/1372141626978619393), since players will have no guidance on where to go. This might become a problem especially if your routes are not very obvious or when dense scenery blocks the view on the route.
 
