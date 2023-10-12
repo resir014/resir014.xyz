@@ -11,9 +11,15 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: yarn install --frozen-lockfile
-      - uses: actions/cache@v1
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - uses: actions/cache@v3
         id: cache-build
         with:
           path: '.'
@@ -24,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/cache@v1
+      - uses: actions/cache@v3
         id: restore-build
         with:
           path: '.'
