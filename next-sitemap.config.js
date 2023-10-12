@@ -6,6 +6,10 @@ module.exports = {
   robotsTxtOptions: {
     policies: [
       {
+        userAgent: '*',
+        allow: '/',
+      },
+      {
         userAgent: 'GPTBot',
         disallow: '/',
       },
