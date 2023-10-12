@@ -19,7 +19,8 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - uses: actions/cache@v3
+      - name: Cache built files
+        uses: actions/cache@v3
         id: cache-build
         with:
           path: '.'
@@ -30,11 +31,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/cache@v3
+      - name: Restore built files from cache
+        uses: actions/cache@v3
         id: restore-build
         with:
           path: '.'
           key: ${{ github.sha }}
-      - run: yarn run validate
+      - name: Lint and typecheck
+        run: yarn run validate
         env:
           CI: true
