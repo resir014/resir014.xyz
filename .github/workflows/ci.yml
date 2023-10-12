@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Install node-gyp (deasync workaround)
+        run: npm install -g node-gyp
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Cache built files
