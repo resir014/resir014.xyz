@@ -43,7 +43,7 @@ Hotlinking adds additional bandwidth to a server, which can cause additional hos
 
 As announced in the Discord Developers server, Discord gives users and developers a grace period until "later this year". After that, older Discord CDN links will not work unless you use links with the new format.
 
-After this grace period, old CDN URLs without the appropriate query parameters will no longer work.
+After this grace period, old CDN URLs without the appropriate query parameters will no longer work, and will fail to load the included file.
 
 ## What will this do to my Trackmania maps?
 
@@ -57,16 +57,12 @@ This is bad news if your map relies on custom directional signs. Not having dire
 
 If your map is already published, there's nothing you can do about it. Fixing the signs and then saving your map will create a new version of your map, with all the leaderboards reset. Unless you don't mind having your map's leaderboards be reset by uploading a new version with all the signs fixed, keep your map as is.
 
-If you're building a map right now, consider moving your signs to be hosted elsewhere.
-
-This also goes without saying that if you are developing sign packs for a mapping project, or any other projects that require certain files to be hosted somewhere, **please don't use CDNs that are tied to a platform that's not intended to also act as file host**. Use a more reliable third party hosting platform, or if you have the means, host them yourselves.
-
-## Alternatives
-
-There are a few services that you can use to host your sign packs and mods, with some even providing free hosting.
+If you're building a map right now, consider moving your signs to be hosted elsewhere. There are a few services that you can use to host your sign packs and mods, with some even providing free hosting.
 
 - [GitHub Pages](https://docs.github.com/pages)
 - [Netlify](https://www.netlify.com/)
 - [Vercel](https://vercel.com/)
 - [Amazon S3](https://aws.amazon.com/s3/)
 - [ManiaCDN](https://upload.maniacdn.net/)
+
+This also goes without saying that if you are developing sign packs for a mapping project, or any other projects that require certain files to be hosted somewhere, **please don't use CDNs that are tied to a platform that's not intended to also act as file host**. Use a more reliable third party hosting platform, or if you have the means, host them yourselves using the alternatives mentioned above.
