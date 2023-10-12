@@ -7,8 +7,6 @@ header_image: /assets/article/2023/a-lot-of-trackmania-maps-will-be-broken-in-a-
 date: '2023-10-15T18:00:00+07:00'
 ---
 
-[image: a map with custom directional signs]
-
 In a few months, many custom maps made for [Trackmania](https://www.trackmania.com/) will be broken. Okay, that sentence was a bit hyperbolic, but it still affects any Trackmania map that you're building or playing. Let me explain.
 
 You may know that you can embed custom signs and mods in a Trackmania. To make these signs visible to other players, you either need to use what is called a "locator file", a file ending in `.loc` which points to the URL in which the custom sign is hosted, or you can also do this in-game.
