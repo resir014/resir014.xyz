@@ -4,7 +4,7 @@ layout: post
 title: 'A lot of Trackmania maps will be broken in a few months'
 lead: "And for once, it's not Nadeo's fault."
 header_image: /assets/article/2023/a-lot-of-trackmania-maps-will-be-broken-in-a-few-months/header.jpg
-date: '2023-10-13T15:00:00+07:00'
+date: '2023-10-13T21:00:00+07:00'
 ---
 
 <em>Header image by [psychoedge](https://twitter.com/psychoedge).</em>
