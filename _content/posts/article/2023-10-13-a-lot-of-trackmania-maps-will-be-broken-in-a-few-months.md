@@ -72,4 +72,4 @@ This also goes without saying that if you are developing sign packs for a mappin
 
 ---
 
-_Special thanks to [Tatauna](https://twitter.com/tatauna_), [psychoedge](https://twitter.com/psychoedge), and [ZaraStocher](https://twitter.com/zarstocher) for proofreading and fact-checking.\_
+<em>Special thanks to [Tatauna](https://twitter.com/tatauna_), [psychoedge](https://twitter.com/psychoedge), and [ZaraStocher](https://twitter.com/zarstocher) for proofreading and fact-checking.</em>
