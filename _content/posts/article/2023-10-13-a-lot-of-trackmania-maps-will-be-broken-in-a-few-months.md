@@ -1,4 +1,5 @@
 ---
+featured: true
 category: article
 layout: post
 title: 'A lot of Trackmania maps will be broken in a few months'

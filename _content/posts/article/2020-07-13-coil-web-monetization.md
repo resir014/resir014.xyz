@@ -1,5 +1,4 @@
 ---
-featured: true
 category: article
 layout: post
 title: 'Web Monetization API and Coil, explained for Twitch streamers'
