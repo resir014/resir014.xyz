@@ -13,11 +13,6 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  // https://github.com/vercel/next.js/blob/v13.4.9/packages/next/src/server/config-shared.ts#L147-L300
-  experimental: {
-    optimizeCss: true,
-  },
-
   // This config won't be loaded until Netlify supports the `headers` option on `next.config.js`.
   // For now, when you make changes here, also make the necessary changes on `netlify.toml`.
   // https://github.com/netlify/netlify-plugin-nextjs/issues/150
