@@ -24,7 +24,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({
       {...rest}
     >
       {embed}
-      {title || children ? (
+      {title ?? children ? (
         <div className="relative space-y-3 p-6">
           {metadata}
           {title ? <h1 className="text-2xl font-semibold p-name">{title}</h1> : null}

@@ -27,12 +27,12 @@ export type NextApiRequest<T extends Record<string, unknown> = { [k: string]: un
 
 export type NextApiHandler<
   T extends Record<string, unknown> = { [k: string]: unknown },
-  S extends Record<string, unknown> = { [k: string]: unknown }
+  S extends Record<string, unknown> = { [k: string]: unknown },
 > = (req: NextApiRequest<T>, res: NextApiResponse<S>) => Promise<void> | void;
 
 export type Middleware<
   T extends Record<string, unknown> = { [k: string]: unknown },
-  S extends Record<string, unknown> = { [k: string]: unknown }
+  S extends Record<string, unknown> = { [k: string]: unknown },
 > = (
   req: NextApiRequest<T>,
   res: NextApiResponse<S>,
