@@ -16,7 +16,7 @@ export function useTwitchStreams(user = 'resir014') {
   const { data, isLoading, error } = trpc.twitch.getTwitchStreams.useQuery({
     users: user,
   });
-  const streamInfo = Boolean(data?.data && data.data[0]);
+  const streamInfo = Boolean(data?.data[0]);
 
   return {
     isLoading,

@@ -3,19 +3,13 @@ import { ErrorProps } from 'next/error';
 import { NextSeo } from 'next-seo';
 
 import { MainContent } from '~/components/layout';
-import DefaultLayout from '~/layouts/default-layout';
 import { Page, PageBody } from '~/components/page';
+import DefaultLayout from '~/layouts/default-layout';
+import { statusCodes } from '~/lib/status-codes';
 import { PostHeader } from '~/modules/posts';
 
-const statusCodes: { [code: number]: string } = {
-  400: 'Bad Request',
-  404: 'This page could not be found',
-  405: 'Method Not Allowed',
-  500: 'Internal Server Error',
-};
-
 function CustomErrorPage({ statusCode, title }: ErrorProps) {
-  const errorMessage = React.useMemo(() => title ?? statusCodes[statusCode], [statusCode, title]);
+  const errorMessage = title ?? statusCodes[statusCode];
 
   return (
     <DefaultLayout>
