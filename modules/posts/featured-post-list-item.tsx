@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import Image from 'next/legacy/image';
 
-import { PostMetadata } from '~/types/posts';
+import type { PostMetadata } from '~/types/posts';
 import { formatPostDate } from '~/lib/date-formatter';
 import { getColorSchemeBySeed } from '~/lib/color-generator';
 

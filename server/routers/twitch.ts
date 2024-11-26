@@ -1,6 +1,6 @@
 import * as trpc from '@trpc/server';
 import * as z from 'zod';
-import { TwitchAPIUserResponse } from '~/types/twitch';
+import type { TwitchAPIUserResponse } from '~/types/twitch';
 import { publicProcedure, router } from '../trpc';
 import {
   getTwitchFollowers,

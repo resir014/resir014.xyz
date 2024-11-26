@@ -33,6 +33,7 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-unsafe-argument': 'warn',
+        'import/consistent-type-specifier-style': 'off',
       },
     },
   ],

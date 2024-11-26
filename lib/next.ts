@@ -1,4 +1,4 @@
-import { NextPage, NextPageProps } from '~/types/next';
+import type { NextPage, NextPageProps } from '~/types/next';
 
 /**
  * Helper function to create next pages.

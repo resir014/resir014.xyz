@@ -7,7 +7,7 @@ import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
 import { getAllPages } from '~/lib/pages';
 import siteMetadata from '~/lib/data/site-metadata';
-import { BasePageProps } from '~/types/posts';
+import type { BasePageProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 import { getPageBySlug } from '~/lib/item-by-slug';
 

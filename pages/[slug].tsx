@@ -6,7 +6,7 @@ import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostHeader, PostHeaderImage } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
 import siteMetadata from '~/lib/data/site-metadata';
-import { BasePageProps } from '~/types/posts';
+import type { BasePageProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 import { PageBody } from '~/components/page';
 import { getPageBySlug } from '~/lib/item-by-slug';

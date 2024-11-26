@@ -2,7 +2,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 
-import { PostMetadata } from '~/types/posts';
+import type { PostMetadata } from '~/types/posts';
 import { formatPostDate } from '~/lib/date-formatter';
 
 export interface PostListItemProps extends React.ComponentPropsWithoutRef<'article'> {

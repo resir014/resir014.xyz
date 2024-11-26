@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Container } from '~/components/layout';
-import { PostKind } from '~/types/default';
+import type { PostKind } from '~/types/default';
 import { PostMeta } from './post-meta';
 
 export interface PostHeaderProps {

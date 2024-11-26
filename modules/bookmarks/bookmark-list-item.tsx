@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BaseBookmarkProps } from '~/types/posts';
+import type { BaseBookmarkProps } from '~/types/posts';
 
 export interface BookmarkListItemProps extends React.ComponentPropsWithoutRef<'li'> {
   bookmark: BaseBookmarkProps;

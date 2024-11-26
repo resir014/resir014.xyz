@@ -6,7 +6,7 @@ import { PostBody, PostHeader } from '~/modules/posts';
 import { renderVideoList } from '~/modules/video';
 import { getAllPosts } from '~/lib/posts';
 import siteMetadata from '~/lib/data/site-metadata';
-import { BaseJamProps } from '~/types/posts';
+import type { BaseJamProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {

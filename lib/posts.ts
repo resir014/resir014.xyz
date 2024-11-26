@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { PostKind } from '~/types/default';
-import {
+import type { PostKind } from '~/types/default';
+import type {
   BaseBookmarkProps,
   BaseJamProps,
   BasePhotoProps,

@@ -19,7 +19,7 @@ import {
   getFeaturedVideo,
 } from '~/lib/posts';
 import { getFeaturedProject } from '~/lib/projects';
-import {
+import type {
   BaseBookmarkProps,
   BaseJamProps,
   BasePhotoProps,

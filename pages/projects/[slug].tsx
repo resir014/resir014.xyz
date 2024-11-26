@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from '
 import { NextSeo } from 'next-seo';
 import { MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
-import { BaseProjectProps } from '~/types/projects';
+import type { BaseProjectProps } from '~/types/projects';
 import { ProjectBody, ProjectHeader } from '~/modules/projects';
 import { getAllProjects, getProjectBySlug } from '~/lib/projects';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';

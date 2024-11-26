@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
-import { PostKind } from '~/types/default';
+import type { PostKind } from '~/types/default';
 import { renderMarkdown } from './markdown-to-html';
 import { getContentDirectory } from './content';
 
