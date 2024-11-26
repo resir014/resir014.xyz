@@ -18,6 +18,11 @@ export function getBaseUrl() {
     return process.env.DEPLOY_PRIME_URL;
   }
 
+  if (process.env.DEPLOY_URL) {
+    // reference for Netlify (commit hash id)
+    return process.env.DEPLOY_URL;
+  }
+
   if (process.env.VERCEL_URL) {
     // reference for vercel.com
     return `https://${process.env.VERCEL_URL}`;
