@@ -6,7 +6,7 @@ import { FeaturedPostList, PostList, PostHeader } from '~/modules/posts';
 import siteMetadata from '~/lib/data/site-metadata';
 import { getAllPosts, getFeaturedArticles } from '~/lib/posts';
 import { generateRSS } from '~/lib/rss';
-import { BasePostProps } from '~/types/posts';
+import type { BasePostProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 import { PageBody } from '~/components/page';
 import { Divider } from '~/components/ui';

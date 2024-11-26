@@ -2,7 +2,7 @@ import * as React from 'react';
 import convert from 'htmr';
 
 import { Container, ContainerSizes } from '~/components/layout';
-import { SyndicationFormat } from '~/types/default';
+import type { SyndicationFormat } from '~/types/default';
 import htmrTransform from '~/lib/htmr-transform';
 import { SiteAuthor } from '~/lib/data/site-metadata';
 import { MessageBox } from '~/components/ui/message-box';

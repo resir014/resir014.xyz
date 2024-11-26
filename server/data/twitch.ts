@@ -1,6 +1,6 @@
 import { stringifyUrl } from 'query-string';
 import fetch from '~/lib/fetch';
-import {
+import type {
   HelixGetChannelFollowersResponse,
   HelixStreamsResponse,
   HelixUsersResponse,

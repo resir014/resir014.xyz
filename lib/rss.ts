@@ -1,5 +1,5 @@
 import { Feed } from 'feed';
-import { BasePostProps } from '~/types/posts';
+import type { BasePostProps } from '~/types/posts';
 import siteMetadata from './data/site-metadata';
 import { renderMarkdown } from './markdown-to-html';
 

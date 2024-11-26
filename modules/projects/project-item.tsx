@@ -3,7 +3,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
 import Image from 'next/legacy/image';
-import { ProjectMetadata } from '~/types/projects';
+import type { ProjectMetadata } from '~/types/projects';
 import { ProjectBadge } from './project-badge';
 
 export interface ProjectFieldProps extends React.ComponentPropsWithoutRef<'article'> {

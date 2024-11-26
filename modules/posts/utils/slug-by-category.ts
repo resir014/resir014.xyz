@@ -1,4 +1,4 @@
-import { PostKind } from '~/types/default';
+import type { PostKind } from '~/types/default';
 
 export function slugByCategory(slug?: string, category: PostKind = 'article') {
   switch (category) {

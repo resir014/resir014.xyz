@@ -1,4 +1,4 @@
-import { BasePageProps } from '~/types/posts';
+import type { BasePageProps } from '~/types/posts';
 import { getContentFiles } from './content';
 import { DEFAULT_PAGE_DIRECTORY, getPageBySlug } from './item-by-slug';
 

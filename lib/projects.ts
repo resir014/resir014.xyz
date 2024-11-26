@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
-import { BaseProjectProps, ProjectMetadata } from '~/types/projects';
+import type { BaseProjectProps, ProjectMetadata } from '~/types/projects';
 import { getContentDirectory } from './content';
 import { renderMarkdown } from './markdown-to-html';
 

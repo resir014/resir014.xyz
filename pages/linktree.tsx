@@ -4,7 +4,7 @@ import { MainContent } from '~/components/layout';
 import { LinktreeHeader, LinktreeSection } from '~/modules/linktree';
 import DefaultLayout from '~/layouts/default-layout';
 import { PageBody } from '~/components/page';
-import { NextPage } from '~/types/next';
+import type { NextPage } from '~/types/next';
 
 export async function getStaticProps() {
   const data = await import('~/lib/data/linktree');

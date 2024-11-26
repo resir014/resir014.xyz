@@ -10,7 +10,7 @@ import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostHeader } from '~/modules/posts';
 import { PhotoPostBody } from '~/modules/photos';
 import CustomErrorPage from '~/pages/_error';
-import { BasePhotoProps } from '~/types/posts';
+import type { BasePhotoProps } from '~/types/posts';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
 import DefaultLayout from '~/layouts/default-layout';
 

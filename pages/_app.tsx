@@ -9,7 +9,7 @@ import { defaultOpenGraph, defaultTwitterCard } from '~/lib/seo';
 import { event, pageview } from '~/lib/ga';
 import { trpc } from '~/lib/trpc';
 import siteMetadata from '~/lib/data/site-metadata';
-import { NextAppProps } from '~/types/next';
+import type { NextAppProps } from '~/types/next';
 
 import '~/fonts/jetbrains-mono.css';
 import 'typeface-inter';

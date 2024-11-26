@@ -9,7 +9,7 @@ import { MainContent } from '~/components/layout';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
-import { BasePostProps } from '~/types/posts';
+import type { BasePostProps } from '~/types/posts';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
 import DefaultLayout from '~/layouts/default-layout';
 

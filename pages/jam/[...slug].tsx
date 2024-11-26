@@ -10,7 +10,7 @@ import { LiteYouTube, VideoCard } from '~/modules/video';
 import { YouTubePreconnect } from '~/components/perf';
 import { Post, PostBody, PostHeader } from '~/modules/posts';
 import CustomErrorPage from '~/pages/_error';
-import { BaseJamProps } from '~/types/posts';
+import type { BaseJamProps } from '~/types/posts';
 import siteMetadata, { SiteMetadata } from '~/lib/data/site-metadata';
 import DefaultLayout from '~/layouts/default-layout';
 

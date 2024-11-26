@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import * as React from 'react';
 import convert from 'htmr';
-import { BasePhotoProps } from '~/types/posts';
+import type { BasePhotoProps } from '~/types/posts';
 import htmrTransform from '~/lib/htmr-transform';
 import { PostMeta } from '../posts';
 import { PhotoWrapper } from './photo-wrapper';

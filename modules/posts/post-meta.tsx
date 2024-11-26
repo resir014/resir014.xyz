@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PostKind } from '~/types/default';
+import type { PostKind } from '~/types/default';
 import siteMetadata from '~/lib/data/site-metadata';
 import { slugByCategory } from './utils/slug-by-category';
 import { PostDate } from './post-date';

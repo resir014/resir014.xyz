@@ -6,7 +6,7 @@ import { PostBody, PostHeader } from '~/modules/posts';
 import { getAllPosts } from '~/lib/posts';
 import { PhotoListItem } from '~/modules/photos';
 import siteMetadata from '~/lib/data/site-metadata';
-import { BasePhotoProps } from '~/types/posts';
+import type { BasePhotoProps } from '~/types/posts';
 import DefaultLayout from '~/layouts/default-layout';
 
 export const getStaticProps = async () => {
