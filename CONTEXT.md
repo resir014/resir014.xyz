@@ -53,10 +53,10 @@ A **Post** that shares a piece of music Resi is currently into, usually as an em
 _Avoid_: Song, track post
 
 **Photo**:
-A **Post** built around a single image, with an optional caption (IndieWeb "photo", `u-photo`).
+A **Post** built around a single image, with an optional caption (IndieWeb "photo", `u-photo`). Frozen: existing **Photos** and their permalinks stay live, but no new ones are authored.
 
 **Video**:
-A **Post** built around an embedded video (IndieWeb "video").
+A **Post** built around an embedded video (IndieWeb "video"). Frozen: existing **Videos** and their permalinks stay live, but no new ones are authored.
 
 **Page**:
 An undated, standalone piece of content at a top-level URL (e.g. About, Uses, Contact).
@@ -64,6 +64,10 @@ _Avoid_: Static page
 
 **Etc page**:
 An undated, standalone piece of content kept in the miscellaneous "etc" section, apart from the main **Pages**.
+
+**TIL entry**:
+A bite-size Entry recording one thing Resi recently learned, numbered rather than dated in its URL (`/til/<n>`), with the number fixed by its source filename. It still carries a `date` in frontmatter and full **Microformats** (`h-entry`, `dt-published`, **Author card**), like every other **Entry**.
+_Avoid_: Note (a distinct, unused **Post kind** in code), TIL post
 
 **Project**:
 A portfolio item describing something Resi built or contributed to. Each project belongs to exactly one **Project category**.
@@ -125,6 +129,7 @@ _Avoid_: using "design system" to mean Chungking specifically; always name it
 - Every **Post kind** except **Bookmark** has its own permalink.
 - A **Project** has exactly one **Project category**.
 - A **Header image** or **Callout** can belong to a **Post** or a **Page**.
+- A **TIL entry** is an **Entry** but neither a **Post** (no **Post kind**, number instead of date-derived slug) nor a top-level **Page** (nested, numbered collection).
 
 ## Example dialogue
 
