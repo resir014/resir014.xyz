@@ -18,20 +18,22 @@ AI assistance on this project is limited to **architecture and plumbing**. Desig
 
 ## Commands
 
-Yarn 1 (`yarn.lock`), Node 20 (`.nvmrc`).
+pnpm (`pnpm-lock.yaml`, pinned via `packageManager`), Node 22 (`.nvmrc`).
 
 ```bash
-yarn dev          # dev server at localhost:3000
-yarn build        # next build && next-sitemap (sitemap + robots.txt)
-yarn test         # type-check + lint (there is no unit test runner)
-yarn validate     # lint + type-check (what CI runs)
-yarn type-check   # tsc --noEmit
-yarn lint         # eslint over all JS/TS
-yarn lint:fix
-npx eslint path/to/file.tsx   # lint a single file
+pnpm dev          # dev server at localhost:3000
+pnpm build        # next build && next-sitemap (sitemap + robots.txt)
+pnpm test         # type-check + lint (there is no unit test runner)
+pnpm validate     # lint + type-check (what CI runs)
+pnpm type-check   # tsc --noEmit
+pnpm lint         # eslint over all JS/TS
+pnpm lint:fix
+pnpm exec eslint path/to/file.tsx   # lint a single file
 ```
 
-The Husky pre-commit hook runs lint-staged: `eslint --fix` on JS/TS, then `prettier --write`. Prettier uses single quotes, 100-column lines, `arrowParens: avoid`, and `trailingComma: es5`. ESLint extends `kentcdodds` + `kentcdodds/react` + `jsx-a11y` + `@next/next`. `next build` skips ESLint, so run `yarn lint` yourself.
+The Husky pre-commit hook runs lint-staged: `eslint --fix` on JS/TS, then `prettier --write`. Prettier uses single quotes, 100-column lines, `arrowParens: avoid`, and `trailingComma: es5`. ESLint extends `kentcdodds` + `kentcdodds/react` + `jsx-a11y` + `@next/next`. `next build` skips ESLint, so run `pnpm lint` yourself.
+
+`markdown-it-shiki-twoslash` depends on the native `deasync` module, which `next build` needs. `node-gyp` is a devDependency and `pnpm.onlyBuiltDependencies` allows `deasync`'s build script, so `pnpm install` compiles it. Both can go once Twoslash is dropped (ADR-0007).
 
 Env vars are listed in `.env.example`. The Google, Twitch, and Spotify credentials are only needed for `/dashboard`.
 
@@ -99,11 +101,7 @@ Planned direction (not started). The decisions are recorded in `docs/adr/0001-mi
 
 Tooling changes that are part of the migration:
 
-- **Yarn 1 → pnpm**:
-  - Replace `yarn.lock` with `pnpm-lock.yaml` and set the `packageManager` field.
-  - Update the Husky/lint-staged hook, the CI workflow (`yarn install --frozen-lockfile`, `yarn run validate`), and `netlify.toml` (drop `YARN_VERSION`).
-  - Update the README's commands.
-- **Node 22 baseline**: bump `.nvmrc` and set `engines.node`. Then align `actions/setup-node` in CI (currently 18) and the Netlify build Node version to match.
+- **Yarn 1 → pnpm and Node 22 baseline**: done (lockfile, `packageManager`, `engines.node`, `.nvmrc`, Husky, CI, `netlify.toml`, README).
 - **`src/` layout** (ADR-0006): `pages/`, `components/`, `modules/`, `lib/`, `styles/` move to `src/`, preserving their current names and boundaries. `_content/` and `_data/` move to `src/content/` and `src/data/` (underscore prefix dropped). The `~/*` alias is repointed from the repo root to `src/`, not replaced.
 - **Markdown pipeline** (ADR-0007): content stays plain `.md` (not MDX). `.message`/`.message--warning` divs are reproduced via HTML passthrough plus a project-local rehype plugin injecting `MessageBox`'s resolved Tailwind classes. Implicit figures use `rehype-image-toolkit` (`implicitFigure: true`). Code blocks use Astro's built-in Shiki (`github-dark`), without Twoslash (unused in content, dropped rather than ported). Feeds keep the existing `feed` npm package, ported into an Astro endpoint.
 
@@ -141,7 +139,7 @@ Deferred work of any kind — not just the Astro/pnpm migration — is tracked a
 2. **Scan `plans/` for related or overlapping plans.** Note any ordering dependencies before starting. If a related plan is in-progress, resolve the dependency with the user before proceeding.
 3. **Read the plan file in full** before touching any code.
 4. **Update `status` to `in-progress`** in the plan's frontmatter.
-5. **Follow the tasks in order.** Each task must leave `yarn validate` passing before moving to the next. (Once the pnpm/Node 22 tooling switch described above lands, use `pnpm run validate` instead.)
-6. **Verify per the plan's `## Verification` section** — this project has no unit test runner, so verification means the manual/build checks named there (route diffing, `yarn build` output, RSS/microformats spot checks, visual comparison), not automated tests.
+5. **Follow the tasks in order.** Each task must leave `pnpm run validate` passing before moving to the next.
+6. **Verify per the plan's `## Verification` section** — this project has no unit test runner, so verification means the manual/build checks named there (route diffing, `pnpm build` output, RSS/microformats spot checks, visual comparison), not automated tests.
 7. **Do not expand scope** beyond what the plan describes — consult the "Out of Scope" section if in doubt.
 8. **Remove the plan file** once all tasks are complete and the work is verified.

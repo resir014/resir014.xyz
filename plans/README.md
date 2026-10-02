@@ -20,7 +20,7 @@ project's established standards. When you author a plan:
   `kentcdodds/react` + `jsx-a11y` + `@next/next` configs, Prettier, the `~/*` root import alias, and anything
   referenced from [`CLAUDE.md`](../CLAUDE.md)).
 - Keep any code snippets, file paths, identifiers, and directory layouts consistent with those rules. Do not propose a
-  solution that would fail `yarn lint` or `yarn type-check`.
+  solution that would fail `pnpm lint` or `pnpm type-check`.
 - Use canonical terms from [`CONTEXT.md`](../CONTEXT.md) when naming domain concepts (Post, Post kind, Entry,
   Permalink, etc.) — do not introduce synonyms for terms already defined there.
 - If the originating prompt explicitly overrides a convention, document the deviation and its justification in
@@ -51,18 +51,18 @@ without any prior context.
 **`## Solution`** Describe the intended outcome at a high level. Cover the structural or behavioural changes being made,
 but leave the detail to the tasks section. State any plans this work depends on.
 
-**`## Tasks`** A list of discrete, ordered tasks. Each task must leave `yarn validate` (lint + type-check) passing —
+**`## Tasks`** A list of discrete, ordered tasks. Each task must leave `pnpm run validate` (lint + type-check) passing —
 run it before moving on. Use `### N. Task Title` subheadings for each task. Describe what files to add, change, or
-remove, and explain why. If a task installs or removes npm packages, include the exact `yarn add` / `yarn remove`
+remove, and explain why. If a task installs or removes npm packages, include the exact `pnpm add` / `pnpm remove`
 commands in a code block.
 
 **`## Decision Document`** A set of named decisions. Each entry states the decision made, then the reasoning behind it.
 Write one decision per paragraph with a bold lead label. Include decisions that were actively considered and rejected,
 not just the ones adopted — future agents need to know what was ruled out and why.
 
-**`## Verification`** Describe how correctness will be checked. This project has no unit test runner (`yarn test` is
+**`## Verification`** Describe how correctness will be checked. This project has no unit test runner (`pnpm test` is
 lint + type-check only), so name the concrete manual/build checks instead: which routes to diff against the current
-site, which `yarn build` output to inspect, which microformats/RSS output to validate, and any visual comparison
+site, which `pnpm build` output to inspect, which microformats/RSS output to validate, and any visual comparison
 needed for faithfully-ported pages.
 
 **`## Out of Scope`** A bullet list of things explicitly excluded from this plan. This prevents scope creep and signals

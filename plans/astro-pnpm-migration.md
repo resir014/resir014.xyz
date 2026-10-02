@@ -1,6 +1,6 @@
 ---
 title: Migrate to Astro 7 + pnpm
-status: proposed
+status: in-progress
 created: 2026-09-15
 ---
 
@@ -113,7 +113,7 @@ This plan does not include `/til` or any post-kind rework — those are separate
 
 ## Verification
 
-Given inbound links to this site's permalinks matter and there is no automated test suite (`yarn validate` is lint + type-check only), verification is full per-page, not sampled:
+Given inbound links to this site's permalinks matter and there is no automated test suite (`pnpm run validate` is lint + type-check only), verification is full per-page, not sampled:
 
 - **Route parity**: script comparing every URL Next.js's `getStaticPaths` generates today against Astro's generated routes — every post (all kinds), every page, every etc page, every project. No URL should appear, disappear, or change shape.
 - **Feed parity**: normalized diff (accounting for build-time timestamps) of `/posts/rss.xml`, `/posts/atom.xml`, `/posts/feed.json` between the old and new builds — same items, same URLs, same content.
