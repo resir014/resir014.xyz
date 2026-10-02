@@ -9,23 +9,20 @@
 
 ## Developing
 
-A nodejs >= 8.0.0 setup with [yarn](https://yarnpkg.com/) is recommended.
+Requires Node.js 22 (see `.nvmrc`) and [pnpm](https://pnpm.io/).
 
 ```bash
 # install dependencies
-yarn
-
-# ...or if you'd like to use npm instead
-npm install
+pnpm install
 
 # serve with hot reload at localhost:3000
-yarn dev
+pnpm dev
 
 # build for production
-yarn build
+pnpm build
 
 # run tests (lint + type check)
-yarn test
+pnpm test
 ```
 
 ## Credits
