@@ -1,16 +1,20 @@
 {
-  "extends": "./tsconfig.project.json",
+  "extends": ["@epic-web/config/typescript", "astro/tsconfigs/strict"],
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["dom", "es2017"],
+    "allowJs": true,
     "baseUrl": ".",
+    "lib": ["esnext", "DOM", "DOM.Iterable"],
     "paths": {
-      "~/*": ["*"]
+      "~/*": ["./src/*"]
     },
-    "jsx": "preserve",
-    "typeRoots": ["./@types", "./node_modules/@types"],
-    "incremental": true
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
+    "strictNullChecks": true,
+    "verbatimModuleSyntax": true
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "types.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

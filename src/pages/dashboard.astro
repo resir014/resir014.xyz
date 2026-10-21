@@ -1,0 +1,18 @@
+---
+import { MainContent } from '~/components/layout';
+import { PageBody } from '~/components/page';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import { DashboardWidgets } from '~/modules/dashboard/dashboard-widgets';
+import { Post, PostHeader } from '~/modules/posts';
+---
+
+<DefaultLayout title="Dashboard">
+  <MainContent>
+    <Post>
+      <PostHeader title="Dashboard" />
+      <PageBody>
+        <DashboardWidgets client:load />
+      </PageBody>
+    </Post>
+  </MainContent>
+</DefaultLayout>

@@ -1,0 +1,26 @@
+---
+import clsx from 'clsx';
+import type { HTMLAttributes } from 'astro/types';
+import type { ContainerSizes } from './types';
+
+interface Props extends HTMLAttributes<'div'> {
+  size?: ContainerSizes;
+}
+
+const { class: className, size = 'md', ...rest } = Astro.props;
+const isMdOrHigher = size === 'md' || size === 'lg' || size === 'xl';
+const isLgOrHigher = size === 'lg' || size === 'xl';
+---
+
+<div
+  class={clsx(
+    'relative mx-auto max-w-2xl',
+    isMdOrHigher && 'md:max-w-3xl',
+    isLgOrHigher && 'lg:max-w-4xl',
+    size === 'xl' && 'xl:max-w-6xl',
+    className
+  )}
+  {...rest}
+>
+  <slot />
+</div>

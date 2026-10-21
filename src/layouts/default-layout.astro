@@ -1,0 +1,147 @@
+---
+import { colors } from '@resir014/chungking-core';
+
+import { Footer, LayoutRoot } from '~/components/layout';
+import { Navbar } from '~/components/layout/navbar';
+import { GA_TRACKING_ID } from '~/lib/ga';
+import menuItems from '~/lib/data/menu-items';
+import siteMetadata from '~/lib/data/site-metadata';
+import { getPagePath } from '~/lib/page-path';
+import { defaultOpenGraphImage, defaultTwitterCard, type OpenGraph } from '~/lib/seo';
+
+import '~/fonts/jetbrains-mono.css';
+import 'typeface-inter';
+import '~/styles/global.css';
+import '~/styles/lite-youtube.css';
+import '~/styles/shiki-twoslash.css';
+
+interface Props {
+  /** Page title, inserted into `titleTemplate`. */
+  title?: string;
+  titleTemplate?: string;
+  description?: string;
+  openGraph?: OpenGraph;
+  noindex?: boolean;
+  /** Preconnects to the YouTube embed origins, for pages whose content may embed a video. */
+  youtubePreconnect?: boolean;
+  class?: string;
+}
+
+const {
+  title = 'Home',
+  titleTemplate = `%s · ${siteMetadata.title}`,
+  description,
+  openGraph = {},
+  noindex = false,
+  youtubePreconnect = false,
+  class: className,
+} = Astro.props;
+
+const { siteUrl, author } = siteMetadata;
+const canonical = `${siteUrl}${getPagePath(Astro.url)}`;
+const fullTitle = titleTemplate.replace('%s', title);
+const ogImage = openGraph.image ?? defaultOpenGraphImage;
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
+const gaScript = `
+  var gaProperty='${GA_TRACKING_ID}',disableStr='ga-disable-'+gaProperty;document.cookie.indexOf(disableStr+'=true')>-1&&(window[disableStr]=!0);
+  function gaOptout(){document.cookie=disableStr+'=true; expires=Thu, 31 Dec 2099 23:59:59 UTC;path=/',window[disableStr]=!0}
+  if(!(parseInt(navigator.doNotTrack) === 1 || parseInt(window.doNotTrack) === 1 || parseInt(navigator.msDoNotTrack) === 1 || navigator.doNotTrack === "yes")) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', '${GA_TRACKING_ID}', 'auto', {});
+    ga('set', 'anonymizeIp', true);
+  }
+`;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content={colors.blue[500]} />
+    <meta name="theme-color" content={colors.blue[500]} />
+    {googleSiteVerification ? (
+      <meta name="google-site-verification" content={googleSiteVerification} />
+    ) : null}
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href={`${siteUrl}/posts/rss.xml`}
+      title="RSS feed for this page"
+    />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      href={`${siteUrl}/posts/atom.xml`}
+      title="Atom feed for this page"
+    />
+    <link
+      rel="alternate"
+      type="application/json"
+      href={`${siteUrl}/posts/feed.json`}
+      title="JSON feed for this page"
+    />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description ?? siteMetadata.description} />
+    <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow'} />
+    <link rel="canonical" href={canonical} />
+    <meta name="twitter:card" content={defaultTwitterCard.cardType} />
+    <meta name="twitter:site" content={defaultTwitterCard.site} />
+    <meta name="twitter:creator" content={defaultTwitterCard.handle} />
+    <meta name="twitter:dnt" content="on" />
+    <meta property="og:title" content={openGraph.title ?? title} />
+    <meta
+      property="og:description"
+      content={openGraph.description ?? description ?? siteMetadata.description}
+    />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={openGraph.type ?? 'website'} />
+    <meta property="og:image" content={ogImage.url} />
+    <meta property="og:image:alt" content={ogImage.alt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={siteMetadata.title} />
+    {openGraph.article ? (
+      <>
+        <meta property="article:published_time" content={openGraph.article.publishedTime} />
+        <meta property="article:author" content={author.name} />
+        <meta property="article:section" content={openGraph.article.section} />
+      </>
+    ) : null}
+
+    {Object.values(author.url).map(url => (
+      <link rel="me" href={url} />
+    ))}
+
+    {youtubePreconnect ? (
+      <>
+        {/* The iframe document and most of its subresources come right off youtube.com */}
+        <link rel="preconnect" href="https://www.youtube-nocookie.com" />
+        {/* The botguard script is fetched off from google.com */}
+        <link rel="preconnect" href="https://www.google.com" />
+        {/* Not certain if these ad related domains are in the critical path. Could verify with domain-specific throttling. */}
+        <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
+        <link rel="preconnect" href="https://static.doubleclick.net" />
+      </>
+    ) : null}
+  </head>
+  <body>
+    <LayoutRoot class={className}>
+      <Navbar title={siteMetadata.title} items={menuItems} />
+      <slot />
+      <Footer />
+    </LayoutRoot>
+    <script is:inline set:html={gaScript} />
+  </body>
+</html>

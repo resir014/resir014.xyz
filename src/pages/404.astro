@@ -1,0 +1,19 @@
+---
+import { MainContent } from '~/components/layout';
+import { Page, PageBody } from '~/components/page';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import siteMetadata from '~/lib/data/site-metadata';
+import { statusCodes } from '~/lib/status-codes';
+import { PostHeader } from '~/modules/posts';
+
+const title = `404: ${statusCodes[404]}`;
+---
+
+<DefaultLayout title={title} openGraph={{ title: `${title} · ${siteMetadata.title}` }} noindex>
+  <MainContent>
+    <Page>
+      <PostHeader title="404." />
+      <PageBody htmlContent={'<p>You\'ve hit the void. <a href="/">Go back home</a></p>'} />
+    </Page>
+  </MainContent>
+</DefaultLayout>

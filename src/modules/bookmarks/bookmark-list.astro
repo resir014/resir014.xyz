@@ -1,0 +1,16 @@
+---
+import type { BaseBookmarkProps } from '~/types/posts';
+import BookmarkListItem from './bookmark-list-item.astro';
+
+interface Props {
+  bookmarks: BaseBookmarkProps[];
+}
+
+const { bookmarks } = Astro.props;
+---
+
+<ul class="space-y-4">
+  {bookmarks.map(bookmark => (
+    <BookmarkListItem bookmark={bookmark} />
+  ))}
+</ul>

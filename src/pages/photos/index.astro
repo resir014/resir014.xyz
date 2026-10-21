@@ -1,0 +1,22 @@
+---
+import { MainContent } from '~/components/layout';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import { getPosts } from '~/lib/posts';
+import { PhotoListItem } from '~/modules/photos';
+import { PostBody, PostHeader } from '~/modules/posts';
+
+const allPosts = await getPosts('photo');
+---
+
+<DefaultLayout title="Photos">
+  <MainContent>
+    <PostHeader title="Photos" lead="Sometimes I go outside and take photos with my camera." />
+    <PostBody>
+      <div class="space-y-[64px] mt-6">
+        {allPosts.map(photo => (
+          <PhotoListItem photo={photo} />
+        ))}
+      </div>
+    </PostBody>
+  </MainContent>
+</DefaultLayout>

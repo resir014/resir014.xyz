@@ -111,6 +111,34 @@ This plan does not include `/til` or any post-kind rework — those are separate
 
 **Asset colocation deferred (ADR-0001 amendment).** Content assets stay in `public/assets/<kind>/<year>/<slug>/...` with absolute-path references, unchanged from today. Colocating assets with content can be revisited as a separate, non-blocking pass later.
 
+### Deviations found during implementation
+
+**Implicit figures use a local remark plugin, not `rehype-image-toolkit` (ADR-0007 amendment).** The toolkit always adds an alt-text `<figcaption>`, which would have put new visible captions under most content images. Decided with the user; `rehype-image-toolkit` is not installed.
+
+**Markdown runs on `unified()` from `@astrojs/markdown-remark`.** Astro 7's default processor (Sätteri) does not run rehype plugins. GFM is limited to tables and `~~strikethrough~~`, and smartypants is off, to match markdown-it's defaults. `rehype-raw` runs first because Astro only parses raw HTML after user plugins.
+
+**Shiki theme is `github-dark-default` with the Twoslash-era foreground.** That is the palette Shiki Twoslash shipped as `github-dark`; today's `github-dark` is a different palette.
+
+**Content config lives in `src/content.config.ts`.** Astro 6 removed `src/content/config.ts`. Entry IDs keep the raw filename (`generateId`), because the default slugifier would rewrite Permalinks such as `tailwindcss-2.0` and `kawalcovid19.id`.
+
+**`layouts/`, `server/`, `types/`, and `fonts/` also moved under `src/`.** They are imported through `~/*`, which now points at `src/`. `config/flavour-text.js` stays at the root; nothing renders the Flavour text today.
+
+**Node baseline is 22.22.** Astro 7 requires Node `>=22.22.0`; `engines.node` says so. `.nvmrc` stays `22`.
+
+**`eslint-plugin-astro` is pinned to 1.x.** 3.x requires ESLint 10 and flat config; moving off ESLint 8 and `eslint-config-kentcdodds` is out of scope. React lint rules are turned off for `.astro` files.
+
+**`type-check` is `astro check`.** It type-checks `.ts`/`.tsx` as well as `.astro`; plain `tsc` cannot resolve `.astro` imports.
+
+**Env var names keep their `NEXT_PUBLIC_` prefix.** Renaming them would require changing the Netlify site settings. Local `.env.local`/`.env` files are loaded into `process.env` in `astro.config.mjs`, as Next.js did.
+
+**The Dashboard page is prerendered; only `/api/trpc` is server-rendered.** The page has no server data, and its widgets fetch on the client.
+
+**Post dates are formatted in `Asia/Jakarta`.** Next.js formatted them at build time in the build machine's timezone and re-rendered them in the visitor's timezone on hydration. A UTC build without hydration would show 7 Posts a day earlier than their Permalink date.
+
+**Three bugs were fixed rather than ported.** Pages without a Header image now get the default `og:image` instead of `https://resir014.xyzundefined`; `/videos` renders its layout once instead of twice; the Feed no longer renders each Article twice through markdown-it. `/sitemap.xml` is kept as an alias of `@astrojs/sitemap`'s `sitemap-index.xml`.
+
+**Dead code was removed rather than ported:** `renderFeaturedVideo`, `FeaturedPhoto`, the GA `pageview`/`event` helpers (only used by Next.js router events), and `styles/nprogress.css`.
+
 ## Verification
 
 Given inbound links to this site's permalinks matter and there is no automated test suite (`pnpm run validate` is lint + type-check only), verification is full per-page, not sampled:
@@ -134,4 +162,23 @@ Given inbound links to this site's permalinks matter and there is no automated t
 
 ## Further Notes
 
-Related ADRs: `docs/adr/0001` (amended), `0002`, `0003`, `0004`, `0005`, `0006`, `0007`. Domain terms used above (Post, Post kind, Entry, Permalink) are canonical per `CONTEXT.md`.
+Related ADRs: `docs/adr/0001` (amended), `0002`, `0003`, `0004`, `0005`, `0006`, `0007` (amended). Domain terms used above (Post, Post kind, Entry, Permalink) are canonical per `CONTEXT.md`.
+
+### Status (2026-10-21)
+
+Tasks 1–9 are implemented and `pnpm run validate` passes. Verified locally against a baseline `next build` of `f2a83dd`:
+
+- **Routes**: all 125 pages identical (only Next.js's internal `/500` page is gone).
+- **Rendered Post bodies**: 111 of 114 identical after normalising attribute order, heading IDs, and code blocks. The other 3 differ only in relative links that were already broken (404) on the live site.
+- **Microformats**: 124 of 125 pages parse to identical mf2. The exception is `/videos`, whose duplicate layout was removed. The author `h-card`'s `u-photo` now resolves to the real avatar instead of `next/image`'s placeholder.
+- **Page markup**: 123 of 125 page shells identical; `/design` differs only in whitespace, `/videos` as above.
+- **Head/SEO**: 97 of 125 identical. All 28 differences are the `og:image` fix.
+- **Feeds**: same 50 items, IDs, URLs, titles, summaries, and dates. Content text matches except Twoslash's language label and entity encoding.
+- **Sitemap/robots**: robots.txt identical, same 123 sitemap URLs.
+- **CSS**: same selectors, minus NProgress and Twoslash rules, plus the image-fill utilities.
+
+Remaining before this plan can be removed:
+
+- **Deploy config parity** on a Netlify deploy preview: response headers, the `/.env` and `/wp-*` redirects, and that `/foo/` still redirects to `/foo` (Netlify handles this for static files; it cannot be checked locally).
+- **Dashboard** with real Twitch/YouTube/Spotify credentials on the deploy preview.
+- **Visual spot-check** of each template in a browser.

@@ -1,0 +1,23 @@
+---
+import { Container } from '~/components/layout';
+
+interface Props {
+  src: string;
+  alt?: string;
+}
+
+const { alt, src } = Astro.props;
+---
+
+<section class="px-4 lg:px-6 pt-12">
+  <Container>
+    <div class="relative w-full h-full aspect-video overflow-hidden rounded-md shadow-lg">
+      <img
+        loading="lazy"
+        src={src}
+        alt={alt ?? ''}
+        class="absolute inset-0 size-full object-cover"
+      />
+    </div>
+  </Container>
+</section>

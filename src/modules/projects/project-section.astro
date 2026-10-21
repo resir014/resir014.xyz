@@ -1,0 +1,26 @@
+---
+import clsx from 'clsx';
+import type { ProjectMetadata } from '~/types/projects';
+import ProjectItem from './project-item.astro';
+
+interface Props {
+  class?: string;
+  title?: string;
+  projects: ProjectMetadata[];
+}
+
+const { class: className, title, projects } = Astro.props;
+---
+
+{projects.length === 0 ? (
+  <p class="text-chungking-grey-500">No projects.</p>
+) : (
+  <section class={clsx('space-y-9', className)}>
+    {title ? <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold">{title}</h2> : null}
+    <div class="space-y-6">
+      {projects.map(project => (
+        <ProjectItem project={project} />
+      ))}
+    </div>
+  </section>
+)}

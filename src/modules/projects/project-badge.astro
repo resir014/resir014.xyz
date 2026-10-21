@@ -1,0 +1,15 @@
+---
+import { Badge, type BadgeColorScheme } from '~/components/ui';
+
+interface Props {
+  tag: string;
+  seed?: string;
+  colorScheme?: BadgeColorScheme;
+}
+
+const { tag, colorScheme = 'blue' } = Astro.props;
+---
+
+<Badge size="lg" variant="minimal" colorScheme={colorScheme}>
+  {tag}
+</Badge>

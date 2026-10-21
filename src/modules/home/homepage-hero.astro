@@ -1,0 +1,20 @@
+---
+import siteMetadata from '~/lib/data/site-metadata';
+
+const { title, description } = siteMetadata;
+---
+
+<div class="relative w-full h-[360px] overflow-hidden">
+  <img src="/static/DSC07559.jpg" alt="" class="absolute inset-0 size-full object-cover" />
+  <div class="absolute w-full h-full bg-gradient-to-br from-chungking-ultramarine-700 to-chungking-green-700 opacity-75 mix-blend-color-burn"></div>
+  <div class="flex items-center justify-center absolute w-full h-full p-6 shadow-hero-inner">
+    <div class="flex flex-col space-y-6 items-center">
+      <div class="space-y-2 text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl text-chungking-turquoise-400 font-semibold">
+          {title}
+        </h1>
+        <p class="text-lg sm:text-xl lg:text-2xl font-semibold">{description}</p>
+      </div>
+    </div>
+  </div>
+</div>

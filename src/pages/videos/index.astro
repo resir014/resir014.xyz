@@ -1,0 +1,20 @@
+---
+import { MainContent } from '~/components/layout';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import { getPosts } from '~/lib/posts';
+import { PostBody, PostHeader } from '~/modules/posts';
+import { VideoList } from '~/modules/video';
+
+const allPosts = await getPosts('video');
+---
+
+<DefaultLayout title="Videos">
+  <MainContent>
+    <PostHeader title="Videos" lead="What is @resir014 watching right now?" />
+    <PostBody>
+      <div class="space-y-12">
+        <VideoList posts={allPosts} category="videos" />
+      </div>
+    </PostBody>
+  </MainContent>
+</DefaultLayout>

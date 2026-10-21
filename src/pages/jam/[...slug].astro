@@ -1,0 +1,42 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { Container, MainContent } from '~/components/layout';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import { getPosts } from '~/lib/posts';
+import { Post, PostBody, PostHeader } from '~/modules/posts';
+import { LiteYouTube, VideoCard } from '~/modules/video';
+
+export const getStaticPaths = (async () => {
+  const posts = await getPosts('jam');
+  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { title, date, youtube_embed_id, category, slug, content } = Astro.props.post;
+---
+
+<DefaultLayout
+  title={title}
+  openGraph={{
+    type: 'article',
+    title,
+    description: 'Jam posted by @resir014',
+    article: { publishedTime: date, section: category },
+  }}
+  youtubePreconnect
+>
+  <MainContent>
+    <Post>
+      <PostHeader title={title} category={category} date={date} slug={slug} />
+      <div class="px-4 lg:px-6 pt-12">
+        <Container size="lg">
+          <VideoCard>
+            <LiteYouTube slot="embed" client:visible videoId={youtube_embed_id} />
+          </VideoCard>
+        </Container>
+      </div>
+      <PostBody content={content} />
+    </Post>
+  </MainContent>
+</DefaultLayout>

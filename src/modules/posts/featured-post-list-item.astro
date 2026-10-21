@@ -1,0 +1,64 @@
+---
+/* eslint-disable jsx-a11y/prefer-tag-over-role */
+import clsx from 'clsx';
+import { getColorSchemeBySeed } from '~/lib/color-generator';
+import { formatPostDate } from '~/lib/date-formatter';
+import type { PostMetadata } from '~/types/posts';
+import { generateVariantColor, type FeaturedPostItemVariants } from './utils/featured-post-variant';
+
+interface Props {
+  class?: string;
+  post: PostMetadata;
+}
+
+const { post, class: className } = Astro.props;
+const { title, lead, date, slug, header_image } = post;
+const postDate = new Date(date);
+const variantColor = generateVariantColor(getColorSchemeBySeed(slug) as FeaturedPostItemVariants);
+---
+
+<article
+  class={clsx(
+    'h-entry flex flex-col justify-between relative border-4 rounded-xl shadow-lg overflow-hidden',
+    variantColor.border,
+    className
+  )}
+>
+  {header_image ? (
+    <>
+      <div role="presentation" class="absolute w-full h-full z-10">
+        <img
+          loading="lazy"
+          src={header_image}
+          alt=""
+          class="absolute inset-0 size-full object-cover"
+        />
+      </div>
+      <div
+        role="presentation"
+        class={clsx('absolute w-full h-full', variantColor.bg, 'bg-opacity-50 z-20')}
+      />
+      <div
+        role="presentation"
+        class="absolute w-full h-full bg-chungking-black bg-opacity-75 z-30"
+      />
+    </>
+  ) : null}
+  <div class="flex flex-col justify-between w-full h-full p-4 z-50 space-y-6">
+    <div class="space-y-2">
+      <time
+        class="dt-published text-chungking-grey-400 text-xs lg:text-sm"
+        datetime={postDate.toISOString()}
+      >
+        {formatPostDate(postDate)}
+      </time>
+      {title ? <h3 class="text-lg lg:text-xl font-semibold leading-tight">{title}</h3> : null}
+      {lead ? <p class="text-sm lg:text-base text-chungking-grey-200">{lead}</p> : null}
+    </div>
+    <div>
+      <a href={`/posts/${slug}`} class="helper-link-cover group">
+        <span class="group-hover:underline">Read more</span> &rarr;
+      </a>
+    </div>
+  </div>
+</article>

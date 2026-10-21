@@ -1,0 +1,23 @@
+---
+import { MainContent } from '~/components/layout';
+import { PageBody } from '~/components/page';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import linktree from '~/lib/data/linktree';
+import { LinktreeHeader, LinktreeSection } from '~/modules/linktree';
+---
+
+<DefaultLayout
+  title="Linktree"
+  description="Everywhere I am on the Internet, on one neatly-organised list!"
+>
+  <MainContent>
+    <LinktreeHeader />
+    <PageBody>
+      <div class="space-y-12">
+        {linktree.map(tree => (
+          <LinktreeSection category={tree.category} items={tree.items} />
+        ))}
+      </div>
+    </PageBody>
+  </MainContent>
+</DefaultLayout>
