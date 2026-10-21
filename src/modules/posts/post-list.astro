@@ -1,0 +1,22 @@
+---
+import clsx from 'clsx';
+import type { PostMetadata } from '~/types/posts';
+import PostListItem from './post-list-item.astro';
+
+interface Props {
+  class?: string;
+  title: string;
+  posts: PostMetadata[];
+}
+
+const { class: className, title, posts } = Astro.props;
+---
+
+<div class={clsx('space-y-9', className)}>
+  <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold">{title}</h2>
+  <div class="space-y-6">
+    {posts.map(post => (
+      <PostListItem post={post} />
+    ))}
+  </div>
+</div>

@@ -1,0 +1,58 @@
+---
+import { Container } from '~/components/layout';
+import { Divider } from '~/components/ui';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import { getFeaturedArticles, getFeaturedBookmarks } from '~/lib/posts';
+import { getFeaturedProject } from '~/lib/projects';
+import { BookmarkList } from '~/modules/bookmarks';
+import {
+  HomepageContent,
+  HomepageHero,
+  HomepageIntroduction,
+  HomepageSection,
+} from '~/modules/home';
+import { FeaturedPostList } from '~/modules/posts';
+import { FeaturedProjectCard } from '~/modules/projects';
+
+const allPosts = await getFeaturedArticles(3);
+const featuredBookmarks = await getFeaturedBookmarks();
+const featuredProject = await getFeaturedProject();
+---
+
+<DefaultLayout title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }}>
+  <HomepageHero />
+  <HomepageContent>
+    <Container size="md">
+      <div class="space-y-12">
+        <HomepageIntroduction />
+        <Divider size="lg" />
+        <HomepageSection
+          title="Blog"
+          description="Writings about web development, technology, and everything in between."
+          callToAction={{ text: 'View all posts', href: '/posts' }}
+        >
+          <FeaturedPostList posts={allPosts} />
+        </HomepageSection>
+        <Divider size="lg" />
+        <HomepageSection
+          title="Reading list"
+          description="What I've been reading."
+          callToAction={{ text: 'View all bookmarks', href: '/bookmarks' }}
+        >
+          <BookmarkList bookmarks={featuredBookmarks} />
+        </HomepageSection>
+        {featuredProject ? (
+          <>
+            <Divider size="lg" />
+            <HomepageSection
+              title="Featured project"
+              callToAction={{ text: 'View all projects', href: '/projects' }}
+            >
+              <FeaturedProjectCard project={featuredProject} />
+            </HomepageSection>
+          </>
+        ) : null}
+      </div>
+    </Container>
+  </HomepageContent>
+</DefaultLayout>

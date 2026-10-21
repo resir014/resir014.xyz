@@ -1,0 +1,30 @@
+---
+import clsx from 'clsx';
+import type { BasePhotoProps } from '~/types/posts';
+import PostMeta from '../posts/post-meta.astro';
+import PhotoWrapper from './photo-wrapper.astro';
+
+interface Props {
+  class?: string;
+  photo: BasePhotoProps;
+}
+
+const { photo, class: className } = Astro.props;
+const { date, category, header_image, content, slug } = photo;
+---
+
+<article class={clsx('h-entry relative space-y-4', className)}>
+  <PostMeta date={date} category={category} slug={slug} />
+  {header_image ? (
+    <section>
+      <a href={`/photos/${slug}`}>
+        <PhotoWrapper image={header_image} />
+      </a>
+    </section>
+  ) : null}
+  {content ? (
+    <div class="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
+      <Fragment set:html={content} />
+    </div>
+  ) : null}
+</article>

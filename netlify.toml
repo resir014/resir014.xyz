@@ -1,14 +1,8 @@
 [build]
-  publish = ".next"
+  publish = "dist"
 
 [build.environment]
   NODE_VERSION = "22"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-# Temporary header config until Netlify supports setting `headers` on `next.config.js`
-# https://github.com/netlify/netlify-plugin-nextjs/issues/150
 
 [[headers]]
   for = "/*"
@@ -18,7 +12,27 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "same-origin"
 
+# Hashed build assets. @astrojs/netlify also sets this, but keep it explicit next to the other headers.
 [[headers]]
-  for = "/_next/static/*"
+  for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# https://twitter.com/LiamHammett/status/1260984553570570240
+[[redirects]]
+  from = "/.env"
+  to = "https://www.youtube.com/watch?v=V4MF2s6MLxY"
+  status = 307
+  force = true
+
+[[redirects]]
+  from = "/wp-login.php"
+  to = "https://www.youtube.com/watch?v=V4MF2s6MLxY"
+  status = 307
+  force = true
+
+[[redirects]]
+  from = "/wp-admin"
+  to = "https://www.youtube.com/watch?v=V4MF2s6MLxY"
+  status = 307
+  force = true

@@ -1,0 +1,36 @@
+---
+import clsx from 'clsx';
+import type { MenuItem } from '~/lib/data/menu-items';
+import { getPagePath } from '~/lib/page-path';
+import { NavbarItems } from './navbar-items';
+import { NavbarMenu } from './navbar-menu';
+
+interface Props {
+  title: string;
+  class?: string;
+  items: MenuItem[];
+}
+
+const { class: className, title, items } = Astro.props;
+const currentPath = getPagePath(Astro.url);
+---
+
+<header class={clsx('bg-chungking-grey-900 border-b border-chungking-grey-800 z-50', className)}>
+  <nav
+    class="mx-auto flex lg:max-w-4xl xl:max-w-6xl items-center justify-between h-14 py-2 px-4 lg:px-6"
+    aria-label="Global"
+  >
+    <div class="pt-[8px] pb-[6px] lg:pt-[16px] lg:pb-[14px]">
+      <a
+        href="/"
+        class="block px-2 py-1 rounded-md hover:bg-chungking-white/10 focus:bg-chungking-white/10"
+      >
+        <span class="text-chungking-white font-bold">{title}</span>
+      </a>
+    </div>
+    <NavbarMenu client:load items={items} currentPath={currentPath} />
+    <div class="hidden lg:flex lg:gap-x-12">
+      <NavbarItems items={items} currentPath={currentPath} />
+    </div>
+  </nav>
+</header>

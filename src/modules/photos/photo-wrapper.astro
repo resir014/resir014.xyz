@@ -1,0 +1,20 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  class?: string;
+  image: string;
+  alt?: string;
+}
+
+const { class: className, image, alt } = Astro.props;
+---
+
+<figure class={clsx('lg:-mx-12', className)}>
+  <img
+    class="u-photo mx-auto rounded-md shadow-single align-middle bg-chungking-grey-800"
+    loading="lazy"
+    src={image}
+    alt={alt ?? ''}
+  />
+</figure>

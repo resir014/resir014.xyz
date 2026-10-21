@@ -1,0 +1,29 @@
+---
+import { MainContent } from '~/components/layout';
+import { Page, PageBody } from '~/components/page';
+import { Divider } from '~/components/ui';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import { filterProjectsByCategory, getFeaturedProject, getProjects } from '~/lib/projects';
+import { PostHeader } from '~/modules/posts';
+import { FeaturedProjectSection, ProjectSection } from '~/modules/projects';
+
+const projectsByCategory = filterProjectsByCategory(await getProjects());
+const featuredProject = await getFeaturedProject();
+---
+
+<DefaultLayout title="Projects">
+  <MainContent>
+    <Page>
+      <PostHeader title="Projects" />
+      <PageBody>
+        <div class="space-y-12">
+          <FeaturedProjectSection title="Featured project" project={featuredProject} />
+          <Divider size="lg" />
+          {projectsByCategory.map(filteredProject => (
+            <ProjectSection title={filteredProject.title} projects={filteredProject.projects} />
+          ))}
+        </div>
+      </PageBody>
+    </Page>
+  </MainContent>
+</DefaultLayout>

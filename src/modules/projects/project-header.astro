@@ -1,0 +1,55 @@
+---
+import clsx from 'clsx';
+import { Container } from '~/components/layout';
+import { PageMetaItem } from '~/components/page';
+import type { ProjectMetadata } from '~/types/projects';
+
+interface Props {
+  class?: string;
+  project: ProjectMetadata;
+}
+
+const { class: className, project } = Astro.props;
+const { header_image, title, description, tags, project_url } = project;
+---
+
+<header class={clsx('px-4 lg:px-6 pt-12', className)}>
+  <Container class="space-y-12">
+    {header_image ? (
+      <div class="relative w-full h-full aspect-video overflow-hidden rounded-md shadow-lg">
+        <img
+          loading="lazy"
+          src={header_image}
+          alt={title}
+          class="absolute inset-0 size-full object-cover"
+        />
+      </div>
+    ) : null}
+    <div class="space-y-4">
+      {tags ? (
+        <div class="space-x-4">
+          {tags.map(tag => (
+            <PageMetaItem>{tag}</PageMetaItem>
+          ))}
+        </div>
+      ) : null}
+      <div class="relative space-y-4">
+        {project_url ? (
+          <h1 class="p-name text-3xl sm:text-4xl lg:text-5xl font-semibold">
+            <a
+              class="group helper-link-cover"
+              href={project_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="group-hover:underline">{title}</span> &rarr;
+            </a>
+          </h1>
+        ) : (
+          <h1 class="p-name text-3xl sm:text-4xl lg:text-5xl font-semibold">{title}</h1>
+        )}
+        <p class="p-summary text-lg sm:text-xl lg:text-2xl font-light">{description}</p>
+      </div>
+    </div>
+  </Container>
+</header>

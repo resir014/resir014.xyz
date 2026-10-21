@@ -1,0 +1,41 @@
+---
+import footerLinks from '~/lib/data/footer-links';
+import Container from './container.astro';
+import { GaOptOutLink } from './ga-opt-out-link';
+---
+
+<footer class="px-4 lg:px-6 pt-8 pb-12">
+  <Container class="space-y-4 pt-8 border-t border-t-chungking-grey-800">
+    <div class="space-y-2">
+      <nav class="-mx-4 -my-1 flex flex-wrap" aria-label="Footer">
+        {footerLinks.map(item => (
+          <div class="px-4 py-1">
+            <a
+              href={item.as ?? item.path}
+              class="text-sm text-chungking-grey-400 hover:text-chungking-grey-100"
+            >
+              {item.name}
+            </a>
+          </div>
+        ))}
+      </nav>
+      <div class="text-sm text-chungking-grey-500">
+        <div class="-mx-2 -my-1">
+          <p class="inline-block px-2 py-1">
+            <a
+              class="hover:text-chungking-grey-100"
+              rel="license noopener noreferrer"
+              href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+              target="_blank"
+            >
+              CC-BY-NC-SA 4.0
+            </a>
+          </p>
+          <p class="inline-block px-2 py-1">
+            <GaOptOutLink client:idle />
+          </p>
+        </div>
+      </div>
+    </div>
+  </Container>
+</footer>

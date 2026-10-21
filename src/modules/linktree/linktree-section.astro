@@ -1,0 +1,22 @@
+---
+import clsx from 'clsx';
+import type { LinktreeItem } from '~/lib/data/linktree';
+import LinktreeCard from './linktree-card.astro';
+
+interface Props {
+  class?: string;
+  category: string;
+  items: LinktreeItem[];
+}
+
+const { class: className, category, items } = Astro.props;
+---
+
+<div class={clsx('space-y-9', className)}>
+  <h2 class="text-2xl sm:text-3xl lg:text-4xl font-semibold">{category}</h2>
+  <ul class="space-y-4 list-none">
+    {items.map(item => (
+      <LinktreeCard item={item} />
+    ))}
+  </ul>
+</div>

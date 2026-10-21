@@ -1,0 +1,21 @@
+---
+import { MainContent } from '~/components/layout';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import { ColorSpecs, LogoSpecs, TypographySpecs } from '~/modules/design';
+import { Post, PostBody, PostHeader } from '~/modules/posts';
+---
+
+<DefaultLayout title="Brand & Design" description="Design assets for the resir014 brand.">
+  <MainContent>
+    <Post>
+      <PostHeader title="Brand & Design" />
+      <PostBody>
+        <div class="prose lg:prose-lg prose-base prose-invert prose-chungking">
+          <LogoSpecs />
+          <TypographySpecs />
+          <ColorSpecs />
+        </div>
+      </PostBody>
+    </Post>
+  </MainContent>
+</DefaultLayout>

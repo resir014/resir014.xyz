@@ -17,7 +17,7 @@ Plan files describe work that will be executed against this codebase, so the con
 project's established standards. When you author a plan:
 
 - Follow the coding styleguide, naming conventions, and tooling rules already in force (ESLint's `kentcdodds` +
-  `kentcdodds/react` + `jsx-a11y` + `@next/next` configs, Prettier, the `~/*` root import alias, and anything
+  `kentcdodds/react` + `jsx-a11y` configs plus `eslint-plugin-astro`, Prettier, the `~/*` import alias for `src/`, and anything
   referenced from [`CLAUDE.md`](../CLAUDE.md)).
 - Keep any code snippets, file paths, identifiers, and directory layouts consistent with those rules. Do not propose a
   solution that would fail `pnpm lint` or `pnpm type-check`.

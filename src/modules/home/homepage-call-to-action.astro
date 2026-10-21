@@ -1,0 +1,15 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  class?: string;
+  href: string;
+  text: string;
+}
+
+const { class: className, href, text } = Astro.props;
+---
+
+<a href={href} class={clsx('group text-chungking-turquoise-400 text-lg lg:text-xl', className)}>
+  <span class="group-hover:underline">{text}</span> <span>&rarr;</span>
+</a>
