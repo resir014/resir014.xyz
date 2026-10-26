@@ -1,0 +1,25 @@
+---
+import siteMetadata from '~/lib/data/site-metadata';
+import type { PostKind } from '~/types/default';
+import PostDate from './post-date.astro';
+import { slugByCategory } from './utils/slug-by-category';
+
+interface Props {
+  class?: string;
+  date: string;
+  category: PostKind;
+  slug?: string;
+  disableMetaClick?: boolean;
+}
+
+const { class: className, date, category, slug, disableMetaClick } = Astro.props;
+---
+
+<section class={className}>
+  <PostDate href={disableMetaClick ? undefined : slugByCategory(slug, category)} date={date} />
+  {slug ? (
+    <a class="u-url hidden" href={`${siteMetadata.siteUrl}${slugByCategory(slug, category)}`}>
+      Permalink
+    </a>
+  ) : null}
+</section>

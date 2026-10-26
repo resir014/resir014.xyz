@@ -1,0 +1,26 @@
+---
+import clsx from 'clsx';
+import type { HTMLAttributes } from 'astro/types';
+import { Container, type ContainerSizes } from '../layout';
+
+interface Props extends HTMLAttributes<'section'> {
+  htmlContent?: string;
+  containerSize?: ContainerSizes;
+}
+
+const { containerSize = 'md', class: className, htmlContent, ...rest } = Astro.props;
+---
+
+<section class={clsx('px-4 lg:px-6 pt-12 pb-24', className)} {...rest}>
+  <Container size={containerSize}>
+    {htmlContent ? (
+      <div class="e-content prose lg:prose-lg prose-base prose-invert prose-chungking">
+        <Fragment set:html={htmlContent} />
+      </div>
+    ) : (
+      <div class="e-content">
+        <slot />
+      </div>
+    )}
+  </Container>
+</section>

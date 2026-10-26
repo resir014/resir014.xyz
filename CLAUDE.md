@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Personal website for resir014.xyz. It is currently **Next.js 14 (Pages Router) + Tailwind 3**, deployed on Netlify via `@netlify/plugin-nextjs`. A **migration to Astro 7 is planned**; see [Astro 7 migration](#astro-7-migration) before making structural changes.
+Personal website for resir014.xyz, built with **Astro 7 + Tailwind 3** and deployed on Netlify via `@astrojs/netlify`. It was migrated from Next.js 14; see [Astro 7 migration](#astro-7-migration) for what must be preserved.
 
 ## Project philosophy
 
@@ -10,56 +10,66 @@ AI assistance on this project is limited to **architecture and plumbing**. Desig
 
 - **Design needs a human touch.** Do not make visual design decisions: layout, spacing, typography, colour, imagery, motion, or copy tone.
   - When porting or refactoring (including the Astro migration), reproduce the existing design faithfully.
-  - When new UI is needed, build the structure and wiring, reuse existing `components/ui/` pieces and tokens (without extending the deprecated Chungking system; see below), and leave the design choices to the user. Ask rather than invent.
-- **Never write post or page content, even when asked.** This covers Markdown bodies in `_content/`: posts of every kind, pages, etc pages, and projects.
+  - When new UI is needed, build the structure and wiring, reuse existing `src/components/ui/` pieces and tokens (without extending the deprecated Chungking system; see below), and leave the design choices to the user. Ask rather than invent.
+- **Never write post or page content, even when asked.** This covers Markdown bodies in `src/content/`: posts of every kind, pages, etc pages, and projects.
   - Allowed exceptions:
     1. **Proofreading and grammar checking.** Report the issues and suggested corrections to the user and let them apply the fixes. Do not edit the prose yourself.
     2. **Structural plumbing edits.** Rewriting asset paths or links (e.g. for path-aware asset imports) and renaming or migrating frontmatter keys are allowed. Change only that structure and leave every word of prose untouched.
 
 ## Commands
 
-pnpm (`pnpm-lock.yaml`, pinned via `packageManager`), Node 22 (`.nvmrc`).
+pnpm (`pnpm-lock.yaml`, pinned via `packageManager`), Node 22.22+ (`.nvmrc`, `engines.node`; Astro 7 requires it).
 
 ```bash
-pnpm dev          # dev server at localhost:3000
-pnpm build        # next build && next-sitemap (sitemap + robots.txt)
+pnpm dev          # dev server at localhost:4321
+pnpm build        # astro build (static pages + the Netlify function for /api/trpc)
 pnpm test         # type-check + lint (there is no unit test runner)
-pnpm validate     # lint + type-check (what CI runs)
-pnpm type-check   # tsc --noEmit
-pnpm lint         # eslint over all JS/TS
+pnpm validate     # astro sync + lint + type-check (what CI runs)
+pnpm type-check   # astro check (type-checks .astro, .ts, and .tsx)
+pnpm lint         # eslint over all JS/TS/Astro
 pnpm lint:fix
-pnpm exec eslint path/to/file.tsx   # lint a single file
+pnpm exec eslint path/to/file.astro   # lint a single file
 ```
 
-The Husky pre-commit hook runs lint-staged: `eslint --fix` on JS/TS, then `prettier --write`. Prettier uses single quotes, 100-column lines, `arrowParens: avoid`, and `trailingComma: es5`. ESLint extends `kentcdodds` + `kentcdodds/react` + `jsx-a11y` + `@next/next`. `next build` skips ESLint, so run `pnpm lint` yourself.
+The Husky pre-commit hook runs lint-staged: `eslint --fix` on JS/TS/Astro, then `prettier --write` (with `prettier-plugin-astro`). Prettier uses single quotes, 100-column lines, `arrowParens: avoid`, and `trailingComma: es5`. ESLint (v8, `.eslintrc.js`) extends `kentcdodds` + `kentcdodds/react` + `jsx-a11y`, with `eslint-plugin-astro` 1.x for `.astro` files; React rules are turned off for `.astro`. `astro build` does not lint, so run `pnpm lint` yourself.
 
-`markdown-it-shiki-twoslash` depends on the native `deasync` module, which `next build` needs. `node-gyp` is a devDependency and `pnpm.onlyBuiltDependencies` allows `deasync`'s build script, so `pnpm install` compiles it. Both can go once Twoslash is dropped (ADR-0007).
+`tsconfig.json` extends `@epic-web/config/typescript` and `astro/tsconfigs/strict`, with `verbatimModuleSyntax` (type-only imports must use `import type` or inline `type`) and `noUncheckedIndexedAccess` (indexed access may be `undefined`).
 
-Env vars are listed in `.env.example`. The Google, Twitch, and Spotify credentials are only needed for `/dashboard`.
+Env vars are listed in `.env.example`. They keep their `NEXT_PUBLIC_` names (they are set on Netlify). `astro.config.mjs` loads `.env.local` and `.env` into `process.env` for local development. The Google, Twitch, and Spotify credentials are only needed for `/dashboard`.
 
 ## Architecture
 
-The import alias `~/*` maps to the repo root (there is no `src/`).
+Astro `src/` layout (ADR-0006). The import alias `~/*` maps to `src/` (`~/lib/posts` is `src/lib/posts.ts`). `public/`, `config/`, and the config files stay at the repo root.
 
 ### Content pipeline
 
-- **`_content/`** holds the Markdown sources (CC BY-NC-SA). `_data/` holds JSON site config: metadata, nav menu, footer links, linktree. The README calls these `content/` and `data/`, but the real directory names have leading underscores.
-  - `_content/posts/<kind>/YYYY-MM-DD-slug.md`: `kind` is `article | bookmark | jam | photo | video`. The date comes from the filename; frontmatter `date` overrides it.
-  - `_content/pages/*.md` maps to `/<slug>`, `_content/etc/*.md` maps to `/etc/<slug>`, and `_content/projects/*.md` maps to `/projects/<slug>`.
-- **Loaders** (`lib/posts.ts`, `lib/pages.ts`, `lib/projects.ts`, `lib/item-by-slug.ts`) read files with `fs` + `gray-matter`. They take an explicit `fields: string[]` list and return only those keys, which keeps page props small. A field missing from the list will be `undefined` in the component. Post `slug` is returned as `YYYY/MM/DD/slug`.
-- **Rendering**: `lib/markdown-to-html.tsx` turns Markdown into an HTML string at build time using markdown-it (`html: true`), `markdown-it-implicit-figures`, and Shiki Twoslash (`github-dark`). On the client, `htmr` + `lib/htmr-transform.tsx` convert that HTML into React elements. The transform restyles `img/pre/figure/iframe`, turns `div.message` / `div.message--warning` into `<MessageBox>`, sends internal links through `next/link`, and opens external links in a new tab. Content authors depend on these conventions.
-- **Assets**: Markdown and `header_image` frontmatter point to absolute `/assets/<kind>/<year>/<slug>/...` paths. Those files live in `public/assets/`, whose folder layout mirrors the content tree. Nothing is imported relative to the Markdown file today.
-- **Post URLs**: `/posts/YYYY/MM/DD/slug`, `/jam/...`, `/photos/...`, `/videos/...` (catch-all `[...slug]` routes). Bookmarks have no detail pages; they are listed on `/bookmarks` and link out externally. `modules/posts/utils/slug-by-category.ts` builds these paths. It also knows a `note` kind (`/notes/`), but that kind has no content or route.
+- **`src/content/`** holds the Markdown sources (CC BY-NC-SA). `src/data/` holds JSON site config: metadata, nav menu, footer links, linktree.
+  - `src/content/posts/<kind>/YYYY-MM-DD-slug.md`: `kind` is `article | bookmark | jam | photo | video`. The date comes from the filename; frontmatter `date` overrides it.
+  - `src/content/pages/*.md` maps to `/<slug>`, `src/content/etc/*.md` maps to `/etc/<slug>`, and `src/content/projects/*.md` maps to `/projects/<slug>`.
+- **Content collections** (`posts`, `pages`, `etc`, `projects`) are defined in `src/content.config.ts`, with Zod schemas that mirror the existing frontmatter. Entry IDs are the raw filenames (a custom `generateId`), because Astro's default slugifier would change Permalinks like `tailwindcss-2.0`.
+- **Loaders** (`src/lib/posts.ts`, `src/lib/pages.ts`, `src/lib/projects.ts`) wrap `getCollection` and return the props types in `src/types/` (`BasePostProps` etc.). `getPosts(kind)` sorts newest first; a Post's `slug` is `YYYY/MM/DD/slug`. `content` is the entry's rendered HTML (`entry.rendered.html`), which components output with `<Fragment set:html>`. Pages and projects are sorted by filename.
+- **Rendering** (ADR-0007, amended): plain `.md` through the `unified()` processor from `@astrojs/markdown-remark`, configured in `astro.config.mjs` to reproduce the old markdown-it output. It is CommonMark with raw HTML, GFM limited to tables and strikethrough, and no smart punctuation. The project-local plugins live in `src/lib/markdown/`:
+  - `remark-implicit-figures`: an image alone in its paragraph becomes `<figure>` (no caption).
+  - `remark-relative-images`: relative image paths stay as authored instead of becoming Astro image imports.
+  - `rehype-message-box`: `div.message` / `div.message--warning` (Callouts) get `MessageBox`'s classes, via `messageBoxClassName` in `src/components/ui/message-box/message-box-class-name.ts`.
+  - `rehype-element-classes`: post-body styles for `iframe/pre/figure/figcaption/img`.
+  - `rehype-internal-links`: strips trailing slashes from root-relative links. External links open in a new tab via `rehype-external-links`.
+  - `rehype-raw` runs first, because Astro only parses raw HTML after user plugins. Content authors depend on these conventions.
+  - Code blocks use Astro's Shiki with `github-dark-default`, with the Twoslash-era foreground restored. Astro also adds `id`s to headings.
+- **Assets**: Markdown and `header_image` frontmatter point to absolute `/assets/<kind>/<year>/<slug>/...` paths. Those files live in `public/assets/`, whose folder layout mirrors the content tree. Nothing is imported relative to the Markdown file.
+- **Post URLs**: `/posts/YYYY/MM/DD/slug`, `/jam/...`, `/photos/...`, `/videos/...` (`[...slug].astro` routes). Bookmarks have no detail pages; they are listed on `/bookmarks` and link out externally. `src/modules/posts/utils/slug-by-category.ts` builds these paths. It also knows a `note` kind (`/notes/`), but that kind has no content or route. Pages are built as `.html` files (`build.format: 'file'`, `trailingSlash: 'never'`); use `getPagePath(Astro.url)` from `src/lib/page-path.ts`, not `Astro.url.pathname`, which includes `.html` at build time.
+- **Post dates** are formatted in `Asia/Jakarta` (`src/lib/date-formatter.ts`), the timezone Permalinks are dated in.
 
 ### IndieWeb and microformats2
 
 All content and every post kind follow the IndieWeb specification and are marked up with microformats2 (https://indieweb.org/microformats). See `docs/adr/0003-indieweb-and-microformats2.md`. Post kinds are IndieWeb post types; when adding or changing one, start from its indieweb.org definition.
 
 - Microformats classes sit alongside Tailwind classes, and some elements are hidden and exist only for parsers. Do not remove them as cleanup.
-- `modules/posts/post.tsx` is the `h-entry` root for posts, `/<slug>` pages, and `/etc` pages.
-- `post-header.tsx` provides `p-name`/`p-summary`, `post-meta.tsx`/`post-date.tsx` provide the hidden `u-url` and `dt-published`, and `post-body.tsx` provides `e-content`/`u-syndication`.
-- `post-h-card.tsx` is the author `h-card` (`p-author`). List items carry their own `h-entry`, and photos use `u-photo`.
-- `layouts/default-layout.tsx` emits `rel="me"` links from `_data/site-metadata.json` `author.url`.
+- Tailwind's `h-*` utilities (e.g. `h-full`) look like microformats roots to parsers. Existing ones are part of today's parsed output, but don't add new `h-*` utilities to elements inside an Entry without checking the mf2 output (use `size-*` for image fills).
+- `src/modules/posts/post.astro` is the `h-entry` root for posts, `/<slug>` pages, and `/etc` pages.
+- `post-header.astro` provides `p-name`/`p-summary`, `post-meta.astro`/`post-date.astro` provide the hidden `u-url` and `dt-published`, and `post-body.astro` provides `e-content`/`u-syndication`.
+- `post-h-card.astro` is the author `h-card` (`p-author`). List items carry their own `h-entry`, and photos use `u-photo`.
+- `src/layouts/default-layout.astro` emits `rel="me"` links from `src/data/site-metadata.json` `author.url`.
 - Not yet marked up:
   - Bookmarks have no `h-entry` or `u-bookmark-of`.
   - Index pages have no `h-feed`.
@@ -67,59 +77,44 @@ All content and every post kind follow the IndieWeb specification and are marked
 
 ### RSS feeds
 
-`getStaticProps` in `pages/posts/index.tsx` writes `public/posts/rss.xml`, `atom.xml`, and `feed.json` to disk as a build side effect. Only articles are included, and the files are gitignored. `pages/_app.tsx` advertises them via `<link rel="alternate">`. The `feedLinks` inside `lib/rss.ts` point to `/rss/...`, which does not match where the files are actually written.
+`src/pages/posts/{rss.xml,atom.xml,feed.json}.ts` are static endpoints that build the Feed with the `feed` package (`src/lib/rss.ts`). Only articles are included. `DefaultLayout` advertises them via `<link rel="alternate">`. The `feedLinks` inside `src/lib/rss.ts` point to `/rss/...`, which does not match where the feeds are served.
 
 ### Pages, layouts, UI
 
-- `pages/` holds thin route files: data loading in `getStaticProps`/`getStaticPaths` (`fallback: false`), plus composition. There are two layout styles:
-  - Older pages wrap their JSX in `<DefaultLayout>` directly.
-  - Newer pages set `Page.layout = page => <DefaultLayout>{page}</DefaultLayout>`, which `_app.tsx` applies. Use `createNextPage` / the `NextPage` type from `~/types/next` for this style.
-- `components/ui/` is the reusable design-system layer (Avatar, Badge, Divider, Logo, MessageBox). `components/layout/` is the site shell (navbar, footer, container). `components/page/` holds generic page body/meta pieces.
-- `modules/<feature>/` holds feature-specific components (posts, projects, photos, video, home, design, linktree, live, spotify, dashboard).
-- Styling uses Tailwind 3 with the `@resir014/tailwind-preset-chungking` preset (the `chungking-*` color tokens; `@resir014/chungking-core` is imported directly in `tailwind.config.js`, `pages/_app.tsx`, and `modules/design/color-specs.tsx` but is only a transitive dependency) and `@tailwindcss/typography`.
+- `src/pages/` holds `.astro` routes: data loading in the frontmatter and `getStaticPaths`, plus composition. Every page wraps itself in `src/layouts/default-layout.astro`. Its props set the page's SEO: `title`, `titleTemplate`, `description`, `openGraph` (type, image, `article` times), `noindex`, and `youtubePreconnect` for pages whose content may embed YouTube. `src/lib/seo.ts` holds the defaults.
+- Components follow ADR-0002. Static components are `.astro`. These stay React:
+  - the design-system components in `src/components/ui/`, rendered without hydration from `.astro`;
+  - interactive islands: the navbar menu (`navbar-menu.tsx`, Headless UI `Popover`), the footer GA opt-out link, `src/modules/video/lite-youtube.tsx`, the `/design` colour swatch grids, and the Dashboard widgets.
+- An island is wrapped in a `display: contents` `<astro-island>`, so a parent's `space-y-*` cannot space hydrated children. Make the island render the spaced container itself (see `color-swatch-grid.tsx`, `dashboard-widgets.tsx`). React components rendered from `.astro` with children get the same kind of wrapper; for `MessageBox`, use `messageBoxClassName` on a plain `div` instead.
+- `src/components/layout/` is the site shell (navbar, footer, container). `src/components/page/` holds generic page body/meta pieces. `src/modules/<feature>/` holds feature-specific components (posts, projects, photos, video, home, design, linktree, live, spotify, dashboard).
+- Styling uses Tailwind 3 (via `postcss.config.js`) with the `@resir014/tailwind-preset-chungking` preset (the `chungking-*` color tokens; `@resir014/chungking-core` is imported directly in `tailwind.config.js`, `src/layouts/default-layout.astro`, and `src/modules/design/color-specs.astro` but is only a transitive dependency) and `@tailwindcss/typography`.
   - **Chungking is deprecated** (see the migration section and ADR-0004), so don't extend it.
-  - Global CSS lives in `styles/`. The homepage `FLAVOUR_TEXT` is picked at random at build time from `config/flavour-text.js` in `next.config.js`.
+  - Global CSS lives in `src/styles/` and is imported by `DefaultLayout`. `config/flavour-text.js` (the homepage Flavour text) is not used anywhere.
 
 ### The one dynamic part
 
-Most of the site is static generation, but **`/dashboard` is not**. It calls a tRPC v10 API route (`pages/api/trpc/[trpc].ts` → `server/routers/{twitch,spotify,youtube}.ts`, with fetchers in `server/data/`). That route runs as a Netlify function, and the client queries it through React Query (`lib/trpc.ts`, `ssr: false`; hooks in `lib/twitch-api.ts`, `lib/youtube-api.ts`, `modules/spotify/`). `lib/base-url.ts` resolves the site URL from Netlify's `CONTEXT`/`URL`/`DEPLOY_PRIME_URL`.
+Most of the site is prerendered, but **`/api/trpc` is not** (ADR-0005). `src/pages/api/trpc/[trpc].ts` sets `prerender = false` and serves the tRPC v10 router (`src/server/routers/{twitch,spotify,youtube}.ts`, with fetchers in `src/server/data/`) through tRPC's fetch adapter. The Netlify adapter turns it into a Netlify function. The `/dashboard` page itself is static. Its `DashboardWidgets` island queries the API through React Query, using `src/lib/trpc.ts` and `src/lib/trpc-provider.tsx`; hooks are in `src/lib/twitch-api.ts`, `src/lib/youtube-api.ts`, and `src/modules/spotify/`. `src/lib/base-url.ts` resolves the site URL from Netlify's `CONTEXT`/`URL`/`DEPLOY_PRIME_URL`.
 
 ### Deploy config
 
-Security headers and immutable caching are defined in **both** `netlify.toml` and `next.config.js` `headers()`, so keep them in sync. `next.config.js` also has joke redirects for `/.env` and `/wp-*`. The `next-sitemap` config excludes `/etc/something-amazing` and blocks GPTBot in `robots.txt`.
+`netlify.toml` is the single source for security headers, the immutable caching of `/_astro/*`, and the joke redirects for `/.env` and `/wp-*`. `@astrojs/sitemap` excludes `/etc/something-amazing`; an integration in `astro.config.mjs` also publishes the sitemap index as `/sitemap.xml`. `src/pages/robots.txt.ts` blocks GPTBot.
 
 ## Astro 7 migration
 
-Planned direction (not started). The decisions are recorded in `docs/adr/0001-migrate-to-astro-7.md`, `docs/adr/0002-astro-first-components-with-react-islands.md`, `docs/adr/0005-dashboard-as-astro-server-endpoint.md`, `docs/adr/0006-adopt-astro-src-layout.md`, and `docs/adr/0007-plain-markdown-with-rehype-remark.md`, constrained by `docs/adr/0003-indieweb-and-microformats2.md` and `docs/adr/0004-deprecate-chungking-for-rebrand.md`. Any migration work must preserve:
+Implemented on `refactor/astro-7-rewrite` and verified against a Netlify deploy preview. The decisions are recorded in `docs/adr/0001-migrate-to-astro-7.md`, `docs/adr/0002-astro-first-components-with-react-islands.md`, `docs/adr/0005-dashboard-as-astro-server-endpoint.md`, `docs/adr/0006-adopt-astro-src-layout.md`, and `docs/adr/0007-plain-markdown-with-rehype-remark.md`, constrained by `docs/adr/0003-indieweb-and-microformats2.md` and `docs/adr/0004-deprecate-chungking-for-rebrand.md`. Any further change must preserve:
 
-- **Route structure and URLs**: every path above, including `/posts/YYYY/MM/DD/slug`, the `/etc/*` and top-level Markdown pages, and trailing-slash behaviour.
-- **RSS/Atom/JSON feeds** at their current public URLs (`/posts/rss.xml`, `/posts/atom.xml`, `/posts/feed.json`).
-- **Asset references stay absolute, not path-aware**: content assets remain centralized under `public/assets/<kind>/<year>/<slug>/...`, referenced by the same absolute `/assets/...` paths as today (ADR-0001 amendment; colocating assets with content is explicitly deferred, not part of this migration). The Markdown conventions that `htmr-transform` handles today (implicit figures, `.message` boxes, Shiki code blocks, external-link handling) must keep working.
-- **IndieWeb microformats2 markup**: every rewritten component must emit the same `h-entry`/`h-card`/`rel="me"` markup and properties as before (ADR-0003).
+- **Route structure and URLs**: every path above, including `/posts/YYYY/MM/DD/slug`, the `/etc/*` and top-level Markdown pages, and no trailing slashes (`/foo/` redirects to `/foo`).
+- **RSS/Atom/JSON feeds** at their public URLs (`/posts/rss.xml`, `/posts/atom.xml`, `/posts/feed.json`).
+- **Asset references stay absolute, not path-aware**: content assets remain centralized under `public/assets/<kind>/<year>/<slug>/...`, referenced by absolute `/assets/...` paths (ADR-0001 amendment). The Markdown conventions above (implicit figures, `.message` boxes, Shiki code blocks, external-link handling) must keep working.
+- **IndieWeb microformats2 markup** (ADR-0003). Check changes with a microformats parser.
 - Sitemap/robots behaviour, SEO/OpenGraph meta, and the Netlify headers/redirects.
-- **The Dashboard** moves to a server-rendered Astro route via `@astrojs/netlify` (ADR-0005), while the rest of the site stays statically generated.
-
-Tooling changes that are part of the migration:
-
-- **Yarn 1 → pnpm and Node 22 baseline**: done (lockfile, `packageManager`, `engines.node`, `.nvmrc`, Husky, CI, `netlify.toml`, README).
-- **`src/` layout** (ADR-0006): `pages/`, `components/`, `modules/`, `lib/`, `styles/` move to `src/`, preserving their current names and boundaries. `_content/` and `_data/` move to `src/content/` and `src/data/` (underscore prefix dropped). The `~/*` alias is repointed from the repo root to `src/`, not replaced.
-- **Markdown pipeline** (ADR-0007): content stays plain `.md` (not MDX). `.message`/`.message--warning` divs are reproduced via HTML passthrough plus a project-local rehype plugin injecting `MessageBox`'s resolved Tailwind classes. Implicit figures use `rehype-image-toolkit` (`implicitFigure: true`). Code blocks use Astro's built-in Shiki (`github-dark`), without Twoslash (unused in content, dropped rather than ported). Feeds keep the existing `feed` npm package, ported into an Astro endpoint.
 
 Design system:
 
 - **Chungking is deprecated** (`docs/adr/0004-deprecate-chungking-for-rebrand.md`). A future rebrand will replace it with **Tailwind CSS v4 themes** and UI components styled with **Tailwind + class-variance-authority (CVA)**. This includes dropping the Tailwind 3 preset/`tailwind.config.js` setup and the `chungking-*` tokens.
-- Until then, ported code keeps its existing Chungking classes as-is. Don't add tokens or build new abstractions on top of Chungking.
-- The rebrand's visual design is the user's (see Project philosophy). Claude's part is limited to the plumbing: the Tailwind v4 theme setup and CVA variant APIs for `components/ui/`.
-- The rebrand is being worked on **in parallel** with the Astro migration. Expect `components/ui/` and the styling layer to change underneath migration work, and keep styling changes during porting minimal so the two efforts do not conflict.
-
-Component strategy:
-
-- **Rewrite to `.astro`**: every page, layout, and fully static component (`components/layout`, `components/page`, most of `modules/`).
-- **Keep as React**:
-  1. The reusable UI/design-system components in `components/ui/`.
-  2. Components with interactive elements. Limit React to the dynamic part and hydrate it as an island. Current examples: the navbar (Headless UI `Popover`), the footer GA opt-out link, `modules/video/lite-youtube`, `modules/design/color-swatch` (clipboard), and the Twitch/Spotify/YouTube dashboard widgets.
-- Next-specific pieces go away: `next/link`, `next-seo`, `next/head`, NProgress route events, `htmr` (Astro renders Markdown directly), `next-sitemap`, and `@netlify/plugin-nextjs`.
-- The tRPC dashboard needs server/function support, which conflicts with a purely static output. Decide how to host it (Astro endpoint with the Netlify adapter, a standalone Netlify function, or dropping it) before migrating it.
+- Until then, code keeps its existing Chungking classes as-is. Don't add tokens or build new abstractions on top of Chungking.
+- The rebrand's visual design is the user's (see Project philosophy). Claude's part is limited to the plumbing: the Tailwind v4 theme setup and CVA variant APIs for `src/components/ui/`.
+- The rebrand is being worked on **in parallel**. Expect `src/components/ui/` and the styling layer to change, and keep styling changes in other work minimal so the two efforts do not conflict.
 
 ## Agent skills
 

@@ -1,0 +1,23 @@
+---
+import { Container, type ContainerSizes } from '~/components/layout';
+import PhotoWrapper from './photo-wrapper.astro';
+
+interface Props {
+  content?: string;
+  image?: string;
+  containerSize?: ContainerSizes;
+}
+
+const { content, containerSize = 'md', image } = Astro.props;
+---
+
+<section class="px-6 pt-6 pb-[96px]">
+  <Container size={containerSize}>
+    <div class="space-y-4">
+      {image ? <PhotoWrapper image={image} /> : null}
+      <div class="e-content mx-auto prose lg:prose-lg prose-base prose-invert prose-chungking">
+        {content ? <Fragment set:html={content} /> : <slot />}
+      </div>
+    </div>
+  </Container>
+</section>

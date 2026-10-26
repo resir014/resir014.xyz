@@ -1,0 +1,43 @@
+---
+import clsx from 'clsx';
+import type { BaseProjectProps } from '~/types/projects';
+import ProjectBadge from './project-badge.astro';
+
+interface Props {
+  class?: string;
+  project: BaseProjectProps;
+}
+
+const { class: className, project } = Astro.props;
+const { header_image, title, description, tags, slug } = project;
+---
+
+<section class={clsx('flex flex-col relative space-y-2', className)}>
+  {tags ? (
+    <div class="space-x-4">
+      {tags.map(tag => (
+        <ProjectBadge seed={`${slug} ${tag}`} tag={tag} />
+      ))}
+    </div>
+  ) : null}
+  <div class="space-y-4">
+    {header_image ? (
+      <div class="relative w-full h-full aspect-video overflow-hidden rounded-md shadow-lg">
+        <img
+          loading="lazy"
+          src={header_image}
+          alt={title}
+          class="absolute inset-0 size-full object-cover"
+        />
+      </div>
+    ) : null}
+    <div class="space-y-1">
+      <h2 class="text-xl lg:text-2xl leading-tight lg:leading-tight font-semibold">
+        <a href={`/projects/${slug}`} class="helper-link-cover hover:underline">
+          {title}
+        </a>
+      </h2>
+      <p class="text-base text-chungking-grey-200">{description}</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import clsx from 'clsx';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+const hasTitle = Astro.slots.has('title');
+const hasBody = hasTitle || Astro.slots.has('default');
+---
+
+<div class={clsx('bg-chungking-grey-800 rounded-md shadow-single overflow-hidden', className)}>
+  <slot name="embed" />
+  {hasBody ? (
+    <div class="relative space-y-3 p-6">
+      <slot name="metadata" />
+      {hasTitle ? (
+        <h1 class="text-2xl font-semibold p-name">
+          <slot name="title" />
+        </h1>
+      ) : null}
+      <slot />
+    </div>
+  ) : null}
+</div>

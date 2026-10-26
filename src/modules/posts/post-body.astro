@@ -1,0 +1,52 @@
+---
+import { Container, type ContainerSizes } from '~/components/layout';
+import { messageBoxClassName } from '~/components/ui';
+import type { SiteAuthor } from '~/lib/data/site-metadata';
+import type { SyndicationFormat } from '~/types/default';
+import PostHCard from './post-h-card.astro';
+
+interface Props {
+  content?: string;
+  containerSize?: ContainerSizes;
+  syndication?: SyndicationFormat[];
+  author?: SiteAuthor;
+}
+
+const { content, syndication, containerSize = 'md', author } = Astro.props;
+---
+
+<section class="px-4 lg:px-6 pt-12 pb-24">
+  <Container size={containerSize}>
+    <div class="space-y-12">
+      {syndication ? (
+        <div class={messageBoxClassName('default', 'space-y-2')}>
+          <p class="text-base">This post is also published on:</p>
+          <ul class="list-disc list-inside">
+            {syndication.map(item => (
+              <li>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  class="u-syndication text-chungking-turquoise-400 hover:underline"
+                  rel="noopener noreferrer external syndication"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+      {content ? (
+        <div class="e-content prose lg:prose-lg prose-base prose-invert prose-chungking">
+          <Fragment set:html={content} />
+        </div>
+      ) : (
+        <div class="e-content">
+          <slot />
+        </div>
+      )}
+      {author ? <PostHCard author={author} /> : null}
+    </div>
+  </Container>
+</section>

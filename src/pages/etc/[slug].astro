@@ -1,0 +1,26 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { MainContent } from '~/components/layout';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import { getPages } from '~/lib/pages';
+import { Post, PostBody, PostHeader, PostHeaderImage } from '~/modules/posts';
+
+export const getStaticPaths = (async () => {
+  const pages = await getPages('etc');
+  return pages.map(page => ({ params: { slug: page.slug }, props: { page } }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { title, lead, header_image, content } = Astro.props.page;
+---
+
+<DefaultLayout title={title} youtubePreconnect>
+  <MainContent>
+    <Post>
+      {header_image ? <PostHeaderImage src={header_image} alt={title} /> : null}
+      <PostHeader title={title} lead={lead} />
+      <PostBody content={content} />
+    </Post>
+  </MainContent>
+</DefaultLayout>

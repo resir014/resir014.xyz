@@ -1,0 +1,37 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { MainContent } from '~/components/layout';
+import DefaultLayout from '~/layouts/default-layout.astro';
+import { getPosts } from '~/lib/posts';
+import { headerImageOpenGraph } from '~/lib/seo';
+import { PhotoPostBody } from '~/modules/photos';
+import { Post, PostHeader } from '~/modules/posts';
+
+export const getStaticPaths = (async () => {
+  const posts = await getPosts('photo');
+  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { category, date, header_image, slug, content } = Astro.props.post;
+const title = 'Photo posted by @resir014';
+---
+
+<DefaultLayout
+  title={title}
+  openGraph={{
+    type: 'article',
+    title,
+    article: { publishedTime: date, section: category },
+    image: headerImageOpenGraph(header_image, title),
+  }}
+  youtubePreconnect
+>
+  <MainContent>
+    <Post>
+      <PostHeader category={category} date={date} slug={slug} />
+      <PhotoPostBody image={header_image} content={content} />
+    </Post>
+  </MainContent>
+</DefaultLayout>

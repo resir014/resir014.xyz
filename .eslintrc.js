@@ -1,3 +1,8 @@
+// React rules don't apply to Astro templates (`class`, `Fragment`, keyless lists, ...).
+const reactRulesOff = Object.fromEntries(
+  Object.keys(require('eslint-plugin-react').rules).map(rule => [`react/${rule}`, 'off'])
+);
+
 module.exports = {
   root: true,
   extends: [
@@ -6,7 +11,6 @@ module.exports = {
     'kentcdodds/jsx-a11y',
     'prettier',
     'plugin:prettier/recommended',
-    'plugin:@next/next/recommended',
   ],
   plugins: ['prettier'],
   rules: {
@@ -33,6 +37,19 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-unsafe-argument': 'warn',
+        'import/consistent-type-specifier-style': 'off',
+      },
+    },
+    {
+      files: ['**/*.astro'],
+      parser: 'astro-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.astro'],
+      },
+      extends: ['plugin:astro/recommended', 'plugin:astro/jsx-a11y-recommended'],
+      rules: {
+        ...reactRulesOff,
         'import/consistent-type-specifier-style': 'off',
       },
     },

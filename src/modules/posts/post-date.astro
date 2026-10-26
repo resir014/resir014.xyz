@@ -1,0 +1,32 @@
+---
+import clsx from 'clsx';
+import { formatPostDate } from '~/lib/date-formatter';
+
+interface Props {
+  class?: string;
+  href?: string;
+  date: string;
+}
+
+const { class: className, date, href } = Astro.props;
+const postDate = new Date(date);
+---
+
+<div class={clsx('flex space-x-2 items-center', className)}>
+  <svg class="h-1.5 w-1.5 text-chungking-blue-500" fill="currentColor" viewBox="0 0 8 8">
+    <circle cx="4" cy="4" r="4"></circle>
+  </svg>
+  <span class="inline-block text-base">
+    {href ? (
+      <a href={href} class="hover:underline">
+        <time class="dt-published" datetime={postDate.toISOString()}>
+          {formatPostDate(postDate)}
+        </time>
+      </a>
+    ) : (
+      <time class="dt-published" datetime={postDate.toISOString()}>
+        {formatPostDate(postDate)}
+      </time>
+    )}
+  </span>
+</div>

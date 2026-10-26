@@ -8,6 +8,12 @@ Today, `htmr-transform` converts specific HTML output into React components at r
 
 We keep all `_content/` as plain `.md`, with html passthrough (standard CommonMark HTML-block behavior) reproducing raw `<div class="message">` markup as-is, and a small project-local rehype plugin injecting the resolved Tailwind utility classes onto `.message`/`.message--warning` divs, matching `MessageBox`'s current variant-to-class mapping. Migrating to MDX remains available later if a genuine need for live component embedding in content emerges.
 
+**Amendment (2026-10-21):** Implementing this decision changed three of its details:
+
+- `rehype-image-toolkit` is not used. Its `implicitFigure` option always adds a `<figcaption>` built from the alt text, which `markdown-it-implicit-figures` (default options) never did, so it would have added visible captions under most content images. Implicit figures use a project-local remark plugin instead (`src/lib/markdown/remark-implicit-figures.ts`): a paragraph whose only child is an image renders as `<figure>`, which is exactly the markdown-it rule.
+- Astro 7 made Sätteri its default Markdown processor, which does not run remark or rehype plugins. The pipeline uses the `unified()` processor from `@astrojs/markdown-remark`, configured to match markdown-it's defaults: no smart punctuation, and GFM limited to tables and `~~strikethrough~~` (so footnotes and bare URLs still render as plain text).
+- Shiki Twoslash's `github-dark` theme is the palette that current Shiki calls `github-dark-default`, with an older foreground colour. The config uses `github-dark-default` with that foreground restored.
+
 ## Consequences
 
 - No content file changes format or extension — `.message` divs, images, and code fences are authored exactly as they are today.

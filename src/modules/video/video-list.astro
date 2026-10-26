@@ -1,0 +1,24 @@
+---
+import type { BaseJamProps, BaseVideoProps } from '~/types/posts';
+import PostDate from '../posts/post-date.astro';
+import { LiteYouTube } from './lite-youtube';
+import VideoCard from './video-card.astro';
+
+interface Props {
+  posts: Array<BaseJamProps | BaseVideoProps>;
+  category?: 'jam' | 'videos';
+}
+
+const { posts, category = 'videos' } = Astro.props;
+---
+
+{posts.map(post => (
+  <VideoCard>
+    <LiteYouTube slot="embed" client:visible videoId={post.youtube_embed_id} />
+    <PostDate slot="metadata" date={post.date} />
+    <a slot="title" href={`/${category}/${post.slug}`}>
+      {post.title}
+    </a>
+    <Fragment set:html={post.content} />
+  </VideoCard>
+))}
