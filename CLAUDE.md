@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Personal website for resir014.xyz, built with **Astro 7 + Tailwind 3** and deployed on Netlify via `@astrojs/netlify`. It was migrated from Next.js 14; see [Astro 7 migration](#astro-7-migration) for what must be preserved and what is still being verified.
+Personal website for resir014.xyz, built with **Astro 7 + Tailwind 3** and deployed on Netlify via `@astrojs/netlify`. It was migrated from Next.js 14; see [Astro 7 migration](#astro-7-migration) for what must be preserved.
 
 ## Project philosophy
 
@@ -101,7 +101,7 @@ Most of the site is prerendered, but **`/api/trpc` is not** (ADR-0005). `src/pag
 
 ## Astro 7 migration
 
-Implemented on `refactor/astro-7-rewrite`. Final verification on a Netlify deploy preview is still open; see `plans/astro-pnpm-migration.md`. The decisions are recorded in `docs/adr/0001-migrate-to-astro-7.md`, `docs/adr/0002-astro-first-components-with-react-islands.md`, `docs/adr/0005-dashboard-as-astro-server-endpoint.md`, `docs/adr/0006-adopt-astro-src-layout.md`, and `docs/adr/0007-plain-markdown-with-rehype-remark.md`, constrained by `docs/adr/0003-indieweb-and-microformats2.md` and `docs/adr/0004-deprecate-chungking-for-rebrand.md`. Any further change must preserve:
+Implemented on `refactor/astro-7-rewrite` and verified against a Netlify deploy preview. The decisions are recorded in `docs/adr/0001-migrate-to-astro-7.md`, `docs/adr/0002-astro-first-components-with-react-islands.md`, `docs/adr/0005-dashboard-as-astro-server-endpoint.md`, `docs/adr/0006-adopt-astro-src-layout.md`, and `docs/adr/0007-plain-markdown-with-rehype-remark.md`, constrained by `docs/adr/0003-indieweb-and-microformats2.md` and `docs/adr/0004-deprecate-chungking-for-rebrand.md`. Any further change must preserve:
 
 - **Route structure and URLs**: every path above, including `/posts/YYYY/MM/DD/slug`, the `/etc/*` and top-level Markdown pages, and no trailing slashes (`/foo/` redirects to `/foo`).
 - **RSS/Atom/JSON feeds** at their public URLs (`/posts/rss.xml`, `/posts/atom.xml`, `/posts/feed.json`).
