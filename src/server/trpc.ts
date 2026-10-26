@@ -1,6 +1,9 @@
 import { initTRPC } from '@trpc/server';
 
 const t = initTRPC.context().create({
+  // tRPC defaults this to `NODE_ENV !== 'production'`, but the Netlify function runtime leaves
+  // NODE_ENV unset, which would leak stack traces in error responses.
+  isDev: process.env.NODE_ENV === 'development',
   errorFormatter(opts) {
     const { shape } = opts;
     return {
