@@ -177,8 +177,14 @@ Tasks 1–9 are implemented and `pnpm run validate` passes. Verified locally aga
 - **Sitemap/robots**: robots.txt identical, same 123 sitemap URLs.
 - **CSS**: same selectors, minus NProgress and Twoslash rules, plus the image-fill utilities.
 
+### Status (2026-10-26)
+
+Checked against deploy preview 326 (`https://deploy-preview-326--resir014.netlify.app`), with the live site as the baseline:
+
+- **Deploy config**: security headers and `/_astro/*` immutable caching match. `/.env`, `/wp-login.php`, and `/wp-admin` return 307 to the same target. Trailing-slash URLs redirect to the slashless path (301 from Netlify instead of Next.js's 308). Feeds, sitemap, robots.txt, and 404s match. Accepted differences: `/wp-admin/` now redirects in one hop instead of two, `.html` URLs (e.g. `/about.html`) now resolve (their canonical still points to the slashless URL), and `/sitemap-index.xml` is new.
+- **Visual**: Playwright full-page screenshots of each template at 375px and 1280px, live vs preview (40 captures). 32 identical. Accepted differences: `/videos` (duplicate layout removed), the article header image (served unoptimised instead of through `next/image`), single-line code blocks 3px taller (Shiki's `span.line` markup vs Twoslash's block `div`s, 56.88px vs 60px), and a 1px offset in the `/design` swatch grids.
+- **Dashboard**: checked in a browser on the preview. The batched tRPC call returns the same data as live: Twitch stream status and followers, YouTube subscribers, and Spotify now playing. `spotify.getTopTracks` returns 500 on both live and preview, so Top tracks stays on its loading skeleton; this predates the migration and is to be tracked separately. The preview's error responses included tRPC stack traces, because the Netlify function runtime leaves `NODE_ENV` unset; `src/server/trpc.ts` now sets `isDev` explicitly.
+
 Remaining before this plan can be removed:
 
-- **Deploy config parity** on a Netlify deploy preview: response headers, the `/.env` and `/wp-*` redirects, and that `/foo/` still redirects to `/foo` (Netlify handles this for static files; it cannot be checked locally).
-- **Dashboard** with real Twitch/YouTube/Spotify credentials on the deploy preview.
-- **Visual spot-check** of each template in a browser.
+- Confirm on the next deploy preview that `/api/trpc` error responses no longer include `stack`.
