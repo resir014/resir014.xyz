@@ -9,7 +9,7 @@
 
 ## Developing
 
-Requires Node.js 22.22 or later (see `.nvmrc`) and [pnpm](https://pnpm.io/).
+Requires Node.js 24 or later (see `.nvmrc`) and [pnpm](https://pnpm.io/).
 
 ```bash
 # install dependencies

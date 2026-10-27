@@ -18,7 +18,7 @@ AI assistance on this project is limited to **architecture and plumbing**. Desig
 
 ## Commands
 
-pnpm (`pnpm-lock.yaml`, pinned via `packageManager`), Node 22.22+ (`.nvmrc`, `engines.node`; Astro 7 requires it).
+pnpm (`pnpm-lock.yaml`, pinned via `packageManager`), Node 24+ (`.nvmrc`, `engines.node`; Astro 7 needs at least 22.23.4).
 
 ```bash
 pnpm dev          # dev server at localhost:4321

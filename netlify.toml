@@ -2,7 +2,7 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
 
 [[headers]]
   for = "/*"
