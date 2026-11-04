@@ -118,6 +118,18 @@ Design system:
 - The rebrand's visual design is the user's (see Project philosophy). Claude's part is limited to the plumbing: the Tailwind v4 theme setup and CVA variant APIs for `src/components/ui/`.
 - The rebrand is being worked on **in parallel**. Expect `src/components/ui/` and the styling layer to change, and keep styling changes in other work minimal so the two efforts do not conflict.
 
+Rebrand progress (update this list as work lands; the items marked "user" are design work for the user, not Claude):
+
+- [x] Deprecate Chungking and choose Tailwind v4 themes + CVA (ADR-0004).
+- [x] Upgrade the Tailwind engine from v3 to v4 with no visual change (#331): `@tailwindcss/vite`, no PostCSS config, Chungking loaded through `@config`, v3 compatibility styles in `global.css`.
+- [ ] (user) Design the new brand: colour, typography, spacing, and motion.
+- [ ] Replace `@config`, the Chungking preset, and the `chungking-*` tokens with CSS-first `@theme` tokens, and remove `@resir014/tailwind-preset-chungking` and the direct `@resir014/chungking-core` imports.
+- [ ] Load `@tailwindcss/typography` with `@plugin` (replacing the `prose-chungking` variant) and delete `tailwind.config.js`.
+- [ ] Add `class-variance-authority` and rebuild `src/components/ui/` (`avatar`, `badge`, `divider`, `logo`, `message-box`) with CVA variant APIs, keeping `messageBoxClassName` working for Markdown Callouts.
+- [ ] Remove the v3 compatibility styles in `global.css` as the components that depend on them are rebuilt.
+- [ ] Replace the Chungking specimen on the `/design` page (`src/modules/design/`) with the new brand.
+- [ ] Check the microformats2 output after the restyle (ADR-0003).
+
 ## Agent skills
 
 ### Domain docs
