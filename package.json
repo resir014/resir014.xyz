@@ -44,7 +44,7 @@
     "dotenv": "^16.6.1",
     "encoding": "^0.1.13",
     "feed": "^4.2.2",
-    "glob": "^7.2.0",
+    "glob": "^14.0.2",
     "googleapis": "^126.0.1",
     "isomorphic-unfetch": "^3.1.0",
     "mdast-util-gfm-strikethrough": "^2.0.1",
