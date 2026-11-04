@@ -77,7 +77,7 @@ All content and every post kind follow the IndieWeb specification and are marked
 
 ### RSS feeds
 
-`src/pages/posts/{rss.xml,atom.xml,feed.json}.ts` are static endpoints that build the Feed with the `feed` package (`src/lib/rss.ts`). Only articles are included. `DefaultLayout` advertises them via `<link rel="alternate">`. The `feedLinks` inside `src/lib/rss.ts` point to `/rss/...`, which does not match where the feeds are served.
+`src/pages/posts/{rss.xml,atom.xml,feed.json}.ts` are static endpoints that build the Feed with the `feed` package (`src/lib/rss.ts`). Only articles are included. `DefaultLayout` advertises them via `<link rel="alternate">`.
 
 ### Pages, layouts, UI
 
