@@ -59,7 +59,7 @@
     "rehype-raw": "^7.0.0",
     "typeface-inter": "^3.18.1",
     "unist-util-visit": "^5.1.0",
-    "zod": "^3.22.3"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.11",
