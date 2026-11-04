@@ -5,19 +5,19 @@ export type MessageBoxVariant = 'default' | 'primary' | 'success' | 'warning' | 
 function getVariantStyles(variant: MessageBoxVariant) {
   switch (variant) {
     case 'primary': {
-      return 'border-chungking-blue-500 bg-chungking-blue-500';
+      return 'border-chungking-blue-500 bg-chungking-blue-500/25';
     }
     case 'success': {
-      return 'border-chungking-green-500 bg-chungking-green-500';
+      return 'border-chungking-green-500 bg-chungking-green-500/25';
     }
     case 'warning': {
-      return 'border-chungking-orange-500 bg-chungking-orange-500';
+      return 'border-chungking-orange-500 bg-chungking-orange-500/25';
     }
     case 'error': {
-      return 'border-chungking-red-500 bg-chungking-red-500';
+      return 'border-chungking-red-500 bg-chungking-red-500/25';
     }
     default: {
-      return 'border-chungking-grey-500 bg-chungking-grey-500';
+      return 'border-chungking-grey-500 bg-chungking-grey-500/25';
     }
   }
 }
@@ -30,7 +30,6 @@ export function messageBoxClassName(variant: MessageBoxVariant = 'default', clas
   return clsx(
     'relative p-4 overflow-hidden rounded-md border',
     getVariantStyles(variant),
-    'bg-opacity-25',
     className
   );
 }

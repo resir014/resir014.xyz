@@ -18,7 +18,7 @@ export const SpotifyTopTrackItem: React.FC<SpotifyTopTrackItemProps> = ({
 
       return (
         <>
-          <img className="w-12 h-12 rounded-sm" src={albumImageUrl} alt={`${title} - ${artist}`} />
+          <img className="w-12 h-12 rounded-xs" src={albumImageUrl} alt={`${title} - ${artist}`} />
           <div className="flex-1 min-w-0">
             <p className="flex items-center flex-1 min-w-0">
               <a
@@ -39,13 +39,13 @@ export const SpotifyTopTrackItem: React.FC<SpotifyTopTrackItemProps> = ({
 
     return (
       <>
-        <div className="block rounded-sm w-12 h-12 bg-chungking-grey-800" aria-hidden />
+        <div className="block rounded-xs w-12 h-12 bg-chungking-grey-800" aria-hidden />
         <div className="flex-1 min-w-0">
           <div className="flex items-center h-6" aria-hidden>
-            <div className="block flex-1 rounded-sm h-4 bg-chungking-grey-800" />
+            <div className="block flex-1 rounded-xs h-4 bg-chungking-grey-800" />
           </div>
           <div className="flex items-center h-6" aria-hidden>
-            <div className="block flex-1 rounded-sm h-4 bg-chungking-grey-800" />
+            <div className="block flex-1 rounded-xs h-4 bg-chungking-grey-800" />
           </div>
         </div>
       </>
@@ -54,7 +54,7 @@ export const SpotifyTopTrackItem: React.FC<SpotifyTopTrackItemProps> = ({
 
   return (
     <div className="flex flex-row items-start relative space-x-2 py-2 border-b border-b-chungking-grey-800">
-      <p className="flex-shrink-0 font-semibold select-none tabular-nums text-chungking-grey-400">
+      <p className="shrink-0 font-semibold select-none tabular-nums text-chungking-grey-400">
         {index.toString().padStart(2, '0')}
       </p>
       {renderTrackItem()}

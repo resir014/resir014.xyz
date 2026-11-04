@@ -1,15 +1,75 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import './lite-youtube.css';
+@import './shiki-twoslash.css';
+
+/*
+ * The Chungking preset and the typography plugin are still configured in JavaScript. They move into
+ * CSS (`@theme`, `@plugin`) when the rebrand replaces Chungking (ADR-0004).
+ */
+@config '../../tailwind.config.js';
+
+/*
+ * Tailwind v3 compatibility, so the site looks and behaves the same as before the upgrade.
+ */
+
+@theme inline {
+  /* v4 changed this shadow. */
+  --drop-shadow-lg: 0 10px 8px rgb(0 0 0 / 0.04), 0 4px 3px rgb(0 0 0 / 0.1);
+}
+
+/* v4 only applies `hover:` on devices that support hover. */
+@custom-variant hover (&:hover);
 
 @layer base {
+  /* v4's default border color is `currentcolor`. */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: theme(colors.gray.200);
+  }
+
+  /* v4 buttons use the default cursor. */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+
   a:focus {
-    @apply outline-none ring-[3px] ring-chungking-green-500 ring-opacity-60;
+    @apply outline-hidden ring-[3px] ring-chungking-green-500/60;
   }
 }
 
-@layer utilities {
-  .helper-link-cover::after {
+/*
+ * v4 spaces children with a bottom/end margin on every child but the last. v3 used a top/start
+ * margin on every child but the first, skipping `[hidden]`, which keeps working with inline
+ * children, children with their own margins, and the hidden microformats elements inside Entries.
+ * The `:not(template)` rules (specificity 0,0,1) cancel v4's zero-specificity margins without
+ * outranking a child's own margin utilities.
+ */
+@utility space-y-* {
+  :where(& > :not(:last-child)):not(template) {
+    margin-block: 0;
+  }
+  & > :not([hidden]) ~ :not([hidden]) {
+    margin-top: --spacing(--value(number));
+    margin-bottom: 0;
+  }
+}
+
+@utility space-x-* {
+  :where(& > :not(:last-child)):not(template) {
+    margin-inline: 0;
+  }
+  & > :not([hidden]) ~ :not([hidden]) {
+    margin-right: 0;
+    margin-left: --spacing(--value(number));
+  }
+}
+
+@utility helper-link-cover {
+  &::after {
     content: ' ';
     position: absolute;
     top: 0;

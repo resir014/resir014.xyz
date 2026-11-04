@@ -40,8 +40,8 @@ export const ColorSwatch: React.FC<ColorSwatchProps> = ({ color, title, darkText
         className={clsx(
           'flex items-center justify-center align-middle space-x-1 w-full h-[36px] text-xs rounded-[4px] px-4 group-focus:opacity-70 cursor-pointer border',
           darkText
-            ? 'text-chungking-black border-chungking-black border-opacity-20'
-            : 'text-chungking-white border-chungking-white border-opacity-20'
+            ? 'text-chungking-black border-chungking-black/20'
+            : 'text-chungking-white border-chungking-white/20'
         )}
         style={{ backgroundColor: color }}
       >
