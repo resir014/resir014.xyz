@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Personal website for resir014.xyz, built with **Astro 7 + Tailwind 3** and deployed on Netlify via `@astrojs/netlify`. It was migrated from Next.js 14; see [Astro 7 migration](#astro-7-migration) for what must be preserved.
+Personal website for resir014.xyz, built with **Astro 7 + Tailwind 4** and deployed on Netlify via `@astrojs/netlify`. It was migrated from Next.js 14; see [Astro 7 migration](#astro-7-migration) for what must be preserved.
 
 ## Project philosophy
 
@@ -87,9 +87,11 @@ All content and every post kind follow the IndieWeb specification and are marked
   - interactive islands: the navbar menu (`navbar-menu.tsx`, Headless UI `Popover`), the footer GA opt-out link, `src/modules/video/lite-youtube.tsx`, the `/design` colour swatch grids, and the Dashboard widgets.
 - An island is wrapped in a `display: contents` `<astro-island>`, so a parent's `space-y-*` cannot space hydrated children. Make the island render the spaced container itself (see `color-swatch-grid.tsx`, `dashboard-widgets.tsx`). React components rendered from `.astro` with children get the same kind of wrapper; for `MessageBox`, use `messageBoxClassName` on a plain `div` instead.
 - `src/components/layout/` is the site shell (navbar, footer, container). `src/components/page/` holds generic page body/meta pieces. `src/modules/<feature>/` holds feature-specific components (posts, projects, photos, video, home, design, linktree, live, spotify, dashboard).
-- Styling uses Tailwind 3 (via `postcss.config.js`) with the `@resir014/tailwind-preset-chungking` preset (the `chungking-*` color tokens; `@resir014/chungking-core` is imported directly in `tailwind.config.js`, `src/layouts/default-layout.astro`, and `src/modules/design/color-specs.astro` but is only a transitive dependency) and `@tailwindcss/typography`.
+- Styling uses Tailwind 4 through `@tailwindcss/vite` (registered in `astro.config.mjs`; there is no PostCSS config). `src/styles/global.css` is the only Tailwind entry: it imports `tailwindcss` and the other stylesheets in `src/styles/`, and loads the legacy `tailwind.config.js` with `@config`. That config still holds the `@resir014/tailwind-preset-chungking` preset (the `chungking-*` color tokens; `@resir014/chungking-core` is imported directly in `tailwind.config.js`, `src/layouts/default-layout.astro`, and `src/modules/design/color-specs.astro` but is only a transitive dependency) and `@tailwindcss/typography`.
+  - `global.css` also carries **Tailwind v3 compatibility** styles that keep the site rendering as it did on v3: the default border color, button cursors, `hover:` on touch devices, the v3 `drop-shadow-lg`, and v3 `space-x-*`/`space-y-*` semantics (which hidden microformats elements rely on). Keep them until the rebrand replaces the components that depend on them.
+  - v4 behaviour to keep in mind: `leading-*` now beats a responsive `text-*` size's line height (add the breakpoint's `lg:leading-*` explicitly), gradients interpolate in oklab unless given `/srgb`, and `*-opacity-*` utilities are gone (use `bg-x/25`).
   - **Chungking is deprecated** (see the migration section and ADR-0004), so don't extend it.
-  - Global CSS lives in `src/styles/` and is imported by `DefaultLayout`. `config/flavour-text.js` (the homepage Flavour text) is not used anywhere.
+  - `DefaultLayout` imports `global.css`. Rules in `lite-youtube.css` and `shiki-twoslash.css` sit in the `utilities` layer, after Tailwind's own utilities, so they still win over utility classes as they did on v3. `config/flavour-text.js` (the homepage Flavour text) is not used anywhere.
 
 ### The one dynamic part
 
@@ -111,7 +113,7 @@ Implemented on `refactor/astro-7-rewrite` and verified against a Netlify deploy 
 
 Design system:
 
-- **Chungking is deprecated** (`docs/adr/0004-deprecate-chungking-for-rebrand.md`). A future rebrand will replace it with **Tailwind CSS v4 themes** and UI components styled with **Tailwind + class-variance-authority (CVA)**. This includes dropping the Tailwind 3 preset/`tailwind.config.js` setup and the `chungking-*` tokens.
+- **Chungking is deprecated** (`docs/adr/0004-deprecate-chungking-for-rebrand.md`). A future rebrand will replace it with **Tailwind CSS v4 themes** and UI components styled with **Tailwind + class-variance-authority (CVA)**. Tailwind itself is already on v4; the rebrand drops the legacy `tailwind.config.js` (`@config`) setup, the Chungking preset and `chungking-*` tokens, and the v3 compatibility styles in `global.css`.
 - Until then, code keeps its existing Chungking classes as-is. Don't add tokens or build new abstractions on top of Chungking.
 - The rebrand's visual design is the user's (see Project philosophy). Claude's part is limited to the plumbing: the Tailwind v4 theme setup and CVA variant APIs for `src/components/ui/`.
 - The rebrand is being worked on **in parallel**. Expect `src/components/ui/` and the styling layer to change, and keep styling changes in other work minimal so the two efforts do not conflict.

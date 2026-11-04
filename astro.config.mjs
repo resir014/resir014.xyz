@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 import githubDarkDefault from '@shikijs/themes/github-dark-default';
 import { unified } from '@astrojs/markdown-remark';
 import rehypeExternalLinks from 'rehype-external-links';
@@ -91,4 +92,7 @@ export default defineConfig({
     }),
     sitemapIndexAlias,
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

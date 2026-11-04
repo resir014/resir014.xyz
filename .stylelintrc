@@ -4,10 +4,11 @@
     "at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": ["extends", "tailwind", "layer"]
+        "ignoreAtRules": ["config", "custom-variant", "layer", "theme", "utility"]
       }
     ],
     "block-no-empty": null,
+    "function-no-unknown": [true, { "ignoreFunctions": ["theme"] }],
     "unit-allowed-list": ["px", "em", "rem", "s", "vw", "vh", "%", "deg"]
   }
 }

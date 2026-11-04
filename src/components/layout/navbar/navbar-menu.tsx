@@ -20,8 +20,8 @@ export const NavbarMenu: React.FC<NavbarMenuProps> = ({ items, currentPath }) =>
               <MenuIcon className="h-6 w-6" aria-hidden />
             </Popover.Button>
           </div>
-          <Popover.Panel className="absolute right-0 z-10 mt-3 w-screen max-w-[160px] -translate-x-0 transform px-4 sm:px-0">
-            <div className="overflow-hidden rounded-lg bg-chungking-grey-900 shadow-double ring-1 ring-black ring-opacity-5 p-2">
+          <Popover.Panel className="absolute right-0 z-10 mt-3 w-screen max-w-[160px] translate-x-0 transform px-4 sm:px-0">
+            <div className="overflow-hidden rounded-lg bg-chungking-grey-900 shadow-double ring-1 ring-black/5 p-2">
               <NavbarItems items={items} currentPath={currentPath} />
             </div>
           </Popover.Panel>

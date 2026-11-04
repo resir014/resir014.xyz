@@ -34,14 +34,8 @@ const variantColor = generateVariantColor(getColorSchemeBySeed(slug) as Featured
           class="absolute inset-0 size-full object-cover"
         />
       </div>
-      <div
-        role="presentation"
-        class={clsx('absolute w-full h-full', variantColor.bg, 'bg-opacity-50 z-20')}
-      />
-      <div
-        role="presentation"
-        class="absolute w-full h-full bg-chungking-black bg-opacity-75 z-30"
-      />
+      <div role="presentation" class={clsx('absolute w-full h-full', variantColor.bg, 'z-20')} />
+      <div role="presentation" class="absolute w-full h-full bg-chungking-black/75 z-30" />
     </>
   ) : null}
   <div class="flex flex-col justify-between w-full h-full p-4 z-50 space-y-6">
@@ -52,7 +46,9 @@ const variantColor = generateVariantColor(getColorSchemeBySeed(slug) as Featured
       >
         {formatPostDate(postDate)}
       </time>
-      {title ? <h3 class="text-lg lg:text-xl font-semibold leading-tight">{title}</h3> : null}
+      {title ? (
+        <h3 class="text-lg lg:text-xl font-semibold leading-tight lg:leading-7">{title}</h3>
+      ) : null}
       {lead ? <p class="text-sm lg:text-base text-chungking-grey-200">{lead}</p> : null}
     </div>
     <div>

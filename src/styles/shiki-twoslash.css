@@ -15,9 +15,12 @@
  * </pre>
  */
 
-@tailwind components;
-
-@layer components {
+/*
+ * In the utilities layer, after Tailwind's own utilities, so these rules win over utility classes
+ * of equal or lower specificity, as they did with Tailwind v3 (e.g. `pre.shiki` scrolling over the
+ * `overflow-hidden` that `rehype-element-classes` adds to every `pre`).
+ */
+@layer utilities {
   pre {
     /* Important to allow the code to move horizontally */
     @apply overflow-x-auto relative;

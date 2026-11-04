@@ -12,7 +12,7 @@ export function SpotifyCurrentlyPlaying() {
         aria-hidden
         size={20}
         className={clsx(
-          'flex-shrink-0',
+          'shrink-0',
           data?.isPlaying ? 'text-chungking-blue-500' : 'text-chungking-grey-300'
         )}
       />

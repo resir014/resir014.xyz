@@ -9,8 +9,8 @@ const { title, link } = Astro.props.bookmark;
 const parsedURL = new URL(link);
 ---
 
-<li class="relative shadow-single overflow-hidden rounded-lg bg-chungking-grey-800 bg-gradient-to-r from-chungking-grey-800 to-chungking-grey-700">
-  <h3 class="text-lg lg:text-xl leading-tight px-6 py-3 font-semibold">
+<li class="relative shadow-single overflow-hidden rounded-lg bg-chungking-grey-800 bg-linear-to-r/srgb from-chungking-grey-800 to-chungking-grey-700">
+  <h3 class="text-lg lg:text-xl leading-tight lg:leading-7 px-6 py-3 font-semibold">
     <a
       href={link}
       target="_blank"
@@ -20,5 +20,5 @@ const parsedURL = new URL(link);
       <span class="group-hover:underline">{title}</span>&nbsp;&rarr;
     </a>
   </h3>
-  <span class="block text-sm px-6 py-2 bg-chungking-black bg-opacity-70">{parsedURL.host}</span>
+  <span class="block text-sm px-6 py-2 bg-chungking-black/70">{parsedURL.host}</span>
 </li>

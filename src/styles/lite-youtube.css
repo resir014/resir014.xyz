@@ -1,6 +1,9 @@
-@tailwind components;
-
-@layer components {
+/*
+ * In the utilities layer, after Tailwind's own utilities, so these rules win over utility classes
+ * of equal or lower specificity, as they did with Tailwind v3 (e.g. `pre.shiki` scrolling over the
+ * `overflow-hidden` that `rehype-element-classes` adds to every `pre`).
+ */
+@layer utilities {
   .youtube-lite {
     display: block;
     position: relative;
@@ -13,7 +16,7 @@
   }
 
   .youtube-lite:focus {
-    @apply outline-none ring-[3px] ring-chungking-green-500 ring-opacity-60 ring-inset;
+    @apply outline-hidden ring-[3px] ring-chungking-green-500/60 ring-inset;
   }
 
   /* gradient */
