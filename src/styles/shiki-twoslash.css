@@ -15,11 +15,6 @@
  * </pre>
  */
 
-/*
- * TODO: include more styles from here:
- * https://github.com/shikijs/twoslash/tree/main/packages/remark-shiki-twoslash#plugin-setup
- */
-
 @tailwind components;
 
 @layer components {

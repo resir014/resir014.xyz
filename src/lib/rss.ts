@@ -24,9 +24,9 @@ export function generateRSS(posts: BasePostProps[]) {
     updated,
     author,
     feedLinks: {
-      rss2: `${siteUrl}/rss/feed.xml`,
-      json: `${siteUrl}/rss/feed.json`,
-      atom: `${siteUrl}/rss/atom.xml`,
+      rss2: `${siteUrl}/posts/rss.xml`,
+      json: `${siteUrl}/posts/feed.json`,
+      atom: `${siteUrl}/posts/atom.xml`,
     },
   });
 
