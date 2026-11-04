@@ -34,5 +34,5 @@ export function getBaseUrl() {
   }
 
   // assume localhost
-  return `http://localhost:${process.env.PORT ?? 3000}`;
+  return `http://localhost:${process.env.PORT ?? 4321}`;
 }
