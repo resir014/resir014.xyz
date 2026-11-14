@@ -37,7 +37,7 @@
     "@trpc/client": "^10.45.2",
     "@trpc/react-query": "^10.45.2",
     "@trpc/server": "^10.45.3",
-    "astro": "^7.4.1",
+    "astro": "^7.4.7",
     "clsx": "^2.1.1",
     "copee": "^1.0.6",
     "date-fns": "^2.24.0",
