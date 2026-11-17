@@ -1,0 +1,90 @@
+/*
+ * Brand design tokens.
+ *
+ * Source: the branding manual (kept outside the repository, Illustrator export dated 2026-10-13).
+ * These replace the deprecated Chungking tokens (ADR-0004). Scales use role names; the manual's
+ * brand names are kept as comments. Signal Blue 300 and 950 are corrected from the manual, which
+ * printed the Void swatches' hex values for them.
+ */
+@theme {
+  --font-sans: 'BDO Grotesk', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  /* Neutral // Void */
+  --color-neutral-50: #f5f7fa;
+  --color-neutral-100: #e7e9ef;
+  --color-neutral-200: #d2d6de;
+  --color-neutral-300: #b7bcc7;
+  --color-neutral-400: #959ba8;
+  --color-neutral-500: #767c89;
+  --color-neutral-600: #5c626e;
+  --color-neutral-700: #444851;
+  --color-neutral-800: #2f3238;
+  --color-neutral-900: #1d1f23;
+  --color-neutral-950: #0c0d0f;
+
+  /* Primary // Signal Blue */
+  --color-primary-50: #ecf7ff;
+  --color-primary-100: #bfd7ff;
+  --color-primary-200: #95b9ff;
+  --color-primary-300: #6e9bff;
+  --color-primary-400: #4a7cff;
+  --color-primary-500: #2d5cff;
+  --color-primary-600: #1e43ee;
+  --color-primary-700: #1123d4;
+  --color-primary-800: #0f00b7;
+  --color-primary-900: #07007d;
+  --color-primary-950: #020044;
+
+  /* Secondary // Arc Cyan */
+  --color-secondary-50: #d6ffff;
+  --color-secondary-100: #c3f9ff;
+  --color-secondary-200: #9cefff;
+  --color-secondary-300: #58e2ff;
+  --color-secondary-400: #0bcdfc;
+  --color-secondary-500: #00b6e4;
+  --color-secondary-600: #0095c0;
+  --color-secondary-700: #007396;
+  --color-secondary-800: #00516c;
+  --color-secondary-900: #003044;
+  --color-secondary-950: #00111d;
+
+  /* Accent // Hazard Amber */
+  --color-accent-50: #fff0dd;
+  --color-accent-100: #ffe9d1;
+  --color-accent-200: #ffd8b4;
+  --color-accent-300: #ffbe87;
+  --color-accent-400: #ff9c42;
+  --color-accent-500: #fd7c00;
+  --color-accent-600: #d06100;
+  --color-accent-700: #a14800;
+  --color-accent-800: #732f00;
+  --color-accent-900: #481800;
+  --color-accent-950: #1f0400;
+
+  /* Success // Signal Green */
+  --color-success-50: #d0ffe0;
+  --color-success-100: #95ffbc;
+  --color-success-200: #69f8a0;
+  --color-success-300: #4fe28b;
+  --color-success-400: #2bc873;
+  --color-success-500: #00ae5b;
+  --color-success-600: #008c3e;
+  --color-success-700: #006a2b;
+  --color-success-800: #004b1a;
+  --color-success-900: #002e09;
+  --color-success-950: #001501;
+
+  /* Error // Signal Red */
+  --color-error-50: #ffefeb;
+  --color-error-100: #ffccc4;
+  --color-error-200: #ffa79c;
+  --color-error-300: #ff7e72;
+  --color-error-400: #ff4440;
+  --color-error-500: #ef1f27;
+  --color-error-600: #d40004;
+  --color-error-700: #ab0000;
+  --color-error-800: #800000;
+  --color-error-900: #540000;
+  --color-error-950: #280000;
+}

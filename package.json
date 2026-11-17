@@ -57,7 +57,6 @@
     "react-feather": "^2.0.10",
     "rehype-external-links": "^3.0.0",
     "rehype-raw": "^7.0.0",
-    "typeface-inter": "^3.18.1",
     "unist-util-visit": "^5.1.0",
     "zod": "^4.6.6"
   },
