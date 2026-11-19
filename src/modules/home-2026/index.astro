@@ -1,0 +1,23 @@
+---
+import HomeLayout from '~/layouts/home-layout.astro';
+import { Image } from 'astro:assets';
+import HomepageRoot from './homepage-root.astro';
+
+import BackgroundLayer1 from './images/background-layer-1.png';
+---
+
+<HomeLayout title="@resir014" titleTemplate="%s" openGraph={{ title: 'Home' }}>
+  <HomepageRoot>
+    <Image
+      src={BackgroundLayer1}
+      alt="Background image for the homepage"
+      class="absolute z-0 inset-0 w-full h-full object-cover object-center opacity-10 pointer-events-none select-none"
+      width={1920}
+      height={1080}
+    />
+    <div class="absolute z-10 inset-0 w-full h-full mix-blend-multiply bg-primary-500" />
+    <div class="absolute z-20 inset-0 w-full h-full flex items-center justify-center p-4">
+      <p>hello, world!</p>
+    </div>
+  </HomepageRoot>
+</HomeLayout>

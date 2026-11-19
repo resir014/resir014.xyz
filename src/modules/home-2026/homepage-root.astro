@@ -1,0 +1,18 @@
+---
+import clsx from 'clsx';
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'div'>;
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+  class={clsx(
+    'flex flex-col w-full h-full min-h-screen relative p-0 bg-gradient-to-t from-neutral-950 to-primary-950 text-white',
+    className
+  )}
+  {...rest}
+>
+  <slot />
+</div>

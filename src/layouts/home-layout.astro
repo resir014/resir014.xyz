@@ -1,0 +1,24 @@
+---
+import siteMetadata from '~/lib/data/site-metadata';
+import Document from '~/modules/_document.astro';
+
+const {
+  title = 'Home',
+  titleTemplate = `%s · ${siteMetadata.title}`,
+  description,
+  openGraph = {},
+  noindex = false,
+  youtubePreconnect = false,
+} = Astro.props;
+---
+
+<Document
+  title={title}
+  titleTemplate={titleTemplate}
+  description={description}
+  openGraph={openGraph}
+  noindex={noindex}
+  youtubePreconnect={youtubePreconnect}
+>
+  <slot />
+</Document>
