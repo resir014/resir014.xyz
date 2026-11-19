@@ -4,31 +4,38 @@
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [100],
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["astro", "javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "files.eol": "\n",
   "files.encoding": "utf8",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
-  "typescript.tsdk": "./node_modules/typescript/lib",
-  "search.exclude": {
-    ".next/**": true,
-    ".yarn/**": true,
-    "node_modules/**": true,
-    "out/**": true,
-    "out_functions/**": true,
-    "out_publish/**": true
-  },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "prettier.documentSelectors": ["**/*.astro"],
   "css.validate": false,
   "stylelint.enable": true,
-  "[javascript]": {
-    "editor.formatOnSave": true
+  "stylelint.validate": ["css"],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["(?:clsx|cx)\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "js/ts.tsdk.path": "./node_modules/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": false,
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "search.exclude": {
+    ".astro/**": true,
+    ".netlify/**": true,
+    "dist/**": true,
+    "node_modules/**": true
   },
-  "[typescript]": {
-    "editor.formatOnSave": true
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[typescriptreact]": {
-    "editor.formatOnSave": true
-  },
-  "[markdown]": {
-    "editor.formatOnSave": true
+  "[css]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
   }
 }
