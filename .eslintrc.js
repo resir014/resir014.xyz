@@ -17,6 +17,8 @@ module.exports = {
     'new-cap': 'off',
     'no-await-in-loop': 'off',
     'import/no-extraneous-dependencies': 'off',
+    // `astro:*` are Vite virtual modules with no file on disk; `astro check` type-checks them.
+    'import/no-unresolved': ['error', { ignore: ['^astro:'] }],
     'jsx-a11y/anchor-is-valid': 'off',
     'react/no-invalid-html-attribute': 'off',
   },
